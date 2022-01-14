@@ -1,0 +1,1817 @@
+# OpenAPI\Client\GroupChannelApi
+
+All URIs are relative to https://api-APP_ID.sendbird.com.
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**gcAcceptInvitation()**](GroupChannelApi.md#gcAcceptInvitation) | **PUT** /v3/group_channels/{channel_url}/accept | Accept an invitation
+[**gcBanUser()**](GroupChannelApi.md#gcBanUser) | **POST** /v3/group_channels/{channel_url}/ban | Ban a user
+[**gcCancelTheRegistrationOfOperators()**](GroupChannelApi.md#gcCancelTheRegistrationOfOperators) | **DELETE** /v3/group_channels/{channel_url}/operators | Cancel the registration of operators
+[**gcCheckIfMemberById()**](GroupChannelApi.md#gcCheckIfMemberById) | **GET** /v3/group_channels/{channel_url}/members/{user_id} | Check if member
+[**gcCreateChannel()**](GroupChannelApi.md#gcCreateChannel) | **POST** /v3/group_channels | Create a channel
+[**gcDeclineInvitation()**](GroupChannelApi.md#gcDeclineInvitation) | **PUT** /v3/group_channels/{channel_url}/decline | Decline an invitation
+[**gcDeleteChannelByUrl()**](GroupChannelApi.md#gcDeleteChannelByUrl) | **DELETE** /v3/group_channels/{channel_url} | Delete a channel
+[**gcFreezeChannel()**](GroupChannelApi.md#gcFreezeChannel) | **PUT** /v3/group_channels/{channel_url}/freeze | Freeze a channel
+[**gcHideOrArchiveChannel()**](GroupChannelApi.md#gcHideOrArchiveChannel) | **PUT** /v3/group_channels/{channel_url}/hide | Hide or archive a channel
+[**gcInviteAsMembers()**](GroupChannelApi.md#gcInviteAsMembers) | **POST** /v3/group_channels/{channel_url}/invite | Invite as members
+[**gcJoinChannel()**](GroupChannelApi.md#gcJoinChannel) | **PUT** /v3/group_channels/{channel_url}/join | Join a channel
+[**gcLeaveChannel()**](GroupChannelApi.md#gcLeaveChannel) | **PUT** /v3/group_channels/{channel_url}/leave | Leave a channel
+[**gcListBannedUsers()**](GroupChannelApi.md#gcListBannedUsers) | **GET** /v3/group_channels/{channel_url}/ban | List banned users
+[**gcListChannels()**](GroupChannelApi.md#gcListChannels) | **GET** /v3/group_channels | List channels
+[**gcListMembers()**](GroupChannelApi.md#gcListMembers) | **GET** /v3/group_channels/{channel_url}/members | List members
+[**gcListMutedUsers()**](GroupChannelApi.md#gcListMutedUsers) | **GET** /v3/group_channels/{channel_url}/mute | List muted users
+[**gcListOperators()**](GroupChannelApi.md#gcListOperators) | **GET** /v3/group_channels/{channel_url}/operators | List operators
+[**gcMuteUser()**](GroupChannelApi.md#gcMuteUser) | **POST** /v3/group_channels/{channel_url}/mute | Mute a user
+[**gcRegisterOperators()**](GroupChannelApi.md#gcRegisterOperators) | **POST** /v3/group_channels/{channel_url}/operators | Register operators
+[**gcResetChatHistory()**](GroupChannelApi.md#gcResetChatHistory) | **PUT** /v3/group_channels/{channel_url}/reset_user_history | Reset chat history
+[**gcUnbanUserById()**](GroupChannelApi.md#gcUnbanUserById) | **DELETE** /v3/group_channels/{channel_url}/ban/{banned_user_id} | Unban a user
+[**gcUnhideOrUnarchiveChannel()**](GroupChannelApi.md#gcUnhideOrUnarchiveChannel) | **DELETE** /v3/group_channels/{channel_url}/hide | Unhide or unarchive a channel
+[**gcUnmuteUserById()**](GroupChannelApi.md#gcUnmuteUserById) | **DELETE** /v3/group_channels/{channel_url}/mute/{muted_user_id} | Unmute a user
+[**gcUpdateBanById()**](GroupChannelApi.md#gcUpdateBanById) | **PUT** /v3/group_channels/{channel_url}/ban/{banned_user_id} | Update a ban
+[**gcUpdateChannelByUrl()**](GroupChannelApi.md#gcUpdateChannelByUrl) | **PUT** /v3/group_channels/{channel_url} | Update a channel
+[**gcViewBanById()**](GroupChannelApi.md#gcViewBanById) | **GET** /v3/group_channels/{channel_url}/ban/{banned_user_id} | View a ban
+[**gcViewChannelByUrl()**](GroupChannelApi.md#gcViewChannelByUrl) | **GET** /v3/group_channels/{channel_url} | View a channel
+[**gcViewMuteById()**](GroupChannelApi.md#gcViewMuteById) | **GET** /v3/group_channels/{channel_url}/mute/{muted_user_id} | View a mute
+
+
+## `gcAcceptInvitation()`
+
+```php
+gcAcceptInvitation($channel_url, $api_token, $gc_accept_invitation_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+```
+
+Accept an invitation
+
+## Accept an invitation  Accepts an invitation from a [private](#4-private-vs-public) group channel for a user to join. Since a user is allowed to join up to 2,000 group channels, the invitation to a user who already belongs to a maximum number of group channels will be canceled automatically.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-accept-an-invitation ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_accept_invitation_data = new \OpenAPI\Client\Model\GcAcceptInvitationData(); // \OpenAPI\Client\Model\GcAcceptInvitationData
+
+try {
+    $result = $apiInstance->gcAcceptInvitation($channel_url, $api_token, $gc_accept_invitation_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcAcceptInvitation: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_accept_invitation_data** | [**\OpenAPI\Client\Model\GcAcceptInvitationData**](../Model/GcAcceptInvitationData.md)|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcBanUser()`
+
+```php
+gcBanUser($channel_url, $api_token, $gc_ban_user_data): \OpenAPI\Client\Model\InlineResponse20034BannedList
+```
+
+Ban a user
+
+## Ban a user  Bans a user from a group channel. A banned user is immediately expelled from a channel and allowed to join the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-ban-a-user ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_ban_user_data = new \OpenAPI\Client\Model\GcBanUserData(); // \OpenAPI\Client\Model\GcBanUserData
+
+try {
+    $result = $apiInstance->gcBanUser($channel_url, $api_token, $gc_ban_user_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcBanUser: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_ban_user_data** | [**\OpenAPI\Client\Model\GcBanUserData**](../Model/GcBanUserData.md)|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineResponse20034BannedList**](../Model/InlineResponse20034BannedList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcCancelTheRegistrationOfOperators()`
+
+```php
+gcCancelTheRegistrationOfOperators($channel_url, $operator_ids, $api_token, $delete_all)
+```
+
+Cancel the registration of operators
+
+## Cancel the registration of operators  Cancels the registration of operators from a group channel but leave them as members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$operator_ids = array('operator_ids_example'); // string[]
+$api_token = {{API_TOKEN}}; // string
+$delete_all = True; // bool
+
+try {
+    $apiInstance->gcCancelTheRegistrationOfOperators($channel_url, $operator_ids, $api_token, $delete_all);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcCancelTheRegistrationOfOperators: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **operator_ids** | [**string[]**](../Model/string.md)|  |
+ **api_token** | **string**|  | [optional]
+ **delete_all** | **bool**|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcCheckIfMemberById()`
+
+```php
+gcCheckIfMemberById($channel_url, $user_id, $api_token): \OpenAPI\Client\Model\InlineResponse20038
+```
+
+Check if member
+
+## Check if member  Checks whether the user is a member of the group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-check-if-member ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$user_id = 'user_id_example'; // string
+$api_token = {{API_TOKEN}}; // string
+
+try {
+    $result = $apiInstance->gcCheckIfMemberById($channel_url, $user_id, $api_token);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcCheckIfMemberById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **user_id** | **string**|  |
+ **api_token** | **string**|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcCreateChannel()`
+
+```php
+gcCreateChannel($api_token, $gc_create_channel_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+```
+
+Create a channel
+
+## Create a channel  Creates a new group channel.  > If you are creating a 1-on-1 direct messaging channel for a user, it is recommended that you turn on the `distinct` property. If the property is turned off, a user can create a new channel even if they have had the previous chat between them, and therefore can't see previously sent messages or data in the new channel. On the other hand, if the `distinct` property is turned on, every 1-on-1 conversation between the same two users occurs within the same channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-create-a-channel
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$gc_create_channel_data = new \OpenAPI\Client\Model\GcCreateChannelData(); // \OpenAPI\Client\Model\GcCreateChannelData
+
+try {
+    $result = $apiInstance->gcCreateChannel($api_token, $gc_create_channel_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcCreateChannel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  | [optional]
+ **gc_create_channel_data** | [**\OpenAPI\Client\Model\GcCreateChannelData**](../Model/GcCreateChannelData.md)|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcDeclineInvitation()`
+
+```php
+gcDeclineInvitation($channel_url, $api_token, $gc_decline_invitation_data)
+```
+
+Decline an invitation
+
+## Decline an invitation  Declines an invitation for a user to not join a [private](#4-private-vs-public) group channel.  > __Note__: This action is effective only when the `auto_accept` property of an application is set to false. You can change the value of the property using the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action, or [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-decline-an-invitation ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_decline_invitation_data = new \OpenAPI\Client\Model\GcDeclineInvitationData(); // \OpenAPI\Client\Model\GcDeclineInvitationData
+
+try {
+    $apiInstance->gcDeclineInvitation($channel_url, $api_token, $gc_decline_invitation_data);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcDeclineInvitation: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_decline_invitation_data** | [**\OpenAPI\Client\Model\GcDeclineInvitationData**](../Model/GcDeclineInvitationData.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcDeleteChannelByUrl()`
+
+```php
+gcDeleteChannelByUrl($channel_url, $api_token)
+```
+
+Delete a channel
+
+## Delete a channel  Deletes a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-delete-a-channel ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+
+try {
+    $apiInstance->gcDeleteChannelByUrl($channel_url, $api_token);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcDeleteChannelByUrl: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcFreezeChannel()`
+
+```php
+gcFreezeChannel($channel_url, $api_token, $gc_freeze_channel_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+```
+
+Freeze a channel
+
+## Freeze a channel  Freezes or unfreezes a group channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-freeze-a-channel ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_freeze_channel_data = new \OpenAPI\Client\Model\GcFreezeChannelData(); // \OpenAPI\Client\Model\GcFreezeChannelData
+
+try {
+    $result = $apiInstance->gcFreezeChannel($channel_url, $api_token, $gc_freeze_channel_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcFreezeChannel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_freeze_channel_data** | [**\OpenAPI\Client\Model\GcFreezeChannelData**](../Model/GcFreezeChannelData.md)|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcHideOrArchiveChannel()`
+
+```php
+gcHideOrArchiveChannel($channel_url, $api_token, $gc_hide_or_archive_channel_data)
+```
+
+Hide or archive a channel
+
+## Hide or archive a channel  Hides or archives a channel from the channel list of either a specific user or entire channel members. Normally, a hidden channel comes back and shows up in the channel list when a member in the channel sends a new message. This automatically-triggered behavior is intended for users who want to temporarily remove a channel from their list because [leaving the channel](#2-leave-the-channel) would delete all the past messages and stored data.  You can also leave out a channel from the list and archive the channel. The channel doesn't appear even when receiving a new message from other member.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-hide-or-archive-a-channel ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_hide_or_archive_channel_data = new \OpenAPI\Client\Model\GcHideOrArchiveChannelData(); // \OpenAPI\Client\Model\GcHideOrArchiveChannelData
+
+try {
+    $apiInstance->gcHideOrArchiveChannel($channel_url, $api_token, $gc_hide_or_archive_channel_data);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcHideOrArchiveChannel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_hide_or_archive_channel_data** | [**\OpenAPI\Client\Model\GcHideOrArchiveChannelData**](../Model/GcHideOrArchiveChannelData.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcInviteAsMembers()`
+
+```php
+gcInviteAsMembers($channel_url, $api_token, $gc_invite_as_members_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+```
+
+Invite as members
+
+## Invite as members  Invites one or more users as members into the group channel.  > __Note__: By default, users in your application automatically join a [private](#4-private-vs-public) group channel promptly from an invitation without having to accept it. If you want to give them the option to decide whether to accept or decline an invitation, you should set the value of channel invitation preference to false through the [update default channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-update-default-channel-invitation-preference) action. Or using the [update a user's channel invitation preference](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-channel-invitation-preference) action, you can also allow the option individually by user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-invite-as-members ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_invite_as_members_data = new \OpenAPI\Client\Model\GcInviteAsMembersData(); // \OpenAPI\Client\Model\GcInviteAsMembersData
+
+try {
+    $result = $apiInstance->gcInviteAsMembers($channel_url, $api_token, $gc_invite_as_members_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcInviteAsMembers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_invite_as_members_data** | [**\OpenAPI\Client\Model\GcInviteAsMembersData**](../Model/GcInviteAsMembersData.md)|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcJoinChannel()`
+
+```php
+gcJoinChannel($channel_url, $api_token, $gc_join_channel_data)
+```
+
+Join a channel
+
+## Join a channel  Allows a user to join a [public](#4-private-vs-public) group channel. Since a user is allowed to join up to 2,000 group channels, a user who already belongs to a maximum number of group channels can't join a new channel.  > __Note__: This action is only permitted for public group channels where the `is_public` property is true.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-join-a-channel ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_join_channel_data = new \OpenAPI\Client\Model\GcJoinChannelData(); // \OpenAPI\Client\Model\GcJoinChannelData
+
+try {
+    $apiInstance->gcJoinChannel($channel_url, $api_token, $gc_join_channel_data);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcJoinChannel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_join_channel_data** | [**\OpenAPI\Client\Model\GcJoinChannelData**](../Model/GcJoinChannelData.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcLeaveChannel()`
+
+```php
+gcLeaveChannel($channel_url, $api_token, $gc_leave_channel_data)
+```
+
+Leave a channel
+
+## Leave a channel  Makes one or more members leave a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-leave-a-channel ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_leave_channel_data = new \OpenAPI\Client\Model\GcLeaveChannelData(); // \OpenAPI\Client\Model\GcLeaveChannelData
+
+try {
+    $apiInstance->gcLeaveChannel($channel_url, $api_token, $gc_leave_channel_data);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcLeaveChannel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_leave_channel_data** | [**\OpenAPI\Client\Model\GcLeaveChannelData**](../Model/GcLeaveChannelData.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcListBannedUsers()`
+
+```php
+gcListBannedUsers($channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20034
+```
+
+List banned users
+
+## List banned users  Retrieves a list of the banned users from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$token = 'token_example'; // string
+$limit = 56; // int
+
+try {
+    $result = $apiInstance->gcListBannedUsers($channel_url, $api_token, $token, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcListBannedUsers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **token** | **string**|  | [optional]
+ **limit** | **int**|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcListChannels()`
+
+```php
+gcListChannels($api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $created_after, $created_before, $show_empty, $show_member, $show_delivery_receipt, $show_read_receipt, $show_metadata, $show_frozen, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $include_sorted_metaarray_in_last_message, $custom_type, $read_receipt, $member, $is_distinct, $members_in, $user_id): \OpenAPI\Client\Model\InlineResponse20018
+```
+
+List channels
+
+## List channels  Retrieves a list of group channels in the application.  > __Note__: If you want to get a list of a specific user's group channels, use the [list my group channels](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-my-group-channels) action instead.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-channels ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$token = 'token_example'; // string
+$limit = 56; // int
+$distinct_mode = 'distinct_mode_example'; // string
+$public_mode = 'public_mode_example'; // string
+$super_mode = 'super_mode_example'; // string
+$created_after = 56; // int
+$created_before = 56; // int
+$show_empty = True; // bool
+$show_member = True; // bool
+$show_delivery_receipt = True; // bool
+$show_read_receipt = True; // bool
+$show_metadata = True; // bool
+$show_frozen = True; // bool
+$order = 'order_example'; // string
+$metadata_order_key = 'metadata_order_key_example'; // string
+$custom_types = 'custom_types_example'; // string
+$custom_type_startswith = 'custom_type_startswith_example'; // string
+$channel_urls = 'channel_urls_example'; // string
+$name = 'name_example'; // string
+$name_contains = 'name_contains_example'; // string
+$name_startswith = 'name_startswith_example'; // string
+$members_exactly_in = 'members_exactly_in_example'; // string
+$members_include_in = 'members_include_in_example'; // string
+$query_type = 'query_type_example'; // string
+$members_nickname = 'members_nickname_example'; // string
+$members_nickname_contains = 'members_nickname_contains_example'; // string
+$metadata_key = 'metadata_key_example'; // string
+$metadata_values = 'metadata_values_example'; // string
+$metadata_value_startswith = 'metadata_value_startswith_example'; // string
+$metacounter_key = 'metacounter_key_example'; // string
+$metacounter_values = 'metacounter_values_example'; // string
+$metacounter_value_gt = 'metacounter_value_gt_example'; // string
+$metacounter_value_gte = 'metacounter_value_gte_example'; // string
+$metacounter_value_lt = 'metacounter_value_lt_example'; // string
+$metacounter_value_lte = 'metacounter_value_lte_example'; // string
+$include_sorted_metaarray_in_last_message = True; // bool
+$custom_type = 'custom_type_example'; // string
+$read_receipt = True; // bool
+$member = True; // bool
+$is_distinct = True; // bool
+$members_in = 'members_in_example'; // string
+$user_id = 'user_id_example'; // string
+
+try {
+    $result = $apiInstance->gcListChannels($api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $created_after, $created_before, $show_empty, $show_member, $show_delivery_receipt, $show_read_receipt, $show_metadata, $show_frozen, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $include_sorted_metaarray_in_last_message, $custom_type, $read_receipt, $member, $is_distinct, $members_in, $user_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcListChannels: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  | [optional]
+ **token** | **string**|  | [optional]
+ **limit** | **int**|  | [optional]
+ **distinct_mode** | **string**|  | [optional]
+ **public_mode** | **string**|  | [optional]
+ **super_mode** | **string**|  | [optional]
+ **created_after** | **int**|  | [optional]
+ **created_before** | **int**|  | [optional]
+ **show_empty** | **bool**|  | [optional]
+ **show_member** | **bool**|  | [optional]
+ **show_delivery_receipt** | **bool**|  | [optional]
+ **show_read_receipt** | **bool**|  | [optional]
+ **show_metadata** | **bool**|  | [optional]
+ **show_frozen** | **bool**|  | [optional]
+ **order** | **string**|  | [optional]
+ **metadata_order_key** | **string**|  | [optional]
+ **custom_types** | **string**|  | [optional]
+ **custom_type_startswith** | **string**|  | [optional]
+ **channel_urls** | **string**|  | [optional]
+ **name** | **string**|  | [optional]
+ **name_contains** | **string**|  | [optional]
+ **name_startswith** | **string**|  | [optional]
+ **members_exactly_in** | **string**|  | [optional]
+ **members_include_in** | **string**|  | [optional]
+ **query_type** | **string**|  | [optional]
+ **members_nickname** | **string**|  | [optional]
+ **members_nickname_contains** | **string**|  | [optional]
+ **metadata_key** | **string**|  | [optional]
+ **metadata_values** | **string**|  | [optional]
+ **metadata_value_startswith** | **string**|  | [optional]
+ **metacounter_key** | **string**|  | [optional]
+ **metacounter_values** | **string**|  | [optional]
+ **metacounter_value_gt** | **string**|  | [optional]
+ **metacounter_value_gte** | **string**|  | [optional]
+ **metacounter_value_lt** | **string**|  | [optional]
+ **metacounter_value_lte** | **string**|  | [optional]
+ **include_sorted_metaarray_in_last_message** | **bool**|  | [optional]
+ **custom_type** | **string**|  | [optional]
+ **read_receipt** | **bool**|  | [optional]
+ **member** | **bool**|  | [optional]
+ **is_distinct** | **bool**|  | [optional]
+ **members_in** | **string**|  | [optional]
+ **user_id** | **string**|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcListMembers()`
+
+```php
+gcListMembers($channel_url, $api_token, $token, $limit, $show_delivery_receipt, $show_read_receipt, $order, $operator_filter, $member_state_filter, $muted_member_filter, $nickname_startswith): \OpenAPI\Client\Model\InlineResponse20037
+```
+
+List members
+
+## List members  Retrieves a list of members of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-members ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of members of.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$token = 'token_example'; // string
+$limit = 56; // int
+$show_delivery_receipt = True; // bool
+$show_read_receipt = True; // bool
+$order = 'order_example'; // string
+$operator_filter = 'operator_filter_example'; // string
+$member_state_filter = 'member_state_filter_example'; // string
+$muted_member_filter = 'muted_member_filter_example'; // string
+$nickname_startswith = 'nickname_startswith_example'; // string
+
+try {
+    $result = $apiInstance->gcListMembers($channel_url, $api_token, $token, $limit, $show_delivery_receipt, $show_read_receipt, $order, $operator_filter, $member_state_filter, $muted_member_filter, $nickname_startswith);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcListMembers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **token** | **string**|  | [optional]
+ **limit** | **int**|  | [optional]
+ **show_delivery_receipt** | **bool**|  | [optional]
+ **show_read_receipt** | **bool**|  | [optional]
+ **order** | **string**|  | [optional]
+ **operator_filter** | **string**|  | [optional]
+ **member_state_filter** | **string**|  | [optional]
+ **muted_member_filter** | **string**|  | [optional]
+ **nickname_startswith** | **string**|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineResponse20037**](../Model/InlineResponse20037.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcListMutedUsers()`
+
+```php
+gcListMutedUsers($channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20032
+```
+
+List muted users
+
+## List muted users  Retrieves a list of the muted users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$token = 'token_example'; // string
+$limit = 56; // int
+
+try {
+    $result = $apiInstance->gcListMutedUsers($channel_url, $api_token, $token, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcListMutedUsers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **token** | **string**|  | [optional]
+ **limit** | **int**|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcListOperators()`
+
+```php
+gcListOperators($channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20035
+```
+
+List operators
+
+## List operators  Retrieves a list of operators of a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$token = 'token_example'; // string
+$limit = 56; // int
+
+try {
+    $result = $apiInstance->gcListOperators($channel_url, $api_token, $token, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcListOperators: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **token** | **string**|  | [optional]
+ **limit** | **int**|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcMuteUser()`
+
+```php
+gcMuteUser($channel_url, $api_token, $gc_mute_user_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+```
+
+Mute a user
+
+## Mute a user  Mutes a user in a group channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-mute-a-user ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_mute_user_data = new \OpenAPI\Client\Model\GcMuteUserData(); // \OpenAPI\Client\Model\GcMuteUserData
+
+try {
+    $result = $apiInstance->gcMuteUser($channel_url, $api_token, $gc_mute_user_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcMuteUser: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_mute_user_data** | [**\OpenAPI\Client\Model\GcMuteUserData**](../Model/GcMuteUserData.md)|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcRegisterOperators()`
+
+```php
+gcRegisterOperators($channel_url, $api_token, $gc_register_operators_data): \OpenAPI\Client\Model\InlineResponse20039
+```
+
+Register operators
+
+## Register operators  Registers one or more operators to a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-register-operators ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_register_operators_data = new \OpenAPI\Client\Model\GcRegisterOperatorsData(); // \OpenAPI\Client\Model\GcRegisterOperatorsData
+
+try {
+    $result = $apiInstance->gcRegisterOperators($channel_url, $api_token, $gc_register_operators_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcRegisterOperators: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_register_operators_data** | [**\OpenAPI\Client\Model\GcRegisterOperatorsData**](../Model/GcRegisterOperatorsData.md)|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineResponse20039**](../Model/InlineResponse20039.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcResetChatHistory()`
+
+```php
+gcResetChatHistory($channel_url, $api_token, $gc_reset_chat_history_data)
+```
+
+Reset chat history
+
+## Reset chat history  Resets the properties related to a user's chat history in a group channel, then clears the existing messages in the channel on the user's side only. A user can no longer see the messages in a group channel once this action is called, but those messages are not deleted from the database of the Sendbird system. All other members in the channel can retrieve and see the messages.  This action simply clears the messages for the user by updating the `last_message` and `read_receipt` properties of the [channel](#2-types-of-a-channel-3-resource-representation) resource in addition to other internally managed data such as the number of the user's unread message.  Using the `reset_all` property, you can also reset the properties related to all users' chat history in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-reset-chat-history ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_reset_chat_history_data = new \OpenAPI\Client\Model\GcResetChatHistoryData(); // \OpenAPI\Client\Model\GcResetChatHistoryData
+
+try {
+    $apiInstance->gcResetChatHistory($channel_url, $api_token, $gc_reset_chat_history_data);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcResetChatHistory: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_reset_chat_history_data** | [**\OpenAPI\Client\Model\GcResetChatHistoryData**](../Model/GcResetChatHistoryData.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcUnbanUserById()`
+
+```php
+gcUnbanUserById($channel_url, $banned_user_id, $api_token)
+```
+
+Unban a user
+
+## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$banned_user_id = 'banned_user_id_example'; // string
+$api_token = {{API_TOKEN}}; // string
+
+try {
+    $apiInstance->gcUnbanUserById($channel_url, $banned_user_id, $api_token);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcUnbanUserById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **banned_user_id** | **string**|  |
+ **api_token** | **string**|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcUnhideOrUnarchiveChannel()`
+
+```php
+gcUnhideOrUnarchiveChannel($channel_url, $user_id, $api_token, $should_unhide_all)
+```
+
+Unhide or unarchive a channel
+
+## Unhide or unarchive a channel  Makes a hidden or archived channel reappear in the channel list of either a specific user or entire channel members.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unhide-or-unarchive-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to unhide or unarchive.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$user_id = 'user_id_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$should_unhide_all = True; // bool
+
+try {
+    $apiInstance->gcUnhideOrUnarchiveChannel($channel_url, $user_id, $api_token, $should_unhide_all);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcUnhideOrUnarchiveChannel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **user_id** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **should_unhide_all** | **bool**|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcUnmuteUserById()`
+
+```php
+gcUnmuteUserById($channel_url, $muted_user_id, $api_token)
+```
+
+Unmute a user
+
+## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$muted_user_id = 'muted_user_id_example'; // string
+$api_token = {{API_TOKEN}}; // string
+
+try {
+    $apiInstance->gcUnmuteUserById($channel_url, $muted_user_id, $api_token);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcUnmuteUserById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **muted_user_id** | **string**|  |
+ **api_token** | **string**|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcUpdateBanById()`
+
+```php
+gcUpdateBanById($channel_url, $banned_user_id, $api_token, $gc_update_ban_by_id_data): \OpenAPI\Client\Model\SendBirdUser
+```
+
+Update a ban
+
+## Update a ban  Updates details of a ban imposed on a user. You can change the length of the ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-ban ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$banned_user_id = 'banned_user_id_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_update_ban_by_id_data = new \OpenAPI\Client\Model\GcUpdateBanByIdData(); // \OpenAPI\Client\Model\GcUpdateBanByIdData
+
+try {
+    $result = $apiInstance->gcUpdateBanById($channel_url, $banned_user_id, $api_token, $gc_update_ban_by_id_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcUpdateBanById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **banned_user_id** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_update_ban_by_id_data** | [**\OpenAPI\Client\Model\GcUpdateBanByIdData**](../Model/GcUpdateBanByIdData.md)|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\SendBirdUser**](../Model/SendBirdUser.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcUpdateChannelByUrl()`
+
+```php
+gcUpdateChannelByUrl($channel_url, $api_token, $gc_update_channel_by_url_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+```
+
+Update a channel
+
+## Update a channel  Updates information on a group channel.  > __Note__: You can't change the members of the channel here. To do so, see [invite as members](#2-invite-as-members) action below.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-channel ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$gc_update_channel_by_url_data = new \OpenAPI\Client\Model\GcUpdateChannelByUrlData(); // \OpenAPI\Client\Model\GcUpdateChannelByUrlData
+
+try {
+    $result = $apiInstance->gcUpdateChannelByUrl($channel_url, $api_token, $gc_update_channel_by_url_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcUpdateChannelByUrl: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **gc_update_channel_by_url_data** | [**\OpenAPI\Client\Model\GcUpdateChannelByUrlData**](../Model/GcUpdateChannelByUrlData.md)|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcViewBanById()`
+
+```php
+gcViewBanById($channel_url, $banned_user_id, $api_token): \OpenAPI\Client\Model\SendBirdUser
+```
+
+View a ban
+
+## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-ban ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$banned_user_id = 'banned_user_id_example'; // string
+$api_token = {{API_TOKEN}}; // string
+
+try {
+    $result = $apiInstance->gcViewBanById($channel_url, $banned_user_id, $api_token);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcViewBanById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **banned_user_id** | **string**|  |
+ **api_token** | **string**|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\SendBirdUser**](../Model/SendBirdUser.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcViewChannelByUrl()`
+
+```php
+gcViewChannelByUrl($channel_url, $api_token, $show_delivery_receipt, $show_read_receipt, $show_member, $read_receipt, $member): \OpenAPI\Client\Model\SendBirdGroupChannel
+```
+
+View a channel
+
+## View a channel  Retrieves information on a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-channel ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$api_token = {{API_TOKEN}}; // string
+$show_delivery_receipt = True; // bool
+$show_read_receipt = True; // bool
+$show_member = True; // bool
+$read_receipt = True; // bool
+$member = True; // bool
+
+try {
+    $result = $apiInstance->gcViewChannelByUrl($channel_url, $api_token, $show_delivery_receipt, $show_read_receipt, $show_member, $read_receipt, $member);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcViewChannelByUrl: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **api_token** | **string**|  | [optional]
+ **show_delivery_receipt** | **bool**|  | [optional]
+ **show_read_receipt** | **bool**|  | [optional]
+ **show_member** | **bool**|  | [optional]
+ **read_receipt** | **bool**|  | [optional]
+ **member** | **bool**|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `gcViewMuteById()`
+
+```php
+gcViewMuteById($channel_url, $muted_user_id, $api_token): \OpenAPI\Client\Model\InlineResponse20036
+```
+
+View a mute
+
+## View a mute  Checks if a user is muted in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-mute ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$channel_url = 'channel_url_example'; // string
+$muted_user_id = 'muted_user_id_example'; // string
+$api_token = {{API_TOKEN}}; // string
+
+try {
+    $result = $apiInstance->gcViewMuteById($channel_url, $muted_user_id, $api_token);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling GroupChannelApi->gcViewMuteById: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **muted_user_id** | **string**|  |
+ **api_token** | **string**|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
