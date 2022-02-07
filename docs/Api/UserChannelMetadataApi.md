@@ -1,4 +1,4 @@
-# OpenAPI\Client\UserChannelMetadataApi
+# Sendbird\UserChannelMetadataApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## `createChannelMetacounter()`
 
 ```php
-createChannelMetacounter($channel_type, $channel_url, $api_token, $create_channel_metacounter_data): array<string,AnyOfStringNumber>
+createChannelMetacounter($channel_type, $channel_url, $api_token, $create_channel_metacounter_data): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
 ```
 
 Create a channel metacounter
@@ -45,7 +45,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -53,7 +53,7 @@ $apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$create_channel_metacounter_data = new \OpenAPI\Client\Model\CreateChannelMetacounterData(); // \OpenAPI\Client\Model\CreateChannelMetacounterData
+$create_channel_metacounter_data = new \Sendbird\Model\CreateChannelMetacounterData(); // \Sendbird\Model\CreateChannelMetacounterData
 
 try {
     $result = $apiInstance->createChannelMetacounter($channel_type, $channel_url, $api_token, $create_channel_metacounter_data);
@@ -70,11 +70,11 @@ Name | Type | Description  | Notes
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **create_channel_metacounter_data** | [**\OpenAPI\Client\Model\CreateChannelMetacounterData**](../Model/CreateChannelMetacounterData.md)|  | [optional]
+ **create_channel_metacounter_data** | [**\Sendbird\Model\CreateChannelMetacounterData**](../Model/CreateChannelMetacounterData.md)|  | [optional]
 
 ### Return type
 
-[**array<string,AnyOfStringNumber>**](../Model/AnyOfStringNumber.md)
+[**array<string,\Sendbird\Model\SendBirdAdditionalProperties>**](../Model/SendBirdAdditionalProperties.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ No authorization required
 ## `createChannelMetadata()`
 
 ```php
-createChannelMetadata($channel_type, $channel_url, $api_token, $create_channel_metadata_data): \OpenAPI\Client\Model\InlineResponse20062
+createChannelMetadata($channel_type, $channel_url, $api_token, $create_channel_metadata_data): \Sendbird\Model\InlineResponse20061
 ```
 
 Create a channel metadata
@@ -107,7 +107,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -115,7 +115,7 @@ $apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$create_channel_metadata_data = new \OpenAPI\Client\Model\CreateChannelMetadataData(); // \OpenAPI\Client\Model\CreateChannelMetadataData
+$create_channel_metadata_data = new \Sendbird\Model\CreateChannelMetadataData(); // \Sendbird\Model\CreateChannelMetadataData
 
 try {
     $result = $apiInstance->createChannelMetadata($channel_type, $channel_url, $api_token, $create_channel_metadata_data);
@@ -132,11 +132,11 @@ Name | Type | Description  | Notes
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **create_channel_metadata_data** | [**\OpenAPI\Client\Model\CreateChannelMetadataData**](../Model/CreateChannelMetadataData.md)|  | [optional]
+ **create_channel_metadata_data** | [**\Sendbird\Model\CreateChannelMetadataData**](../Model/CreateChannelMetadataData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20062**](../Model/InlineResponse20062.md)
+[**\Sendbird\Model\InlineResponse20061**](../Model/InlineResponse20061.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ No authorization required
 ## `createUserMetadata()`
 
 ```php
-createUserMetadata($user_id, $api_token, $create_user_metadata_data): \OpenAPI\Client\Model\InlineResponse20048UserMetadata
+createUserMetadata($user_id, $api_token, $create_user_metadata_data): \Sendbird\Model\InlineResponse20047UserMetadata
 ```
 
 Create a user metadata
@@ -169,14 +169,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$create_user_metadata_data = new \OpenAPI\Client\Model\CreateUserMetadataData(); // \OpenAPI\Client\Model\CreateUserMetadataData
+$create_user_metadata_data = new \Sendbird\Model\CreateUserMetadataData(); // \Sendbird\Model\CreateUserMetadataData
 
 try {
     $result = $apiInstance->createUserMetadata($user_id, $api_token, $create_user_metadata_data);
@@ -192,11 +192,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **create_user_metadata_data** | [**\OpenAPI\Client\Model\CreateUserMetadataData**](../Model/CreateUserMetadataData.md)|  | [optional]
+ **create_user_metadata_data** | [**\Sendbird\Model\CreateUserMetadataData**](../Model/CreateUserMetadataData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20048UserMetadata**](../Model/InlineResponse20048UserMetadata.md)
+[**\Sendbird\Model\InlineResponse20047UserMetadata**](../Model/InlineResponse20047UserMetadata.md)
 
 ### Authorization
 
@@ -229,7 +229,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -264,7 +264,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -288,7 +288,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -325,7 +325,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -349,7 +349,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -386,7 +386,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -410,7 +410,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -447,7 +447,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -471,7 +471,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -506,7 +506,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -530,7 +530,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -565,7 +565,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -574,7 +574,7 @@ No authorization required
 ## `updateChannelMetacounter()`
 
 ```php
-updateChannelMetacounter($channel_type, $channel_url, $api_token, $update_channel_metacounter_data): array<string,AnyOfStringNumber>
+updateChannelMetacounter($channel_type, $channel_url, $api_token, $update_channel_metacounter_data): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
 ```
 
 Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
@@ -589,7 +589,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -597,7 +597,7 @@ $apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_channel_metacounter_data = new \OpenAPI\Client\Model\UpdateChannelMetacounterData(); // \OpenAPI\Client\Model\UpdateChannelMetacounterData
+$update_channel_metacounter_data = new \Sendbird\Model\UpdateChannelMetacounterData(); // \Sendbird\Model\UpdateChannelMetacounterData
 
 try {
     $result = $apiInstance->updateChannelMetacounter($channel_type, $channel_url, $api_token, $update_channel_metacounter_data);
@@ -614,11 +614,11 @@ Name | Type | Description  | Notes
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_channel_metacounter_data** | [**\OpenAPI\Client\Model\UpdateChannelMetacounterData**](../Model/UpdateChannelMetacounterData.md)|  | [optional]
+ **update_channel_metacounter_data** | [**\Sendbird\Model\UpdateChannelMetacounterData**](../Model/UpdateChannelMetacounterData.md)|  | [optional]
 
 ### Return type
 
-[**array<string,AnyOfStringNumber>**](../Model/AnyOfStringNumber.md)
+[**array<string,\Sendbird\Model\SendBirdAdditionalProperties>**](../Model/SendBirdAdditionalProperties.md)
 
 ### Authorization
 
@@ -651,7 +651,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -715,7 +715,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -723,7 +723,7 @@ $apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_channel_metadata_data = new \OpenAPI\Client\Model\UpdateChannelMetadataData(); // \OpenAPI\Client\Model\UpdateChannelMetadataData
+$update_channel_metadata_data = new \Sendbird\Model\UpdateChannelMetadataData(); // \Sendbird\Model\UpdateChannelMetadataData
 
 try {
     $result = $apiInstance->updateChannelMetadata($channel_type, $channel_url, $api_token, $update_channel_metadata_data);
@@ -740,7 +740,7 @@ Name | Type | Description  | Notes
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_channel_metadata_data** | [**\OpenAPI\Client\Model\UpdateChannelMetadataData**](../Model/UpdateChannelMetadataData.md)|  | [optional]
+ **update_channel_metadata_data** | [**\Sendbird\Model\UpdateChannelMetadataData**](../Model/UpdateChannelMetadataData.md)|  | [optional]
 
 ### Return type
 
@@ -777,7 +777,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -826,7 +826,7 @@ No authorization required
 ## `updateUserMetadata()`
 
 ```php
-updateUserMetadata($user_id, $api_token, $update_user_metadata_data): \OpenAPI\Client\Model\InlineResponse20061
+updateUserMetadata($user_id, $api_token, $update_user_metadata_data): \Sendbird\Model\InlineResponse20060
 ```
 
 Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
@@ -841,14 +841,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_user_metadata_data = new \OpenAPI\Client\Model\UpdateUserMetadataData(); // \OpenAPI\Client\Model\UpdateUserMetadataData
+$update_user_metadata_data = new \Sendbird\Model\UpdateUserMetadataData(); // \Sendbird\Model\UpdateUserMetadataData
 
 try {
     $result = $apiInstance->updateUserMetadata($user_id, $api_token, $update_user_metadata_data);
@@ -864,11 +864,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_user_metadata_data** | [**\OpenAPI\Client\Model\UpdateUserMetadataData**](../Model/UpdateUserMetadataData.md)|  | [optional]
+ **update_user_metadata_data** | [**\Sendbird\Model\UpdateUserMetadataData**](../Model/UpdateUserMetadataData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20061**](../Model/InlineResponse20061.md)
+[**\Sendbird\Model\InlineResponse20060**](../Model/InlineResponse20060.md)
 
 ### Authorization
 
@@ -901,7 +901,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -948,7 +948,7 @@ No authorization required
 ## `viewChannelMetacounter()`
 
 ```php
-viewChannelMetacounter($channel_type, $channel_url, $api_token, $key, $keys): array<string,AnyOfStringNumber>
+viewChannelMetacounter($channel_type, $channel_url, $api_token, $key, $keys): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
 ```
 
 View a channel metacounter - When retrieving all items of a channel metacounter
@@ -963,7 +963,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -994,7 +994,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array<string,AnyOfStringNumber>**](../Model/AnyOfStringNumber.md)
+[**array<string,\Sendbird\Model\SendBirdAdditionalProperties>**](../Model/SendBirdAdditionalProperties.md)
 
 ### Authorization
 
@@ -1012,7 +1012,7 @@ No authorization required
 ## `viewChannelMetacounterByKey()`
 
 ```php
-viewChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token): array<string,AnyOfStringNumber>
+viewChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
 ```
 
 View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
@@ -1027,7 +1027,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1056,7 +1056,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array<string,AnyOfStringNumber>**](../Model/AnyOfStringNumber.md)
+[**array<string,\Sendbird\Model\SendBirdAdditionalProperties>**](../Model/SendBirdAdditionalProperties.md)
 
 ### Authorization
 
@@ -1089,7 +1089,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1153,7 +1153,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1200,7 +1200,7 @@ No authorization required
 ## `viewUserMetadata()`
 
 ```php
-viewUserMetadata($user_id, $api_token, $key, $keys): \OpenAPI\Client\Model\InlineResponse20048UserMetadata
+viewUserMetadata($user_id, $api_token, $key, $keys): \Sendbird\Model\InlineResponse20047UserMetadata
 ```
 
 View a user metadata - When retrieving all items of a user metadata
@@ -1215,7 +1215,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1244,7 +1244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20048UserMetadata**](../Model/InlineResponse20048UserMetadata.md)
+[**\Sendbird\Model\InlineResponse20047UserMetadata**](../Model/InlineResponse20047UserMetadata.md)
 
 ### Authorization
 
@@ -1277,7 +1277,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\UserChannelMetadataApi(
+$apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

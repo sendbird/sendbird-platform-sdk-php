@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdAdminMessage Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'apple_critical_alert_options' => '\OpenAPI\Client\Model\SendBirdAppleCriticalAlertOptions',
+        'apple_critical_alert_options' => '\Sendbird\Model\SendBirdAppleCriticalAlertOptions',
         'channel_type' => 'string',
         'channel_url' => 'string',
         'created_at' => 'float',
@@ -67,21 +67,21 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
         'data' => 'string',
         'is_reply_to_channel' => 'bool',
         'mention_type' => 'string',
-        'mentioned_users' => '\OpenAPI\Client\Model\SendBirdUser[]',
+        'mentioned_users' => '\Sendbird\Model\SendBirdUser[]',
         'message' => 'string',
         'message_id' => 'float',
         'message_type' => 'string',
-        'meta_array' => '\OpenAPI\Client\Model\Object',
-        'meta_arrays' => '\OpenAPI\Client\Model\SendBirdMessageMetaArray[]',
-        'og_meta_data' => '\OpenAPI\Client\Model\SendBirdOGMetaData',
-        'parent_message' => 'AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage',
+        'meta_array' => '\Sendbird\Model\Object',
+        'meta_arrays' => '\Sendbird\Model\SendBirdMessageMetaArray[]',
+        'og_meta_data' => '\Sendbird\Model\SendBirdOGMetaData',
+        'parent_message' => '\Sendbird\Model\SendBirdMessageResponse',
         'parent_message_id' => 'float',
         'parent_message_text' => 'string',
-        'reactions' => '\OpenAPI\Client\Model\SendBirdReaction[]',
+        'reactions' => '\Sendbird\Model\SendBirdReaction[]',
         'sending_status' => 'string',
         'silent' => 'bool',
-        'thread_info' => '\OpenAPI\Client\Model\SendBirdThreadInfo',
-        'translations' => '\OpenAPI\Client\Model\Object',
+        'thread_info' => '\Sendbird\Model\SendBirdThreadInfo',
+        'translations' => '\Sendbird\Model\Object',
         'updated_at' => 'float'
     ];
 
@@ -146,30 +146,30 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'apple_critical_alert_options' => 'appleCriticalAlertOptions',
-        'channel_type' => 'channelType',
-        'channel_url' => 'channelUrl',
-        'created_at' => 'createdAt',
-        'custom_type' => 'customType',
+        'apple_critical_alert_options' => 'apple_critical_alert_options',
+        'channel_type' => 'channel_type',
+        'channel_url' => 'channel_url',
+        'created_at' => 'created_at',
+        'custom_type' => 'custom_type',
         'data' => 'data',
-        'is_reply_to_channel' => 'isReplyToChannel',
-        'mention_type' => 'mentionType',
-        'mentioned_users' => 'mentionedUsers',
+        'is_reply_to_channel' => 'is_reply_to_channel',
+        'mention_type' => 'mention_type',
+        'mentioned_users' => 'mentioned_users',
         'message' => 'message',
-        'message_id' => 'messageId',
-        'message_type' => 'messageType',
-        'meta_array' => 'metaArray',
-        'meta_arrays' => 'metaArrays',
-        'og_meta_data' => 'ogMetaData',
-        'parent_message' => 'parentMessage',
-        'parent_message_id' => 'parentMessageId',
-        'parent_message_text' => 'parentMessageText',
+        'message_id' => 'message_id',
+        'message_type' => 'message_type',
+        'meta_array' => 'meta_array',
+        'meta_arrays' => 'meta_arrays',
+        'og_meta_data' => 'og_meta_data',
+        'parent_message' => 'parent_message',
+        'parent_message_id' => 'parent_message_id',
+        'parent_message_text' => 'parent_message_text',
         'reactions' => 'reactions',
-        'sending_status' => 'sendingStatus',
+        'sending_status' => 'sending_status',
         'silent' => 'silent',
-        'thread_info' => 'threadInfo',
+        'thread_info' => 'thread_info',
         'translations' => 'translations',
-        'updated_at' => 'updatedAt'
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -277,7 +277,9 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
-    const MESSAGE_TYPE_ADMIN = 'admin';
+    const MESSAGE_TYPE_MESG = 'MESG';
+    const MESSAGE_TYPE_ADMM = 'ADMM';
+    const MESSAGE_TYPE_FILE = 'FILE';
     const SENDING_STATUS_CANCELED = 'canceled';
     const SENDING_STATUS_FAILED = 'failed';
     const SENDING_STATUS_NONE = 'none';
@@ -292,7 +294,9 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     public function getMessageTypeAllowableValues()
     {
         return [
-            self::MESSAGE_TYPE_ADMIN,
+            self::MESSAGE_TYPE_MESG,
+            self::MESSAGE_TYPE_ADMM,
+            self::MESSAGE_TYPE_FILE,
         ];
     }
 
@@ -398,7 +402,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets apple_critical_alert_options
      *
-     * @return \OpenAPI\Client\Model\SendBirdAppleCriticalAlertOptions|null
+     * @return \Sendbird\Model\SendBirdAppleCriticalAlertOptions|null
      */
     public function getAppleCriticalAlertOptions()
     {
@@ -408,7 +412,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets apple_critical_alert_options
      *
-     * @param \OpenAPI\Client\Model\SendBirdAppleCriticalAlertOptions|null $apple_critical_alert_options apple_critical_alert_options
+     * @param \Sendbird\Model\SendBirdAppleCriticalAlertOptions|null $apple_critical_alert_options apple_critical_alert_options
      *
      * @return self
      */
@@ -590,7 +594,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets mentioned_users
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser[]|null
+     * @return \Sendbird\Model\SendBirdUser[]|null
      */
     public function getMentionedUsers()
     {
@@ -600,7 +604,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets mentioned_users
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser[]|null $mentioned_users mentioned_users
+     * @param \Sendbird\Model\SendBirdUser[]|null $mentioned_users mentioned_users
      *
      * @return self
      */
@@ -696,7 +700,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets meta_array
      *
-     * @return \OpenAPI\Client\Model\Object|null
+     * @return \Sendbird\Model\Object|null
      */
     public function getMetaArray()
     {
@@ -706,7 +710,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets meta_array
      *
-     * @param \OpenAPI\Client\Model\Object|null $meta_array meta_array
+     * @param \Sendbird\Model\Object|null $meta_array meta_array
      *
      * @return self
      */
@@ -720,7 +724,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets meta_arrays
      *
-     * @return \OpenAPI\Client\Model\SendBirdMessageMetaArray[]|null
+     * @return \Sendbird\Model\SendBirdMessageMetaArray[]|null
      */
     public function getMetaArrays()
     {
@@ -730,7 +734,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets meta_arrays
      *
-     * @param \OpenAPI\Client\Model\SendBirdMessageMetaArray[]|null $meta_arrays meta_arrays
+     * @param \Sendbird\Model\SendBirdMessageMetaArray[]|null $meta_arrays meta_arrays
      *
      * @return self
      */
@@ -744,7 +748,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets og_meta_data
      *
-     * @return \OpenAPI\Client\Model\SendBirdOGMetaData|null
+     * @return \Sendbird\Model\SendBirdOGMetaData|null
      */
     public function getOgMetaData()
     {
@@ -754,7 +758,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets og_meta_data
      *
-     * @param \OpenAPI\Client\Model\SendBirdOGMetaData|null $og_meta_data og_meta_data
+     * @param \Sendbird\Model\SendBirdOGMetaData|null $og_meta_data og_meta_data
      *
      * @return self
      */
@@ -768,7 +772,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets parent_message
      *
-     * @return AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage|null
+     * @return \Sendbird\Model\SendBirdMessageResponse|null
      */
     public function getParentMessage()
     {
@@ -778,7 +782,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets parent_message
      *
-     * @param AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage|null $parent_message parent_message
+     * @param \Sendbird\Model\SendBirdMessageResponse|null $parent_message parent_message
      *
      * @return self
      */
@@ -840,7 +844,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets reactions
      *
-     * @return \OpenAPI\Client\Model\SendBirdReaction[]|null
+     * @return \Sendbird\Model\SendBirdReaction[]|null
      */
     public function getReactions()
     {
@@ -850,7 +854,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets reactions
      *
-     * @param \OpenAPI\Client\Model\SendBirdReaction[]|null $reactions reactions
+     * @param \Sendbird\Model\SendBirdReaction[]|null $reactions reactions
      *
      * @return self
      */
@@ -922,7 +926,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets thread_info
      *
-     * @return \OpenAPI\Client\Model\SendBirdThreadInfo|null
+     * @return \Sendbird\Model\SendBirdThreadInfo|null
      */
     public function getThreadInfo()
     {
@@ -932,7 +936,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets thread_info
      *
-     * @param \OpenAPI\Client\Model\SendBirdThreadInfo|null $thread_info thread_info
+     * @param \Sendbird\Model\SendBirdThreadInfo|null $thread_info thread_info
      *
      * @return self
      */
@@ -946,7 +950,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets translations
      *
-     * @return \OpenAPI\Client\Model\Object|null
+     * @return \Sendbird\Model\Object|null
      */
     public function getTranslations()
     {
@@ -956,7 +960,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets translations
      *
-     * @param \OpenAPI\Client\Model\Object|null $translations translations
+     * @param \Sendbird\Model\Object|null $translations translations
      *
      * @return self
      */

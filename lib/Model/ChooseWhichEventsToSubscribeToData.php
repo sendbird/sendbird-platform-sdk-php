@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * ChooseWhichEventsToSubscribeToData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -214,12 +214,6 @@ class ChooseWhichEventsToSubscribeToData implements ModelInterface, ArrayAccess,
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
         }
-        if ($this->container['include_members'] === null) {
-            $invalidProperties[] = "'include_members' can't be null";
-        }
-        if ($this->container['enabled_events'] === null) {
-            $invalidProperties[] = "'enabled_events' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -286,7 +280,7 @@ class ChooseWhichEventsToSubscribeToData implements ModelInterface, ArrayAccess,
     /**
      * Gets include_members
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIncludeMembers()
     {
@@ -296,7 +290,7 @@ class ChooseWhichEventsToSubscribeToData implements ModelInterface, ArrayAccess,
     /**
      * Sets include_members
      *
-     * @param bool $include_members Determines whether to include the information on the members of group channels in payloads. (Default: false)
+     * @param bool|null $include_members Determines whether to include the information on the members of group channels in payloads. (Default: false)
      *
      * @return self
      */
@@ -310,7 +304,7 @@ class ChooseWhichEventsToSubscribeToData implements ModelInterface, ArrayAccess,
     /**
      * Gets enabled_events
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getEnabledEvents()
     {
@@ -320,7 +314,7 @@ class ChooseWhichEventsToSubscribeToData implements ModelInterface, ArrayAccess,
     /**
      * Sets enabled_events
      *
-     * @param string[] $enabled_events Specifies an array of one or more [events](#2-webhook-events) for your webhook server to subscribe to. If set to an asterisk () only, the server will subscribe to all supported events. If set to an empty array, the server will unsubscribe from all (which indicates turning off webhooks).
+     * @param string[]|null $enabled_events Specifies an array of one or more [events](#2-webhook-events) for your webhook server to subscribe to. If set to an asterisk () only, the server will subscribe to all supported events. If set to an empty array, the server will unsubscribe from all (which indicates turning off webhooks).
      *
      * @return self
      */

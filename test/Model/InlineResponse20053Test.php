@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse20053
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -80,9 +80,45 @@ class InlineResponse20053Test extends TestCase
     }
 
     /**
-     * Test attribute "key"
+     * Test attribute "user_id"
      */
-    public function testPropertyKey()
+    public function testPropertyUserId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "operation"
+     */
+    public function testPropertyOperation()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "success"
+     */
+    public function testPropertySuccess()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "reaction"
+     */
+    public function testPropertyReaction()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

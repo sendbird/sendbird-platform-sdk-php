@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse20036
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -80,45 +80,18 @@ class InlineResponse20036Test extends TestCase
     }
 
     /**
-     * Test attribute "is_muted"
+     * Test attribute "members"
      */
-    public function testPropertyIsMuted()
+    public function testPropertyMembers()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "remaining_duration"
+     * Test attribute "next"
      */
-    public function testPropertyRemainingDuration()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "start_at"
-     */
-    public function testPropertyStartAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "end_at"
-     */
-    public function testPropertyEndAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
+    public function testPropertyNext()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Sendbird\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Sendbird\ApiException;
+use Sendbird\Configuration;
+use Sendbird\HeaderSelector;
+use Sendbird\ObjectSerializer;
 
 /**
  * DataPrivacyApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -123,7 +123,7 @@ class DataPrivacyApi
      * @param  string $request_id request_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -140,7 +140,7 @@ class DataPrivacyApi
      * @param  string $request_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -295,11 +295,11 @@ class DataPrivacyApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -359,9 +359,9 @@ class DataPrivacyApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20069
+     * @return \Sendbird\Model\InlineResponse20068
      */
     public function listGdprRequests($api_token = null, $token = null, $limit = null)
     {
@@ -378,9 +378,9 @@ class DataPrivacyApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20069, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20068, HTTP status code, HTTP response headers (array of strings)
      */
     public function listGdprRequestsWithHttpInfo($api_token = null, $token = null, $limit = null)
     {
@@ -423,20 +423,20 @@ class DataPrivacyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20069' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20068' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20069', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20068', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20069';
+            $returnType = '\Sendbird\Model\InlineResponse20068';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -454,7 +454,7 @@ class DataPrivacyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20069',
+                        '\Sendbird\Model\InlineResponse20068',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -500,7 +500,7 @@ class DataPrivacyApi
      */
     public function listGdprRequestsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20069';
+        $returnType = '\Sendbird\Model\InlineResponse20068';
         $request = $this->listGdprRequestsRequest($api_token, $token, $limit);
 
         return $this->client
@@ -649,11 +649,11 @@ class DataPrivacyApi
      * Register a GDPR request
      *
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\RegisterGdprRequestData $register_gdpr_request_data register_gdpr_request_data (optional)
+     * @param  \Sendbird\Model\RegisterGdprRequestData $register_gdpr_request_data register_gdpr_request_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20070
+     * @return \Sendbird\Model\InlineResponse20069
      */
     public function registerGdprRequest($api_token = null, $register_gdpr_request_data = null)
     {
@@ -667,11 +667,11 @@ class DataPrivacyApi
      * Register a GDPR request
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
+     * @param  \Sendbird\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20070, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20069, HTTP status code, HTTP response headers (array of strings)
      */
     public function registerGdprRequestWithHttpInfo($api_token = null, $register_gdpr_request_data = null)
     {
@@ -714,20 +714,20 @@ class DataPrivacyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20070' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20069' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20070', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20069', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20070';
+            $returnType = '\Sendbird\Model\InlineResponse20069';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -745,7 +745,7 @@ class DataPrivacyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20070',
+                        '\Sendbird\Model\InlineResponse20069',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -761,7 +761,7 @@ class DataPrivacyApi
      * Register a GDPR request
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
+     * @param  \Sendbird\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -782,14 +782,14 @@ class DataPrivacyApi
      * Register a GDPR request
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
+     * @param  \Sendbird\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function registerGdprRequestAsyncWithHttpInfo($api_token = null, $register_gdpr_request_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20070';
+        $returnType = '\Sendbird\Model\InlineResponse20069';
         $request = $this->registerGdprRequestRequest($api_token, $register_gdpr_request_data);
 
         return $this->client
@@ -829,7 +829,7 @@ class DataPrivacyApi
      * Create request for operation 'registerGdprRequest'
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
+     * @param  \Sendbird\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -923,9 +923,9 @@ class DataPrivacyApi
      * @param  string $request_id request_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20069Requests
+     * @return \Sendbird\Model\InlineResponse20068Requests
      */
     public function viewGdprRequestById($request_id, $api_token = null)
     {
@@ -941,9 +941,9 @@ class DataPrivacyApi
      * @param  string $request_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20069Requests, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20068Requests, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewGdprRequestByIdWithHttpInfo($request_id, $api_token = null)
     {
@@ -986,20 +986,20 @@ class DataPrivacyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20069Requests' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20068Requests' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20069Requests', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20068Requests', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20069Requests';
+            $returnType = '\Sendbird\Model\InlineResponse20068Requests';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1017,7 +1017,7 @@ class DataPrivacyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20069Requests',
+                        '\Sendbird\Model\InlineResponse20068Requests',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1061,7 +1061,7 @@ class DataPrivacyApi
      */
     public function viewGdprRequestByIdAsyncWithHttpInfo($request_id, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20069Requests';
+        $returnType = '\Sendbird\Model\InlineResponse20068Requests';
         $request = $this->viewGdprRequestByIdRequest($request_id, $api_token);
 
         return $this->client

@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**muted_channels** | [**AnyOfSendBirdGroupChannelSendBirdOpenChannel[]**](AnyOfSendBirdGroupChannelSendBirdOpenChannel.md) |  | [optional]
-**next** | **string** |  | [optional]
+**tokens** | **string[]** |  | [optional]
+**type** | **string** |  | [optional]
+**user** | [**\Sendbird\Model\SendBirdUser**](SendBirdUser.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

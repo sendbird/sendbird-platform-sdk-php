@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBotSMessageData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -244,27 +244,6 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
         if ($this->container['channel_url'] === null) {
             $invalidProperties[] = "'channel_url' can't be null";
         }
-        if ($this->container['custom_type'] === null) {
-            $invalidProperties[] = "'custom_type' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['send_push'] === null) {
-            $invalidProperties[] = "'send_push' can't be null";
-        }
-        if ($this->container['mentioned'] === null) {
-            $invalidProperties[] = "'mentioned' can't be null";
-        }
-        if ($this->container['mark_as_read'] === null) {
-            $invalidProperties[] = "'mark_as_read' can't be null";
-        }
-        if ($this->container['dedup_id'] === null) {
-            $invalidProperties[] = "'dedup_id' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -331,7 +310,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets custom_type
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomType()
     {
@@ -341,7 +320,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets custom_type
      *
-     * @param string $custom_type Specifies a custom message type which is used for message grouping. The length is limited to 128 characters.
+     * @param string|null $custom_type Specifies a custom message type which is used for message grouping. The length is limited to 128 characters.
      *
      * @return self
      */
@@ -355,7 +334,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets data
      *
-     * @return string
+     * @return string|null
      */
     public function getData()
     {
@@ -365,7 +344,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets data
      *
-     * @param string $data Specifies additional message information such as custom font size, font type or `JSON` formatted string.
+     * @param string|null $data Specifies additional message information such as custom font size, font type or `JSON` formatted string.
      *
      * @return self
      */
@@ -379,7 +358,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets send_push
      *
-     * @return bool
+     * @return bool|null
      */
     public function getSendPush()
     {
@@ -389,7 +368,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets send_push
      *
-     * @param bool $send_push Determines whether to send a push notification for the message to the members of the channel (Default: true)
+     * @param bool|null $send_push Determines whether to send a push notification for the message to the members of the channel (Default: true)
      *
      * @return self
      */
@@ -403,7 +382,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets mentioned
      *
-     * @return int[]
+     * @return int[]|null
      */
     public function getMentioned()
     {
@@ -413,7 +392,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets mentioned
      *
-     * @param int[] $mentioned Specifies an array of one or more IDs of the users who get a notification for the message.
+     * @param int[]|null $mentioned Specifies an array of one or more IDs of the users who get a notification for the message.
      *
      * @return self
      */
@@ -427,7 +406,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets mark_as_read
      *
-     * @return bool
+     * @return bool|null
      */
     public function getMarkAsRead()
     {
@@ -437,7 +416,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets mark_as_read
      *
-     * @param bool $mark_as_read Determines whether to mark the message as read for the bot. If set to false, the bot's unread_count and read_receipt remain unchanged after the message is sent. (Default: true)
+     * @param bool|null $mark_as_read Determines whether to mark the message as read for the bot. If set to false, the bot's unread_count and read_receipt remain unchanged after the message is sent. (Default: true)
      *
      * @return self
      */
@@ -451,7 +430,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets dedup_id
      *
-     * @return string
+     * @return string|null
      */
     public function getDedupId()
     {
@@ -461,7 +440,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets dedup_id
      *
-     * @param string $dedup_id Specifies the unique ID for the message to prevent the same message data from getting sent to the channel.
+     * @param string|null $dedup_id Specifies the unique ID for the message to prevent the same message data from getting sent to the channel.
      *
      * @return self
      */
@@ -475,7 +454,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -485,7 +464,7 @@ class SendBotSMessageData implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets created_at
      *
-     * @param int $created_at Specifies the time that the message was sent, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format.
+     * @param int|null $created_at Specifies the time that the message was sent, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format.
      *
      * @return self
      */

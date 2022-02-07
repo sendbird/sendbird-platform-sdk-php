@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Sendbird\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Sendbird\ApiException;
+use Sendbird\Configuration;
+use Sendbird\HeaderSelector;
+use Sendbird\ObjectSerializer;
 
 /**
  * EmojisApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -123,9 +123,9 @@ class EmojisApi
      * @param  string $api_token api_token (optional)
      * @param  object $body body (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20058
+     * @return \Sendbird\Model\InlineResponse20057
      */
     public function addEmojiCategories($api_token = null, $body = null)
     {
@@ -141,9 +141,9 @@ class EmojisApi
      * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20058, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20057, HTTP status code, HTTP response headers (array of strings)
      */
     public function addEmojiCategoriesWithHttpInfo($api_token = null, $body = null)
     {
@@ -186,20 +186,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20058' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20057' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20058', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20057', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20058';
+            $returnType = '\Sendbird\Model\InlineResponse20057';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -217,7 +217,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20058',
+                        '\Sendbird\Model\InlineResponse20057',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -261,7 +261,7 @@ class EmojisApi
      */
     public function addEmojiCategoriesAsyncWithHttpInfo($api_token = null, $body = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20058';
+        $returnType = '\Sendbird\Model\InlineResponse20057';
         $request = $this->addEmojiCategoriesRequest($api_token, $body);
 
         return $this->client
@@ -393,11 +393,11 @@ class EmojisApi
      * Add emojis
      *
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\AddEmojisData $add_emojis_data add_emojis_data (optional)
+     * @param  \Sendbird\Model\AddEmojisData $add_emojis_data add_emojis_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20060
+     * @return \Sendbird\Model\InlineResponse20059
      */
     public function addEmojis($api_token = null, $add_emojis_data = null)
     {
@@ -411,11 +411,11 @@ class EmojisApi
      * Add emojis
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\AddEmojisData $add_emojis_data (optional)
+     * @param  \Sendbird\Model\AddEmojisData $add_emojis_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20060, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20059, HTTP status code, HTTP response headers (array of strings)
      */
     public function addEmojisWithHttpInfo($api_token = null, $add_emojis_data = null)
     {
@@ -458,20 +458,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20060' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20059' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20060', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20059', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20060';
+            $returnType = '\Sendbird\Model\InlineResponse20059';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -489,7 +489,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20060',
+                        '\Sendbird\Model\InlineResponse20059',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -505,7 +505,7 @@ class EmojisApi
      * Add emojis
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\AddEmojisData $add_emojis_data (optional)
+     * @param  \Sendbird\Model\AddEmojisData $add_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -526,14 +526,14 @@ class EmojisApi
      * Add emojis
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\AddEmojisData $add_emojis_data (optional)
+     * @param  \Sendbird\Model\AddEmojisData $add_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function addEmojisAsyncWithHttpInfo($api_token = null, $add_emojis_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20060';
+        $returnType = '\Sendbird\Model\InlineResponse20059';
         $request = $this->addEmojisRequest($api_token, $add_emojis_data);
 
         return $this->client
@@ -573,7 +573,7 @@ class EmojisApi
      * Create request for operation 'addEmojis'
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\AddEmojisData $add_emojis_data (optional)
+     * @param  \Sendbird\Model\AddEmojisData $add_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -667,7 +667,7 @@ class EmojisApi
      * @param  string $emoji_key emoji_key (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -684,7 +684,7 @@ class EmojisApi
      * @param  string $emoji_key (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -839,11 +839,11 @@ class EmojisApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -902,7 +902,7 @@ class EmojisApi
      * @param  string $emoji_category_id emoji_category_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -919,7 +919,7 @@ class EmojisApi
      * @param  string $emoji_category_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1074,11 +1074,11 @@ class EmojisApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -1135,11 +1135,11 @@ class EmojisApi
      * Enable reactions
      *
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\EnableReactionsData $enable_reactions_data enable_reactions_data (optional)
+     * @param  \Sendbird\Model\EnableReactionsData $enable_reactions_data enable_reactions_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20052
+     * @return \Sendbird\Model\InlineResponse20051
      */
     public function enableReactions($api_token = null, $enable_reactions_data = null)
     {
@@ -1153,11 +1153,11 @@ class EmojisApi
      * Enable reactions
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\EnableReactionsData $enable_reactions_data (optional)
+     * @param  \Sendbird\Model\EnableReactionsData $enable_reactions_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20052, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20051, HTTP status code, HTTP response headers (array of strings)
      */
     public function enableReactionsWithHttpInfo($api_token = null, $enable_reactions_data = null)
     {
@@ -1200,20 +1200,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20052' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20051' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20052', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20051', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20052';
+            $returnType = '\Sendbird\Model\InlineResponse20051';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1231,7 +1231,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20052',
+                        '\Sendbird\Model\InlineResponse20051',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1247,7 +1247,7 @@ class EmojisApi
      * Enable reactions
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\EnableReactionsData $enable_reactions_data (optional)
+     * @param  \Sendbird\Model\EnableReactionsData $enable_reactions_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1268,14 +1268,14 @@ class EmojisApi
      * Enable reactions
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\EnableReactionsData $enable_reactions_data (optional)
+     * @param  \Sendbird\Model\EnableReactionsData $enable_reactions_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function enableReactionsAsyncWithHttpInfo($api_token = null, $enable_reactions_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20052';
+        $returnType = '\Sendbird\Model\InlineResponse20051';
         $request = $this->enableReactionsRequest($api_token, $enable_reactions_data);
 
         return $this->client
@@ -1315,7 +1315,7 @@ class EmojisApi
      * Create request for operation 'enableReactions'
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\EnableReactionsData $enable_reactions_data (optional)
+     * @param  \Sendbird\Model\EnableReactionsData $enable_reactions_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1409,9 +1409,9 @@ class EmojisApi
      * @param  string $emoji_key emoji_key (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdEmoji
+     * @return \Sendbird\Model\SendBirdEmoji
      */
     public function getEmojiByKey($emoji_key, $api_token = null)
     {
@@ -1427,9 +1427,9 @@ class EmojisApi
      * @param  string $emoji_key (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdEmoji, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdEmoji, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmojiByKeyWithHttpInfo($emoji_key, $api_token = null)
     {
@@ -1472,20 +1472,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdEmoji' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdEmoji' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdEmoji', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdEmoji', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdEmoji';
+            $returnType = '\Sendbird\Model\SendBirdEmoji';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1503,7 +1503,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdEmoji',
+                        '\Sendbird\Model\SendBirdEmoji',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1547,7 +1547,7 @@ class EmojisApi
      */
     public function getEmojiByKeyAsyncWithHttpInfo($emoji_key, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdEmoji';
+        $returnType = '\Sendbird\Model\SendBirdEmoji';
         $request = $this->getEmojiByKeyRequest($emoji_key, $api_token);
 
         return $this->client
@@ -1689,9 +1689,9 @@ class EmojisApi
      * @param  string $emoji_category_id emoji_category_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdEmojiCategory
+     * @return \Sendbird\Model\SendBirdEmojiCategory
      */
     public function getEmojiCategoryById($emoji_category_id, $api_token = null)
     {
@@ -1707,9 +1707,9 @@ class EmojisApi
      * @param  string $emoji_category_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdEmojiCategory, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdEmojiCategory, HTTP status code, HTTP response headers (array of strings)
      */
     public function getEmojiCategoryByIdWithHttpInfo($emoji_category_id, $api_token = null)
     {
@@ -1752,20 +1752,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdEmojiCategory' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdEmojiCategory' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdEmojiCategory', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdEmojiCategory', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdEmojiCategory';
+            $returnType = '\Sendbird\Model\SendBirdEmojiCategory';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1783,7 +1783,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdEmojiCategory',
+                        '\Sendbird\Model\SendBirdEmojiCategory',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1827,7 +1827,7 @@ class EmojisApi
      */
     public function getEmojiCategoryByIdAsyncWithHttpInfo($emoji_category_id, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdEmojiCategory';
+        $returnType = '\Sendbird\Model\SendBirdEmojiCategory';
         $request = $this->getEmojiCategoryByIdRequest($emoji_category_id, $api_token);
 
         return $this->client
@@ -1968,9 +1968,9 @@ class EmojisApi
      *
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20057
+     * @return \Sendbird\Model\InlineResponse20056
      */
     public function listAllEmojisAndEmojiCategories($api_token = null)
     {
@@ -1985,9 +1985,9 @@ class EmojisApi
      *
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20057, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20056, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAllEmojisAndEmojiCategoriesWithHttpInfo($api_token = null)
     {
@@ -2030,20 +2030,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20057' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20056' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20057', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20056', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20057';
+            $returnType = '\Sendbird\Model\InlineResponse20056';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2061,7 +2061,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20057',
+                        '\Sendbird\Model\InlineResponse20056',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2103,7 +2103,7 @@ class EmojisApi
      */
     public function listAllEmojisAndEmojiCategoriesAsyncWithHttpInfo($api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20057';
+        $returnType = '\Sendbird\Model\InlineResponse20056';
         $request = $this->listAllEmojisAndEmojiCategoriesRequest($api_token);
 
         return $this->client
@@ -2229,9 +2229,9 @@ class EmojisApi
      *
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20059
+     * @return \Sendbird\Model\InlineResponse20058
      */
     public function listEmojis($api_token = null)
     {
@@ -2246,9 +2246,9 @@ class EmojisApi
      *
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20059, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20058, HTTP status code, HTTP response headers (array of strings)
      */
     public function listEmojisWithHttpInfo($api_token = null)
     {
@@ -2291,20 +2291,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20059' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20058' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20059', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20058', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20059';
+            $returnType = '\Sendbird\Model\InlineResponse20058';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2322,7 +2322,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20059',
+                        '\Sendbird\Model\InlineResponse20058',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2364,7 +2364,7 @@ class EmojisApi
      */
     public function listEmojisAsyncWithHttpInfo($api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20059';
+        $returnType = '\Sendbird\Model\InlineResponse20058';
         $request = $this->listEmojisRequest($api_token);
 
         return $this->client
@@ -2490,11 +2490,11 @@ class EmojisApi
      *
      * @param  string $emoji_category_id emoji_category_id (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data update_emoji_category_url_by_id_data (optional)
+     * @param  \Sendbird\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data update_emoji_category_url_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdEmojiCategory
+     * @return \Sendbird\Model\SendBirdEmojiCategory
      */
     public function updateEmojiCategoryUrlById($emoji_category_id, $api_token = null, $update_emoji_category_url_by_id_data = null)
     {
@@ -2509,11 +2509,11 @@ class EmojisApi
      *
      * @param  string $emoji_category_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
+     * @param  \Sendbird\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdEmojiCategory, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdEmojiCategory, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmojiCategoryUrlByIdWithHttpInfo($emoji_category_id, $api_token = null, $update_emoji_category_url_by_id_data = null)
     {
@@ -2556,20 +2556,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdEmojiCategory' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdEmojiCategory' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdEmojiCategory', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdEmojiCategory', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdEmojiCategory';
+            $returnType = '\Sendbird\Model\SendBirdEmojiCategory';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2587,7 +2587,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdEmojiCategory',
+                        '\Sendbird\Model\SendBirdEmojiCategory',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2604,7 +2604,7 @@ class EmojisApi
      *
      * @param  string $emoji_category_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
+     * @param  \Sendbird\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2626,14 +2626,14 @@ class EmojisApi
      *
      * @param  string $emoji_category_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
+     * @param  \Sendbird\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmojiCategoryUrlByIdAsyncWithHttpInfo($emoji_category_id, $api_token = null, $update_emoji_category_url_by_id_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdEmojiCategory';
+        $returnType = '\Sendbird\Model\SendBirdEmojiCategory';
         $request = $this->updateEmojiCategoryUrlByIdRequest($emoji_category_id, $api_token, $update_emoji_category_url_by_id_data);
 
         return $this->client
@@ -2674,7 +2674,7 @@ class EmojisApi
      *
      * @param  string $emoji_category_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
+     * @param  \Sendbird\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2781,11 +2781,11 @@ class EmojisApi
      *
      * @param  string $emoji_key emoji_key (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data update_emoji_url_by_key_data (optional)
+     * @param  \Sendbird\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data update_emoji_url_by_key_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdEmoji
+     * @return \Sendbird\Model\SendBirdEmoji
      */
     public function updateEmojiUrlByKey($emoji_key, $api_token = null, $update_emoji_url_by_key_data = null)
     {
@@ -2800,11 +2800,11 @@ class EmojisApi
      *
      * @param  string $emoji_key (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
+     * @param  \Sendbird\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdEmoji, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdEmoji, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateEmojiUrlByKeyWithHttpInfo($emoji_key, $api_token = null, $update_emoji_url_by_key_data = null)
     {
@@ -2847,20 +2847,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdEmoji' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdEmoji' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdEmoji', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdEmoji', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdEmoji';
+            $returnType = '\Sendbird\Model\SendBirdEmoji';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2878,7 +2878,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdEmoji',
+                        '\Sendbird\Model\SendBirdEmoji',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2895,7 +2895,7 @@ class EmojisApi
      *
      * @param  string $emoji_key (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
+     * @param  \Sendbird\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2917,14 +2917,14 @@ class EmojisApi
      *
      * @param  string $emoji_key (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
+     * @param  \Sendbird\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateEmojiUrlByKeyAsyncWithHttpInfo($emoji_key, $api_token = null, $update_emoji_url_by_key_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdEmoji';
+        $returnType = '\Sendbird\Model\SendBirdEmoji';
         $request = $this->updateEmojiUrlByKeyRequest($emoji_key, $api_token, $update_emoji_url_by_key_data);
 
         return $this->client
@@ -2965,7 +2965,7 @@ class EmojisApi
      *
      * @param  string $emoji_key (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
+     * @param  \Sendbird\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3071,11 +3071,11 @@ class EmojisApi
      * Use default emojis
      *
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\UseDefaultEmojisData $use_default_emojis_data use_default_emojis_data (optional)
+     * @param  \Sendbird\Model\UseDefaultEmojisData $use_default_emojis_data use_default_emojis_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20056
+     * @return \Sendbird\Model\InlineResponse20055
      */
     public function useDefaultEmojis($api_token = null, $use_default_emojis_data = null)
     {
@@ -3089,11 +3089,11 @@ class EmojisApi
      * Use default emojis
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
+     * @param  \Sendbird\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20056, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20055, HTTP status code, HTTP response headers (array of strings)
      */
     public function useDefaultEmojisWithHttpInfo($api_token = null, $use_default_emojis_data = null)
     {
@@ -3136,20 +3136,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20056' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20055' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20056', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20055', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20056';
+            $returnType = '\Sendbird\Model\InlineResponse20055';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3167,7 +3167,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20056',
+                        '\Sendbird\Model\InlineResponse20055',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3183,7 +3183,7 @@ class EmojisApi
      * Use default emojis
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
+     * @param  \Sendbird\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3204,14 +3204,14 @@ class EmojisApi
      * Use default emojis
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
+     * @param  \Sendbird\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function useDefaultEmojisAsyncWithHttpInfo($api_token = null, $use_default_emojis_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20056';
+        $returnType = '\Sendbird\Model\InlineResponse20055';
         $request = $this->useDefaultEmojisRequest($api_token, $use_default_emojis_data);
 
         return $this->client
@@ -3251,7 +3251,7 @@ class EmojisApi
      * Create request for operation 'useDefaultEmojis'
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
+     * @param  \Sendbird\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20012 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'dau' => 'float'
+        'push_configurations' => '\Sendbird\Model\InlineResponse20012PushConfigurations[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'dau' => null
+        'push_configurations' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'dau' => 'dau'
+        'push_configurations' => 'push_configurations'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'dau' => 'setDau'
+        'push_configurations' => 'setPushConfigurations'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'dau' => 'getDau'
+        'push_configurations' => 'getPushConfigurations'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['dau'] = $data['dau'] ?? null;
+        $this->container['push_configurations'] = $data['push_configurations'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20012 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets dau
+     * Gets push_configurations
      *
-     * @return float|null
+     * @return \Sendbird\Model\InlineResponse20012PushConfigurations[]|null
      */
-    public function getDau()
+    public function getPushConfigurations()
     {
-        return $this->container['dau'];
+        return $this->container['push_configurations'];
     }
 
     /**
-     * Sets dau
+     * Sets push_configurations
      *
-     * @param float|null $dau dau
+     * @param \Sendbird\Model\InlineResponse20012PushConfigurations[]|null $push_configurations push_configurations
      *
      * @return self
      */
-    public function setDau($dau)
+    public function setPushConfigurations($push_configurations)
     {
-        $this->container['dau'] = $dau;
+        $this->container['push_configurations'] = $push_configurations;
 
         return $this;
     }

@@ -4,7 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**announcements** | [**\OpenAPI\Client\Model\InlineResponse20040Announcements[]**](InlineResponse20040Announcements.md) |  | [optional]
-**next** | **string** |  | [optional]
+**unique_id** | **string** |  | [optional]
+**announcement_group** | **string** |  | [optional]
+**message** | [**\Sendbird\Model\InlineResponse20039Message**](InlineResponse20039Message.md) |  | [optional]
+**enable_push** | **bool** |  | [optional]
+**target_at** | **string** |  | [optional]
+**target_user_count** | **float** |  | [optional]
+**target_channel_count** | **float** |  | [optional]
+**target_channel_type** | **string** |  | [optional]
+**create_channel_options** | [**\Sendbird\Model\InlineResponse20040CreateChannelOptions**](InlineResponse20040CreateChannelOptions.md) |  | [optional]
+**status** | **string** |  | [optional]
+**scheduled_at** | **float** |  | [optional]
+**cease_at** | **string** |  | [optional]
+**resume_at** | **string** |  | [optional]
+**completed_at** | **float** |  | [optional]
+**sent_user_count** | **float** |  | [optional]
+**sent_channel_count** | **float** |  | [optional]
+**open_count** | **float** |  | [optional]
+**open_rate** | **float** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

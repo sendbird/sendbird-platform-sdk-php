@@ -1,4 +1,4 @@
-# OpenAPI\Client\DataExportApi
+# Sendbird\DataExportApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `listDataExportsByMessageChannelOrUser()`
 
 ```php
-listDataExportsByMessageChannelOrUser($data_type, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20064
+listDataExportsByMessageChannelOrUser($data_type, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20063
 ```
 
 List data exports by message, channel, or user
@@ -27,7 +27,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DataExportApi(
+$apiInstance = new Sendbird\Api\DataExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20064**](../Model/InlineResponse20064.md)
+[**\Sendbird\Model\InlineResponse20063**](../Model/InlineResponse20063.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ No authorization required
 ## `registerAndScheduleDataExport()`
 
 ```php
-registerAndScheduleDataExport($data_type, $api_token, $register_and_schedule_data_export_data): \OpenAPI\Client\Model\InlineResponse20064ExportedData
+registerAndScheduleDataExport($data_type, $api_token, $register_and_schedule_data_export_data): \Sendbird\Model\InlineResponse20063ExportedData
 ```
 
 Register and schedule a data export
@@ -89,14 +89,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DataExportApi(
+$apiInstance = new Sendbird\Api\DataExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $data_type = 'data_type_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$register_and_schedule_data_export_data = new \OpenAPI\Client\Model\RegisterAndScheduleDataExportData(); // \OpenAPI\Client\Model\RegisterAndScheduleDataExportData
+$register_and_schedule_data_export_data = new \Sendbird\Model\RegisterAndScheduleDataExportData(); // \Sendbird\Model\RegisterAndScheduleDataExportData
 
 try {
     $result = $apiInstance->registerAndScheduleDataExport($data_type, $api_token, $register_and_schedule_data_export_data);
@@ -112,11 +112,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **data_type** | **string**|  |
  **api_token** | **string**|  | [optional]
- **register_and_schedule_data_export_data** | [**\OpenAPI\Client\Model\RegisterAndScheduleDataExportData**](../Model/RegisterAndScheduleDataExportData.md)|  | [optional]
+ **register_and_schedule_data_export_data** | [**\Sendbird\Model\RegisterAndScheduleDataExportData**](../Model/RegisterAndScheduleDataExportData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20064ExportedData**](../Model/InlineResponse20064ExportedData.md)
+[**\Sendbird\Model\InlineResponse20063ExportedData**](../Model/InlineResponse20063ExportedData.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ No authorization required
 ## `viewDataExportById()`
 
 ```php
-viewDataExportById($data_type, $request_id, $api_token): \OpenAPI\Client\Model\InlineResponse20065
+viewDataExportById($data_type, $request_id, $api_token): \Sendbird\Model\InlineResponse20064
 ```
 
 View a data export
@@ -149,7 +149,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DataExportApi(
+$apiInstance = new Sendbird\Api\DataExportApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20065**](../Model/InlineResponse20065.md)
+[**\Sendbird\Model\InlineResponse20064**](../Model/InlineResponse20064.md)
 
 ### Authorization
 

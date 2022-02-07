@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20061 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class InlineResponse20061 implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'metadata' => 'array<string,string>',
-        'upsert' => 'bool'
+        'include_ts' => 'float'
     ];
 
     /**
@@ -72,7 +72,7 @@ class InlineResponse20061 implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPIFormats = [
         'metadata' => null,
-        'upsert' => null
+        'include_ts' => null
     ];
 
     /**
@@ -103,7 +103,7 @@ class InlineResponse20061 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $attributeMap = [
         'metadata' => 'metadata',
-        'upsert' => 'upsert'
+        'include_ts' => 'include_ts'
     ];
 
     /**
@@ -113,7 +113,7 @@ class InlineResponse20061 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $setters = [
         'metadata' => 'setMetadata',
-        'upsert' => 'setUpsert'
+        'include_ts' => 'setIncludeTs'
     ];
 
     /**
@@ -123,7 +123,7 @@ class InlineResponse20061 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $getters = [
         'metadata' => 'getMetadata',
-        'upsert' => 'getUpsert'
+        'include_ts' => 'getIncludeTs'
     ];
 
     /**
@@ -184,7 +184,7 @@ class InlineResponse20061 implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['upsert'] = $data['upsert'] ?? null;
+        $this->container['include_ts'] = $data['include_ts'] ?? null;
     }
 
     /**
@@ -236,25 +236,25 @@ class InlineResponse20061 implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets upsert
+     * Gets include_ts
      *
-     * @return bool|null
+     * @return float|null
      */
-    public function getUpsert()
+    public function getIncludeTs()
     {
-        return $this->container['upsert'];
+        return $this->container['include_ts'];
     }
 
     /**
-     * Sets upsert
+     * Sets include_ts
      *
-     * @param bool|null $upsert upsert
+     * @param float|null $include_ts include_ts
      *
      * @return self
      */
-    public function setUpsert($upsert)
+    public function setIncludeTs($include_ts)
     {
-        $this->container['upsert'] = $upsert;
+        $this->container['include_ts'] = $include_ts;
 
         return $this;
     }

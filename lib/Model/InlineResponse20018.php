@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20018 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channels' => '\OpenAPI\Client\Model\SendBirdGroupChannel[]',
-        'next' => 'string'
+        'unread_count' => 'float'
     ];
 
     /**
@@ -71,8 +70,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'channels' => null,
-        'next' => null
+        'unread_count' => null
     ];
 
     /**
@@ -102,8 +100,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'channels' => 'channels',
-        'next' => 'next'
+        'unread_count' => 'unread_count'
     ];
 
     /**
@@ -112,8 +109,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'channels' => 'setChannels',
-        'next' => 'setNext'
+        'unread_count' => 'setUnreadCount'
     ];
 
     /**
@@ -122,8 +118,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'channels' => 'getChannels',
-        'next' => 'getNext'
+        'unread_count' => 'getUnreadCount'
     ];
 
     /**
@@ -183,8 +178,7 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['channels'] = $data['channels'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
+        $this->container['unread_count'] = $data['unread_count'] ?? null;
     }
 
     /**
@@ -212,49 +206,25 @@ class InlineResponse20018 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets channels
+     * Gets unread_count
      *
-     * @return \OpenAPI\Client\Model\SendBirdGroupChannel[]|null
+     * @return float|null
      */
-    public function getChannels()
+    public function getUnreadCount()
     {
-        return $this->container['channels'];
+        return $this->container['unread_count'];
     }
 
     /**
-     * Sets channels
+     * Sets unread_count
      *
-     * @param \OpenAPI\Client\Model\SendBirdGroupChannel[]|null $channels channels
+     * @param float|null $unread_count unread_count
      *
      * @return self
      */
-    public function setChannels($channels)
+    public function setUnreadCount($unread_count)
     {
-        $this->container['channels'] = $channels;
-
-        return $this;
-    }
-
-    /**
-     * Gets next
-     *
-     * @return string|null
-     */
-    public function getNext()
-    {
-        return $this->container['next'];
-    }
-
-    /**
-     * Sets next
-     *
-     * @param string|null $next next
-     *
-     * @return self
-     */
-    public function setNext($next)
-    {
-        $this->container['next'] = $next;
+        $this->container['unread_count'] = $unread_count;
 
         return $this;
     }

@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Sendbird\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Sendbird\ApiException;
+use Sendbird\Configuration;
+use Sendbird\HeaderSelector;
+use Sendbird\ObjectSerializer;
 
 /**
  * UserChannelMetadataApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -123,11 +123,11 @@ class UserChannelMetadataApi
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateChannelMetacounterData $create_channel_metacounter_data create_channel_metacounter_data (optional)
+     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data create_channel_metacounter_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array<string,AnyOfStringNumber>
+     * @return array<string,\Sendbird\Model\SendBirdAdditionalProperties>
      */
     public function createChannelMetacounter($channel_type, $channel_url, $api_token = null, $create_channel_metacounter_data = null)
     {
@@ -143,11 +143,11 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of array<string,AnyOfStringNumber>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,\Sendbird\Model\SendBirdAdditionalProperties>, HTTP status code, HTTP response headers (array of strings)
      */
     public function createChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token = null, $create_channel_metacounter_data = null)
     {
@@ -190,20 +190,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,AnyOfStringNumber>' === '\SplFileObject') {
+                    if ('array<string,\Sendbird\Model\SendBirdAdditionalProperties>' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,AnyOfStringNumber>', []),
+                        ObjectSerializer::deserialize($content, 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,AnyOfStringNumber>';
+            $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -221,7 +221,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,AnyOfStringNumber>',
+                        'array<string,\Sendbird\Model\SendBirdAdditionalProperties>',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -239,7 +239,7 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -262,14 +262,14 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $create_channel_metacounter_data = null)
     {
-        $returnType = 'array<string,AnyOfStringNumber>';
+        $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
         $request = $this->createChannelMetacounterRequest($channel_type, $channel_url, $api_token, $create_channel_metacounter_data);
 
         return $this->client
@@ -311,7 +311,7 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -433,11 +433,11 @@ class UserChannelMetadataApi
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateChannelMetadataData $create_channel_metadata_data create_channel_metadata_data (optional)
+     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data create_channel_metadata_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20062
+     * @return \Sendbird\Model\InlineResponse20061
      */
     public function createChannelMetadata($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
     {
@@ -453,11 +453,11 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
+     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20062, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20061, HTTP status code, HTTP response headers (array of strings)
      */
     public function createChannelMetadataWithHttpInfo($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
     {
@@ -500,20 +500,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20062' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20061' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20062', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20061', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20062';
+            $returnType = '\Sendbird\Model\InlineResponse20061';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -531,7 +531,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20062',
+                        '\Sendbird\Model\InlineResponse20061',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -549,7 +549,7 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
+     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -572,14 +572,14 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
+     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createChannelMetadataAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20062';
+        $returnType = '\Sendbird\Model\InlineResponse20061';
         $request = $this->createChannelMetadataRequest($channel_type, $channel_url, $api_token, $create_channel_metadata_data);
 
         return $this->client
@@ -621,7 +621,7 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
+     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -742,11 +742,11 @@ class UserChannelMetadataApi
      *
      * @param  string $user_id user_id (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateUserMetadataData $create_user_metadata_data create_user_metadata_data (optional)
+     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data create_user_metadata_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20048UserMetadata
+     * @return \Sendbird\Model\InlineResponse20047UserMetadata
      */
     public function createUserMetadata($user_id, $api_token = null, $create_user_metadata_data = null)
     {
@@ -761,11 +761,11 @@ class UserChannelMetadataApi
      *
      * @param  string $user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateUserMetadataData $create_user_metadata_data (optional)
+     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20048UserMetadata, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20047UserMetadata, HTTP status code, HTTP response headers (array of strings)
      */
     public function createUserMetadataWithHttpInfo($user_id, $api_token = null, $create_user_metadata_data = null)
     {
@@ -808,20 +808,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20048UserMetadata' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20047UserMetadata' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20048UserMetadata', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20047UserMetadata', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20048UserMetadata';
+            $returnType = '\Sendbird\Model\InlineResponse20047UserMetadata';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -839,7 +839,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20048UserMetadata',
+                        '\Sendbird\Model\InlineResponse20047UserMetadata',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -856,7 +856,7 @@ class UserChannelMetadataApi
      *
      * @param  string $user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateUserMetadataData $create_user_metadata_data (optional)
+     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -878,14 +878,14 @@ class UserChannelMetadataApi
      *
      * @param  string $user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateUserMetadataData $create_user_metadata_data (optional)
+     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createUserMetadataAsyncWithHttpInfo($user_id, $api_token = null, $create_user_metadata_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20048UserMetadata';
+        $returnType = '\Sendbird\Model\InlineResponse20047UserMetadata';
         $request = $this->createUserMetadataRequest($user_id, $api_token, $create_user_metadata_data);
 
         return $this->client
@@ -926,7 +926,7 @@ class UserChannelMetadataApi
      *
      * @param  string $user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateUserMetadataData $create_user_metadata_data (optional)
+     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1035,7 +1035,7 @@ class UserChannelMetadataApi
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1053,7 +1053,7 @@ class UserChannelMetadataApi
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1225,11 +1225,11 @@ class UserChannelMetadataApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -1290,7 +1290,7 @@ class UserChannelMetadataApi
      * @param  string $key key (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1309,7 +1309,7 @@ class UserChannelMetadataApi
      * @param  string $key (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1498,11 +1498,11 @@ class UserChannelMetadataApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -1563,7 +1563,7 @@ class UserChannelMetadataApi
      * @param  string $api_token api_token (optional)
      * @param  string $key key (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1582,7 +1582,7 @@ class UserChannelMetadataApi
      * @param  string $api_token (optional)
      * @param  string $key (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1768,11 +1768,11 @@ class UserChannelMetadataApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -1833,7 +1833,7 @@ class UserChannelMetadataApi
      * @param  string $key key (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1852,7 +1852,7 @@ class UserChannelMetadataApi
      * @param  string $key (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2041,11 +2041,11 @@ class UserChannelMetadataApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -2105,7 +2105,7 @@ class UserChannelMetadataApi
      * @param  string $api_token api_token (optional)
      * @param  string $key key (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -2123,7 +2123,7 @@ class UserChannelMetadataApi
      * @param  string $api_token (optional)
      * @param  string $key (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2292,11 +2292,11 @@ class UserChannelMetadataApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -2356,7 +2356,7 @@ class UserChannelMetadataApi
      * @param  string $key key (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -2374,7 +2374,7 @@ class UserChannelMetadataApi
      * @param  string $key (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2546,11 +2546,11 @@ class UserChannelMetadataApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -2609,11 +2609,11 @@ class UserChannelMetadataApi
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateChannelMetacounterData $update_channel_metacounter_data update_channel_metacounter_data (optional)
+     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data update_channel_metacounter_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array<string,AnyOfStringNumber>
+     * @return array<string,\Sendbird\Model\SendBirdAdditionalProperties>
      */
     public function updateChannelMetacounter($channel_type, $channel_url, $api_token = null, $update_channel_metacounter_data = null)
     {
@@ -2629,11 +2629,11 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of array<string,AnyOfStringNumber>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,\Sendbird\Model\SendBirdAdditionalProperties>, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token = null, $update_channel_metacounter_data = null)
     {
@@ -2676,20 +2676,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,AnyOfStringNumber>' === '\SplFileObject') {
+                    if ('array<string,\Sendbird\Model\SendBirdAdditionalProperties>' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,AnyOfStringNumber>', []),
+                        ObjectSerializer::deserialize($content, 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,AnyOfStringNumber>';
+            $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2707,7 +2707,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,AnyOfStringNumber>',
+                        'array<string,\Sendbird\Model\SendBirdAdditionalProperties>',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2725,7 +2725,7 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2748,14 +2748,14 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $update_channel_metacounter_data = null)
     {
-        $returnType = 'array<string,AnyOfStringNumber>';
+        $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
         $request = $this->updateChannelMetacounterRequest($channel_type, $channel_url, $api_token, $update_channel_metacounter_data);
 
         return $this->client
@@ -2797,7 +2797,7 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2922,7 +2922,7 @@ class UserChannelMetadataApi
      * @param  string $api_token api_token (optional)
      * @param  object $body body (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
@@ -2943,7 +2943,7 @@ class UserChannelMetadataApi
      * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3248,9 +3248,9 @@ class UserChannelMetadataApi
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateChannelMetadataData $update_channel_metadata_data update_channel_metadata_data (optional)
+     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data update_channel_metadata_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
@@ -3268,9 +3268,9 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
+     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3364,7 +3364,7 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
+     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3387,7 +3387,7 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
+     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3436,7 +3436,7 @@ class UserChannelMetadataApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
+     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3561,7 +3561,7 @@ class UserChannelMetadataApi
      * @param  string $api_token api_token (optional)
      * @param  object $body body (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
@@ -3582,7 +3582,7 @@ class UserChannelMetadataApi
      * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3886,11 +3886,11 @@ class UserChannelMetadataApi
      *
      * @param  string $user_id user_id (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateUserMetadataData $update_user_metadata_data update_user_metadata_data (optional)
+     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data update_user_metadata_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20061
+     * @return \Sendbird\Model\InlineResponse20060
      */
     public function updateUserMetadata($user_id, $api_token = null, $update_user_metadata_data = null)
     {
@@ -3905,11 +3905,11 @@ class UserChannelMetadataApi
      *
      * @param  string $user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
+     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20061, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20060, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateUserMetadataWithHttpInfo($user_id, $api_token = null, $update_user_metadata_data = null)
     {
@@ -3952,20 +3952,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20061' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20060' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20061', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20060', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20061';
+            $returnType = '\Sendbird\Model\InlineResponse20060';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3983,7 +3983,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20061',
+                        '\Sendbird\Model\InlineResponse20060',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4000,7 +4000,7 @@ class UserChannelMetadataApi
      *
      * @param  string $user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
+     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4022,14 +4022,14 @@ class UserChannelMetadataApi
      *
      * @param  string $user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
+     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateUserMetadataAsyncWithHttpInfo($user_id, $api_token = null, $update_user_metadata_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20061';
+        $returnType = '\Sendbird\Model\InlineResponse20060';
         $request = $this->updateUserMetadataRequest($user_id, $api_token, $update_user_metadata_data);
 
         return $this->client
@@ -4070,7 +4070,7 @@ class UserChannelMetadataApi
      *
      * @param  string $user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
+     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4180,7 +4180,7 @@ class UserChannelMetadataApi
      * @param  string $api_token api_token (optional)
      * @param  object $body body (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
@@ -4200,7 +4200,7 @@ class UserChannelMetadataApi
      * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
@@ -4491,9 +4491,9 @@ class UserChannelMetadataApi
      * @param  string $key key (optional)
      * @param  string[] $keys keys (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array<string,AnyOfStringNumber>
+     * @return array<string,\Sendbird\Model\SendBirdAdditionalProperties>
      */
     public function viewChannelMetacounter($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
     {
@@ -4512,9 +4512,9 @@ class UserChannelMetadataApi
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of array<string,AnyOfStringNumber>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,\Sendbird\Model\SendBirdAdditionalProperties>, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
     {
@@ -4557,20 +4557,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,AnyOfStringNumber>' === '\SplFileObject') {
+                    if ('array<string,\Sendbird\Model\SendBirdAdditionalProperties>' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,AnyOfStringNumber>', []),
+                        ObjectSerializer::deserialize($content, 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,AnyOfStringNumber>';
+            $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4588,7 +4588,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,AnyOfStringNumber>',
+                        'array<string,\Sendbird\Model\SendBirdAdditionalProperties>',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4638,7 +4638,7 @@ class UserChannelMetadataApi
      */
     public function viewChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
     {
-        $returnType = 'array<string,AnyOfStringNumber>';
+        $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
         $request = $this->viewChannelMetacounterRequest($channel_type, $channel_url, $api_token, $key, $keys);
 
         return $this->client
@@ -4821,9 +4821,9 @@ class UserChannelMetadataApi
      * @param  string $key key (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array<string,AnyOfStringNumber>
+     * @return array<string,\Sendbird\Model\SendBirdAdditionalProperties>
      */
     public function viewChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token = null)
     {
@@ -4841,9 +4841,9 @@ class UserChannelMetadataApi
      * @param  string $key (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of array<string,AnyOfStringNumber>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of array<string,\Sendbird\Model\SendBirdAdditionalProperties>, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewChannelMetacounterByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token = null)
     {
@@ -4886,20 +4886,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,AnyOfStringNumber>' === '\SplFileObject') {
+                    if ('array<string,\Sendbird\Model\SendBirdAdditionalProperties>' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,AnyOfStringNumber>', []),
+                        ObjectSerializer::deserialize($content, 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'array<string,AnyOfStringNumber>';
+            $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4917,7 +4917,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,AnyOfStringNumber>',
+                        'array<string,\Sendbird\Model\SendBirdAdditionalProperties>',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4965,7 +4965,7 @@ class UserChannelMetadataApi
      */
     public function viewChannelMetacounterByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token = null)
     {
-        $returnType = 'array<string,AnyOfStringNumber>';
+        $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
         $request = $this->viewChannelMetacounterByKeyRequest($channel_type, $channel_url, $key, $api_token);
 
         return $this->client
@@ -5140,7 +5140,7 @@ class UserChannelMetadataApi
      * @param  string $key key (optional)
      * @param  string[] $keys keys (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
@@ -5161,7 +5161,7 @@ class UserChannelMetadataApi
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
@@ -5470,7 +5470,7 @@ class UserChannelMetadataApi
      * @param  string $key key (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
@@ -5490,7 +5490,7 @@ class UserChannelMetadataApi
      * @param  string $key (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
@@ -5788,9 +5788,9 @@ class UserChannelMetadataApi
      * @param  string $key key (optional)
      * @param  string[] $keys keys (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20048UserMetadata
+     * @return \Sendbird\Model\InlineResponse20047UserMetadata
      */
     public function viewUserMetadata($user_id, $api_token = null, $key = null, $keys = null)
     {
@@ -5808,9 +5808,9 @@ class UserChannelMetadataApi
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20048UserMetadata, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20047UserMetadata, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewUserMetadataWithHttpInfo($user_id, $api_token = null, $key = null, $keys = null)
     {
@@ -5853,20 +5853,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20048UserMetadata' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20047UserMetadata' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20048UserMetadata', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20047UserMetadata', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20048UserMetadata';
+            $returnType = '\Sendbird\Model\InlineResponse20047UserMetadata';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5884,7 +5884,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20048UserMetadata',
+                        '\Sendbird\Model\InlineResponse20047UserMetadata',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5932,7 +5932,7 @@ class UserChannelMetadataApi
      */
     public function viewUserMetadataAsyncWithHttpInfo($user_id, $api_token = null, $key = null, $keys = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20048UserMetadata';
+        $returnType = '\Sendbird\Model\InlineResponse20047UserMetadata';
         $request = $this->viewUserMetadataRequest($user_id, $api_token, $key, $keys);
 
         return $this->client
@@ -6099,7 +6099,7 @@ class UserChannelMetadataApi
      * @param  string $key key (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
@@ -6118,7 +6118,7 @@ class UserChannelMetadataApi
      * @param  string $key (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse20067Webhook
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -110,15 +110,6 @@ class InlineResponse20067WebhookTest extends TestCase
      * Test attribute "enabled_events"
      */
     public function testPropertyEnabledEvents()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "all_webhook_categories"
-     */
-    public function testPropertyAllWebhookCategories()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

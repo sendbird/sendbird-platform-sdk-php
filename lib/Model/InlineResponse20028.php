@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20028 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,17 @@ class InlineResponse20028 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user_id' => 'string'
+        'push_trigger_option' => 'string',
+        'do_not_disturb' => 'bool',
+        'start_hour' => 'float',
+        'start_min' => 'float',
+        'end_hour' => 'float',
+        'end_min' => 'float',
+        'snooze_enabled' => 'bool',
+        'snooze_start_ts' => 'float',
+        'snooze_end_ts' => 'float',
+        'timezone' => 'string',
+        'push_sound' => 'string'
     ];
 
     /**
@@ -70,7 +80,17 @@ class InlineResponse20028 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user_id' => null
+        'push_trigger_option' => null,
+        'do_not_disturb' => null,
+        'start_hour' => null,
+        'start_min' => null,
+        'end_hour' => null,
+        'end_min' => null,
+        'snooze_enabled' => null,
+        'snooze_start_ts' => null,
+        'snooze_end_ts' => null,
+        'timezone' => null,
+        'push_sound' => null
     ];
 
     /**
@@ -100,7 +120,17 @@ class InlineResponse20028 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_id' => 'user_id'
+        'push_trigger_option' => 'push_trigger_option',
+        'do_not_disturb' => 'do_not_disturb',
+        'start_hour' => 'start_hour',
+        'start_min' => 'start_min',
+        'end_hour' => 'end_hour',
+        'end_min' => 'end_min',
+        'snooze_enabled' => 'snooze_enabled',
+        'snooze_start_ts' => 'snooze_start_ts',
+        'snooze_end_ts' => 'snooze_end_ts',
+        'timezone' => 'timezone',
+        'push_sound' => 'push_sound'
     ];
 
     /**
@@ -109,7 +139,17 @@ class InlineResponse20028 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'user_id' => 'setUserId'
+        'push_trigger_option' => 'setPushTriggerOption',
+        'do_not_disturb' => 'setDoNotDisturb',
+        'start_hour' => 'setStartHour',
+        'start_min' => 'setStartMin',
+        'end_hour' => 'setEndHour',
+        'end_min' => 'setEndMin',
+        'snooze_enabled' => 'setSnoozeEnabled',
+        'snooze_start_ts' => 'setSnoozeStartTs',
+        'snooze_end_ts' => 'setSnoozeEndTs',
+        'timezone' => 'setTimezone',
+        'push_sound' => 'setPushSound'
     ];
 
     /**
@@ -118,7 +158,17 @@ class InlineResponse20028 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'user_id' => 'getUserId'
+        'push_trigger_option' => 'getPushTriggerOption',
+        'do_not_disturb' => 'getDoNotDisturb',
+        'start_hour' => 'getStartHour',
+        'start_min' => 'getStartMin',
+        'end_hour' => 'getEndHour',
+        'end_min' => 'getEndMin',
+        'snooze_enabled' => 'getSnoozeEnabled',
+        'snooze_start_ts' => 'getSnoozeStartTs',
+        'snooze_end_ts' => 'getSnoozeEndTs',
+        'timezone' => 'getTimezone',
+        'push_sound' => 'getPushSound'
     ];
 
     /**
@@ -178,7 +228,17 @@ class InlineResponse20028 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['push_trigger_option'] = $data['push_trigger_option'] ?? null;
+        $this->container['do_not_disturb'] = $data['do_not_disturb'] ?? null;
+        $this->container['start_hour'] = $data['start_hour'] ?? null;
+        $this->container['start_min'] = $data['start_min'] ?? null;
+        $this->container['end_hour'] = $data['end_hour'] ?? null;
+        $this->container['end_min'] = $data['end_min'] ?? null;
+        $this->container['snooze_enabled'] = $data['snooze_enabled'] ?? null;
+        $this->container['snooze_start_ts'] = $data['snooze_start_ts'] ?? null;
+        $this->container['snooze_end_ts'] = $data['snooze_end_ts'] ?? null;
+        $this->container['timezone'] = $data['timezone'] ?? null;
+        $this->container['push_sound'] = $data['push_sound'] ?? null;
     }
 
     /**
@@ -206,25 +266,265 @@ class InlineResponse20028 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets user_id
+     * Gets push_trigger_option
      *
      * @return string|null
      */
-    public function getUserId()
+    public function getPushTriggerOption()
     {
-        return $this->container['user_id'];
+        return $this->container['push_trigger_option'];
     }
 
     /**
-     * Sets user_id
+     * Sets push_trigger_option
      *
-     * @param string|null $user_id user_id
+     * @param string|null $push_trigger_option push_trigger_option
      *
      * @return self
      */
-    public function setUserId($user_id)
+    public function setPushTriggerOption($push_trigger_option)
     {
-        $this->container['user_id'] = $user_id;
+        $this->container['push_trigger_option'] = $push_trigger_option;
+
+        return $this;
+    }
+
+    /**
+     * Gets do_not_disturb
+     *
+     * @return bool|null
+     */
+    public function getDoNotDisturb()
+    {
+        return $this->container['do_not_disturb'];
+    }
+
+    /**
+     * Sets do_not_disturb
+     *
+     * @param bool|null $do_not_disturb do_not_disturb
+     *
+     * @return self
+     */
+    public function setDoNotDisturb($do_not_disturb)
+    {
+        $this->container['do_not_disturb'] = $do_not_disturb;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_hour
+     *
+     * @return float|null
+     */
+    public function getStartHour()
+    {
+        return $this->container['start_hour'];
+    }
+
+    /**
+     * Sets start_hour
+     *
+     * @param float|null $start_hour start_hour
+     *
+     * @return self
+     */
+    public function setStartHour($start_hour)
+    {
+        $this->container['start_hour'] = $start_hour;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_min
+     *
+     * @return float|null
+     */
+    public function getStartMin()
+    {
+        return $this->container['start_min'];
+    }
+
+    /**
+     * Sets start_min
+     *
+     * @param float|null $start_min start_min
+     *
+     * @return self
+     */
+    public function setStartMin($start_min)
+    {
+        $this->container['start_min'] = $start_min;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_hour
+     *
+     * @return float|null
+     */
+    public function getEndHour()
+    {
+        return $this->container['end_hour'];
+    }
+
+    /**
+     * Sets end_hour
+     *
+     * @param float|null $end_hour end_hour
+     *
+     * @return self
+     */
+    public function setEndHour($end_hour)
+    {
+        $this->container['end_hour'] = $end_hour;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_min
+     *
+     * @return float|null
+     */
+    public function getEndMin()
+    {
+        return $this->container['end_min'];
+    }
+
+    /**
+     * Sets end_min
+     *
+     * @param float|null $end_min end_min
+     *
+     * @return self
+     */
+    public function setEndMin($end_min)
+    {
+        $this->container['end_min'] = $end_min;
+
+        return $this;
+    }
+
+    /**
+     * Gets snooze_enabled
+     *
+     * @return bool|null
+     */
+    public function getSnoozeEnabled()
+    {
+        return $this->container['snooze_enabled'];
+    }
+
+    /**
+     * Sets snooze_enabled
+     *
+     * @param bool|null $snooze_enabled snooze_enabled
+     *
+     * @return self
+     */
+    public function setSnoozeEnabled($snooze_enabled)
+    {
+        $this->container['snooze_enabled'] = $snooze_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets snooze_start_ts
+     *
+     * @return float|null
+     */
+    public function getSnoozeStartTs()
+    {
+        return $this->container['snooze_start_ts'];
+    }
+
+    /**
+     * Sets snooze_start_ts
+     *
+     * @param float|null $snooze_start_ts snooze_start_ts
+     *
+     * @return self
+     */
+    public function setSnoozeStartTs($snooze_start_ts)
+    {
+        $this->container['snooze_start_ts'] = $snooze_start_ts;
+
+        return $this;
+    }
+
+    /**
+     * Gets snooze_end_ts
+     *
+     * @return float|null
+     */
+    public function getSnoozeEndTs()
+    {
+        return $this->container['snooze_end_ts'];
+    }
+
+    /**
+     * Sets snooze_end_ts
+     *
+     * @param float|null $snooze_end_ts snooze_end_ts
+     *
+     * @return self
+     */
+    public function setSnoozeEndTs($snooze_end_ts)
+    {
+        $this->container['snooze_end_ts'] = $snooze_end_ts;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return string|null
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param string|null $timezone timezone
+     *
+     * @return self
+     */
+    public function setTimezone($timezone)
+    {
+        $this->container['timezone'] = $timezone;
+
+        return $this;
+    }
+
+    /**
+     * Gets push_sound
+     *
+     * @return string|null
+     */
+    public function getPushSound()
+    {
+        return $this->container['push_sound'];
+    }
+
+    /**
+     * Sets push_sound
+     *
+     * @param string|null $push_sound push_sound
+     *
+     * @return self
+     */
+    public function setPushSound($push_sound)
+    {
+        $this->container['push_sound'] = $push_sound;
 
         return $this;
     }

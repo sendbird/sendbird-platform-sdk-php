@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20056 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'use_default_emoji' => 'bool'
+        'emoji_hash' => 'string',
+        'emoji_categories' => '\Sendbird\Model\InlineResponse20056EmojiCategories[]'
     ];
 
     /**
@@ -70,7 +71,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'use_default_emoji' => null
+        'emoji_hash' => null,
+        'emoji_categories' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'use_default_emoji' => 'use_default_emoji'
+        'emoji_hash' => 'emoji_hash',
+        'emoji_categories' => 'emoji_categories'
     ];
 
     /**
@@ -109,7 +112,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'use_default_emoji' => 'setUseDefaultEmoji'
+        'emoji_hash' => 'setEmojiHash',
+        'emoji_categories' => 'setEmojiCategories'
     ];
 
     /**
@@ -118,7 +122,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'use_default_emoji' => 'getUseDefaultEmoji'
+        'emoji_hash' => 'getEmojiHash',
+        'emoji_categories' => 'getEmojiCategories'
     ];
 
     /**
@@ -178,7 +183,8 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['use_default_emoji'] = $data['use_default_emoji'] ?? null;
+        $this->container['emoji_hash'] = $data['emoji_hash'] ?? null;
+        $this->container['emoji_categories'] = $data['emoji_categories'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class InlineResponse20056 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets use_default_emoji
+     * Gets emoji_hash
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getUseDefaultEmoji()
+    public function getEmojiHash()
     {
-        return $this->container['use_default_emoji'];
+        return $this->container['emoji_hash'];
     }
 
     /**
-     * Sets use_default_emoji
+     * Sets emoji_hash
      *
-     * @param bool|null $use_default_emoji use_default_emoji
+     * @param string|null $emoji_hash emoji_hash
      *
      * @return self
      */
-    public function setUseDefaultEmoji($use_default_emoji)
+    public function setEmojiHash($emoji_hash)
     {
-        $this->container['use_default_emoji'] = $use_default_emoji;
+        $this->container['emoji_hash'] = $emoji_hash;
+
+        return $this;
+    }
+
+    /**
+     * Gets emoji_categories
+     *
+     * @return \Sendbird\Model\InlineResponse20056EmojiCategories[]|null
+     */
+    public function getEmojiCategories()
+    {
+        return $this->container['emoji_categories'];
+    }
+
+    /**
+     * Sets emoji_categories
+     *
+     * @param \Sendbird\Model\InlineResponse20056EmojiCategories[]|null $emoji_categories emoji_categories
+     *
+     * @return self
+     */
+    public function setEmojiCategories($emoji_categories)
+    {
+        $this->container['emoji_categories'] = $emoji_categories;
 
         return $this;
     }

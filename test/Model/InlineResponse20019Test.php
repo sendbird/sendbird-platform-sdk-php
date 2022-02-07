@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse20019
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -80,9 +80,81 @@ class InlineResponse20019Test extends TestCase
     }
 
     /**
-     * Test attribute "unread_count"
+     * Test attribute "non_super_group_channel_unread_message_count"
      */
-    public function testPropertyUnreadCount()
+    public function testPropertyNonSuperGroupChannelUnreadMessageCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "super_group_channel_unread_message_count"
+     */
+    public function testPropertySuperGroupChannelUnreadMessageCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "group_channel_unread_message_count"
+     */
+    public function testPropertyGroupChannelUnreadMessageCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "super_group_channel_invitation_count"
+     */
+    public function testPropertySuperGroupChannelInvitationCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "group_channel_invitation_count"
+     */
+    public function testPropertyGroupChannelInvitationCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "super_group_channel_unread_mention_count"
+     */
+    public function testPropertySuperGroupChannelUnreadMentionCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "group_channel_unread_mention_count"
+     */
+    public function testPropertyGroupChannelUnreadMentionCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "non_super_group_channel_unread_mention_count"
+     */
+    public function testPropertyNonSuperGroupChannelUnreadMentionCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "non_super_group_channel_invitation_count"
+     */
+    public function testPropertyNonSuperGroupChannelInvitationCount()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

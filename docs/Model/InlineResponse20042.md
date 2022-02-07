@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **unique_id** | **string** |  | [optional]
-**announcement_group** | **string** |  | [optional]
-**message** | [**\OpenAPI\Client\Model\InlineResponse20042Message**](InlineResponse20042Message.md) |  | [optional]
+**open_counts** | **float[]** |  | [optional]
+**open_rates** | **float[]** |  | [optional]
+**cumulative_open_counts** | **float[]** |  | [optional]
+**cumulative_open_rates** | **float[]** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

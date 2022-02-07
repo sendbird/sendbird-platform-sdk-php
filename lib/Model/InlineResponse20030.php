@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20030 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,8 @@ class InlineResponse20030 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string'
+        'channels' => '\Sendbird\Model\SendBirdOpenChannel[]',
+        'next' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class InlineResponse20030 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null
+        'channels' => null,
+        'next' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class InlineResponse20030 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name'
+        'channels' => 'channels',
+        'next' => 'next'
     ];
 
     /**
@@ -109,7 +112,8 @@ class InlineResponse20030 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName'
+        'channels' => 'setChannels',
+        'next' => 'setNext'
     ];
 
     /**
@@ -118,7 +122,8 @@ class InlineResponse20030 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName'
+        'channels' => 'getChannels',
+        'next' => 'getNext'
     ];
 
     /**
@@ -178,7 +183,8 @@ class InlineResponse20030 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
+        $this->container['channels'] = $data['channels'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class InlineResponse20030 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets name
+     * Gets channels
      *
-     * @return string|null
+     * @return \Sendbird\Model\SendBirdOpenChannel[]|null
      */
-    public function getName()
+    public function getChannels()
     {
-        return $this->container['name'];
+        return $this->container['channels'];
     }
 
     /**
-     * Sets name
+     * Sets channels
      *
-     * @param string|null $name name
+     * @param \Sendbird\Model\SendBirdOpenChannel[]|null $channels channels
      *
      * @return self
      */
-    public function setName($name)
+    public function setChannels($channels)
     {
-        $this->container['name'] = $name;
+        $this->container['channels'] = $channels;
+
+        return $this;
+    }
+
+    /**
+     * Gets next
+     *
+     * @return string|null
+     */
+    public function getNext()
+    {
+        return $this->container['next'];
+    }
+
+    /**
+     * Sets next
+     *
+     * @param string|null $next next
+     *
+     * @return self
+     */
+    public function setNext($next)
+    {
+        $this->container['next'] = $next;
 
         return $this;
     }

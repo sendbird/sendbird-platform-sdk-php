@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse20056
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -80,9 +80,18 @@ class InlineResponse20056Test extends TestCase
     }
 
     /**
-     * Test attribute "use_default_emoji"
+     * Test attribute "emoji_hash"
      */
-    public function testPropertyUseDefaultEmoji()
+    public function testPropertyEmojiHash()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "emoji_categories"
+     */
+    public function testPropertyEmojiCategories()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20051 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ts' => 'float'
+        'reactions' => 'bool'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ts' => null
+        'reactions' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'ts' => 'ts'
+        'reactions' => 'reactions'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'ts' => 'setTs'
+        'reactions' => 'setReactions'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'ts' => 'getTs'
+        'reactions' => 'getReactions'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['ts'] = $data['ts'] ?? null;
+        $this->container['reactions'] = $data['reactions'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20051 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets ts
+     * Gets reactions
      *
-     * @return float|null
+     * @return bool|null
      */
-    public function getTs()
+    public function getReactions()
     {
-        return $this->container['ts'];
+        return $this->container['reactions'];
     }
 
     /**
-     * Sets ts
+     * Sets reactions
      *
-     * @param float|null $ts ts
+     * @param bool|null $reactions reactions
      *
      * @return self
      */
-    public function setTs($ts)
+    public function setReactions($reactions)
     {
-        $this->container['ts'] = $ts;
+        $this->container['reactions'] = $reactions;
 
         return $this;
     }

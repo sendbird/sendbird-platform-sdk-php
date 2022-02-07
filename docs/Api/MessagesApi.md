@@ -1,4 +1,4 @@
-# OpenAPI\Client\MessagesApi
+# Sendbird\MessagesApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -25,7 +25,7 @@ Method | HTTP request | Description
 ## `addExtraDataToMessage()`
 
 ```php
-addExtraDataToMessage($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data): \OpenAPI\Client\Model\InlineResponse20055
+addExtraDataToMessage($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data): \Sendbird\Model\InlineResponse20054
 ```
 
 Add extra data to a message
@@ -40,7 +40,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -49,7 +49,7 @@ $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$add_extra_data_to_message_data = new \OpenAPI\Client\Model\AddExtraDataToMessageData(); // \OpenAPI\Client\Model\AddExtraDataToMessageData
+$add_extra_data_to_message_data = new \Sendbird\Model\AddExtraDataToMessageData(); // \Sendbird\Model\AddExtraDataToMessageData
 
 try {
     $result = $apiInstance->addExtraDataToMessage($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data);
@@ -67,11 +67,11 @@ Name | Type | Description  | Notes
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **add_extra_data_to_message_data** | [**\OpenAPI\Client\Model\AddExtraDataToMessageData**](../Model/AddExtraDataToMessageData.md)|  | [optional]
+ **add_extra_data_to_message_data** | [**\Sendbird\Model\AddExtraDataToMessageData**](../Model/AddExtraDataToMessageData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20055**](../Model/InlineResponse20055.md)
+[**\Sendbird\Model\InlineResponse20054**](../Model/InlineResponse20054.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ No authorization required
 ## `addReactionToAMessage()`
 
 ```php
-addReactionToAMessage($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data): \OpenAPI\Client\Model\InlineResponse20054
+addReactionToAMessage($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data): \Sendbird\Model\InlineResponse20053
 ```
 
 Add a reaction to a message
@@ -104,7 +104,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -113,7 +113,7 @@ $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$add_reaction_to_a_message_data = new \OpenAPI\Client\Model\AddReactionToAMessageData(); // \OpenAPI\Client\Model\AddReactionToAMessageData
+$add_reaction_to_a_message_data = new \Sendbird\Model\AddReactionToAMessageData(); // \Sendbird\Model\AddReactionToAMessageData
 
 try {
     $result = $apiInstance->addReactionToAMessage($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data);
@@ -131,11 +131,11 @@ Name | Type | Description  | Notes
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **add_reaction_to_a_message_data** | [**\OpenAPI\Client\Model\AddReactionToAMessageData**](../Model/AddReactionToAMessageData.md)|  | [optional]
+ **add_reaction_to_a_message_data** | [**\Sendbird\Model\AddReactionToAMessageData**](../Model/AddReactionToAMessageData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20054**](../Model/InlineResponse20054.md)
+[**\Sendbird\Model\InlineResponse20053**](../Model/InlineResponse20053.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -205,7 +205,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -214,7 +214,7 @@ No authorization required
 ## `gcMarkAllMessagesAsDelivered()`
 
 ```php
-gcMarkAllMessagesAsDelivered($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data): \OpenAPI\Client\Model\InlineResponse20051
+gcMarkAllMessagesAsDelivered($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data): \Sendbird\Model\InlineResponse20050
 ```
 
 Mark all messages as delivered
@@ -229,14 +229,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_mark_all_messages_as_delivered_data = new \OpenAPI\Client\Model\GcMarkAllMessagesAsDeliveredData(); // \OpenAPI\Client\Model\GcMarkAllMessagesAsDeliveredData
+$gc_mark_all_messages_as_delivered_data = new \Sendbird\Model\GcMarkAllMessagesAsDeliveredData(); // \Sendbird\Model\GcMarkAllMessagesAsDeliveredData
 
 try {
     $result = $apiInstance->gcMarkAllMessagesAsDelivered($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data);
@@ -252,11 +252,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_mark_all_messages_as_delivered_data** | [**\OpenAPI\Client\Model\GcMarkAllMessagesAsDeliveredData**](../Model/GcMarkAllMessagesAsDeliveredData.md)|  | [optional]
+ **gc_mark_all_messages_as_delivered_data** | [**\Sendbird\Model\GcMarkAllMessagesAsDeliveredData**](../Model/GcMarkAllMessagesAsDeliveredData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20051**](../Model/InlineResponse20051.md)
+[**\Sendbird\Model\InlineResponse20050**](../Model/InlineResponse20050.md)
 
 ### Authorization
 
@@ -289,14 +289,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_mark_all_messages_as_read_data = new \OpenAPI\Client\Model\GcMarkAllMessagesAsReadData(); // \OpenAPI\Client\Model\GcMarkAllMessagesAsReadData
+$gc_mark_all_messages_as_read_data = new \Sendbird\Model\GcMarkAllMessagesAsReadData(); // \Sendbird\Model\GcMarkAllMessagesAsReadData
 
 try {
     $apiInstance->gcMarkAllMessagesAsRead($channel_url, $api_token, $gc_mark_all_messages_as_read_data);
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_mark_all_messages_as_read_data** | [**\OpenAPI\Client\Model\GcMarkAllMessagesAsReadData**](../Model/GcMarkAllMessagesAsReadData.md)|  | [optional]
+ **gc_mark_all_messages_as_read_data** | [**\Sendbird\Model\GcMarkAllMessagesAsReadData**](../Model/GcMarkAllMessagesAsReadData.md)|  | [optional]
 
 ### Return type
 
@@ -324,7 +324,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -333,7 +333,7 @@ No authorization required
 ## `gcViewNumberOfEachMembersUnreadMessages()`
 
 ```php
-gcViewNumberOfEachMembersUnreadMessages($channel_url, $api_token, $user_ids): \OpenAPI\Client\Model\InlineResponse20050
+gcViewNumberOfEachMembersUnreadMessages($channel_url, $api_token, $user_ids): \Sendbird\Model\InlineResponse20049
 ```
 
 View number of each member's unread messages
@@ -348,7 +348,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20050**](../Model/InlineResponse20050.md)
+[**\Sendbird\Model\InlineResponse20049**](../Model/InlineResponse20049.md)
 
 ### Authorization
 
@@ -393,7 +393,7 @@ No authorization required
 ## `listMessages()`
 
 ```php
-listMessages($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array): \OpenAPI\Client\Model\InlineResponse20048
+listMessages($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array): \Sendbird\Model\InlineResponse20047
 ```
 
 List messages
@@ -408,7 +408,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20048**](../Model/InlineResponse20048.md)
+[**\Sendbird\Model\InlineResponse20047**](../Model/InlineResponse20047.md)
 
 ### Authorization
 
@@ -489,7 +489,7 @@ No authorization required
 ## `listReactionsOfMessage()`
 
 ```php
-listReactionsOfMessage($channel_type, $channel_url, $message_id, $api_token, $list_users): \OpenAPI\Client\Model\InlineResponse20053
+listReactionsOfMessage($channel_type, $channel_url, $message_id, $api_token, $list_users): \Sendbird\Model\InlineResponse20052
 ```
 
 List reactions of a message
@@ -504,7 +504,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20053**](../Model/InlineResponse20053.md)
+[**\Sendbird\Model\InlineResponse20052**](../Model/InlineResponse20052.md)
 
 ### Authorization
 
@@ -568,7 +568,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -607,7 +607,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -616,7 +616,7 @@ No authorization required
 ## `removeReactionFromAMessage()`
 
 ```php
-removeReactionFromAMessage($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction): \OpenAPI\Client\Model\InlineResponse20054
+removeReactionFromAMessage($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction): \Sendbird\Model\InlineResponse20053
 ```
 
 Remove a reaction from a message
@@ -631,7 +631,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -664,7 +664,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20054**](../Model/InlineResponse20054.md)
+[**\Sendbird\Model\InlineResponse20053**](../Model/InlineResponse20053.md)
 
 ### Authorization
 
@@ -682,7 +682,7 @@ No authorization required
 ## `sendMessage()`
 
 ```php
-sendMessage($channel_type, $channel_url, $api_token, $send_message_data): AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage
+sendMessage($channel_type, $channel_url, $api_token, $send_message_data): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 Send a message
@@ -697,7 +697,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -705,7 +705,7 @@ $apiInstance = new OpenAPI\Client\Api\MessagesApi(
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$send_message_data = new \OpenAPI\Client\Model\SendMessageData(); // \OpenAPI\Client\Model\SendMessageData
+$send_message_data = new \Sendbird\Model\SendMessageData(); // \Sendbird\Model\SendMessageData
 
 try {
     $result = $apiInstance->sendMessage($channel_type, $channel_url, $api_token, $send_message_data);
@@ -722,11 +722,11 @@ Name | Type | Description  | Notes
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **send_message_data** | [**\OpenAPI\Client\Model\SendMessageData**](../Model/SendMessageData.md)|  | [optional]
+ **send_message_data** | [**\Sendbird\Model\SendMessageData**](../Model/SendMessageData.md)|  | [optional]
 
 ### Return type
 
-[**AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage**](../Model/AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage.md)
+[**\Sendbird\Model\SendBirdMessageResponse**](../Model/SendBirdMessageResponse.md)
 
 ### Authorization
 
@@ -744,7 +744,7 @@ No authorization required
 ## `translateMessageIntoOtherLanguages()`
 
 ```php
-translateMessageIntoOtherLanguages($channel_type, $channel_url, $message_id, $api_token, $body): AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage
+translateMessageIntoOtherLanguages($channel_type, $channel_url, $message_id, $api_token, $body): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 Translate a message into other languages
@@ -759,7 +759,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -790,7 +790,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage**](../Model/AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage.md)
+[**\Sendbird\Model\SendBirdMessageResponse**](../Model/SendBirdMessageResponse.md)
 
 ### Authorization
 
@@ -808,7 +808,7 @@ No authorization required
 ## `updateExtraDataInMessage()`
 
 ```php
-updateExtraDataInMessage($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data): \OpenAPI\Client\Model\InlineResponse20055
+updateExtraDataInMessage($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data): \Sendbird\Model\InlineResponse20054
 ```
 
 Update extra data in a message
@@ -823,7 +823,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -832,7 +832,7 @@ $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_extra_data_in_message_data = new \OpenAPI\Client\Model\UpdateExtraDataInMessageData(); // \OpenAPI\Client\Model\UpdateExtraDataInMessageData
+$update_extra_data_in_message_data = new \Sendbird\Model\UpdateExtraDataInMessageData(); // \Sendbird\Model\UpdateExtraDataInMessageData
 
 try {
     $result = $apiInstance->updateExtraDataInMessage($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data);
@@ -850,11 +850,11 @@ Name | Type | Description  | Notes
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_extra_data_in_message_data** | [**\OpenAPI\Client\Model\UpdateExtraDataInMessageData**](../Model/UpdateExtraDataInMessageData.md)|  | [optional]
+ **update_extra_data_in_message_data** | [**\Sendbird\Model\UpdateExtraDataInMessageData**](../Model/UpdateExtraDataInMessageData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20055**](../Model/InlineResponse20055.md)
+[**\Sendbird\Model\InlineResponse20054**](../Model/InlineResponse20054.md)
 
 ### Authorization
 
@@ -872,7 +872,7 @@ No authorization required
 ## `updateMessageById()`
 
 ```php
-updateMessageById($channel_type, $channel_url, $message_id, $api_token, $update_message_by_id_data): AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage
+updateMessageById($channel_type, $channel_url, $message_id, $api_token, $update_message_by_id_data): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 Update a message
@@ -887,7 +887,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -896,7 +896,7 @@ $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_message_by_id_data = new \OpenAPI\Client\Model\UpdateMessageByIdData(); // \OpenAPI\Client\Model\UpdateMessageByIdData
+$update_message_by_id_data = new \Sendbird\Model\UpdateMessageByIdData(); // \Sendbird\Model\UpdateMessageByIdData
 
 try {
     $result = $apiInstance->updateMessageById($channel_type, $channel_url, $message_id, $api_token, $update_message_by_id_data);
@@ -914,11 +914,11 @@ Name | Type | Description  | Notes
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_message_by_id_data** | [**\OpenAPI\Client\Model\UpdateMessageByIdData**](../Model/UpdateMessageByIdData.md)|  | [optional]
+ **update_message_by_id_data** | [**\Sendbird\Model\UpdateMessageByIdData**](../Model/UpdateMessageByIdData.md)|  | [optional]
 
 ### Return type
 
-[**AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage**](../Model/AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage.md)
+[**\Sendbird\Model\SendBirdMessageResponse**](../Model/SendBirdMessageResponse.md)
 
 ### Authorization
 
@@ -936,7 +936,7 @@ No authorization required
 ## `viewMessageById()`
 
 ```php
-viewMessageById($channel_type, $channel_url, $message_id, $api_token, $with_sorted_meta_array, $with_meta_array): AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage
+viewMessageById($channel_type, $channel_url, $message_id, $api_token, $with_sorted_meta_array, $with_meta_array): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 View a message
@@ -951,7 +951,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -984,7 +984,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage**](../Model/AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage.md)
+[**\Sendbird\Model\SendBirdMessageResponse**](../Model/SendBirdMessageResponse.md)
 
 ### Authorization
 
@@ -1002,7 +1002,7 @@ No authorization required
 ## `viewTotalNumberOfMessagesInChannel()`
 
 ```php
-viewTotalNumberOfMessagesInChannel($channel_type, $channel_url, $api_token): \OpenAPI\Client\Model\InlineResponse20049
+viewTotalNumberOfMessagesInChannel($channel_type, $channel_url, $api_token): \Sendbird\Model\InlineResponse20048
 ```
 
 View total number of messages in a channel
@@ -1017,7 +1017,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MessagesApi(
+$apiInstance = new Sendbird\Api\MessagesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1044,7 +1044,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20049**](../Model/InlineResponse20049.md)
+[**\Sendbird\Model\InlineResponse20048**](../Model/InlineResponse20048.md)
 
 ### Authorization
 

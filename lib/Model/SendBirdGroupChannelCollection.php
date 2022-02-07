@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdGroupChannelCollection Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class SendBirdGroupChannelCollection implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channel_list' => '\OpenAPI\Client\Model\SendBirdGroupChannel[]',
+        'channel_list' => '\Sendbird\Model\SendBirdGroupChannel[]',
         'has_more' => 'bool'
     ];
 
@@ -102,8 +102,8 @@ class SendBirdGroupChannelCollection implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'channel_list' => 'channelList',
-        'has_more' => 'hasMore'
+        'channel_list' => 'channel_list',
+        'has_more' => 'has_more'
     ];
 
     /**
@@ -214,7 +214,7 @@ class SendBirdGroupChannelCollection implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets channel_list
      *
-     * @return \OpenAPI\Client\Model\SendBirdGroupChannel[]|null
+     * @return \Sendbird\Model\SendBirdGroupChannel[]|null
      */
     public function getChannelList()
     {
@@ -224,7 +224,7 @@ class SendBirdGroupChannelCollection implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets channel_list
      *
-     * @param \OpenAPI\Client\Model\SendBirdGroupChannel[]|null $channel_list channel_list
+     * @param \Sendbird\Model\SendBirdGroupChannel[]|null $channel_list channel_list
      *
      * @return self
      */

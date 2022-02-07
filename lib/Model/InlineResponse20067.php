@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20067 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20067 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'webhook' => '\OpenAPI\Client\Model\InlineResponse20067Webhook'
+        'webhook' => '\Sendbird\Model\InlineResponse20067Webhook'
     ];
 
     /**
@@ -208,7 +208,7 @@ class InlineResponse20067 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets webhook
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20067Webhook|null
+     * @return \Sendbird\Model\InlineResponse20067Webhook|null
      */
     public function getWebhook()
     {
@@ -218,7 +218,7 @@ class InlineResponse20067 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets webhook
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20067Webhook|null $webhook webhook
+     * @param \Sendbird\Model\InlineResponse20067Webhook|null $webhook webhook
      *
      * @return self
      */

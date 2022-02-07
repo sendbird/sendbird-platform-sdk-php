@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdMember Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -66,14 +66,14 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_blocked_by_me' => 'bool',
         'is_blocking_me' => 'bool',
         'is_muted' => 'bool',
-        'last_seen_at' => 'string',
-        'meta_data' => '\OpenAPI\Client\Model\Object',
+        'last_seen_at' => 'int',
+        'meta_data' => '\Sendbird\Model\Object',
         'nickname' => 'string',
         'plain_profile_url' => 'string',
         'preferred_languages' => 'string[]',
         'profile_url' => 'string',
         'require_auth' => 'bool',
-        'restriction_info' => '\OpenAPI\Client\Model\SendBirdRestrictionInfo',
+        'restriction_info' => '\Sendbird\Model\SendBirdRestrictionInfo',
         'role' => 'string',
         'state' => 'string',
         'user_id' => 'string'
@@ -134,24 +134,24 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'connection_status' => 'connectionStatus',
-        'friend_discovery_key' => 'friendDiscoveryKey',
-        'friend_name' => 'friendName',
-        'is_active' => 'isActive',
-        'is_blocked_by_me' => 'isBlockedByMe',
-        'is_blocking_me' => 'isBlockingMe',
-        'is_muted' => 'isMuted',
-        'last_seen_at' => 'lastSeenAt',
-        'meta_data' => 'metaData',
+        'connection_status' => 'connection_status',
+        'friend_discovery_key' => 'friend_discovery_key',
+        'friend_name' => 'friend_name',
+        'is_active' => 'is_active',
+        'is_blocked_by_me' => 'is_blocked_by_me',
+        'is_blocking_me' => 'is_blocking_me',
+        'is_muted' => 'is_muted',
+        'last_seen_at' => 'last_seen_at',
+        'meta_data' => 'meta_data',
         'nickname' => 'nickname',
-        'plain_profile_url' => 'plainProfileUrl',
-        'preferred_languages' => 'preferredLanguages',
-        'profile_url' => 'profileUrl',
-        'require_auth' => 'requireAuth',
-        'restriction_info' => 'restrictionInfo',
+        'plain_profile_url' => 'plain_profile_url',
+        'preferred_languages' => 'preferred_languages',
+        'profile_url' => 'profile_url',
+        'require_auth' => 'require_auth',
+        'restriction_info' => 'restriction_info',
         'role' => 'role',
         'state' => 'state',
-        'user_id' => 'userId'
+        'user_id' => 'user_id'
     ];
 
     /**
@@ -526,7 +526,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_seen_at
      *
-     * @return string|null
+     * @return int|null
      */
     public function getLastSeenAt()
     {
@@ -536,7 +536,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_seen_at
      *
-     * @param string|null $last_seen_at last_seen_at
+     * @param int|null $last_seen_at last_seen_at
      *
      * @return self
      */
@@ -550,7 +550,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets meta_data
      *
-     * @return \OpenAPI\Client\Model\Object|null
+     * @return \Sendbird\Model\Object|null
      */
     public function getMetaData()
     {
@@ -560,7 +560,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets meta_data
      *
-     * @param \OpenAPI\Client\Model\Object|null $meta_data meta_data
+     * @param \Sendbird\Model\Object|null $meta_data meta_data
      *
      * @return self
      */
@@ -694,7 +694,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets restriction_info
      *
-     * @return \OpenAPI\Client\Model\SendBirdRestrictionInfo|null
+     * @return \Sendbird\Model\SendBirdRestrictionInfo|null
      */
     public function getRestrictionInfo()
     {
@@ -704,7 +704,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets restriction_info
      *
-     * @param \OpenAPI\Client\Model\SendBirdRestrictionInfo|null $restriction_info restriction_info
+     * @param \Sendbird\Model\SendBirdRestrictionInfo|null $restriction_info restriction_info
      *
      * @return self
      */

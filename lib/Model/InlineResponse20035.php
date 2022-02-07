@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20035 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,11 @@ class InlineResponse20035 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'operators' => '\OpenAPI\Client\Model\SendBirdUser[]',
-        'next' => 'string'
+        'is_muted' => 'bool',
+        'remaining_duration' => 'float',
+        'start_at' => 'float',
+        'end_at' => 'float',
+        'description' => 'string'
     ];
 
     /**
@@ -71,8 +74,11 @@ class InlineResponse20035 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'operators' => null,
-        'next' => null
+        'is_muted' => null,
+        'remaining_duration' => null,
+        'start_at' => null,
+        'end_at' => null,
+        'description' => null
     ];
 
     /**
@@ -102,8 +108,11 @@ class InlineResponse20035 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'operators' => 'operators',
-        'next' => 'next'
+        'is_muted' => 'is_muted',
+        'remaining_duration' => 'remaining_duration',
+        'start_at' => 'start_at',
+        'end_at' => 'end_at',
+        'description' => 'description'
     ];
 
     /**
@@ -112,8 +121,11 @@ class InlineResponse20035 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'operators' => 'setOperators',
-        'next' => 'setNext'
+        'is_muted' => 'setIsMuted',
+        'remaining_duration' => 'setRemainingDuration',
+        'start_at' => 'setStartAt',
+        'end_at' => 'setEndAt',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -122,8 +134,11 @@ class InlineResponse20035 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'operators' => 'getOperators',
-        'next' => 'getNext'
+        'is_muted' => 'getIsMuted',
+        'remaining_duration' => 'getRemainingDuration',
+        'start_at' => 'getStartAt',
+        'end_at' => 'getEndAt',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -183,8 +198,11 @@ class InlineResponse20035 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['operators'] = $data['operators'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
+        $this->container['is_muted'] = $data['is_muted'] ?? null;
+        $this->container['remaining_duration'] = $data['remaining_duration'] ?? null;
+        $this->container['start_at'] = $data['start_at'] ?? null;
+        $this->container['end_at'] = $data['end_at'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
     }
 
     /**
@@ -212,49 +230,121 @@ class InlineResponse20035 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets operators
+     * Gets is_muted
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser[]|null
+     * @return bool|null
      */
-    public function getOperators()
+    public function getIsMuted()
     {
-        return $this->container['operators'];
+        return $this->container['is_muted'];
     }
 
     /**
-     * Sets operators
+     * Sets is_muted
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser[]|null $operators operators
+     * @param bool|null $is_muted is_muted
      *
      * @return self
      */
-    public function setOperators($operators)
+    public function setIsMuted($is_muted)
     {
-        $this->container['operators'] = $operators;
+        $this->container['is_muted'] = $is_muted;
 
         return $this;
     }
 
     /**
-     * Gets next
+     * Gets remaining_duration
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getNext()
+    public function getRemainingDuration()
     {
-        return $this->container['next'];
+        return $this->container['remaining_duration'];
     }
 
     /**
-     * Sets next
+     * Sets remaining_duration
      *
-     * @param string|null $next next
+     * @param float|null $remaining_duration remaining_duration
      *
      * @return self
      */
-    public function setNext($next)
+    public function setRemainingDuration($remaining_duration)
     {
-        $this->container['next'] = $next;
+        $this->container['remaining_duration'] = $remaining_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_at
+     *
+     * @return float|null
+     */
+    public function getStartAt()
+    {
+        return $this->container['start_at'];
+    }
+
+    /**
+     * Sets start_at
+     *
+     * @param float|null $start_at start_at
+     *
+     * @return self
+     */
+    public function setStartAt($start_at)
+    {
+        $this->container['start_at'] = $start_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_at
+     *
+     * @return float|null
+     */
+    public function getEndAt()
+    {
+        return $this->container['end_at'];
+    }
+
+    /**
+     * Sets end_at
+     *
+     * @param float|null $end_at end_at
+     *
+     * @return self
+     */
+    public function setEndAt($end_at)
+    {
+        $this->container['end_at'] = $end_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

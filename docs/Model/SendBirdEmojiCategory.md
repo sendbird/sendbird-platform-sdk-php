@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**emojis** | [**\OpenAPI\Client\Model\SendBirdEmoji[]**](SendBirdEmoji.md) |  | [optional]
+**emojis** | [**\Sendbird\Model\SendBirdEmoji[]**](SendBirdEmoji.md) |  | [optional]
 **id** | **float** |  | [optional]
 **name** | **string** |  | [optional]
 **url** | **string** |  | [optional]

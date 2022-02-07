@@ -1,4 +1,4 @@
-# OpenAPI\Client\DataPrivacyApi
+# Sendbird\DataPrivacyApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -28,7 +28,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DataPrivacyApi(
+$apiInstance = new Sendbird\Api\DataPrivacyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -61,7 +61,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -70,7 +70,7 @@ No authorization required
 ## `listGdprRequests()`
 
 ```php
-listGdprRequests($api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20069
+listGdprRequests($api_token, $token, $limit): \Sendbird\Model\InlineResponse20068
 ```
 
 List GDPR requests
@@ -85,7 +85,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DataPrivacyApi(
+$apiInstance = new Sendbird\Api\DataPrivacyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20069**](../Model/InlineResponse20069.md)
+[**\Sendbird\Model\InlineResponse20068**](../Model/InlineResponse20068.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ No authorization required
 ## `registerGdprRequest()`
 
 ```php
-registerGdprRequest($api_token, $register_gdpr_request_data): \OpenAPI\Client\Model\InlineResponse20070
+registerGdprRequest($api_token, $register_gdpr_request_data): \Sendbird\Model\InlineResponse20069
 ```
 
 Register a GDPR request
@@ -145,13 +145,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DataPrivacyApi(
+$apiInstance = new Sendbird\Api\DataPrivacyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$register_gdpr_request_data = new \OpenAPI\Client\Model\RegisterGdprRequestData(); // \OpenAPI\Client\Model\RegisterGdprRequestData
+$register_gdpr_request_data = new \Sendbird\Model\RegisterGdprRequestData(); // \Sendbird\Model\RegisterGdprRequestData
 
 try {
     $result = $apiInstance->registerGdprRequest($api_token, $register_gdpr_request_data);
@@ -166,11 +166,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **register_gdpr_request_data** | [**\OpenAPI\Client\Model\RegisterGdprRequestData**](../Model/RegisterGdprRequestData.md)|  | [optional]
+ **register_gdpr_request_data** | [**\Sendbird\Model\RegisterGdprRequestData**](../Model/RegisterGdprRequestData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20070**](../Model/InlineResponse20070.md)
+[**\Sendbird\Model\InlineResponse20069**](../Model/InlineResponse20069.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ No authorization required
 ## `viewGdprRequestById()`
 
 ```php
-viewGdprRequestById($request_id, $api_token): \OpenAPI\Client\Model\InlineResponse20069Requests
+viewGdprRequestById($request_id, $api_token): \Sendbird\Model\InlineResponse20068Requests
 ```
 
 View a GDPR request
@@ -203,7 +203,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DataPrivacyApi(
+$apiInstance = new Sendbird\Api\DataPrivacyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20069Requests**](../Model/InlineResponse20069Requests.md)
+[**\Sendbird\Model\InlineResponse20068Requests**](../Model/InlineResponse20068Requests.md)
 
 ### Authorization
 

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20031 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,8 @@ class InlineResponse20031 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channels' => '\OpenAPI\Client\Model\SendBirdOpenChannel[]',
+        'muted_list' => '\Sendbird\Model\SendBirdUser[]',
+        'total_mute_count' => 'float',
         'next' => 'string'
     ];
 
@@ -71,7 +72,8 @@ class InlineResponse20031 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'channels' => null,
+        'muted_list' => null,
+        'total_mute_count' => null,
         'next' => null
     ];
 
@@ -102,7 +104,8 @@ class InlineResponse20031 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'channels' => 'channels',
+        'muted_list' => 'muted_list',
+        'total_mute_count' => 'total_mute_count',
         'next' => 'next'
     ];
 
@@ -112,7 +115,8 @@ class InlineResponse20031 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'channels' => 'setChannels',
+        'muted_list' => 'setMutedList',
+        'total_mute_count' => 'setTotalMuteCount',
         'next' => 'setNext'
     ];
 
@@ -122,7 +126,8 @@ class InlineResponse20031 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'channels' => 'getChannels',
+        'muted_list' => 'getMutedList',
+        'total_mute_count' => 'getTotalMuteCount',
         'next' => 'getNext'
     ];
 
@@ -183,7 +188,8 @@ class InlineResponse20031 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['channels'] = $data['channels'] ?? null;
+        $this->container['muted_list'] = $data['muted_list'] ?? null;
+        $this->container['total_mute_count'] = $data['total_mute_count'] ?? null;
         $this->container['next'] = $data['next'] ?? null;
     }
 
@@ -212,25 +218,49 @@ class InlineResponse20031 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets channels
+     * Gets muted_list
      *
-     * @return \OpenAPI\Client\Model\SendBirdOpenChannel[]|null
+     * @return \Sendbird\Model\SendBirdUser[]|null
      */
-    public function getChannels()
+    public function getMutedList()
     {
-        return $this->container['channels'];
+        return $this->container['muted_list'];
     }
 
     /**
-     * Sets channels
+     * Sets muted_list
      *
-     * @param \OpenAPI\Client\Model\SendBirdOpenChannel[]|null $channels channels
+     * @param \Sendbird\Model\SendBirdUser[]|null $muted_list muted_list
      *
      * @return self
      */
-    public function setChannels($channels)
+    public function setMutedList($muted_list)
     {
-        $this->container['channels'] = $channels;
+        $this->container['muted_list'] = $muted_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_mute_count
+     *
+     * @return float|null
+     */
+    public function getTotalMuteCount()
+    {
+        return $this->container['total_mute_count'];
+    }
+
+    /**
+     * Sets total_mute_count
+     *
+     * @param float|null $total_mute_count total_mute_count
+     *
+     * @return self
+     */
+    public function setTotalMuteCount($total_mute_count)
+    {
+        $this->container['total_mute_count'] = $total_mute_count;
 
         return $this;
     }

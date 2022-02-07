@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * AddExtraDataToMessageData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,8 +62,7 @@ class AddExtraDataToMessageData implements ModelInterface, ArrayAccess, \JsonSer
         'channel_type' => 'string',
         'channel_url' => 'string',
         'message_id' => 'int',
-        'sorted_metaarray' => 'string',
-        'metaarray' => 'string'
+        'sorted_metaarray' => 'string'
     ];
 
     /**
@@ -77,8 +76,7 @@ class AddExtraDataToMessageData implements ModelInterface, ArrayAccess, \JsonSer
         'channel_type' => null,
         'channel_url' => null,
         'message_id' => null,
-        'sorted_metaarray' => null,
-        'metaarray' => null
+        'sorted_metaarray' => null
     ];
 
     /**
@@ -111,8 +109,7 @@ class AddExtraDataToMessageData implements ModelInterface, ArrayAccess, \JsonSer
         'channel_type' => 'channel_type',
         'channel_url' => 'channel_url',
         'message_id' => 'message_id',
-        'sorted_metaarray' => 'sorted_metaarray',
-        'metaarray' => 'metaarray'
+        'sorted_metaarray' => 'sorted_metaarray'
     ];
 
     /**
@@ -124,8 +121,7 @@ class AddExtraDataToMessageData implements ModelInterface, ArrayAccess, \JsonSer
         'channel_type' => 'setChannelType',
         'channel_url' => 'setChannelUrl',
         'message_id' => 'setMessageId',
-        'sorted_metaarray' => 'setSortedMetaarray',
-        'metaarray' => 'setMetaarray'
+        'sorted_metaarray' => 'setSortedMetaarray'
     ];
 
     /**
@@ -137,8 +133,7 @@ class AddExtraDataToMessageData implements ModelInterface, ArrayAccess, \JsonSer
         'channel_type' => 'getChannelType',
         'channel_url' => 'getChannelUrl',
         'message_id' => 'getMessageId',
-        'sorted_metaarray' => 'getSortedMetaarray',
-        'metaarray' => 'getMetaarray'
+        'sorted_metaarray' => 'getSortedMetaarray'
     ];
 
     /**
@@ -202,7 +197,6 @@ class AddExtraDataToMessageData implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['channel_url'] = $data['channel_url'] ?? null;
         $this->container['message_id'] = $data['message_id'] ?? null;
         $this->container['sorted_metaarray'] = $data['sorted_metaarray'] ?? null;
-        $this->container['metaarray'] = $data['metaarray'] ?? null;
     }
 
     /**
@@ -225,9 +219,6 @@ class AddExtraDataToMessageData implements ModelInterface, ArrayAccess, \JsonSer
         }
         if ($this->container['sorted_metaarray'] === null) {
             $invalidProperties[] = "'sorted_metaarray' can't be null";
-        }
-        if ($this->container['metaarray'] === null) {
-            $invalidProperties[] = "'metaarray' can't be null";
         }
         return $invalidProperties;
     }
@@ -336,30 +327,6 @@ class AddExtraDataToMessageData implements ModelInterface, ArrayAccess, \JsonSer
     public function setSortedMetaarray($sorted_metaarray)
     {
         $this->container['sorted_metaarray'] = $sorted_metaarray;
-
-        return $this;
-    }
-
-    /**
-     * Gets metaarray
-     *
-     * @return string
-     */
-    public function getMetaarray()
-    {
-        return $this->container['metaarray'];
-    }
-
-    /**
-     * Sets metaarray
-     *
-     * @param string $metaarray (Deprecated) Specifies a `JSON` object of one or more key-values items which store additional message information. The item consists of a key and the values in an array.
-     *
-     * @return self
-     */
-    public function setMetaarray($metaarray)
-    {
-        $this->container['metaarray'] = $metaarray;
 
         return $this;
     }

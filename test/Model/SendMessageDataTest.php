@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description SendMessageData
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -74,6 +74,15 @@ class SendMessageDataTest extends TestCase
      * Test "SendMessageData"
      */
     public function testSendMessageData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "user_id"
+     */
+    public function testPropertyUserId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -197,9 +206,27 @@ class SendMessageDataTest extends TestCase
     }
 
     /**
-     * Test attribute "metaarray"
+     * Test attribute "apns_bundle_id"
      */
-    public function testPropertyMetaarray()
+    public function testPropertyApnsBundleId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "sound"
+     */
+    public function testPropertySound()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "volume"
+     */
+    public function testPropertyVolume()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

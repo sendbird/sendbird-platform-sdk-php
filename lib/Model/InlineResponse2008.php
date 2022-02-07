@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse2008 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'token' => 'string',
-        'created_at' => 'float'
+        'api_tokens' => '\Sendbird\Model\InlineResponse2007[]'
     ];
 
     /**
@@ -71,8 +70,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'token' => null,
-        'created_at' => null
+        'api_tokens' => null
     ];
 
     /**
@@ -102,8 +100,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'token' => 'token',
-        'created_at' => 'created_at'
+        'api_tokens' => 'api_tokens'
     ];
 
     /**
@@ -112,8 +109,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'token' => 'setToken',
-        'created_at' => 'setCreatedAt'
+        'api_tokens' => 'setApiTokens'
     ];
 
     /**
@@ -122,8 +118,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'token' => 'getToken',
-        'created_at' => 'getCreatedAt'
+        'api_tokens' => 'getApiTokens'
     ];
 
     /**
@@ -183,8 +178,7 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['token'] = $data['token'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['api_tokens'] = $data['api_tokens'] ?? null;
     }
 
     /**
@@ -212,49 +206,25 @@ class InlineResponse2008 implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets token
+     * Gets api_tokens
      *
-     * @return string|null
+     * @return \Sendbird\Model\InlineResponse2007[]|null
      */
-    public function getToken()
+    public function getApiTokens()
     {
-        return $this->container['token'];
+        return $this->container['api_tokens'];
     }
 
     /**
-     * Sets token
+     * Sets api_tokens
      *
-     * @param string|null $token token
+     * @param \Sendbird\Model\InlineResponse2007[]|null $api_tokens api_tokens
      *
      * @return self
      */
-    public function setToken($token)
+    public function setApiTokens($api_tokens)
     {
-        $this->container['token'] = $token;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return float|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param float|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
+        $this->container['api_tokens'] = $api_tokens;
 
         return $this;
     }

@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Sendbird\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Sendbird\ApiException;
+use Sendbird\Configuration;
+use Sendbird\HeaderSelector;
+use Sendbird\ObjectSerializer;
 
 /**
  * WebhooksApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -121,11 +121,11 @@ class WebhooksApi
      * Choose which events to subscribe to
      *
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data choose_which_events_to_subscribe_to_data (optional)
+     * @param  \Sendbird\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data choose_which_events_to_subscribe_to_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20068
+     * @return \Sendbird\Model\InlineResponse20067
      */
     public function chooseWhichEventsToSubscribeTo($api_token = null, $choose_which_events_to_subscribe_to_data = null)
     {
@@ -139,11 +139,11 @@ class WebhooksApi
      * Choose which events to subscribe to
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
+     * @param  \Sendbird\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20068, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20067, HTTP status code, HTTP response headers (array of strings)
      */
     public function chooseWhichEventsToSubscribeToWithHttpInfo($api_token = null, $choose_which_events_to_subscribe_to_data = null)
     {
@@ -186,20 +186,20 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20068' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20067' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20068', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20067', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20068';
+            $returnType = '\Sendbird\Model\InlineResponse20067';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -217,7 +217,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20068',
+                        '\Sendbird\Model\InlineResponse20067',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -233,7 +233,7 @@ class WebhooksApi
      * Choose which events to subscribe to
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
+     * @param  \Sendbird\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -254,14 +254,14 @@ class WebhooksApi
      * Choose which events to subscribe to
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
+     * @param  \Sendbird\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function chooseWhichEventsToSubscribeToAsyncWithHttpInfo($api_token = null, $choose_which_events_to_subscribe_to_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20068';
+        $returnType = '\Sendbird\Model\InlineResponse20067';
         $request = $this->chooseWhichEventsToSubscribeToRequest($api_token, $choose_which_events_to_subscribe_to_data);
 
         return $this->client
@@ -301,7 +301,7 @@ class WebhooksApi
      * Create request for operation 'chooseWhichEventsToSubscribeTo'
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
+     * @param  \Sendbird\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -395,9 +395,9 @@ class WebhooksApi
      * @param  string $api_token api_token (optional)
      * @param  bool $display_all_webhook_categories display_all_webhook_categories (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20067
+     * @return \Sendbird\Model\InlineResponse20066
      */
     public function retrieveListOfSubscribedEvents($api_token = null, $display_all_webhook_categories = null)
     {
@@ -413,9 +413,9 @@ class WebhooksApi
      * @param  string $api_token (optional)
      * @param  bool $display_all_webhook_categories (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20067, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20066, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveListOfSubscribedEventsWithHttpInfo($api_token = null, $display_all_webhook_categories = null)
     {
@@ -458,20 +458,20 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20067' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20066' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20067', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20066', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20067';
+            $returnType = '\Sendbird\Model\InlineResponse20066';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -489,7 +489,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20067',
+                        '\Sendbird\Model\InlineResponse20066',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -533,7 +533,7 @@ class WebhooksApi
      */
     public function retrieveListOfSubscribedEventsAsyncWithHttpInfo($api_token = null, $display_all_webhook_categories = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20067';
+        $returnType = '\Sendbird\Model\InlineResponse20066';
         $request = $this->retrieveListOfSubscribedEventsRequest($api_token, $display_all_webhook_categories);
 
         return $this->client

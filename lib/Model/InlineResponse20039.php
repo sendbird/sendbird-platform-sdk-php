@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20039 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,8 @@ class InlineResponse20039 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'operator_ids' => 'string[]'
+        'announcements' => '\Sendbird\Model\InlineResponse20039Announcements[]',
+        'next' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class InlineResponse20039 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'operator_ids' => null
+        'announcements' => null,
+        'next' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class InlineResponse20039 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'operator_ids' => 'operator_ids'
+        'announcements' => 'announcements',
+        'next' => 'next'
     ];
 
     /**
@@ -109,7 +112,8 @@ class InlineResponse20039 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'operator_ids' => 'setOperatorIds'
+        'announcements' => 'setAnnouncements',
+        'next' => 'setNext'
     ];
 
     /**
@@ -118,7 +122,8 @@ class InlineResponse20039 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'operator_ids' => 'getOperatorIds'
+        'announcements' => 'getAnnouncements',
+        'next' => 'getNext'
     ];
 
     /**
@@ -178,7 +183,8 @@ class InlineResponse20039 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['operator_ids'] = $data['operator_ids'] ?? null;
+        $this->container['announcements'] = $data['announcements'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class InlineResponse20039 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets operator_ids
+     * Gets announcements
      *
-     * @return string[]|null
+     * @return \Sendbird\Model\InlineResponse20039Announcements[]|null
      */
-    public function getOperatorIds()
+    public function getAnnouncements()
     {
-        return $this->container['operator_ids'];
+        return $this->container['announcements'];
     }
 
     /**
-     * Sets operator_ids
+     * Sets announcements
      *
-     * @param string[]|null $operator_ids operator_ids
+     * @param \Sendbird\Model\InlineResponse20039Announcements[]|null $announcements announcements
      *
      * @return self
      */
-    public function setOperatorIds($operator_ids)
+    public function setAnnouncements($announcements)
     {
-        $this->container['operator_ids'] = $operator_ids;
+        $this->container['announcements'] = $announcements;
+
+        return $this;
+    }
+
+    /**
+     * Gets next
+     *
+     * @return string|null
+     */
+    public function getNext()
+    {
+        return $this->container['next'];
+    }
+
+    /**
+     * Sets next
+     *
+     * @param string|null $next next
+     *
+     * @return self
+     */
+    public function setNext($next)
+    {
+        $this->container['next'] = $next;
 
         return $this;
     }

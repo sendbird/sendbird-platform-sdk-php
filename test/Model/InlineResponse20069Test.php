@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse20069
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -80,18 +80,63 @@ class InlineResponse20069Test extends TestCase
     }
 
     /**
-     * Test attribute "requests"
+     * Test attribute "request_id"
      */
-    public function testPropertyRequests()
+    public function testPropertyRequestId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "next"
+     * Test attribute "action"
      */
-    public function testPropertyNext()
+    public function testPropertyAction()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "user_id"
+     */
+    public function testPropertyUserId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "user_ids"
+     */
+    public function testPropertyUserIds()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "channel_delete_option"
+     */
+    public function testPropertyChannelDeleteOption()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

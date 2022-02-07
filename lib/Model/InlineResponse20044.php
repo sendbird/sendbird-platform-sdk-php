@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20044 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'open_status' => '\OpenAPI\Client\Model\InlineResponse20044OpenStatus[]',
-        'next' => 'string'
+        'statistics' => '\Sendbird\Model\InlineResponse20044Statistics[]',
+        'week' => 'float'
     ];
 
     /**
@@ -71,8 +71,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'open_status' => null,
-        'next' => null
+        'statistics' => null,
+        'week' => null
     ];
 
     /**
@@ -102,8 +102,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'open_status' => 'open_status',
-        'next' => 'next'
+        'statistics' => 'statistics',
+        'week' => 'week'
     ];
 
     /**
@@ -112,8 +112,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'open_status' => 'setOpenStatus',
-        'next' => 'setNext'
+        'statistics' => 'setStatistics',
+        'week' => 'setWeek'
     ];
 
     /**
@@ -122,8 +122,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'open_status' => 'getOpenStatus',
-        'next' => 'getNext'
+        'statistics' => 'getStatistics',
+        'week' => 'getWeek'
     ];
 
     /**
@@ -183,8 +183,8 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['open_status'] = $data['open_status'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
+        $this->container['statistics'] = $data['statistics'] ?? null;
+        $this->container['week'] = $data['week'] ?? null;
     }
 
     /**
@@ -212,49 +212,49 @@ class InlineResponse20044 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets open_status
+     * Gets statistics
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20044OpenStatus[]|null
+     * @return \Sendbird\Model\InlineResponse20044Statistics[]|null
      */
-    public function getOpenStatus()
+    public function getStatistics()
     {
-        return $this->container['open_status'];
+        return $this->container['statistics'];
     }
 
     /**
-     * Sets open_status
+     * Sets statistics
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20044OpenStatus[]|null $open_status open_status
+     * @param \Sendbird\Model\InlineResponse20044Statistics[]|null $statistics statistics
      *
      * @return self
      */
-    public function setOpenStatus($open_status)
+    public function setStatistics($statistics)
     {
-        $this->container['open_status'] = $open_status;
+        $this->container['statistics'] = $statistics;
 
         return $this;
     }
 
     /**
-     * Gets next
+     * Gets week
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getNext()
+    public function getWeek()
     {
-        return $this->container['next'];
+        return $this->container['week'];
     }
 
     /**
-     * Sets next
+     * Sets week
      *
-     * @param string|null $next next
+     * @param float|null $week week
      *
      * @return self
      */
-    public function setNext($next)
+    public function setWeek($week)
     {
-        $this->container['next'] = $next;
+        $this->container['week'] = $week;
 
         return $this;
     }

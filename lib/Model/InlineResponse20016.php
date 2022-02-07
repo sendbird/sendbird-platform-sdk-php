@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20016 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,8 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'push_message_templates' => '\OpenAPI\Client\Model\InlineResponse20016PushMessageTemplates[]'
+        'users' => '\Sendbird\Model\SendBirdUser[]',
+        'next' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'push_message_templates' => null
+        'users' => null,
+        'next' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'push_message_templates' => 'push_message_templates'
+        'users' => 'users',
+        'next' => 'next'
     ];
 
     /**
@@ -109,7 +112,8 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'push_message_templates' => 'setPushMessageTemplates'
+        'users' => 'setUsers',
+        'next' => 'setNext'
     ];
 
     /**
@@ -118,7 +122,8 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'push_message_templates' => 'getPushMessageTemplates'
+        'users' => 'getUsers',
+        'next' => 'getNext'
     ];
 
     /**
@@ -178,7 +183,8 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['push_message_templates'] = $data['push_message_templates'] ?? null;
+        $this->container['users'] = $data['users'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class InlineResponse20016 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets push_message_templates
+     * Gets users
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20016PushMessageTemplates[]|null
+     * @return \Sendbird\Model\SendBirdUser[]|null
      */
-    public function getPushMessageTemplates()
+    public function getUsers()
     {
-        return $this->container['push_message_templates'];
+        return $this->container['users'];
     }
 
     /**
-     * Sets push_message_templates
+     * Sets users
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20016PushMessageTemplates[]|null $push_message_templates push_message_templates
+     * @param \Sendbird\Model\SendBirdUser[]|null $users users
      *
      * @return self
      */
-    public function setPushMessageTemplates($push_message_templates)
+    public function setUsers($users)
     {
-        $this->container['push_message_templates'] = $push_message_templates;
+        $this->container['users'] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Gets next
+     *
+     * @return string|null
+     */
+    public function getNext()
+    {
+        return $this->container['next'];
+    }
+
+    /**
+     * Sets next
+     *
+     * @param string|null $next next
+     *
+     * @return self
+     */
+    public function setNext($next)
+    {
+        $this->container['next'] = $next;
 
         return $this;
     }

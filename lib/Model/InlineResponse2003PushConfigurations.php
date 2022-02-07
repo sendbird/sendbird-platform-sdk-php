@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse2003PushConfigurations Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,8 +61,13 @@ class InlineResponse2003PushConfigurations implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'id' => 'string',
         'push_type' => 'string',
-        'huawei_app_id' => 'string',
-        'huawei_app_secret' => 'string',
+        'created_at' => 'float',
+        'apns_cer_env_type' => 'string',
+        'apns_expiration' => 'float',
+        'apns_name' => 'string',
+        'has_unread_count_badge' => 'float',
+        'content_available' => 'bool',
+        'mutable_content' => 'bool',
         'push_sound' => 'string'
     ];
 
@@ -76,8 +81,13 @@ class InlineResponse2003PushConfigurations implements ModelInterface, ArrayAcces
     protected static $openAPIFormats = [
         'id' => null,
         'push_type' => null,
-        'huawei_app_id' => null,
-        'huawei_app_secret' => null,
+        'created_at' => null,
+        'apns_cer_env_type' => null,
+        'apns_expiration' => null,
+        'apns_name' => null,
+        'has_unread_count_badge' => null,
+        'content_available' => null,
+        'mutable_content' => null,
         'push_sound' => null
     ];
 
@@ -110,8 +120,13 @@ class InlineResponse2003PushConfigurations implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'id' => 'id',
         'push_type' => 'push_type',
-        'huawei_app_id' => 'huawei_app_id',
-        'huawei_app_secret' => 'huawei_app_secret',
+        'created_at' => 'created_at',
+        'apns_cer_env_type' => 'apns_cer_env_type',
+        'apns_expiration' => 'apns_expiration',
+        'apns_name' => 'apns_name',
+        'has_unread_count_badge' => 'has_unread_count_badge',
+        'content_available' => 'content_available',
+        'mutable_content' => 'mutable_content',
         'push_sound' => 'push_sound'
     ];
 
@@ -123,8 +138,13 @@ class InlineResponse2003PushConfigurations implements ModelInterface, ArrayAcces
     protected static $setters = [
         'id' => 'setId',
         'push_type' => 'setPushType',
-        'huawei_app_id' => 'setHuaweiAppId',
-        'huawei_app_secret' => 'setHuaweiAppSecret',
+        'created_at' => 'setCreatedAt',
+        'apns_cer_env_type' => 'setApnsCerEnvType',
+        'apns_expiration' => 'setApnsExpiration',
+        'apns_name' => 'setApnsName',
+        'has_unread_count_badge' => 'setHasUnreadCountBadge',
+        'content_available' => 'setContentAvailable',
+        'mutable_content' => 'setMutableContent',
         'push_sound' => 'setPushSound'
     ];
 
@@ -136,8 +156,13 @@ class InlineResponse2003PushConfigurations implements ModelInterface, ArrayAcces
     protected static $getters = [
         'id' => 'getId',
         'push_type' => 'getPushType',
-        'huawei_app_id' => 'getHuaweiAppId',
-        'huawei_app_secret' => 'getHuaweiAppSecret',
+        'created_at' => 'getCreatedAt',
+        'apns_cer_env_type' => 'getApnsCerEnvType',
+        'apns_expiration' => 'getApnsExpiration',
+        'apns_name' => 'getApnsName',
+        'has_unread_count_badge' => 'getHasUnreadCountBadge',
+        'content_available' => 'getContentAvailable',
+        'mutable_content' => 'getMutableContent',
         'push_sound' => 'getPushSound'
     ];
 
@@ -200,8 +225,13 @@ class InlineResponse2003PushConfigurations implements ModelInterface, ArrayAcces
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['push_type'] = $data['push_type'] ?? null;
-        $this->container['huawei_app_id'] = $data['huawei_app_id'] ?? null;
-        $this->container['huawei_app_secret'] = $data['huawei_app_secret'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['apns_cer_env_type'] = $data['apns_cer_env_type'] ?? null;
+        $this->container['apns_expiration'] = $data['apns_expiration'] ?? null;
+        $this->container['apns_name'] = $data['apns_name'] ?? null;
+        $this->container['has_unread_count_badge'] = $data['has_unread_count_badge'] ?? null;
+        $this->container['content_available'] = $data['content_available'] ?? null;
+        $this->container['mutable_content'] = $data['mutable_content'] ?? null;
         $this->container['push_sound'] = $data['push_sound'] ?? null;
     }
 
@@ -278,49 +308,169 @@ class InlineResponse2003PushConfigurations implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets huawei_app_id
+     * Gets created_at
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getHuaweiAppId()
+    public function getCreatedAt()
     {
-        return $this->container['huawei_app_id'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets huawei_app_id
+     * Sets created_at
      *
-     * @param string|null $huawei_app_id huawei_app_id
+     * @param float|null $created_at created_at
      *
      * @return self
      */
-    public function setHuaweiAppId($huawei_app_id)
+    public function setCreatedAt($created_at)
     {
-        $this->container['huawei_app_id'] = $huawei_app_id;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets huawei_app_secret
+     * Gets apns_cer_env_type
      *
      * @return string|null
      */
-    public function getHuaweiAppSecret()
+    public function getApnsCerEnvType()
     {
-        return $this->container['huawei_app_secret'];
+        return $this->container['apns_cer_env_type'];
     }
 
     /**
-     * Sets huawei_app_secret
+     * Sets apns_cer_env_type
      *
-     * @param string|null $huawei_app_secret huawei_app_secret
+     * @param string|null $apns_cer_env_type apns_cer_env_type
      *
      * @return self
      */
-    public function setHuaweiAppSecret($huawei_app_secret)
+    public function setApnsCerEnvType($apns_cer_env_type)
     {
-        $this->container['huawei_app_secret'] = $huawei_app_secret;
+        $this->container['apns_cer_env_type'] = $apns_cer_env_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets apns_expiration
+     *
+     * @return float|null
+     */
+    public function getApnsExpiration()
+    {
+        return $this->container['apns_expiration'];
+    }
+
+    /**
+     * Sets apns_expiration
+     *
+     * @param float|null $apns_expiration apns_expiration
+     *
+     * @return self
+     */
+    public function setApnsExpiration($apns_expiration)
+    {
+        $this->container['apns_expiration'] = $apns_expiration;
+
+        return $this;
+    }
+
+    /**
+     * Gets apns_name
+     *
+     * @return string|null
+     */
+    public function getApnsName()
+    {
+        return $this->container['apns_name'];
+    }
+
+    /**
+     * Sets apns_name
+     *
+     * @param string|null $apns_name apns_name
+     *
+     * @return self
+     */
+    public function setApnsName($apns_name)
+    {
+        $this->container['apns_name'] = $apns_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_unread_count_badge
+     *
+     * @return float|null
+     */
+    public function getHasUnreadCountBadge()
+    {
+        return $this->container['has_unread_count_badge'];
+    }
+
+    /**
+     * Sets has_unread_count_badge
+     *
+     * @param float|null $has_unread_count_badge has_unread_count_badge
+     *
+     * @return self
+     */
+    public function setHasUnreadCountBadge($has_unread_count_badge)
+    {
+        $this->container['has_unread_count_badge'] = $has_unread_count_badge;
+
+        return $this;
+    }
+
+    /**
+     * Gets content_available
+     *
+     * @return bool|null
+     */
+    public function getContentAvailable()
+    {
+        return $this->container['content_available'];
+    }
+
+    /**
+     * Sets content_available
+     *
+     * @param bool|null $content_available content_available
+     *
+     * @return self
+     */
+    public function setContentAvailable($content_available)
+    {
+        $this->container['content_available'] = $content_available;
+
+        return $this;
+    }
+
+    /**
+     * Gets mutable_content
+     *
+     * @return bool|null
+     */
+    public function getMutableContent()
+    {
+        return $this->container['mutable_content'];
+    }
+
+    /**
+     * Sets mutable_content
+     *
+     * @param bool|null $mutable_content mutable_content
+     *
+     * @return self
+     */
+    public function setMutableContent($mutable_content)
+    {
+        $this->container['mutable_content'] = $mutable_content;
 
         return $this;
     }

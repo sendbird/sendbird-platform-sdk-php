@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse2009 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'api_tokens' => '\OpenAPI\Client\Model\InlineResponse2008[]'
+        'peak_connections' => '\Sendbird\Model\InlineResponse2009PeakConnections[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'api_tokens' => null
+        'peak_connections' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'api_tokens' => 'api_tokens'
+        'peak_connections' => 'peak_connections'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'api_tokens' => 'setApiTokens'
+        'peak_connections' => 'setPeakConnections'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'api_tokens' => 'getApiTokens'
+        'peak_connections' => 'getPeakConnections'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['api_tokens'] = $data['api_tokens'] ?? null;
+        $this->container['peak_connections'] = $data['peak_connections'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets api_tokens
+     * Gets peak_connections
      *
-     * @return \OpenAPI\Client\Model\InlineResponse2008[]|null
+     * @return \Sendbird\Model\InlineResponse2009PeakConnections[]|null
      */
-    public function getApiTokens()
+    public function getPeakConnections()
     {
-        return $this->container['api_tokens'];
+        return $this->container['peak_connections'];
     }
 
     /**
-     * Sets api_tokens
+     * Sets peak_connections
      *
-     * @param \OpenAPI\Client\Model\InlineResponse2008[]|null $api_tokens api_tokens
+     * @param \Sendbird\Model\InlineResponse2009PeakConnections[]|null $peak_connections peak_connections
      *
      * @return self
      */
-    public function setApiTokens($api_tokens)
+    public function setPeakConnections($peak_connections)
     {
-        $this->container['api_tokens'] = $api_tokens;
+        $this->container['peak_connections'] = $peak_connections;
 
         return $this;
     }

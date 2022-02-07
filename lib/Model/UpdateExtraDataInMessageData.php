@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * UpdateExtraDataInMessageData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -64,8 +64,7 @@ class UpdateExtraDataInMessageData implements ModelInterface, ArrayAccess, \Json
         'message_id' => 'int',
         'sorted_metaarray' => 'string',
         'mode' => 'string',
-        'upsert' => 'bool',
-        'metaarray' => 'string'
+        'upsert' => 'bool'
     ];
 
     /**
@@ -81,8 +80,7 @@ class UpdateExtraDataInMessageData implements ModelInterface, ArrayAccess, \Json
         'message_id' => null,
         'sorted_metaarray' => null,
         'mode' => null,
-        'upsert' => null,
-        'metaarray' => null
+        'upsert' => null
     ];
 
     /**
@@ -117,8 +115,7 @@ class UpdateExtraDataInMessageData implements ModelInterface, ArrayAccess, \Json
         'message_id' => 'message_id',
         'sorted_metaarray' => 'sorted_metaarray',
         'mode' => 'mode',
-        'upsert' => 'upsert',
-        'metaarray' => 'metaarray'
+        'upsert' => 'upsert'
     ];
 
     /**
@@ -132,8 +129,7 @@ class UpdateExtraDataInMessageData implements ModelInterface, ArrayAccess, \Json
         'message_id' => 'setMessageId',
         'sorted_metaarray' => 'setSortedMetaarray',
         'mode' => 'setMode',
-        'upsert' => 'setUpsert',
-        'metaarray' => 'setMetaarray'
+        'upsert' => 'setUpsert'
     ];
 
     /**
@@ -147,8 +143,7 @@ class UpdateExtraDataInMessageData implements ModelInterface, ArrayAccess, \Json
         'message_id' => 'getMessageId',
         'sorted_metaarray' => 'getSortedMetaarray',
         'mode' => 'getMode',
-        'upsert' => 'getUpsert',
-        'metaarray' => 'getMetaarray'
+        'upsert' => 'getUpsert'
     ];
 
     /**
@@ -214,7 +209,6 @@ class UpdateExtraDataInMessageData implements ModelInterface, ArrayAccess, \Json
         $this->container['sorted_metaarray'] = $data['sorted_metaarray'] ?? null;
         $this->container['mode'] = $data['mode'] ?? null;
         $this->container['upsert'] = $data['upsert'] ?? null;
-        $this->container['metaarray'] = $data['metaarray'] ?? null;
     }
 
     /**
@@ -243,9 +237,6 @@ class UpdateExtraDataInMessageData implements ModelInterface, ArrayAccess, \Json
         }
         if ($this->container['upsert'] === null) {
             $invalidProperties[] = "'upsert' can't be null";
-        }
-        if ($this->container['metaarray'] === null) {
-            $invalidProperties[] = "'metaarray' can't be null";
         }
         return $invalidProperties;
     }
@@ -402,30 +393,6 @@ class UpdateExtraDataInMessageData implements ModelInterface, ArrayAccess, \Json
     public function setUpsert($upsert)
     {
         $this->container['upsert'] = $upsert;
-
-        return $this;
-    }
-
-    /**
-     * Gets metaarray
-     *
-     * @return string
-     */
-    public function getMetaarray()
-    {
-        return $this->container['metaarray'];
-    }
-
-    /**
-     * Sets metaarray
-     *
-     * @param string $metaarray (Deprecated) Specifies a `JSON` object of one or more key-values items which store additional message information. The item consists of a key and the values in an array.
-     *
-     * @return self
-     */
-    public function setMetaarray($metaarray)
-    {
-        $this->container['metaarray'] = $metaarray;
 
         return $this;
     }

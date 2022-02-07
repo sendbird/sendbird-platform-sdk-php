@@ -1,4 +1,4 @@
-# OpenAPI\Client\EmojisApi
+# Sendbird\EmojisApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -21,7 +21,7 @@ Method | HTTP request | Description
 ## `addEmojiCategories()`
 
 ```php
-addEmojiCategories($api_token, $body): \OpenAPI\Client\Model\InlineResponse20058
+addEmojiCategories($api_token, $body): \Sendbird\Model\InlineResponse20057
 ```
 
 Add emoji categories
@@ -36,7 +36,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20058**](../Model/InlineResponse20058.md)
+[**\Sendbird\Model\InlineResponse20057**](../Model/InlineResponse20057.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ No authorization required
 ## `addEmojis()`
 
 ```php
-addEmojis($api_token, $add_emojis_data): \OpenAPI\Client\Model\InlineResponse20060
+addEmojis($api_token, $add_emojis_data): \Sendbird\Model\InlineResponse20059
 ```
 
 Add emojis
@@ -94,13 +94,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$add_emojis_data = new \OpenAPI\Client\Model\AddEmojisData(); // \OpenAPI\Client\Model\AddEmojisData
+$add_emojis_data = new \Sendbird\Model\AddEmojisData(); // \Sendbird\Model\AddEmojisData
 
 try {
     $result = $apiInstance->addEmojis($api_token, $add_emojis_data);
@@ -115,11 +115,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **add_emojis_data** | [**\OpenAPI\Client\Model\AddEmojisData**](../Model/AddEmojisData.md)|  | [optional]
+ **add_emojis_data** | [**\Sendbird\Model\AddEmojisData**](../Model/AddEmojisData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20060**](../Model/InlineResponse20060.md)
+[**\Sendbird\Model\InlineResponse20059**](../Model/InlineResponse20059.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -185,7 +185,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -209,7 +209,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -242,7 +242,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -251,7 +251,7 @@ No authorization required
 ## `enableReactions()`
 
 ```php
-enableReactions($api_token, $enable_reactions_data): \OpenAPI\Client\Model\InlineResponse20052
+enableReactions($api_token, $enable_reactions_data): \Sendbird\Model\InlineResponse20051
 ```
 
 Enable reactions
@@ -266,13 +266,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$enable_reactions_data = new \OpenAPI\Client\Model\EnableReactionsData(); // \OpenAPI\Client\Model\EnableReactionsData
+$enable_reactions_data = new \Sendbird\Model\EnableReactionsData(); // \Sendbird\Model\EnableReactionsData
 
 try {
     $result = $apiInstance->enableReactions($api_token, $enable_reactions_data);
@@ -287,11 +287,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **enable_reactions_data** | [**\OpenAPI\Client\Model\EnableReactionsData**](../Model/EnableReactionsData.md)|  | [optional]
+ **enable_reactions_data** | [**\Sendbird\Model\EnableReactionsData**](../Model/EnableReactionsData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20052**](../Model/InlineResponse20052.md)
+[**\Sendbird\Model\InlineResponse20051**](../Model/InlineResponse20051.md)
 
 ### Authorization
 
@@ -309,7 +309,7 @@ No authorization required
 ## `getEmojiByKey()`
 
 ```php
-getEmojiByKey($emoji_key, $api_token): \OpenAPI\Client\Model\SendBirdEmoji
+getEmojiByKey($emoji_key, $api_token): \Sendbird\Model\SendBirdEmoji
 ```
 
 Get an emoji
@@ -324,7 +324,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdEmoji**](../Model/SendBirdEmoji.md)
+[**\Sendbird\Model\SendBirdEmoji**](../Model/SendBirdEmoji.md)
 
 ### Authorization
 
@@ -367,7 +367,7 @@ No authorization required
 ## `getEmojiCategoryById()`
 
 ```php
-getEmojiCategoryById($emoji_category_id, $api_token): \OpenAPI\Client\Model\SendBirdEmojiCategory
+getEmojiCategoryById($emoji_category_id, $api_token): \Sendbird\Model\SendBirdEmojiCategory
 ```
 
 Get an emoji category
@@ -382,7 +382,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdEmojiCategory**](../Model/SendBirdEmojiCategory.md)
+[**\Sendbird\Model\SendBirdEmojiCategory**](../Model/SendBirdEmojiCategory.md)
 
 ### Authorization
 
@@ -425,7 +425,7 @@ No authorization required
 ## `listAllEmojisAndEmojiCategories()`
 
 ```php
-listAllEmojisAndEmojiCategories($api_token): \OpenAPI\Client\Model\InlineResponse20057
+listAllEmojisAndEmojiCategories($api_token): \Sendbird\Model\InlineResponse20056
 ```
 
 List all emojis and emoji categories
@@ -440,7 +440,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20057**](../Model/InlineResponse20057.md)
+[**\Sendbird\Model\InlineResponse20056**](../Model/InlineResponse20056.md)
 
 ### Authorization
 
@@ -481,7 +481,7 @@ No authorization required
 ## `listEmojis()`
 
 ```php
-listEmojis($api_token): \OpenAPI\Client\Model\InlineResponse20059
+listEmojis($api_token): \Sendbird\Model\InlineResponse20058
 ```
 
 List emojis
@@ -496,7 +496,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20059**](../Model/InlineResponse20059.md)
+[**\Sendbird\Model\InlineResponse20058**](../Model/InlineResponse20058.md)
 
 ### Authorization
 
@@ -537,7 +537,7 @@ No authorization required
 ## `updateEmojiCategoryUrlById()`
 
 ```php
-updateEmojiCategoryUrlById($emoji_category_id, $api_token, $update_emoji_category_url_by_id_data): \OpenAPI\Client\Model\SendBirdEmojiCategory
+updateEmojiCategoryUrlById($emoji_category_id, $api_token, $update_emoji_category_url_by_id_data): \Sendbird\Model\SendBirdEmojiCategory
 ```
 
 Update an emoji category URL
@@ -552,14 +552,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $emoji_category_id = 'emoji_category_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_emoji_category_url_by_id_data = new \OpenAPI\Client\Model\UpdateEmojiCategoryUrlByIdData(); // \OpenAPI\Client\Model\UpdateEmojiCategoryUrlByIdData
+$update_emoji_category_url_by_id_data = new \Sendbird\Model\UpdateEmojiCategoryUrlByIdData(); // \Sendbird\Model\UpdateEmojiCategoryUrlByIdData
 
 try {
     $result = $apiInstance->updateEmojiCategoryUrlById($emoji_category_id, $api_token, $update_emoji_category_url_by_id_data);
@@ -575,11 +575,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **emoji_category_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_emoji_category_url_by_id_data** | [**\OpenAPI\Client\Model\UpdateEmojiCategoryUrlByIdData**](../Model/UpdateEmojiCategoryUrlByIdData.md)|  | [optional]
+ **update_emoji_category_url_by_id_data** | [**\Sendbird\Model\UpdateEmojiCategoryUrlByIdData**](../Model/UpdateEmojiCategoryUrlByIdData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdEmojiCategory**](../Model/SendBirdEmojiCategory.md)
+[**\Sendbird\Model\SendBirdEmojiCategory**](../Model/SendBirdEmojiCategory.md)
 
 ### Authorization
 
@@ -597,7 +597,7 @@ No authorization required
 ## `updateEmojiUrlByKey()`
 
 ```php
-updateEmojiUrlByKey($emoji_key, $api_token, $update_emoji_url_by_key_data): \OpenAPI\Client\Model\SendBirdEmoji
+updateEmojiUrlByKey($emoji_key, $api_token, $update_emoji_url_by_key_data): \Sendbird\Model\SendBirdEmoji
 ```
 
 Update an emoji URL
@@ -612,14 +612,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $emoji_key = 'emoji_key_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_emoji_url_by_key_data = new \OpenAPI\Client\Model\UpdateEmojiUrlByKeyData(); // \OpenAPI\Client\Model\UpdateEmojiUrlByKeyData
+$update_emoji_url_by_key_data = new \Sendbird\Model\UpdateEmojiUrlByKeyData(); // \Sendbird\Model\UpdateEmojiUrlByKeyData
 
 try {
     $result = $apiInstance->updateEmojiUrlByKey($emoji_key, $api_token, $update_emoji_url_by_key_data);
@@ -635,11 +635,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **emoji_key** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_emoji_url_by_key_data** | [**\OpenAPI\Client\Model\UpdateEmojiUrlByKeyData**](../Model/UpdateEmojiUrlByKeyData.md)|  | [optional]
+ **update_emoji_url_by_key_data** | [**\Sendbird\Model\UpdateEmojiUrlByKeyData**](../Model/UpdateEmojiUrlByKeyData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdEmoji**](../Model/SendBirdEmoji.md)
+[**\Sendbird\Model\SendBirdEmoji**](../Model/SendBirdEmoji.md)
 
 ### Authorization
 
@@ -657,7 +657,7 @@ No authorization required
 ## `useDefaultEmojis()`
 
 ```php
-useDefaultEmojis($api_token, $use_default_emojis_data): \OpenAPI\Client\Model\InlineResponse20056
+useDefaultEmojis($api_token, $use_default_emojis_data): \Sendbird\Model\InlineResponse20055
 ```
 
 Use default emojis
@@ -672,13 +672,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\EmojisApi(
+$apiInstance = new Sendbird\Api\EmojisApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$use_default_emojis_data = new \OpenAPI\Client\Model\UseDefaultEmojisData(); // \OpenAPI\Client\Model\UseDefaultEmojisData
+$use_default_emojis_data = new \Sendbird\Model\UseDefaultEmojisData(); // \Sendbird\Model\UseDefaultEmojisData
 
 try {
     $result = $apiInstance->useDefaultEmojis($api_token, $use_default_emojis_data);
@@ -693,11 +693,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **use_default_emojis_data** | [**\OpenAPI\Client\Model\UseDefaultEmojisData**](../Model/UseDefaultEmojisData.md)|  | [optional]
+ **use_default_emojis_data** | [**\Sendbird\Model\UseDefaultEmojisData**](../Model/UseDefaultEmojisData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20056**](../Model/InlineResponse20056.md)
+[**\Sendbird\Model\InlineResponse20055**](../Model/InlineResponse20055.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Sendbird\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Sendbird\ApiException;
+use Sendbird\Configuration;
+use Sendbird\HeaderSelector;
+use Sendbird\ObjectSerializer;
 
 /**
  * AdvancedAnalyticsApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -122,9 +122,9 @@ class AdvancedAnalyticsApi
      *
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20063
+     * @return \Sendbird\Model\InlineResponse20062
      */
     public function retrieveAdvancedAnalyticsMetrics($api_token = null)
     {
@@ -139,9 +139,9 @@ class AdvancedAnalyticsApi
      *
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20063, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20062, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveAdvancedAnalyticsMetricsWithHttpInfo($api_token = null)
     {
@@ -184,20 +184,20 @@ class AdvancedAnalyticsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20063' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20062' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20063', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20062', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20063';
+            $returnType = '\Sendbird\Model\InlineResponse20062';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -215,7 +215,7 @@ class AdvancedAnalyticsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20063',
+                        '\Sendbird\Model\InlineResponse20062',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -257,7 +257,7 @@ class AdvancedAnalyticsApi
      */
     public function retrieveAdvancedAnalyticsMetricsAsyncWithHttpInfo($api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20063';
+        $returnType = '\Sendbird\Model\InlineResponse20062';
         $request = $this->retrieveAdvancedAnalyticsMetricsRequest($api_token);
 
         return $this->client

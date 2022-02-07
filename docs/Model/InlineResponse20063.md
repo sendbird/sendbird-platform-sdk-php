@@ -4,11 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**segments** | **string** |  | [optional]
-**date** | **string** |  | [optional]
-**value** | **float** |  | [optional]
-**channel_type** | **string** |  | [optional]
-**custom_channel_type** | **string** |  | [optional]
-**custom_message_type** | **string** |  | [optional]
+**exported_data** | [**\Sendbird\Model\InlineResponse20063ExportedData[]**](InlineResponse20063ExportedData.md) |  | [optional]
+**next** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

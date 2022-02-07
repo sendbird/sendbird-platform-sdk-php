@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20038 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20038 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is_member' => 'bool'
+        'operator_ids' => 'string[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20038 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'is_member' => null
+        'operator_ids' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20038 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_member' => 'is_member'
+        'operator_ids' => 'operator_ids'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20038 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'is_member' => 'setIsMember'
+        'operator_ids' => 'setOperatorIds'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20038 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'is_member' => 'getIsMember'
+        'operator_ids' => 'getOperatorIds'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20038 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['is_member'] = $data['is_member'] ?? null;
+        $this->container['operator_ids'] = $data['operator_ids'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20038 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets is_member
+     * Gets operator_ids
      *
-     * @return bool|null
+     * @return string[]|null
      */
-    public function getIsMember()
+    public function getOperatorIds()
     {
-        return $this->container['is_member'];
+        return $this->container['operator_ids'];
     }
 
     /**
-     * Sets is_member
+     * Sets operator_ids
      *
-     * @param bool|null $is_member is_member
+     * @param string[]|null $operator_ids operator_ids
      *
      * @return self
      */
-    public function setIsMember($is_member)
+    public function setOperatorIds($operator_ids)
     {
-        $this->container['is_member'] = $is_member;
+        $this->container['operator_ids'] = $operator_ids;
 
         return $this;
     }

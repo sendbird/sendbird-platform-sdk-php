@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20071ReportLogs Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,9 +61,10 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPITypes = [
         'report_type' => 'string',
         'report_category' => 'string',
-        'offending_user' => '\OpenAPI\Client\Model\SendBirdUser',
-        'reported_message' => 'AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage',
-        'channel' => 'AnyOfSendBirdOpenChannelSendBirdGroupChannel',
+        'reporting_user' => '\Sendbird\Model\SendBirdUser',
+        'offending_user' => '\Sendbird\Model\SendBirdUser',
+        'reported_message' => '\Sendbird\Model\SendBirdMessageResponse',
+        'channel' => '\Sendbird\Model\SendBirdChannelResponse',
         'report_description' => 'string',
         'created_at' => 'float'
     ];
@@ -78,6 +79,7 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPIFormats = [
         'report_type' => null,
         'report_category' => null,
+        'reporting_user' => null,
         'offending_user' => null,
         'reported_message' => null,
         'channel' => null,
@@ -114,6 +116,7 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     protected static $attributeMap = [
         'report_type' => 'report_type',
         'report_category' => 'report_category',
+        'reporting_user' => 'reporting_user',
         'offending_user' => 'offending_user',
         'reported_message' => 'reported_message',
         'channel' => 'channel',
@@ -129,6 +132,7 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     protected static $setters = [
         'report_type' => 'setReportType',
         'report_category' => 'setReportCategory',
+        'reporting_user' => 'setReportingUser',
         'offending_user' => 'setOffendingUser',
         'reported_message' => 'setReportedMessage',
         'channel' => 'setChannel',
@@ -144,6 +148,7 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     protected static $getters = [
         'report_type' => 'getReportType',
         'report_category' => 'getReportCategory',
+        'reporting_user' => 'getReportingUser',
         'offending_user' => 'getOffendingUser',
         'reported_message' => 'getReportedMessage',
         'channel' => 'getChannel',
@@ -210,6 +215,7 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     {
         $this->container['report_type'] = $data['report_type'] ?? null;
         $this->container['report_category'] = $data['report_category'] ?? null;
+        $this->container['reporting_user'] = $data['reporting_user'] ?? null;
         $this->container['offending_user'] = $data['offending_user'] ?? null;
         $this->container['reported_message'] = $data['reported_message'] ?? null;
         $this->container['channel'] = $data['channel'] ?? null;
@@ -290,9 +296,33 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
+     * Gets reporting_user
+     *
+     * @return \Sendbird\Model\SendBirdUser|null
+     */
+    public function getReportingUser()
+    {
+        return $this->container['reporting_user'];
+    }
+
+    /**
+     * Sets reporting_user
+     *
+     * @param \Sendbird\Model\SendBirdUser|null $reporting_user reporting_user
+     *
+     * @return self
+     */
+    public function setReportingUser($reporting_user)
+    {
+        $this->container['reporting_user'] = $reporting_user;
+
+        return $this;
+    }
+
+    /**
      * Gets offending_user
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser|null
+     * @return \Sendbird\Model\SendBirdUser|null
      */
     public function getOffendingUser()
     {
@@ -302,7 +332,7 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets offending_user
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser|null $offending_user offending_user
+     * @param \Sendbird\Model\SendBirdUser|null $offending_user offending_user
      *
      * @return self
      */
@@ -316,7 +346,7 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets reported_message
      *
-     * @return AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage|null
+     * @return \Sendbird\Model\SendBirdMessageResponse|null
      */
     public function getReportedMessage()
     {
@@ -326,7 +356,7 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets reported_message
      *
-     * @param AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage|null $reported_message reported_message
+     * @param \Sendbird\Model\SendBirdMessageResponse|null $reported_message reported_message
      *
      * @return self
      */
@@ -340,7 +370,7 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets channel
      *
-     * @return AnyOfSendBirdOpenChannelSendBirdGroupChannel|null
+     * @return \Sendbird\Model\SendBirdChannelResponse|null
      */
     public function getChannel()
     {
@@ -350,7 +380,7 @@ class InlineResponse20071ReportLogs implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets channel
      *
-     * @param AnyOfSendBirdOpenChannelSendBirdGroupChannel|null $channel channel
+     * @param \Sendbird\Model\SendBirdChannelResponse|null $channel channel
      *
      * @return self
      */

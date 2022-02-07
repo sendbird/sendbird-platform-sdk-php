@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Sendbird\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Sendbird\ApiException;
+use Sendbird\Configuration;
+use Sendbird\HeaderSelector;
+use Sendbird\ObjectSerializer;
 
 /**
  * DataExportApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -125,9 +125,9 @@ class DataExportApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20064
+     * @return \Sendbird\Model\InlineResponse20063
      */
     public function listDataExportsByMessageChannelOrUser($data_type, $api_token = null, $token = null, $limit = null)
     {
@@ -145,9 +145,9 @@ class DataExportApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20064, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20063, HTTP status code, HTTP response headers (array of strings)
      */
     public function listDataExportsByMessageChannelOrUserWithHttpInfo($data_type, $api_token = null, $token = null, $limit = null)
     {
@@ -190,20 +190,20 @@ class DataExportApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20064' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20063' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20064', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20063', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20064';
+            $returnType = '\Sendbird\Model\InlineResponse20063';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -221,7 +221,7 @@ class DataExportApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20064',
+                        '\Sendbird\Model\InlineResponse20063',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -269,7 +269,7 @@ class DataExportApi
      */
     public function listDataExportsByMessageChannelOrUserAsyncWithHttpInfo($data_type, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20064';
+        $returnType = '\Sendbird\Model\InlineResponse20063';
         $request = $this->listDataExportsByMessageChannelOrUserRequest($data_type, $api_token, $token, $limit);
 
         return $this->client
@@ -434,11 +434,11 @@ class DataExportApi
      *
      * @param  string $data_type data_type (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data register_and_schedule_data_export_data (optional)
+     * @param  \Sendbird\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data register_and_schedule_data_export_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20064ExportedData
+     * @return \Sendbird\Model\InlineResponse20063ExportedData
      */
     public function registerAndScheduleDataExport($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
     {
@@ -453,11 +453,11 @@ class DataExportApi
      *
      * @param  string $data_type (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
+     * @param  \Sendbird\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20064ExportedData, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20063ExportedData, HTTP status code, HTTP response headers (array of strings)
      */
     public function registerAndScheduleDataExportWithHttpInfo($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
     {
@@ -500,20 +500,20 @@ class DataExportApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20064ExportedData' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20063ExportedData' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20064ExportedData', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20063ExportedData', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20064ExportedData';
+            $returnType = '\Sendbird\Model\InlineResponse20063ExportedData';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -531,7 +531,7 @@ class DataExportApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20064ExportedData',
+                        '\Sendbird\Model\InlineResponse20063ExportedData',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -548,7 +548,7 @@ class DataExportApi
      *
      * @param  string $data_type (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
+     * @param  \Sendbird\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -570,14 +570,14 @@ class DataExportApi
      *
      * @param  string $data_type (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
+     * @param  \Sendbird\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function registerAndScheduleDataExportAsyncWithHttpInfo($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20064ExportedData';
+        $returnType = '\Sendbird\Model\InlineResponse20063ExportedData';
         $request = $this->registerAndScheduleDataExportRequest($data_type, $api_token, $register_and_schedule_data_export_data);
 
         return $this->client
@@ -618,7 +618,7 @@ class DataExportApi
      *
      * @param  string $data_type (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
+     * @param  \Sendbird\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -727,9 +727,9 @@ class DataExportApi
      * @param  string $request_id request_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20065
+     * @return \Sendbird\Model\InlineResponse20064
      */
     public function viewDataExportById($data_type, $request_id, $api_token = null)
     {
@@ -746,9 +746,9 @@ class DataExportApi
      * @param  string $request_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20065, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20064, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewDataExportByIdWithHttpInfo($data_type, $request_id, $api_token = null)
     {
@@ -791,20 +791,20 @@ class DataExportApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20065' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20064' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20065', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20064', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20065';
+            $returnType = '\Sendbird\Model\InlineResponse20064';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -822,7 +822,7 @@ class DataExportApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20065',
+                        '\Sendbird\Model\InlineResponse20064',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -868,7 +868,7 @@ class DataExportApi
      */
     public function viewDataExportByIdAsyncWithHttpInfo($data_type, $request_id, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20065';
+        $returnType = '\Sendbird\Model\InlineResponse20064';
         $request = $this->viewDataExportByIdRequest($data_type, $request_id, $api_token);
 
         return $this->client

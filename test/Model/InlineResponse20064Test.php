@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse20064
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -80,18 +80,126 @@ class InlineResponse20064Test extends TestCase
     }
 
     /**
-     * Test attribute "exported_data"
+     * Test attribute "request_id"
      */
-    public function testPropertyExportedData()
+    public function testPropertyRequestId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "next"
+     * Test attribute "data_type"
      */
-    public function testPropertyNext()
+    public function testPropertyDataType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "format"
+     */
+    public function testPropertyFormat()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "csv_delimiter"
+     */
+    public function testPropertyCsvDelimiter()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "timezone"
+     */
+    public function testPropertyTimezone()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "start_ts"
+     */
+    public function testPropertyStartTs()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "end_ts"
+     */
+    public function testPropertyEndTs()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "channel_urls"
+     */
+    public function testPropertyChannelUrls()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "channel_custom_types"
+     */
+    public function testPropertyChannelCustomTypes()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "sender_ids"
+     */
+    public function testPropertySenderIds()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "file"
+     */
+    public function testPropertyFile()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "user_ids"
+     */
+    public function testPropertyUserIds()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

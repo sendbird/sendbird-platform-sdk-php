@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20023 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20023 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'banned_channels' => '\OpenAPI\Client\Model\InlineResponse20023BannedChannels[]',
+        'muted_channels' => '\Sendbird\Model\SendBirdChannelResponse[]',
         'next' => 'string'
     ];
 
@@ -71,7 +71,7 @@ class InlineResponse20023 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'banned_channels' => null,
+        'muted_channels' => null,
         'next' => null
     ];
 
@@ -102,7 +102,7 @@ class InlineResponse20023 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'banned_channels' => 'banned_channels',
+        'muted_channels' => 'muted_channels',
         'next' => 'next'
     ];
 
@@ -112,7 +112,7 @@ class InlineResponse20023 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'banned_channels' => 'setBannedChannels',
+        'muted_channels' => 'setMutedChannels',
         'next' => 'setNext'
     ];
 
@@ -122,7 +122,7 @@ class InlineResponse20023 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'banned_channels' => 'getBannedChannels',
+        'muted_channels' => 'getMutedChannels',
         'next' => 'getNext'
     ];
 
@@ -183,7 +183,7 @@ class InlineResponse20023 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['banned_channels'] = $data['banned_channels'] ?? null;
+        $this->container['muted_channels'] = $data['muted_channels'] ?? null;
         $this->container['next'] = $data['next'] ?? null;
     }
 
@@ -212,25 +212,25 @@ class InlineResponse20023 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets banned_channels
+     * Gets muted_channels
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20023BannedChannels[]|null
+     * @return \Sendbird\Model\SendBirdChannelResponse[]|null
      */
-    public function getBannedChannels()
+    public function getMutedChannels()
     {
-        return $this->container['banned_channels'];
+        return $this->container['muted_channels'];
     }
 
     /**
-     * Sets banned_channels
+     * Sets muted_channels
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20023BannedChannels[]|null $banned_channels banned_channels
+     * @param \Sendbird\Model\SendBirdChannelResponse[]|null $muted_channels muted_channels
      *
      * @return self
      */
-    public function setBannedChannels($banned_channels)
+    public function setMutedChannels($muted_channels)
     {
-        $this->container['banned_channels'] = $banned_channels;
+        $this->container['muted_channels'] = $muted_channels;
 
         return $this;
     }

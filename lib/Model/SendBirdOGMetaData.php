@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdOGMetaData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class SendBirdOGMetaData implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'default_image' => '\OpenAPI\Client\Model\SendBirdOGImage',
+        'default_image' => '\Sendbird\Model\SendBirdOGImage',
         'description' => 'string',
         'title' => 'string',
         'url' => 'string'
@@ -106,7 +106,7 @@ class SendBirdOGMetaData implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'default_image' => 'defaultImage',
+        'default_image' => 'default_image',
         'description' => 'description',
         'title' => 'title',
         'url' => 'url'
@@ -226,7 +226,7 @@ class SendBirdOGMetaData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets default_image
      *
-     * @return \OpenAPI\Client\Model\SendBirdOGImage|null
+     * @return \Sendbird\Model\SendBirdOGImage|null
      */
     public function getDefaultImage()
     {
@@ -236,7 +236,7 @@ class SendBirdOGMetaData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets default_image
      *
-     * @param \OpenAPI\Client\Model\SendBirdOGImage|null $default_image default_image
+     * @param \Sendbird\Model\SendBirdOGImage|null $default_image default_image
      *
      * @return self
      */

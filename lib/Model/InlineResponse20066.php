@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20066 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,7 @@ class InlineResponse20066 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bots' => '\OpenAPI\Client\Model\InlineResponse20066Bots[]',
-        'next' => 'string'
+        'webhook' => '\Sendbird\Model\InlineResponse20066Webhook'
     ];
 
     /**
@@ -71,8 +70,7 @@ class InlineResponse20066 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'bots' => null,
-        'next' => null
+        'webhook' => null
     ];
 
     /**
@@ -102,8 +100,7 @@ class InlineResponse20066 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'bots' => 'bots',
-        'next' => 'next'
+        'webhook' => 'webhook'
     ];
 
     /**
@@ -112,8 +109,7 @@ class InlineResponse20066 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'bots' => 'setBots',
-        'next' => 'setNext'
+        'webhook' => 'setWebhook'
     ];
 
     /**
@@ -122,8 +118,7 @@ class InlineResponse20066 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'bots' => 'getBots',
-        'next' => 'getNext'
+        'webhook' => 'getWebhook'
     ];
 
     /**
@@ -183,8 +178,7 @@ class InlineResponse20066 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['bots'] = $data['bots'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
+        $this->container['webhook'] = $data['webhook'] ?? null;
     }
 
     /**
@@ -212,49 +206,25 @@ class InlineResponse20066 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets bots
+     * Gets webhook
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20066Bots[]|null
+     * @return \Sendbird\Model\InlineResponse20066Webhook|null
      */
-    public function getBots()
+    public function getWebhook()
     {
-        return $this->container['bots'];
+        return $this->container['webhook'];
     }
 
     /**
-     * Sets bots
+     * Sets webhook
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20066Bots[]|null $bots bots
+     * @param \Sendbird\Model\InlineResponse20066Webhook|null $webhook webhook
      *
      * @return self
      */
-    public function setBots($bots)
+    public function setWebhook($webhook)
     {
-        $this->container['bots'] = $bots;
-
-        return $this;
-    }
-
-    /**
-     * Gets next
-     *
-     * @return string|null
-     */
-    public function getNext()
-    {
-        return $this->container['next'];
-    }
-
-    /**
-     * Sets next
-     *
-     * @param string|null $next next
-     *
-     * @return self
-     */
-    public function setNext($next)
-    {
-        $this->container['next'] = $next;
+        $this->container['webhook'] = $webhook;
 
         return $this;
     }

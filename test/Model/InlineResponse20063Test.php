@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse20063
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -80,54 +80,18 @@ class InlineResponse20063Test extends TestCase
     }
 
     /**
-     * Test attribute "segments"
+     * Test attribute "exported_data"
      */
-    public function testPropertySegments()
+    public function testPropertyExportedData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "date"
+     * Test attribute "next"
      */
-    public function testPropertyDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "value"
-     */
-    public function testPropertyValue()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "channel_type"
-     */
-    public function testPropertyChannelType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "custom_channel_type"
-     */
-    public function testPropertyCustomChannelType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "custom_message_type"
-     */
-    public function testPropertyCustomMessageType()
+    public function testPropertyNext()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

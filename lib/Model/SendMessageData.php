@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendMessageData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,6 +59,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'user_id' => 'string',
         'channel_type' => 'string',
         'channel_url' => 'string',
         'message_type' => 'string',
@@ -67,12 +68,14 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         'data' => 'string',
         'send_push' => 'bool',
         'mention_type' => 'string',
-        'mentioned_user_ids' => 'int[]',
+        'mentioned_user_ids' => 'string[]',
         'is_silent' => 'bool',
         'sorted_metaarray' => 'string',
         'created_at' => 'int',
         'dedup_id' => 'string',
-        'metaarray' => 'string'
+        'apns_bundle_id' => 'string',
+        'sound' => 'string',
+        'volume' => 'float'
     ];
 
     /**
@@ -83,6 +86,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'user_id' => null,
         'channel_type' => null,
         'channel_url' => null,
         'message_type' => null,
@@ -96,7 +100,9 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         'sorted_metaarray' => null,
         'created_at' => null,
         'dedup_id' => null,
-        'metaarray' => null
+        'apns_bundle_id' => null,
+        'sound' => null,
+        'volume' => null
     ];
 
     /**
@@ -126,6 +132,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'user_id' => 'user_id',
         'channel_type' => 'channel_type',
         'channel_url' => 'channel_url',
         'message_type' => 'message_type',
@@ -139,7 +146,9 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         'sorted_metaarray' => 'sorted_metaarray',
         'created_at' => 'created_at',
         'dedup_id' => 'dedup_id',
-        'metaarray' => 'metaarray'
+        'apns_bundle_id' => 'apns_bundle_id',
+        'sound' => 'sound',
+        'volume' => 'volume'
     ];
 
     /**
@@ -148,6 +157,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'user_id' => 'setUserId',
         'channel_type' => 'setChannelType',
         'channel_url' => 'setChannelUrl',
         'message_type' => 'setMessageType',
@@ -161,7 +171,9 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         'sorted_metaarray' => 'setSortedMetaarray',
         'created_at' => 'setCreatedAt',
         'dedup_id' => 'setDedupId',
-        'metaarray' => 'setMetaarray'
+        'apns_bundle_id' => 'setApnsBundleId',
+        'sound' => 'setSound',
+        'volume' => 'setVolume'
     ];
 
     /**
@@ -170,6 +182,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'user_id' => 'getUserId',
         'channel_type' => 'getChannelType',
         'channel_url' => 'getChannelUrl',
         'message_type' => 'getMessageType',
@@ -183,7 +196,9 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         'sorted_metaarray' => 'getSortedMetaarray',
         'created_at' => 'getCreatedAt',
         'dedup_id' => 'getDedupId',
-        'metaarray' => 'getMetaarray'
+        'apns_bundle_id' => 'getApnsBundleId',
+        'sound' => 'getSound',
+        'volume' => 'getVolume'
     ];
 
     /**
@@ -243,6 +258,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['channel_type'] = $data['channel_type'] ?? null;
         $this->container['channel_url'] = $data['channel_url'] ?? null;
         $this->container['message_type'] = $data['message_type'] ?? null;
@@ -256,7 +272,9 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['sorted_metaarray'] = $data['sorted_metaarray'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['dedup_id'] = $data['dedup_id'] ?? null;
-        $this->container['metaarray'] = $data['metaarray'] ?? null;
+        $this->container['apns_bundle_id'] = $data['apns_bundle_id'] ?? null;
+        $this->container['sound'] = $data['sound'] ?? null;
+        $this->container['volume'] = $data['volume'] ?? null;
     }
 
     /**
@@ -268,47 +286,14 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['channel_type'] === null) {
-            $invalidProperties[] = "'channel_type' can't be null";
-        }
-        if ($this->container['channel_url'] === null) {
-            $invalidProperties[] = "'channel_url' can't be null";
+        if ($this->container['user_id'] === null) {
+            $invalidProperties[] = "'user_id' can't be null";
         }
         if ($this->container['message_type'] === null) {
             $invalidProperties[] = "'message_type' can't be null";
         }
         if ($this->container['message'] === null) {
             $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['custom_type'] === null) {
-            $invalidProperties[] = "'custom_type' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['send_push'] === null) {
-            $invalidProperties[] = "'send_push' can't be null";
-        }
-        if ($this->container['mention_type'] === null) {
-            $invalidProperties[] = "'mention_type' can't be null";
-        }
-        if ($this->container['mentioned_user_ids'] === null) {
-            $invalidProperties[] = "'mentioned_user_ids' can't be null";
-        }
-        if ($this->container['is_silent'] === null) {
-            $invalidProperties[] = "'is_silent' can't be null";
-        }
-        if ($this->container['sorted_metaarray'] === null) {
-            $invalidProperties[] = "'sorted_metaarray' can't be null";
-        }
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['dedup_id'] === null) {
-            $invalidProperties[] = "'dedup_id' can't be null";
-        }
-        if ($this->container['metaarray'] === null) {
-            $invalidProperties[] = "'metaarray' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,9 +311,33 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets channel_type
+     * Gets user_id
      *
      * @return string
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param string $user_id Specifies the user ID of the sender.
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_type
+     *
+     * @return string|null
      */
     public function getChannelType()
     {
@@ -338,7 +347,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets channel_type
      *
-     * @param string $channel_type Specifies the type of the channel. Either open_channels or group_channels.
+     * @param string|null $channel_type Specifies the type of the channel. Either open_channels or group_channels.
      *
      * @return self
      */
@@ -352,7 +361,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets channel_url
      *
-     * @return string
+     * @return string|null
      */
     public function getChannelUrl()
     {
@@ -362,7 +371,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets channel_url
      *
-     * @param string $channel_url Specifies the URL of the channel to send a message to.
+     * @param string|null $channel_url Specifies the URL of the channel to send a message to.
      *
      * @return self
      */
@@ -386,7 +395,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets message_type
      *
-     * @param string $message_type Specifies the type of the message as ADMM.
+     * @param string $message_type Specifies the type of the message as MESG, FILE or ADMM
      *
      * @return self
      */
@@ -424,7 +433,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets custom_type
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomType()
     {
@@ -434,7 +443,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets custom_type
      *
-     * @param string $custom_type Specifies a custom message type which is used for message grouping. The length is limited to 128 characters.<br /><br /> Custom types are also used within Sendbird's [Advanced analytics](/docs/chat/v3/platform-api/guides/advanced-analytics) to segment metrics, which enables the sub-classification of data views.
+     * @param string|null $custom_type Specifies a custom message type which is used for message grouping. The length is limited to 128 characters.<br /><br /> Custom types are also used within Sendbird's [Advanced analytics](/docs/chat/v3/platform-api/guides/advanced-analytics) to segment metrics, which enables the sub-classification of data views.
      *
      * @return self
      */
@@ -448,7 +457,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets data
      *
-     * @return string
+     * @return string|null
      */
     public function getData()
     {
@@ -458,7 +467,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets data
      *
-     * @param string $data Specifies additional message information such as custom font size, font type or `JSON` formatted string.
+     * @param string|null $data Specifies additional message information such as custom font size, font type or `JSON` formatted string.
      *
      * @return self
      */
@@ -472,7 +481,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets send_push
      *
-     * @return bool
+     * @return bool|null
      */
     public function getSendPush()
     {
@@ -482,7 +491,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets send_push
      *
-     * @param bool $send_push Determines whether to send a push notification for the message to the members of the channel (applicable to group channels only). Unlike text and file messages, a push notification for an admin message is not sent by default. (Default: false)
+     * @param bool|null $send_push Determines whether to send a push notification for the message to the members of the channel (applicable to group channels only). Unlike text and file messages, a push notification for an admin message is not sent by default. (Default: true)
      *
      * @return self
      */
@@ -496,7 +505,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets mention_type
      *
-     * @return string
+     * @return string|null
      */
     public function getMentionType()
     {
@@ -506,7 +515,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mention_type
      *
-     * @param string $mention_type Specifies the mentioning type which indicates the user scope who will get a notification for the message. Acceptable values are users and channel. If set to users, only the specified users with the mentioned_users property below will get notified. If set to channel, all users in the channel will get notified. (Default: users)
+     * @param string|null $mention_type Specifies the mentioning type which indicates the user scope who will get a notification for the message. Acceptable values are users and channel. If set to users, only the specified users with the mentioned_users property below will get notified. If set to channel, all users in the channel will get notified. (Default: users)
      *
      * @return self
      */
@@ -520,7 +529,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets mentioned_user_ids
      *
-     * @return int[]
+     * @return string[]|null
      */
     public function getMentionedUserIds()
     {
@@ -530,7 +539,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mentioned_user_ids
      *
-     * @param int[] $mentioned_user_ids Specifies an array of one or more IDs of the users who will get a notification for the message.
+     * @param string[]|null $mentioned_user_ids Specifies an array of one or more IDs of the users who will get a notification for the message.
      *
      * @return self
      */
@@ -544,7 +553,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets is_silent
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsSilent()
     {
@@ -554,7 +563,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_silent
      *
-     * @param bool $is_silent Determines whether to send a message without updating some of the channel properties. If a message is sent in a channel, with this property set to true, the channel's last_message is updated only for the sender while its unread_message_count remains unchanged for all channel members. Also, the message doesn't send a push notification to message receivers. If the message is sent to a hidden channel, the channel still remains hidden. (Default: false)</br></br>  Once the value of this property is set, it can't be reverted.
+     * @param bool|null $is_silent Determines whether to send a message without updating some of the channel properties. If a message is sent in a channel, with this property set to true, the channel's last_message is updated only for the sender while its unread_message_count remains unchanged for all channel members. Also, the message doesn't send a push notification to message receivers. If the message is sent to a hidden channel, the channel still remains hidden. (Default: false)</br></br>  Once the value of this property is set, it can't be reverted.
      *
      * @return self
      */
@@ -568,7 +577,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets sorted_metaarray
      *
-     * @return string
+     * @return string|null
      */
     public function getSortedMetaarray()
     {
@@ -578,7 +587,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets sorted_metaarray
      *
-     * @param string $sorted_metaarray Specifies a `JSON` object of one or more key-values items which store additional message information. Each item consists of a key and the values in an array. Items are saved and will be returned in the exact order they've been specified.
+     * @param string|null $sorted_metaarray Specifies a `JSON` object of one or more key-values items which store additional message information. Each item consists of a key and the values in an array. Items are saved and will be returned in the exact order they've been specified.
      *
      * @return self
      */
@@ -592,7 +601,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets created_at
      *
-     * @return int
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -602,7 +611,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets created_at
      *
-     * @param int $created_at Specifies the time that the message was sent, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. This property can be used when migrating the messages of other system to Sendbird server. If specified, the server sets the message's creation time as the property value.
+     * @param int|null $created_at Specifies the time that the message was sent, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. This property can be used when migrating the messages of other system to Sendbird server. If specified, the server sets the message's creation time as the property value.
      *
      * @return self
      */
@@ -616,7 +625,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets dedup_id
      *
-     * @return string
+     * @return string|null
      */
     public function getDedupId()
     {
@@ -626,7 +635,7 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dedup_id
      *
-     * @param string $dedup_id Specifies the unique message ID created by other system. In general, this property is used to prevent the same message data from getting inserted when migrating the messages of the other system to Sendbird server. If specified, the server performs a duplicate check using the property value.
+     * @param string|null $dedup_id Specifies the unique message ID created by other system. In general, this property is used to prevent the same message data from getting inserted when migrating the messages of the other system to Sendbird server. If specified, the server performs a duplicate check using the property value.
      *
      * @return self
      */
@@ -638,25 +647,73 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets metaarray
+     * Gets apns_bundle_id
      *
-     * @return string
+     * @return string|null
      */
-    public function getMetaarray()
+    public function getApnsBundleId()
     {
-        return $this->container['metaarray'];
+        return $this->container['apns_bundle_id'];
     }
 
     /**
-     * Sets metaarray
+     * Sets apns_bundle_id
      *
-     * @param string $metaarray (Deprecated) Specifies a `JSON` object of one or more key-values items which store additional message information. The item consists of a key and the values in an array.
+     * @param string|null $apns_bundle_id Specifies the bundle ID of the client app in order to send a push notification to iOS devices. You can find this in Settings > Chat > Notifications > Push notification services
      *
      * @return self
      */
-    public function setMetaarray($metaarray)
+    public function setApnsBundleId($apns_bundle_id)
     {
-        $this->container['metaarray'] = $metaarray;
+        $this->container['apns_bundle_id'] = $apns_bundle_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets sound
+     *
+     * @return string|null
+     */
+    public function getSound()
+    {
+        return $this->container['sound'];
+    }
+
+    /**
+     * Sets sound
+     *
+     * @param string|null $sound Specifies the name of the file that sounds for critical alerts.
+     *
+     * @return self
+     */
+    public function setSound($sound)
+    {
+        $this->container['sound'] = $sound;
+
+        return $this;
+    }
+
+    /**
+     * Gets volume
+     *
+     * @return float|null
+     */
+    public function getVolume()
+    {
+        return $this->container['volume'];
+    }
+
+    /**
+     * Sets volume
+     *
+     * @param float|null $volume Specifies the volume of the critical alert sound. The volume ranges from 0.0 to 1.0, which indicates silent and full volume, respectively. (Default 1.0)
+     *
+     * @return self
+     */
+    public function setVolume($volume)
+    {
+        $this->container['volume'] = $volume;
 
         return $this;
     }

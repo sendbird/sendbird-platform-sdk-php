@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdPollDetails Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -65,7 +65,7 @@ class SendBirdPollDetails implements ModelInterface, ArrayAccess, \JsonSerializa
         'created_at' => 'float',
         'created_by' => 'string',
         'is_anonymous' => 'bool',
-        'options' => '\OpenAPI\Client\Model\SendBirdPollOption[]',
+        'options' => '\Sendbird\Model\SendBirdPollOption[]',
         'status' => 'string',
         'updated_at' => 'float',
         'voter_count' => 'float'
@@ -118,16 +118,16 @@ class SendBirdPollDetails implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'allow_multiple_votes' => 'allowMultipleVotes',
-        'allow_user_suggestion' => 'allowUserSuggestion',
-        'close_at' => 'closeAt',
-        'created_at' => 'createdAt',
-        'created_by' => 'createdBy',
-        'is_anonymous' => 'isAnonymous',
+        'allow_multiple_votes' => 'allow_multiple_votes',
+        'allow_user_suggestion' => 'allow_user_suggestion',
+        'close_at' => 'close_at',
+        'created_at' => 'created_at',
+        'created_by' => 'created_by',
+        'is_anonymous' => 'is_anonymous',
         'options' => 'options',
         'status' => 'status',
-        'updated_at' => 'updatedAt',
-        'voter_count' => 'voterCount'
+        'updated_at' => 'updated_at',
+        'voter_count' => 'voter_count'
     ];
 
     /**
@@ -432,7 +432,7 @@ class SendBirdPollDetails implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets options
      *
-     * @return \OpenAPI\Client\Model\SendBirdPollOption[]|null
+     * @return \Sendbird\Model\SendBirdPollOption[]|null
      */
     public function getOptions()
     {
@@ -442,7 +442,7 @@ class SendBirdPollDetails implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets options
      *
-     * @param \OpenAPI\Client\Model\SendBirdPollOption[]|null $options options
+     * @param \Sendbird\Model\SendBirdPollOption[]|null $options options
      *
      * @return self
      */

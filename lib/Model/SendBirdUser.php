@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdUser Class Doc Comment
  *
  * @category Class
  * @description User
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -64,8 +64,8 @@ class SendBirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
         'friend_discovery_key' => 'string',
         'friend_name' => 'string',
         'is_active' => 'bool',
-        'last_seen_at' => 'string',
-        'meta_data' => '\OpenAPI\Client\Model\Object',
+        'last_seen_at' => 'int',
+        'meta_data' => '\Sendbird\Model\Object',
         'nickname' => 'string',
         'plain_profile_url' => 'string',
         'preferred_languages' => 'string[]',
@@ -123,18 +123,18 @@ class SendBirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'connection_status' => 'connectionStatus',
-        'friend_discovery_key' => 'friendDiscoveryKey',
-        'friend_name' => 'friendName',
-        'is_active' => 'isActive',
-        'last_seen_at' => 'lastSeenAt',
-        'meta_data' => 'metaData',
+        'connection_status' => 'connection_status',
+        'friend_discovery_key' => 'friend_discovery_key',
+        'friend_name' => 'friend_name',
+        'is_active' => 'is_active',
+        'last_seen_at' => 'last_seen_at',
+        'meta_data' => 'meta_data',
         'nickname' => 'nickname',
-        'plain_profile_url' => 'plainProfileUrl',
-        'preferred_languages' => 'preferredLanguages',
-        'profile_url' => 'profileUrl',
-        'require_auth' => 'requireAuth',
-        'user_id' => 'userId'
+        'plain_profile_url' => 'plain_profile_url',
+        'preferred_languages' => 'preferred_languages',
+        'profile_url' => 'profile_url',
+        'require_auth' => 'require_auth',
+        'user_id' => 'user_id'
     ];
 
     /**
@@ -371,7 +371,7 @@ class SendBirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets last_seen_at
      *
-     * @return string|null
+     * @return int|null
      */
     public function getLastSeenAt()
     {
@@ -381,7 +381,7 @@ class SendBirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_seen_at
      *
-     * @param string|null $last_seen_at last_seen_at
+     * @param int|null $last_seen_at last_seen_at
      *
      * @return self
      */
@@ -395,7 +395,7 @@ class SendBirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets meta_data
      *
-     * @return \OpenAPI\Client\Model\Object|null
+     * @return \Sendbird\Model\Object|null
      */
     public function getMetaData()
     {
@@ -405,7 +405,7 @@ class SendBirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets meta_data
      *
-     * @param \OpenAPI\Client\Model\Object|null $meta_data meta_data
+     * @param \Sendbird\Model\Object|null $meta_data meta_data
      *
      * @return self
      */

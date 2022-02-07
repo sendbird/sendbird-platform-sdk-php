@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse2003PushConfigurations
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -98,18 +98,63 @@ class InlineResponse2003PushConfigurationsTest extends TestCase
     }
 
     /**
-     * Test attribute "huawei_app_id"
+     * Test attribute "created_at"
      */
-    public function testPropertyHuaweiAppId()
+    public function testPropertyCreatedAt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "huawei_app_secret"
+     * Test attribute "apns_cer_env_type"
      */
-    public function testPropertyHuaweiAppSecret()
+    public function testPropertyApnsCerEnvType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "apns_expiration"
+     */
+    public function testPropertyApnsExpiration()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "apns_name"
+     */
+    public function testPropertyApnsName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "has_unread_count_badge"
+     */
+    public function testPropertyHasUnreadCountBadge()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "content_available"
+     */
+    public function testPropertyContentAvailable()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "mutable_content"
+     */
+    public function testPropertyMutableContent()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20043 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,11 +59,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'unique_id' => 'string',
-        'open_counts' => 'float[]',
-        'open_rates' => 'float[]',
-        'cumulative_open_counts' => 'float[]',
-        'cumulative_open_rates' => 'float[]'
+        'open_status' => '\Sendbird\Model\InlineResponse20043OpenStatus[]',
+        'next' => 'string'
     ];
 
     /**
@@ -74,11 +71,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'unique_id' => null,
-        'open_counts' => null,
-        'open_rates' => null,
-        'cumulative_open_counts' => null,
-        'cumulative_open_rates' => null
+        'open_status' => null,
+        'next' => null
     ];
 
     /**
@@ -108,11 +102,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'unique_id' => 'unique_id',
-        'open_counts' => 'open_counts',
-        'open_rates' => 'open_rates',
-        'cumulative_open_counts' => 'cumulative_open_counts',
-        'cumulative_open_rates' => 'cumulative_open_rates'
+        'open_status' => 'open_status',
+        'next' => 'next'
     ];
 
     /**
@@ -121,11 +112,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'unique_id' => 'setUniqueId',
-        'open_counts' => 'setOpenCounts',
-        'open_rates' => 'setOpenRates',
-        'cumulative_open_counts' => 'setCumulativeOpenCounts',
-        'cumulative_open_rates' => 'setCumulativeOpenRates'
+        'open_status' => 'setOpenStatus',
+        'next' => 'setNext'
     ];
 
     /**
@@ -134,11 +122,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'unique_id' => 'getUniqueId',
-        'open_counts' => 'getOpenCounts',
-        'open_rates' => 'getOpenRates',
-        'cumulative_open_counts' => 'getCumulativeOpenCounts',
-        'cumulative_open_rates' => 'getCumulativeOpenRates'
+        'open_status' => 'getOpenStatus',
+        'next' => 'getNext'
     ];
 
     /**
@@ -198,11 +183,8 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['unique_id'] = $data['unique_id'] ?? null;
-        $this->container['open_counts'] = $data['open_counts'] ?? null;
-        $this->container['open_rates'] = $data['open_rates'] ?? null;
-        $this->container['cumulative_open_counts'] = $data['cumulative_open_counts'] ?? null;
-        $this->container['cumulative_open_rates'] = $data['cumulative_open_rates'] ?? null;
+        $this->container['open_status'] = $data['open_status'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -230,121 +212,49 @@ class InlineResponse20043 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets unique_id
+     * Gets open_status
+     *
+     * @return \Sendbird\Model\InlineResponse20043OpenStatus[]|null
+     */
+    public function getOpenStatus()
+    {
+        return $this->container['open_status'];
+    }
+
+    /**
+     * Sets open_status
+     *
+     * @param \Sendbird\Model\InlineResponse20043OpenStatus[]|null $open_status open_status
+     *
+     * @return self
+     */
+    public function setOpenStatus($open_status)
+    {
+        $this->container['open_status'] = $open_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets next
      *
      * @return string|null
      */
-    public function getUniqueId()
+    public function getNext()
     {
-        return $this->container['unique_id'];
+        return $this->container['next'];
     }
 
     /**
-     * Sets unique_id
+     * Sets next
      *
-     * @param string|null $unique_id unique_id
+     * @param string|null $next next
      *
      * @return self
      */
-    public function setUniqueId($unique_id)
+    public function setNext($next)
     {
-        $this->container['unique_id'] = $unique_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets open_counts
-     *
-     * @return float[]|null
-     */
-    public function getOpenCounts()
-    {
-        return $this->container['open_counts'];
-    }
-
-    /**
-     * Sets open_counts
-     *
-     * @param float[]|null $open_counts open_counts
-     *
-     * @return self
-     */
-    public function setOpenCounts($open_counts)
-    {
-        $this->container['open_counts'] = $open_counts;
-
-        return $this;
-    }
-
-    /**
-     * Gets open_rates
-     *
-     * @return float[]|null
-     */
-    public function getOpenRates()
-    {
-        return $this->container['open_rates'];
-    }
-
-    /**
-     * Sets open_rates
-     *
-     * @param float[]|null $open_rates open_rates
-     *
-     * @return self
-     */
-    public function setOpenRates($open_rates)
-    {
-        $this->container['open_rates'] = $open_rates;
-
-        return $this;
-    }
-
-    /**
-     * Gets cumulative_open_counts
-     *
-     * @return float[]|null
-     */
-    public function getCumulativeOpenCounts()
-    {
-        return $this->container['cumulative_open_counts'];
-    }
-
-    /**
-     * Sets cumulative_open_counts
-     *
-     * @param float[]|null $cumulative_open_counts cumulative_open_counts
-     *
-     * @return self
-     */
-    public function setCumulativeOpenCounts($cumulative_open_counts)
-    {
-        $this->container['cumulative_open_counts'] = $cumulative_open_counts;
-
-        return $this;
-    }
-
-    /**
-     * Gets cumulative_open_rates
-     *
-     * @return float[]|null
-     */
-    public function getCumulativeOpenRates()
-    {
-        return $this->container['cumulative_open_rates'];
-    }
-
-    /**
-     * Sets cumulative_open_rates
-     *
-     * @param float[]|null $cumulative_open_rates cumulative_open_rates
-     *
-     * @return self
-     */
-    public function setCumulativeOpenRates($cumulative_open_rates)
-    {
-        $this->container['cumulative_open_rates'] = $cumulative_open_rates;
+        $this->container['next'] = $next;
 
         return $this;
     }

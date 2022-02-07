@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Sendbird\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Sendbird\ApiException;
+use Sendbird\Configuration;
+use Sendbird\HeaderSelector;
+use Sendbird\ObjectSerializer;
 
 /**
  * ReportContentSubjectApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -126,9 +126,9 @@ class ReportContentSubjectApi
      * @param  int $start_ts start_ts (optional)
      * @param  int $end_ts end_ts (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20071
+     * @return \Sendbird\Model\InlineResponse20070
      */
     public function listReports($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
@@ -147,9 +147,9 @@ class ReportContentSubjectApi
      * @param  int $start_ts (optional)
      * @param  int $end_ts (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20071, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20070, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReportsWithHttpInfo($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
@@ -192,20 +192,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20071' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20070' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20071', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20070', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20071';
+            $returnType = '\Sendbird\Model\InlineResponse20070';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -223,7 +223,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20071',
+                        '\Sendbird\Model\InlineResponse20070',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -273,7 +273,7 @@ class ReportContentSubjectApi
      */
     public function listReportsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20071';
+        $returnType = '\Sendbird\Model\InlineResponse20070';
         $request = $this->listReportsRequest($api_token, $token, $limit, $start_ts, $end_ts);
 
         return $this->client
@@ -451,9 +451,9 @@ class ReportContentSubjectApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20072
+     * @return \Sendbird\Model\InlineResponse20071
      */
     public function listReportsOnChannelByUrl($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -472,9 +472,9 @@ class ReportContentSubjectApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20072, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20071, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReportsOnChannelByUrlWithHttpInfo($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -517,20 +517,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20072' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20071' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20072', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20072';
+            $returnType = '\Sendbird\Model\InlineResponse20071';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -548,7 +548,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20072',
+                        '\Sendbird\Model\InlineResponse20071',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -598,7 +598,7 @@ class ReportContentSubjectApi
      */
     public function listReportsOnChannelByUrlAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20072';
+        $returnType = '\Sendbird\Model\InlineResponse20071';
         $request = $this->listReportsOnChannelByUrlRequest($channel_type, $channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -783,9 +783,9 @@ class ReportContentSubjectApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20072
+     * @return \Sendbird\Model\InlineResponse20071
      */
     public function listReportsOnMessageById($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
     {
@@ -805,9 +805,9 @@ class ReportContentSubjectApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20072, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20071, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReportsOnMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
     {
@@ -850,20 +850,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20072' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20071' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20072', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20072';
+            $returnType = '\Sendbird\Model\InlineResponse20071';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -881,7 +881,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20072',
+                        '\Sendbird\Model\InlineResponse20071',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -933,7 +933,7 @@ class ReportContentSubjectApi
      */
     public function listReportsOnMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20072';
+        $returnType = '\Sendbird\Model\InlineResponse20071';
         $request = $this->listReportsOnMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $token, $limit);
 
         return $this->client
@@ -1131,9 +1131,9 @@ class ReportContentSubjectApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20072
+     * @return \Sendbird\Model\InlineResponse20071
      */
     public function listReportsOnUserById($offending_user_id, $api_token = null, $token = null, $limit = null)
     {
@@ -1151,9 +1151,9 @@ class ReportContentSubjectApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20072, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20071, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReportsOnUserByIdWithHttpInfo($offending_user_id, $api_token = null, $token = null, $limit = null)
     {
@@ -1196,20 +1196,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20072' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20071' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20072', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20072';
+            $returnType = '\Sendbird\Model\InlineResponse20071';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1227,7 +1227,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20072',
+                        '\Sendbird\Model\InlineResponse20071',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1275,7 +1275,7 @@ class ReportContentSubjectApi
      */
     public function listReportsOnUserByIdAsyncWithHttpInfo($offending_user_id, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20072';
+        $returnType = '\Sendbird\Model\InlineResponse20071';
         $request = $this->listReportsOnUserByIdRequest($offending_user_id, $api_token, $token, $limit);
 
         return $this->client
@@ -1441,11 +1441,11 @@ class ReportContentSubjectApi
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportChannelByUrlData $report_channel_by_url_data report_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\ReportChannelByUrlData $report_channel_by_url_data report_channel_by_url_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20072ReportLogs
+     * @return \Sendbird\Model\InlineResponse20071ReportLogs
      */
     public function reportChannelByUrl($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
     {
@@ -1461,11 +1461,11 @@ class ReportContentSubjectApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20072ReportLogs, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20071ReportLogs, HTTP status code, HTTP response headers (array of strings)
      */
     public function reportChannelByUrlWithHttpInfo($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
     {
@@ -1508,20 +1508,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20072ReportLogs' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20071ReportLogs' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20072ReportLogs', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071ReportLogs', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20072ReportLogs';
+            $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1539,7 +1539,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20072ReportLogs',
+                        '\Sendbird\Model\InlineResponse20071ReportLogs',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1557,7 +1557,7 @@ class ReportContentSubjectApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1580,14 +1580,14 @@ class ReportContentSubjectApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function reportChannelByUrlAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20072ReportLogs';
+        $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
         $request = $this->reportChannelByUrlRequest($channel_type, $channel_url, $api_token, $report_channel_by_url_data);
 
         return $this->client
@@ -1629,7 +1629,7 @@ class ReportContentSubjectApi
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1752,11 +1752,11 @@ class ReportContentSubjectApi
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportMessageByIdData $report_message_by_id_data report_message_by_id_data (optional)
+     * @param  \Sendbird\Model\ReportMessageByIdData $report_message_by_id_data report_message_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20072ReportLogs
+     * @return \Sendbird\Model\InlineResponse20071ReportLogs
      */
     public function reportMessageById($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
     {
@@ -1773,11 +1773,11 @@ class ReportContentSubjectApi
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportMessageByIdData $report_message_by_id_data (optional)
+     * @param  \Sendbird\Model\ReportMessageByIdData $report_message_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20072ReportLogs, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20071ReportLogs, HTTP status code, HTTP response headers (array of strings)
      */
     public function reportMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
     {
@@ -1820,20 +1820,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20072ReportLogs' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20071ReportLogs' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20072ReportLogs', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071ReportLogs', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20072ReportLogs';
+            $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1851,7 +1851,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20072ReportLogs',
+                        '\Sendbird\Model\InlineResponse20071ReportLogs',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1870,7 +1870,7 @@ class ReportContentSubjectApi
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportMessageByIdData $report_message_by_id_data (optional)
+     * @param  \Sendbird\Model\ReportMessageByIdData $report_message_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1894,14 +1894,14 @@ class ReportContentSubjectApi
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportMessageByIdData $report_message_by_id_data (optional)
+     * @param  \Sendbird\Model\ReportMessageByIdData $report_message_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function reportMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20072ReportLogs';
+        $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
         $request = $this->reportMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data);
 
         return $this->client
@@ -1944,7 +1944,7 @@ class ReportContentSubjectApi
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportMessageByIdData $report_message_by_id_data (optional)
+     * @param  \Sendbird\Model\ReportMessageByIdData $report_message_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2079,11 +2079,11 @@ class ReportContentSubjectApi
      *
      * @param  string $offending_user_id offending_user_id (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportUserByIdData $report_user_by_id_data report_user_by_id_data (optional)
+     * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data report_user_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20072ReportLogs
+     * @return \Sendbird\Model\InlineResponse20071ReportLogs
      */
     public function reportUserById($offending_user_id, $api_token = null, $report_user_by_id_data = null)
     {
@@ -2098,11 +2098,11 @@ class ReportContentSubjectApi
      *
      * @param  string $offending_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportUserByIdData $report_user_by_id_data (optional)
+     * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20072ReportLogs, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20071ReportLogs, HTTP status code, HTTP response headers (array of strings)
      */
     public function reportUserByIdWithHttpInfo($offending_user_id, $api_token = null, $report_user_by_id_data = null)
     {
@@ -2145,20 +2145,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20072ReportLogs' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20071ReportLogs' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20072ReportLogs', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071ReportLogs', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20072ReportLogs';
+            $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2176,7 +2176,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20072ReportLogs',
+                        '\Sendbird\Model\InlineResponse20071ReportLogs',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2193,7 +2193,7 @@ class ReportContentSubjectApi
      *
      * @param  string $offending_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportUserByIdData $report_user_by_id_data (optional)
+     * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2215,14 +2215,14 @@ class ReportContentSubjectApi
      *
      * @param  string $offending_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportUserByIdData $report_user_by_id_data (optional)
+     * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function reportUserByIdAsyncWithHttpInfo($offending_user_id, $api_token = null, $report_user_by_id_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20072ReportLogs';
+        $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
         $request = $this->reportUserByIdRequest($offending_user_id, $api_token, $report_user_by_id_data);
 
         return $this->client
@@ -2263,7 +2263,7 @@ class ReportContentSubjectApi
      *
      * @param  string $offending_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\ReportUserByIdData $report_user_by_id_data (optional)
+     * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2373,7 +2373,7 @@ class ReportContentSubjectApi
      * @param  string $message_id message_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
@@ -2393,7 +2393,7 @@ class ReportContentSubjectApi
      * @param  string $message_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */

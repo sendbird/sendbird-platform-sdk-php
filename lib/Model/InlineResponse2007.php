@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse2007 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,8 @@ class InlineResponse2007 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ip_whitelist_addresses' => 'string[]'
+        'token' => 'string',
+        'created_at' => 'float'
     ];
 
     /**
@@ -70,7 +71,8 @@ class InlineResponse2007 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ip_whitelist_addresses' => null
+        'token' => null,
+        'created_at' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class InlineResponse2007 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'ip_whitelist_addresses' => 'ip_whitelist_addresses'
+        'token' => 'token',
+        'created_at' => 'created_at'
     ];
 
     /**
@@ -109,7 +112,8 @@ class InlineResponse2007 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'ip_whitelist_addresses' => 'setIpWhitelistAddresses'
+        'token' => 'setToken',
+        'created_at' => 'setCreatedAt'
     ];
 
     /**
@@ -118,7 +122,8 @@ class InlineResponse2007 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'ip_whitelist_addresses' => 'getIpWhitelistAddresses'
+        'token' => 'getToken',
+        'created_at' => 'getCreatedAt'
     ];
 
     /**
@@ -178,7 +183,8 @@ class InlineResponse2007 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['ip_whitelist_addresses'] = $data['ip_whitelist_addresses'] ?? null;
+        $this->container['token'] = $data['token'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class InlineResponse2007 implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets ip_whitelist_addresses
+     * Gets token
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getIpWhitelistAddresses()
+    public function getToken()
     {
-        return $this->container['ip_whitelist_addresses'];
+        return $this->container['token'];
     }
 
     /**
-     * Sets ip_whitelist_addresses
+     * Sets token
      *
-     * @param string[]|null $ip_whitelist_addresses ip_whitelist_addresses
+     * @param string|null $token token
      *
      * @return self
      */
-    public function setIpWhitelistAddresses($ip_whitelist_addresses)
+    public function setToken($token)
     {
-        $this->container['ip_whitelist_addresses'] = $ip_whitelist_addresses;
+        $this->container['token'] = $token;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return float|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param float|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }

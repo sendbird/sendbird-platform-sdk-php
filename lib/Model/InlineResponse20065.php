@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20065 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,20 +59,8 @@ class InlineResponse20065 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'request_id' => 'string',
-        'data_type' => 'string',
-        'status' => 'string',
-        'format' => 'string',
-        'csv_delimiter' => 'string',
-        'timezone' => 'string',
-        'created_at' => 'float',
-        'start_ts' => 'float',
-        'end_ts' => 'float',
-        'channel_urls' => 'string[]',
-        'channel_custom_types' => 'string[]',
-        'sender_ids' => 'string[]',
-        'file' => '\OpenAPI\Client\Model\InlineResponse20064File',
-        'user_ids' => 'float[]'
+        'bots' => '\Sendbird\Model\InlineResponse20065Bots[]',
+        'next' => 'string'
     ];
 
     /**
@@ -83,20 +71,8 @@ class InlineResponse20065 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'request_id' => null,
-        'data_type' => null,
-        'status' => null,
-        'format' => null,
-        'csv_delimiter' => null,
-        'timezone' => null,
-        'created_at' => null,
-        'start_ts' => null,
-        'end_ts' => null,
-        'channel_urls' => null,
-        'channel_custom_types' => null,
-        'sender_ids' => null,
-        'file' => null,
-        'user_ids' => null
+        'bots' => null,
+        'next' => null
     ];
 
     /**
@@ -126,20 +102,8 @@ class InlineResponse20065 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'request_id' => 'request_id',
-        'data_type' => 'data_type',
-        'status' => 'status',
-        'format' => 'format',
-        'csv_delimiter' => 'csv_delimiter',
-        'timezone' => 'timezone',
-        'created_at' => 'created_at',
-        'start_ts' => 'start_ts',
-        'end_ts' => 'end_ts',
-        'channel_urls' => 'channel_urls',
-        'channel_custom_types' => 'channel_custom_types',
-        'sender_ids' => 'sender_ids',
-        'file' => 'file',
-        'user_ids' => 'user_ids'
+        'bots' => 'bots',
+        'next' => 'next'
     ];
 
     /**
@@ -148,20 +112,8 @@ class InlineResponse20065 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'request_id' => 'setRequestId',
-        'data_type' => 'setDataType',
-        'status' => 'setStatus',
-        'format' => 'setFormat',
-        'csv_delimiter' => 'setCsvDelimiter',
-        'timezone' => 'setTimezone',
-        'created_at' => 'setCreatedAt',
-        'start_ts' => 'setStartTs',
-        'end_ts' => 'setEndTs',
-        'channel_urls' => 'setChannelUrls',
-        'channel_custom_types' => 'setChannelCustomTypes',
-        'sender_ids' => 'setSenderIds',
-        'file' => 'setFile',
-        'user_ids' => 'setUserIds'
+        'bots' => 'setBots',
+        'next' => 'setNext'
     ];
 
     /**
@@ -170,20 +122,8 @@ class InlineResponse20065 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'request_id' => 'getRequestId',
-        'data_type' => 'getDataType',
-        'status' => 'getStatus',
-        'format' => 'getFormat',
-        'csv_delimiter' => 'getCsvDelimiter',
-        'timezone' => 'getTimezone',
-        'created_at' => 'getCreatedAt',
-        'start_ts' => 'getStartTs',
-        'end_ts' => 'getEndTs',
-        'channel_urls' => 'getChannelUrls',
-        'channel_custom_types' => 'getChannelCustomTypes',
-        'sender_ids' => 'getSenderIds',
-        'file' => 'getFile',
-        'user_ids' => 'getUserIds'
+        'bots' => 'getBots',
+        'next' => 'getNext'
     ];
 
     /**
@@ -243,20 +183,8 @@ class InlineResponse20065 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['request_id'] = $data['request_id'] ?? null;
-        $this->container['data_type'] = $data['data_type'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['format'] = $data['format'] ?? null;
-        $this->container['csv_delimiter'] = $data['csv_delimiter'] ?? null;
-        $this->container['timezone'] = $data['timezone'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['start_ts'] = $data['start_ts'] ?? null;
-        $this->container['end_ts'] = $data['end_ts'] ?? null;
-        $this->container['channel_urls'] = $data['channel_urls'] ?? null;
-        $this->container['channel_custom_types'] = $data['channel_custom_types'] ?? null;
-        $this->container['sender_ids'] = $data['sender_ids'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
-        $this->container['user_ids'] = $data['user_ids'] ?? null;
+        $this->container['bots'] = $data['bots'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -284,337 +212,49 @@ class InlineResponse20065 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets request_id
+     * Gets bots
+     *
+     * @return \Sendbird\Model\InlineResponse20065Bots[]|null
+     */
+    public function getBots()
+    {
+        return $this->container['bots'];
+    }
+
+    /**
+     * Sets bots
+     *
+     * @param \Sendbird\Model\InlineResponse20065Bots[]|null $bots bots
+     *
+     * @return self
+     */
+    public function setBots($bots)
+    {
+        $this->container['bots'] = $bots;
+
+        return $this;
+    }
+
+    /**
+     * Gets next
      *
      * @return string|null
      */
-    public function getRequestId()
+    public function getNext()
     {
-        return $this->container['request_id'];
+        return $this->container['next'];
     }
 
     /**
-     * Sets request_id
+     * Sets next
      *
-     * @param string|null $request_id request_id
+     * @param string|null $next next
      *
      * @return self
      */
-    public function setRequestId($request_id)
+    public function setNext($next)
     {
-        $this->container['request_id'] = $request_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets data_type
-     *
-     * @return string|null
-     */
-    public function getDataType()
-    {
-        return $this->container['data_type'];
-    }
-
-    /**
-     * Sets data_type
-     *
-     * @param string|null $data_type data_type
-     *
-     * @return self
-     */
-    public function setDataType($data_type)
-    {
-        $this->container['data_type'] = $data_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets format
-     *
-     * @return string|null
-     */
-    public function getFormat()
-    {
-        return $this->container['format'];
-    }
-
-    /**
-     * Sets format
-     *
-     * @param string|null $format format
-     *
-     * @return self
-     */
-    public function setFormat($format)
-    {
-        $this->container['format'] = $format;
-
-        return $this;
-    }
-
-    /**
-     * Gets csv_delimiter
-     *
-     * @return string|null
-     */
-    public function getCsvDelimiter()
-    {
-        return $this->container['csv_delimiter'];
-    }
-
-    /**
-     * Sets csv_delimiter
-     *
-     * @param string|null $csv_delimiter csv_delimiter
-     *
-     * @return self
-     */
-    public function setCsvDelimiter($csv_delimiter)
-    {
-        $this->container['csv_delimiter'] = $csv_delimiter;
-
-        return $this;
-    }
-
-    /**
-     * Gets timezone
-     *
-     * @return string|null
-     */
-    public function getTimezone()
-    {
-        return $this->container['timezone'];
-    }
-
-    /**
-     * Sets timezone
-     *
-     * @param string|null $timezone timezone
-     *
-     * @return self
-     */
-    public function setTimezone($timezone)
-    {
-        $this->container['timezone'] = $timezone;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return float|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param float|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_ts
-     *
-     * @return float|null
-     */
-    public function getStartTs()
-    {
-        return $this->container['start_ts'];
-    }
-
-    /**
-     * Sets start_ts
-     *
-     * @param float|null $start_ts start_ts
-     *
-     * @return self
-     */
-    public function setStartTs($start_ts)
-    {
-        $this->container['start_ts'] = $start_ts;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_ts
-     *
-     * @return float|null
-     */
-    public function getEndTs()
-    {
-        return $this->container['end_ts'];
-    }
-
-    /**
-     * Sets end_ts
-     *
-     * @param float|null $end_ts end_ts
-     *
-     * @return self
-     */
-    public function setEndTs($end_ts)
-    {
-        $this->container['end_ts'] = $end_ts;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel_urls
-     *
-     * @return string[]|null
-     */
-    public function getChannelUrls()
-    {
-        return $this->container['channel_urls'];
-    }
-
-    /**
-     * Sets channel_urls
-     *
-     * @param string[]|null $channel_urls channel_urls
-     *
-     * @return self
-     */
-    public function setChannelUrls($channel_urls)
-    {
-        $this->container['channel_urls'] = $channel_urls;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel_custom_types
-     *
-     * @return string[]|null
-     */
-    public function getChannelCustomTypes()
-    {
-        return $this->container['channel_custom_types'];
-    }
-
-    /**
-     * Sets channel_custom_types
-     *
-     * @param string[]|null $channel_custom_types channel_custom_types
-     *
-     * @return self
-     */
-    public function setChannelCustomTypes($channel_custom_types)
-    {
-        $this->container['channel_custom_types'] = $channel_custom_types;
-
-        return $this;
-    }
-
-    /**
-     * Gets sender_ids
-     *
-     * @return string[]|null
-     */
-    public function getSenderIds()
-    {
-        return $this->container['sender_ids'];
-    }
-
-    /**
-     * Sets sender_ids
-     *
-     * @param string[]|null $sender_ids sender_ids
-     *
-     * @return self
-     */
-    public function setSenderIds($sender_ids)
-    {
-        $this->container['sender_ids'] = $sender_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets file
-     *
-     * @return \OpenAPI\Client\Model\InlineResponse20064File|null
-     */
-    public function getFile()
-    {
-        return $this->container['file'];
-    }
-
-    /**
-     * Sets file
-     *
-     * @param \OpenAPI\Client\Model\InlineResponse20064File|null $file file
-     *
-     * @return self
-     */
-    public function setFile($file)
-    {
-        $this->container['file'] = $file;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_ids
-     *
-     * @return float[]|null
-     */
-    public function getUserIds()
-    {
-        return $this->container['user_ids'];
-    }
-
-    /**
-     * Sets user_ids
-     *
-     * @param float[]|null $user_ids user_ids
-     *
-     * @return self
-     */
-    public function setUserIds($user_ids)
-    {
-        $this->container['user_ids'] = $user_ids;
+        $this->container['next'] = $next;
 
         return $this;
     }

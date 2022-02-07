@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20045 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,8 @@ class InlineResponse20045 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'statistics' => '\OpenAPI\Client\Model\InlineResponse20045Statistics[]',
-        'week' => 'float'
+        'announcement_group' => 'string[]',
+        'next' => 'string'
     ];
 
     /**
@@ -71,8 +71,8 @@ class InlineResponse20045 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'statistics' => null,
-        'week' => null
+        'announcement_group' => null,
+        'next' => null
     ];
 
     /**
@@ -102,8 +102,8 @@ class InlineResponse20045 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'statistics' => 'statistics',
-        'week' => 'week'
+        'announcement_group' => 'announcement_group',
+        'next' => 'next'
     ];
 
     /**
@@ -112,8 +112,8 @@ class InlineResponse20045 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'statistics' => 'setStatistics',
-        'week' => 'setWeek'
+        'announcement_group' => 'setAnnouncementGroup',
+        'next' => 'setNext'
     ];
 
     /**
@@ -122,8 +122,8 @@ class InlineResponse20045 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'statistics' => 'getStatistics',
-        'week' => 'getWeek'
+        'announcement_group' => 'getAnnouncementGroup',
+        'next' => 'getNext'
     ];
 
     /**
@@ -183,8 +183,8 @@ class InlineResponse20045 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['statistics'] = $data['statistics'] ?? null;
-        $this->container['week'] = $data['week'] ?? null;
+        $this->container['announcement_group'] = $data['announcement_group'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -212,49 +212,49 @@ class InlineResponse20045 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets statistics
+     * Gets announcement_group
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20045Statistics[]|null
+     * @return string[]|null
      */
-    public function getStatistics()
+    public function getAnnouncementGroup()
     {
-        return $this->container['statistics'];
+        return $this->container['announcement_group'];
     }
 
     /**
-     * Sets statistics
+     * Sets announcement_group
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20045Statistics[]|null $statistics statistics
+     * @param string[]|null $announcement_group announcement_group
      *
      * @return self
      */
-    public function setStatistics($statistics)
+    public function setAnnouncementGroup($announcement_group)
     {
-        $this->container['statistics'] = $statistics;
+        $this->container['announcement_group'] = $announcement_group;
 
         return $this;
     }
 
     /**
-     * Gets week
+     * Gets next
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getWeek()
+    public function getNext()
     {
-        return $this->container['week'];
+        return $this->container['next'];
     }
 
     /**
-     * Sets week
+     * Sets next
      *
-     * @param float|null $week week
+     * @param string|null $next next
      *
      * @return self
      */
-    public function setWeek($week)
+    public function setNext($next)
     {
-        $this->container['week'] = $week;
+        $this->container['next'] = $next;
 
         return $this;
     }

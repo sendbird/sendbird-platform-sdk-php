@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description SendBirdOpenChannel
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -170,9 +170,9 @@ class SendBirdOpenChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "url"
+     * Test attribute "channel_url"
      */
-    public function testPropertyUrl()
+    public function testPropertyChannelUrl()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

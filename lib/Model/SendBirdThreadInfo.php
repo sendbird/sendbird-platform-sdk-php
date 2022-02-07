@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdThreadInfo Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class SendBirdThreadInfo implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'last_replied_at' => 'float',
-        'most_replied_users' => '\OpenAPI\Client\Model\SendBirdUser[]',
+        'most_replied_users' => '\Sendbird\Model\SendBirdUser[]',
         'reply_count' => 'float',
         'updated_at' => 'float'
     ];
@@ -106,10 +106,10 @@ class SendBirdThreadInfo implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'last_replied_at' => 'lastRepliedAt',
-        'most_replied_users' => 'mostRepliedUsers',
-        'reply_count' => 'replyCount',
-        'updated_at' => 'updatedAt'
+        'last_replied_at' => 'last_replied_at',
+        'most_replied_users' => 'most_replied_users',
+        'reply_count' => 'reply_count',
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -250,7 +250,7 @@ class SendBirdThreadInfo implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets most_replied_users
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser[]|null
+     * @return \Sendbird\Model\SendBirdUser[]|null
      */
     public function getMostRepliedUsers()
     {
@@ -260,7 +260,7 @@ class SendBirdThreadInfo implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets most_replied_users
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser[]|null $most_replied_users most_replied_users
+     * @param \Sendbird\Model\SendBirdUser[]|null $most_replied_users most_replied_users
      *
      * @return self
      */

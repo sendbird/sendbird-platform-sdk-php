@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdUserMessageParams Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,16 +59,16 @@ class SendBirdUserMessageParams implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'apple_critical_alert_options' => '\OpenAPI\Client\Model\SendBirdAppleCriticalAlertOptions',
+        'apple_critical_alert_options' => '\Sendbird\Model\SendBirdAppleCriticalAlertOptions',
         'custom_type' => 'string',
         'data' => 'string',
         'is_reply_to_channel' => 'bool',
         'mention_type' => 'string',
         'mentioned_user_ids' => 'string[]',
-        'mentioned_users' => '\OpenAPI\Client\Model\SendBirdUser[]',
+        'mentioned_users' => '\Sendbird\Model\SendBirdUser[]',
         'message' => 'string',
         'meta_array_keys' => 'string[]',
-        'meta_arrays' => '\OpenAPI\Client\Model\SendBirdMessageMetaArray[]',
+        'meta_arrays' => '\Sendbird\Model\SendBirdMessageMetaArray[]',
         'parent_message_id' => 'float',
         'poll_id' => 'float',
         'push_notification_delivery_option' => 'string',
@@ -128,21 +128,21 @@ class SendBirdUserMessageParams implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'apple_critical_alert_options' => 'appleCriticalAlertOptions',
-        'custom_type' => 'customType',
+        'apple_critical_alert_options' => 'apple_critical_alert_options',
+        'custom_type' => 'custom_type',
         'data' => 'data',
-        'is_reply_to_channel' => 'isReplyToChannel',
-        'mention_type' => 'mentionType',
-        'mentioned_user_ids' => 'mentionedUserIds',
-        'mentioned_users' => 'mentionedUsers',
+        'is_reply_to_channel' => 'is_reply_to_channel',
+        'mention_type' => 'mention_type',
+        'mentioned_user_ids' => 'mentioned_user_ids',
+        'mentioned_users' => 'mentioned_users',
         'message' => 'message',
-        'meta_array_keys' => 'metaArrayKeys',
-        'meta_arrays' => 'metaArrays',
-        'parent_message_id' => 'parentMessageId',
-        'poll_id' => 'pollId',
-        'push_notification_delivery_option' => 'pushNotificationDeliveryOption',
-        'target_languages' => 'targetLanguages',
-        'translation_target_languages' => 'translationTargetLanguages'
+        'meta_array_keys' => 'meta_array_keys',
+        'meta_arrays' => 'meta_arrays',
+        'parent_message_id' => 'parent_message_id',
+        'poll_id' => 'poll_id',
+        'push_notification_delivery_option' => 'push_notification_delivery_option',
+        'target_languages' => 'target_languages',
+        'translation_target_languages' => 'translation_target_languages'
     ];
 
     /**
@@ -340,7 +340,7 @@ class SendBirdUserMessageParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets apple_critical_alert_options
      *
-     * @return \OpenAPI\Client\Model\SendBirdAppleCriticalAlertOptions|null
+     * @return \Sendbird\Model\SendBirdAppleCriticalAlertOptions|null
      */
     public function getAppleCriticalAlertOptions()
     {
@@ -350,7 +350,7 @@ class SendBirdUserMessageParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets apple_critical_alert_options
      *
-     * @param \OpenAPI\Client\Model\SendBirdAppleCriticalAlertOptions|null $apple_critical_alert_options apple_critical_alert_options
+     * @param \Sendbird\Model\SendBirdAppleCriticalAlertOptions|null $apple_critical_alert_options apple_critical_alert_options
      *
      * @return self
      */
@@ -494,7 +494,7 @@ class SendBirdUserMessageParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets mentioned_users
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser[]|null
+     * @return \Sendbird\Model\SendBirdUser[]|null
      */
     public function getMentionedUsers()
     {
@@ -504,7 +504,7 @@ class SendBirdUserMessageParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets mentioned_users
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser[]|null $mentioned_users mentioned_users
+     * @param \Sendbird\Model\SendBirdUser[]|null $mentioned_users mentioned_users
      *
      * @return self
      */
@@ -566,7 +566,7 @@ class SendBirdUserMessageParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets meta_arrays
      *
-     * @return \OpenAPI\Client\Model\SendBirdMessageMetaArray[]|null
+     * @return \Sendbird\Model\SendBirdMessageMetaArray[]|null
      */
     public function getMetaArrays()
     {
@@ -576,7 +576,7 @@ class SendBirdUserMessageParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets meta_arrays
      *
-     * @param \OpenAPI\Client\Model\SendBirdMessageMetaArray[]|null $meta_arrays meta_arrays
+     * @param \Sendbird\Model\SendBirdMessageMetaArray[]|null $meta_arrays meta_arrays
      *
      * @return self
      */

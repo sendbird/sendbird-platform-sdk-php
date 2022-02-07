@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20050 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'unread' => '\OpenAPI\Client\Model\InlineResponse20050Unread'
+        'ts' => 'float'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'unread' => null
+        'ts' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'unread' => 'unread'
+        'ts' => 'ts'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'unread' => 'setUnread'
+        'ts' => 'setTs'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'unread' => 'getUnread'
+        'ts' => 'getTs'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['unread'] = $data['unread'] ?? null;
+        $this->container['ts'] = $data['ts'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20050 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets unread
+     * Gets ts
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20050Unread|null
+     * @return float|null
      */
-    public function getUnread()
+    public function getTs()
     {
-        return $this->container['unread'];
+        return $this->container['ts'];
     }
 
     /**
-     * Sets unread
+     * Sets ts
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20050Unread|null $unread unread
+     * @param float|null $ts ts
      *
      * @return self
      */
-    public function setUnread($unread)
+    public function setTs($ts)
     {
-        $this->container['unread'] = $unread;
+        $this->container['ts'] = $ts;
 
         return $this;
     }

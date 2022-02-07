@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * RegisterAndScheduleDataExportData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -268,39 +268,6 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
         if ($this->container['end_ts'] === null) {
             $invalidProperties[] = "'end_ts' can't be null";
         }
-        if ($this->container['format'] === null) {
-            $invalidProperties[] = "'format' can't be null";
-        }
-        if ($this->container['csv_delimiter'] === null) {
-            $invalidProperties[] = "'csv_delimiter' can't be null";
-        }
-        if ($this->container['timezone'] === null) {
-            $invalidProperties[] = "'timezone' can't be null";
-        }
-        if ($this->container['sender_ids'] === null) {
-            $invalidProperties[] = "'sender_ids' can't be null";
-        }
-        if ($this->container['exclude_sender_ids'] === null) {
-            $invalidProperties[] = "'exclude_sender_ids' can't be null";
-        }
-        if ($this->container['channel_urls'] === null) {
-            $invalidProperties[] = "'channel_urls' can't be null";
-        }
-        if ($this->container['exclude_channel_urls'] === null) {
-            $invalidProperties[] = "'exclude_channel_urls' can't be null";
-        }
-        if ($this->container['user_ids'] === null) {
-            $invalidProperties[] = "'user_ids' can't be null";
-        }
-        if ($this->container['show_read_receipt'] === null) {
-            $invalidProperties[] = "'show_read_receipt' can't be null";
-        }
-        if ($this->container['show_channel_metadata'] === null) {
-            $invalidProperties[] = "'show_channel_metadata' can't be null";
-        }
-        if ($this->container['neighboring_message_limit'] === null) {
-            $invalidProperties[] = "'neighboring_message_limit' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -367,7 +334,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets format
      *
-     * @return string
+     * @return string|null
      */
     public function getFormat()
     {
@@ -377,7 +344,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets format
      *
-     * @param string $format Specifies the format of the file to export the messages to. Acceptable values are json and csv. (Default: json)
+     * @param string|null $format Specifies the format of the file to export the messages to. Acceptable values are json and csv. (Default: json)
      *
      * @return self
      */
@@ -391,7 +358,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets csv_delimiter
      *
-     * @return string
+     * @return string|null
      */
     public function getCsvDelimiter()
     {
@@ -401,7 +368,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets csv_delimiter
      *
-     * @param string $csv_delimiter Sets a single character delimiter to separate the values in each row of the csv file which stores two-dimensional arrays of the exported message data. Either English alphabets or special characters can be used as a delimiter, including a horizontal tab (\\t), a line feed (\\n), a vertical bar (\\
+     * @param string|null $csv_delimiter Sets a single character delimiter to separate the values in each row of the csv file which stores two-dimensional arrays of the exported message data. Either English alphabets or special characters can be used as a delimiter, including a horizontal tab (\\t), a line feed (\\n), a vertical bar (\\
      *
      * @return self
      */
@@ -415,7 +382,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets timezone
      *
-     * @return string
+     * @return string|null
      */
     public function getTimezone()
     {
@@ -425,7 +392,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets timezone
      *
-     * @param string $timezone Specifies the timezone to be applied to the timestamp of the exported messages. For example, US/Pacific, Asia/Seoul, Europe/London, etc. (Default: UTC)
+     * @param string|null $timezone Specifies the timezone to be applied to the timestamp of the exported messages. For example, US/Pacific, Asia/Seoul, Europe/London, etc. (Default: UTC)
      *
      * @return self
      */
@@ -439,7 +406,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets sender_ids
      *
-     * @return int[]
+     * @return int[]|null
      */
     public function getSenderIds()
     {
@@ -449,7 +416,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets sender_ids
      *
-     * @param int[] $sender_ids Specifies an array of the IDs of the users which are used to filter the messages by its sender for the export. This property is effective only when the data_type parameter is set to messages, and can be specified up to 10 IDs in the request. (Default: all messages sent by any user)
+     * @param int[]|null $sender_ids Specifies an array of the IDs of the users which are used to filter the messages by its sender for the export. This property is effective only when the data_type parameter is set to messages, and can be specified up to 10 IDs in the request. (Default: all messages sent by any user)
      *
      * @return self
      */
@@ -463,7 +430,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets exclude_sender_ids
      *
-     * @return int[]
+     * @return int[]|null
      */
     public function getExcludeSenderIds()
     {
@@ -473,7 +440,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets exclude_sender_ids
      *
-     * @param int[] $exclude_sender_ids Specifies an array of the IDs of the users which are used to exclude their sent messages from the export. This property is effective only when the data_type parameter is set to messages, and can be specified up to 10 IDs. (Default: all messages sent by any user)
+     * @param int[]|null $exclude_sender_ids Specifies an array of the IDs of the users which are used to exclude their sent messages from the export. This property is effective only when the data_type parameter is set to messages, and can be specified up to 10 IDs. (Default: all messages sent by any user)
      *
      * @return self
      */
@@ -487,7 +454,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets channel_urls
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getChannelUrls()
     {
@@ -497,7 +464,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets channel_urls
      *
-     * @param string[] $channel_urls Specifies an array of one or more URLs of channels to export the messages from. This property is effective only when the data_type parameter is set to messages or channels. (Default: all channels)
+     * @param string[]|null $channel_urls Specifies an array of one or more URLs of channels to export the messages from. This property is effective only when the data_type parameter is set to messages or channels. (Default: all channels)
      *
      * @return self
      */
@@ -511,7 +478,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets exclude_channel_urls
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getExcludeChannelUrls()
     {
@@ -521,7 +488,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets exclude_channel_urls
      *
-     * @param string[] $exclude_channel_urls Specifies an array of one or more URLs of channels to exclude when exporting the messages. This property is effective only when the data_type parameter is set to messages or channels. (Default: include all channels)
+     * @param string[]|null $exclude_channel_urls Specifies an array of one or more URLs of channels to exclude when exporting the messages. This property is effective only when the data_type parameter is set to messages or channels. (Default: include all channels)
      *
      * @return self
      */
@@ -535,7 +502,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets user_ids
      *
-     * @return int[]
+     * @return int[]|null
      */
     public function getUserIds()
     {
@@ -545,7 +512,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets user_ids
      *
-     * @param int[] $user_ids Specifies an array of the IDs of the users to export their information. This property is effective only when the data_type parameter is set to users. (Default: all users)
+     * @param int[]|null $user_ids Specifies an array of the IDs of the users to export their information. This property is effective only when the data_type parameter is set to users. (Default: all users)
      *
      * @return self
      */
@@ -559,7 +526,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets show_read_receipt
      *
-     * @return bool
+     * @return bool|null
      */
     public function getShowReadReceipt()
     {
@@ -569,7 +536,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets show_read_receipt
      *
-     * @param bool $show_read_receipt Determines whether to include information about the read receipts of each channel in the exported data. The read receipt indicates the timestamps of when each user has last read the messages in the channel, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps). (Default: true)
+     * @param bool|null $show_read_receipt Determines whether to include information about the read receipts of each channel in the exported data. The read receipt indicates the timestamps of when each user has last read the messages in the channel, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps). (Default: true)
      *
      * @return self
      */
@@ -583,7 +550,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets show_channel_metadata
      *
-     * @return bool
+     * @return bool|null
      */
     public function getShowChannelMetadata()
     {
@@ -593,7 +560,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets show_channel_metadata
      *
-     * @param bool $show_channel_metadata Determines whether to include [channel metadata](/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata) in the result files.
+     * @param bool|null $show_channel_metadata Determines whether to include [channel metadata](/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-view-a-channel-metadata) in the result files.
      *
      * @return self
      */
@@ -607,7 +574,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Gets neighboring_message_limit
      *
-     * @return int
+     * @return int|null
      */
     public function getNeighboringMessageLimit()
     {
@@ -617,7 +584,7 @@ class RegisterAndScheduleDataExportData implements ModelInterface, ArrayAccess, 
     /**
      * Sets neighboring_message_limit
      *
-     * @param int $neighboring_message_limit Specifies the maximum number of other users' messages to be exported, which took place after the specified message of a user filtered by the sender_ids property. Even if there may be more messages that took place, if the quantity exceeds the number of the neighboring_message_limit, they are omitted. Only the messages that took place right after the specified message will be counted and exported. This can be used to better analyze the context. Acceptable values are 1 to 10, inclusive. (Default: 0)
+     * @param int|null $neighboring_message_limit Specifies the maximum number of other users' messages to be exported, which took place after the specified message of a user filtered by the sender_ids property. Even if there may be more messages that took place, if the quantity exceeds the number of the neighboring_message_limit, they are omitted. Only the messages that took place right after the specified message will be counted and exported. This can be used to better analyze the context. Acceptable values are 1 to 10, inclusive. (Default: 0)
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20036 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,11 +59,8 @@ class InlineResponse20036 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is_muted' => 'bool',
-        'remaining_duration' => 'float',
-        'start_at' => 'float',
-        'end_at' => 'float',
-        'description' => 'string'
+        'members' => '\Sendbird\Model\SendBirdUser[]',
+        'next' => 'string'
     ];
 
     /**
@@ -74,11 +71,8 @@ class InlineResponse20036 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'is_muted' => null,
-        'remaining_duration' => null,
-        'start_at' => null,
-        'end_at' => null,
-        'description' => null
+        'members' => null,
+        'next' => null
     ];
 
     /**
@@ -108,11 +102,8 @@ class InlineResponse20036 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_muted' => 'is_muted',
-        'remaining_duration' => 'remaining_duration',
-        'start_at' => 'start_at',
-        'end_at' => 'end_at',
-        'description' => 'description'
+        'members' => 'members',
+        'next' => 'next'
     ];
 
     /**
@@ -121,11 +112,8 @@ class InlineResponse20036 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'is_muted' => 'setIsMuted',
-        'remaining_duration' => 'setRemainingDuration',
-        'start_at' => 'setStartAt',
-        'end_at' => 'setEndAt',
-        'description' => 'setDescription'
+        'members' => 'setMembers',
+        'next' => 'setNext'
     ];
 
     /**
@@ -134,11 +122,8 @@ class InlineResponse20036 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'is_muted' => 'getIsMuted',
-        'remaining_duration' => 'getRemainingDuration',
-        'start_at' => 'getStartAt',
-        'end_at' => 'getEndAt',
-        'description' => 'getDescription'
+        'members' => 'getMembers',
+        'next' => 'getNext'
     ];
 
     /**
@@ -198,11 +183,8 @@ class InlineResponse20036 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['is_muted'] = $data['is_muted'] ?? null;
-        $this->container['remaining_duration'] = $data['remaining_duration'] ?? null;
-        $this->container['start_at'] = $data['start_at'] ?? null;
-        $this->container['end_at'] = $data['end_at'] ?? null;
-        $this->container['description'] = $data['description'] ?? null;
+        $this->container['members'] = $data['members'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -230,121 +212,49 @@ class InlineResponse20036 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets is_muted
+     * Gets members
      *
-     * @return bool|null
+     * @return \Sendbird\Model\SendBirdUser[]|null
      */
-    public function getIsMuted()
+    public function getMembers()
     {
-        return $this->container['is_muted'];
+        return $this->container['members'];
     }
 
     /**
-     * Sets is_muted
+     * Sets members
      *
-     * @param bool|null $is_muted is_muted
+     * @param \Sendbird\Model\SendBirdUser[]|null $members members
      *
      * @return self
      */
-    public function setIsMuted($is_muted)
+    public function setMembers($members)
     {
-        $this->container['is_muted'] = $is_muted;
+        $this->container['members'] = $members;
 
         return $this;
     }
 
     /**
-     * Gets remaining_duration
-     *
-     * @return float|null
-     */
-    public function getRemainingDuration()
-    {
-        return $this->container['remaining_duration'];
-    }
-
-    /**
-     * Sets remaining_duration
-     *
-     * @param float|null $remaining_duration remaining_duration
-     *
-     * @return self
-     */
-    public function setRemainingDuration($remaining_duration)
-    {
-        $this->container['remaining_duration'] = $remaining_duration;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_at
-     *
-     * @return float|null
-     */
-    public function getStartAt()
-    {
-        return $this->container['start_at'];
-    }
-
-    /**
-     * Sets start_at
-     *
-     * @param float|null $start_at start_at
-     *
-     * @return self
-     */
-    public function setStartAt($start_at)
-    {
-        $this->container['start_at'] = $start_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_at
-     *
-     * @return float|null
-     */
-    public function getEndAt()
-    {
-        return $this->container['end_at'];
-    }
-
-    /**
-     * Sets end_at
-     *
-     * @param float|null $end_at end_at
-     *
-     * @return self
-     */
-    public function setEndAt($end_at)
-    {
-        $this->container['end_at'] = $end_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets next
      *
      * @return string|null
      */
-    public function getDescription()
+    public function getNext()
     {
-        return $this->container['description'];
+        return $this->container['next'];
     }
 
     /**
-     * Sets description
+     * Sets next
      *
-     * @param string|null $description description
+     * @param string|null $next next
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setNext($next)
     {
-        $this->container['description'] = $description;
+        $this->container['next'] = $next;
 
         return $this;
     }

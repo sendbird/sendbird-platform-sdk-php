@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20058 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20058 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'emoji_categories' => '\OpenAPI\Client\Model\InlineResponse20058EmojiCategories[]'
+        'emojis' => '\Sendbird\Model\SendBirdEmoji[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20058 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'emoji_categories' => null
+        'emojis' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20058 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'emoji_categories' => 'emoji_categories'
+        'emojis' => 'emojis'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20058 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'emoji_categories' => 'setEmojiCategories'
+        'emojis' => 'setEmojis'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20058 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'emoji_categories' => 'getEmojiCategories'
+        'emojis' => 'getEmojis'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20058 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['emoji_categories'] = $data['emoji_categories'] ?? null;
+        $this->container['emojis'] = $data['emojis'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20058 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets emoji_categories
+     * Gets emojis
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20058EmojiCategories[]|null
+     * @return \Sendbird\Model\SendBirdEmoji[]|null
      */
-    public function getEmojiCategories()
+    public function getEmojis()
     {
-        return $this->container['emoji_categories'];
+        return $this->container['emojis'];
     }
 
     /**
-     * Sets emoji_categories
+     * Sets emojis
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20058EmojiCategories[]|null $emoji_categories emoji_categories
+     * @param \Sendbird\Model\SendBirdEmoji[]|null $emojis emojis
      *
      * @return self
      */
-    public function setEmojiCategories($emoji_categories)
+    public function setEmojis($emojis)
     {
-        $this->container['emoji_categories'] = $emoji_categories;
+        $this->container['emojis'] = $emojis;
 
         return $this;
     }

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20070 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,13 +59,8 @@ class InlineResponse20070 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'request_id' => 'string',
-        'action' => 'string',
-        'status' => 'string',
-        'user_id' => 'string',
-        'user_ids' => 'string[]',
-        'channel_delete_option' => 'string',
-        'created_at' => 'float'
+        'report_logs' => '\Sendbird\Model\InlineResponse20070ReportLogs[]',
+        'next' => 'string'
     ];
 
     /**
@@ -76,13 +71,8 @@ class InlineResponse20070 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'request_id' => null,
-        'action' => null,
-        'status' => null,
-        'user_id' => null,
-        'user_ids' => null,
-        'channel_delete_option' => null,
-        'created_at' => null
+        'report_logs' => null,
+        'next' => null
     ];
 
     /**
@@ -112,13 +102,8 @@ class InlineResponse20070 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'request_id' => 'request_id',
-        'action' => 'action',
-        'status' => 'status',
-        'user_id' => 'user_id',
-        'user_ids' => 'user_ids',
-        'channel_delete_option' => 'channel_delete_option',
-        'created_at' => 'created_at'
+        'report_logs' => 'report_logs',
+        'next' => 'next'
     ];
 
     /**
@@ -127,13 +112,8 @@ class InlineResponse20070 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'request_id' => 'setRequestId',
-        'action' => 'setAction',
-        'status' => 'setStatus',
-        'user_id' => 'setUserId',
-        'user_ids' => 'setUserIds',
-        'channel_delete_option' => 'setChannelDeleteOption',
-        'created_at' => 'setCreatedAt'
+        'report_logs' => 'setReportLogs',
+        'next' => 'setNext'
     ];
 
     /**
@@ -142,13 +122,8 @@ class InlineResponse20070 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'request_id' => 'getRequestId',
-        'action' => 'getAction',
-        'status' => 'getStatus',
-        'user_id' => 'getUserId',
-        'user_ids' => 'getUserIds',
-        'channel_delete_option' => 'getChannelDeleteOption',
-        'created_at' => 'getCreatedAt'
+        'report_logs' => 'getReportLogs',
+        'next' => 'getNext'
     ];
 
     /**
@@ -208,13 +183,8 @@ class InlineResponse20070 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['request_id'] = $data['request_id'] ?? null;
-        $this->container['action'] = $data['action'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['user_id'] = $data['user_id'] ?? null;
-        $this->container['user_ids'] = $data['user_ids'] ?? null;
-        $this->container['channel_delete_option'] = $data['channel_delete_option'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['report_logs'] = $data['report_logs'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -242,169 +212,49 @@ class InlineResponse20070 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets request_id
+     * Gets report_logs
+     *
+     * @return \Sendbird\Model\InlineResponse20070ReportLogs[]|null
+     */
+    public function getReportLogs()
+    {
+        return $this->container['report_logs'];
+    }
+
+    /**
+     * Sets report_logs
+     *
+     * @param \Sendbird\Model\InlineResponse20070ReportLogs[]|null $report_logs report_logs
+     *
+     * @return self
+     */
+    public function setReportLogs($report_logs)
+    {
+        $this->container['report_logs'] = $report_logs;
+
+        return $this;
+    }
+
+    /**
+     * Gets next
      *
      * @return string|null
      */
-    public function getRequestId()
+    public function getNext()
     {
-        return $this->container['request_id'];
+        return $this->container['next'];
     }
 
     /**
-     * Sets request_id
+     * Sets next
      *
-     * @param string|null $request_id request_id
+     * @param string|null $next next
      *
      * @return self
      */
-    public function setRequestId($request_id)
+    public function setNext($next)
     {
-        $this->container['request_id'] = $request_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets action
-     *
-     * @return string|null
-     */
-    public function getAction()
-    {
-        return $this->container['action'];
-    }
-
-    /**
-     * Sets action
-     *
-     * @param string|null $action action
-     *
-     * @return self
-     */
-    public function setAction($action)
-    {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string|null
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string|null $user_id user_id
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_ids
-     *
-     * @return string[]|null
-     */
-    public function getUserIds()
-    {
-        return $this->container['user_ids'];
-    }
-
-    /**
-     * Sets user_ids
-     *
-     * @param string[]|null $user_ids user_ids
-     *
-     * @return self
-     */
-    public function setUserIds($user_ids)
-    {
-        $this->container['user_ids'] = $user_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel_delete_option
-     *
-     * @return string|null
-     */
-    public function getChannelDeleteOption()
-    {
-        return $this->container['channel_delete_option'];
-    }
-
-    /**
-     * Sets channel_delete_option
-     *
-     * @param string|null $channel_delete_option channel_delete_option
-     *
-     * @return self
-     */
-    public function setChannelDeleteOption($channel_delete_option)
-    {
-        $this->container['channel_delete_option'] = $channel_delete_option;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return float|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param float|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
+        $this->container['next'] = $next;
 
         return $this;
     }

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20067Webhook Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,8 +62,7 @@ class InlineResponse20067Webhook implements ModelInterface, ArrayAccess, \JsonSe
         'enabled' => 'bool',
         'url' => 'string',
         'include_members' => 'bool',
-        'enabled_events' => 'string[]',
-        'all_webhook_categories' => 'string[]'
+        'enabled_events' => 'string[]'
     ];
 
     /**
@@ -77,8 +76,7 @@ class InlineResponse20067Webhook implements ModelInterface, ArrayAccess, \JsonSe
         'enabled' => null,
         'url' => null,
         'include_members' => null,
-        'enabled_events' => null,
-        'all_webhook_categories' => null
+        'enabled_events' => null
     ];
 
     /**
@@ -111,8 +109,7 @@ class InlineResponse20067Webhook implements ModelInterface, ArrayAccess, \JsonSe
         'enabled' => 'enabled',
         'url' => 'url',
         'include_members' => 'include_members',
-        'enabled_events' => 'enabled_events',
-        'all_webhook_categories' => 'all_webhook_categories'
+        'enabled_events' => 'enabled_events'
     ];
 
     /**
@@ -124,8 +121,7 @@ class InlineResponse20067Webhook implements ModelInterface, ArrayAccess, \JsonSe
         'enabled' => 'setEnabled',
         'url' => 'setUrl',
         'include_members' => 'setIncludeMembers',
-        'enabled_events' => 'setEnabledEvents',
-        'all_webhook_categories' => 'setAllWebhookCategories'
+        'enabled_events' => 'setEnabledEvents'
     ];
 
     /**
@@ -137,8 +133,7 @@ class InlineResponse20067Webhook implements ModelInterface, ArrayAccess, \JsonSe
         'enabled' => 'getEnabled',
         'url' => 'getUrl',
         'include_members' => 'getIncludeMembers',
-        'enabled_events' => 'getEnabledEvents',
-        'all_webhook_categories' => 'getAllWebhookCategories'
+        'enabled_events' => 'getEnabledEvents'
     ];
 
     /**
@@ -202,7 +197,6 @@ class InlineResponse20067Webhook implements ModelInterface, ArrayAccess, \JsonSe
         $this->container['url'] = $data['url'] ?? null;
         $this->container['include_members'] = $data['include_members'] ?? null;
         $this->container['enabled_events'] = $data['enabled_events'] ?? null;
-        $this->container['all_webhook_categories'] = $data['all_webhook_categories'] ?? null;
     }
 
     /**
@@ -321,30 +315,6 @@ class InlineResponse20067Webhook implements ModelInterface, ArrayAccess, \JsonSe
     public function setEnabledEvents($enabled_events)
     {
         $this->container['enabled_events'] = $enabled_events;
-
-        return $this;
-    }
-
-    /**
-     * Gets all_webhook_categories
-     *
-     * @return string[]|null
-     */
-    public function getAllWebhookCategories()
-    {
-        return $this->container['all_webhook_categories'];
-    }
-
-    /**
-     * Sets all_webhook_categories
-     *
-     * @param string[]|null $all_webhook_categories all_webhook_categories
-     *
-     * @return self
-     */
-    public function setAllWebhookCategories($all_webhook_categories)
-    {
-        $this->container['all_webhook_categories'] = $all_webhook_categories;
 
         return $this;
     }

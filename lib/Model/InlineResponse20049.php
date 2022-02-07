@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20049 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'float'
+        'unread' => '\Sendbird\Model\InlineResponse20049Unread'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'total' => null
+        'unread' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'total' => 'total'
+        'unread' => 'unread'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'total' => 'setTotal'
+        'unread' => 'setUnread'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'total' => 'getTotal'
+        'unread' => 'getUnread'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['total'] = $data['total'] ?? null;
+        $this->container['unread'] = $data['unread'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20049 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets total
+     * Gets unread
      *
-     * @return float|null
+     * @return \Sendbird\Model\InlineResponse20049Unread|null
      */
-    public function getTotal()
+    public function getUnread()
     {
-        return $this->container['total'];
+        return $this->container['unread'];
     }
 
     /**
-     * Sets total
+     * Sets unread
      *
-     * @param float|null $total total
+     * @param \Sendbird\Model\InlineResponse20049Unread|null $unread unread
      *
      * @return self
      */
-    public function setTotal($total)
+    public function setUnread($unread)
     {
-        $this->container['total'] = $total;
+        $this->container['unread'] = $unread;
 
         return $this;
     }

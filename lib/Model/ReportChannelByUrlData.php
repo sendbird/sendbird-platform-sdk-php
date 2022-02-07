@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * ReportChannelByUrlData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -214,20 +214,8 @@ class ReportChannelByUrlData implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['channel_type'] === null) {
-            $invalidProperties[] = "'channel_type' can't be null";
-        }
-        if ($this->container['channel_url'] === null) {
-            $invalidProperties[] = "'channel_url' can't be null";
-        }
         if ($this->container['report_category'] === null) {
             $invalidProperties[] = "'report_category' can't be null";
-        }
-        if ($this->container['reporting_user_id'] === null) {
-            $invalidProperties[] = "'reporting_user_id' can't be null";
-        }
-        if ($this->container['report_description'] === null) {
-            $invalidProperties[] = "'report_description' can't be null";
         }
         return $invalidProperties;
     }
@@ -247,7 +235,7 @@ class ReportChannelByUrlData implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets channel_type
      *
-     * @return string
+     * @return string|null
      */
     public function getChannelType()
     {
@@ -257,7 +245,7 @@ class ReportChannelByUrlData implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets channel_type
      *
-     * @param string $channel_type Specifies the type of the channel. Either open_channels or group_channels.
+     * @param string|null $channel_type Specifies the type of the channel. Either open_channels or group_channels.
      *
      * @return self
      */
@@ -271,7 +259,7 @@ class ReportChannelByUrlData implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets channel_url
      *
-     * @return string
+     * @return string|null
      */
     public function getChannelUrl()
     {
@@ -281,7 +269,7 @@ class ReportChannelByUrlData implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets channel_url
      *
-     * @param string $channel_url Specifies the URL of the channel to report for offensive messages or inappropriate activities.
+     * @param string|null $channel_url Specifies the URL of the channel to report for offensive messages or inappropriate activities.
      *
      * @return self
      */
@@ -319,7 +307,7 @@ class ReportChannelByUrlData implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets reporting_user_id
      *
-     * @return string
+     * @return string|null
      */
     public function getReportingUserId()
     {
@@ -329,7 +317,7 @@ class ReportChannelByUrlData implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets reporting_user_id
      *
-     * @param string $reporting_user_id Specifies the unique ID of the user who reports the channel.
+     * @param string|null $reporting_user_id Specifies the unique ID of the user who reports the channel.
      *
      * @return self
      */
@@ -343,7 +331,7 @@ class ReportChannelByUrlData implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets report_description
      *
-     * @return string
+     * @return string|null
      */
     public function getReportDescription()
     {
@@ -353,7 +341,7 @@ class ReportChannelByUrlData implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets report_description
      *
-     * @param string $report_description Specifies additional information to be included in the report.
+     * @param string|null $report_description Specifies additional information to be included in the report.
      *
      * @return self
      */

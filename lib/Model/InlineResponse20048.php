@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20048 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'messages' => '\OpenAPI\Client\Model\InlineResponse20048Messages[]'
+        'total' => 'float'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'messages' => null
+        'total' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'messages' => 'messages'
+        'total' => 'total'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'messages' => 'setMessages'
+        'total' => 'setTotal'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'messages' => 'getMessages'
+        'total' => 'getTotal'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['messages'] = $data['messages'] ?? null;
+        $this->container['total'] = $data['total'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20048 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets messages
+     * Gets total
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20048Messages[]|null
+     * @return float|null
      */
-    public function getMessages()
+    public function getTotal()
     {
-        return $this->container['messages'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets messages
+     * Sets total
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20048Messages[]|null $messages messages
+     * @param float|null $total total
      *
      * @return self
      */
-    public function setMessages($messages)
+    public function setTotal($total)
     {
-        $this->container['messages'] = $messages;
+        $this->container['total'] = $total;
 
         return $this;
     }

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * ModelFunction Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class ModelFunction implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'arguments' => 'mixed',
-        'caller' => '\OpenAPI\Client\Model\ModelFunction',
+        'caller' => '\Sendbird\Model\ModelFunction',
         'length' => 'float',
         'prototype' => 'mixed'
     ];
@@ -250,7 +250,7 @@ class ModelFunction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets caller
      *
-     * @return \OpenAPI\Client\Model\ModelFunction|null
+     * @return \Sendbird\Model\ModelFunction|null
      */
     public function getCaller()
     {
@@ -260,7 +260,7 @@ class ModelFunction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets caller
      *
-     * @param \OpenAPI\Client\Model\ModelFunction|null $caller caller
+     * @param \Sendbird\Model\ModelFunction|null $caller caller
      *
      * @return self
      */

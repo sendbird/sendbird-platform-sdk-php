@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * ReportMessageByIdData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -226,26 +226,11 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['channel_type'] === null) {
-            $invalidProperties[] = "'channel_type' can't be null";
-        }
-        if ($this->container['channel_url'] === null) {
-            $invalidProperties[] = "'channel_url' can't be null";
-        }
-        if ($this->container['message_id'] === null) {
-            $invalidProperties[] = "'message_id' can't be null";
-        }
         if ($this->container['report_category'] === null) {
             $invalidProperties[] = "'report_category' can't be null";
         }
         if ($this->container['offending_user_id'] === null) {
             $invalidProperties[] = "'offending_user_id' can't be null";
-        }
-        if ($this->container['reporting_user_id'] === null) {
-            $invalidProperties[] = "'reporting_user_id' can't be null";
-        }
-        if ($this->container['report_description'] === null) {
-            $invalidProperties[] = "'report_description' can't be null";
         }
         return $invalidProperties;
     }
@@ -265,7 +250,7 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets channel_type
      *
-     * @return string
+     * @return string|null
      */
     public function getChannelType()
     {
@@ -275,7 +260,7 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets channel_type
      *
-     * @param string $channel_type Specifies the type of the channel. Either open_channels or group_channels.
+     * @param string|null $channel_type Specifies the type of the channel. Either open_channels or group_channels.
      *
      * @return self
      */
@@ -289,7 +274,7 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets channel_url
      *
-     * @return string
+     * @return string|null
      */
     public function getChannelUrl()
     {
@@ -299,7 +284,7 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets channel_url
      *
-     * @param string $channel_url Specifies the URL of the channel where the message to report is in.
+     * @param string|null $channel_url Specifies the URL of the channel where the message to report is in.
      *
      * @return self
      */
@@ -313,7 +298,7 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets message_id
      *
-     * @return string
+     * @return string|null
      */
     public function getMessageId()
     {
@@ -323,7 +308,7 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets message_id
      *
-     * @param string $message_id Specifies the unique ID of the message to report.
+     * @param string|null $message_id Specifies the unique ID of the message to report.
      *
      * @return self
      */
@@ -385,7 +370,7 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets reporting_user_id
      *
-     * @return string
+     * @return string|null
      */
     public function getReportingUserId()
     {
@@ -395,7 +380,7 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets reporting_user_id
      *
-     * @param string $reporting_user_id Specifies the unique ID of the user who reports the message.
+     * @param string|null $reporting_user_id Specifies the unique ID of the user who reports the message.
      *
      * @return self
      */
@@ -409,7 +394,7 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets report_description
      *
-     * @return string
+     * @return string|null
      */
     public function getReportDescription()
     {
@@ -419,7 +404,7 @@ class ReportMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets report_description
      *
-     * @param string $report_description Specifies additional information to be included in the report.
+     * @param string|null $report_description Specifies additional information to be included in the report.
      *
      * @return self
      */

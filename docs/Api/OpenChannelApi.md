@@ -1,4 +1,4 @@
-# OpenAPI\Client\OpenChannelApi
+# Sendbird\OpenChannelApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 ## `ocBanUser()`
 
 ```php
-ocBanUser($channel_url, $api_token, $oc_ban_user_data): \OpenAPI\Client\Model\InlineResponse20034BannedList
+ocBanUser($channel_url, $api_token, $oc_ban_user_data): \Sendbird\Model\InlineResponse20033BannedList
 ```
 
 Ban a user
@@ -43,14 +43,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$oc_ban_user_data = new \OpenAPI\Client\Model\OcBanUserData(); // \OpenAPI\Client\Model\OcBanUserData
+$oc_ban_user_data = new \Sendbird\Model\OcBanUserData(); // \Sendbird\Model\OcBanUserData
 
 try {
     $result = $apiInstance->ocBanUser($channel_url, $api_token, $oc_ban_user_data);
@@ -66,11 +66,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **oc_ban_user_data** | [**\OpenAPI\Client\Model\OcBanUserData**](../Model/OcBanUserData.md)|  | [optional]
+ **oc_ban_user_data** | [**\Sendbird\Model\OcBanUserData**](../Model/OcBanUserData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20034BannedList**](../Model/InlineResponse20034BannedList.md)
+[**\Sendbird\Model\InlineResponse20033BannedList**](../Model/InlineResponse20033BannedList.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -140,7 +140,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -149,7 +149,7 @@ No authorization required
 ## `ocCreateChannel()`
 
 ```php
-ocCreateChannel($api_token, $oc_create_channel_data): \OpenAPI\Client\Model\SendBirdOpenChannel
+ocCreateChannel($api_token, $oc_create_channel_data): \Sendbird\Model\SendBirdOpenChannel
 ```
 
 Create a channel
@@ -164,13 +164,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$oc_create_channel_data = new \OpenAPI\Client\Model\OcCreateChannelData(); // \OpenAPI\Client\Model\OcCreateChannelData
+$oc_create_channel_data = new \Sendbird\Model\OcCreateChannelData(); // \Sendbird\Model\OcCreateChannelData
 
 try {
     $result = $apiInstance->ocCreateChannel($api_token, $oc_create_channel_data);
@@ -185,11 +185,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **oc_create_channel_data** | [**\OpenAPI\Client\Model\OcCreateChannelData**](../Model/OcCreateChannelData.md)|  | [optional]
+ **oc_create_channel_data** | [**\Sendbird\Model\OcCreateChannelData**](../Model/OcCreateChannelData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
+[**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -255,7 +255,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -264,7 +264,7 @@ No authorization required
 ## `ocFreezeChannel()`
 
 ```php
-ocFreezeChannel($channel_url, $api_token, $oc_freeze_channel_data): \OpenAPI\Client\Model\SendBirdOpenChannel
+ocFreezeChannel($channel_url, $api_token, $oc_freeze_channel_data): \Sendbird\Model\SendBirdOpenChannel
 ```
 
 Freeze a channel
@@ -279,14 +279,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$oc_freeze_channel_data = new \OpenAPI\Client\Model\OcFreezeChannelData(); // \OpenAPI\Client\Model\OcFreezeChannelData
+$oc_freeze_channel_data = new \Sendbird\Model\OcFreezeChannelData(); // \Sendbird\Model\OcFreezeChannelData
 
 try {
     $result = $apiInstance->ocFreezeChannel($channel_url, $api_token, $oc_freeze_channel_data);
@@ -302,11 +302,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **oc_freeze_channel_data** | [**\OpenAPI\Client\Model\OcFreezeChannelData**](../Model/OcFreezeChannelData.md)|  | [optional]
+ **oc_freeze_channel_data** | [**\Sendbird\Model\OcFreezeChannelData**](../Model/OcFreezeChannelData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
+[**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
 
 ### Authorization
 
@@ -324,7 +324,7 @@ No authorization required
 ## `ocListBannedUsers()`
 
 ```php
-ocListBannedUsers($channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20034
+ocListBannedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20033
 ```
 
 List banned users
@@ -339,7 +339,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\Sendbird\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
 
 ### Authorization
 
@@ -386,7 +386,7 @@ No authorization required
 ## `ocListChannels()`
 
 ```php
-ocListChannels($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type): \OpenAPI\Client\Model\InlineResponse20031
+ocListChannels($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type): \Sendbird\Model\InlineResponse20030
 ```
 
 List channels
@@ -401,7 +401,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
+[**\Sendbird\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ No authorization required
 ## `ocListMutedUsers()`
 
 ```php
-ocListMutedUsers($channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20032
+ocListMutedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20031
 ```
 
 List muted users
@@ -473,7 +473,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
+[**\Sendbird\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
 
 ### Authorization
 
@@ -520,7 +520,7 @@ No authorization required
 ## `ocListOperators()`
 
 ```php
-ocListOperators($channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20035
+ocListOperators($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20034
 ```
 
 List operators
@@ -535,7 +535,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -564,7 +564,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
+[**\Sendbird\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
 
 ### Authorization
 
@@ -582,7 +582,7 @@ No authorization required
 ## `ocListParticipants()`
 
 ```php
-ocListParticipants($channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20033
+ocListParticipants($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20032
 ```
 
 List participants
@@ -597,7 +597,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
+[**\Sendbird\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
 
 ### Authorization
 
@@ -644,7 +644,7 @@ No authorization required
 ## `ocMuteUser()`
 
 ```php
-ocMuteUser($channel_url, $api_token, $oc_mute_user_data): \OpenAPI\Client\Model\SendBirdOpenChannel
+ocMuteUser($channel_url, $api_token, $oc_mute_user_data): \Sendbird\Model\SendBirdOpenChannel
 ```
 
 Mute a user
@@ -659,14 +659,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$oc_mute_user_data = new \OpenAPI\Client\Model\OcMuteUserData(); // \OpenAPI\Client\Model\OcMuteUserData
+$oc_mute_user_data = new \Sendbird\Model\OcMuteUserData(); // \Sendbird\Model\OcMuteUserData
 
 try {
     $result = $apiInstance->ocMuteUser($channel_url, $api_token, $oc_mute_user_data);
@@ -682,11 +682,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **oc_mute_user_data** | [**\OpenAPI\Client\Model\OcMuteUserData**](../Model/OcMuteUserData.md)|  | [optional]
+ **oc_mute_user_data** | [**\Sendbird\Model\OcMuteUserData**](../Model/OcMuteUserData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
+[**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
 
 ### Authorization
 
@@ -719,14 +719,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$oc_register_operators_data = new \OpenAPI\Client\Model\OcRegisterOperatorsData(); // \OpenAPI\Client\Model\OcRegisterOperatorsData
+$oc_register_operators_data = new \Sendbird\Model\OcRegisterOperatorsData(); // \Sendbird\Model\OcRegisterOperatorsData
 
 try {
     $apiInstance->ocRegisterOperators($channel_url, $api_token, $oc_register_operators_data);
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **oc_register_operators_data** | [**\OpenAPI\Client\Model\OcRegisterOperatorsData**](../Model/OcRegisterOperatorsData.md)|  | [optional]
+ **oc_register_operators_data** | [**\Sendbird\Model\OcRegisterOperatorsData**](../Model/OcRegisterOperatorsData.md)|  | [optional]
 
 ### Return type
 
@@ -754,7 +754,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -778,7 +778,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -813,7 +813,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -837,7 +837,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -872,7 +872,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -881,7 +881,7 @@ No authorization required
 ## `ocUpdateBanById()`
 
 ```php
-ocUpdateBanById($channel_url, $banned_user_id, $api_token, $oc_update_ban_by_id_data): \OpenAPI\Client\Model\SendBirdUser
+ocUpdateBanById($channel_url, $banned_user_id, $api_token, $oc_update_ban_by_id_data): \Sendbird\Model\SendBirdUser
 ```
 
 Update a ban
@@ -896,7 +896,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -904,7 +904,7 @@ $apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
 $channel_url = 'channel_url_example'; // string
 $banned_user_id = 'banned_user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$oc_update_ban_by_id_data = new \OpenAPI\Client\Model\OcUpdateBanByIdData(); // \OpenAPI\Client\Model\OcUpdateBanByIdData
+$oc_update_ban_by_id_data = new \Sendbird\Model\OcUpdateBanByIdData(); // \Sendbird\Model\OcUpdateBanByIdData
 
 try {
     $result = $apiInstance->ocUpdateBanById($channel_url, $banned_user_id, $api_token, $oc_update_ban_by_id_data);
@@ -921,11 +921,11 @@ Name | Type | Description  | Notes
  **channel_url** | **string**|  |
  **banned_user_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **oc_update_ban_by_id_data** | [**\OpenAPI\Client\Model\OcUpdateBanByIdData**](../Model/OcUpdateBanByIdData.md)|  | [optional]
+ **oc_update_ban_by_id_data** | [**\Sendbird\Model\OcUpdateBanByIdData**](../Model/OcUpdateBanByIdData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdUser**](../Model/SendBirdUser.md)
+[**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
 
 ### Authorization
 
@@ -943,7 +943,7 @@ No authorization required
 ## `ocUpdateChannelByUrl()`
 
 ```php
-ocUpdateChannelByUrl($channel_url, $api_token, $oc_update_channel_by_url_data): \OpenAPI\Client\Model\SendBirdOpenChannel
+ocUpdateChannelByUrl($channel_url, $api_token, $oc_update_channel_by_url_data): \Sendbird\Model\SendBirdOpenChannel
 ```
 
 Update a channel
@@ -958,14 +958,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$oc_update_channel_by_url_data = new \OpenAPI\Client\Model\OcUpdateChannelByUrlData(); // \OpenAPI\Client\Model\OcUpdateChannelByUrlData
+$oc_update_channel_by_url_data = new \Sendbird\Model\OcUpdateChannelByUrlData(); // \Sendbird\Model\OcUpdateChannelByUrlData
 
 try {
     $result = $apiInstance->ocUpdateChannelByUrl($channel_url, $api_token, $oc_update_channel_by_url_data);
@@ -981,11 +981,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **oc_update_channel_by_url_data** | [**\OpenAPI\Client\Model\OcUpdateChannelByUrlData**](../Model/OcUpdateChannelByUrlData.md)|  | [optional]
+ **oc_update_channel_by_url_data** | [**\Sendbird\Model\OcUpdateChannelByUrlData**](../Model/OcUpdateChannelByUrlData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
+[**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
 
 ### Authorization
 
@@ -1003,7 +1003,7 @@ No authorization required
 ## `ocViewBanById()`
 
 ```php
-ocViewBanById($channel_url, $banned_user_id, $api_token): \OpenAPI\Client\Model\SendBirdUser
+ocViewBanById($channel_url, $banned_user_id, $api_token): \Sendbird\Model\SendBirdUser
 ```
 
 View a ban
@@ -1018,7 +1018,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1045,7 +1045,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdUser**](../Model/SendBirdUser.md)
+[**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
 
 ### Authorization
 
@@ -1063,7 +1063,7 @@ No authorization required
 ## `ocViewChannelByUrl()`
 
 ```php
-ocViewChannelByUrl($channel_url, $api_token): \OpenAPI\Client\Model\SendBirdOpenChannel
+ocViewChannelByUrl($channel_url, $api_token): \Sendbird\Model\SendBirdOpenChannel
 ```
 
 View a channel
@@ -1078,7 +1078,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1103,7 +1103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
+[**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
 
 ### Authorization
 
@@ -1121,7 +1121,7 @@ No authorization required
 ## `ocViewMuteById()`
 
 ```php
-ocViewMuteById($channel_url, $muted_user_id, $api_token): \OpenAPI\Client\Model\InlineResponse20036
+ocViewMuteById($channel_url, $muted_user_id, $api_token): \Sendbird\Model\InlineResponse20035
 ```
 
 View a mute
@@ -1136,7 +1136,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\OpenChannelApi(
+$apiInstance = new Sendbird\Api\OpenChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1163,7 +1163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
+[**\Sendbird\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
 
 ### Authorization
 

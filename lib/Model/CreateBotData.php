@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * CreateBotData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -256,15 +256,6 @@ class CreateBotData implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['is_privacy_mode'] === null) {
             $invalidProperties[] = "'is_privacy_mode' can't be null";
         }
-        if ($this->container['enable_mark_as_read'] === null) {
-            $invalidProperties[] = "'enable_mark_as_read' can't be null";
-        }
-        if ($this->container['show_member'] === null) {
-            $invalidProperties[] = "'show_member' can't be null";
-        }
-        if ($this->container['channel_invitation_preference'] === null) {
-            $invalidProperties[] = "'channel_invitation_preference' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -427,7 +418,7 @@ class CreateBotData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets enable_mark_as_read
      *
-     * @return bool
+     * @return bool|null
      */
     public function getEnableMarkAsRead()
     {
@@ -437,7 +428,7 @@ class CreateBotData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enable_mark_as_read
      *
-     * @param bool $enable_mark_as_read Determines whether to mark the bot's message as read upon sending it. (Default: true)
+     * @param bool|null $enable_mark_as_read Determines whether to mark the bot's message as read upon sending it. (Default: true)
      *
      * @return self
      */
@@ -451,7 +442,7 @@ class CreateBotData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets show_member
      *
-     * @return bool
+     * @return bool|null
      */
     public function getShowMember()
     {
@@ -461,7 +452,7 @@ class CreateBotData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets show_member
      *
-     * @param bool $show_member Determines whether to include information about the members of each channel in a callback response. (Default: false)
+     * @param bool|null $show_member Determines whether to include information about the members of each channel in a callback response. (Default: false)
      *
      * @return self
      */
@@ -475,7 +466,7 @@ class CreateBotData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets channel_invitation_preference
      *
-     * @return int
+     * @return int|null
      */
     public function getChannelInvitationPreference()
     {
@@ -485,7 +476,7 @@ class CreateBotData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets channel_invitation_preference
      *
-     * @param int $channel_invitation_preference channel_invitation_preference
+     * @param int|null $channel_invitation_preference channel_invitation_preference
      *
      * @return self
      */

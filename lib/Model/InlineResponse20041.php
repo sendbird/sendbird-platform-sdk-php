@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20041 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,22 +61,7 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'unique_id' => 'string',
         'announcement_group' => 'string',
-        'message' => '\OpenAPI\Client\Model\InlineResponse20040Message',
-        'enable_push' => 'bool',
-        'target_at' => 'string',
-        'target_user_count' => 'float',
-        'target_channel_count' => 'float',
-        'target_channel_type' => 'string',
-        'create_channel_options' => '\OpenAPI\Client\Model\InlineResponse20041CreateChannelOptions',
-        'status' => 'string',
-        'scheduled_at' => 'float',
-        'cease_at' => 'string',
-        'resume_at' => 'string',
-        'completed_at' => 'float',
-        'sent_user_count' => 'float',
-        'sent_channel_count' => 'float',
-        'open_count' => 'float',
-        'open_rate' => 'float'
+        'message' => '\Sendbird\Model\InlineResponse20041Message'
     ];
 
     /**
@@ -89,22 +74,7 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'unique_id' => null,
         'announcement_group' => null,
-        'message' => null,
-        'enable_push' => null,
-        'target_at' => null,
-        'target_user_count' => null,
-        'target_channel_count' => null,
-        'target_channel_type' => null,
-        'create_channel_options' => null,
-        'status' => null,
-        'scheduled_at' => null,
-        'cease_at' => null,
-        'resume_at' => null,
-        'completed_at' => null,
-        'sent_user_count' => null,
-        'sent_channel_count' => null,
-        'open_count' => null,
-        'open_rate' => null
+        'message' => null
     ];
 
     /**
@@ -136,22 +106,7 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $attributeMap = [
         'unique_id' => 'unique_id',
         'announcement_group' => 'announcement_group',
-        'message' => 'message',
-        'enable_push' => 'enable_push',
-        'target_at' => 'target_at',
-        'target_user_count' => 'target_user_count',
-        'target_channel_count' => 'target_channel_count',
-        'target_channel_type' => 'target_channel_type',
-        'create_channel_options' => 'create_channel_options',
-        'status' => 'status',
-        'scheduled_at' => 'scheduled_at',
-        'cease_at' => 'cease_at',
-        'resume_at' => 'resume_at',
-        'completed_at' => 'completed_at',
-        'sent_user_count' => 'sent_user_count',
-        'sent_channel_count' => 'sent_channel_count',
-        'open_count' => 'open_count',
-        'open_rate' => 'open_rate'
+        'message' => 'message'
     ];
 
     /**
@@ -162,22 +117,7 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $setters = [
         'unique_id' => 'setUniqueId',
         'announcement_group' => 'setAnnouncementGroup',
-        'message' => 'setMessage',
-        'enable_push' => 'setEnablePush',
-        'target_at' => 'setTargetAt',
-        'target_user_count' => 'setTargetUserCount',
-        'target_channel_count' => 'setTargetChannelCount',
-        'target_channel_type' => 'setTargetChannelType',
-        'create_channel_options' => 'setCreateChannelOptions',
-        'status' => 'setStatus',
-        'scheduled_at' => 'setScheduledAt',
-        'cease_at' => 'setCeaseAt',
-        'resume_at' => 'setResumeAt',
-        'completed_at' => 'setCompletedAt',
-        'sent_user_count' => 'setSentUserCount',
-        'sent_channel_count' => 'setSentChannelCount',
-        'open_count' => 'setOpenCount',
-        'open_rate' => 'setOpenRate'
+        'message' => 'setMessage'
     ];
 
     /**
@@ -188,22 +128,7 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $getters = [
         'unique_id' => 'getUniqueId',
         'announcement_group' => 'getAnnouncementGroup',
-        'message' => 'getMessage',
-        'enable_push' => 'getEnablePush',
-        'target_at' => 'getTargetAt',
-        'target_user_count' => 'getTargetUserCount',
-        'target_channel_count' => 'getTargetChannelCount',
-        'target_channel_type' => 'getTargetChannelType',
-        'create_channel_options' => 'getCreateChannelOptions',
-        'status' => 'getStatus',
-        'scheduled_at' => 'getScheduledAt',
-        'cease_at' => 'getCeaseAt',
-        'resume_at' => 'getResumeAt',
-        'completed_at' => 'getCompletedAt',
-        'sent_user_count' => 'getSentUserCount',
-        'sent_channel_count' => 'getSentChannelCount',
-        'open_count' => 'getOpenCount',
-        'open_rate' => 'getOpenRate'
+        'message' => 'getMessage'
     ];
 
     /**
@@ -266,21 +191,6 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['unique_id'] = $data['unique_id'] ?? null;
         $this->container['announcement_group'] = $data['announcement_group'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
-        $this->container['enable_push'] = $data['enable_push'] ?? null;
-        $this->container['target_at'] = $data['target_at'] ?? null;
-        $this->container['target_user_count'] = $data['target_user_count'] ?? null;
-        $this->container['target_channel_count'] = $data['target_channel_count'] ?? null;
-        $this->container['target_channel_type'] = $data['target_channel_type'] ?? null;
-        $this->container['create_channel_options'] = $data['create_channel_options'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['scheduled_at'] = $data['scheduled_at'] ?? null;
-        $this->container['cease_at'] = $data['cease_at'] ?? null;
-        $this->container['resume_at'] = $data['resume_at'] ?? null;
-        $this->container['completed_at'] = $data['completed_at'] ?? null;
-        $this->container['sent_user_count'] = $data['sent_user_count'] ?? null;
-        $this->container['sent_channel_count'] = $data['sent_channel_count'] ?? null;
-        $this->container['open_count'] = $data['open_count'] ?? null;
-        $this->container['open_rate'] = $data['open_rate'] ?? null;
     }
 
     /**
@@ -358,7 +268,7 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets message
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20040Message|null
+     * @return \Sendbird\Model\InlineResponse20041Message|null
      */
     public function getMessage()
     {
@@ -368,373 +278,13 @@ class InlineResponse20041 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets message
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20040Message|null $message message
+     * @param \Sendbird\Model\InlineResponse20041Message|null $message message
      *
      * @return self
      */
     public function setMessage($message)
     {
         $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_push
-     *
-     * @return bool|null
-     */
-    public function getEnablePush()
-    {
-        return $this->container['enable_push'];
-    }
-
-    /**
-     * Sets enable_push
-     *
-     * @param bool|null $enable_push enable_push
-     *
-     * @return self
-     */
-    public function setEnablePush($enable_push)
-    {
-        $this->container['enable_push'] = $enable_push;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_at
-     *
-     * @return string|null
-     */
-    public function getTargetAt()
-    {
-        return $this->container['target_at'];
-    }
-
-    /**
-     * Sets target_at
-     *
-     * @param string|null $target_at target_at
-     *
-     * @return self
-     */
-    public function setTargetAt($target_at)
-    {
-        $this->container['target_at'] = $target_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_user_count
-     *
-     * @return float|null
-     */
-    public function getTargetUserCount()
-    {
-        return $this->container['target_user_count'];
-    }
-
-    /**
-     * Sets target_user_count
-     *
-     * @param float|null $target_user_count target_user_count
-     *
-     * @return self
-     */
-    public function setTargetUserCount($target_user_count)
-    {
-        $this->container['target_user_count'] = $target_user_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_channel_count
-     *
-     * @return float|null
-     */
-    public function getTargetChannelCount()
-    {
-        return $this->container['target_channel_count'];
-    }
-
-    /**
-     * Sets target_channel_count
-     *
-     * @param float|null $target_channel_count target_channel_count
-     *
-     * @return self
-     */
-    public function setTargetChannelCount($target_channel_count)
-    {
-        $this->container['target_channel_count'] = $target_channel_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_channel_type
-     *
-     * @return string|null
-     */
-    public function getTargetChannelType()
-    {
-        return $this->container['target_channel_type'];
-    }
-
-    /**
-     * Sets target_channel_type
-     *
-     * @param string|null $target_channel_type target_channel_type
-     *
-     * @return self
-     */
-    public function setTargetChannelType($target_channel_type)
-    {
-        $this->container['target_channel_type'] = $target_channel_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets create_channel_options
-     *
-     * @return \OpenAPI\Client\Model\InlineResponse20041CreateChannelOptions|null
-     */
-    public function getCreateChannelOptions()
-    {
-        return $this->container['create_channel_options'];
-    }
-
-    /**
-     * Sets create_channel_options
-     *
-     * @param \OpenAPI\Client\Model\InlineResponse20041CreateChannelOptions|null $create_channel_options create_channel_options
-     *
-     * @return self
-     */
-    public function setCreateChannelOptions($create_channel_options)
-    {
-        $this->container['create_channel_options'] = $create_channel_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets scheduled_at
-     *
-     * @return float|null
-     */
-    public function getScheduledAt()
-    {
-        return $this->container['scheduled_at'];
-    }
-
-    /**
-     * Sets scheduled_at
-     *
-     * @param float|null $scheduled_at scheduled_at
-     *
-     * @return self
-     */
-    public function setScheduledAt($scheduled_at)
-    {
-        $this->container['scheduled_at'] = $scheduled_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets cease_at
-     *
-     * @return string|null
-     */
-    public function getCeaseAt()
-    {
-        return $this->container['cease_at'];
-    }
-
-    /**
-     * Sets cease_at
-     *
-     * @param string|null $cease_at cease_at
-     *
-     * @return self
-     */
-    public function setCeaseAt($cease_at)
-    {
-        $this->container['cease_at'] = $cease_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets resume_at
-     *
-     * @return string|null
-     */
-    public function getResumeAt()
-    {
-        return $this->container['resume_at'];
-    }
-
-    /**
-     * Sets resume_at
-     *
-     * @param string|null $resume_at resume_at
-     *
-     * @return self
-     */
-    public function setResumeAt($resume_at)
-    {
-        $this->container['resume_at'] = $resume_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets completed_at
-     *
-     * @return float|null
-     */
-    public function getCompletedAt()
-    {
-        return $this->container['completed_at'];
-    }
-
-    /**
-     * Sets completed_at
-     *
-     * @param float|null $completed_at completed_at
-     *
-     * @return self
-     */
-    public function setCompletedAt($completed_at)
-    {
-        $this->container['completed_at'] = $completed_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets sent_user_count
-     *
-     * @return float|null
-     */
-    public function getSentUserCount()
-    {
-        return $this->container['sent_user_count'];
-    }
-
-    /**
-     * Sets sent_user_count
-     *
-     * @param float|null $sent_user_count sent_user_count
-     *
-     * @return self
-     */
-    public function setSentUserCount($sent_user_count)
-    {
-        $this->container['sent_user_count'] = $sent_user_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets sent_channel_count
-     *
-     * @return float|null
-     */
-    public function getSentChannelCount()
-    {
-        return $this->container['sent_channel_count'];
-    }
-
-    /**
-     * Sets sent_channel_count
-     *
-     * @param float|null $sent_channel_count sent_channel_count
-     *
-     * @return self
-     */
-    public function setSentChannelCount($sent_channel_count)
-    {
-        $this->container['sent_channel_count'] = $sent_channel_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets open_count
-     *
-     * @return float|null
-     */
-    public function getOpenCount()
-    {
-        return $this->container['open_count'];
-    }
-
-    /**
-     * Sets open_count
-     *
-     * @param float|null $open_count open_count
-     *
-     * @return self
-     */
-    public function setOpenCount($open_count)
-    {
-        $this->container['open_count'] = $open_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets open_rate
-     *
-     * @return float|null
-     */
-    public function getOpenRate()
-    {
-        return $this->container['open_rate'];
-    }
-
-    /**
-     * Sets open_rate
-     *
-     * @param float|null $open_rate open_rate
-     *
-     * @return self
-     */
-    public function setOpenRate($open_rate)
-    {
-        $this->container['open_rate'] = $open_rate;
 
         return $this;
     }

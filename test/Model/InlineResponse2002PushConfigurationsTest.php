@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse2002PushConfigurations
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -98,9 +98,18 @@ class InlineResponse2002PushConfigurationsTest extends TestCase
     }
 
     /**
-     * Test attribute "api_key"
+     * Test attribute "huawei_app_id"
      */
-    public function testPropertyApiKey()
+    public function testPropertyHuaweiAppId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "huawei_app_secret"
+     */
+    public function testPropertyHuaweiAppSecret()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

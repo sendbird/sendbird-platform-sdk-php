@@ -1,4 +1,4 @@
-# OpenAPI\Client\BotInterfaceApi
+# Sendbird\BotInterfaceApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 ## `createBot()`
 
 ```php
-createBot($api_token, $create_bot_data): \OpenAPI\Client\Model\InlineResponse20066Bots
+createBot($api_token, $create_bot_data): \Sendbird\Model\InlineResponse20065Bots
 ```
 
 Create a bot
@@ -33,13 +33,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BotInterfaceApi(
+$apiInstance = new Sendbird\Api\BotInterfaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$create_bot_data = new \OpenAPI\Client\Model\CreateBotData(); // \OpenAPI\Client\Model\CreateBotData
+$create_bot_data = new \Sendbird\Model\CreateBotData(); // \Sendbird\Model\CreateBotData
 
 try {
     $result = $apiInstance->createBot($api_token, $create_bot_data);
@@ -54,11 +54,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **create_bot_data** | [**\OpenAPI\Client\Model\CreateBotData**](../Model/CreateBotData.md)|  | [optional]
+ **create_bot_data** | [**\Sendbird\Model\CreateBotData**](../Model/CreateBotData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20066Bots**](../Model/InlineResponse20066Bots.md)
+[**\Sendbird\Model\InlineResponse20065Bots**](../Model/InlineResponse20065Bots.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BotInterfaceApi(
+$apiInstance = new Sendbird\Api\BotInterfaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -124,7 +124,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -133,7 +133,7 @@ No authorization required
 ## `joinChannels()`
 
 ```php
-joinChannels($bot_userid, $api_token, $join_channels_data): \OpenAPI\Client\Model\SendBirdGroupChannelCollection
+joinChannels($bot_userid, $api_token, $join_channels_data): \Sendbird\Model\SendBirdGroupChannelCollection
 ```
 
 Join channels
@@ -148,14 +148,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BotInterfaceApi(
+$apiInstance = new Sendbird\Api\BotInterfaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $bot_userid = 'bot_userid_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$join_channels_data = new \OpenAPI\Client\Model\JoinChannelsData(); // \OpenAPI\Client\Model\JoinChannelsData
+$join_channels_data = new \Sendbird\Model\JoinChannelsData(); // \Sendbird\Model\JoinChannelsData
 
 try {
     $result = $apiInstance->joinChannels($bot_userid, $api_token, $join_channels_data);
@@ -171,11 +171,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bot_userid** | **string**|  |
  **api_token** | **string**|  | [optional]
- **join_channels_data** | [**\OpenAPI\Client\Model\JoinChannelsData**](../Model/JoinChannelsData.md)|  | [optional]
+ **join_channels_data** | [**\Sendbird\Model\JoinChannelsData**](../Model/JoinChannelsData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdGroupChannelCollection**](../Model/SendBirdGroupChannelCollection.md)
+[**\Sendbird\Model\SendBirdGroupChannelCollection**](../Model/SendBirdGroupChannelCollection.md)
 
 ### Authorization
 
@@ -208,7 +208,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BotInterfaceApi(
+$apiInstance = new Sendbird\Api\BotInterfaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -243,7 +243,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -267,7 +267,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BotInterfaceApi(
+$apiInstance = new Sendbird\Api\BotInterfaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -302,7 +302,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -311,7 +311,7 @@ No authorization required
 ## `listBots()`
 
 ```php
-listBots($api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20066
+listBots($api_token, $token, $limit): \Sendbird\Model\InlineResponse20065
 ```
 
 List bots
@@ -326,7 +326,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BotInterfaceApi(
+$apiInstance = new Sendbird\Api\BotInterfaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20066**](../Model/InlineResponse20066.md)
+[**\Sendbird\Model\InlineResponse20065**](../Model/InlineResponse20065.md)
 
 ### Authorization
 
@@ -371,7 +371,7 @@ No authorization required
 ## `sendBotsMessage()`
 
 ```php
-sendBotsMessage($bot_userid, $api_token, $send_bot_s_message_data): AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage
+sendBotsMessage($bot_userid, $api_token, $send_bot_s_message_data): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 Send a bot's message
@@ -386,14 +386,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BotInterfaceApi(
+$apiInstance = new Sendbird\Api\BotInterfaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $bot_userid = 'bot_userid_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$send_bot_s_message_data = new \OpenAPI\Client\Model\SendBotSMessageData(); // \OpenAPI\Client\Model\SendBotSMessageData
+$send_bot_s_message_data = new \Sendbird\Model\SendBotSMessageData(); // \Sendbird\Model\SendBotSMessageData
 
 try {
     $result = $apiInstance->sendBotsMessage($bot_userid, $api_token, $send_bot_s_message_data);
@@ -409,11 +409,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bot_userid** | **string**|  |
  **api_token** | **string**|  | [optional]
- **send_bot_s_message_data** | [**\OpenAPI\Client\Model\SendBotSMessageData**](../Model/SendBotSMessageData.md)|  | [optional]
+ **send_bot_s_message_data** | [**\Sendbird\Model\SendBotSMessageData**](../Model/SendBotSMessageData.md)|  | [optional]
 
 ### Return type
 
-[**AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage**](../Model/AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage.md)
+[**\Sendbird\Model\SendBirdMessageResponse**](../Model/SendBirdMessageResponse.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ No authorization required
 ## `updateBotById()`
 
 ```php
-updateBotById($bot_userid, $api_token, $update_bot_by_id_data): \OpenAPI\Client\Model\InlineResponse20066Bots
+updateBotById($bot_userid, $api_token, $update_bot_by_id_data): \Sendbird\Model\InlineResponse20065Bots
 ```
 
 Update a bot
@@ -446,14 +446,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BotInterfaceApi(
+$apiInstance = new Sendbird\Api\BotInterfaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $bot_userid = 'bot_userid_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_bot_by_id_data = new \OpenAPI\Client\Model\UpdateBotByIdData(); // \OpenAPI\Client\Model\UpdateBotByIdData
+$update_bot_by_id_data = new \Sendbird\Model\UpdateBotByIdData(); // \Sendbird\Model\UpdateBotByIdData
 
 try {
     $result = $apiInstance->updateBotById($bot_userid, $api_token, $update_bot_by_id_data);
@@ -469,11 +469,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bot_userid** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_bot_by_id_data** | [**\OpenAPI\Client\Model\UpdateBotByIdData**](../Model/UpdateBotByIdData.md)|  | [optional]
+ **update_bot_by_id_data** | [**\Sendbird\Model\UpdateBotByIdData**](../Model/UpdateBotByIdData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20066Bots**](../Model/InlineResponse20066Bots.md)
+[**\Sendbird\Model\InlineResponse20065Bots**](../Model/InlineResponse20065Bots.md)
 
 ### Authorization
 
@@ -491,7 +491,7 @@ No authorization required
 ## `viewBotById()`
 
 ```php
-viewBotById($bot_userid, $api_token): \OpenAPI\Client\Model\InlineResponse20066Bots
+viewBotById($bot_userid, $api_token): \Sendbird\Model\InlineResponse20065Bots
 ```
 
 View a bot
@@ -506,7 +506,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\BotInterfaceApi(
+$apiInstance = new Sendbird\Api\BotInterfaceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20066Bots**](../Model/InlineResponse20066Bots.md)
+[**\Sendbird\Model\InlineResponse20065Bots**](../Model/InlineResponse20065Bots.md)
 
 ### Authorization
 

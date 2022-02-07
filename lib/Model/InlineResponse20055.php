@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20055 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sorted_metaarray' => '\OpenAPI\Client\Model\InlineResponse20048SortedMetaarray[]'
+        'use_default_emoji' => 'bool'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'sorted_metaarray' => null
+        'use_default_emoji' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'sorted_metaarray' => 'sorted_metaarray'
+        'use_default_emoji' => 'use_default_emoji'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'sorted_metaarray' => 'setSortedMetaarray'
+        'use_default_emoji' => 'setUseDefaultEmoji'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'sorted_metaarray' => 'getSortedMetaarray'
+        'use_default_emoji' => 'getUseDefaultEmoji'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['sorted_metaarray'] = $data['sorted_metaarray'] ?? null;
+        $this->container['use_default_emoji'] = $data['use_default_emoji'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20055 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets sorted_metaarray
+     * Gets use_default_emoji
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20048SortedMetaarray[]|null
+     * @return bool|null
      */
-    public function getSortedMetaarray()
+    public function getUseDefaultEmoji()
     {
-        return $this->container['sorted_metaarray'];
+        return $this->container['use_default_emoji'];
     }
 
     /**
-     * Sets sorted_metaarray
+     * Sets use_default_emoji
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20048SortedMetaarray[]|null $sorted_metaarray sorted_metaarray
+     * @param bool|null $use_default_emoji use_default_emoji
      *
      * @return self
      */
-    public function setSortedMetaarray($sorted_metaarray)
+    public function setUseDefaultEmoji($use_default_emoji)
     {
-        $this->container['sorted_metaarray'] = $sorted_metaarray;
+        $this->container['use_default_emoji'] = $use_default_emoji;
 
         return $this;
     }

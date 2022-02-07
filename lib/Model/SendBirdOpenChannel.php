@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdOpenChannel Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,15 +61,15 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'cover_url' => 'string',
         'created_at' => 'float',
-        'creator' => '\OpenAPI\Client\Model\SendBirdUser',
+        'creator' => '\Sendbird\Model\SendBirdUser',
         'custom_type' => 'string',
         'data' => 'string',
         'is_ephemeral' => 'bool',
         'is_frozen' => 'bool',
         'name' => 'string',
-        'operators' => '\OpenAPI\Client\Model\SendBirdUser[]',
+        'operators' => '\Sendbird\Model\SendBirdUser[]',
         'participant_count' => 'float',
-        'url' => 'string'
+        'channel_url' => 'string'
     ];
 
     /**
@@ -90,7 +90,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => null,
         'operators' => null,
         'participant_count' => null,
-        'url' => null
+        'channel_url' => null
     ];
 
     /**
@@ -120,17 +120,17 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'cover_url' => 'coverUrl',
-        'created_at' => 'createdAt',
+        'cover_url' => 'cover_url',
+        'created_at' => 'created_at',
         'creator' => 'creator',
-        'custom_type' => 'customType',
+        'custom_type' => 'custom_type',
         'data' => 'data',
-        'is_ephemeral' => 'isEphemeral',
-        'is_frozen' => 'isFrozen',
+        'is_ephemeral' => 'is_ephemeral',
+        'is_frozen' => 'is_frozen',
         'name' => 'name',
         'operators' => 'operators',
-        'participant_count' => 'participantCount',
-        'url' => 'url'
+        'participant_count' => 'participant_count',
+        'channel_url' => 'channel_url'
     ];
 
     /**
@@ -149,7 +149,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => 'setName',
         'operators' => 'setOperators',
         'participant_count' => 'setParticipantCount',
-        'url' => 'setUrl'
+        'channel_url' => 'setChannelUrl'
     ];
 
     /**
@@ -168,7 +168,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
         'name' => 'getName',
         'operators' => 'getOperators',
         'participant_count' => 'getParticipantCount',
-        'url' => 'getUrl'
+        'channel_url' => 'getChannelUrl'
     ];
 
     /**
@@ -238,7 +238,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['name'] = $data['name'] ?? null;
         $this->container['operators'] = $data['operators'] ?? null;
         $this->container['participant_count'] = $data['participant_count'] ?? null;
-        $this->container['url'] = $data['url'] ?? null;
+        $this->container['channel_url'] = $data['channel_url'] ?? null;
     }
 
     /**
@@ -316,7 +316,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets creator
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser|null
+     * @return \Sendbird\Model\SendBirdUser|null
      */
     public function getCreator()
     {
@@ -326,7 +326,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets creator
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser|null $creator creator
+     * @param \Sendbird\Model\SendBirdUser|null $creator creator
      *
      * @return self
      */
@@ -460,7 +460,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets operators
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser[]|null
+     * @return \Sendbird\Model\SendBirdUser[]|null
      */
     public function getOperators()
     {
@@ -470,7 +470,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets operators
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser[]|null $operators operators
+     * @param \Sendbird\Model\SendBirdUser[]|null $operators operators
      *
      * @return self
      */
@@ -506,25 +506,25 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets url
+     * Gets channel_url
      *
      * @return string|null
      */
-    public function getUrl()
+    public function getChannelUrl()
     {
-        return $this->container['url'];
+        return $this->container['channel_url'];
     }
 
     /**
-     * Sets url
+     * Sets channel_url
      *
-     * @param string|null $url url
+     * @param string|null $channel_url channel_url
      *
      * @return self
      */
-    public function setUrl($url)
+    public function setChannelUrl($channel_url)
     {
-        $this->container['url'] = $url;
+        $this->container['channel_url'] = $channel_url;
 
         return $this;
     }

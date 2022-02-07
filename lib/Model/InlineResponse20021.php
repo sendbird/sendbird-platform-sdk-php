@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20021 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20021 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'group_channel_count' => 'float'
+        'count_preference' => 'string'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20021 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'group_channel_count' => null
+        'count_preference' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20021 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_channel_count' => 'group_channel_count'
+        'count_preference' => 'count_preference'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20021 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'group_channel_count' => 'setGroupChannelCount'
+        'count_preference' => 'setCountPreference'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20021 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'group_channel_count' => 'getGroupChannelCount'
+        'count_preference' => 'getCountPreference'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20021 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['group_channel_count'] = $data['group_channel_count'] ?? null;
+        $this->container['count_preference'] = $data['count_preference'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20021 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets group_channel_count
+     * Gets count_preference
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getGroupChannelCount()
+    public function getCountPreference()
     {
-        return $this->container['group_channel_count'];
+        return $this->container['count_preference'];
     }
 
     /**
-     * Sets group_channel_count
+     * Sets count_preference
      *
-     * @param float|null $group_channel_count group_channel_count
+     * @param string|null $count_preference count_preference
      *
      * @return self
      */
-    public function setGroupChannelCount($group_channel_count)
+    public function setCountPreference($count_preference)
     {
-        $this->container['group_channel_count'] = $group_channel_count;
+        $this->container['count_preference'] = $count_preference;
 
         return $this;
     }

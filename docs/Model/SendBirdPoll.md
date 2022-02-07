@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**details** | [**\OpenAPI\Client\Model\SendBirdPollDetails**](SendBirdPollDetails.md) |  | [optional]
+**details** | [**\Sendbird\Model\SendBirdPollDetails**](SendBirdPollDetails.md) |  | [optional]
 **id** | **float** |  | [optional]
 **title** | **string** |  | [optional]
 

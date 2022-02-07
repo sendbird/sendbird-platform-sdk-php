@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse20028
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -80,9 +80,99 @@ class InlineResponse20028Test extends TestCase
     }
 
     /**
-     * Test attribute "user_id"
+     * Test attribute "push_trigger_option"
      */
-    public function testPropertyUserId()
+    public function testPropertyPushTriggerOption()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "do_not_disturb"
+     */
+    public function testPropertyDoNotDisturb()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "start_hour"
+     */
+    public function testPropertyStartHour()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "start_min"
+     */
+    public function testPropertyStartMin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "end_hour"
+     */
+    public function testPropertyEndHour()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "end_min"
+     */
+    public function testPropertyEndMin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "snooze_enabled"
+     */
+    public function testPropertySnoozeEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "snooze_start_ts"
+     */
+    public function testPropertySnoozeStartTs()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "snooze_end_ts"
+     */
+    public function testPropertySnoozeEndTs()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "timezone"
+     */
+    public function testPropertyTimezone()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "push_sound"
+     */
+    public function testPropertyPushSound()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

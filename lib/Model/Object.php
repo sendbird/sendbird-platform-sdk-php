@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * Object Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class Object implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'constructor' => '\OpenAPI\Client\Model\ModelFunction'
+        'constructor' => '\Sendbird\Model\ModelFunction'
     ];
 
     /**
@@ -208,7 +208,7 @@ class Object implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets constructor
      *
-     * @return \OpenAPI\Client\Model\ModelFunction|null
+     * @return \Sendbird\Model\ModelFunction|null
      */
     public function getConstructor()
     {
@@ -218,7 +218,7 @@ class Object implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets constructor
      *
-     * @param \OpenAPI\Client\Model\ModelFunction|null $constructor constructor
+     * @param \Sendbird\Model\ModelFunction|null $constructor constructor
      *
      * @return self
      */

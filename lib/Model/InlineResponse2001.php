@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse2001 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ccu' => 'float'
+        'push_configurations' => '\Sendbird\Model\InlineResponse2001PushConfigurations[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ccu' => null
+        'push_configurations' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'ccu' => 'ccu'
+        'push_configurations' => 'push_configurations'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'ccu' => 'setCcu'
+        'push_configurations' => 'setPushConfigurations'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'ccu' => 'getCcu'
+        'push_configurations' => 'getPushConfigurations'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['ccu'] = $data['ccu'] ?? null;
+        $this->container['push_configurations'] = $data['push_configurations'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets ccu
+     * Gets push_configurations
      *
-     * @return float|null
+     * @return \Sendbird\Model\InlineResponse2001PushConfigurations[]|null
      */
-    public function getCcu()
+    public function getPushConfigurations()
     {
-        return $this->container['ccu'];
+        return $this->container['push_configurations'];
     }
 
     /**
-     * Sets ccu
+     * Sets push_configurations
      *
-     * @param float|null $ccu ccu
+     * @param \Sendbird\Model\InlineResponse2001PushConfigurations[]|null $push_configurations push_configurations
      *
      * @return self
      */
-    public function setCcu($ccu)
+    public function setPushConfigurations($push_configurations)
     {
-        $this->container['ccu'] = $ccu;
+        $this->container['push_configurations'] = $push_configurations;
 
         return $this;
     }

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * UpdateMessageByIdData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -238,32 +238,8 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['channel_type'] === null) {
-            $invalidProperties[] = "'channel_type' can't be null";
-        }
-        if ($this->container['channel_url'] === null) {
-            $invalidProperties[] = "'channel_url' can't be null";
-        }
         if ($this->container['message_id'] === null) {
             $invalidProperties[] = "'message_id' can't be null";
-        }
-        if ($this->container['message_type'] === null) {
-            $invalidProperties[] = "'message_type' can't be null";
-        }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
-        if ($this->container['custom_type'] === null) {
-            $invalidProperties[] = "'custom_type' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
-        if ($this->container['mention_type'] === null) {
-            $invalidProperties[] = "'mention_type' can't be null";
-        }
-        if ($this->container['mentioned_user_ids'] === null) {
-            $invalidProperties[] = "'mentioned_user_ids' can't be null";
         }
         return $invalidProperties;
     }
@@ -283,7 +259,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets channel_type
      *
-     * @return string
+     * @return string|null
      */
     public function getChannelType()
     {
@@ -293,7 +269,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets channel_type
      *
-     * @param string $channel_type Specifies the type of the channel. Either open_channels or group_channels.
+     * @param string|null $channel_type Specifies the type of the channel. Either open_channels or group_channels.
      *
      * @return self
      */
@@ -307,7 +283,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets channel_url
      *
-     * @return string
+     * @return string|null
      */
     public function getChannelUrl()
     {
@@ -317,7 +293,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets channel_url
      *
-     * @param string $channel_url Specifies the URL of the target channel.
+     * @param string|null $channel_url Specifies the URL of the target channel.
      *
      * @return self
      */
@@ -355,7 +331,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets message_type
      *
-     * @return string
+     * @return string|null
      */
     public function getMessageType()
     {
@@ -365,7 +341,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets message_type
      *
-     * @param string $message_type Specifies the type of the message as ADMM.
+     * @param string|null $message_type Specifies the type of the message as ADMM.
      *
      * @return self
      */
@@ -379,7 +355,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets message
      *
-     * @return string
+     * @return string|null
      */
     public function getMessage()
     {
@@ -389,7 +365,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets message
      *
-     * @param string $message Specifies the content of the message.
+     * @param string|null $message Specifies the content of the message.
      *
      * @return self
      */
@@ -403,7 +379,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets custom_type
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomType()
     {
@@ -413,7 +389,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets custom_type
      *
-     * @param string $custom_type Specifies a custom message type which is used for message grouping. The length is limited to 128 characters.<br /><br /> Custom types are also used within Sendbird's [Advanced analytics](/docs/chat/v3/platform-api/guides/advanced-analytics) to segment metrics, which enables the sub-classification of data views.
+     * @param string|null $custom_type Specifies a custom message type which is used for message grouping. The length is limited to 128 characters.<br /><br /> Custom types are also used within Sendbird's [Advanced analytics](/docs/chat/v3/platform-api/guides/advanced-analytics) to segment metrics, which enables the sub-classification of data views.
      *
      * @return self
      */
@@ -427,7 +403,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets data
      *
-     * @return string
+     * @return string|null
      */
     public function getData()
     {
@@ -437,7 +413,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets data
      *
-     * @param string $data Specifies additional message information such as custom font size, font type or `JSON` formatted string.
+     * @param string|null $data Specifies additional message information such as custom font size, font type or `JSON` formatted string.
      *
      * @return self
      */
@@ -451,7 +427,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets mention_type
      *
-     * @return string
+     * @return string|null
      */
     public function getMentionType()
     {
@@ -461,7 +437,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets mention_type
      *
-     * @param string $mention_type Specifies the mentioning method which indicates the user scope who will get a notification for the message. Acceptable values are users and channel. If set to users, only the specified users with the mentioned_users property below will get notified. If set to channel, all users in the channel will get notified. (Default: users)
+     * @param string|null $mention_type Specifies the mentioning method which indicates the user scope who will get a notification for the message. Acceptable values are users and channel. If set to users, only the specified users with the mentioned_users property below will get notified. If set to channel, all users in the channel will get notified. (Default: users)
      *
      * @return self
      */
@@ -475,7 +451,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets mentioned_user_ids
      *
-     * @return int[]
+     * @return int[]|null
      */
     public function getMentionedUserIds()
     {
@@ -485,7 +461,7 @@ class UpdateMessageByIdData implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets mentioned_user_ids
      *
-     * @param int[] $mentioned_user_ids Specifies an array of one or more IDs of the users who will get a notification for the message.
+     * @param int[]|null $mentioned_user_ids Specifies an array of one or more IDs of the users who will get a notification for the message.
      *
      * @return self
      */

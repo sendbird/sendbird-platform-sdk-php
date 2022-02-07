@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20059 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20059 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'emojis' => '\OpenAPI\Client\Model\SendBirdEmoji[]'
+        'emojis' => '\Sendbird\Model\InlineResponse20056Emojis[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class InlineResponse20059 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets emojis
      *
-     * @return \OpenAPI\Client\Model\SendBirdEmoji[]|null
+     * @return \Sendbird\Model\InlineResponse20056Emojis[]|null
      */
     public function getEmojis()
     {
@@ -218,7 +218,7 @@ class InlineResponse20059 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets emojis
      *
-     * @param \OpenAPI\Client\Model\SendBirdEmoji[]|null $emojis emojis
+     * @param \Sendbird\Model\InlineResponse20056Emojis[]|null $emojis emojis
      *
      * @return self
      */

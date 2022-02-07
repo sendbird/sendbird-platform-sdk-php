@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**peak_connections** | [**\OpenAPI\Client\Model\InlineResponse20010PeakConnections[]**](InlineResponse20010PeakConnections.md) |  | [optional]
+**mau** | **float** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

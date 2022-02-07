@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20034 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'banned_list' => '\OpenAPI\Client\Model\InlineResponse20034BannedList[]',
-        'total_ban_count' => 'float',
+        'operators' => '\Sendbird\Model\SendBirdUser[]',
         'next' => 'string'
     ];
 
@@ -72,8 +71,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'banned_list' => null,
-        'total_ban_count' => null,
+        'operators' => null,
         'next' => null
     ];
 
@@ -104,8 +102,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'banned_list' => 'banned_list',
-        'total_ban_count' => 'total_ban_count',
+        'operators' => 'operators',
         'next' => 'next'
     ];
 
@@ -115,8 +112,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'banned_list' => 'setBannedList',
-        'total_ban_count' => 'setTotalBanCount',
+        'operators' => 'setOperators',
         'next' => 'setNext'
     ];
 
@@ -126,8 +122,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'banned_list' => 'getBannedList',
-        'total_ban_count' => 'getTotalBanCount',
+        'operators' => 'getOperators',
         'next' => 'getNext'
     ];
 
@@ -188,8 +183,7 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['banned_list'] = $data['banned_list'] ?? null;
-        $this->container['total_ban_count'] = $data['total_ban_count'] ?? null;
+        $this->container['operators'] = $data['operators'] ?? null;
         $this->container['next'] = $data['next'] ?? null;
     }
 
@@ -218,49 +212,25 @@ class InlineResponse20034 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets banned_list
+     * Gets operators
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20034BannedList[]|null
+     * @return \Sendbird\Model\SendBirdUser[]|null
      */
-    public function getBannedList()
+    public function getOperators()
     {
-        return $this->container['banned_list'];
+        return $this->container['operators'];
     }
 
     /**
-     * Sets banned_list
+     * Sets operators
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20034BannedList[]|null $banned_list banned_list
+     * @param \Sendbird\Model\SendBirdUser[]|null $operators operators
      *
      * @return self
      */
-    public function setBannedList($banned_list)
+    public function setOperators($operators)
     {
-        $this->container['banned_list'] = $banned_list;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_ban_count
-     *
-     * @return float|null
-     */
-    public function getTotalBanCount()
-    {
-        return $this->container['total_ban_count'];
-    }
-
-    /**
-     * Sets total_ban_count
-     *
-     * @param float|null $total_ban_count total_ban_count
-     *
-     * @return self
-     */
-    public function setTotalBanCount($total_ban_count)
-    {
-        $this->container['total_ban_count'] = $total_ban_count;
+        $this->container['operators'] = $operators;
 
         return $this;
     }

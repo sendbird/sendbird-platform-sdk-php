@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdPollOption Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class SendBirdPollOption implements ModelInterface, ArrayAccess, \JsonSerializab
         'created_at' => 'float',
         'created_by' => 'string',
         'id' => 'float',
-        'partial_voters' => '\OpenAPI\Client\Model\SendBirdUser[]',
+        'partial_voters' => '\Sendbird\Model\SendBirdUser[]',
         'poll_id' => 'float',
         'text' => 'string',
         'updated_at' => 'float',
@@ -114,14 +114,14 @@ class SendBirdPollOption implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'created_at' => 'createdAt',
-        'created_by' => 'createdBy',
+        'created_at' => 'created_at',
+        'created_by' => 'created_by',
         'id' => 'id',
-        'partial_voters' => 'partialVoters',
-        'poll_id' => 'pollId',
+        'partial_voters' => 'partial_voters',
+        'poll_id' => 'poll_id',
         'text' => 'text',
-        'updated_at' => 'updatedAt',
-        'vote_count' => 'voteCount'
+        'updated_at' => 'updated_at',
+        'vote_count' => 'vote_count'
     ];
 
     /**
@@ -322,7 +322,7 @@ class SendBirdPollOption implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets partial_voters
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser[]|null
+     * @return \Sendbird\Model\SendBirdUser[]|null
      */
     public function getPartialVoters()
     {
@@ -332,7 +332,7 @@ class SendBirdPollOption implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets partial_voters
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser[]|null $partial_voters partial_voters
+     * @param \Sendbird\Model\SendBirdUser[]|null $partial_voters partial_voters
      *
      * @return self
      */

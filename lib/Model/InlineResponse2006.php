@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse2006 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'auto_accept' => 'bool'
+        'ip_whitelist_addresses' => 'string[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'auto_accept' => null
+        'ip_whitelist_addresses' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'auto_accept' => 'auto_accept'
+        'ip_whitelist_addresses' => 'ip_whitelist_addresses'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'auto_accept' => 'setAutoAccept'
+        'ip_whitelist_addresses' => 'setIpWhitelistAddresses'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'auto_accept' => 'getAutoAccept'
+        'ip_whitelist_addresses' => 'getIpWhitelistAddresses'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['auto_accept'] = $data['auto_accept'] ?? null;
+        $this->container['ip_whitelist_addresses'] = $data['ip_whitelist_addresses'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets auto_accept
+     * Gets ip_whitelist_addresses
      *
-     * @return bool|null
+     * @return string[]|null
      */
-    public function getAutoAccept()
+    public function getIpWhitelistAddresses()
     {
-        return $this->container['auto_accept'];
+        return $this->container['ip_whitelist_addresses'];
     }
 
     /**
-     * Sets auto_accept
+     * Sets ip_whitelist_addresses
      *
-     * @param bool|null $auto_accept auto_accept
+     * @param string[]|null $ip_whitelist_addresses ip_whitelist_addresses
      *
      * @return self
      */
-    public function setAutoAccept($auto_accept)
+    public function setIpWhitelistAddresses($ip_whitelist_addresses)
     {
-        $this->container['auto_accept'] = $auto_accept;
+        $this->container['ip_whitelist_addresses'] = $ip_whitelist_addresses;
 
         return $this;
     }

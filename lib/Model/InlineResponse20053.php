@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20053 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'key' => 'string[]'
+        'user_id' => 'string',
+        'operation' => 'string',
+        'success' => 'bool',
+        'reaction' => 'string',
+        'updated_at' => 'float'
     ];
 
     /**
@@ -70,7 +74,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'key' => null
+        'user_id' => null,
+        'operation' => null,
+        'success' => null,
+        'reaction' => null,
+        'updated_at' => null
     ];
 
     /**
@@ -100,7 +108,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'key' => 'key'
+        'user_id' => 'user_id',
+        'operation' => 'operation',
+        'success' => 'success',
+        'reaction' => 'reaction',
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -109,7 +121,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'key' => 'setKey'
+        'user_id' => 'setUserId',
+        'operation' => 'setOperation',
+        'success' => 'setSuccess',
+        'reaction' => 'setReaction',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -118,7 +134,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'key' => 'getKey'
+        'user_id' => 'getUserId',
+        'operation' => 'getOperation',
+        'success' => 'getSuccess',
+        'reaction' => 'getReaction',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -178,7 +198,11 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['key'] = $data['key'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['operation'] = $data['operation'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['reaction'] = $data['reaction'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
     }
 
     /**
@@ -206,25 +230,121 @@ class InlineResponse20053 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets key
+     * Gets user_id
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getKey()
+    public function getUserId()
     {
-        return $this->container['key'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets key
+     * Sets user_id
      *
-     * @param string[]|null $key key
+     * @param string|null $user_id user_id
      *
      * @return self
      */
-    public function setKey($key)
+    public function setUserId($user_id)
     {
-        $this->container['key'] = $key;
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets operation
+     *
+     * @return string|null
+     */
+    public function getOperation()
+    {
+        return $this->container['operation'];
+    }
+
+    /**
+     * Sets operation
+     *
+     * @param string|null $operation operation
+     *
+     * @return self
+     */
+    public function setOperation($operation)
+    {
+        $this->container['operation'] = $operation;
+
+        return $this;
+    }
+
+    /**
+     * Gets success
+     *
+     * @return bool|null
+     */
+    public function getSuccess()
+    {
+        return $this->container['success'];
+    }
+
+    /**
+     * Sets success
+     *
+     * @param bool|null $success success
+     *
+     * @return self
+     */
+    public function setSuccess($success)
+    {
+        $this->container['success'] = $success;
+
+        return $this;
+    }
+
+    /**
+     * Gets reaction
+     *
+     * @return string|null
+     */
+    public function getReaction()
+    {
+        return $this->container['reaction'];
+    }
+
+    /**
+     * Sets reaction
+     *
+     * @param string|null $reaction reaction
+     *
+     * @return self
+     */
+    public function setReaction($reaction)
+    {
+        $this->container['reaction'] = $reaction;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return float|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param float|null $updated_at updated_at
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

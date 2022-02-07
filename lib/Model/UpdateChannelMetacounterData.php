@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * UpdateChannelMetacounterData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -205,12 +205,6 @@ class UpdateChannelMetacounterData implements ModelInterface, ArrayAccess, \Json
         if ($this->container['metacounter'] === null) {
             $invalidProperties[] = "'metacounter' can't be null";
         }
-        if ($this->container['mode'] === null) {
-            $invalidProperties[] = "'mode' can't be null";
-        }
-        if ($this->container['upsert'] === null) {
-            $invalidProperties[] = "'upsert' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -253,7 +247,7 @@ class UpdateChannelMetacounterData implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets mode
      *
-     * @return string
+     * @return string|null
      */
     public function getMode()
     {
@@ -263,7 +257,7 @@ class UpdateChannelMetacounterData implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets mode
      *
-     * @param string $mode Specifies how to calculate the item value of the metacounter. Acceptable values are increase, decrease, and set. If set to increase, increments the item value of the metacounter by the value specified in the metacounter property, while decrease decrements. set sets the item value to the specified value exactly. (Default: set)
+     * @param string|null $mode Specifies how to calculate the item value of the metacounter. Acceptable values are increase, decrease, and set. If set to increase, increments the item value of the metacounter by the value specified in the metacounter property, while decrease decrements. set sets the item value to the specified value exactly. (Default: set)
      *
      * @return self
      */
@@ -277,7 +271,7 @@ class UpdateChannelMetacounterData implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets upsert
      *
-     * @return bool
+     * @return bool|null
      */
     public function getUpsert()
     {
@@ -287,7 +281,7 @@ class UpdateChannelMetacounterData implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets upsert
      *
-     * @param bool $upsert upsert
+     * @param bool|null $upsert upsert
      *
      * @return self
      */

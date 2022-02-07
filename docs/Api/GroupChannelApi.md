@@ -1,4 +1,4 @@
-# OpenAPI\Client\GroupChannelApi
+# Sendbird\GroupChannelApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -37,7 +37,7 @@ Method | HTTP request | Description
 ## `gcAcceptInvitation()`
 
 ```php
-gcAcceptInvitation($channel_url, $api_token, $gc_accept_invitation_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+gcAcceptInvitation($channel_url, $api_token, $gc_accept_invitation_data): \Sendbird\Model\SendBirdGroupChannel
 ```
 
 Accept an invitation
@@ -52,14 +52,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_accept_invitation_data = new \OpenAPI\Client\Model\GcAcceptInvitationData(); // \OpenAPI\Client\Model\GcAcceptInvitationData
+$gc_accept_invitation_data = new \Sendbird\Model\GcAcceptInvitationData(); // \Sendbird\Model\GcAcceptInvitationData
 
 try {
     $result = $apiInstance->gcAcceptInvitation($channel_url, $api_token, $gc_accept_invitation_data);
@@ -75,11 +75,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_accept_invitation_data** | [**\OpenAPI\Client\Model\GcAcceptInvitationData**](../Model/GcAcceptInvitationData.md)|  | [optional]
+ **gc_accept_invitation_data** | [**\Sendbird\Model\GcAcceptInvitationData**](../Model/GcAcceptInvitationData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+[**\Sendbird\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
 
 ### Authorization
 
@@ -97,7 +97,7 @@ No authorization required
 ## `gcBanUser()`
 
 ```php
-gcBanUser($channel_url, $api_token, $gc_ban_user_data): \OpenAPI\Client\Model\InlineResponse20034BannedList
+gcBanUser($channel_url, $api_token, $gc_ban_user_data): \Sendbird\Model\InlineResponse20033BannedList
 ```
 
 Ban a user
@@ -112,14 +112,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_ban_user_data = new \OpenAPI\Client\Model\GcBanUserData(); // \OpenAPI\Client\Model\GcBanUserData
+$gc_ban_user_data = new \Sendbird\Model\GcBanUserData(); // \Sendbird\Model\GcBanUserData
 
 try {
     $result = $apiInstance->gcBanUser($channel_url, $api_token, $gc_ban_user_data);
@@ -135,11 +135,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_ban_user_data** | [**\OpenAPI\Client\Model\GcBanUserData**](../Model/GcBanUserData.md)|  | [optional]
+ **gc_ban_user_data** | [**\Sendbird\Model\GcBanUserData**](../Model/GcBanUserData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20034BannedList**](../Model/InlineResponse20034BannedList.md)
+[**\Sendbird\Model\InlineResponse20033BannedList**](../Model/InlineResponse20033BannedList.md)
 
 ### Authorization
 
@@ -172,7 +172,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -209,7 +209,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -218,7 +218,7 @@ No authorization required
 ## `gcCheckIfMemberById()`
 
 ```php
-gcCheckIfMemberById($channel_url, $user_id, $api_token): \OpenAPI\Client\Model\InlineResponse20038
+gcCheckIfMemberById($channel_url, $user_id, $api_token): \Sendbird\Model\InlineResponse20037
 ```
 
 Check if member
@@ -233,7 +233,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
+[**\Sendbird\Model\InlineResponse20037**](../Model/InlineResponse20037.md)
 
 ### Authorization
 
@@ -278,7 +278,7 @@ No authorization required
 ## `gcCreateChannel()`
 
 ```php
-gcCreateChannel($api_token, $gc_create_channel_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+gcCreateChannel($api_token, $gc_create_channel_data): \Sendbird\Model\SendBirdGroupChannel
 ```
 
 Create a channel
@@ -293,13 +293,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$gc_create_channel_data = new \OpenAPI\Client\Model\GcCreateChannelData(); // \OpenAPI\Client\Model\GcCreateChannelData
+$gc_create_channel_data = new \Sendbird\Model\GcCreateChannelData(); // \Sendbird\Model\GcCreateChannelData
 
 try {
     $result = $apiInstance->gcCreateChannel($api_token, $gc_create_channel_data);
@@ -314,11 +314,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **gc_create_channel_data** | [**\OpenAPI\Client\Model\GcCreateChannelData**](../Model/GcCreateChannelData.md)|  | [optional]
+ **gc_create_channel_data** | [**\Sendbird\Model\GcCreateChannelData**](../Model/GcCreateChannelData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+[**\Sendbird\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
 
 ### Authorization
 
@@ -351,14 +351,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_decline_invitation_data = new \OpenAPI\Client\Model\GcDeclineInvitationData(); // \OpenAPI\Client\Model\GcDeclineInvitationData
+$gc_decline_invitation_data = new \Sendbird\Model\GcDeclineInvitationData(); // \Sendbird\Model\GcDeclineInvitationData
 
 try {
     $apiInstance->gcDeclineInvitation($channel_url, $api_token, $gc_decline_invitation_data);
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_decline_invitation_data** | [**\OpenAPI\Client\Model\GcDeclineInvitationData**](../Model/GcDeclineInvitationData.md)|  | [optional]
+ **gc_decline_invitation_data** | [**\Sendbird\Model\GcDeclineInvitationData**](../Model/GcDeclineInvitationData.md)|  | [optional]
 
 ### Return type
 
@@ -386,7 +386,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -410,7 +410,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -443,7 +443,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -452,7 +452,7 @@ No authorization required
 ## `gcFreezeChannel()`
 
 ```php
-gcFreezeChannel($channel_url, $api_token, $gc_freeze_channel_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+gcFreezeChannel($channel_url, $api_token, $gc_freeze_channel_data): \Sendbird\Model\SendBirdGroupChannel
 ```
 
 Freeze a channel
@@ -467,14 +467,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_freeze_channel_data = new \OpenAPI\Client\Model\GcFreezeChannelData(); // \OpenAPI\Client\Model\GcFreezeChannelData
+$gc_freeze_channel_data = new \Sendbird\Model\GcFreezeChannelData(); // \Sendbird\Model\GcFreezeChannelData
 
 try {
     $result = $apiInstance->gcFreezeChannel($channel_url, $api_token, $gc_freeze_channel_data);
@@ -490,11 +490,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_freeze_channel_data** | [**\OpenAPI\Client\Model\GcFreezeChannelData**](../Model/GcFreezeChannelData.md)|  | [optional]
+ **gc_freeze_channel_data** | [**\Sendbird\Model\GcFreezeChannelData**](../Model/GcFreezeChannelData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+[**\Sendbird\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
 
 ### Authorization
 
@@ -527,14 +527,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_hide_or_archive_channel_data = new \OpenAPI\Client\Model\GcHideOrArchiveChannelData(); // \OpenAPI\Client\Model\GcHideOrArchiveChannelData
+$gc_hide_or_archive_channel_data = new \Sendbird\Model\GcHideOrArchiveChannelData(); // \Sendbird\Model\GcHideOrArchiveChannelData
 
 try {
     $apiInstance->gcHideOrArchiveChannel($channel_url, $api_token, $gc_hide_or_archive_channel_data);
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_hide_or_archive_channel_data** | [**\OpenAPI\Client\Model\GcHideOrArchiveChannelData**](../Model/GcHideOrArchiveChannelData.md)|  | [optional]
+ **gc_hide_or_archive_channel_data** | [**\Sendbird\Model\GcHideOrArchiveChannelData**](../Model/GcHideOrArchiveChannelData.md)|  | [optional]
 
 ### Return type
 
@@ -562,7 +562,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -571,7 +571,7 @@ No authorization required
 ## `gcInviteAsMembers()`
 
 ```php
-gcInviteAsMembers($channel_url, $api_token, $gc_invite_as_members_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+gcInviteAsMembers($channel_url, $api_token, $gc_invite_as_members_data): \Sendbird\Model\SendBirdGroupChannel
 ```
 
 Invite as members
@@ -586,14 +586,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_invite_as_members_data = new \OpenAPI\Client\Model\GcInviteAsMembersData(); // \OpenAPI\Client\Model\GcInviteAsMembersData
+$gc_invite_as_members_data = new \Sendbird\Model\GcInviteAsMembersData(); // \Sendbird\Model\GcInviteAsMembersData
 
 try {
     $result = $apiInstance->gcInviteAsMembers($channel_url, $api_token, $gc_invite_as_members_data);
@@ -609,11 +609,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_invite_as_members_data** | [**\OpenAPI\Client\Model\GcInviteAsMembersData**](../Model/GcInviteAsMembersData.md)|  | [optional]
+ **gc_invite_as_members_data** | [**\Sendbird\Model\GcInviteAsMembersData**](../Model/GcInviteAsMembersData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+[**\Sendbird\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
 
 ### Authorization
 
@@ -646,14 +646,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_join_channel_data = new \OpenAPI\Client\Model\GcJoinChannelData(); // \OpenAPI\Client\Model\GcJoinChannelData
+$gc_join_channel_data = new \Sendbird\Model\GcJoinChannelData(); // \Sendbird\Model\GcJoinChannelData
 
 try {
     $apiInstance->gcJoinChannel($channel_url, $api_token, $gc_join_channel_data);
@@ -668,7 +668,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_join_channel_data** | [**\OpenAPI\Client\Model\GcJoinChannelData**](../Model/GcJoinChannelData.md)|  | [optional]
+ **gc_join_channel_data** | [**\Sendbird\Model\GcJoinChannelData**](../Model/GcJoinChannelData.md)|  | [optional]
 
 ### Return type
 
@@ -681,7 +681,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -705,14 +705,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_leave_channel_data = new \OpenAPI\Client\Model\GcLeaveChannelData(); // \OpenAPI\Client\Model\GcLeaveChannelData
+$gc_leave_channel_data = new \Sendbird\Model\GcLeaveChannelData(); // \Sendbird\Model\GcLeaveChannelData
 
 try {
     $apiInstance->gcLeaveChannel($channel_url, $api_token, $gc_leave_channel_data);
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_leave_channel_data** | [**\OpenAPI\Client\Model\GcLeaveChannelData**](../Model/GcLeaveChannelData.md)|  | [optional]
+ **gc_leave_channel_data** | [**\Sendbird\Model\GcLeaveChannelData**](../Model/GcLeaveChannelData.md)|  | [optional]
 
 ### Return type
 
@@ -740,7 +740,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -749,7 +749,7 @@ No authorization required
 ## `gcListBannedUsers()`
 
 ```php
-gcListBannedUsers($channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20034
+gcListBannedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20033
 ```
 
 List banned users
@@ -764,7 +764,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -793,7 +793,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\Sendbird\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
 
 ### Authorization
 
@@ -811,7 +811,7 @@ No authorization required
 ## `gcListChannels()`
 
 ```php
-gcListChannels($api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $created_after, $created_before, $show_empty, $show_member, $show_delivery_receipt, $show_read_receipt, $show_metadata, $show_frozen, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $include_sorted_metaarray_in_last_message, $custom_type, $read_receipt, $member, $is_distinct, $members_in, $user_id): \OpenAPI\Client\Model\InlineResponse20018
+gcListChannels($api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $created_after, $created_before, $show_empty, $show_member, $show_delivery_receipt, $show_read_receipt, $show_metadata, $show_frozen, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $include_sorted_metaarray_in_last_message, $custom_type, $read_receipt, $member, $is_distinct, $members_in, $user_id): \Sendbird\Model\InlineResponse20017
 ```
 
 List channels
@@ -826,7 +826,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -933,7 +933,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
+[**\Sendbird\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
 
 ### Authorization
 
@@ -951,7 +951,7 @@ No authorization required
 ## `gcListMembers()`
 
 ```php
-gcListMembers($channel_url, $api_token, $token, $limit, $show_delivery_receipt, $show_read_receipt, $order, $operator_filter, $member_state_filter, $muted_member_filter, $nickname_startswith): \OpenAPI\Client\Model\InlineResponse20037
+gcListMembers($channel_url, $api_token, $token, $limit, $show_delivery_receipt, $show_read_receipt, $order, $operator_filter, $member_state_filter, $muted_member_filter, $nickname_startswith): \Sendbird\Model\InlineResponse20036
 ```
 
 List members
@@ -966,7 +966,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1009,7 +1009,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20037**](../Model/InlineResponse20037.md)
+[**\Sendbird\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
 
 ### Authorization
 
@@ -1027,7 +1027,7 @@ No authorization required
 ## `gcListMutedUsers()`
 
 ```php
-gcListMutedUsers($channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20032
+gcListMutedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20031
 ```
 
 List muted users
@@ -1042,7 +1042,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1071,7 +1071,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
+[**\Sendbird\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
 
 ### Authorization
 
@@ -1089,7 +1089,7 @@ No authorization required
 ## `gcListOperators()`
 
 ```php
-gcListOperators($channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20035
+gcListOperators($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20034
 ```
 
 List operators
@@ -1104,7 +1104,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1133,7 +1133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
+[**\Sendbird\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
 
 ### Authorization
 
@@ -1151,7 +1151,7 @@ No authorization required
 ## `gcMuteUser()`
 
 ```php
-gcMuteUser($channel_url, $api_token, $gc_mute_user_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+gcMuteUser($channel_url, $api_token, $gc_mute_user_data): \Sendbird\Model\SendBirdGroupChannel
 ```
 
 Mute a user
@@ -1166,14 +1166,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_mute_user_data = new \OpenAPI\Client\Model\GcMuteUserData(); // \OpenAPI\Client\Model\GcMuteUserData
+$gc_mute_user_data = new \Sendbird\Model\GcMuteUserData(); // \Sendbird\Model\GcMuteUserData
 
 try {
     $result = $apiInstance->gcMuteUser($channel_url, $api_token, $gc_mute_user_data);
@@ -1189,11 +1189,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_mute_user_data** | [**\OpenAPI\Client\Model\GcMuteUserData**](../Model/GcMuteUserData.md)|  | [optional]
+ **gc_mute_user_data** | [**\Sendbird\Model\GcMuteUserData**](../Model/GcMuteUserData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+[**\Sendbird\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
 
 ### Authorization
 
@@ -1211,7 +1211,7 @@ No authorization required
 ## `gcRegisterOperators()`
 
 ```php
-gcRegisterOperators($channel_url, $api_token, $gc_register_operators_data): \OpenAPI\Client\Model\InlineResponse20039
+gcRegisterOperators($channel_url, $api_token, $gc_register_operators_data): \Sendbird\Model\InlineResponse20038
 ```
 
 Register operators
@@ -1226,14 +1226,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_register_operators_data = new \OpenAPI\Client\Model\GcRegisterOperatorsData(); // \OpenAPI\Client\Model\GcRegisterOperatorsData
+$gc_register_operators_data = new \Sendbird\Model\GcRegisterOperatorsData(); // \Sendbird\Model\GcRegisterOperatorsData
 
 try {
     $result = $apiInstance->gcRegisterOperators($channel_url, $api_token, $gc_register_operators_data);
@@ -1249,11 +1249,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_register_operators_data** | [**\OpenAPI\Client\Model\GcRegisterOperatorsData**](../Model/GcRegisterOperatorsData.md)|  | [optional]
+ **gc_register_operators_data** | [**\Sendbird\Model\GcRegisterOperatorsData**](../Model/GcRegisterOperatorsData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20039**](../Model/InlineResponse20039.md)
+[**\Sendbird\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
 
 ### Authorization
 
@@ -1286,14 +1286,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_reset_chat_history_data = new \OpenAPI\Client\Model\GcResetChatHistoryData(); // \OpenAPI\Client\Model\GcResetChatHistoryData
+$gc_reset_chat_history_data = new \Sendbird\Model\GcResetChatHistoryData(); // \Sendbird\Model\GcResetChatHistoryData
 
 try {
     $apiInstance->gcResetChatHistory($channel_url, $api_token, $gc_reset_chat_history_data);
@@ -1308,7 +1308,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_reset_chat_history_data** | [**\OpenAPI\Client\Model\GcResetChatHistoryData**](../Model/GcResetChatHistoryData.md)|  | [optional]
+ **gc_reset_chat_history_data** | [**\Sendbird\Model\GcResetChatHistoryData**](../Model/GcResetChatHistoryData.md)|  | [optional]
 
 ### Return type
 
@@ -1321,7 +1321,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1345,7 +1345,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1380,7 +1380,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1404,7 +1404,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1441,7 +1441,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1465,7 +1465,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1500,7 +1500,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1509,7 +1509,7 @@ No authorization required
 ## `gcUpdateBanById()`
 
 ```php
-gcUpdateBanById($channel_url, $banned_user_id, $api_token, $gc_update_ban_by_id_data): \OpenAPI\Client\Model\SendBirdUser
+gcUpdateBanById($channel_url, $banned_user_id, $api_token, $gc_update_ban_by_id_data): \Sendbird\Model\SendBirdUser
 ```
 
 Update a ban
@@ -1524,7 +1524,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1532,7 +1532,7 @@ $apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
 $channel_url = 'channel_url_example'; // string
 $banned_user_id = 'banned_user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_update_ban_by_id_data = new \OpenAPI\Client\Model\GcUpdateBanByIdData(); // \OpenAPI\Client\Model\GcUpdateBanByIdData
+$gc_update_ban_by_id_data = new \Sendbird\Model\GcUpdateBanByIdData(); // \Sendbird\Model\GcUpdateBanByIdData
 
 try {
     $result = $apiInstance->gcUpdateBanById($channel_url, $banned_user_id, $api_token, $gc_update_ban_by_id_data);
@@ -1549,11 +1549,11 @@ Name | Type | Description  | Notes
  **channel_url** | **string**|  |
  **banned_user_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_update_ban_by_id_data** | [**\OpenAPI\Client\Model\GcUpdateBanByIdData**](../Model/GcUpdateBanByIdData.md)|  | [optional]
+ **gc_update_ban_by_id_data** | [**\Sendbird\Model\GcUpdateBanByIdData**](../Model/GcUpdateBanByIdData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdUser**](../Model/SendBirdUser.md)
+[**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
 
 ### Authorization
 
@@ -1571,7 +1571,7 @@ No authorization required
 ## `gcUpdateChannelByUrl()`
 
 ```php
-gcUpdateChannelByUrl($channel_url, $api_token, $gc_update_channel_by_url_data): \OpenAPI\Client\Model\SendBirdGroupChannel
+gcUpdateChannelByUrl($channel_url, $api_token, $gc_update_channel_by_url_data): \Sendbird\Model\SendBirdGroupChannel
 ```
 
 Update a channel
@@ -1586,14 +1586,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$gc_update_channel_by_url_data = new \OpenAPI\Client\Model\GcUpdateChannelByUrlData(); // \OpenAPI\Client\Model\GcUpdateChannelByUrlData
+$gc_update_channel_by_url_data = new \Sendbird\Model\GcUpdateChannelByUrlData(); // \Sendbird\Model\GcUpdateChannelByUrlData
 
 try {
     $result = $apiInstance->gcUpdateChannelByUrl($channel_url, $api_token, $gc_update_channel_by_url_data);
@@ -1609,11 +1609,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **gc_update_channel_by_url_data** | [**\OpenAPI\Client\Model\GcUpdateChannelByUrlData**](../Model/GcUpdateChannelByUrlData.md)|  | [optional]
+ **gc_update_channel_by_url_data** | [**\Sendbird\Model\GcUpdateChannelByUrlData**](../Model/GcUpdateChannelByUrlData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+[**\Sendbird\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
 
 ### Authorization
 
@@ -1631,7 +1631,7 @@ No authorization required
 ## `gcViewBanById()`
 
 ```php
-gcViewBanById($channel_url, $banned_user_id, $api_token): \OpenAPI\Client\Model\SendBirdUser
+gcViewBanById($channel_url, $banned_user_id, $api_token): \Sendbird\Model\SendBirdUser
 ```
 
 View a ban
@@ -1646,7 +1646,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1673,7 +1673,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdUser**](../Model/SendBirdUser.md)
+[**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
 
 ### Authorization
 
@@ -1691,7 +1691,7 @@ No authorization required
 ## `gcViewChannelByUrl()`
 
 ```php
-gcViewChannelByUrl($channel_url, $api_token, $show_delivery_receipt, $show_read_receipt, $show_member, $read_receipt, $member): \OpenAPI\Client\Model\SendBirdGroupChannel
+gcViewChannelByUrl($channel_url, $api_token, $show_delivery_receipt, $show_read_receipt, $show_member, $read_receipt, $member): \Sendbird\Model\SendBirdGroupChannel
 ```
 
 View a channel
@@ -1706,7 +1706,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1741,7 +1741,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
+[**\Sendbird\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
 
 ### Authorization
 
@@ -1759,7 +1759,7 @@ No authorization required
 ## `gcViewMuteById()`
 
 ```php
-gcViewMuteById($channel_url, $muted_user_id, $api_token): \OpenAPI\Client\Model\InlineResponse20036
+gcViewMuteById($channel_url, $muted_user_id, $api_token): \Sendbird\Model\InlineResponse20035
 ```
 
 View a mute
@@ -1774,7 +1774,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\GroupChannelApi(
+$apiInstance = new Sendbird\Api\GroupChannelApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1801,7 +1801,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
+[**\Sendbird\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
 
 ### Authorization
 

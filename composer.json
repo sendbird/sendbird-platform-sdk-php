@@ -1,4 +1,5 @@
 {
+    "name": "sendbird/sendbird-platform-sdk-php",
     "description": "Sendbird Platform API Javascript SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api",
     "keywords": [
         "openapitools",
@@ -30,9 +31,9 @@
         "friendsofphp/php-cs-fixer": "^2.12"
     },
     "autoload": {
-        "psr-4": { "OpenAPI\\Client\\" : "lib/" }
+        "psr-4": { "Sendbird\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "OpenAPI\\Client\\Test\\" : "test/" }
+        "psr-4": { "Sendbird\\Test\\" : "test/" }
     }
 }

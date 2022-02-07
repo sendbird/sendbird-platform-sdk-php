@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdPoll Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class SendBirdPoll implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'details' => '\OpenAPI\Client\Model\SendBirdPollDetails',
+        'details' => '\Sendbird\Model\SendBirdPollDetails',
         'id' => 'float',
         'title' => 'string'
     ];
@@ -220,7 +220,7 @@ class SendBirdPoll implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets details
      *
-     * @return \OpenAPI\Client\Model\SendBirdPollDetails|null
+     * @return \Sendbird\Model\SendBirdPollDetails|null
      */
     public function getDetails()
     {
@@ -230,7 +230,7 @@ class SendBirdPoll implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets details
      *
-     * @param \OpenAPI\Client\Model\SendBirdPollDetails|null $details details
+     * @param \Sendbird\Model\SendBirdPollDetails|null $details details
      *
      * @return self
      */

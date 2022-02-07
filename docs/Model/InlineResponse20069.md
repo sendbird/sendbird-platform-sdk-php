@@ -4,7 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requests** | [**\OpenAPI\Client\Model\InlineResponse20069Requests[]**](InlineResponse20069Requests.md) |  | [optional]
-**next** | **string** |  | [optional]
+**request_id** | **string** |  | [optional]
+**action** | **string** |  | [optional]
+**status** | **string** |  | [optional]
+**user_id** | **string** |  | [optional]
+**user_ids** | **string[]** |  | [optional]
+**channel_delete_option** | **string** |  | [optional]
+**created_at** | **float** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

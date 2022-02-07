@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * UpdateAnnouncementByIdData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -289,54 +289,6 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['unique_id'] === null) {
             $invalidProperties[] = "'unique_id' can't be null";
         }
-        if ($this->container['action'] === null) {
-            $invalidProperties[] = "'action' can't be null";
-        }
-        if ($this->container['announcement_group'] === null) {
-            $invalidProperties[] = "'announcement_group' can't be null";
-        }
-        if ($this->container['create_channel'] === null) {
-            $invalidProperties[] = "'create_channel' can't be null";
-        }
-        if ($this->container['create_channel_options_name'] === null) {
-            $invalidProperties[] = "'create_channel_options_name' can't be null";
-        }
-        if ($this->container['create_channel_options_cover_url'] === null) {
-            $invalidProperties[] = "'create_channel_options_cover_url' can't be null";
-        }
-        if ($this->container['create_channel_options_custom_type'] === null) {
-            $invalidProperties[] = "'create_channel_options_custom_type' can't be null";
-        }
-        if ($this->container['create_channel_options_data'] === null) {
-            $invalidProperties[] = "'create_channel_options_data' can't be null";
-        }
-        if ($this->container['create_channel_options_distinct'] === null) {
-            $invalidProperties[] = "'create_channel_options_distinct' can't be null";
-        }
-        if ($this->container['message_user_id'] === null) {
-            $invalidProperties[] = "'message_user_id' can't be null";
-        }
-        if ($this->container['message_content'] === null) {
-            $invalidProperties[] = "'message_content' can't be null";
-        }
-        if ($this->container['message_data'] === null) {
-            $invalidProperties[] = "'message_data' can't be null";
-        }
-        if ($this->container['enable_push'] === null) {
-            $invalidProperties[] = "'enable_push' can't be null";
-        }
-        if ($this->container['scheduled_at'] === null) {
-            $invalidProperties[] = "'scheduled_at' can't be null";
-        }
-        if ($this->container['end_at'] === null) {
-            $invalidProperties[] = "'end_at' can't be null";
-        }
-        if ($this->container['cease_at'] === null) {
-            $invalidProperties[] = "'cease_at' can't be null";
-        }
-        if ($this->container['resume_at'] === null) {
-            $invalidProperties[] = "'resume_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -379,7 +331,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets action
      *
-     * @return string
+     * @return string|null
      */
     public function getAction()
     {
@@ -389,7 +341,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets action
      *
-     * @param string $action Specifies an action to take on the announcement. If this property is updated, other specified properties in the request are not effective. Acceptable values are limited to remove, pause, resume, and cancel. The [Announcement actions](#2-update-an-announcement-3-how-to-change-announcement-status) table explains each action in detail.
+     * @param string|null $action Specifies an action to take on the announcement. If this property is updated, other specified properties in the request are not effective. Acceptable values are limited to remove, pause, resume, and cancel. The [Announcement actions](#2-update-an-announcement-3-how-to-change-announcement-status) table explains each action in detail.
      *
      * @return self
      */
@@ -403,7 +355,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets announcement_group
      *
-     * @return string
+     * @return string|null
      */
     public function getAnnouncementGroup()
     {
@@ -413,7 +365,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets announcement_group
      *
-     * @param string $announcement_group Specifies the name of an announcement group to retrieve. If not specified, all announcements are returned, regardless of their group.
+     * @param string|null $announcement_group Specifies the name of an announcement group to retrieve. If not specified, all announcements are returned, regardless of their group.
      *
      * @return self
      */
@@ -427,7 +379,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets create_channel
      *
-     * @return bool
+     * @return bool|null
      */
     public function getCreateChannel()
     {
@@ -437,7 +389,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets create_channel
      *
-     * @param bool $create_channel Determines whether to create a new channel if there is no existing channel that matches with the target options including target_at and target_list.
+     * @param bool|null $create_channel Determines whether to create a new channel if there is no existing channel that matches with the target options including target_at and target_list.
      *
      * @return self
      */
@@ -451,7 +403,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets create_channel_options_name
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptionsName()
     {
@@ -461,7 +413,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets create_channel_options_name
      *
-     * @param string $create_channel_options_name Specifies the name of the channel. (Default: Group Channel)
+     * @param string|null $create_channel_options_name Specifies the name of the channel. (Default: Group Channel)
      *
      * @return self
      */
@@ -475,7 +427,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets create_channel_options_cover_url
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptionsCoverUrl()
     {
@@ -485,7 +437,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets create_channel_options_cover_url
      *
-     * @param string $create_channel_options_cover_url Specifies the URL of the cover image.
+     * @param string|null $create_channel_options_cover_url Specifies the URL of the cover image.
      *
      * @return self
      */
@@ -499,7 +451,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets create_channel_options_custom_type
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptionsCustomType()
     {
@@ -509,7 +461,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets create_channel_options_custom_type
      *
-     * @param string $create_channel_options_custom_type Specifies the custom channel type.
+     * @param string|null $create_channel_options_custom_type Specifies the custom channel type.
      *
      * @return self
      */
@@ -523,7 +475,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets create_channel_options_data
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptionsData()
     {
@@ -533,7 +485,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets create_channel_options_data
      *
-     * @param string $create_channel_options_data Specifies additional channel information such as a long description of the channel or `JSON` formatted string.
+     * @param string|null $create_channel_options_data Specifies additional channel information such as a long description of the channel or `JSON` formatted string.
      *
      * @return self
      */
@@ -547,7 +499,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets create_channel_options_distinct
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptionsDistinct()
     {
@@ -557,7 +509,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets create_channel_options_distinct
      *
-     * @param string $create_channel_options_distinct Determines whether to create a [distinct](/docs/chat/v3/platform-api/guides/channel-types#2-group-channel) channel. (Default: true)
+     * @param string|null $create_channel_options_distinct Determines whether to create a [distinct](/docs/chat/v3/platform-api/guides/channel-types#2-group-channel) channel. (Default: true)
      *
      * @return self
      */
@@ -571,7 +523,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets message_user_id
      *
-     * @return string
+     * @return string|null
      */
     public function getMessageUserId()
     {
@@ -581,7 +533,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets message_user_id
      *
-     * @param string $message_user_id Specifies the unique ID of the announcement sender.
+     * @param string|null $message_user_id Specifies the unique ID of the announcement sender.
      *
      * @return self
      */
@@ -595,7 +547,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets message_content
      *
-     * @return string
+     * @return string|null
      */
     public function getMessageContent()
     {
@@ -605,7 +557,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets message_content
      *
-     * @param string $message_content Specifies the content of the message.
+     * @param string|null $message_content Specifies the content of the message.
      *
      * @return self
      */
@@ -619,7 +571,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets message_data
      *
-     * @return string
+     * @return string|null
      */
     public function getMessageData()
     {
@@ -629,7 +581,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets message_data
      *
-     * @param string $message_data Specifies additional message information such as custom font size, font type or `JSON` formatted string.
+     * @param string|null $message_data Specifies additional message information such as custom font size, font type or `JSON` formatted string.
      *
      * @return self
      */
@@ -643,7 +595,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets enable_push
      *
-     * @return bool
+     * @return bool|null
      */
     public function getEnablePush()
     {
@@ -653,7 +605,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets enable_push
      *
-     * @param bool $enable_push Determines whether to turn on push notification for the announcement. If set to true, push notifications will be sent for announcements.
+     * @param bool|null $enable_push Determines whether to turn on push notification for the announcement. If set to true, push notifications will be sent for announcements.
      *
      * @return self
      */
@@ -667,7 +619,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets scheduled_at
      *
-     * @return int
+     * @return int|null
      */
     public function getScheduledAt()
     {
@@ -677,7 +629,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets scheduled_at
      *
-     * @param int $scheduled_at Specifies the time to start the announcement, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. (Default: current timestamp)
+     * @param int|null $scheduled_at Specifies the time to start the announcement, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. (Default: current timestamp)
      *
      * @return self
      */
@@ -691,7 +643,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets end_at
      *
-     * @return int
+     * @return int|null
      */
     public function getEndAt()
     {
@@ -701,7 +653,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets end_at
      *
-     * @param int $end_at Specifies the time to permanently end the announcement, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format, even if the announcement is not sent to all its targets.
+     * @param int|null $end_at Specifies the time to permanently end the announcement, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format, even if the announcement is not sent to all its targets.
      *
      * @return self
      */
@@ -715,7 +667,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets cease_at
      *
-     * @return string
+     * @return string|null
      */
     public function getCeaseAt()
     {
@@ -725,7 +677,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets cease_at
      *
-     * @param string $cease_at Specifies the time to temporarily put the announcement on hold in UTC. The string is represented in HHMM format. This property should be specified in conjunction with the resume_at below.
+     * @param string|null $cease_at Specifies the time to temporarily put the announcement on hold in UTC. The string is represented in HHMM format. This property should be specified in conjunction with the resume_at below.
      *
      * @return self
      */
@@ -739,7 +691,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets resume_at
      *
-     * @return string
+     * @return string|null
      */
     public function getResumeAt()
     {
@@ -749,7 +701,7 @@ class UpdateAnnouncementByIdData implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets resume_at
      *
-     * @param string $resume_at Specifies the time to automatically resume the on-hold announcement in UTC. The string is represented in HHMM format. This property should be specified in conjunction with the cease_at above.
+     * @param string|null $resume_at Specifies the time to automatically resume the on-hold announcement in UTC. The string is represented in HHMM format. This property should be specified in conjunction with the cease_at above.
      *
      * @return self
      */

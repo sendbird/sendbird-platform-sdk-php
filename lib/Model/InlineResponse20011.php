@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20011 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20011 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'mau' => 'float'
+        'dau' => 'float'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20011 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'mau' => null
+        'dau' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20011 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'mau' => 'mau'
+        'dau' => 'dau'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20011 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'mau' => 'setMau'
+        'dau' => 'setDau'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20011 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'mau' => 'getMau'
+        'dau' => 'getDau'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20011 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['mau'] = $data['mau'] ?? null;
+        $this->container['dau'] = $data['dau'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20011 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets mau
+     * Gets dau
      *
      * @return float|null
      */
-    public function getMau()
+    public function getDau()
     {
-        return $this->container['mau'];
+        return $this->container['dau'];
     }
 
     /**
-     * Sets mau
+     * Sets dau
      *
-     * @param float|null $mau mau
+     * @param float|null $dau dau
      *
      * @return self
      */
-    public function setMau($mau)
+    public function setDau($dau)
     {
-        $this->container['mau'] = $mau;
+        $this->container['dau'] = $dau;
 
         return $this;
     }

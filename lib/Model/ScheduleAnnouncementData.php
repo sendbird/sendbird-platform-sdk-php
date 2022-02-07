@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * ScheduleAnnouncementData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -349,57 +349,6 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['target_channel_type'] === null) {
             $invalidProperties[] = "'target_channel_type' can't be null";
         }
-        if ($this->container['unique_id'] === null) {
-            $invalidProperties[] = "'unique_id' can't be null";
-        }
-        if ($this->container['message_custom_type'] === null) {
-            $invalidProperties[] = "'message_custom_type' can't be null";
-        }
-        if ($this->container['message_data'] === null) {
-            $invalidProperties[] = "'message_data' can't be null";
-        }
-        if ($this->container['create_channel'] === null) {
-            $invalidProperties[] = "'create_channel' can't be null";
-        }
-        if ($this->container['announcement_group'] === null) {
-            $invalidProperties[] = "'announcement_group' can't be null";
-        }
-        if ($this->container['create_channel_options'] === null) {
-            $invalidProperties[] = "'create_channel_options' can't be null";
-        }
-        if ($this->container['create_channel_options_name'] === null) {
-            $invalidProperties[] = "'create_channel_options_name' can't be null";
-        }
-        if ($this->container['create_channel_options_cover_url'] === null) {
-            $invalidProperties[] = "'create_channel_options_cover_url' can't be null";
-        }
-        if ($this->container['create_channel_options_custom_type'] === null) {
-            $invalidProperties[] = "'create_channel_options_custom_type' can't be null";
-        }
-        if ($this->container['create_channel_options_data'] === null) {
-            $invalidProperties[] = "'create_channel_options_data' can't be null";
-        }
-        if ($this->container['create_channel_options_distinct'] === null) {
-            $invalidProperties[] = "'create_channel_options_distinct' can't be null";
-        }
-        if ($this->container['scheduled_at'] === null) {
-            $invalidProperties[] = "'scheduled_at' can't be null";
-        }
-        if ($this->container['cease_at'] === null) {
-            $invalidProperties[] = "'cease_at' can't be null";
-        }
-        if ($this->container['resume_at'] === null) {
-            $invalidProperties[] = "'resume_at' can't be null";
-        }
-        if ($this->container['end_at'] === null) {
-            $invalidProperties[] = "'end_at' can't be null";
-        }
-        if ($this->container['enable_push'] === null) {
-            $invalidProperties[] = "'enable_push' can't be null";
-        }
-        if ($this->container['assign_sender_as_channel_inviter'] === null) {
-            $invalidProperties[] = "'assign_sender_as_channel_inviter' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -586,7 +535,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets unique_id
      *
-     * @return string
+     * @return string|null
      */
     public function getUniqueId()
     {
@@ -596,7 +545,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets unique_id
      *
-     * @param string $unique_id Specifies the unique ID of the new announcement. The unique_id will be automatically created unless specified.
+     * @param string|null $unique_id Specifies the unique ID of the new announcement. The unique_id will be automatically created unless specified.
      *
      * @return self
      */
@@ -610,7 +559,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets message_custom_type
      *
-     * @return string
+     * @return string|null
      */
     public function getMessageCustomType()
     {
@@ -620,7 +569,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets message_custom_type
      *
-     * @param string $message_custom_type Specifies the custom message type of the message of the new announcement.
+     * @param string|null $message_custom_type Specifies the custom message type of the message of the new announcement.
      *
      * @return self
      */
@@ -634,7 +583,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets message_data
      *
-     * @return string
+     * @return string|null
      */
     public function getMessageData()
     {
@@ -644,7 +593,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets message_data
      *
-     * @param string $message_data Specifies additional message information such as custom font size, font type or `JSON` formatted string.
+     * @param string|null $message_data Specifies additional message information such as custom font size, font type or `JSON` formatted string.
      *
      * @return self
      */
@@ -658,7 +607,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets create_channel
      *
-     * @return bool
+     * @return bool|null
      */
     public function getCreateChannel()
     {
@@ -668,7 +617,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets create_channel
      *
-     * @param bool $create_channel Determines whether to create a new channel if there is no existing channel that matches with the target options including target_at and target_list. By specifying the create_channel_options, you can configure the properties of newly created channels. (Default: false)
+     * @param bool|null $create_channel Determines whether to create a new channel if there is no existing channel that matches with the target options including target_at and target_list. By specifying the create_channel_options, you can configure the properties of newly created channels. (Default: false)
      *
      * @return self
      */
@@ -682,7 +631,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets announcement_group
      *
-     * @return string
+     * @return string|null
      */
     public function getAnnouncementGroup()
     {
@@ -692,7 +641,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets announcement_group
      *
-     * @param string $announcement_group Specifies the announcement group that the new announcement belongs to.<br/> <br/> This property is effective only when the target_at is either target_users_only_channels or target_users_included_channels.
+     * @param string|null $announcement_group Specifies the announcement group that the new announcement belongs to.<br/> <br/> This property is effective only when the target_at is either target_users_only_channels or target_users_included_channels.
      *
      * @return self
      */
@@ -706,7 +655,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets create_channel_options
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptions()
     {
@@ -716,7 +665,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets create_channel_options
      *
-     * @param string $create_channel_options A newly created channel configuration.
+     * @param string|null $create_channel_options A newly created channel configuration.
      *
      * @return self
      */
@@ -730,7 +679,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets create_channel_options_name
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptionsName()
     {
@@ -740,7 +689,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets create_channel_options_name
      *
-     * @param string $create_channel_options_name Specifies the name of channels to be created. (Default: Group Channel)
+     * @param string|null $create_channel_options_name Specifies the name of channels to be created. (Default: Group Channel)
      *
      * @return self
      */
@@ -754,7 +703,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets create_channel_options_cover_url
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptionsCoverUrl()
     {
@@ -764,7 +713,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets create_channel_options_cover_url
      *
-     * @param string $create_channel_options_cover_url Specifies the URL of the cover image for the new channels.
+     * @param string|null $create_channel_options_cover_url Specifies the URL of the cover image for the new channels.
      *
      * @return self
      */
@@ -778,7 +727,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets create_channel_options_custom_type
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptionsCustomType()
     {
@@ -788,7 +737,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets create_channel_options_custom_type
      *
-     * @param string $create_channel_options_custom_type Specifies the custom channel type of the new channels.
+     * @param string|null $create_channel_options_custom_type Specifies the custom channel type of the new channels.
      *
      * @return self
      */
@@ -802,7 +751,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets create_channel_options_data
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptionsData()
     {
@@ -812,7 +761,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets create_channel_options_data
      *
-     * @param string $create_channel_options_data Specifies additional channel information such as a long description of the channel or `JSON` formatted string.
+     * @param string|null $create_channel_options_data Specifies additional channel information such as a long description of the channel or `JSON` formatted string.
      *
      * @return self
      */
@@ -826,7 +775,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets create_channel_options_distinct
      *
-     * @return string
+     * @return string|null
      */
     public function getCreateChannelOptionsDistinct()
     {
@@ -836,7 +785,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets create_channel_options_distinct
      *
-     * @param string $create_channel_options_distinct Determines whether to create a [distinct](/docs/chat/v3/platform-api/guides/channel-types#2-group-channel) channel. (Default: true)
+     * @param string|null $create_channel_options_distinct Determines whether to create a [distinct](/docs/chat/v3/platform-api/guides/channel-types#2-group-channel) channel. (Default: true)
      *
      * @return self
      */
@@ -850,7 +799,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets scheduled_at
      *
-     * @return int
+     * @return int|null
      */
     public function getScheduledAt()
     {
@@ -860,7 +809,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets scheduled_at
      *
-     * @param int $scheduled_at Specifies the time to start the announcement, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. If not specified, the default is the timestamp of when the request was delivered to Sendbird server. (Default: current timestamp)
+     * @param int|null $scheduled_at Specifies the time to start the announcement, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. If not specified, the default is the timestamp of when the request was delivered to Sendbird server. (Default: current timestamp)
      *
      * @return self
      */
@@ -874,7 +823,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets cease_at
      *
-     * @return string
+     * @return string|null
      */
     public function getCeaseAt()
     {
@@ -884,7 +833,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets cease_at
      *
-     * @param string $cease_at Specifies the time to temporarily put the announcement on hold in UTC. The string is represented in HHMM format. This should be specified in conjunction with the resume_at property.<br/><br/> If both the cease_at and resume_at are not specified, Sendbird server starts to send the announcement at the time of the scheduled_at above.
+     * @param string|null $cease_at Specifies the time to temporarily put the announcement on hold in UTC. The string is represented in HHMM format. This should be specified in conjunction with the resume_at property.<br/><br/> If both the cease_at and resume_at are not specified, Sendbird server starts to send the announcement at the time of the scheduled_at above.
      *
      * @return self
      */
@@ -898,7 +847,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets resume_at
      *
-     * @return string
+     * @return string|null
      */
     public function getResumeAt()
     {
@@ -908,7 +857,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets resume_at
      *
-     * @param string $resume_at Specifies the time to automatically resume the on-hold announcement in UTC. The string is represented in HHMM format. This should be specified in conjunction with the cease_at property above.<br/><br/> If both the cease_at and resume_at are not specified, Sendbird server starts to send the announcement at the time of the scheduled_at above.
+     * @param string|null $resume_at Specifies the time to automatically resume the on-hold announcement in UTC. The string is represented in HHMM format. This should be specified in conjunction with the cease_at property above.<br/><br/> If both the cease_at and resume_at are not specified, Sendbird server starts to send the announcement at the time of the scheduled_at above.
      *
      * @return self
      */
@@ -922,7 +871,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets end_at
      *
-     * @return int
+     * @return int|null
      */
     public function getEndAt()
     {
@@ -932,7 +881,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets end_at
      *
-     * @param int $end_at Specifies the time to permanently end the announcement, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous##2-timestamps) format. If this property is specified, the announcement ends even when the announcement is not sent to all its targets. <br/><br/> For the announcement to run safely, the end_at time should be set at least 10 minutes later than the scheduled_at time.
+     * @param int|null $end_at Specifies the time to permanently end the announcement, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous##2-timestamps) format. If this property is specified, the announcement ends even when the announcement is not sent to all its targets. <br/><br/> For the announcement to run safely, the end_at time should be set at least 10 minutes later than the scheduled_at time.
      *
      * @return self
      */
@@ -946,7 +895,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets enable_push
      *
-     * @return bool
+     * @return bool|null
      */
     public function getEnablePush()
     {
@@ -956,7 +905,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets enable_push
      *
-     * @param bool $enable_push Determines whether to turn on push notification for the announcement. If set to true, push notifications will be sent for the announcement. (Default: true)
+     * @param bool|null $enable_push Determines whether to turn on push notification for the announcement. If set to true, push notifications will be sent for the announcement. (Default: true)
      *
      * @return self
      */
@@ -970,7 +919,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets assign_sender_as_channel_inviter
      *
-     * @return bool
+     * @return bool|null
      */
     public function getAssignSenderAsChannelInviter()
     {
@@ -980,7 +929,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets assign_sender_as_channel_inviter
      *
-     * @param bool $assign_sender_as_channel_inviter Determines whether to assign an announcement sender as an inviter of the newly created channels. (Default: false)
+     * @param bool|null $assign_sender_as_channel_inviter Determines whether to assign an announcement sender as an inviter of the newly created channels. (Default: false)
      *
      * @return self
      */

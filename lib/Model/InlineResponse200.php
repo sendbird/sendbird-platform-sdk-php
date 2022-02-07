@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse200 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,10 +59,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'count' => 'float',
-        'previous' => 'string',
-        'next' => 'string',
-        'results' => '\OpenAPI\Client\Model\InlineResponse200Results[]'
+        'ccu' => 'float'
     ];
 
     /**
@@ -73,10 +70,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'count' => null,
-        'previous' => null,
-        'next' => null,
-        'results' => null
+        'ccu' => null
     ];
 
     /**
@@ -106,10 +100,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'count' => 'count',
-        'previous' => 'previous',
-        'next' => 'next',
-        'results' => 'results'
+        'ccu' => 'ccu'
     ];
 
     /**
@@ -118,10 +109,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'count' => 'setCount',
-        'previous' => 'setPrevious',
-        'next' => 'setNext',
-        'results' => 'setResults'
+        'ccu' => 'setCcu'
     ];
 
     /**
@@ -130,10 +118,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'count' => 'getCount',
-        'previous' => 'getPrevious',
-        'next' => 'getNext',
-        'results' => 'getResults'
+        'ccu' => 'getCcu'
     ];
 
     /**
@@ -193,10 +178,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['count'] = $data['count'] ?? null;
-        $this->container['previous'] = $data['previous'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
-        $this->container['results'] = $data['results'] ?? null;
+        $this->container['ccu'] = $data['ccu'] ?? null;
     }
 
     /**
@@ -224,97 +206,25 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets count
+     * Gets ccu
      *
      * @return float|null
      */
-    public function getCount()
+    public function getCcu()
     {
-        return $this->container['count'];
+        return $this->container['ccu'];
     }
 
     /**
-     * Sets count
+     * Sets ccu
      *
-     * @param float|null $count count
+     * @param float|null $ccu ccu
      *
      * @return self
      */
-    public function setCount($count)
+    public function setCcu($ccu)
     {
-        $this->container['count'] = $count;
-
-        return $this;
-    }
-
-    /**
-     * Gets previous
-     *
-     * @return string|null
-     */
-    public function getPrevious()
-    {
-        return $this->container['previous'];
-    }
-
-    /**
-     * Sets previous
-     *
-     * @param string|null $previous previous
-     *
-     * @return self
-     */
-    public function setPrevious($previous)
-    {
-        $this->container['previous'] = $previous;
-
-        return $this;
-    }
-
-    /**
-     * Gets next
-     *
-     * @return string|null
-     */
-    public function getNext()
-    {
-        return $this->container['next'];
-    }
-
-    /**
-     * Sets next
-     *
-     * @param string|null $next next
-     *
-     * @return self
-     */
-    public function setNext($next)
-    {
-        $this->container['next'] = $next;
-
-        return $this;
-    }
-
-    /**
-     * Gets results
-     *
-     * @return \OpenAPI\Client\Model\InlineResponse200Results[]|null
-     */
-    public function getResults()
-    {
-        return $this->container['results'];
-    }
-
-    /**
-     * Sets results
-     *
-     * @param \OpenAPI\Client\Model\InlineResponse200Results[]|null $results results
-     *
-     * @return self
-     */
-    public function setResults($results)
-    {
-        $this->container['results'] = $results;
+        $this->container['ccu'] = $ccu;
 
         return $this;
     }

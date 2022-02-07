@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace OpenAPI\Client\Test\Model;
+namespace Sendbird\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description InlineResponse20042
- * @package     OpenAPI\Client
+ * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
@@ -89,18 +89,36 @@ class InlineResponse20042Test extends TestCase
     }
 
     /**
-     * Test attribute "announcement_group"
+     * Test attribute "open_counts"
      */
-    public function testPropertyAnnouncementGroup()
+    public function testPropertyOpenCounts()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "open_rates"
      */
-    public function testPropertyMessage()
+    public function testPropertyOpenRates()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "cumulative_open_counts"
+     */
+    public function testPropertyCumulativeOpenCounts()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "cumulative_open_rates"
+     */
+    public function testPropertyCumulativeOpenRates()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

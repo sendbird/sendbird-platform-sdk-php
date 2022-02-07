@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20027 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,7 @@ class InlineResponse20027 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'token' => 'string[]',
-        'user' => '\OpenAPI\Client\Model\SendBirdUser'
+        'user_id' => 'string'
     ];
 
     /**
@@ -71,8 +70,7 @@ class InlineResponse20027 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'token' => null,
-        'user' => null
+        'user_id' => null
     ];
 
     /**
@@ -102,8 +100,7 @@ class InlineResponse20027 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'token' => 'token',
-        'user' => 'user'
+        'user_id' => 'user_id'
     ];
 
     /**
@@ -112,8 +109,7 @@ class InlineResponse20027 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'token' => 'setToken',
-        'user' => 'setUser'
+        'user_id' => 'setUserId'
     ];
 
     /**
@@ -122,8 +118,7 @@ class InlineResponse20027 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'token' => 'getToken',
-        'user' => 'getUser'
+        'user_id' => 'getUserId'
     ];
 
     /**
@@ -183,8 +178,7 @@ class InlineResponse20027 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['token'] = $data['token'] ?? null;
-        $this->container['user'] = $data['user'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
     }
 
     /**
@@ -212,49 +206,25 @@ class InlineResponse20027 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets token
+     * Gets user_id
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getToken()
+    public function getUserId()
     {
-        return $this->container['token'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets token
+     * Sets user_id
      *
-     * @param string[]|null $token token
+     * @param string|null $user_id user_id
      *
      * @return self
      */
-    public function setToken($token)
+    public function setUserId($user_id)
     {
-        $this->container['token'] = $token;
-
-        return $this;
-    }
-
-    /**
-     * Gets user
-     *
-     * @return \OpenAPI\Client\Model\SendBirdUser|null
-     */
-    public function getUser()
-    {
-        return $this->container['user'];
-    }
-
-    /**
-     * Sets user
-     *
-     * @param \OpenAPI\Client\Model\SendBirdUser|null $user user
-     *
-     * @return self
-     */
-    public function setUser($user)
-    {
-        $this->container['user'] = $user;
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }

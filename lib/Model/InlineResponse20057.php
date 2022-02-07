@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20057 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,7 @@ class InlineResponse20057 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'emoji_hash' => 'string',
-        'emoji_categories' => '\OpenAPI\Client\Model\InlineResponse20057EmojiCategories[]'
+        'emoji_categories' => '\Sendbird\Model\InlineResponse20057EmojiCategories[]'
     ];
 
     /**
@@ -71,7 +70,6 @@ class InlineResponse20057 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'emoji_hash' => null,
         'emoji_categories' => null
     ];
 
@@ -102,7 +100,6 @@ class InlineResponse20057 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'emoji_hash' => 'emoji_hash',
         'emoji_categories' => 'emoji_categories'
     ];
 
@@ -112,7 +109,6 @@ class InlineResponse20057 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'emoji_hash' => 'setEmojiHash',
         'emoji_categories' => 'setEmojiCategories'
     ];
 
@@ -122,7 +118,6 @@ class InlineResponse20057 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'emoji_hash' => 'getEmojiHash',
         'emoji_categories' => 'getEmojiCategories'
     ];
 
@@ -183,7 +178,6 @@ class InlineResponse20057 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['emoji_hash'] = $data['emoji_hash'] ?? null;
         $this->container['emoji_categories'] = $data['emoji_categories'] ?? null;
     }
 
@@ -212,33 +206,9 @@ class InlineResponse20057 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets emoji_hash
-     *
-     * @return string|null
-     */
-    public function getEmojiHash()
-    {
-        return $this->container['emoji_hash'];
-    }
-
-    /**
-     * Sets emoji_hash
-     *
-     * @param string|null $emoji_hash emoji_hash
-     *
-     * @return self
-     */
-    public function setEmojiHash($emoji_hash)
-    {
-        $this->container['emoji_hash'] = $emoji_hash;
-
-        return $this;
-    }
-
-    /**
      * Gets emoji_categories
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20057EmojiCategories[]|null
+     * @return \Sendbird\Model\InlineResponse20057EmojiCategories[]|null
      */
     public function getEmojiCategories()
     {
@@ -248,7 +218,7 @@ class InlineResponse20057 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets emoji_categories
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20057EmojiCategories[]|null $emoji_categories emoji_categories
+     * @param \Sendbird\Model\InlineResponse20057EmojiCategories[]|null $emoji_categories emoji_categories
      *
      * @return self
      */

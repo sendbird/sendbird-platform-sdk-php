@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**open_status** | [**\OpenAPI\Client\Model\InlineResponse20044OpenStatus[]**](InlineResponse20044OpenStatus.md) |  | [optional]
-**next** | **string** |  | [optional]
+**statistics** | [**\Sendbird\Model\InlineResponse20044Statistics[]**](InlineResponse20044Statistics.md) |  | [optional]
+**week** | **float** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

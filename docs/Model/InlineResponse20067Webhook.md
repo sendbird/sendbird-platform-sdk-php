@@ -8,6 +8,5 @@ Name | Type | Description | Notes
 **url** | **string** |  | [optional]
 **include_members** | **bool** |  | [optional]
 **enabled_events** | **string[]** |  | [optional]
-**all_webhook_categories** | **string[]** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

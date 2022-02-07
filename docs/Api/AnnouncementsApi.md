@@ -1,4 +1,4 @@
-# OpenAPI\Client\AnnouncementsApi
+# Sendbird\AnnouncementsApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 ## `getDetailedOpenRateOfAnnouncementById()`
 
 ```php
-getDetailedOpenRateOfAnnouncementById($unique_id, $api_token): \OpenAPI\Client\Model\InlineResponse20043
+getDetailedOpenRateOfAnnouncementById($unique_id, $api_token): \Sendbird\Model\InlineResponse20042
 ```
 
 Get detailed open rate of an announcement
@@ -35,7 +35,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20043**](../Model/InlineResponse20043.md)
+[**\Sendbird\Model\InlineResponse20042**](../Model/InlineResponse20042.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ No authorization required
 ## `getDetailedOpenRateOfAnnouncementGroup()`
 
 ```php
-getDetailedOpenRateOfAnnouncementGroup($announcement_group, $api_token): \OpenAPI\Client\Model\InlineResponse20047
+getDetailedOpenRateOfAnnouncementGroup($announcement_group, $api_token): \Sendbird\Model\InlineResponse20046
 ```
 
 Get detailed open rate of an announcement group
@@ -93,7 +93,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20047**](../Model/InlineResponse20047.md)
+[**\Sendbird\Model\InlineResponse20046**](../Model/InlineResponse20046.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ## `getDetailedOpenStatusOfAnnouncementById()`
 
 ```php
-getDetailedOpenStatusOfAnnouncementById($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened): \OpenAPI\Client\Model\InlineResponse20044
+getDetailedOpenStatusOfAnnouncementById($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened): \Sendbird\Model\InlineResponse20043
 ```
 
 Get detailed open status of an announcement
@@ -151,7 +151,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
+[**\Sendbird\Model\InlineResponse20043**](../Model/InlineResponse20043.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ No authorization required
 ## `getStatistics()`
 
 ```php
-getStatistics($api_token): \OpenAPI\Client\Model\InlineResponse20045
+getStatistics($api_token): \Sendbird\Model\InlineResponse20044
 ```
 
 Get statistics - weekly
@@ -219,7 +219,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
+[**\Sendbird\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
 
 ### Authorization
 
@@ -260,7 +260,7 @@ No authorization required
 ## `getStatisticsDaily()`
 
 ```php
-getStatisticsDaily($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group): \OpenAPI\Client\Model\InlineResponse20045
+getStatisticsDaily($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group): \Sendbird\Model\InlineResponse20044
 ```
 
 Get statistics - daily
@@ -275,7 +275,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
+[**\Sendbird\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
 
 ### Authorization
 
@@ -330,7 +330,7 @@ No authorization required
 ## `getStatisticsMonthly()`
 
 ```php
-getStatisticsMonthly($api_token): \OpenAPI\Client\Model\InlineResponse20045
+getStatisticsMonthly($api_token): \Sendbird\Model\InlineResponse20044
 ```
 
 Get statistics - monthly
@@ -345,7 +345,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
+[**\Sendbird\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
 
 ### Authorization
 
@@ -386,7 +386,7 @@ No authorization required
 ## `listAnnouncementGroups()`
 
 ```php
-listAnnouncementGroups($api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20046
+listAnnouncementGroups($api_token, $token, $limit): \Sendbird\Model\InlineResponse20045
 ```
 
 List announcement groups
@@ -401,7 +401,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20046**](../Model/InlineResponse20046.md)
+[**\Sendbird\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
 
 ### Authorization
 
@@ -446,7 +446,7 @@ No authorization required
 ## `listAnnouncements()`
 
 ```php
-listAnnouncements($api_token, $token, $limit, $order, $status, $announcement_group): \OpenAPI\Client\Model\InlineResponse20040
+listAnnouncements($api_token, $token, $limit, $order, $status, $announcement_group): \Sendbird\Model\InlineResponse20039
 ```
 
 List announcements
@@ -461,7 +461,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -494,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20040**](../Model/InlineResponse20040.md)
+[**\Sendbird\Model\InlineResponse20039**](../Model/InlineResponse20039.md)
 
 ### Authorization
 
@@ -512,7 +512,7 @@ No authorization required
 ## `scheduleAnnouncement()`
 
 ```php
-scheduleAnnouncement($api_token, $schedule_announcement_data): \OpenAPI\Client\Model\InlineResponse20041
+scheduleAnnouncement($api_token, $schedule_announcement_data): \Sendbird\Model\InlineResponse20040
 ```
 
 Schedule an announcement
@@ -527,13 +527,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$schedule_announcement_data = new \OpenAPI\Client\Model\ScheduleAnnouncementData(); // \OpenAPI\Client\Model\ScheduleAnnouncementData
+$schedule_announcement_data = new \Sendbird\Model\ScheduleAnnouncementData(); // \Sendbird\Model\ScheduleAnnouncementData
 
 try {
     $result = $apiInstance->scheduleAnnouncement($api_token, $schedule_announcement_data);
@@ -548,11 +548,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **schedule_announcement_data** | [**\OpenAPI\Client\Model\ScheduleAnnouncementData**](../Model/ScheduleAnnouncementData.md)|  | [optional]
+ **schedule_announcement_data** | [**\Sendbird\Model\ScheduleAnnouncementData**](../Model/ScheduleAnnouncementData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20041**](../Model/InlineResponse20041.md)
+[**\Sendbird\Model\InlineResponse20040**](../Model/InlineResponse20040.md)
 
 ### Authorization
 
@@ -570,7 +570,7 @@ No authorization required
 ## `updateAnnouncementById()`
 
 ```php
-updateAnnouncementById($unique_id, $api_token, $update_announcement_by_id_data): \OpenAPI\Client\Model\InlineResponse20042
+updateAnnouncementById($unique_id, $api_token, $update_announcement_by_id_data): \Sendbird\Model\InlineResponse20041
 ```
 
 Update an announcement
@@ -585,14 +585,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $unique_id = 'unique_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_announcement_by_id_data = new \OpenAPI\Client\Model\UpdateAnnouncementByIdData(); // \OpenAPI\Client\Model\UpdateAnnouncementByIdData
+$update_announcement_by_id_data = new \Sendbird\Model\UpdateAnnouncementByIdData(); // \Sendbird\Model\UpdateAnnouncementByIdData
 
 try {
     $result = $apiInstance->updateAnnouncementById($unique_id, $api_token, $update_announcement_by_id_data);
@@ -608,11 +608,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **unique_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_announcement_by_id_data** | [**\OpenAPI\Client\Model\UpdateAnnouncementByIdData**](../Model/UpdateAnnouncementByIdData.md)|  | [optional]
+ **update_announcement_by_id_data** | [**\Sendbird\Model\UpdateAnnouncementByIdData**](../Model/UpdateAnnouncementByIdData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20042**](../Model/InlineResponse20042.md)
+[**\Sendbird\Model\InlineResponse20041**](../Model/InlineResponse20041.md)
 
 ### Authorization
 
@@ -630,7 +630,7 @@ No authorization required
 ## `viewAnnouncementById()`
 
 ```php
-viewAnnouncementById($unique_id, $api_token): \OpenAPI\Client\Model\InlineResponse20040Announcements
+viewAnnouncementById($unique_id, $api_token): \Sendbird\Model\InlineResponse20039Announcements
 ```
 
 View an announcement
@@ -645,7 +645,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AnnouncementsApi(
+$apiInstance = new Sendbird\Api\AnnouncementsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20040Announcements**](../Model/InlineResponse20040Announcements.md)
+[**\Sendbird\Model\InlineResponse20039Announcements**](../Model/InlineResponse20039Announcements.md)
 
 ### Authorization
 

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20010 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20010 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'peak_connections' => '\OpenAPI\Client\Model\InlineResponse20010PeakConnections[]'
+        'mau' => 'float'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20010 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'peak_connections' => null
+        'mau' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20010 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'peak_connections' => 'peak_connections'
+        'mau' => 'mau'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20010 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'peak_connections' => 'setPeakConnections'
+        'mau' => 'setMau'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20010 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'peak_connections' => 'getPeakConnections'
+        'mau' => 'getMau'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20010 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['peak_connections'] = $data['peak_connections'] ?? null;
+        $this->container['mau'] = $data['mau'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20010 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets peak_connections
+     * Gets mau
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20010PeakConnections[]|null
+     * @return float|null
      */
-    public function getPeakConnections()
+    public function getMau()
     {
-        return $this->container['peak_connections'];
+        return $this->container['mau'];
     }
 
     /**
-     * Sets peak_connections
+     * Sets mau
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20010PeakConnections[]|null $peak_connections peak_connections
+     * @param float|null $mau mau
      *
      * @return self
      */
-    public function setPeakConnections($peak_connections)
+    public function setMau($mau)
     {
-        $this->container['peak_connections'] = $peak_connections;
+        $this->container['mau'] = $mau;
 
         return $this;
     }

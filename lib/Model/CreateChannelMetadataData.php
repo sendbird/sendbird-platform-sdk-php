@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * CreateChannelMetadataData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -217,9 +217,6 @@ class CreateChannelMetadataData implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['metadata'] === null) {
             $invalidProperties[] = "'metadata' can't be null";
         }
-        if ($this->container['include_ts'] === null) {
-            $invalidProperties[] = "'include_ts' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -310,7 +307,7 @@ class CreateChannelMetadataData implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets include_ts
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIncludeTs()
     {
@@ -320,7 +317,7 @@ class CreateChannelMetadataData implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets include_ts
      *
-     * @param bool $include_ts Determines whether to include the timestamp of when a metadata has been created in the response. (Default: false)
+     * @param bool|null $include_ts Determines whether to include the timestamp of when a metadata has been created in the response. (Default: false)
      *
      * @return self
      */

@@ -1,4 +1,4 @@
-# OpenAPI\Client\MigrationApi
+# Sendbird\MigrationApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -25,7 +25,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\MigrationApi(
+$apiInstance = new Sendbird\Api\MigrationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -60,7 +60,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

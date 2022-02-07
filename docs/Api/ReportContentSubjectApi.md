@@ -1,4 +1,4 @@
-# OpenAPI\Client\ReportContentSubjectApi
+# Sendbird\ReportContentSubjectApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 ## `listReports()`
 
 ```php
-listReports($api_token, $token, $limit, $start_ts, $end_ts): \OpenAPI\Client\Model\InlineResponse20071
+listReports($api_token, $token, $limit, $start_ts, $end_ts): \Sendbird\Model\InlineResponse20070
 ```
 
 List reports
@@ -32,7 +32,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ReportContentSubjectApi(
+$apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20071**](../Model/InlineResponse20071.md)
+[**\Sendbird\Model\InlineResponse20070**](../Model/InlineResponse20070.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ No authorization required
 ## `listReportsOnChannelByUrl()`
 
 ```php
-listReportsOnChannelByUrl($channel_type, $channel_url, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20072
+listReportsOnChannelByUrl($channel_type, $channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20071
 ```
 
 List reports on a channel
@@ -96,7 +96,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ReportContentSubjectApi(
+$apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20072**](../Model/InlineResponse20072.md)
+[**\Sendbird\Model\InlineResponse20071**](../Model/InlineResponse20071.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ No authorization required
 ## `listReportsOnMessageById()`
 
 ```php
-listReportsOnMessageById($channel_type, $channel_url, $message_id, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20072
+listReportsOnMessageById($channel_type, $channel_url, $message_id, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20071
 ```
 
 List reports on a message
@@ -160,7 +160,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ReportContentSubjectApi(
+$apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20072**](../Model/InlineResponse20072.md)
+[**\Sendbird\Model\InlineResponse20071**](../Model/InlineResponse20071.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ No authorization required
 ## `listReportsOnUserById()`
 
 ```php
-listReportsOnUserById($offending_user_id, $api_token, $token, $limit): \OpenAPI\Client\Model\InlineResponse20072
+listReportsOnUserById($offending_user_id, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20071
 ```
 
 List reports on a user
@@ -226,7 +226,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ReportContentSubjectApi(
+$apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20072**](../Model/InlineResponse20072.md)
+[**\Sendbird\Model\InlineResponse20071**](../Model/InlineResponse20071.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ No authorization required
 ## `reportChannelByUrl()`
 
 ```php
-reportChannelByUrl($channel_type, $channel_url, $api_token, $report_channel_by_url_data): \OpenAPI\Client\Model\InlineResponse20072ReportLogs
+reportChannelByUrl($channel_type, $channel_url, $api_token, $report_channel_by_url_data): \Sendbird\Model\InlineResponse20071ReportLogs
 ```
 
 Report a channel
@@ -288,7 +288,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ReportContentSubjectApi(
+$apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -296,7 +296,7 @@ $apiInstance = new OpenAPI\Client\Api\ReportContentSubjectApi(
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$report_channel_by_url_data = new \OpenAPI\Client\Model\ReportChannelByUrlData(); // \OpenAPI\Client\Model\ReportChannelByUrlData
+$report_channel_by_url_data = new \Sendbird\Model\ReportChannelByUrlData(); // \Sendbird\Model\ReportChannelByUrlData
 
 try {
     $result = $apiInstance->reportChannelByUrl($channel_type, $channel_url, $api_token, $report_channel_by_url_data);
@@ -313,11 +313,11 @@ Name | Type | Description  | Notes
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **api_token** | **string**|  | [optional]
- **report_channel_by_url_data** | [**\OpenAPI\Client\Model\ReportChannelByUrlData**](../Model/ReportChannelByUrlData.md)|  | [optional]
+ **report_channel_by_url_data** | [**\Sendbird\Model\ReportChannelByUrlData**](../Model/ReportChannelByUrlData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20072ReportLogs**](../Model/InlineResponse20072ReportLogs.md)
+[**\Sendbird\Model\InlineResponse20071ReportLogs**](../Model/InlineResponse20071ReportLogs.md)
 
 ### Authorization
 
@@ -335,7 +335,7 @@ No authorization required
 ## `reportMessageById()`
 
 ```php
-reportMessageById($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data): \OpenAPI\Client\Model\InlineResponse20072ReportLogs
+reportMessageById($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data): \Sendbird\Model\InlineResponse20071ReportLogs
 ```
 
 Report a message
@@ -350,7 +350,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ReportContentSubjectApi(
+$apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -359,7 +359,7 @@ $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$report_message_by_id_data = new \OpenAPI\Client\Model\ReportMessageByIdData(); // \OpenAPI\Client\Model\ReportMessageByIdData
+$report_message_by_id_data = new \Sendbird\Model\ReportMessageByIdData(); // \Sendbird\Model\ReportMessageByIdData
 
 try {
     $result = $apiInstance->reportMessageById($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data);
@@ -377,11 +377,11 @@ Name | Type | Description  | Notes
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **report_message_by_id_data** | [**\OpenAPI\Client\Model\ReportMessageByIdData**](../Model/ReportMessageByIdData.md)|  | [optional]
+ **report_message_by_id_data** | [**\Sendbird\Model\ReportMessageByIdData**](../Model/ReportMessageByIdData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20072ReportLogs**](../Model/InlineResponse20072ReportLogs.md)
+[**\Sendbird\Model\InlineResponse20071ReportLogs**](../Model/InlineResponse20071ReportLogs.md)
 
 ### Authorization
 
@@ -399,7 +399,7 @@ No authorization required
 ## `reportUserById()`
 
 ```php
-reportUserById($offending_user_id, $api_token, $report_user_by_id_data): \OpenAPI\Client\Model\InlineResponse20072ReportLogs
+reportUserById($offending_user_id, $api_token, $report_user_by_id_data): \Sendbird\Model\InlineResponse20071ReportLogs
 ```
 
 Report a user
@@ -414,14 +414,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ReportContentSubjectApi(
+$apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $offending_user_id = 'offending_user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$report_user_by_id_data = new \OpenAPI\Client\Model\ReportUserByIdData(); // \OpenAPI\Client\Model\ReportUserByIdData
+$report_user_by_id_data = new \Sendbird\Model\ReportUserByIdData(); // \Sendbird\Model\ReportUserByIdData
 
 try {
     $result = $apiInstance->reportUserById($offending_user_id, $api_token, $report_user_by_id_data);
@@ -437,11 +437,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offending_user_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **report_user_by_id_data** | [**\OpenAPI\Client\Model\ReportUserByIdData**](../Model/ReportUserByIdData.md)|  | [optional]
+ **report_user_by_id_data** | [**\Sendbird\Model\ReportUserByIdData**](../Model/ReportUserByIdData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20072ReportLogs**](../Model/InlineResponse20072ReportLogs.md)
+[**\Sendbird\Model\InlineResponse20071ReportLogs**](../Model/InlineResponse20071ReportLogs.md)
 
 ### Authorization
 
@@ -474,7 +474,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ReportContentSubjectApi(
+$apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()

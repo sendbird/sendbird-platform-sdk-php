@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Sendbird\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Sendbird\ApiException;
+use Sendbird\Configuration;
+use Sendbird\HeaderSelector;
+use Sendbird\ObjectSerializer;
 
 /**
  * BotInterfaceApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -121,11 +121,11 @@ class BotInterfaceApi
      * Create a bot
      *
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateBotData $create_bot_data create_bot_data (optional)
+     * @param  \Sendbird\Model\CreateBotData $create_bot_data create_bot_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20066Bots
+     * @return \Sendbird\Model\InlineResponse20065Bots
      */
     public function createBot($api_token = null, $create_bot_data = null)
     {
@@ -139,11 +139,11 @@ class BotInterfaceApi
      * Create a bot
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateBotData $create_bot_data (optional)
+     * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20066Bots, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20065Bots, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBotWithHttpInfo($api_token = null, $create_bot_data = null)
     {
@@ -186,20 +186,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20066Bots' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20065Bots' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20066Bots', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20065Bots', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20066Bots';
+            $returnType = '\Sendbird\Model\InlineResponse20065Bots';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -217,7 +217,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20066Bots',
+                        '\Sendbird\Model\InlineResponse20065Bots',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -233,7 +233,7 @@ class BotInterfaceApi
      * Create a bot
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateBotData $create_bot_data (optional)
+     * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -254,14 +254,14 @@ class BotInterfaceApi
      * Create a bot
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateBotData $create_bot_data (optional)
+     * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createBotAsyncWithHttpInfo($api_token = null, $create_bot_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20066Bots';
+        $returnType = '\Sendbird\Model\InlineResponse20065Bots';
         $request = $this->createBotRequest($api_token, $create_bot_data);
 
         return $this->client
@@ -301,7 +301,7 @@ class BotInterfaceApi
      * Create request for operation 'createBot'
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\CreateBotData $create_bot_data (optional)
+     * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -395,7 +395,7 @@ class BotInterfaceApi
      * @param  string $bot_userid bot_userid (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -412,7 +412,7 @@ class BotInterfaceApi
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -567,11 +567,11 @@ class BotInterfaceApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -629,11 +629,11 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid bot_userid (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\JoinChannelsData $join_channels_data join_channels_data (optional)
+     * @param  \Sendbird\Model\JoinChannelsData $join_channels_data join_channels_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdGroupChannelCollection
+     * @return \Sendbird\Model\SendBirdGroupChannelCollection
      */
     public function joinChannels($bot_userid, $api_token = null, $join_channels_data = null)
     {
@@ -648,11 +648,11 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\JoinChannelsData $join_channels_data (optional)
+     * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdGroupChannelCollection, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdGroupChannelCollection, HTTP status code, HTTP response headers (array of strings)
      */
     public function joinChannelsWithHttpInfo($bot_userid, $api_token = null, $join_channels_data = null)
     {
@@ -695,20 +695,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdGroupChannelCollection' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdGroupChannelCollection' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdGroupChannelCollection', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannelCollection', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannelCollection';
+            $returnType = '\Sendbird\Model\SendBirdGroupChannelCollection';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -726,7 +726,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdGroupChannelCollection',
+                        '\Sendbird\Model\SendBirdGroupChannelCollection',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -743,7 +743,7 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\JoinChannelsData $join_channels_data (optional)
+     * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -765,14 +765,14 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\JoinChannelsData $join_channels_data (optional)
+     * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function joinChannelsAsyncWithHttpInfo($bot_userid, $api_token = null, $join_channels_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannelCollection';
+        $returnType = '\Sendbird\Model\SendBirdGroupChannelCollection';
         $request = $this->joinChannelsRequest($bot_userid, $api_token, $join_channels_data);
 
         return $this->client
@@ -813,7 +813,7 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\JoinChannelsData $join_channels_data (optional)
+     * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -922,7 +922,7 @@ class BotInterfaceApi
      * @param  string $api_token api_token (optional)
      * @param  string $channel_url channel_url (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -940,7 +940,7 @@ class BotInterfaceApi
      * @param  string $api_token (optional)
      * @param  string $channel_url (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1109,11 +1109,11 @@ class BotInterfaceApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -1173,7 +1173,7 @@ class BotInterfaceApi
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1191,7 +1191,7 @@ class BotInterfaceApi
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1363,11 +1363,11 @@ class BotInterfaceApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -1427,9 +1427,9 @@ class BotInterfaceApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20066
+     * @return \Sendbird\Model\InlineResponse20065
      */
     public function listBots($api_token = null, $token = null, $limit = null)
     {
@@ -1446,9 +1446,9 @@ class BotInterfaceApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20066, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20065, HTTP status code, HTTP response headers (array of strings)
      */
     public function listBotsWithHttpInfo($api_token = null, $token = null, $limit = null)
     {
@@ -1491,20 +1491,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20066' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20065' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20066', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20065', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20066';
+            $returnType = '\Sendbird\Model\InlineResponse20065';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1522,7 +1522,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20066',
+                        '\Sendbird\Model\InlineResponse20065',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1568,7 +1568,7 @@ class BotInterfaceApi
      */
     public function listBotsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20066';
+        $returnType = '\Sendbird\Model\InlineResponse20065';
         $request = $this->listBotsRequest($api_token, $token, $limit);
 
         return $this->client
@@ -1718,11 +1718,11 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid bot_userid (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\SendBotSMessageData $send_bot_s_message_data send_bot_s_message_data (optional)
+     * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data send_bot_s_message_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage
+     * @return \Sendbird\Model\SendBirdMessageResponse
      */
     public function sendBotsMessage($bot_userid, $api_token = null, $send_bot_s_message_data = null)
     {
@@ -1737,11 +1737,11 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\SendBotSMessageData $send_bot_s_message_data (optional)
+     * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendBotsMessageWithHttpInfo($bot_userid, $api_token = null, $send_bot_s_message_data = null)
     {
@@ -1784,20 +1784,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage';
+            $returnType = '\Sendbird\Model\SendBirdMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1815,7 +1815,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage',
+                        '\Sendbird\Model\SendBirdMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1832,7 +1832,7 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\SendBotSMessageData $send_bot_s_message_data (optional)
+     * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1854,14 +1854,14 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\SendBotSMessageData $send_bot_s_message_data (optional)
+     * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function sendBotsMessageAsyncWithHttpInfo($bot_userid, $api_token = null, $send_bot_s_message_data = null)
     {
-        $returnType = 'AnyOfSendBirdUserMessageSendBirdAdminMessageSendBirdFileMessage';
+        $returnType = '\Sendbird\Model\SendBirdMessageResponse';
         $request = $this->sendBotsMessageRequest($bot_userid, $api_token, $send_bot_s_message_data);
 
         return $this->client
@@ -1902,7 +1902,7 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\SendBotSMessageData $send_bot_s_message_data (optional)
+     * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2009,11 +2009,11 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid bot_userid (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateBotByIdData $update_bot_by_id_data update_bot_by_id_data (optional)
+     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data update_bot_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20066Bots
+     * @return \Sendbird\Model\InlineResponse20065Bots
      */
     public function updateBotById($bot_userid, $api_token = null, $update_bot_by_id_data = null)
     {
@@ -2028,11 +2028,11 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
+     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20066Bots, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20065Bots, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateBotByIdWithHttpInfo($bot_userid, $api_token = null, $update_bot_by_id_data = null)
     {
@@ -2075,20 +2075,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20066Bots' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20065Bots' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20066Bots', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20065Bots', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20066Bots';
+            $returnType = '\Sendbird\Model\InlineResponse20065Bots';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2106,7 +2106,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20066Bots',
+                        '\Sendbird\Model\InlineResponse20065Bots',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2123,7 +2123,7 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
+     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2145,14 +2145,14 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
+     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateBotByIdAsyncWithHttpInfo($bot_userid, $api_token = null, $update_bot_by_id_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20066Bots';
+        $returnType = '\Sendbird\Model\InlineResponse20065Bots';
         $request = $this->updateBotByIdRequest($bot_userid, $api_token, $update_bot_by_id_data);
 
         return $this->client
@@ -2193,7 +2193,7 @@ class BotInterfaceApi
      *
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
+     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2301,9 +2301,9 @@ class BotInterfaceApi
      * @param  string $bot_userid bot_userid (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20066Bots
+     * @return \Sendbird\Model\InlineResponse20065Bots
      */
     public function viewBotById($bot_userid, $api_token = null)
     {
@@ -2319,9 +2319,9 @@ class BotInterfaceApi
      * @param  string $bot_userid (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20066Bots, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20065Bots, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewBotByIdWithHttpInfo($bot_userid, $api_token = null)
     {
@@ -2364,20 +2364,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20066Bots' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20065Bots' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20066Bots', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20065Bots', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20066Bots';
+            $returnType = '\Sendbird\Model\InlineResponse20065Bots';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2395,7 +2395,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20066Bots',
+                        '\Sendbird\Model\InlineResponse20065Bots',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2439,7 +2439,7 @@ class BotInterfaceApi
      */
     public function viewBotByIdAsyncWithHttpInfo($bot_userid, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20066Bots';
+        $returnType = '\Sendbird\Model\InlineResponse20065Bots';
         $request = $this->viewBotByIdRequest($bot_userid, $api_token);
 
         return $this->client

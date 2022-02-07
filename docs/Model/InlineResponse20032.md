@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**muted_list** | [**\OpenAPI\Client\Model\SendBirdUser[]**](SendBirdUser.md) |  | [optional]
-**total_mute_count** | **float** |  | [optional]
+**participants** | [**\Sendbird\Model\SendBirdUser[]**](SendBirdUser.md) |  | [optional]
 **next** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

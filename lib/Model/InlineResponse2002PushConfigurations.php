@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse2002PushConfigurations Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,7 +61,8 @@ class InlineResponse2002PushConfigurations implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'id' => 'string',
         'push_type' => 'string',
-        'api_key' => 'string',
+        'huawei_app_id' => 'string',
+        'huawei_app_secret' => 'string',
         'push_sound' => 'string'
     ];
 
@@ -75,7 +76,8 @@ class InlineResponse2002PushConfigurations implements ModelInterface, ArrayAcces
     protected static $openAPIFormats = [
         'id' => null,
         'push_type' => null,
-        'api_key' => null,
+        'huawei_app_id' => null,
+        'huawei_app_secret' => null,
         'push_sound' => null
     ];
 
@@ -108,7 +110,8 @@ class InlineResponse2002PushConfigurations implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'id' => 'id',
         'push_type' => 'push_type',
-        'api_key' => 'api_key',
+        'huawei_app_id' => 'huawei_app_id',
+        'huawei_app_secret' => 'huawei_app_secret',
         'push_sound' => 'push_sound'
     ];
 
@@ -120,7 +123,8 @@ class InlineResponse2002PushConfigurations implements ModelInterface, ArrayAcces
     protected static $setters = [
         'id' => 'setId',
         'push_type' => 'setPushType',
-        'api_key' => 'setApiKey',
+        'huawei_app_id' => 'setHuaweiAppId',
+        'huawei_app_secret' => 'setHuaweiAppSecret',
         'push_sound' => 'setPushSound'
     ];
 
@@ -132,7 +136,8 @@ class InlineResponse2002PushConfigurations implements ModelInterface, ArrayAcces
     protected static $getters = [
         'id' => 'getId',
         'push_type' => 'getPushType',
-        'api_key' => 'getApiKey',
+        'huawei_app_id' => 'getHuaweiAppId',
+        'huawei_app_secret' => 'getHuaweiAppSecret',
         'push_sound' => 'getPushSound'
     ];
 
@@ -195,7 +200,8 @@ class InlineResponse2002PushConfigurations implements ModelInterface, ArrayAcces
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['push_type'] = $data['push_type'] ?? null;
-        $this->container['api_key'] = $data['api_key'] ?? null;
+        $this->container['huawei_app_id'] = $data['huawei_app_id'] ?? null;
+        $this->container['huawei_app_secret'] = $data['huawei_app_secret'] ?? null;
         $this->container['push_sound'] = $data['push_sound'] ?? null;
     }
 
@@ -272,25 +278,49 @@ class InlineResponse2002PushConfigurations implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets api_key
+     * Gets huawei_app_id
      *
      * @return string|null
      */
-    public function getApiKey()
+    public function getHuaweiAppId()
     {
-        return $this->container['api_key'];
+        return $this->container['huawei_app_id'];
     }
 
     /**
-     * Sets api_key
+     * Sets huawei_app_id
      *
-     * @param string|null $api_key api_key
+     * @param string|null $huawei_app_id huawei_app_id
      *
      * @return self
      */
-    public function setApiKey($api_key)
+    public function setHuaweiAppId($huawei_app_id)
     {
-        $this->container['api_key'] = $api_key;
+        $this->container['huawei_app_id'] = $huawei_app_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets huawei_app_secret
+     *
+     * @return string|null
+     */
+    public function getHuaweiAppSecret()
+    {
+        return $this->container['huawei_app_secret'];
+    }
+
+    /**
+     * Sets huawei_app_secret
+     *
+     * @param string|null $huawei_app_secret huawei_app_secret
+     *
+     * @return self
+     */
+    public function setHuaweiAppSecret($huawei_app_secret)
+    {
+        $this->container['huawei_app_secret'] = $huawei_app_secret;
 
         return $this;
     }

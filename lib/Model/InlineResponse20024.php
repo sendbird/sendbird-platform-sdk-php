@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20024 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,9 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'muted_channels' => 'AnyOfSendBirdGroupChannelSendBirdOpenChannel[]',
-        'next' => 'string'
+        'tokens' => 'string[]',
+        'type' => 'string',
+        'user' => '\Sendbird\Model\SendBirdUser'
     ];
 
     /**
@@ -71,8 +72,9 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'muted_channels' => null,
-        'next' => null
+        'tokens' => null,
+        'type' => null,
+        'user' => null
     ];
 
     /**
@@ -102,8 +104,9 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'muted_channels' => 'muted_channels',
-        'next' => 'next'
+        'tokens' => 'tokens',
+        'type' => 'type',
+        'user' => 'user'
     ];
 
     /**
@@ -112,8 +115,9 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'muted_channels' => 'setMutedChannels',
-        'next' => 'setNext'
+        'tokens' => 'setTokens',
+        'type' => 'setType',
+        'user' => 'setUser'
     ];
 
     /**
@@ -122,8 +126,9 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'muted_channels' => 'getMutedChannels',
-        'next' => 'getNext'
+        'tokens' => 'getTokens',
+        'type' => 'getType',
+        'user' => 'getUser'
     ];
 
     /**
@@ -183,8 +188,9 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['muted_channels'] = $data['muted_channels'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
+        $this->container['tokens'] = $data['tokens'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['user'] = $data['user'] ?? null;
     }
 
     /**
@@ -212,49 +218,73 @@ class InlineResponse20024 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets muted_channels
+     * Gets tokens
      *
-     * @return AnyOfSendBirdGroupChannelSendBirdOpenChannel[]|null
+     * @return string[]|null
      */
-    public function getMutedChannels()
+    public function getTokens()
     {
-        return $this->container['muted_channels'];
+        return $this->container['tokens'];
     }
 
     /**
-     * Sets muted_channels
+     * Sets tokens
      *
-     * @param AnyOfSendBirdGroupChannelSendBirdOpenChannel[]|null $muted_channels muted_channels
+     * @param string[]|null $tokens tokens
      *
      * @return self
      */
-    public function setMutedChannels($muted_channels)
+    public function setTokens($tokens)
     {
-        $this->container['muted_channels'] = $muted_channels;
+        $this->container['tokens'] = $tokens;
 
         return $this;
     }
 
     /**
-     * Gets next
+     * Gets type
      *
      * @return string|null
      */
-    public function getNext()
+    public function getType()
     {
-        return $this->container['next'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets next
+     * Sets type
      *
-     * @param string|null $next next
+     * @param string|null $type type
      *
      * @return self
      */
-    public function setNext($next)
+    public function setType($type)
     {
-        $this->container['next'] = $next;
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets user
+     *
+     * @return \Sendbird\Model\SendBirdUser|null
+     */
+    public function getUser()
+    {
+        return $this->container['user'];
+    }
+
+    /**
+     * Sets user
+     *
+     * @param \Sendbird\Model\SendBirdUser|null $user user
+     *
+     * @return self
+     */
+    public function setUser($user)
+    {
+        $this->container['user'] = $user;
 
         return $this;
     }

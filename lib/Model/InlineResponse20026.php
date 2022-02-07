@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20026 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,9 +59,8 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'token' => 'string',
-        'type' => 'string',
-        'user' => '\OpenAPI\Client\Model\SendBirdUser'
+        'token' => 'string[]',
+        'user' => '\Sendbird\Model\SendBirdUser'
     ];
 
     /**
@@ -73,7 +72,6 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPIFormats = [
         'token' => null,
-        'type' => null,
         'user' => null
     ];
 
@@ -105,7 +103,6 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $attributeMap = [
         'token' => 'token',
-        'type' => 'type',
         'user' => 'user'
     ];
 
@@ -116,7 +113,6 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $setters = [
         'token' => 'setToken',
-        'type' => 'setType',
         'user' => 'setUser'
     ];
 
@@ -127,7 +123,6 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $getters = [
         'token' => 'getToken',
-        'type' => 'getType',
         'user' => 'getUser'
     ];
 
@@ -189,7 +184,6 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->container['token'] = $data['token'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
         $this->container['user'] = $data['user'] ?? null;
     }
 
@@ -220,7 +214,7 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets token
      *
-     * @return string|null
+     * @return string[]|null
      */
     public function getToken()
     {
@@ -230,7 +224,7 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets token
      *
-     * @param string|null $token token
+     * @param string[]|null $token token
      *
      * @return self
      */
@@ -242,33 +236,9 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
      * Gets user
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser|null
+     * @return \Sendbird\Model\SendBirdUser|null
      */
     public function getUser()
     {
@@ -278,7 +248,7 @@ class InlineResponse20026 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets user
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser|null $user user
+     * @param \Sendbird\Model\SendBirdUser|null $user user
      *
      * @return self
      */

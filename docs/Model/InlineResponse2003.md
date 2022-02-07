@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**push_configurations** | [**\OpenAPI\Client\Model\InlineResponse2003PushConfigurations[]**](InlineResponse2003PushConfigurations.md) |  | [optional]
+**push_configurations** | [**\Sendbird\Model\InlineResponse2003PushConfigurations[]**](InlineResponse2003PushConfigurations.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20057EmojiCategories Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,8 +61,7 @@ class InlineResponse20057EmojiCategories implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'id' => 'float',
         'name' => 'string',
-        'url' => 'string',
-        'emojis' => '\OpenAPI\Client\Model\InlineResponse20057Emojis[]'
+        'url' => 'string'
     ];
 
     /**
@@ -75,8 +74,7 @@ class InlineResponse20057EmojiCategories implements ModelInterface, ArrayAccess,
     protected static $openAPIFormats = [
         'id' => null,
         'name' => null,
-        'url' => null,
-        'emojis' => null
+        'url' => null
     ];
 
     /**
@@ -108,8 +106,7 @@ class InlineResponse20057EmojiCategories implements ModelInterface, ArrayAccess,
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
-        'url' => 'url',
-        'emojis' => 'emojis'
+        'url' => 'url'
     ];
 
     /**
@@ -120,8 +117,7 @@ class InlineResponse20057EmojiCategories implements ModelInterface, ArrayAccess,
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
-        'url' => 'setUrl',
-        'emojis' => 'setEmojis'
+        'url' => 'setUrl'
     ];
 
     /**
@@ -132,8 +128,7 @@ class InlineResponse20057EmojiCategories implements ModelInterface, ArrayAccess,
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
-        'url' => 'getUrl',
-        'emojis' => 'getEmojis'
+        'url' => 'getUrl'
     ];
 
     /**
@@ -196,7 +191,6 @@ class InlineResponse20057EmojiCategories implements ModelInterface, ArrayAccess,
         $this->container['id'] = $data['id'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
         $this->container['url'] = $data['url'] ?? null;
-        $this->container['emojis'] = $data['emojis'] ?? null;
     }
 
     /**
@@ -291,30 +285,6 @@ class InlineResponse20057EmojiCategories implements ModelInterface, ArrayAccess,
     public function setUrl($url)
     {
         $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets emojis
-     *
-     * @return \OpenAPI\Client\Model\InlineResponse20057Emojis[]|null
-     */
-    public function getEmojis()
-    {
-        return $this->container['emojis'];
-    }
-
-    /**
-     * Sets emojis
-     *
-     * @param \OpenAPI\Client\Model\InlineResponse20057Emojis[]|null $emojis emojis
-     *
-     * @return self
-     */
-    public function setEmojis($emojis)
-    {
-        $this->container['emojis'] = $emojis;
 
         return $this;
     }

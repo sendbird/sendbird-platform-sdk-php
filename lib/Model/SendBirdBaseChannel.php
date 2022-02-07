@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdBaseChannel Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,7 +61,7 @@ class SendBirdBaseChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'cover_url' => 'string',
         'created_at' => 'float',
-        'creator' => '\OpenAPI\Client\Model\SendBirdUser',
+        'creator' => '\Sendbird\Model\SendBirdUser',
         'custom_type' => 'string',
         'data' => 'string',
         'is_ephemeral' => 'bool',
@@ -116,13 +116,13 @@ class SendBirdBaseChannel implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'cover_url' => 'coverUrl',
-        'created_at' => 'createdAt',
+        'cover_url' => 'cover_url',
+        'created_at' => 'created_at',
         'creator' => 'creator',
-        'custom_type' => 'customType',
+        'custom_type' => 'custom_type',
         'data' => 'data',
-        'is_ephemeral' => 'isEphemeral',
-        'is_frozen' => 'isFrozen',
+        'is_ephemeral' => 'is_ephemeral',
+        'is_frozen' => 'is_frozen',
         'name' => 'name',
         'url' => 'url'
     ];
@@ -304,7 +304,7 @@ class SendBirdBaseChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets creator
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser|null
+     * @return \Sendbird\Model\SendBirdUser|null
      */
     public function getCreator()
     {
@@ -314,7 +314,7 @@ class SendBirdBaseChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets creator
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser|null $creator creator
+     * @param \Sendbird\Model\SendBirdUser|null $creator creator
      *
      * @return self
      */

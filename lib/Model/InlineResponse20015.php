@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20015 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20015 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'push_configurations' => 'string'
+        'push_message_templates' => '\Sendbird\Model\InlineResponse20015PushMessageTemplates[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20015 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'push_configurations' => null
+        'push_message_templates' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20015 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'push_configurations' => 'push_configurations'
+        'push_message_templates' => 'push_message_templates'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20015 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'push_configurations' => 'setPushConfigurations'
+        'push_message_templates' => 'setPushMessageTemplates'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20015 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'push_configurations' => 'getPushConfigurations'
+        'push_message_templates' => 'getPushMessageTemplates'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20015 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['push_configurations'] = $data['push_configurations'] ?? null;
+        $this->container['push_message_templates'] = $data['push_message_templates'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20015 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets push_configurations
+     * Gets push_message_templates
      *
-     * @return string|null
+     * @return \Sendbird\Model\InlineResponse20015PushMessageTemplates[]|null
      */
-    public function getPushConfigurations()
+    public function getPushMessageTemplates()
     {
-        return $this->container['push_configurations'];
+        return $this->container['push_message_templates'];
     }
 
     /**
-     * Sets push_configurations
+     * Sets push_message_templates
      *
-     * @param string|null $push_configurations push_configurations
+     * @param \Sendbird\Model\InlineResponse20015PushMessageTemplates[]|null $push_message_templates push_message_templates
      *
      * @return self
      */
-    public function setPushConfigurations($push_configurations)
+    public function setPushMessageTemplates($push_message_templates)
     {
-        $this->container['push_configurations'] = $push_configurations;
+        $this->container['push_message_templates'] = $push_message_templates;
 
         return $this;
     }

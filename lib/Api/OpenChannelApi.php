@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Sendbird\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Sendbird\ApiException;
+use Sendbird\Configuration;
+use Sendbird\HeaderSelector;
+use Sendbird\ObjectSerializer;
 
 /**
  * OpenChannelApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -122,11 +122,11 @@ class OpenChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcBanUserData $oc_ban_user_data oc_ban_user_data (optional)
+     * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data oc_ban_user_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20034BannedList
+     * @return \Sendbird\Model\InlineResponse20033BannedList
      */
     public function ocBanUser($channel_url, $api_token = null, $oc_ban_user_data = null)
     {
@@ -141,11 +141,11 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcBanUserData $oc_ban_user_data (optional)
+     * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20034BannedList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20033BannedList, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocBanUserWithHttpInfo($channel_url, $api_token = null, $oc_ban_user_data = null)
     {
@@ -188,20 +188,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20034BannedList' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20033BannedList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20034BannedList', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20033BannedList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20034BannedList';
+            $returnType = '\Sendbird\Model\InlineResponse20033BannedList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -219,7 +219,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20034BannedList',
+                        '\Sendbird\Model\InlineResponse20033BannedList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -236,7 +236,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcBanUserData $oc_ban_user_data (optional)
+     * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -258,14 +258,14 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcBanUserData $oc_ban_user_data (optional)
+     * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function ocBanUserAsyncWithHttpInfo($channel_url, $api_token = null, $oc_ban_user_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20034BannedList';
+        $returnType = '\Sendbird\Model\InlineResponse20033BannedList';
         $request = $this->ocBanUserRequest($channel_url, $api_token, $oc_ban_user_data);
 
         return $this->client
@@ -306,7 +306,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcBanUserData $oc_ban_user_data (optional)
+     * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -416,7 +416,7 @@ class OpenChannelApi
      * @param  string $api_token api_token (optional)
      * @param  bool $delete_all delete_all (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -435,7 +435,7 @@ class OpenChannelApi
      * @param  string $api_token (optional)
      * @param  bool $delete_all (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -624,11 +624,11 @@ class OpenChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -685,11 +685,11 @@ class OpenChannelApi
      * Create a channel
      *
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcCreateChannelData $oc_create_channel_data oc_create_channel_data (optional)
+     * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data oc_create_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdOpenChannel
+     * @return \Sendbird\Model\SendBirdOpenChannel
      */
     public function ocCreateChannel($api_token = null, $oc_create_channel_data = null)
     {
@@ -703,11 +703,11 @@ class OpenChannelApi
      * Create a channel
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcCreateChannelData $oc_create_channel_data (optional)
+     * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocCreateChannelWithHttpInfo($api_token = null, $oc_create_channel_data = null)
     {
@@ -750,20 +750,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdOpenChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdOpenChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdOpenChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdOpenChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdOpenChannel';
+            $returnType = '\Sendbird\Model\SendBirdOpenChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -781,7 +781,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdOpenChannel',
+                        '\Sendbird\Model\SendBirdOpenChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -797,7 +797,7 @@ class OpenChannelApi
      * Create a channel
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcCreateChannelData $oc_create_channel_data (optional)
+     * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -818,14 +818,14 @@ class OpenChannelApi
      * Create a channel
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcCreateChannelData $oc_create_channel_data (optional)
+     * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function ocCreateChannelAsyncWithHttpInfo($api_token = null, $oc_create_channel_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdOpenChannel';
+        $returnType = '\Sendbird\Model\SendBirdOpenChannel';
         $request = $this->ocCreateChannelRequest($api_token, $oc_create_channel_data);
 
         return $this->client
@@ -865,7 +865,7 @@ class OpenChannelApi
      * Create request for operation 'ocCreateChannel'
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcCreateChannelData $oc_create_channel_data (optional)
+     * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -959,7 +959,7 @@ class OpenChannelApi
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -976,7 +976,7 @@ class OpenChannelApi
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1131,11 +1131,11 @@ class OpenChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -1193,11 +1193,11 @@ class OpenChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcFreezeChannelData $oc_freeze_channel_data oc_freeze_channel_data (optional)
+     * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data oc_freeze_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdOpenChannel
+     * @return \Sendbird\Model\SendBirdOpenChannel
      */
     public function ocFreezeChannel($channel_url, $api_token = null, $oc_freeze_channel_data = null)
     {
@@ -1212,11 +1212,11 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
+     * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocFreezeChannelWithHttpInfo($channel_url, $api_token = null, $oc_freeze_channel_data = null)
     {
@@ -1259,20 +1259,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdOpenChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdOpenChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdOpenChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdOpenChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdOpenChannel';
+            $returnType = '\Sendbird\Model\SendBirdOpenChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1290,7 +1290,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdOpenChannel',
+                        '\Sendbird\Model\SendBirdOpenChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1307,7 +1307,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
+     * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1329,14 +1329,14 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
+     * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function ocFreezeChannelAsyncWithHttpInfo($channel_url, $api_token = null, $oc_freeze_channel_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdOpenChannel';
+        $returnType = '\Sendbird\Model\SendBirdOpenChannel';
         $request = $this->ocFreezeChannelRequest($channel_url, $api_token, $oc_freeze_channel_data);
 
         return $this->client
@@ -1377,7 +1377,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
+     * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1487,9 +1487,9 @@ class OpenChannelApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20034
+     * @return \Sendbird\Model\InlineResponse20033
      */
     public function ocListBannedUsers($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -1507,9 +1507,9 @@ class OpenChannelApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20034, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20033, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocListBannedUsersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -1552,20 +1552,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20034' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20033' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20034', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20033', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20034';
+            $returnType = '\Sendbird\Model\InlineResponse20033';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1583,7 +1583,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20034',
+                        '\Sendbird\Model\InlineResponse20033',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1631,7 +1631,7 @@ class OpenChannelApi
      */
     public function ocListBannedUsersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20034';
+        $returnType = '\Sendbird\Model\InlineResponse20033';
         $request = $this->ocListBannedUsersRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -1804,9 +1804,9 @@ class OpenChannelApi
      * @param  bool $show_metadata show_metadata (optional)
      * @param  string $custom_type custom_type (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20031
+     * @return \Sendbird\Model\InlineResponse20030
      */
     public function ocListChannels($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
@@ -1829,9 +1829,9 @@ class OpenChannelApi
      * @param  bool $show_metadata (optional)
      * @param  string $custom_type (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20031, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20030, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocListChannelsWithHttpInfo($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
@@ -1874,20 +1874,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20031' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20030' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20031', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20030', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20031';
+            $returnType = '\Sendbird\Model\InlineResponse20030';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1905,7 +1905,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20031',
+                        '\Sendbird\Model\InlineResponse20030',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1963,7 +1963,7 @@ class OpenChannelApi
      */
     public function ocListChannelsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20031';
+        $returnType = '\Sendbird\Model\InlineResponse20030';
         $request = $this->ocListChannelsRequest($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type);
 
         return $this->client
@@ -2188,9 +2188,9 @@ class OpenChannelApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20032
+     * @return \Sendbird\Model\InlineResponse20031
      */
     public function ocListMutedUsers($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2208,9 +2208,9 @@ class OpenChannelApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20032, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20031, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocListMutedUsersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2253,20 +2253,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20032' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20031' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20032', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20031', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20032';
+            $returnType = '\Sendbird\Model\InlineResponse20031';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2284,7 +2284,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20032',
+                        '\Sendbird\Model\InlineResponse20031',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2332,7 +2332,7 @@ class OpenChannelApi
      */
     public function ocListMutedUsersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20032';
+        $returnType = '\Sendbird\Model\InlineResponse20031';
         $request = $this->ocListMutedUsersRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -2500,9 +2500,9 @@ class OpenChannelApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20035
+     * @return \Sendbird\Model\InlineResponse20034
      */
     public function ocListOperators($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2520,9 +2520,9 @@ class OpenChannelApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20035, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20034, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocListOperatorsWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2565,20 +2565,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20035' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20034' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20035', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20034', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20035';
+            $returnType = '\Sendbird\Model\InlineResponse20034';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2596,7 +2596,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20035',
+                        '\Sendbird\Model\InlineResponse20034',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2644,7 +2644,7 @@ class OpenChannelApi
      */
     public function ocListOperatorsAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20035';
+        $returnType = '\Sendbird\Model\InlineResponse20034';
         $request = $this->ocListOperatorsRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -2812,9 +2812,9 @@ class OpenChannelApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20033
+     * @return \Sendbird\Model\InlineResponse20032
      */
     public function ocListParticipants($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2832,9 +2832,9 @@ class OpenChannelApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20033, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20032, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocListParticipantsWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2877,20 +2877,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20033' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20032' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20033', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20032', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20033';
+            $returnType = '\Sendbird\Model\InlineResponse20032';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2908,7 +2908,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20033',
+                        '\Sendbird\Model\InlineResponse20032',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2956,7 +2956,7 @@ class OpenChannelApi
      */
     public function ocListParticipantsAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20033';
+        $returnType = '\Sendbird\Model\InlineResponse20032';
         $request = $this->ocListParticipantsRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -3121,11 +3121,11 @@ class OpenChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcMuteUserData $oc_mute_user_data oc_mute_user_data (optional)
+     * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data oc_mute_user_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdOpenChannel
+     * @return \Sendbird\Model\SendBirdOpenChannel
      */
     public function ocMuteUser($channel_url, $api_token = null, $oc_mute_user_data = null)
     {
@@ -3140,11 +3140,11 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcMuteUserData $oc_mute_user_data (optional)
+     * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocMuteUserWithHttpInfo($channel_url, $api_token = null, $oc_mute_user_data = null)
     {
@@ -3187,20 +3187,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdOpenChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdOpenChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdOpenChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdOpenChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdOpenChannel';
+            $returnType = '\Sendbird\Model\SendBirdOpenChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3218,7 +3218,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdOpenChannel',
+                        '\Sendbird\Model\SendBirdOpenChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3235,7 +3235,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcMuteUserData $oc_mute_user_data (optional)
+     * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3257,14 +3257,14 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcMuteUserData $oc_mute_user_data (optional)
+     * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function ocMuteUserAsyncWithHttpInfo($channel_url, $api_token = null, $oc_mute_user_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdOpenChannel';
+        $returnType = '\Sendbird\Model\SendBirdOpenChannel';
         $request = $this->ocMuteUserRequest($channel_url, $api_token, $oc_mute_user_data);
 
         return $this->client
@@ -3305,7 +3305,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcMuteUserData $oc_mute_user_data (optional)
+     * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3412,9 +3412,9 @@ class OpenChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcRegisterOperatorsData $oc_register_operators_data oc_register_operators_data (optional)
+     * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data oc_register_operators_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -3430,9 +3430,9 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
+     * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3491,7 +3491,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
+     * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3513,7 +3513,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
+     * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3551,7 +3551,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
+     * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3590,11 +3590,11 @@ class OpenChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 ['application/json']
             );
         }
@@ -3660,7 +3660,7 @@ class OpenChannelApi
      * @param  string $banned_user_id banned_user_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -3678,7 +3678,7 @@ class OpenChannelApi
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3850,11 +3850,11 @@ class OpenChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -3914,7 +3914,7 @@ class OpenChannelApi
      * @param  string $muted_user_id muted_user_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -3932,7 +3932,7 @@ class OpenChannelApi
      * @param  string $muted_user_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -4104,11 +4104,11 @@ class OpenChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -4167,11 +4167,11 @@ class OpenChannelApi
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data oc_update_ban_by_id_data (optional)
+     * @param  \Sendbird\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data oc_update_ban_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdUser
+     * @return \Sendbird\Model\SendBirdUser
      */
     public function ocUpdateBanById($channel_url, $banned_user_id, $api_token = null, $oc_update_ban_by_id_data = null)
     {
@@ -4187,11 +4187,11 @@ class OpenChannelApi
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
+     * @param  \Sendbird\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocUpdateBanByIdWithHttpInfo($channel_url, $banned_user_id, $api_token = null, $oc_update_ban_by_id_data = null)
     {
@@ -4234,20 +4234,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdUser' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdUser' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdUser', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdUser', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdUser';
+            $returnType = '\Sendbird\Model\SendBirdUser';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4265,7 +4265,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdUser',
+                        '\Sendbird\Model\SendBirdUser',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4283,7 +4283,7 @@ class OpenChannelApi
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
+     * @param  \Sendbird\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4306,14 +4306,14 @@ class OpenChannelApi
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
+     * @param  \Sendbird\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function ocUpdateBanByIdAsyncWithHttpInfo($channel_url, $banned_user_id, $api_token = null, $oc_update_ban_by_id_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdUser';
+        $returnType = '\Sendbird\Model\SendBirdUser';
         $request = $this->ocUpdateBanByIdRequest($channel_url, $banned_user_id, $api_token, $oc_update_ban_by_id_data);
 
         return $this->client
@@ -4355,7 +4355,7 @@ class OpenChannelApi
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
+     * @param  \Sendbird\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4476,11 +4476,11 @@ class OpenChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data oc_update_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data oc_update_channel_by_url_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdOpenChannel
+     * @return \Sendbird\Model\SendBirdOpenChannel
      */
     public function ocUpdateChannelByUrl($channel_url, $api_token = null, $oc_update_channel_by_url_data = null)
     {
@@ -4495,11 +4495,11 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocUpdateChannelByUrlWithHttpInfo($channel_url, $api_token = null, $oc_update_channel_by_url_data = null)
     {
@@ -4542,20 +4542,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdOpenChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdOpenChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdOpenChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdOpenChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdOpenChannel';
+            $returnType = '\Sendbird\Model\SendBirdOpenChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4573,7 +4573,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdOpenChannel',
+                        '\Sendbird\Model\SendBirdOpenChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4590,7 +4590,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4612,14 +4612,14 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function ocUpdateChannelByUrlAsyncWithHttpInfo($channel_url, $api_token = null, $oc_update_channel_by_url_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdOpenChannel';
+        $returnType = '\Sendbird\Model\SendBirdOpenChannel';
         $request = $this->ocUpdateChannelByUrlRequest($channel_url, $api_token, $oc_update_channel_by_url_data);
 
         return $this->client
@@ -4660,7 +4660,7 @@ class OpenChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4769,9 +4769,9 @@ class OpenChannelApi
      * @param  string $banned_user_id banned_user_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdUser
+     * @return \Sendbird\Model\SendBirdUser
      */
     public function ocViewBanById($channel_url, $banned_user_id, $api_token = null)
     {
@@ -4788,9 +4788,9 @@ class OpenChannelApi
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocViewBanByIdWithHttpInfo($channel_url, $banned_user_id, $api_token = null)
     {
@@ -4833,20 +4833,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdUser' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdUser' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdUser', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdUser', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdUser';
+            $returnType = '\Sendbird\Model\SendBirdUser';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4864,7 +4864,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdUser',
+                        '\Sendbird\Model\SendBirdUser',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4910,7 +4910,7 @@ class OpenChannelApi
      */
     public function ocViewBanByIdAsyncWithHttpInfo($channel_url, $banned_user_id, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdUser';
+        $returnType = '\Sendbird\Model\SendBirdUser';
         $request = $this->ocViewBanByIdRequest($channel_url, $banned_user_id, $api_token);
 
         return $this->client
@@ -5067,9 +5067,9 @@ class OpenChannelApi
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdOpenChannel
+     * @return \Sendbird\Model\SendBirdOpenChannel
      */
     public function ocViewChannelByUrl($channel_url, $api_token = null)
     {
@@ -5085,9 +5085,9 @@ class OpenChannelApi
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocViewChannelByUrlWithHttpInfo($channel_url, $api_token = null)
     {
@@ -5130,20 +5130,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdOpenChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdOpenChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdOpenChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdOpenChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdOpenChannel';
+            $returnType = '\Sendbird\Model\SendBirdOpenChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5161,7 +5161,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdOpenChannel',
+                        '\Sendbird\Model\SendBirdOpenChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5205,7 +5205,7 @@ class OpenChannelApi
      */
     public function ocViewChannelByUrlAsyncWithHttpInfo($channel_url, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdOpenChannel';
+        $returnType = '\Sendbird\Model\SendBirdOpenChannel';
         $request = $this->ocViewChannelByUrlRequest($channel_url, $api_token);
 
         return $this->client
@@ -5348,9 +5348,9 @@ class OpenChannelApi
      * @param  string $muted_user_id muted_user_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20036
+     * @return \Sendbird\Model\InlineResponse20035
      */
     public function ocViewMuteById($channel_url, $muted_user_id, $api_token = null)
     {
@@ -5367,9 +5367,9 @@ class OpenChannelApi
      * @param  string $muted_user_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20036, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20035, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocViewMuteByIdWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
     {
@@ -5412,20 +5412,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20036' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20035' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20036', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20035', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20036';
+            $returnType = '\Sendbird\Model\InlineResponse20035';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5443,7 +5443,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20036',
+                        '\Sendbird\Model\InlineResponse20035',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5489,7 +5489,7 @@ class OpenChannelApi
      */
     public function ocViewMuteByIdAsyncWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20036';
+        $returnType = '\Sendbird\Model\InlineResponse20035';
         $request = $this->ocViewMuteByIdRequest($channel_url, $muted_user_id, $api_token);
 
         return $this->client

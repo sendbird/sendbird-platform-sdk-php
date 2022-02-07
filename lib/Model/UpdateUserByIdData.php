@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * UpdateUserByIdData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -265,33 +265,6 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['profile_url'] === null) {
             $invalidProperties[] = "'profile_url' can't be null";
         }
-        if ($this->container['profile_file'] === null) {
-            $invalidProperties[] = "'profile_file' can't be null";
-        }
-        if ($this->container['issue_access_token'] === null) {
-            $invalidProperties[] = "'issue_access_token' can't be null";
-        }
-        if ($this->container['issue_session_token'] === null) {
-            $invalidProperties[] = "'issue_session_token' can't be null";
-        }
-        if ($this->container['session_token_expires_at'] === null) {
-            $invalidProperties[] = "'session_token_expires_at' can't be null";
-        }
-        if ($this->container['is_active'] === null) {
-            $invalidProperties[] = "'is_active' can't be null";
-        }
-        if ($this->container['last_seen_at'] === null) {
-            $invalidProperties[] = "'last_seen_at' can't be null";
-        }
-        if ($this->container['discovery_keys'] === null) {
-            $invalidProperties[] = "'discovery_keys' can't be null";
-        }
-        if ($this->container['preferred_languages'] === null) {
-            $invalidProperties[] = "'preferred_languages' can't be null";
-        }
-        if ($this->container['leave_all_when_deactivated'] === null) {
-            $invalidProperties[] = "'leave_all_when_deactivated' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -382,7 +355,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets profile_file
      *
-     * @return \SplFileObject
+     * @return \SplFileObject|null
      */
     public function getProfileFile()
     {
@@ -392,7 +365,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets profile_file
      *
-     * @param \SplFileObject $profile_file Uploads the file of the user's profile image. An acceptable image is limited to `JPG` (.jpg), `JPEG` (.jpeg), or `PNG` (.png) file of up to 25 MB.
+     * @param \SplFileObject|null $profile_file Uploads the file of the user's profile image. An acceptable image is limited to `JPG` (.jpg), `JPEG` (.jpeg), or `PNG` (.png) file of up to 25 MB.
      *
      * @return self
      */
@@ -406,7 +379,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets issue_access_token
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIssueAccessToken()
     {
@@ -416,7 +389,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets issue_access_token
      *
-     * @param bool $issue_access_token Determines whether to revoke the existing access token and create a new one for the user. If true, an opaque string token is issued and provided upon creation, which should be passed whenever the user logs in. If false, an access token is not required when the user logs in. (Default: false)
+     * @param bool|null $issue_access_token Determines whether to revoke the existing access token and create a new one for the user. If true, an opaque string token is issued and provided upon creation, which should be passed whenever the user logs in. If false, an access token is not required when the user logs in. (Default: false)
      *
      * @return self
      */
@@ -430,7 +403,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets issue_session_token
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIssueSessionToken()
     {
@@ -440,7 +413,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets issue_session_token
      *
-     * @param bool $issue_session_token Determines whether to add a new session token for the user. If true, an opaque string token is issued and provided upon creation, which should be passed whenever the user logs in. If false, a session token is not required when the user logs in. (Default: false)
+     * @param bool|null $issue_session_token Determines whether to add a new session token for the user. If true, an opaque string token is issued and provided upon creation, which should be passed whenever the user logs in. If false, a session token is not required when the user logs in. (Default: false)
      *
      * @return self
      */
@@ -454,7 +427,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets session_token_expires_at
      *
-     * @return int
+     * @return int|null
      */
     public function getSessionTokenExpiresAt()
     {
@@ -464,7 +437,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets session_token_expires_at
      *
-     * @param int $session_token_expires_at Specifies the time for the issued session token to expire in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. The length should be 13. If not specified and the issue_session_token property above is true, the value of this property is set to the sum of the current timestamp and 604800000 by default, which indicates that the token will be valid for the next 7 days starting from the current timestamp.
+     * @param int|null $session_token_expires_at Specifies the time for the issued session token to expire in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. The length should be 13. If not specified and the issue_session_token property above is true, the value of this property is set to the sum of the current timestamp and 604800000 by default, which indicates that the token will be valid for the next 7 days starting from the current timestamp.
      *
      * @return self
      */
@@ -478,7 +451,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets is_active
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsActive()
     {
@@ -488,7 +461,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets is_active
      *
-     * @param bool $is_active Determines whether to activate or deactivate the user within the application.
+     * @param bool|null $is_active Determines whether to activate or deactivate the user within the application.
      *
      * @return self
      */
@@ -502,7 +475,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets last_seen_at
      *
-     * @return int
+     * @return int|null
      */
     public function getLastSeenAt()
     {
@@ -512,7 +485,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets last_seen_at
      *
-     * @param int $last_seen_at Specifies the time when the user goes offline, to indicate when they were last online, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format.
+     * @param int|null $last_seen_at Specifies the time when the user goes offline, to indicate when they were last online, in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format.
      *
      * @return self
      */
@@ -526,7 +499,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets discovery_keys
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getDiscoveryKeys()
     {
@@ -536,7 +509,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets discovery_keys
      *
-     * @param string[] $discovery_keys Specifies an array of unique keys of the user which is provided to Sendbird server for discovering friends. By using the keys, the server can identify and match the user with other users.
+     * @param string[]|null $discovery_keys Specifies an array of unique keys of the user which is provided to Sendbird server for discovering friends. By using the keys, the server can identify and match the user with other users.
      *
      * @return self
      */
@@ -550,7 +523,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets preferred_languages
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getPreferredLanguages()
     {
@@ -560,7 +533,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets preferred_languages
      *
-     * @param string[] $preferred_languages Specifies an array of one or more [language codes](/docs/chat/v3/platform-api/guides/miscellaneous#2-language-codes-for-auto-translation) to translate notification messages to preferred languages. Up to 4 languages can be set for the user. If messages are sent in one of the preferred languages, notification messages won't be translated. If messages are sent in a language other than the preferred languages, notification messages will be translated into the first language in the array. In addition, the messages translated into other preferred languages will be provided in the `sendbird` property of a notification message payload.
+     * @param string[]|null $preferred_languages Specifies an array of one or more [language codes](/docs/chat/v3/platform-api/guides/miscellaneous#2-language-codes-for-auto-translation) to translate notification messages to preferred languages. Up to 4 languages can be set for the user. If messages are sent in one of the preferred languages, notification messages won't be translated. If messages are sent in a language other than the preferred languages, notification messages will be translated into the first language in the array. In addition, the messages translated into other preferred languages will be provided in the `sendbird` property of a notification message payload.
      *
      * @return self
      */
@@ -574,7 +547,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets leave_all_when_deactivated
      *
-     * @return bool
+     * @return bool|null
      */
     public function getLeaveAllWhenDeactivated()
     {
@@ -584,7 +557,7 @@ class UpdateUserByIdData implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets leave_all_when_deactivated
      *
-     * @param bool $leave_all_when_deactivated Determines whether the user leaves all joined group channels upon deactivation. Note that this value is true by default. Use in conjunction with the is_active property above.
+     * @param bool|null $leave_all_when_deactivated Determines whether the user leaves all joined group channels upon deactivation. Note that this value is true by default. Use in conjunction with the is_active property above.
      *
      * @return self
      */

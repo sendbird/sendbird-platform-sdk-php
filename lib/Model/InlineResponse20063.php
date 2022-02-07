@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20063 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,12 +59,8 @@ class InlineResponse20063 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'segments' => 'string',
-        'date' => 'string',
-        'value' => 'float',
-        'channel_type' => 'string',
-        'custom_channel_type' => 'string',
-        'custom_message_type' => 'string'
+        'exported_data' => '\Sendbird\Model\InlineResponse20063ExportedData[]',
+        'next' => 'string'
     ];
 
     /**
@@ -75,12 +71,8 @@ class InlineResponse20063 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'segments' => null,
-        'date' => null,
-        'value' => null,
-        'channel_type' => null,
-        'custom_channel_type' => null,
-        'custom_message_type' => null
+        'exported_data' => null,
+        'next' => null
     ];
 
     /**
@@ -110,12 +102,8 @@ class InlineResponse20063 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'segments' => 'segments',
-        'date' => 'date',
-        'value' => 'value',
-        'channel_type' => 'channel_type',
-        'custom_channel_type' => 'custom_channel_type',
-        'custom_message_type' => 'custom_message_type'
+        'exported_data' => 'exported_data',
+        'next' => 'next'
     ];
 
     /**
@@ -124,12 +112,8 @@ class InlineResponse20063 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'segments' => 'setSegments',
-        'date' => 'setDate',
-        'value' => 'setValue',
-        'channel_type' => 'setChannelType',
-        'custom_channel_type' => 'setCustomChannelType',
-        'custom_message_type' => 'setCustomMessageType'
+        'exported_data' => 'setExportedData',
+        'next' => 'setNext'
     ];
 
     /**
@@ -138,12 +122,8 @@ class InlineResponse20063 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'segments' => 'getSegments',
-        'date' => 'getDate',
-        'value' => 'getValue',
-        'channel_type' => 'getChannelType',
-        'custom_channel_type' => 'getCustomChannelType',
-        'custom_message_type' => 'getCustomMessageType'
+        'exported_data' => 'getExportedData',
+        'next' => 'getNext'
     ];
 
     /**
@@ -203,12 +183,8 @@ class InlineResponse20063 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['segments'] = $data['segments'] ?? null;
-        $this->container['date'] = $data['date'] ?? null;
-        $this->container['value'] = $data['value'] ?? null;
-        $this->container['channel_type'] = $data['channel_type'] ?? null;
-        $this->container['custom_channel_type'] = $data['custom_channel_type'] ?? null;
-        $this->container['custom_message_type'] = $data['custom_message_type'] ?? null;
+        $this->container['exported_data'] = $data['exported_data'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -236,145 +212,49 @@ class InlineResponse20063 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets segments
+     * Gets exported_data
      *
-     * @return string|null
+     * @return \Sendbird\Model\InlineResponse20063ExportedData[]|null
      */
-    public function getSegments()
+    public function getExportedData()
     {
-        return $this->container['segments'];
+        return $this->container['exported_data'];
     }
 
     /**
-     * Sets segments
+     * Sets exported_data
      *
-     * @param string|null $segments segments
+     * @param \Sendbird\Model\InlineResponse20063ExportedData[]|null $exported_data exported_data
      *
      * @return self
      */
-    public function setSegments($segments)
+    public function setExportedData($exported_data)
     {
-        $this->container['segments'] = $segments;
+        $this->container['exported_data'] = $exported_data;
 
         return $this;
     }
 
     /**
-     * Gets date
+     * Gets next
      *
      * @return string|null
      */
-    public function getDate()
+    public function getNext()
     {
-        return $this->container['date'];
+        return $this->container['next'];
     }
 
     /**
-     * Sets date
+     * Sets next
      *
-     * @param string|null $date date
+     * @param string|null $next next
      *
      * @return self
      */
-    public function setDate($date)
+    public function setNext($next)
     {
-        $this->container['date'] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return float|null
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param float|null $value value
-     *
-     * @return self
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel_type
-     *
-     * @return string|null
-     */
-    public function getChannelType()
-    {
-        return $this->container['channel_type'];
-    }
-
-    /**
-     * Sets channel_type
-     *
-     * @param string|null $channel_type channel_type
-     *
-     * @return self
-     */
-    public function setChannelType($channel_type)
-    {
-        $this->container['channel_type'] = $channel_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_channel_type
-     *
-     * @return string|null
-     */
-    public function getCustomChannelType()
-    {
-        return $this->container['custom_channel_type'];
-    }
-
-    /**
-     * Sets custom_channel_type
-     *
-     * @param string|null $custom_channel_type custom_channel_type
-     *
-     * @return self
-     */
-    public function setCustomChannelType($custom_channel_type)
-    {
-        $this->container['custom_channel_type'] = $custom_channel_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_message_type
-     *
-     * @return string|null
-     */
-    public function getCustomMessageType()
-    {
-        return $this->container['custom_message_type'];
-    }
-
-    /**
-     * Sets custom_message_type
-     *
-     * @param string|null $custom_message_type custom_message_type
-     *
-     * @return self
-     */
-    public function setCustomMessageType($custom_message_type)
-    {
-        $this->container['custom_message_type'] = $custom_message_type;
+        $this->container['next'] = $next;
 
         return $this;
     }

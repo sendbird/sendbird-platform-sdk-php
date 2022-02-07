@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **arguments** | **mixed** |  | [optional]
-**caller** | [**\OpenAPI\Client\Model\ModelFunction**](ModelFunction.md) |  | [optional]
+**caller** | [**\Sendbird\Model\ModelFunction**](ModelFunction.md) |  | [optional]
 **length** | **float** |  | [optional]
 **prototype** | **mixed** |  | [optional]
 

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse2005 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'push_message_templates' => '\OpenAPI\Client\Model\InlineResponse2005PushMessageTemplates[]'
+        'auto_accept' => 'bool'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'push_message_templates' => null
+        'auto_accept' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'push_message_templates' => 'push_message_templates'
+        'auto_accept' => 'auto_accept'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'push_message_templates' => 'setPushMessageTemplates'
+        'auto_accept' => 'setAutoAccept'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'push_message_templates' => 'getPushMessageTemplates'
+        'auto_accept' => 'getAutoAccept'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['push_message_templates'] = $data['push_message_templates'] ?? null;
+        $this->container['auto_accept'] = $data['auto_accept'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets push_message_templates
+     * Gets auto_accept
      *
-     * @return \OpenAPI\Client\Model\InlineResponse2005PushMessageTemplates[]|null
+     * @return bool|null
      */
-    public function getPushMessageTemplates()
+    public function getAutoAccept()
     {
-        return $this->container['push_message_templates'];
+        return $this->container['auto_accept'];
     }
 
     /**
-     * Sets push_message_templates
+     * Sets auto_accept
      *
-     * @param \OpenAPI\Client\Model\InlineResponse2005PushMessageTemplates[]|null $push_message_templates push_message_templates
+     * @param bool|null $auto_accept auto_accept
      *
      * @return self
      */
-    public function setPushMessageTemplates($push_message_templates)
+    public function setAutoAccept($auto_accept)
     {
-        $this->container['push_message_templates'] = $push_message_templates;
+        $this->container['auto_accept'] = $auto_accept;
 
         return $this;
     }

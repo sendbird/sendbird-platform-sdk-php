@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdGroupChannel Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,12 +61,12 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     protected static $openAPITypes = [
         'cover_url' => 'string',
         'created_at' => 'float',
-        'creator' => '\OpenAPI\Client\Model\SendBirdUser',
+        'creator' => '\Sendbird\Model\SendBirdUser',
         'custom_type' => 'string',
         'data' => 'string',
         'hidden_state' => 'string',
         'invited_at' => 'float',
-        'inviter' => '\OpenAPI\Client\Model\SendBirdUser',
+        'inviter' => '\Sendbird\Model\SendBirdUser',
         'is_access_code_required' => 'bool',
         'is_broadcast' => 'bool',
         'is_discoverable' => 'bool',
@@ -79,9 +79,9 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
         'is_super' => 'bool',
         'joined_at' => 'float',
         'joined_member_count' => 'float',
-        'last_message' => 'AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage',
+        'last_message' => '\Sendbird\Model\SendBirdMessageResponse',
         'member_count' => 'float',
-        'members' => '\OpenAPI\Client\Model\SendBirdMember[]',
+        'members' => '\Sendbird\Model\SendBirdMember[]',
         'message_offset_timestamp' => 'float',
         'message_survival_seconds' => 'float',
         'my_count_preference' => 'string',
@@ -93,7 +93,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'string',
         'unread_mention_count' => 'float',
         'unread_message_count' => 'float',
-        'url' => 'string'
+        'channel_url' => 'string'
     ];
 
     /**
@@ -138,7 +138,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => null,
         'unread_mention_count' => null,
         'unread_message_count' => null,
-        'url' => null
+        'channel_url' => null
     ];
 
     /**
@@ -168,41 +168,41 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'cover_url' => 'coverUrl',
-        'created_at' => 'createdAt',
+        'cover_url' => 'cover_url',
+        'created_at' => 'created_at',
         'creator' => 'creator',
-        'custom_type' => 'customType',
+        'custom_type' => 'custom_type',
         'data' => 'data',
-        'hidden_state' => 'hiddenState',
-        'invited_at' => 'invitedAt',
+        'hidden_state' => 'hidden_state',
+        'invited_at' => 'invited_at',
         'inviter' => 'inviter',
-        'is_access_code_required' => 'isAccessCodeRequired',
-        'is_broadcast' => 'isBroadcast',
-        'is_discoverable' => 'isDiscoverable',
-        'is_distinct' => 'isDistinct',
-        'is_ephemeral' => 'isEphemeral',
-        'is_frozen' => 'isFrozen',
-        'is_hidden' => 'isHidden',
-        'is_public' => 'isPublic',
-        'is_push_enabled' => 'isPushEnabled',
-        'is_super' => 'isSuper',
-        'joined_at' => 'joinedAt',
-        'joined_member_count' => 'joinedMemberCount',
-        'last_message' => 'lastMessage',
-        'member_count' => 'memberCount',
+        'is_access_code_required' => 'is_access_code_required',
+        'is_broadcast' => 'is_broadcast',
+        'is_discoverable' => 'is_discoverable',
+        'is_distinct' => 'is_distinct',
+        'is_ephemeral' => 'is_ephemeral',
+        'is_frozen' => 'is_frozen',
+        'is_hidden' => 'is_hidden',
+        'is_public' => 'is_public',
+        'is_push_enabled' => 'is_push_enabled',
+        'is_super' => 'is_super',
+        'joined_at' => 'joined_at',
+        'joined_member_count' => 'joined_member_count',
+        'last_message' => 'last_message',
+        'member_count' => 'member_count',
         'members' => 'members',
-        'message_offset_timestamp' => 'messageOffsetTimestamp',
-        'message_survival_seconds' => 'messageSurvivalSeconds',
-        'my_count_preference' => 'myCountPreference',
-        'my_last_read' => 'myLastRead',
-        'my_member_state' => 'myMemberState',
-        'my_muted_state' => 'myMutedState',
-        'my_push_trigger_option' => 'myPushTriggerOption',
-        'my_role' => 'myRole',
+        'message_offset_timestamp' => 'message_offset_timestamp',
+        'message_survival_seconds' => 'message_survival_seconds',
+        'my_count_preference' => 'my_count_preference',
+        'my_last_read' => 'my_last_read',
+        'my_member_state' => 'my_member_state',
+        'my_muted_state' => 'my_muted_state',
+        'my_push_trigger_option' => 'my_push_trigger_option',
+        'my_role' => 'my_role',
         'name' => 'name',
-        'unread_mention_count' => 'unreadMentionCount',
-        'unread_message_count' => 'unreadMessageCount',
-        'url' => 'url'
+        'unread_mention_count' => 'unread_mention_count',
+        'unread_message_count' => 'unread_message_count',
+        'channel_url' => 'channel_url'
     ];
 
     /**
@@ -245,7 +245,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'setName',
         'unread_mention_count' => 'setUnreadMentionCount',
         'unread_message_count' => 'setUnreadMessageCount',
-        'url' => 'setUrl'
+        'channel_url' => 'setChannelUrl'
     ];
 
     /**
@@ -288,7 +288,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
         'name' => 'getName',
         'unread_mention_count' => 'getUnreadMentionCount',
         'unread_message_count' => 'getUnreadMessageCount',
-        'url' => 'getUrl'
+        'channel_url' => 'getChannelUrl'
     ];
 
     /**
@@ -343,7 +343,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     const MY_PUSH_TRIGGER_OPTION_ALL = 'all';
     const MY_PUSH_TRIGGER_OPTION__DEFAULT = 'default';
     const MY_PUSH_TRIGGER_OPTION_MENTION_ONLY = 'mention_only';
-    const MY_PUSH_TRIGGER_OPTION_OFF = 'off';
+    const MY_PUSH_TRIGGER_OPTION_FALSE = 'false';
     const MY_ROLE_NONE = 'none';
     const MY_ROLE_OPERATOR = 'operator';
 
@@ -399,7 +399,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
             self::MY_PUSH_TRIGGER_OPTION_ALL,
             self::MY_PUSH_TRIGGER_OPTION__DEFAULT,
             self::MY_PUSH_TRIGGER_OPTION_MENTION_ONLY,
-            self::MY_PUSH_TRIGGER_OPTION_OFF,
+            self::MY_PUSH_TRIGGER_OPTION_FALSE,
         ];
     }
 
@@ -465,7 +465,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['name'] = $data['name'] ?? null;
         $this->container['unread_mention_count'] = $data['unread_mention_count'] ?? null;
         $this->container['unread_message_count'] = $data['unread_message_count'] ?? null;
-        $this->container['url'] = $data['url'] ?? null;
+        $this->container['channel_url'] = $data['channel_url'] ?? null;
     }
 
     /**
@@ -588,7 +588,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets creator
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser|null
+     * @return \Sendbird\Model\SendBirdUser|null
      */
     public function getCreator()
     {
@@ -598,7 +598,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets creator
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser|null $creator creator
+     * @param \Sendbird\Model\SendBirdUser|null $creator creator
      *
      * @return self
      */
@@ -718,7 +718,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets inviter
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser|null
+     * @return \Sendbird\Model\SendBirdUser|null
      */
     public function getInviter()
     {
@@ -728,7 +728,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets inviter
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser|null $inviter inviter
+     * @param \Sendbird\Model\SendBirdUser|null $inviter inviter
      *
      * @return self
      */
@@ -1030,7 +1030,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets last_message
      *
-     * @return AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage|null
+     * @return \Sendbird\Model\SendBirdMessageResponse|null
      */
     public function getLastMessage()
     {
@@ -1040,7 +1040,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets last_message
      *
-     * @param AnyOfSendBirdAdminMessageSendBirdUserMessageSendBirdFileMessage|null $last_message last_message
+     * @param \Sendbird\Model\SendBirdMessageResponse|null $last_message last_message
      *
      * @return self
      */
@@ -1078,7 +1078,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets members
      *
-     * @return \OpenAPI\Client\Model\SendBirdMember[]|null
+     * @return \Sendbird\Model\SendBirdMember[]|null
      */
     public function getMembers()
     {
@@ -1088,7 +1088,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets members
      *
-     * @param \OpenAPI\Client\Model\SendBirdMember[]|null $members members
+     * @param \Sendbird\Model\SendBirdMember[]|null $members members
      *
      * @return self
      */
@@ -1404,25 +1404,25 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets url
+     * Gets channel_url
      *
      * @return string|null
      */
-    public function getUrl()
+    public function getChannelUrl()
     {
-        return $this->container['url'];
+        return $this->container['channel_url'];
     }
 
     /**
-     * Sets url
+     * Sets channel_url
      *
-     * @param string|null $url url
+     * @param string|null $channel_url channel_url
      *
      * @return self
      */
-    public function setUrl($url)
+    public function setChannelUrl($channel_url)
     {
-        $this->container['url'] = $url;
+        $this->container['channel_url'] = $channel_url;
 
         return $this;
     }

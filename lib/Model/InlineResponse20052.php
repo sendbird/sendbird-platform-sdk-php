@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20052 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'reactions' => 'bool'
+        'key' => 'string[]'
     ];
 
     /**
@@ -70,7 +70,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'reactions' => null
+        'key' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'reactions' => 'reactions'
+        'key' => 'key'
     ];
 
     /**
@@ -109,7 +109,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'reactions' => 'setReactions'
+        'key' => 'setKey'
     ];
 
     /**
@@ -118,7 +118,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'reactions' => 'getReactions'
+        'key' => 'getKey'
     ];
 
     /**
@@ -178,7 +178,7 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['reactions'] = $data['reactions'] ?? null;
+        $this->container['key'] = $data['key'] ?? null;
     }
 
     /**
@@ -206,25 +206,25 @@ class InlineResponse20052 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets reactions
+     * Gets key
      *
-     * @return bool|null
+     * @return string[]|null
      */
-    public function getReactions()
+    public function getKey()
     {
-        return $this->container['reactions'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets reactions
+     * Sets key
      *
-     * @param bool|null $reactions reactions
+     * @param string[]|null $key key
      *
      * @return self
      */
-    public function setReactions($reactions)
+    public function setKey($key)
     {
-        $this->container['reactions'] = $reactions;
+        $this->container['key'] = $key;
 
         return $this;
     }

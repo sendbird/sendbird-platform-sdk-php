@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,18 +25,18 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace OpenAPI\Client\Test\Api;
+namespace Sendbird\Test\Api;
 
-use \OpenAPI\Client\Configuration;
-use \OpenAPI\Client\ApiException;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\Configuration;
+use \Sendbird\ApiException;
+use \Sendbird\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
  * GroupChannelApiTest Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * CreateUserData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -64,8 +64,6 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
         'profile_url' => 'string',
         'profile_file' => '\SplFileObject',
         'issue_access_token' => 'bool',
-        'issue_session_token' => 'bool',
-        'session_token_expires_at' => 'int',
         'discovery_keys' => 'string[]',
         'metadata' => 'string'
     ];
@@ -83,8 +81,6 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
         'profile_url' => null,
         'profile_file' => 'binary',
         'issue_access_token' => null,
-        'issue_session_token' => null,
-        'session_token_expires_at' => null,
         'discovery_keys' => null,
         'metadata' => null
     ];
@@ -121,8 +117,6 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
         'profile_url' => 'profile_url',
         'profile_file' => 'profile_file',
         'issue_access_token' => 'issue_access_token',
-        'issue_session_token' => 'issue_session_token',
-        'session_token_expires_at' => 'session_token_expires_at',
         'discovery_keys' => 'discovery_keys',
         'metadata' => 'metadata'
     ];
@@ -138,8 +132,6 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
         'profile_url' => 'setProfileUrl',
         'profile_file' => 'setProfileFile',
         'issue_access_token' => 'setIssueAccessToken',
-        'issue_session_token' => 'setIssueSessionToken',
-        'session_token_expires_at' => 'setSessionTokenExpiresAt',
         'discovery_keys' => 'setDiscoveryKeys',
         'metadata' => 'setMetadata'
     ];
@@ -155,8 +147,6 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
         'profile_url' => 'getProfileUrl',
         'profile_file' => 'getProfileFile',
         'issue_access_token' => 'getIssueAccessToken',
-        'issue_session_token' => 'getIssueSessionToken',
-        'session_token_expires_at' => 'getSessionTokenExpiresAt',
         'discovery_keys' => 'getDiscoveryKeys',
         'metadata' => 'getMetadata'
     ];
@@ -223,8 +213,6 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['profile_url'] = $data['profile_url'] ?? null;
         $this->container['profile_file'] = $data['profile_file'] ?? null;
         $this->container['issue_access_token'] = $data['issue_access_token'] ?? null;
-        $this->container['issue_session_token'] = $data['issue_session_token'] ?? null;
-        $this->container['session_token_expires_at'] = $data['session_token_expires_at'] ?? null;
         $this->container['discovery_keys'] = $data['discovery_keys'] ?? null;
         $this->container['metadata'] = $data['metadata'] ?? null;
     }
@@ -246,24 +234,6 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['profile_url'] === null) {
             $invalidProperties[] = "'profile_url' can't be null";
-        }
-        if ($this->container['profile_file'] === null) {
-            $invalidProperties[] = "'profile_file' can't be null";
-        }
-        if ($this->container['issue_access_token'] === null) {
-            $invalidProperties[] = "'issue_access_token' can't be null";
-        }
-        if ($this->container['issue_session_token'] === null) {
-            $invalidProperties[] = "'issue_session_token' can't be null";
-        }
-        if ($this->container['session_token_expires_at'] === null) {
-            $invalidProperties[] = "'session_token_expires_at' can't be null";
-        }
-        if ($this->container['discovery_keys'] === null) {
-            $invalidProperties[] = "'discovery_keys' can't be null";
-        }
-        if ($this->container['metadata'] === null) {
-            $invalidProperties[] = "'metadata' can't be null";
         }
         return $invalidProperties;
     }
@@ -355,7 +325,7 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets profile_file
      *
-     * @return \SplFileObject
+     * @return \SplFileObject|null
      */
     public function getProfileFile()
     {
@@ -365,7 +335,7 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets profile_file
      *
-     * @param \SplFileObject $profile_file Uploads the file of the user's profile image. An acceptable image is limited to `JPG` (.jpg), `JPEG` (.jpeg), or `PNG` (.png) file of up to 25 MB.
+     * @param \SplFileObject|null $profile_file Uploads the file of the user's profile image. An acceptable image is limited to `JPG` (.jpg), `JPEG` (.jpeg), or `PNG` (.png) file of up to 25 MB.
      *
      * @return self
      */
@@ -379,7 +349,7 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets issue_access_token
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIssueAccessToken()
     {
@@ -389,7 +359,7 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets issue_access_token
      *
-     * @param bool $issue_access_token Determines whether to create an access token for the user. If true, an opaque string token is issued and provided upon creation, which should be passed whenever the user logs in. If false, an access token is not required when the user logs in. (Default: false)
+     * @param bool|null $issue_access_token Determines whether to create an access token for the user. If true, an opaque string token is issued and provided upon creation, which should be passed whenever the user logs in. If false, an access token is not required when the user logs in. (Default: false)
      *
      * @return self
      */
@@ -401,57 +371,9 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets issue_session_token
-     *
-     * @return bool
-     */
-    public function getIssueSessionToken()
-    {
-        return $this->container['issue_session_token'];
-    }
-
-    /**
-     * Sets issue_session_token
-     *
-     * @param bool $issue_session_token Determines whether to create a session token for the user. If true, an opaque string token is issued and provided upon creation, which should be passed whenever the user logs in. If false, a session token is not required when the user logs in. (Default: false)
-     *
-     * @return self
-     */
-    public function setIssueSessionToken($issue_session_token)
-    {
-        $this->container['issue_session_token'] = $issue_session_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets session_token_expires_at
-     *
-     * @return int
-     */
-    public function getSessionTokenExpiresAt()
-    {
-        return $this->container['session_token_expires_at'];
-    }
-
-    /**
-     * Sets session_token_expires_at
-     *
-     * @param int $session_token_expires_at Specifies the time for the issued session token to expire in [Unix milliseconds](/docs/chat/v3/platform-api/guides/miscellaneous#2-timestamps) format. The length should be 13. If not specified and the issue_session_token property above is true, the value of this property is set to the sum of the current timestamp and 604800000 by default, which indicates that the token will be valid for the next 7 days starting from the current timestamp.
-     *
-     * @return self
-     */
-    public function setSessionTokenExpiresAt($session_token_expires_at)
-    {
-        $this->container['session_token_expires_at'] = $session_token_expires_at;
-
-        return $this;
-    }
-
-    /**
      * Gets discovery_keys
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getDiscoveryKeys()
     {
@@ -461,7 +383,7 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets discovery_keys
      *
-     * @param string[] $discovery_keys Specifies an array of unique keys of the user which is provided to Sendbird server for discovering friends. By using the keys, the server can identify and match the user with other users.
+     * @param string[]|null $discovery_keys Specifies an array of unique keys of the user which is provided to Sendbird server for discovering friends. By using the keys, the server can identify and match the user with other users.
      *
      * @return self
      */
@@ -475,7 +397,7 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets metadata
      *
-     * @return string
+     * @return string|null
      */
     public function getMetadata()
     {
@@ -485,7 +407,7 @@ class CreateUserData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets metadata
      *
-     * @param string $metadata Specifies a `JSON` object to store key-value items for additional user information such as phone number, email or a long description of the user. The key must not have a comma (,) and its length is limited to 128 characters. The value must be a string and its length is limited to 190 characters. This property can have up to 5 items.
+     * @param string|null $metadata Specifies a `JSON` object to store key-value items for additional user information such as phone number, email or a long description of the user. The key must not have a comma (,) and its length is limited to 128 characters. The value must be a string and its length is limited to 190 characters. This property can have up to 5 items.
      *
      * @return self
      */

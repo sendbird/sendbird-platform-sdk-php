@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20060 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,8 @@ class InlineResponse20060 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'emojis' => '\OpenAPI\Client\Model\InlineResponse20057Emojis[]'
+        'metadata' => 'array<string,string>',
+        'upsert' => 'bool'
     ];
 
     /**
@@ -70,7 +71,8 @@ class InlineResponse20060 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'emojis' => null
+        'metadata' => null,
+        'upsert' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class InlineResponse20060 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'emojis' => 'emojis'
+        'metadata' => 'metadata',
+        'upsert' => 'upsert'
     ];
 
     /**
@@ -109,7 +112,8 @@ class InlineResponse20060 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'emojis' => 'setEmojis'
+        'metadata' => 'setMetadata',
+        'upsert' => 'setUpsert'
     ];
 
     /**
@@ -118,7 +122,8 @@ class InlineResponse20060 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'emojis' => 'getEmojis'
+        'metadata' => 'getMetadata',
+        'upsert' => 'getUpsert'
     ];
 
     /**
@@ -178,7 +183,8 @@ class InlineResponse20060 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['emojis'] = $data['emojis'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['upsert'] = $data['upsert'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class InlineResponse20060 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets emojis
+     * Gets metadata
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20057Emojis[]|null
+     * @return array<string,string>|null
      */
-    public function getEmojis()
+    public function getMetadata()
     {
-        return $this->container['emojis'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets emojis
+     * Sets metadata
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20057Emojis[]|null $emojis emojis
+     * @param array<string,string>|null $metadata metadata
      *
      * @return self
      */
-    public function setEmojis($emojis)
+    public function setMetadata($metadata)
     {
-        $this->container['emojis'] = $emojis;
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets upsert
+     *
+     * @return bool|null
+     */
+    public function getUpsert()
+    {
+        return $this->container['upsert'];
+    }
+
+    /**
+     * Sets upsert
+     *
+     * @param bool|null $upsert upsert
+     *
+     * @return self
+     */
+    public function setUpsert($upsert)
+    {
+        $this->container['upsert'] = $upsert;
 
         return $this;
     }

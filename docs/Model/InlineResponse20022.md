@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count_preference** | **string** |  | [optional]
+**banned_channels** | [**\Sendbird\Model\InlineResponse20022BannedChannels[]**](InlineResponse20022BannedChannels.md) |  | [optional]
+**next** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

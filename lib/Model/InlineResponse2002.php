@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse2002 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'push_configurations' => '\OpenAPI\Client\Model\InlineResponse2002PushConfigurations[]'
+        'push_configurations' => '\Sendbird\Model\InlineResponse2002PushConfigurations[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets push_configurations
      *
-     * @return \OpenAPI\Client\Model\InlineResponse2002PushConfigurations[]|null
+     * @return \Sendbird\Model\InlineResponse2002PushConfigurations[]|null
      */
     public function getPushConfigurations()
     {
@@ -218,7 +218,7 @@ class InlineResponse2002 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets push_configurations
      *
-     * @param \OpenAPI\Client\Model\InlineResponse2002PushConfigurations[]|null $push_configurations push_configurations
+     * @param \Sendbird\Model\InlineResponse2002PushConfigurations[]|null $push_configurations push_configurations
      *
      * @return self
      */

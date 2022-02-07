@@ -1,4 +1,4 @@
-# OpenAPI\Client\WebhooksApi
+# Sendbird\WebhooksApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `chooseWhichEventsToSubscribeTo()`
 
 ```php
-chooseWhichEventsToSubscribeTo($api_token, $choose_which_events_to_subscribe_to_data): \OpenAPI\Client\Model\InlineResponse20068
+chooseWhichEventsToSubscribeTo($api_token, $choose_which_events_to_subscribe_to_data): \Sendbird\Model\InlineResponse20067
 ```
 
 Choose which events to subscribe to
@@ -26,13 +26,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new Sendbird\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$choose_which_events_to_subscribe_to_data = new \OpenAPI\Client\Model\ChooseWhichEventsToSubscribeToData(); // \OpenAPI\Client\Model\ChooseWhichEventsToSubscribeToData
+$choose_which_events_to_subscribe_to_data = new \Sendbird\Model\ChooseWhichEventsToSubscribeToData(); // \Sendbird\Model\ChooseWhichEventsToSubscribeToData
 
 try {
     $result = $apiInstance->chooseWhichEventsToSubscribeTo($api_token, $choose_which_events_to_subscribe_to_data);
@@ -47,11 +47,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **choose_which_events_to_subscribe_to_data** | [**\OpenAPI\Client\Model\ChooseWhichEventsToSubscribeToData**](../Model/ChooseWhichEventsToSubscribeToData.md)|  | [optional]
+ **choose_which_events_to_subscribe_to_data** | [**\Sendbird\Model\ChooseWhichEventsToSubscribeToData**](../Model/ChooseWhichEventsToSubscribeToData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20068**](../Model/InlineResponse20068.md)
+[**\Sendbird\Model\InlineResponse20067**](../Model/InlineResponse20067.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ No authorization required
 ## `retrieveListOfSubscribedEvents()`
 
 ```php
-retrieveListOfSubscribedEvents($api_token, $display_all_webhook_categories): \OpenAPI\Client\Model\InlineResponse20067
+retrieveListOfSubscribedEvents($api_token, $display_all_webhook_categories): \Sendbird\Model\InlineResponse20066
 ```
 
 Retrieve a list of subscribed events
@@ -84,7 +84,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\WebhooksApi(
+$apiInstance = new Sendbird\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20067**](../Model/InlineResponse20067.md)
+[**\Sendbird\Model\InlineResponse20066**](../Model/InlineResponse20066.md)
 
 ### Authorization
 

@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * AddEmojisData Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,9 +60,7 @@ class AddEmojisData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'emoji_category_id' => 'int',
-        'emojis' => 'string[]',
-        '_emoji_key' => 'string',
-        '_emoji_url' => 'string'
+        'emojis' => 'string[]'
     ];
 
     /**
@@ -74,9 +72,7 @@ class AddEmojisData implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'emoji_category_id' => null,
-        'emojis' => null,
-        '_emoji_key' => null,
-        '_emoji_url' => null
+        'emojis' => null
     ];
 
     /**
@@ -107,9 +103,7 @@ class AddEmojisData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'emoji_category_id' => 'emoji_category_id',
-        'emojis' => 'emojis',
-        '_emoji_key' => '(emoji).key',
-        '_emoji_url' => '(emoji).url'
+        'emojis' => 'emojis'
     ];
 
     /**
@@ -119,9 +113,7 @@ class AddEmojisData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'emoji_category_id' => 'setEmojiCategoryId',
-        'emojis' => 'setEmojis',
-        '_emoji_key' => 'setEmojiKey',
-        '_emoji_url' => 'setEmojiUrl'
+        'emojis' => 'setEmojis'
     ];
 
     /**
@@ -131,9 +123,7 @@ class AddEmojisData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'emoji_category_id' => 'getEmojiCategoryId',
-        'emojis' => 'getEmojis',
-        '_emoji_key' => 'getEmojiKey',
-        '_emoji_url' => 'getEmojiUrl'
+        'emojis' => 'getEmojis'
     ];
 
     /**
@@ -195,8 +185,6 @@ class AddEmojisData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['emoji_category_id'] = $data['emoji_category_id'] ?? null;
         $this->container['emojis'] = $data['emojis'] ?? null;
-        $this->container['_emoji_key'] = $data['_emoji_key'] ?? null;
-        $this->container['_emoji_url'] = $data['_emoji_url'] ?? null;
     }
 
     /**
@@ -213,12 +201,6 @@ class AddEmojisData implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['emojis'] === null) {
             $invalidProperties[] = "'emojis' can't be null";
-        }
-        if ($this->container['_emoji_key'] === null) {
-            $invalidProperties[] = "'_emoji_key' can't be null";
-        }
-        if ($this->container['_emoji_url'] === null) {
-            $invalidProperties[] = "'_emoji_url' can't be null";
         }
         return $invalidProperties;
     }
@@ -279,54 +261,6 @@ class AddEmojisData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setEmojis($emojis)
     {
         $this->container['emojis'] = $emojis;
-
-        return $this;
-    }
-
-    /**
-     * Gets _emoji_key
-     *
-     * @return string
-     */
-    public function getEmojiKey()
-    {
-        return $this->container['_emoji_key'];
-    }
-
-    /**
-     * Sets _emoji_key
-     *
-     * @param string $_emoji_key Specifies the string key of each new emoji.
-     *
-     * @return self
-     */
-    public function setEmojiKey($_emoji_key)
-    {
-        $this->container['_emoji_key'] = $_emoji_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets _emoji_url
-     *
-     * @return string
-     */
-    public function getEmojiUrl()
-    {
-        return $this->container['_emoji_url'];
-    }
-
-    /**
-     * Sets _emoji_url
-     *
-     * @param string $_emoji_url Specifies the image URL of each new emoji.
-     *
-     * @return self
-     */
-    public function setEmojiUrl($_emoji_url)
-    {
-        $this->container['_emoji_url'] = $_emoji_url;
 
         return $this;
     }

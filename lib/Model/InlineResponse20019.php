@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20019 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,15 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'unread_count' => 'float'
+        'non_super_group_channel_unread_message_count' => 'float',
+        'super_group_channel_unread_message_count' => 'float',
+        'group_channel_unread_message_count' => 'float',
+        'super_group_channel_invitation_count' => 'float',
+        'group_channel_invitation_count' => 'float',
+        'super_group_channel_unread_mention_count' => 'float',
+        'group_channel_unread_mention_count' => 'float',
+        'non_super_group_channel_unread_mention_count' => 'float',
+        'non_super_group_channel_invitation_count' => 'float'
     ];
 
     /**
@@ -70,7 +78,15 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'unread_count' => null
+        'non_super_group_channel_unread_message_count' => null,
+        'super_group_channel_unread_message_count' => null,
+        'group_channel_unread_message_count' => null,
+        'super_group_channel_invitation_count' => null,
+        'group_channel_invitation_count' => null,
+        'super_group_channel_unread_mention_count' => null,
+        'group_channel_unread_mention_count' => null,
+        'non_super_group_channel_unread_mention_count' => null,
+        'non_super_group_channel_invitation_count' => null
     ];
 
     /**
@@ -100,7 +116,15 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'unread_count' => 'unread_count'
+        'non_super_group_channel_unread_message_count' => 'non_super_group_channel_unread_message_count',
+        'super_group_channel_unread_message_count' => 'super_group_channel_unread_message_count',
+        'group_channel_unread_message_count' => 'group_channel_unread_message_count',
+        'super_group_channel_invitation_count' => 'super_group_channel_invitation_count',
+        'group_channel_invitation_count' => 'group_channel_invitation_count',
+        'super_group_channel_unread_mention_count' => 'super_group_channel_unread_mention_count',
+        'group_channel_unread_mention_count' => 'group_channel_unread_mention_count',
+        'non_super_group_channel_unread_mention_count' => 'non_super_group_channel_unread_mention_count',
+        'non_super_group_channel_invitation_count' => 'non_super_group_channel_invitation_count'
     ];
 
     /**
@@ -109,7 +133,15 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'unread_count' => 'setUnreadCount'
+        'non_super_group_channel_unread_message_count' => 'setNonSuperGroupChannelUnreadMessageCount',
+        'super_group_channel_unread_message_count' => 'setSuperGroupChannelUnreadMessageCount',
+        'group_channel_unread_message_count' => 'setGroupChannelUnreadMessageCount',
+        'super_group_channel_invitation_count' => 'setSuperGroupChannelInvitationCount',
+        'group_channel_invitation_count' => 'setGroupChannelInvitationCount',
+        'super_group_channel_unread_mention_count' => 'setSuperGroupChannelUnreadMentionCount',
+        'group_channel_unread_mention_count' => 'setGroupChannelUnreadMentionCount',
+        'non_super_group_channel_unread_mention_count' => 'setNonSuperGroupChannelUnreadMentionCount',
+        'non_super_group_channel_invitation_count' => 'setNonSuperGroupChannelInvitationCount'
     ];
 
     /**
@@ -118,7 +150,15 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'unread_count' => 'getUnreadCount'
+        'non_super_group_channel_unread_message_count' => 'getNonSuperGroupChannelUnreadMessageCount',
+        'super_group_channel_unread_message_count' => 'getSuperGroupChannelUnreadMessageCount',
+        'group_channel_unread_message_count' => 'getGroupChannelUnreadMessageCount',
+        'super_group_channel_invitation_count' => 'getSuperGroupChannelInvitationCount',
+        'group_channel_invitation_count' => 'getGroupChannelInvitationCount',
+        'super_group_channel_unread_mention_count' => 'getSuperGroupChannelUnreadMentionCount',
+        'group_channel_unread_mention_count' => 'getGroupChannelUnreadMentionCount',
+        'non_super_group_channel_unread_mention_count' => 'getNonSuperGroupChannelUnreadMentionCount',
+        'non_super_group_channel_invitation_count' => 'getNonSuperGroupChannelInvitationCount'
     ];
 
     /**
@@ -178,7 +218,15 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['unread_count'] = $data['unread_count'] ?? null;
+        $this->container['non_super_group_channel_unread_message_count'] = $data['non_super_group_channel_unread_message_count'] ?? null;
+        $this->container['super_group_channel_unread_message_count'] = $data['super_group_channel_unread_message_count'] ?? null;
+        $this->container['group_channel_unread_message_count'] = $data['group_channel_unread_message_count'] ?? null;
+        $this->container['super_group_channel_invitation_count'] = $data['super_group_channel_invitation_count'] ?? null;
+        $this->container['group_channel_invitation_count'] = $data['group_channel_invitation_count'] ?? null;
+        $this->container['super_group_channel_unread_mention_count'] = $data['super_group_channel_unread_mention_count'] ?? null;
+        $this->container['group_channel_unread_mention_count'] = $data['group_channel_unread_mention_count'] ?? null;
+        $this->container['non_super_group_channel_unread_mention_count'] = $data['non_super_group_channel_unread_mention_count'] ?? null;
+        $this->container['non_super_group_channel_invitation_count'] = $data['non_super_group_channel_invitation_count'] ?? null;
     }
 
     /**
@@ -206,25 +254,217 @@ class InlineResponse20019 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets unread_count
+     * Gets non_super_group_channel_unread_message_count
      *
      * @return float|null
      */
-    public function getUnreadCount()
+    public function getNonSuperGroupChannelUnreadMessageCount()
     {
-        return $this->container['unread_count'];
+        return $this->container['non_super_group_channel_unread_message_count'];
     }
 
     /**
-     * Sets unread_count
+     * Sets non_super_group_channel_unread_message_count
      *
-     * @param float|null $unread_count unread_count
+     * @param float|null $non_super_group_channel_unread_message_count non_super_group_channel_unread_message_count
      *
      * @return self
      */
-    public function setUnreadCount($unread_count)
+    public function setNonSuperGroupChannelUnreadMessageCount($non_super_group_channel_unread_message_count)
     {
-        $this->container['unread_count'] = $unread_count;
+        $this->container['non_super_group_channel_unread_message_count'] = $non_super_group_channel_unread_message_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets super_group_channel_unread_message_count
+     *
+     * @return float|null
+     */
+    public function getSuperGroupChannelUnreadMessageCount()
+    {
+        return $this->container['super_group_channel_unread_message_count'];
+    }
+
+    /**
+     * Sets super_group_channel_unread_message_count
+     *
+     * @param float|null $super_group_channel_unread_message_count super_group_channel_unread_message_count
+     *
+     * @return self
+     */
+    public function setSuperGroupChannelUnreadMessageCount($super_group_channel_unread_message_count)
+    {
+        $this->container['super_group_channel_unread_message_count'] = $super_group_channel_unread_message_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_channel_unread_message_count
+     *
+     * @return float|null
+     */
+    public function getGroupChannelUnreadMessageCount()
+    {
+        return $this->container['group_channel_unread_message_count'];
+    }
+
+    /**
+     * Sets group_channel_unread_message_count
+     *
+     * @param float|null $group_channel_unread_message_count group_channel_unread_message_count
+     *
+     * @return self
+     */
+    public function setGroupChannelUnreadMessageCount($group_channel_unread_message_count)
+    {
+        $this->container['group_channel_unread_message_count'] = $group_channel_unread_message_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets super_group_channel_invitation_count
+     *
+     * @return float|null
+     */
+    public function getSuperGroupChannelInvitationCount()
+    {
+        return $this->container['super_group_channel_invitation_count'];
+    }
+
+    /**
+     * Sets super_group_channel_invitation_count
+     *
+     * @param float|null $super_group_channel_invitation_count super_group_channel_invitation_count
+     *
+     * @return self
+     */
+    public function setSuperGroupChannelInvitationCount($super_group_channel_invitation_count)
+    {
+        $this->container['super_group_channel_invitation_count'] = $super_group_channel_invitation_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_channel_invitation_count
+     *
+     * @return float|null
+     */
+    public function getGroupChannelInvitationCount()
+    {
+        return $this->container['group_channel_invitation_count'];
+    }
+
+    /**
+     * Sets group_channel_invitation_count
+     *
+     * @param float|null $group_channel_invitation_count group_channel_invitation_count
+     *
+     * @return self
+     */
+    public function setGroupChannelInvitationCount($group_channel_invitation_count)
+    {
+        $this->container['group_channel_invitation_count'] = $group_channel_invitation_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets super_group_channel_unread_mention_count
+     *
+     * @return float|null
+     */
+    public function getSuperGroupChannelUnreadMentionCount()
+    {
+        return $this->container['super_group_channel_unread_mention_count'];
+    }
+
+    /**
+     * Sets super_group_channel_unread_mention_count
+     *
+     * @param float|null $super_group_channel_unread_mention_count super_group_channel_unread_mention_count
+     *
+     * @return self
+     */
+    public function setSuperGroupChannelUnreadMentionCount($super_group_channel_unread_mention_count)
+    {
+        $this->container['super_group_channel_unread_mention_count'] = $super_group_channel_unread_mention_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_channel_unread_mention_count
+     *
+     * @return float|null
+     */
+    public function getGroupChannelUnreadMentionCount()
+    {
+        return $this->container['group_channel_unread_mention_count'];
+    }
+
+    /**
+     * Sets group_channel_unread_mention_count
+     *
+     * @param float|null $group_channel_unread_mention_count group_channel_unread_mention_count
+     *
+     * @return self
+     */
+    public function setGroupChannelUnreadMentionCount($group_channel_unread_mention_count)
+    {
+        $this->container['group_channel_unread_mention_count'] = $group_channel_unread_mention_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets non_super_group_channel_unread_mention_count
+     *
+     * @return float|null
+     */
+    public function getNonSuperGroupChannelUnreadMentionCount()
+    {
+        return $this->container['non_super_group_channel_unread_mention_count'];
+    }
+
+    /**
+     * Sets non_super_group_channel_unread_mention_count
+     *
+     * @param float|null $non_super_group_channel_unread_mention_count non_super_group_channel_unread_mention_count
+     *
+     * @return self
+     */
+    public function setNonSuperGroupChannelUnreadMentionCount($non_super_group_channel_unread_mention_count)
+    {
+        $this->container['non_super_group_channel_unread_mention_count'] = $non_super_group_channel_unread_mention_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets non_super_group_channel_invitation_count
+     *
+     * @return float|null
+     */
+    public function getNonSuperGroupChannelInvitationCount()
+    {
+        return $this->container['non_super_group_channel_invitation_count'];
+    }
+
+    /**
+     * Sets non_super_group_channel_invitation_count
+     *
+     * @param float|null $non_super_group_channel_invitation_count non_super_group_channel_invitation_count
+     *
+     * @return self
+     */
+    public function setNonSuperGroupChannelInvitationCount($non_super_group_channel_invitation_count)
+    {
+        $this->container['non_super_group_channel_invitation_count'] = $non_super_group_channel_invitation_count;
 
         return $this;
     }

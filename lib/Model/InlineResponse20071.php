@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20071 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class InlineResponse20071 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'report_logs' => '\OpenAPI\Client\Model\InlineResponse20071ReportLogs[]',
+        'report_logs' => '\Sendbird\Model\InlineResponse20071ReportLogs[]',
         'next' => 'string'
     ];
 
@@ -214,7 +214,7 @@ class InlineResponse20071 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets report_logs
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20071ReportLogs[]|null
+     * @return \Sendbird\Model\InlineResponse20071ReportLogs[]|null
      */
     public function getReportLogs()
     {
@@ -224,7 +224,7 @@ class InlineResponse20071 implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets report_logs
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20071ReportLogs[]|null $report_logs report_logs
+     * @param \Sendbird\Model\InlineResponse20071ReportLogs[]|null $report_logs report_logs
      *
      * @return self
      */

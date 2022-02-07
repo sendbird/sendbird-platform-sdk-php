@@ -4,7 +4,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Api;
+namespace Sendbird\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use OpenAPI\Client\ApiException;
-use OpenAPI\Client\Configuration;
-use OpenAPI\Client\HeaderSelector;
-use OpenAPI\Client\ObjectSerializer;
+use Sendbird\ApiException;
+use Sendbird\Configuration;
+use Sendbird\HeaderSelector;
+use Sendbird\ObjectSerializer;
 
 /**
  * GroupChannelApi Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -122,11 +122,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcAcceptInvitationData $gc_accept_invitation_data gc_accept_invitation_data (optional)
+     * @param  \Sendbird\Model\GcAcceptInvitationData $gc_accept_invitation_data gc_accept_invitation_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\SendBirdGroupChannel
      */
     public function gcAcceptInvitation($channel_url, $api_token = null, $gc_accept_invitation_data = null)
     {
@@ -141,11 +141,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
+     * @param  \Sendbird\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcAcceptInvitationWithHttpInfo($channel_url, $api_token = null, $gc_accept_invitation_data = null)
     {
@@ -188,20 +188,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -219,7 +219,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\SendBirdGroupChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -236,7 +236,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
+     * @param  \Sendbird\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -258,14 +258,14 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
+     * @param  \Sendbird\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function gcAcceptInvitationAsyncWithHttpInfo($channel_url, $api_token = null, $gc_accept_invitation_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
         $request = $this->gcAcceptInvitationRequest($channel_url, $api_token, $gc_accept_invitation_data);
 
         return $this->client
@@ -306,7 +306,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
+     * @param  \Sendbird\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -413,11 +413,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcBanUserData $gc_ban_user_data gc_ban_user_data (optional)
+     * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data gc_ban_user_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20034BannedList
+     * @return \Sendbird\Model\InlineResponse20033BannedList
      */
     public function gcBanUser($channel_url, $api_token = null, $gc_ban_user_data = null)
     {
@@ -432,11 +432,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcBanUserData $gc_ban_user_data (optional)
+     * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20034BannedList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20033BannedList, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcBanUserWithHttpInfo($channel_url, $api_token = null, $gc_ban_user_data = null)
     {
@@ -479,20 +479,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20034BannedList' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20033BannedList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20034BannedList', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20033BannedList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20034BannedList';
+            $returnType = '\Sendbird\Model\InlineResponse20033BannedList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -510,7 +510,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20034BannedList',
+                        '\Sendbird\Model\InlineResponse20033BannedList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -527,7 +527,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcBanUserData $gc_ban_user_data (optional)
+     * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -549,14 +549,14 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcBanUserData $gc_ban_user_data (optional)
+     * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function gcBanUserAsyncWithHttpInfo($channel_url, $api_token = null, $gc_ban_user_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20034BannedList';
+        $returnType = '\Sendbird\Model\InlineResponse20033BannedList';
         $request = $this->gcBanUserRequest($channel_url, $api_token, $gc_ban_user_data);
 
         return $this->client
@@ -597,7 +597,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcBanUserData $gc_ban_user_data (optional)
+     * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -707,7 +707,7 @@ class GroupChannelApi
      * @param  string $api_token api_token (optional)
      * @param  bool $delete_all delete_all (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -726,7 +726,7 @@ class GroupChannelApi
      * @param  string $api_token (optional)
      * @param  bool $delete_all (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -915,11 +915,11 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -979,9 +979,9 @@ class GroupChannelApi
      * @param  string $user_id user_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20038
+     * @return \Sendbird\Model\InlineResponse20037
      */
     public function gcCheckIfMemberById($channel_url, $user_id, $api_token = null)
     {
@@ -998,9 +998,9 @@ class GroupChannelApi
      * @param  string $user_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20038, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20037, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcCheckIfMemberByIdWithHttpInfo($channel_url, $user_id, $api_token = null)
     {
@@ -1043,20 +1043,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20038' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20037' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20038', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20037', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20038';
+            $returnType = '\Sendbird\Model\InlineResponse20037';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1074,7 +1074,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20038',
+                        '\Sendbird\Model\InlineResponse20037',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1120,7 +1120,7 @@ class GroupChannelApi
      */
     public function gcCheckIfMemberByIdAsyncWithHttpInfo($channel_url, $user_id, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20038';
+        $returnType = '\Sendbird\Model\InlineResponse20037';
         $request = $this->gcCheckIfMemberByIdRequest($channel_url, $user_id, $api_token);
 
         return $this->client
@@ -1275,11 +1275,11 @@ class GroupChannelApi
      * Create a channel
      *
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcCreateChannelData $gc_create_channel_data gc_create_channel_data (optional)
+     * @param  \Sendbird\Model\GcCreateChannelData $gc_create_channel_data gc_create_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\SendBirdGroupChannel
      */
     public function gcCreateChannel($api_token = null, $gc_create_channel_data = null)
     {
@@ -1293,11 +1293,11 @@ class GroupChannelApi
      * Create a channel
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcCreateChannelData $gc_create_channel_data (optional)
+     * @param  \Sendbird\Model\GcCreateChannelData $gc_create_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcCreateChannelWithHttpInfo($api_token = null, $gc_create_channel_data = null)
     {
@@ -1340,20 +1340,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1371,7 +1371,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\SendBirdGroupChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1387,7 +1387,7 @@ class GroupChannelApi
      * Create a channel
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcCreateChannelData $gc_create_channel_data (optional)
+     * @param  \Sendbird\Model\GcCreateChannelData $gc_create_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1408,14 +1408,14 @@ class GroupChannelApi
      * Create a channel
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcCreateChannelData $gc_create_channel_data (optional)
+     * @param  \Sendbird\Model\GcCreateChannelData $gc_create_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function gcCreateChannelAsyncWithHttpInfo($api_token = null, $gc_create_channel_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
         $request = $this->gcCreateChannelRequest($api_token, $gc_create_channel_data);
 
         return $this->client
@@ -1455,7 +1455,7 @@ class GroupChannelApi
      * Create request for operation 'gcCreateChannel'
      *
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcCreateChannelData $gc_create_channel_data (optional)
+     * @param  \Sendbird\Model\GcCreateChannelData $gc_create_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1548,9 +1548,9 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcDeclineInvitationData $gc_decline_invitation_data gc_decline_invitation_data (optional)
+     * @param  \Sendbird\Model\GcDeclineInvitationData $gc_decline_invitation_data gc_decline_invitation_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1566,9 +1566,9 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
+     * @param  \Sendbird\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1627,7 +1627,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
+     * @param  \Sendbird\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1649,7 +1649,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
+     * @param  \Sendbird\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1687,7 +1687,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
+     * @param  \Sendbird\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1726,11 +1726,11 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 ['application/json']
             );
         }
@@ -1795,7 +1795,7 @@ class GroupChannelApi
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -1812,7 +1812,7 @@ class GroupChannelApi
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1967,11 +1967,11 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -2029,11 +2029,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcFreezeChannelData $gc_freeze_channel_data gc_freeze_channel_data (optional)
+     * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data gc_freeze_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\SendBirdGroupChannel
      */
     public function gcFreezeChannel($channel_url, $api_token = null, $gc_freeze_channel_data = null)
     {
@@ -2048,11 +2048,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
+     * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcFreezeChannelWithHttpInfo($channel_url, $api_token = null, $gc_freeze_channel_data = null)
     {
@@ -2095,20 +2095,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2126,7 +2126,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\SendBirdGroupChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2143,7 +2143,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
+     * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2165,14 +2165,14 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
+     * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function gcFreezeChannelAsyncWithHttpInfo($channel_url, $api_token = null, $gc_freeze_channel_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
         $request = $this->gcFreezeChannelRequest($channel_url, $api_token, $gc_freeze_channel_data);
 
         return $this->client
@@ -2213,7 +2213,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
+     * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2320,9 +2320,9 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data gc_hide_or_archive_channel_data (optional)
+     * @param  \Sendbird\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data gc_hide_or_archive_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -2338,9 +2338,9 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
+     * @param  \Sendbird\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2399,7 +2399,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
+     * @param  \Sendbird\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2421,7 +2421,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
+     * @param  \Sendbird\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2459,7 +2459,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
+     * @param  \Sendbird\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2498,11 +2498,11 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 ['application/json']
             );
         }
@@ -2566,11 +2566,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcInviteAsMembersData $gc_invite_as_members_data gc_invite_as_members_data (optional)
+     * @param  \Sendbird\Model\GcInviteAsMembersData $gc_invite_as_members_data gc_invite_as_members_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\SendBirdGroupChannel
      */
     public function gcInviteAsMembers($channel_url, $api_token = null, $gc_invite_as_members_data = null)
     {
@@ -2585,11 +2585,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
+     * @param  \Sendbird\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcInviteAsMembersWithHttpInfo($channel_url, $api_token = null, $gc_invite_as_members_data = null)
     {
@@ -2632,20 +2632,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2663,7 +2663,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\SendBirdGroupChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2680,7 +2680,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
+     * @param  \Sendbird\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2702,14 +2702,14 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
+     * @param  \Sendbird\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function gcInviteAsMembersAsyncWithHttpInfo($channel_url, $api_token = null, $gc_invite_as_members_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
         $request = $this->gcInviteAsMembersRequest($channel_url, $api_token, $gc_invite_as_members_data);
 
         return $this->client
@@ -2750,7 +2750,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
+     * @param  \Sendbird\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2857,9 +2857,9 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcJoinChannelData $gc_join_channel_data gc_join_channel_data (optional)
+     * @param  \Sendbird\Model\GcJoinChannelData $gc_join_channel_data gc_join_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -2875,9 +2875,9 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcJoinChannelData $gc_join_channel_data (optional)
+     * @param  \Sendbird\Model\GcJoinChannelData $gc_join_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2936,7 +2936,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcJoinChannelData $gc_join_channel_data (optional)
+     * @param  \Sendbird\Model\GcJoinChannelData $gc_join_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2958,7 +2958,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcJoinChannelData $gc_join_channel_data (optional)
+     * @param  \Sendbird\Model\GcJoinChannelData $gc_join_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2996,7 +2996,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcJoinChannelData $gc_join_channel_data (optional)
+     * @param  \Sendbird\Model\GcJoinChannelData $gc_join_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3035,11 +3035,11 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 ['application/json']
             );
         }
@@ -3103,9 +3103,9 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcLeaveChannelData $gc_leave_channel_data gc_leave_channel_data (optional)
+     * @param  \Sendbird\Model\GcLeaveChannelData $gc_leave_channel_data gc_leave_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -3121,9 +3121,9 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
+     * @param  \Sendbird\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3182,7 +3182,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
+     * @param  \Sendbird\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3204,7 +3204,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
+     * @param  \Sendbird\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3242,7 +3242,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
+     * @param  \Sendbird\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3281,11 +3281,11 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 ['application/json']
             );
         }
@@ -3352,9 +3352,9 @@ class GroupChannelApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20034
+     * @return \Sendbird\Model\InlineResponse20033
      */
     public function gcListBannedUsers($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -3372,9 +3372,9 @@ class GroupChannelApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20034, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20033, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcListBannedUsersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -3417,20 +3417,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20034' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20033' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20034', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20033', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20034';
+            $returnType = '\Sendbird\Model\InlineResponse20033';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3448,7 +3448,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20034',
+                        '\Sendbird\Model\InlineResponse20033',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3496,7 +3496,7 @@ class GroupChannelApi
      */
     public function gcListBannedUsersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20034';
+        $returnType = '\Sendbird\Model\InlineResponse20033';
         $request = $this->gcListBannedUsersRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -3703,9 +3703,9 @@ class GroupChannelApi
      * @param  string $members_in members_in (optional)
      * @param  string $user_id user_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20018
+     * @return \Sendbird\Model\InlineResponse20017
      */
     public function gcListChannels($api_token = null, $token = null, $limit = null, $distinct_mode = null, $public_mode = null, $super_mode = null, $created_after = null, $created_before = null, $show_empty = null, $show_member = null, $show_delivery_receipt = null, $show_read_receipt = null, $show_metadata = null, $show_frozen = null, $order = null, $metadata_order_key = null, $custom_types = null, $custom_type_startswith = null, $channel_urls = null, $name = null, $name_contains = null, $name_startswith = null, $members_exactly_in = null, $members_include_in = null, $query_type = null, $members_nickname = null, $members_nickname_contains = null, $metadata_key = null, $metadata_values = null, $metadata_value_startswith = null, $metacounter_key = null, $metacounter_values = null, $metacounter_value_gt = null, $metacounter_value_gte = null, $metacounter_value_lt = null, $metacounter_value_lte = null, $include_sorted_metaarray_in_last_message = null, $custom_type = null, $read_receipt = null, $member = null, $is_distinct = null, $members_in = null, $user_id = null)
     {
@@ -3762,9 +3762,9 @@ class GroupChannelApi
      * @param  string $members_in (optional)
      * @param  string $user_id (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20018, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20017, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcListChannelsWithHttpInfo($api_token = null, $token = null, $limit = null, $distinct_mode = null, $public_mode = null, $super_mode = null, $created_after = null, $created_before = null, $show_empty = null, $show_member = null, $show_delivery_receipt = null, $show_read_receipt = null, $show_metadata = null, $show_frozen = null, $order = null, $metadata_order_key = null, $custom_types = null, $custom_type_startswith = null, $channel_urls = null, $name = null, $name_contains = null, $name_startswith = null, $members_exactly_in = null, $members_include_in = null, $query_type = null, $members_nickname = null, $members_nickname_contains = null, $metadata_key = null, $metadata_values = null, $metadata_value_startswith = null, $metacounter_key = null, $metacounter_values = null, $metacounter_value_gt = null, $metacounter_value_gte = null, $metacounter_value_lt = null, $metacounter_value_lte = null, $include_sorted_metaarray_in_last_message = null, $custom_type = null, $read_receipt = null, $member = null, $is_distinct = null, $members_in = null, $user_id = null)
     {
@@ -3807,20 +3807,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20018' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20017' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20018', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20017', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20018';
+            $returnType = '\Sendbird\Model\InlineResponse20017';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3838,7 +3838,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20018',
+                        '\Sendbird\Model\InlineResponse20017',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3964,7 +3964,7 @@ class GroupChannelApi
      */
     public function gcListChannelsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null, $distinct_mode = null, $public_mode = null, $super_mode = null, $created_after = null, $created_before = null, $show_empty = null, $show_member = null, $show_delivery_receipt = null, $show_read_receipt = null, $show_metadata = null, $show_frozen = null, $order = null, $metadata_order_key = null, $custom_types = null, $custom_type_startswith = null, $channel_urls = null, $name = null, $name_contains = null, $name_startswith = null, $members_exactly_in = null, $members_include_in = null, $query_type = null, $members_nickname = null, $members_nickname_contains = null, $metadata_key = null, $metadata_values = null, $metadata_value_startswith = null, $metacounter_key = null, $metacounter_values = null, $metacounter_value_gt = null, $metacounter_value_gte = null, $metacounter_value_lt = null, $metacounter_value_lte = null, $include_sorted_metaarray_in_last_message = null, $custom_type = null, $read_receipt = null, $member = null, $is_distinct = null, $members_in = null, $user_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20018';
+        $returnType = '\Sendbird\Model\InlineResponse20017';
         $request = $this->gcListChannelsRequest($api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $created_after, $created_before, $show_empty, $show_member, $show_delivery_receipt, $show_read_receipt, $show_metadata, $show_frozen, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $include_sorted_metaarray_in_last_message, $custom_type, $read_receipt, $member, $is_distinct, $members_in, $user_id);
 
         return $this->client
@@ -4604,9 +4604,9 @@ class GroupChannelApi
      * @param  string $muted_member_filter muted_member_filter (optional)
      * @param  string $nickname_startswith nickname_startswith (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20037
+     * @return \Sendbird\Model\InlineResponse20036
      */
     public function gcListMembers($channel_url, $api_token = null, $token = null, $limit = null, $show_delivery_receipt = null, $show_read_receipt = null, $order = null, $operator_filter = null, $member_state_filter = null, $muted_member_filter = null, $nickname_startswith = null)
     {
@@ -4631,9 +4631,9 @@ class GroupChannelApi
      * @param  string $muted_member_filter (optional)
      * @param  string $nickname_startswith (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20037, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20036, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcListMembersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null, $show_delivery_receipt = null, $show_read_receipt = null, $order = null, $operator_filter = null, $member_state_filter = null, $muted_member_filter = null, $nickname_startswith = null)
     {
@@ -4676,20 +4676,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20037' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20036' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20037', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20036', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20037';
+            $returnType = '\Sendbird\Model\InlineResponse20036';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4707,7 +4707,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20037',
+                        '\Sendbird\Model\InlineResponse20036',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4769,7 +4769,7 @@ class GroupChannelApi
      */
     public function gcListMembersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null, $show_delivery_receipt = null, $show_read_receipt = null, $order = null, $operator_filter = null, $member_state_filter = null, $muted_member_filter = null, $nickname_startswith = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20037';
+        $returnType = '\Sendbird\Model\InlineResponse20036';
         $request = $this->gcListMembersRequest($channel_url, $api_token, $token, $limit, $show_delivery_receipt, $show_read_receipt, $order, $operator_filter, $member_state_filter, $muted_member_filter, $nickname_startswith);
 
         return $this->client
@@ -5021,9 +5021,9 @@ class GroupChannelApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20032
+     * @return \Sendbird\Model\InlineResponse20031
      */
     public function gcListMutedUsers($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -5041,9 +5041,9 @@ class GroupChannelApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20032, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20031, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcListMutedUsersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -5086,20 +5086,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20032' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20031' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20032', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20031', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20032';
+            $returnType = '\Sendbird\Model\InlineResponse20031';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5117,7 +5117,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20032',
+                        '\Sendbird\Model\InlineResponse20031',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5165,7 +5165,7 @@ class GroupChannelApi
      */
     public function gcListMutedUsersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20032';
+        $returnType = '\Sendbird\Model\InlineResponse20031';
         $request = $this->gcListMutedUsersRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -5333,9 +5333,9 @@ class GroupChannelApi
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20035
+     * @return \Sendbird\Model\InlineResponse20034
      */
     public function gcListOperators($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -5353,9 +5353,9 @@ class GroupChannelApi
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20035, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20034, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcListOperatorsWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -5398,20 +5398,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20035' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20034' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20035', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20034', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20035';
+            $returnType = '\Sendbird\Model\InlineResponse20034';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5429,7 +5429,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20035',
+                        '\Sendbird\Model\InlineResponse20034',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5477,7 +5477,7 @@ class GroupChannelApi
      */
     public function gcListOperatorsAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20035';
+        $returnType = '\Sendbird\Model\InlineResponse20034';
         $request = $this->gcListOperatorsRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -5642,11 +5642,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcMuteUserData $gc_mute_user_data gc_mute_user_data (optional)
+     * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data gc_mute_user_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\SendBirdGroupChannel
      */
     public function gcMuteUser($channel_url, $api_token = null, $gc_mute_user_data = null)
     {
@@ -5661,11 +5661,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcMuteUserData $gc_mute_user_data (optional)
+     * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcMuteUserWithHttpInfo($channel_url, $api_token = null, $gc_mute_user_data = null)
     {
@@ -5708,20 +5708,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5739,7 +5739,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\SendBirdGroupChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5756,7 +5756,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcMuteUserData $gc_mute_user_data (optional)
+     * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5778,14 +5778,14 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcMuteUserData $gc_mute_user_data (optional)
+     * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function gcMuteUserAsyncWithHttpInfo($channel_url, $api_token = null, $gc_mute_user_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
         $request = $this->gcMuteUserRequest($channel_url, $api_token, $gc_mute_user_data);
 
         return $this->client
@@ -5826,7 +5826,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcMuteUserData $gc_mute_user_data (optional)
+     * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5933,11 +5933,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcRegisterOperatorsData $gc_register_operators_data gc_register_operators_data (optional)
+     * @param  \Sendbird\Model\GcRegisterOperatorsData $gc_register_operators_data gc_register_operators_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20039
+     * @return \Sendbird\Model\InlineResponse20038
      */
     public function gcRegisterOperators($channel_url, $api_token = null, $gc_register_operators_data = null)
     {
@@ -5952,11 +5952,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
+     * @param  \Sendbird\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20039, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20038, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcRegisterOperatorsWithHttpInfo($channel_url, $api_token = null, $gc_register_operators_data = null)
     {
@@ -5999,20 +5999,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20039' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20038' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20039', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20038', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20039';
+            $returnType = '\Sendbird\Model\InlineResponse20038';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6030,7 +6030,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20039',
+                        '\Sendbird\Model\InlineResponse20038',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6047,7 +6047,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
+     * @param  \Sendbird\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6069,14 +6069,14 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
+     * @param  \Sendbird\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function gcRegisterOperatorsAsyncWithHttpInfo($channel_url, $api_token = null, $gc_register_operators_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20039';
+        $returnType = '\Sendbird\Model\InlineResponse20038';
         $request = $this->gcRegisterOperatorsRequest($channel_url, $api_token, $gc_register_operators_data);
 
         return $this->client
@@ -6117,7 +6117,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
+     * @param  \Sendbird\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6224,9 +6224,9 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcResetChatHistoryData $gc_reset_chat_history_data gc_reset_chat_history_data (optional)
+     * @param  \Sendbird\Model\GcResetChatHistoryData $gc_reset_chat_history_data gc_reset_chat_history_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -6242,9 +6242,9 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
+     * @param  \Sendbird\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -6303,7 +6303,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
+     * @param  \Sendbird\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6325,7 +6325,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
+     * @param  \Sendbird\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6363,7 +6363,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
+     * @param  \Sendbird\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6402,11 +6402,11 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 ['application/json']
             );
         }
@@ -6472,7 +6472,7 @@ class GroupChannelApi
      * @param  string $banned_user_id banned_user_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -6490,7 +6490,7 @@ class GroupChannelApi
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -6662,11 +6662,11 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -6727,7 +6727,7 @@ class GroupChannelApi
      * @param  string $api_token api_token (optional)
      * @param  bool $should_unhide_all should_unhide_all (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -6746,7 +6746,7 @@ class GroupChannelApi
      * @param  string $api_token (optional)
      * @param  bool $should_unhide_all (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -6935,11 +6935,11 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -6999,7 +6999,7 @@ class GroupChannelApi
      * @param  string $muted_user_id muted_user_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -7017,7 +7017,7 @@ class GroupChannelApi
      * @param  string $muted_user_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -7189,11 +7189,11 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                [],
                 []
             );
         }
@@ -7252,11 +7252,11 @@ class GroupChannelApi
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data gc_update_ban_by_id_data (optional)
+     * @param  \Sendbird\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data gc_update_ban_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdUser
+     * @return \Sendbird\Model\SendBirdUser
      */
     public function gcUpdateBanById($channel_url, $banned_user_id, $api_token = null, $gc_update_ban_by_id_data = null)
     {
@@ -7272,11 +7272,11 @@ class GroupChannelApi
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
+     * @param  \Sendbird\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcUpdateBanByIdWithHttpInfo($channel_url, $banned_user_id, $api_token = null, $gc_update_ban_by_id_data = null)
     {
@@ -7319,20 +7319,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdUser' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdUser' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdUser', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdUser', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdUser';
+            $returnType = '\Sendbird\Model\SendBirdUser';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7350,7 +7350,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdUser',
+                        '\Sendbird\Model\SendBirdUser',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7368,7 +7368,7 @@ class GroupChannelApi
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
+     * @param  \Sendbird\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7391,14 +7391,14 @@ class GroupChannelApi
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
+     * @param  \Sendbird\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function gcUpdateBanByIdAsyncWithHttpInfo($channel_url, $banned_user_id, $api_token = null, $gc_update_ban_by_id_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdUser';
+        $returnType = '\Sendbird\Model\SendBirdUser';
         $request = $this->gcUpdateBanByIdRequest($channel_url, $banned_user_id, $api_token, $gc_update_ban_by_id_data);
 
         return $this->client
@@ -7440,7 +7440,7 @@ class GroupChannelApi
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
+     * @param  \Sendbird\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7561,11 +7561,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url channel_url (required)
      * @param  string $api_token api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data gc_update_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data gc_update_channel_by_url_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\SendBirdGroupChannel
      */
     public function gcUpdateChannelByUrl($channel_url, $api_token = null, $gc_update_channel_by_url_data = null)
     {
@@ -7580,11 +7580,11 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcUpdateChannelByUrlWithHttpInfo($channel_url, $api_token = null, $gc_update_channel_by_url_data = null)
     {
@@ -7627,20 +7627,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7658,7 +7658,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\SendBirdGroupChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7675,7 +7675,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7697,14 +7697,14 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function gcUpdateChannelByUrlAsyncWithHttpInfo($channel_url, $api_token = null, $gc_update_channel_by_url_data = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
         $request = $this->gcUpdateChannelByUrlRequest($channel_url, $api_token, $gc_update_channel_by_url_data);
 
         return $this->client
@@ -7745,7 +7745,7 @@ class GroupChannelApi
      *
      * @param  string $channel_url (required)
      * @param  string $api_token (optional)
-     * @param  \OpenAPI\Client\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
+     * @param  \Sendbird\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7854,9 +7854,9 @@ class GroupChannelApi
      * @param  string $banned_user_id banned_user_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdUser
+     * @return \Sendbird\Model\SendBirdUser
      */
     public function gcViewBanById($channel_url, $banned_user_id, $api_token = null)
     {
@@ -7873,9 +7873,9 @@ class GroupChannelApi
      * @param  string $banned_user_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcViewBanByIdWithHttpInfo($channel_url, $banned_user_id, $api_token = null)
     {
@@ -7918,20 +7918,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdUser' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdUser' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdUser', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdUser', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdUser';
+            $returnType = '\Sendbird\Model\SendBirdUser';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7949,7 +7949,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdUser',
+                        '\Sendbird\Model\SendBirdUser',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7995,7 +7995,7 @@ class GroupChannelApi
      */
     public function gcViewBanByIdAsyncWithHttpInfo($channel_url, $banned_user_id, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdUser';
+        $returnType = '\Sendbird\Model\SendBirdUser';
         $request = $this->gcViewBanByIdRequest($channel_url, $banned_user_id, $api_token);
 
         return $this->client
@@ -8157,9 +8157,9 @@ class GroupChannelApi
      * @param  bool $read_receipt read_receipt (optional)
      * @param  bool $member member (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\SendBirdGroupChannel
      */
     public function gcViewChannelByUrl($channel_url, $api_token = null, $show_delivery_receipt = null, $show_read_receipt = null, $show_member = null, $read_receipt = null, $member = null)
     {
@@ -8180,9 +8180,9 @@ class GroupChannelApi
      * @param  bool $read_receipt (optional)
      * @param  bool $member (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcViewChannelByUrlWithHttpInfo($channel_url, $api_token = null, $show_delivery_receipt = null, $show_read_receipt = null, $show_member = null, $read_receipt = null, $member = null)
     {
@@ -8225,20 +8225,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -8256,7 +8256,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\SendBirdGroupChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8310,7 +8310,7 @@ class GroupChannelApi
      */
     public function gcViewChannelByUrlAsyncWithHttpInfo($channel_url, $api_token = null, $show_delivery_receipt = null, $show_read_receipt = null, $show_member = null, $read_receipt = null, $member = null)
     {
-        $returnType = '\OpenAPI\Client\Model\SendBirdGroupChannel';
+        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
         $request = $this->gcViewChannelByUrlRequest($channel_url, $api_token, $show_delivery_receipt, $show_read_receipt, $show_member, $read_receipt, $member);
 
         return $this->client
@@ -8513,9 +8513,9 @@ class GroupChannelApi
      * @param  string $muted_user_id muted_user_id (required)
      * @param  string $api_token api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\InlineResponse20036
+     * @return \Sendbird\Model\InlineResponse20035
      */
     public function gcViewMuteById($channel_url, $muted_user_id, $api_token = null)
     {
@@ -8532,9 +8532,9 @@ class GroupChannelApi
      * @param  string $muted_user_id (required)
      * @param  string $api_token (optional)
      *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\InlineResponse20036, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse20035, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcViewMuteByIdWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
     {
@@ -8577,20 +8577,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\InlineResponse20036' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse20035' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\InlineResponse20036', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20035', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\InlineResponse20036';
+            $returnType = '\Sendbird\Model\InlineResponse20035';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -8608,7 +8608,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\InlineResponse20036',
+                        '\Sendbird\Model\InlineResponse20035',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8654,7 +8654,7 @@ class GroupChannelApi
      */
     public function gcViewMuteByIdAsyncWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
     {
-        $returnType = '\OpenAPI\Client\Model\InlineResponse20036';
+        $returnType = '\Sendbird\Model\InlineResponse20035';
         $request = $this->gcViewMuteByIdRequest($channel_url, $muted_user_id, $api_token);
 
         return $this->client

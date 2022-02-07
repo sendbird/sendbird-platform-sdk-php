@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdThumbnailObject Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -111,7 +111,7 @@ class SendBirdThumbnailObject implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $attributeMap = [
         'height' => 'height',
-        'plain_url' => 'plainUrl',
+        'plain_url' => 'plain_url',
         'real_height' => 'real_height',
         'real_width' => 'real_width',
         'url' => 'url',

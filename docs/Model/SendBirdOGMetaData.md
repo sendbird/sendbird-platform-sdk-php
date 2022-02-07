@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**default_image** | [**\OpenAPI\Client\Model\SendBirdOGImage**](SendBirdOGImage.md) |  | [optional]
+**default_image** | [**\Sendbird\Model\SendBirdOGImage**](SendBirdOGImage.md) |  | [optional]
 **description** | **string** |  | [optional]
 **title** | **string** |  | [optional]
 **url** | **string** |  | [optional]

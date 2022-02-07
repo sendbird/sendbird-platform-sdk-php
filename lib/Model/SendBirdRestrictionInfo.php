@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * SendBirdRestrictionInfo Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -105,8 +105,8 @@ class SendBirdRestrictionInfo implements ModelInterface, ArrayAccess, \JsonSeria
      */
     protected static $attributeMap = [
         'description' => 'description',
-        'end_at' => 'endAt',
-        'restriction_type' => 'restrictionType'
+        'end_at' => 'end_at',
+        'restriction_type' => 'restriction_type'
     ];
 
     /**

@@ -1,4 +1,4 @@
-# OpenAPI\Client\AdvancedAnalyticsApi
+# Sendbird\AdvancedAnalyticsApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `retrieveAdvancedAnalyticsMetrics()`
 
 ```php
-retrieveAdvancedAnalyticsMetrics($api_token): \OpenAPI\Client\Model\InlineResponse20063
+retrieveAdvancedAnalyticsMetrics($api_token): \Sendbird\Model\InlineResponse20062
 ```
 
 Retrieve Advanced analytics metrics
@@ -25,7 +25,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\AdvancedAnalyticsApi(
+$apiInstance = new Sendbird\Api\AdvancedAnalyticsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20063**](../Model/InlineResponse20063.md)
+[**\Sendbird\Model\InlineResponse20062**](../Model/InlineResponse20062.md)
 
 ### Authorization
 

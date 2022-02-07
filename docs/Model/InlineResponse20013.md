@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**push_configurations** | [**\OpenAPI\Client\Model\InlineResponse20013PushConfigurations[]**](InlineResponse20013PushConfigurations.md) |  | [optional]
+**push_configurations** | **string[]** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

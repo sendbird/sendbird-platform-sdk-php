@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20069 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,13 @@ class InlineResponse20069 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'requests' => '\OpenAPI\Client\Model\InlineResponse20069Requests[]',
-        'next' => 'string'
+        'request_id' => 'string',
+        'action' => 'string',
+        'status' => 'string',
+        'user_id' => 'string',
+        'user_ids' => 'string[]',
+        'channel_delete_option' => 'string',
+        'created_at' => 'float'
     ];
 
     /**
@@ -71,8 +76,13 @@ class InlineResponse20069 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'requests' => null,
-        'next' => null
+        'request_id' => null,
+        'action' => null,
+        'status' => null,
+        'user_id' => null,
+        'user_ids' => null,
+        'channel_delete_option' => null,
+        'created_at' => null
     ];
 
     /**
@@ -102,8 +112,13 @@ class InlineResponse20069 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'requests' => 'requests',
-        'next' => 'next'
+        'request_id' => 'request_id',
+        'action' => 'action',
+        'status' => 'status',
+        'user_id' => 'user_id',
+        'user_ids' => 'user_ids',
+        'channel_delete_option' => 'channel_delete_option',
+        'created_at' => 'created_at'
     ];
 
     /**
@@ -112,8 +127,13 @@ class InlineResponse20069 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'requests' => 'setRequests',
-        'next' => 'setNext'
+        'request_id' => 'setRequestId',
+        'action' => 'setAction',
+        'status' => 'setStatus',
+        'user_id' => 'setUserId',
+        'user_ids' => 'setUserIds',
+        'channel_delete_option' => 'setChannelDeleteOption',
+        'created_at' => 'setCreatedAt'
     ];
 
     /**
@@ -122,8 +142,13 @@ class InlineResponse20069 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'requests' => 'getRequests',
-        'next' => 'getNext'
+        'request_id' => 'getRequestId',
+        'action' => 'getAction',
+        'status' => 'getStatus',
+        'user_id' => 'getUserId',
+        'user_ids' => 'getUserIds',
+        'channel_delete_option' => 'getChannelDeleteOption',
+        'created_at' => 'getCreatedAt'
     ];
 
     /**
@@ -183,8 +208,13 @@ class InlineResponse20069 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['requests'] = $data['requests'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
+        $this->container['request_id'] = $data['request_id'] ?? null;
+        $this->container['action'] = $data['action'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['user_ids'] = $data['user_ids'] ?? null;
+        $this->container['channel_delete_option'] = $data['channel_delete_option'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
     }
 
     /**
@@ -212,49 +242,169 @@ class InlineResponse20069 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets requests
+     * Gets request_id
      *
-     * @return \OpenAPI\Client\Model\InlineResponse20069Requests[]|null
+     * @return string|null
      */
-    public function getRequests()
+    public function getRequestId()
     {
-        return $this->container['requests'];
+        return $this->container['request_id'];
     }
 
     /**
-     * Sets requests
+     * Sets request_id
      *
-     * @param \OpenAPI\Client\Model\InlineResponse20069Requests[]|null $requests requests
+     * @param string|null $request_id request_id
      *
      * @return self
      */
-    public function setRequests($requests)
+    public function setRequestId($request_id)
     {
-        $this->container['requests'] = $requests;
+        $this->container['request_id'] = $request_id;
 
         return $this;
     }
 
     /**
-     * Gets next
+     * Gets action
      *
      * @return string|null
      */
-    public function getNext()
+    public function getAction()
     {
-        return $this->container['next'];
+        return $this->container['action'];
     }
 
     /**
-     * Sets next
+     * Sets action
      *
-     * @param string|null $next next
+     * @param string|null $action action
      *
      * @return self
      */
-    public function setNext($next)
+    public function setAction($action)
     {
-        $this->container['next'] = $next;
+        $this->container['action'] = $action;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return string|null
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param string|null $user_id user_id
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_ids
+     *
+     * @return string[]|null
+     */
+    public function getUserIds()
+    {
+        return $this->container['user_ids'];
+    }
+
+    /**
+     * Sets user_ids
+     *
+     * @param string[]|null $user_ids user_ids
+     *
+     * @return self
+     */
+    public function setUserIds($user_ids)
+    {
+        $this->container['user_ids'] = $user_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_delete_option
+     *
+     * @return string|null
+     */
+    public function getChannelDeleteOption()
+    {
+        return $this->container['channel_delete_option'];
+    }
+
+    /**
+     * Sets channel_delete_option
+     *
+     * @param string|null $channel_delete_option channel_delete_option
+     *
+     * @return self
+     */
+    public function setChannelDeleteOption($channel_delete_option)
+    {
+        $this->container['channel_delete_option'] = $channel_delete_option;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return float|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param float|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }

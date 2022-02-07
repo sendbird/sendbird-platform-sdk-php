@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20037 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,8 +59,7 @@ class InlineResponse20037 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'members' => '\OpenAPI\Client\Model\SendBirdUser[]',
-        'next' => 'string'
+        'is_member' => 'bool'
     ];
 
     /**
@@ -71,8 +70,7 @@ class InlineResponse20037 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'members' => null,
-        'next' => null
+        'is_member' => null
     ];
 
     /**
@@ -102,8 +100,7 @@ class InlineResponse20037 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'members' => 'members',
-        'next' => 'next'
+        'is_member' => 'is_member'
     ];
 
     /**
@@ -112,8 +109,7 @@ class InlineResponse20037 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'members' => 'setMembers',
-        'next' => 'setNext'
+        'is_member' => 'setIsMember'
     ];
 
     /**
@@ -122,8 +118,7 @@ class InlineResponse20037 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'members' => 'getMembers',
-        'next' => 'getNext'
+        'is_member' => 'getIsMember'
     ];
 
     /**
@@ -183,8 +178,7 @@ class InlineResponse20037 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['members'] = $data['members'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
+        $this->container['is_member'] = $data['is_member'] ?? null;
     }
 
     /**
@@ -212,49 +206,25 @@ class InlineResponse20037 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets members
+     * Gets is_member
      *
-     * @return \OpenAPI\Client\Model\SendBirdUser[]|null
+     * @return bool|null
      */
-    public function getMembers()
+    public function getIsMember()
     {
-        return $this->container['members'];
+        return $this->container['is_member'];
     }
 
     /**
-     * Sets members
+     * Sets is_member
      *
-     * @param \OpenAPI\Client\Model\SendBirdUser[]|null $members members
+     * @param bool|null $is_member is_member
      *
      * @return self
      */
-    public function setMembers($members)
+    public function setIsMember($is_member)
     {
-        $this->container['members'] = $members;
-
-        return $this;
-    }
-
-    /**
-     * Gets next
-     *
-     * @return string|null
-     */
-    public function getNext()
-    {
-        return $this->container['next'];
-    }
-
-    /**
-     * Sets next
-     *
-     * @param string|null $next next
-     *
-     * @return self
-     */
-    public function setNext($next)
-    {
-        $this->container['next'] = $next;
+        $this->container['is_member'] = $is_member;
 
         return $this;
     }

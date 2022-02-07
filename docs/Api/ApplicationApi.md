@@ -1,4 +1,4 @@
-# OpenAPI\Client\ApplicationApi
+# Sendbird\ApplicationApi
 
 All URIs are relative to https://api-APP_ID.sendbird.com.
 
@@ -35,7 +35,7 @@ Method | HTTP request | Description
 ## `addApnsPushConfiguration()`
 
 ```php
-addApnsPushConfiguration($api_token, $add_apns_push_configuration_data): \OpenAPI\Client\Model\InlineResponse2004
+addApnsPushConfiguration($api_token, $add_apns_push_configuration_data): \Sendbird\Model\InlineResponse2003
 ```
 
 Add an APNs push configuration
@@ -50,13 +50,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$add_apns_push_configuration_data = new \OpenAPI\Client\Model\AddApnsPushConfigurationData(); // \OpenAPI\Client\Model\AddApnsPushConfigurationData
+$add_apns_push_configuration_data = new \Sendbird\Model\AddApnsPushConfigurationData(); // \Sendbird\Model\AddApnsPushConfigurationData
 
 try {
     $result = $apiInstance->addApnsPushConfiguration($api_token, $add_apns_push_configuration_data);
@@ -71,11 +71,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **add_apns_push_configuration_data** | [**\OpenAPI\Client\Model\AddApnsPushConfigurationData**](../Model/AddApnsPushConfigurationData.md)|  | [optional]
+ **add_apns_push_configuration_data** | [**\Sendbird\Model\AddApnsPushConfigurationData**](../Model/AddApnsPushConfigurationData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\Sendbird\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ No authorization required
 ## `addFcmPushConfiguration()`
 
 ```php
-addFcmPushConfiguration($api_token, $add_fcm_push_configuration_data): \OpenAPI\Client\Model\InlineResponse2002
+addFcmPushConfiguration($api_token, $add_fcm_push_configuration_data): \Sendbird\Model\InlineResponse2001
 ```
 
 Add a FCM push configuration
@@ -108,13 +108,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$add_fcm_push_configuration_data = new \OpenAPI\Client\Model\AddFcmPushConfigurationData(); // \OpenAPI\Client\Model\AddFcmPushConfigurationData
+$add_fcm_push_configuration_data = new \Sendbird\Model\AddFcmPushConfigurationData(); // \Sendbird\Model\AddFcmPushConfigurationData
 
 try {
     $result = $apiInstance->addFcmPushConfiguration($api_token, $add_fcm_push_configuration_data);
@@ -129,11 +129,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **add_fcm_push_configuration_data** | [**\OpenAPI\Client\Model\AddFcmPushConfigurationData**](../Model/AddFcmPushConfigurationData.md)|  | [optional]
+ **add_fcm_push_configuration_data** | [**\Sendbird\Model\AddFcmPushConfigurationData**](../Model/AddFcmPushConfigurationData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ No authorization required
 ## `addHmsPushConfiguration()`
 
 ```php
-addHmsPushConfiguration($api_token, $add_hms_push_configuration_data): \OpenAPI\Client\Model\InlineResponse2003
+addHmsPushConfiguration($api_token, $add_hms_push_configuration_data): \Sendbird\Model\InlineResponse2002
 ```
 
 Add an HMS push configuration
@@ -166,13 +166,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$add_hms_push_configuration_data = new \OpenAPI\Client\Model\AddHmsPushConfigurationData(); // \OpenAPI\Client\Model\AddHmsPushConfigurationData
+$add_hms_push_configuration_data = new \Sendbird\Model\AddHmsPushConfigurationData(); // \Sendbird\Model\AddHmsPushConfigurationData
 
 try {
     $result = $apiInstance->addHmsPushConfiguration($api_token, $add_hms_push_configuration_data);
@@ -187,11 +187,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **add_hms_push_configuration_data** | [**\OpenAPI\Client\Model\AddHmsPushConfigurationData**](../Model/AddHmsPushConfigurationData.md)|  | [optional]
+ **add_hms_push_configuration_data** | [**\Sendbird\Model\AddHmsPushConfigurationData**](../Model/AddHmsPushConfigurationData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\Sendbird\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ No authorization required
 ## `addIpToWhitelist()`
 
 ```php
-addIpToWhitelist($api_token, $add_ip_to_whitelist_data): \OpenAPI\Client\Model\InlineResponse2007
+addIpToWhitelist($api_token, $add_ip_to_whitelist_data): \Sendbird\Model\InlineResponse2006
 ```
 
 Add an IP to a whitelist
@@ -224,13 +224,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$add_ip_to_whitelist_data = new \OpenAPI\Client\Model\AddIpToWhitelistData(); // \OpenAPI\Client\Model\AddIpToWhitelistData
+$add_ip_to_whitelist_data = new \Sendbird\Model\AddIpToWhitelistData(); // \Sendbird\Model\AddIpToWhitelistData
 
 try {
     $result = $apiInstance->addIpToWhitelist($api_token, $add_ip_to_whitelist_data);
@@ -245,11 +245,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **add_ip_to_whitelist_data** | [**\OpenAPI\Client\Model\AddIpToWhitelistData**](../Model/AddIpToWhitelistData.md)|  | [optional]
+ **add_ip_to_whitelist_data** | [**\Sendbird\Model\AddIpToWhitelistData**](../Model/AddIpToWhitelistData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\Sendbird\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ No authorization required
 ## `deleteAllowedIpsFromWhitelist()`
 
 ```php
-deleteAllowedIpsFromWhitelist($ip_whitelist_addresses, $api_token): \OpenAPI\Client\Model\InlineResponse2007
+deleteAllowedIpsFromWhitelist($ip_whitelist_addresses, $api_token): \Sendbird\Model\InlineResponse2006
 ```
 
 Delete allowed IPs from a whitelist
@@ -282,7 +282,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\Sendbird\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 
@@ -325,7 +325,7 @@ No authorization required
 ## `deleteApnsCertificateById()`
 
 ```php
-deleteApnsCertificateById($provider_id, $api_token): \OpenAPI\Client\Model\InlineResponse20014
+deleteApnsCertificateById($provider_id, $api_token): \Sendbird\Model\InlineResponse20013
 ```
 
 Delete an APNs certificate
@@ -340,7 +340,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\Sendbird\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ No authorization required
 ## `generateSecondaryApiToken()`
 
 ```php
-generateSecondaryApiToken($api_token, $generate_secondary_api_token_data): \OpenAPI\Client\Model\InlineResponse2008
+generateSecondaryApiToken($api_token, $generate_secondary_api_token_data): \Sendbird\Model\InlineResponse2007
 ```
 
 Generate a secondary API token
@@ -398,13 +398,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$generate_secondary_api_token_data = new \OpenAPI\Client\Model\GenerateSecondaryApiTokenData(); // \OpenAPI\Client\Model\GenerateSecondaryApiTokenData
+$generate_secondary_api_token_data = new \Sendbird\Model\GenerateSecondaryApiTokenData(); // \Sendbird\Model\GenerateSecondaryApiTokenData
 
 try {
     $result = $apiInstance->generateSecondaryApiToken($api_token, $generate_secondary_api_token_data);
@@ -419,11 +419,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **generate_secondary_api_token_data** | [**\OpenAPI\Client\Model\GenerateSecondaryApiTokenData**](../Model/GenerateSecondaryApiTokenData.md)|  | [optional]
+ **generate_secondary_api_token_data** | [**\Sendbird\Model\GenerateSecondaryApiTokenData**](../Model/GenerateSecondaryApiTokenData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\Sendbird\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
 
 ### Authorization
 
@@ -441,7 +441,7 @@ No authorization required
 ## `listPushConfigurations()`
 
 ```php
-listPushConfigurations($push_type, $api_token): \OpenAPI\Client\Model\InlineResponse20013
+listPushConfigurations($push_type, $api_token): \Sendbird\Model\InlineResponse20012
 ```
 
 List push configurations
@@ -456,7 +456,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\Sendbird\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -499,7 +499,7 @@ No authorization required
 ## `listPushNotificationContentTemplates()`
 
 ```php
-listPushNotificationContentTemplates($api_token): \OpenAPI\Client\Model\InlineResponse2005
+listPushNotificationContentTemplates($api_token): \Sendbird\Model\InlineResponse2004
 ```
 
 List push notification content templates
@@ -514,7 +514,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\Sendbird\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
 
 ### Authorization
 
@@ -555,7 +555,7 @@ No authorization required
 ## `listSecondaryApiTokens()`
 
 ```php
-listSecondaryApiTokens($api_token): \OpenAPI\Client\Model\InlineResponse2009
+listSecondaryApiTokens($api_token): \Sendbird\Model\InlineResponse2008
 ```
 
 List secondary API tokens
@@ -570,7 +570,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -593,7 +593,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
+[**\Sendbird\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
 
 ### Authorization
 
@@ -611,7 +611,7 @@ No authorization required
 ## `removePushConfigurationById()`
 
 ```php
-removePushConfigurationById($push_type, $provider_id, $api_token): \OpenAPI\Client\Model\InlineResponse20014
+removePushConfigurationById($push_type, $provider_id, $api_token): \Sendbird\Model\InlineResponse20013
 ```
 
 Remove a push configuration
@@ -626,7 +626,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -653,7 +653,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\Sendbird\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
 
 ### Authorization
 
@@ -671,7 +671,7 @@ No authorization required
 ## `retrieveIpWhitelist()`
 
 ```php
-retrieveIpWhitelist($api_token): \OpenAPI\Client\Model\InlineResponse2007
+retrieveIpWhitelist($api_token): \Sendbird\Model\InlineResponse2006
 ```
 
 Retrieve an IP whitelist
@@ -686,7 +686,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -709,7 +709,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\Sendbird\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 
@@ -727,7 +727,7 @@ No authorization required
 ## `revokeSecondaryApiTokenByToken()`
 
 ```php
-revokeSecondaryApiTokenByToken($api_token2, $api_token)
+revokeSecondaryApiTokenByToken($api_token2, $api_token): \Sendbird\Model\InlineResponse2007
 ```
 
 Revoke a secondary API token
@@ -742,7 +742,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -751,7 +751,8 @@ $api_token2 = 'api_token_example'; // string
 $api_token = {{API_TOKEN}}; // string
 
 try {
-    $apiInstance->revokeSecondaryApiTokenByToken($api_token2, $api_token);
+    $result = $apiInstance->revokeSecondaryApiTokenByToken($api_token2, $api_token);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->revokeSecondaryApiTokenByToken: ', $e->getMessage(), PHP_EOL;
 }
@@ -766,7 +767,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
 
 ### Authorization
 
@@ -784,7 +785,7 @@ No authorization required
 ## `updateApnsPushConfigurationById()`
 
 ```php
-updateApnsPushConfigurationById($provider_id, $api_token, $update_apns_push_configuration_by_id_data): \OpenAPI\Client\Model\InlineResponse20015
+updateApnsPushConfigurationById($provider_id, $api_token, $update_apns_push_configuration_by_id_data): \Sendbird\Model\InlineResponse20014
 ```
 
 Update an APNs push configuration
@@ -799,14 +800,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $provider_id = 'provider_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_apns_push_configuration_by_id_data = new \OpenAPI\Client\Model\UpdateApnsPushConfigurationByIdData(); // \OpenAPI\Client\Model\UpdateApnsPushConfigurationByIdData
+$update_apns_push_configuration_by_id_data = new \Sendbird\Model\UpdateApnsPushConfigurationByIdData(); // \Sendbird\Model\UpdateApnsPushConfigurationByIdData
 
 try {
     $result = $apiInstance->updateApnsPushConfigurationById($provider_id, $api_token, $update_apns_push_configuration_by_id_data);
@@ -822,11 +823,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **provider_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_apns_push_configuration_by_id_data** | [**\OpenAPI\Client\Model\UpdateApnsPushConfigurationByIdData**](../Model/UpdateApnsPushConfigurationByIdData.md)|  | [optional]
+ **update_apns_push_configuration_by_id_data** | [**\Sendbird\Model\UpdateApnsPushConfigurationByIdData**](../Model/UpdateApnsPushConfigurationByIdData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\Sendbird\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
 
 ### Authorization
 
@@ -844,7 +845,7 @@ No authorization required
 ## `updateDefaultChannelInvitationPreference()`
 
 ```php
-updateDefaultChannelInvitationPreference($api_token, $update_default_channel_invitation_preference_data): \OpenAPI\Client\Model\InlineResponse2006
+updateDefaultChannelInvitationPreference($api_token, $update_default_channel_invitation_preference_data): \Sendbird\Model\InlineResponse2005
 ```
 
 Update default channel invitation preference
@@ -859,13 +860,13 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $api_token = {{API_TOKEN}}; // string
-$update_default_channel_invitation_preference_data = new \OpenAPI\Client\Model\UpdateDefaultChannelInvitationPreferenceData(); // \OpenAPI\Client\Model\UpdateDefaultChannelInvitationPreferenceData
+$update_default_channel_invitation_preference_data = new \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData(); // \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData
 
 try {
     $result = $apiInstance->updateDefaultChannelInvitationPreference($api_token, $update_default_channel_invitation_preference_data);
@@ -880,11 +881,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_token** | **string**|  | [optional]
- **update_default_channel_invitation_preference_data** | [**\OpenAPI\Client\Model\UpdateDefaultChannelInvitationPreferenceData**](../Model/UpdateDefaultChannelInvitationPreferenceData.md)|  | [optional]
+ **update_default_channel_invitation_preference_data** | [**\Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData**](../Model/UpdateDefaultChannelInvitationPreferenceData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\Sendbird\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
 
 ### Authorization
 
@@ -902,7 +903,7 @@ No authorization required
 ## `updateFcmPushConfigurationById()`
 
 ```php
-updateFcmPushConfigurationById($provider_id, $api_token, $update_fcm_push_configuration_by_id_data): \OpenAPI\Client\Model\InlineResponse20015
+updateFcmPushConfigurationById($provider_id, $api_token, $update_fcm_push_configuration_by_id_data): \Sendbird\Model\InlineResponse20014
 ```
 
 Update a FCM push configuration
@@ -917,14 +918,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $provider_id = 'provider_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_fcm_push_configuration_by_id_data = new \OpenAPI\Client\Model\UpdateFcmPushConfigurationByIdData(); // \OpenAPI\Client\Model\UpdateFcmPushConfigurationByIdData
+$update_fcm_push_configuration_by_id_data = new \Sendbird\Model\UpdateFcmPushConfigurationByIdData(); // \Sendbird\Model\UpdateFcmPushConfigurationByIdData
 
 try {
     $result = $apiInstance->updateFcmPushConfigurationById($provider_id, $api_token, $update_fcm_push_configuration_by_id_data);
@@ -940,11 +941,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **provider_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_fcm_push_configuration_by_id_data** | [**\OpenAPI\Client\Model\UpdateFcmPushConfigurationByIdData**](../Model/UpdateFcmPushConfigurationByIdData.md)|  | [optional]
+ **update_fcm_push_configuration_by_id_data** | [**\Sendbird\Model\UpdateFcmPushConfigurationByIdData**](../Model/UpdateFcmPushConfigurationByIdData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\Sendbird\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
 
 ### Authorization
 
@@ -962,7 +963,7 @@ No authorization required
 ## `updateHmsPushConfigurationById()`
 
 ```php
-updateHmsPushConfigurationById($provider_id, $api_token, $update_hms_push_configuration_by_id_data): \OpenAPI\Client\Model\InlineResponse20015
+updateHmsPushConfigurationById($provider_id, $api_token, $update_hms_push_configuration_by_id_data): \Sendbird\Model\InlineResponse20014
 ```
 
 Update an HMS push configuration
@@ -977,14 +978,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $provider_id = 'provider_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_hms_push_configuration_by_id_data = new \OpenAPI\Client\Model\UpdateHmsPushConfigurationByIdData(); // \OpenAPI\Client\Model\UpdateHmsPushConfigurationByIdData
+$update_hms_push_configuration_by_id_data = new \Sendbird\Model\UpdateHmsPushConfigurationByIdData(); // \Sendbird\Model\UpdateHmsPushConfigurationByIdData
 
 try {
     $result = $apiInstance->updateHmsPushConfigurationById($provider_id, $api_token, $update_hms_push_configuration_by_id_data);
@@ -1000,11 +1001,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **provider_id** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_hms_push_configuration_by_id_data** | [**\OpenAPI\Client\Model\UpdateHmsPushConfigurationByIdData**](../Model/UpdateHmsPushConfigurationByIdData.md)|  | [optional]
+ **update_hms_push_configuration_by_id_data** | [**\Sendbird\Model\UpdateHmsPushConfigurationByIdData**](../Model/UpdateHmsPushConfigurationByIdData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\Sendbird\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
 
 ### Authorization
 
@@ -1022,7 +1023,7 @@ No authorization required
 ## `updatePushNotificationContentTemplate()`
 
 ```php
-updatePushNotificationContentTemplate($template_name, $api_token, $update_push_notification_content_template_data): \OpenAPI\Client\Model\InlineResponse20016
+updatePushNotificationContentTemplate($template_name, $api_token, $update_push_notification_content_template_data): \Sendbird\Model\InlineResponse20015
 ```
 
 Update a push notification content template
@@ -1037,14 +1038,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $template_name = 'template_name_example'; // string
 $api_token = {{API_TOKEN}}; // string
-$update_push_notification_content_template_data = new \OpenAPI\Client\Model\UpdatePushNotificationContentTemplateData(); // \OpenAPI\Client\Model\UpdatePushNotificationContentTemplateData
+$update_push_notification_content_template_data = new \Sendbird\Model\UpdatePushNotificationContentTemplateData(); // \Sendbird\Model\UpdatePushNotificationContentTemplateData
 
 try {
     $result = $apiInstance->updatePushNotificationContentTemplate($template_name, $api_token, $update_push_notification_content_template_data);
@@ -1060,11 +1061,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template_name** | **string**|  |
  **api_token** | **string**|  | [optional]
- **update_push_notification_content_template_data** | [**\OpenAPI\Client\Model\UpdatePushNotificationContentTemplateData**](../Model/UpdatePushNotificationContentTemplateData.md)|  | [optional]
+ **update_push_notification_content_template_data** | [**\Sendbird\Model\UpdatePushNotificationContentTemplateData**](../Model/UpdatePushNotificationContentTemplateData.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\Sendbird\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
 
 ### Authorization
 
@@ -1082,7 +1083,7 @@ No authorization required
 ## `viewDefaultChannelInvitationPreference()`
 
 ```php
-viewDefaultChannelInvitationPreference($api_token): \OpenAPI\Client\Model\InlineResponse2006
+viewDefaultChannelInvitationPreference($api_token): \Sendbird\Model\InlineResponse2005
 ```
 
 View default channel invitation preference
@@ -1097,7 +1098,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1120,7 +1121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\Sendbird\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
 
 ### Authorization
 
@@ -1138,7 +1139,7 @@ No authorization required
 ## `viewNumberOfConcurrentConnections()`
 
 ```php
-viewNumberOfConcurrentConnections($api_token): \OpenAPI\Client\Model\InlineResponse2001
+viewNumberOfConcurrentConnections($api_token): \Sendbird\Model\InlineResponse200
 ```
 
 View number of concurrent connections
@@ -1153,7 +1154,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1176,7 +1177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -1194,7 +1195,7 @@ No authorization required
 ## `viewNumberOfDailyActiveUsers()`
 
 ```php
-viewNumberOfDailyActiveUsers($api_token, $date): \OpenAPI\Client\Model\InlineResponse20012
+viewNumberOfDailyActiveUsers($api_token, $date): \Sendbird\Model\InlineResponse20011
 ```
 
 View number of daily active users
@@ -1209,7 +1210,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1234,7 +1235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\Sendbird\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
 
 ### Authorization
 
@@ -1252,7 +1253,7 @@ No authorization required
 ## `viewNumberOfMonthlyActiveUsers()`
 
 ```php
-viewNumberOfMonthlyActiveUsers($api_token, $date): \OpenAPI\Client\Model\InlineResponse20011
+viewNumberOfMonthlyActiveUsers($api_token, $date): \Sendbird\Model\InlineResponse20010
 ```
 
 View number of monthly active users
@@ -1267,7 +1268,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1292,7 +1293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\Sendbird\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
 
 ### Authorization
 
@@ -1310,7 +1311,7 @@ No authorization required
 ## `viewNumberOfPeakConnections()`
 
 ```php
-viewNumberOfPeakConnections($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token, $start_day, $end_day): \OpenAPI\Client\Model\InlineResponse20010
+viewNumberOfPeakConnections($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token, $start_day, $end_day): \Sendbird\Model\InlineResponse2009
 ```
 
 View number of peak connections
@@ -1325,7 +1326,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1362,7 +1363,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+[**\Sendbird\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
 
 ### Authorization
 
@@ -1380,7 +1381,7 @@ No authorization required
 ## `viewPushConfigurationById()`
 
 ```php
-viewPushConfigurationById($push_type, $provider_id, $api_token): \OpenAPI\Client\Model\InlineResponse20013
+viewPushConfigurationById($push_type, $provider_id, $api_token): \Sendbird\Model\InlineResponse20012
 ```
 
 View a push configuration
@@ -1395,7 +1396,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1422,7 +1423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\Sendbird\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
 
 ### Authorization
 
@@ -1440,7 +1441,7 @@ No authorization required
 ## `viewPushNotificationContentTemplate()`
 
 ```php
-viewPushNotificationContentTemplate($template_name, $api_token): \OpenAPI\Client\Model\InlineResponse20016
+viewPushNotificationContentTemplate($template_name, $api_token): \Sendbird\Model\InlineResponse20015
 ```
 
 View a push notification content template
@@ -1455,7 +1456,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1480,7 +1481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\Sendbird\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
 
 ### Authorization
 
@@ -1498,7 +1499,7 @@ No authorization required
 ## `viewSecondaryApiTokenByToken()`
 
 ```php
-viewSecondaryApiTokenByToken($api_token2, $api_token): \OpenAPI\Client\Model\InlineResponse2008
+viewSecondaryApiTokenByToken($api_token2, $api_token): \Sendbird\Model\InlineResponse2007
 ```
 
 View a secondary API token
@@ -1513,7 +1514,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\ApplicationApi(
+$apiInstance = new Sendbird\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -1538,7 +1539,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\Sendbird\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
 
 ### Authorization
 

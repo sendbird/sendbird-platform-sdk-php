@@ -5,7 +5,7 @@
  * PHP version 7.3
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace OpenAPI\Client\Model;
+namespace Sendbird\Model;
 
 use \ArrayAccess;
-use \OpenAPI\Client\ObjectSerializer;
+use \Sendbird\ObjectSerializer;
 
 /**
  * InlineResponse20022 Class Doc Comment
  *
  * @category Class
- * @package  OpenAPI\Client
+ * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,8 @@ class InlineResponse20022 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'count_preference' => 'string'
+        'banned_channels' => '\Sendbird\Model\InlineResponse20022BannedChannels[]',
+        'next' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class InlineResponse20022 implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'count_preference' => null
+        'banned_channels' => null,
+        'next' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class InlineResponse20022 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'count_preference' => 'count_preference'
+        'banned_channels' => 'banned_channels',
+        'next' => 'next'
     ];
 
     /**
@@ -109,7 +112,8 @@ class InlineResponse20022 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'count_preference' => 'setCountPreference'
+        'banned_channels' => 'setBannedChannels',
+        'next' => 'setNext'
     ];
 
     /**
@@ -118,7 +122,8 @@ class InlineResponse20022 implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'count_preference' => 'getCountPreference'
+        'banned_channels' => 'getBannedChannels',
+        'next' => 'getNext'
     ];
 
     /**
@@ -178,7 +183,8 @@ class InlineResponse20022 implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['count_preference'] = $data['count_preference'] ?? null;
+        $this->container['banned_channels'] = $data['banned_channels'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class InlineResponse20022 implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets count_preference
+     * Gets banned_channels
      *
-     * @return string|null
+     * @return \Sendbird\Model\InlineResponse20022BannedChannels[]|null
      */
-    public function getCountPreference()
+    public function getBannedChannels()
     {
-        return $this->container['count_preference'];
+        return $this->container['banned_channels'];
     }
 
     /**
-     * Sets count_preference
+     * Sets banned_channels
      *
-     * @param string|null $count_preference count_preference
+     * @param \Sendbird\Model\InlineResponse20022BannedChannels[]|null $banned_channels banned_channels
      *
      * @return self
      */
-    public function setCountPreference($count_preference)
+    public function setBannedChannels($banned_channels)
     {
-        $this->container['count_preference'] = $count_preference;
+        $this->container['banned_channels'] = $banned_channels;
+
+        return $this;
+    }
+
+    /**
+     * Gets next
+     *
+     * @return string|null
+     */
+    public function getNext()
+    {
+        return $this->container['next'];
+    }
+
+    /**
+     * Sets next
+     *
+     * @param string|null $next next
+     *
+     * @return self
+     */
+    public function setNext($next)
+    {
+        $this->container['next'] = $next;
 
         return $this;
     }
