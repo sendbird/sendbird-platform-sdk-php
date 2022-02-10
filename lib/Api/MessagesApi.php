@@ -128,7 +128,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20054
+     * @return \Sendbird\Model\AddExtraDataToMessageResponse
      */
     public function addExtraDataToMessage($channel_type, $channel_url, $message_id, $api_token = null, $add_extra_data_to_message_data = null)
     {
@@ -149,7 +149,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20054, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\AddExtraDataToMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addExtraDataToMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $add_extra_data_to_message_data = null)
     {
@@ -192,20 +192,20 @@ class MessagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20054' === '\SplFileObject') {
+                    if ('\Sendbird\Model\AddExtraDataToMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20054', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\AddExtraDataToMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20054';
+            $returnType = '\Sendbird\Model\AddExtraDataToMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -223,7 +223,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20054',
+                        '\Sendbird\Model\AddExtraDataToMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -273,7 +273,7 @@ class MessagesApi
      */
     public function addExtraDataToMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $add_extra_data_to_message_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20054';
+        $returnType = '\Sendbird\Model\AddExtraDataToMessageResponse';
         $request = $this->addExtraDataToMessageRequest($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data);
 
         return $this->client
@@ -457,7 +457,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20053
+     * @return \Sendbird\Model\AddReactionToAMessageResponse
      */
     public function addReactionToAMessage($channel_type, $channel_url, $message_id, $api_token = null, $add_reaction_to_a_message_data = null)
     {
@@ -478,7 +478,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20053, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\AddReactionToAMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addReactionToAMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $add_reaction_to_a_message_data = null)
     {
@@ -521,20 +521,20 @@ class MessagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20053' === '\SplFileObject') {
+                    if ('\Sendbird\Model\AddReactionToAMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20053', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\AddReactionToAMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20053';
+            $returnType = '\Sendbird\Model\AddReactionToAMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -552,7 +552,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20053',
+                        '\Sendbird\Model\AddReactionToAMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -602,7 +602,7 @@ class MessagesApi
      */
     public function addReactionToAMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $add_reaction_to_a_message_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20053';
+        $returnType = '\Sendbird\Model\AddReactionToAMessageResponse';
         $request = $this->addReactionToAMessageRequest($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data);
 
         return $this->client
@@ -1057,7 +1057,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20050
+     * @return \Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse
      */
     public function gcMarkAllMessagesAsDelivered($channel_url, $api_token = null, $gc_mark_all_messages_as_delivered_data = null)
     {
@@ -1076,7 +1076,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20050, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcMarkAllMessagesAsDeliveredWithHttpInfo($channel_url, $api_token = null, $gc_mark_all_messages_as_delivered_data = null)
     {
@@ -1119,20 +1119,20 @@ class MessagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20050' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20050', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20050';
+            $returnType = '\Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1150,7 +1150,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20050',
+                        '\Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1196,7 +1196,7 @@ class MessagesApi
      */
     public function gcMarkAllMessagesAsDeliveredAsyncWithHttpInfo($channel_url, $api_token = null, $gc_mark_all_messages_as_delivered_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20050';
+        $returnType = '\Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse';
         $request = $this->gcMarkAllMessagesAsDeliveredRequest($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data);
 
         return $this->client
@@ -1594,7 +1594,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20049
+     * @return \Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse
      */
     public function gcViewNumberOfEachMembersUnreadMessages($channel_url, $api_token = null, $user_ids = null)
     {
@@ -1613,7 +1613,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20049, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcViewNumberOfEachMembersUnreadMessagesWithHttpInfo($channel_url, $api_token = null, $user_ids = null)
     {
@@ -1656,20 +1656,20 @@ class MessagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20049' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20049', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20049';
+            $returnType = '\Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1687,7 +1687,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20049',
+                        '\Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1733,7 +1733,7 @@ class MessagesApi
      */
     public function gcViewNumberOfEachMembersUnreadMessagesAsyncWithHttpInfo($channel_url, $api_token = null, $user_ids = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20049';
+        $returnType = '\Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse';
         $request = $this->gcViewNumberOfEachMembersUnreadMessagesRequest($channel_url, $api_token, $user_ids);
 
         return $this->client
@@ -1908,7 +1908,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20047
+     * @return \Sendbird\Model\ListMessagesResponse
      */
     public function listMessages($channel_type, $channel_url, $message_ts, $message_id, $api_token = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
     {
@@ -1945,7 +1945,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20047, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListMessagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listMessagesWithHttpInfo($channel_type, $channel_url, $message_ts, $message_id, $api_token = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
     {
@@ -1988,20 +1988,20 @@ class MessagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20047' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListMessagesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20047', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListMessagesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20047';
+            $returnType = '\Sendbird\Model\ListMessagesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2019,7 +2019,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20047',
+                        '\Sendbird\Model\ListMessagesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2101,7 +2101,7 @@ class MessagesApi
      */
     public function listMessagesAsyncWithHttpInfo($channel_type, $channel_url, $message_ts, $message_id, $api_token = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20047';
+        $returnType = '\Sendbird\Model\ListMessagesResponse';
         $request = $this->listMessagesRequest($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array);
 
         return $this->client
@@ -2491,7 +2491,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20052
+     * @return \Sendbird\Model\ListReactionsOfMessageResponse
      */
     public function listReactionsOfMessage($channel_type, $channel_url, $message_id, $api_token = null, $list_users = null)
     {
@@ -2512,7 +2512,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20052, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListReactionsOfMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReactionsOfMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $list_users = null)
     {
@@ -2555,20 +2555,20 @@ class MessagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20052' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListReactionsOfMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20052', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListReactionsOfMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20052';
+            $returnType = '\Sendbird\Model\ListReactionsOfMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2586,7 +2586,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20052',
+                        '\Sendbird\Model\ListReactionsOfMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2636,7 +2636,7 @@ class MessagesApi
      */
     public function listReactionsOfMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $list_users = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20052';
+        $returnType = '\Sendbird\Model\ListReactionsOfMessageResponse';
         $request = $this->listReactionsOfMessageRequest($channel_type, $channel_url, $message_id, $api_token, $list_users);
 
         return $this->client
@@ -3115,7 +3115,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20053
+     * @return \Sendbird\Model\RemoveReactionFromAMessageResponse
      */
     public function removeReactionFromAMessage($channel_type, $channel_url, $message_id, $api_token = null, $user_id = null, $reaction = null)
     {
@@ -3137,7 +3137,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20053, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\RemoveReactionFromAMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function removeReactionFromAMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $user_id = null, $reaction = null)
     {
@@ -3180,20 +3180,20 @@ class MessagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20053' === '\SplFileObject') {
+                    if ('\Sendbird\Model\RemoveReactionFromAMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20053', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\RemoveReactionFromAMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20053';
+            $returnType = '\Sendbird\Model\RemoveReactionFromAMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3211,7 +3211,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20053',
+                        '\Sendbird\Model\RemoveReactionFromAMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3263,7 +3263,7 @@ class MessagesApi
      */
     public function removeReactionFromAMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $user_id = null, $reaction = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20053';
+        $returnType = '\Sendbird\Model\RemoveReactionFromAMessageResponse';
         $request = $this->removeReactionFromAMessageRequest($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction);
 
         return $this->client
@@ -4103,7 +4103,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20054
+     * @return \Sendbird\Model\UpdateExtraDataInMessageResponse
      */
     public function updateExtraDataInMessage($channel_type, $channel_url, $message_id, $api_token = null, $update_extra_data_in_message_data = null)
     {
@@ -4124,7 +4124,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20054, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\UpdateExtraDataInMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateExtraDataInMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $update_extra_data_in_message_data = null)
     {
@@ -4167,20 +4167,20 @@ class MessagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20054' === '\SplFileObject') {
+                    if ('\Sendbird\Model\UpdateExtraDataInMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20054', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UpdateExtraDataInMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20054';
+            $returnType = '\Sendbird\Model\UpdateExtraDataInMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4198,7 +4198,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20054',
+                        '\Sendbird\Model\UpdateExtraDataInMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4248,7 +4248,7 @@ class MessagesApi
      */
     public function updateExtraDataInMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $update_extra_data_in_message_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20054';
+        $returnType = '\Sendbird\Model\UpdateExtraDataInMessageResponse';
         $request = $this->updateExtraDataInMessageRequest($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data);
 
         return $this->client
@@ -5109,7 +5109,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20048
+     * @return \Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse
      */
     public function viewTotalNumberOfMessagesInChannel($channel_type, $channel_url, $api_token = null)
     {
@@ -5128,7 +5128,7 @@ class MessagesApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20048, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewTotalNumberOfMessagesInChannelWithHttpInfo($channel_type, $channel_url, $api_token = null)
     {
@@ -5171,20 +5171,20 @@ class MessagesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20048' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20048', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20048';
+            $returnType = '\Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5202,7 +5202,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20048',
+                        '\Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5248,7 +5248,7 @@ class MessagesApi
      */
     public function viewTotalNumberOfMessagesInChannelAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20048';
+        $returnType = '\Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse';
         $request = $this->viewTotalNumberOfMessagesInChannelRequest($channel_type, $channel_url, $api_token);
 
         return $this->client

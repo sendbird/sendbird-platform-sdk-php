@@ -126,7 +126,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20033BannedList
+     * @return \Sendbird\Model\OcBanUserResponse
      */
     public function ocBanUser($channel_url, $api_token = null, $oc_ban_user_data = null)
     {
@@ -145,7 +145,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20033BannedList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\OcBanUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocBanUserWithHttpInfo($channel_url, $api_token = null, $oc_ban_user_data = null)
     {
@@ -188,20 +188,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20033BannedList' === '\SplFileObject') {
+                    if ('\Sendbird\Model\OcBanUserResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20033BannedList', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcBanUserResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20033BannedList';
+            $returnType = '\Sendbird\Model\OcBanUserResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -219,7 +219,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20033BannedList',
+                        '\Sendbird\Model\OcBanUserResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -265,7 +265,7 @@ class OpenChannelApi
      */
     public function ocBanUserAsyncWithHttpInfo($channel_url, $api_token = null, $oc_ban_user_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20033BannedList';
+        $returnType = '\Sendbird\Model\OcBanUserResponse';
         $request = $this->ocBanUserRequest($channel_url, $api_token, $oc_ban_user_data);
 
         return $this->client
@@ -1489,7 +1489,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20033
+     * @return \Sendbird\Model\OcListBannedUsersResponse
      */
     public function ocListBannedUsers($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -1509,7 +1509,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20033, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\OcListBannedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocListBannedUsersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -1552,20 +1552,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20033' === '\SplFileObject') {
+                    if ('\Sendbird\Model\OcListBannedUsersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20033', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcListBannedUsersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20033';
+            $returnType = '\Sendbird\Model\OcListBannedUsersResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1583,7 +1583,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20033',
+                        '\Sendbird\Model\OcListBannedUsersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1631,7 +1631,7 @@ class OpenChannelApi
      */
     public function ocListBannedUsersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20033';
+        $returnType = '\Sendbird\Model\OcListBannedUsersResponse';
         $request = $this->ocListBannedUsersRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -1806,7 +1806,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20030
+     * @return \Sendbird\Model\OcListChannelsResponse
      */
     public function ocListChannels($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
@@ -1831,7 +1831,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20030, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\OcListChannelsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocListChannelsWithHttpInfo($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
@@ -1874,20 +1874,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20030' === '\SplFileObject') {
+                    if ('\Sendbird\Model\OcListChannelsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20030', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcListChannelsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20030';
+            $returnType = '\Sendbird\Model\OcListChannelsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1905,7 +1905,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20030',
+                        '\Sendbird\Model\OcListChannelsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1963,7 +1963,7 @@ class OpenChannelApi
      */
     public function ocListChannelsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20030';
+        $returnType = '\Sendbird\Model\OcListChannelsResponse';
         $request = $this->ocListChannelsRequest($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type);
 
         return $this->client
@@ -2190,7 +2190,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20031
+     * @return \Sendbird\Model\OcListMutedUsersResponse
      */
     public function ocListMutedUsers($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2210,7 +2210,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20031, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\OcListMutedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocListMutedUsersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2253,20 +2253,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20031' === '\SplFileObject') {
+                    if ('\Sendbird\Model\OcListMutedUsersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20031', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcListMutedUsersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20031';
+            $returnType = '\Sendbird\Model\OcListMutedUsersResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2284,7 +2284,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20031',
+                        '\Sendbird\Model\OcListMutedUsersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2332,7 +2332,7 @@ class OpenChannelApi
      */
     public function ocListMutedUsersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20031';
+        $returnType = '\Sendbird\Model\OcListMutedUsersResponse';
         $request = $this->ocListMutedUsersRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -2502,7 +2502,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20034
+     * @return \Sendbird\Model\OcListOperatorsResponse
      */
     public function ocListOperators($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2522,7 +2522,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20034, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\OcListOperatorsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocListOperatorsWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2565,20 +2565,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20034' === '\SplFileObject') {
+                    if ('\Sendbird\Model\OcListOperatorsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20034', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcListOperatorsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20034';
+            $returnType = '\Sendbird\Model\OcListOperatorsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2596,7 +2596,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20034',
+                        '\Sendbird\Model\OcListOperatorsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2644,7 +2644,7 @@ class OpenChannelApi
      */
     public function ocListOperatorsAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20034';
+        $returnType = '\Sendbird\Model\OcListOperatorsResponse';
         $request = $this->ocListOperatorsRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -2814,7 +2814,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20032
+     * @return \Sendbird\Model\OcListParticipantsResponse
      */
     public function ocListParticipants($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2834,7 +2834,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20032, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\OcListParticipantsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocListParticipantsWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -2877,20 +2877,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20032' === '\SplFileObject') {
+                    if ('\Sendbird\Model\OcListParticipantsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20032', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcListParticipantsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20032';
+            $returnType = '\Sendbird\Model\OcListParticipantsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2908,7 +2908,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20032',
+                        '\Sendbird\Model\OcListParticipantsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2956,7 +2956,7 @@ class OpenChannelApi
      */
     public function ocListParticipantsAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20032';
+        $returnType = '\Sendbird\Model\OcListParticipantsResponse';
         $request = $this->ocListParticipantsRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -5350,7 +5350,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20035
+     * @return \Sendbird\Model\OcViewMuteByIdResponse
      */
     public function ocViewMuteById($channel_url, $muted_user_id, $api_token = null)
     {
@@ -5369,7 +5369,7 @@ class OpenChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20035, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\OcViewMuteByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function ocViewMuteByIdWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
     {
@@ -5412,20 +5412,20 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20035' === '\SplFileObject') {
+                    if ('\Sendbird\Model\OcViewMuteByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20035', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcViewMuteByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20035';
+            $returnType = '\Sendbird\Model\OcViewMuteByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5443,7 +5443,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20035',
+                        '\Sendbird\Model\OcViewMuteByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5489,7 +5489,7 @@ class OpenChannelApi
      */
     public function ocViewMuteByIdAsyncWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20035';
+        $returnType = '\Sendbird\Model\OcViewMuteByIdResponse';
         $request = $this->ocViewMuteByIdRequest($channel_url, $muted_user_id, $api_token);
 
         return $this->client

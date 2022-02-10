@@ -125,7 +125,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20057
+     * @return \Sendbird\Model\AddEmojiCategoriesResponse
      */
     public function addEmojiCategories($api_token = null, $body = null)
     {
@@ -143,7 +143,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20057, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\AddEmojiCategoriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addEmojiCategoriesWithHttpInfo($api_token = null, $body = null)
     {
@@ -186,20 +186,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20057' === '\SplFileObject') {
+                    if ('\Sendbird\Model\AddEmojiCategoriesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20057', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\AddEmojiCategoriesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20057';
+            $returnType = '\Sendbird\Model\AddEmojiCategoriesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -217,7 +217,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20057',
+                        '\Sendbird\Model\AddEmojiCategoriesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -261,7 +261,7 @@ class EmojisApi
      */
     public function addEmojiCategoriesAsyncWithHttpInfo($api_token = null, $body = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20057';
+        $returnType = '\Sendbird\Model\AddEmojiCategoriesResponse';
         $request = $this->addEmojiCategoriesRequest($api_token, $body);
 
         return $this->client
@@ -397,7 +397,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20059
+     * @return \Sendbird\Model\AddEmojisResponse
      */
     public function addEmojis($api_token = null, $add_emojis_data = null)
     {
@@ -415,7 +415,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20059, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\AddEmojisResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function addEmojisWithHttpInfo($api_token = null, $add_emojis_data = null)
     {
@@ -458,20 +458,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20059' === '\SplFileObject') {
+                    if ('\Sendbird\Model\AddEmojisResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20059', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\AddEmojisResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20059';
+            $returnType = '\Sendbird\Model\AddEmojisResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -489,7 +489,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20059',
+                        '\Sendbird\Model\AddEmojisResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -533,7 +533,7 @@ class EmojisApi
      */
     public function addEmojisAsyncWithHttpInfo($api_token = null, $add_emojis_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20059';
+        $returnType = '\Sendbird\Model\AddEmojisResponse';
         $request = $this->addEmojisRequest($api_token, $add_emojis_data);
 
         return $this->client
@@ -1139,7 +1139,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20051
+     * @return \Sendbird\Model\EnableReactionsResponse
      */
     public function enableReactions($api_token = null, $enable_reactions_data = null)
     {
@@ -1157,7 +1157,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20051, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\EnableReactionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function enableReactionsWithHttpInfo($api_token = null, $enable_reactions_data = null)
     {
@@ -1200,20 +1200,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20051' === '\SplFileObject') {
+                    if ('\Sendbird\Model\EnableReactionsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20051', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\EnableReactionsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20051';
+            $returnType = '\Sendbird\Model\EnableReactionsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1231,7 +1231,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20051',
+                        '\Sendbird\Model\EnableReactionsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1275,7 +1275,7 @@ class EmojisApi
      */
     public function enableReactionsAsyncWithHttpInfo($api_token = null, $enable_reactions_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20051';
+        $returnType = '\Sendbird\Model\EnableReactionsResponse';
         $request = $this->enableReactionsRequest($api_token, $enable_reactions_data);
 
         return $this->client
@@ -1970,7 +1970,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20056
+     * @return \Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse
      */
     public function listAllEmojisAndEmojiCategories($api_token = null)
     {
@@ -1987,7 +1987,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20056, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAllEmojisAndEmojiCategoriesWithHttpInfo($api_token = null)
     {
@@ -2030,20 +2030,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20056' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20056', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20056';
+            $returnType = '\Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2061,7 +2061,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20056',
+                        '\Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2103,7 +2103,7 @@ class EmojisApi
      */
     public function listAllEmojisAndEmojiCategoriesAsyncWithHttpInfo($api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20056';
+        $returnType = '\Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse';
         $request = $this->listAllEmojisAndEmojiCategoriesRequest($api_token);
 
         return $this->client
@@ -2231,7 +2231,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20058
+     * @return \Sendbird\Model\ListEmojisResponse
      */
     public function listEmojis($api_token = null)
     {
@@ -2248,7 +2248,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20058, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListEmojisResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listEmojisWithHttpInfo($api_token = null)
     {
@@ -2291,20 +2291,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20058' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListEmojisResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20058', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListEmojisResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20058';
+            $returnType = '\Sendbird\Model\ListEmojisResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2322,7 +2322,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20058',
+                        '\Sendbird\Model\ListEmojisResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2364,7 +2364,7 @@ class EmojisApi
      */
     public function listEmojisAsyncWithHttpInfo($api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20058';
+        $returnType = '\Sendbird\Model\ListEmojisResponse';
         $request = $this->listEmojisRequest($api_token);
 
         return $this->client
@@ -3075,7 +3075,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20055
+     * @return \Sendbird\Model\UseDefaultEmojisResponse
      */
     public function useDefaultEmojis($api_token = null, $use_default_emojis_data = null)
     {
@@ -3093,7 +3093,7 @@ class EmojisApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20055, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\UseDefaultEmojisResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function useDefaultEmojisWithHttpInfo($api_token = null, $use_default_emojis_data = null)
     {
@@ -3136,20 +3136,20 @@ class EmojisApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20055' === '\SplFileObject') {
+                    if ('\Sendbird\Model\UseDefaultEmojisResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20055', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UseDefaultEmojisResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20055';
+            $returnType = '\Sendbird\Model\UseDefaultEmojisResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3167,7 +3167,7 @@ class EmojisApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20055',
+                        '\Sendbird\Model\UseDefaultEmojisResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3211,7 +3211,7 @@ class EmojisApi
      */
     public function useDefaultEmojisAsyncWithHttpInfo($api_token = null, $use_default_emojis_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20055';
+        $returnType = '\Sendbird\Model\UseDefaultEmojisResponse';
         $request = $this->useDefaultEmojisRequest($api_token, $use_default_emojis_data);
 
         return $this->client

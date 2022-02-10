@@ -92,7 +92,7 @@ No authorization required
 ## `createChannelMetadata()`
 
 ```php
-createChannelMetadata($channel_type, $channel_url, $api_token, $create_channel_metadata_data): \Sendbird\Model\InlineResponse20061
+createChannelMetadata($channel_type, $channel_url, $api_token, $create_channel_metadata_data): \Sendbird\Model\CreateChannelMetadataResponse
 ```
 
 Create a channel metadata
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20061**](../Model/InlineResponse20061.md)
+[**\Sendbird\Model\CreateChannelMetadataResponse**](../Model/CreateChannelMetadataResponse.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ No authorization required
 ## `createUserMetadata()`
 
 ```php
-createUserMetadata($user_id, $api_token, $create_user_metadata_data): \Sendbird\Model\InlineResponse20047UserMetadata
+createUserMetadata($user_id, $api_token, $create_user_metadata_data): \Sendbird\Model\CreateUserMetadataResponse
 ```
 
 Create a user metadata
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20047UserMetadata**](../Model/InlineResponse20047UserMetadata.md)
+[**\Sendbird\Model\CreateUserMetadataResponse**](../Model/CreateUserMetadataResponse.md)
 
 ### Authorization
 
@@ -826,7 +826,7 @@ No authorization required
 ## `updateUserMetadata()`
 
 ```php
-updateUserMetadata($user_id, $api_token, $update_user_metadata_data): \Sendbird\Model\InlineResponse20060
+updateUserMetadata($user_id, $api_token, $update_user_metadata_data): \Sendbird\Model\UpdateUserMetadataResponse
 ```
 
 Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
@@ -868,7 +868,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20060**](../Model/InlineResponse20060.md)
+[**\Sendbird\Model\UpdateUserMetadataResponse**](../Model/UpdateUserMetadataResponse.md)
 
 ### Authorization
 
@@ -1200,7 +1200,7 @@ No authorization required
 ## `viewUserMetadata()`
 
 ```php
-viewUserMetadata($user_id, $api_token, $key, $keys): \Sendbird\Model\InlineResponse20047UserMetadata
+viewUserMetadata($user_id, $api_token, $key, $keys): \Sendbird\Model\ViewUserMetadataResponse
 ```
 
 View a user metadata - When retrieving all items of a user metadata
@@ -1244,7 +1244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20047UserMetadata**](../Model/InlineResponse20047UserMetadata.md)
+[**\Sendbird\Model\ViewUserMetadataResponse**](../Model/ViewUserMetadataResponse.md)
 
 ### Authorization
 

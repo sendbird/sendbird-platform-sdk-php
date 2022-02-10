@@ -127,7 +127,7 @@ class DataExportApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20063
+     * @return \Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse
      */
     public function listDataExportsByMessageChannelOrUser($data_type, $api_token = null, $token = null, $limit = null)
     {
@@ -147,7 +147,7 @@ class DataExportApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20063, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listDataExportsByMessageChannelOrUserWithHttpInfo($data_type, $api_token = null, $token = null, $limit = null)
     {
@@ -190,20 +190,20 @@ class DataExportApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20063' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20063', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20063';
+            $returnType = '\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -221,7 +221,7 @@ class DataExportApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20063',
+                        '\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -269,7 +269,7 @@ class DataExportApi
      */
     public function listDataExportsByMessageChannelOrUserAsyncWithHttpInfo($data_type, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20063';
+        $returnType = '\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse';
         $request = $this->listDataExportsByMessageChannelOrUserRequest($data_type, $api_token, $token, $limit);
 
         return $this->client
@@ -438,7 +438,7 @@ class DataExportApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20063ExportedData
+     * @return \Sendbird\Model\RegisterAndScheduleDataExportResponse
      */
     public function registerAndScheduleDataExport($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
     {
@@ -457,7 +457,7 @@ class DataExportApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20063ExportedData, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\RegisterAndScheduleDataExportResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function registerAndScheduleDataExportWithHttpInfo($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
     {
@@ -500,20 +500,20 @@ class DataExportApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20063ExportedData' === '\SplFileObject') {
+                    if ('\Sendbird\Model\RegisterAndScheduleDataExportResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20063ExportedData', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\RegisterAndScheduleDataExportResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20063ExportedData';
+            $returnType = '\Sendbird\Model\RegisterAndScheduleDataExportResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -531,7 +531,7 @@ class DataExportApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20063ExportedData',
+                        '\Sendbird\Model\RegisterAndScheduleDataExportResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -577,7 +577,7 @@ class DataExportApi
      */
     public function registerAndScheduleDataExportAsyncWithHttpInfo($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20063ExportedData';
+        $returnType = '\Sendbird\Model\RegisterAndScheduleDataExportResponse';
         $request = $this->registerAndScheduleDataExportRequest($data_type, $api_token, $register_and_schedule_data_export_data);
 
         return $this->client
@@ -729,7 +729,7 @@ class DataExportApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20064
+     * @return \Sendbird\Model\ViewDataExportByIdResponse
      */
     public function viewDataExportById($data_type, $request_id, $api_token = null)
     {
@@ -748,7 +748,7 @@ class DataExportApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20064, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ViewDataExportByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewDataExportByIdWithHttpInfo($data_type, $request_id, $api_token = null)
     {
@@ -791,20 +791,20 @@ class DataExportApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20064' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ViewDataExportByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20064', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewDataExportByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20064';
+            $returnType = '\Sendbird\Model\ViewDataExportByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -822,7 +822,7 @@ class DataExportApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20064',
+                        '\Sendbird\Model\ViewDataExportByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -868,7 +868,7 @@ class DataExportApi
      */
     public function viewDataExportByIdAsyncWithHttpInfo($data_type, $request_id, $api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20064';
+        $returnType = '\Sendbird\Model\ViewDataExportByIdResponse';
         $request = $this->viewDataExportByIdRequest($data_type, $request_id, $api_token);
 
         return $this->client

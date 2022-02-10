@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `retrieveAdvancedAnalyticsMetrics()`
 
 ```php
-retrieveAdvancedAnalyticsMetrics($api_token): \Sendbird\Model\InlineResponse20062
+retrieveAdvancedAnalyticsMetrics($api_token): \Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse
 ```
 
 Retrieve Advanced analytics metrics
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20062**](../Model/InlineResponse20062.md)
+[**\Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse**](../Model/RetrieveAdvancedAnalyticsMetricsResponse.md)
 
 ### Authorization
 

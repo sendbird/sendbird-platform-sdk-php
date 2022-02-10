@@ -97,7 +97,7 @@ No authorization required
 ## `gcBanUser()`
 
 ```php
-gcBanUser($channel_url, $api_token, $gc_ban_user_data): \Sendbird\Model\InlineResponse20033BannedList
+gcBanUser($channel_url, $api_token, $gc_ban_user_data): \Sendbird\Model\GcBanUserResponse
 ```
 
 Ban a user
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20033BannedList**](../Model/InlineResponse20033BannedList.md)
+[**\Sendbird\Model\GcBanUserResponse**](../Model/GcBanUserResponse.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ No authorization required
 ## `gcCheckIfMemberById()`
 
 ```php
-gcCheckIfMemberById($channel_url, $user_id, $api_token): \Sendbird\Model\InlineResponse20037
+gcCheckIfMemberById($channel_url, $user_id, $api_token): \Sendbird\Model\GcCheckIfMemberByIdResponse
 ```
 
 Check if member
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20037**](../Model/InlineResponse20037.md)
+[**\Sendbird\Model\GcCheckIfMemberByIdResponse**](../Model/GcCheckIfMemberByIdResponse.md)
 
 ### Authorization
 
@@ -749,7 +749,7 @@ No authorization required
 ## `gcListBannedUsers()`
 
 ```php
-gcListBannedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20033
+gcListBannedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\GcListBannedUsersResponse
 ```
 
 List banned users
@@ -793,7 +793,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
+[**\Sendbird\Model\GcListBannedUsersResponse**](../Model/GcListBannedUsersResponse.md)
 
 ### Authorization
 
@@ -811,7 +811,7 @@ No authorization required
 ## `gcListChannels()`
 
 ```php
-gcListChannels($api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $created_after, $created_before, $show_empty, $show_member, $show_delivery_receipt, $show_read_receipt, $show_metadata, $show_frozen, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $include_sorted_metaarray_in_last_message, $custom_type, $read_receipt, $member, $is_distinct, $members_in, $user_id): \Sendbird\Model\InlineResponse20017
+gcListChannels($api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $created_after, $created_before, $show_empty, $show_member, $show_delivery_receipt, $show_read_receipt, $show_metadata, $show_frozen, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $include_sorted_metaarray_in_last_message, $custom_type, $read_receipt, $member, $is_distinct, $members_in, $user_id): \Sendbird\Model\GcListChannelsResponse
 ```
 
 List channels
@@ -933,7 +933,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
+[**\Sendbird\Model\GcListChannelsResponse**](../Model/GcListChannelsResponse.md)
 
 ### Authorization
 
@@ -951,7 +951,7 @@ No authorization required
 ## `gcListMembers()`
 
 ```php
-gcListMembers($channel_url, $api_token, $token, $limit, $show_delivery_receipt, $show_read_receipt, $order, $operator_filter, $member_state_filter, $muted_member_filter, $nickname_startswith): \Sendbird\Model\InlineResponse20036
+gcListMembers($channel_url, $api_token, $token, $limit, $show_delivery_receipt, $show_read_receipt, $order, $operator_filter, $member_state_filter, $muted_member_filter, $nickname_startswith): \Sendbird\Model\GcListMembersResponse
 ```
 
 List members
@@ -1009,7 +1009,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20036**](../Model/InlineResponse20036.md)
+[**\Sendbird\Model\GcListMembersResponse**](../Model/GcListMembersResponse.md)
 
 ### Authorization
 
@@ -1027,7 +1027,7 @@ No authorization required
 ## `gcListMutedUsers()`
 
 ```php
-gcListMutedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20031
+gcListMutedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\GcListMutedUsersResponse
 ```
 
 List muted users
@@ -1071,7 +1071,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
+[**\Sendbird\Model\GcListMutedUsersResponse**](../Model/GcListMutedUsersResponse.md)
 
 ### Authorization
 
@@ -1089,7 +1089,7 @@ No authorization required
 ## `gcListOperators()`
 
 ```php
-gcListOperators($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20034
+gcListOperators($channel_url, $api_token, $token, $limit): \Sendbird\Model\GcListOperatorsResponse
 ```
 
 List operators
@@ -1133,7 +1133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\Sendbird\Model\GcListOperatorsResponse**](../Model/GcListOperatorsResponse.md)
 
 ### Authorization
 
@@ -1211,7 +1211,7 @@ No authorization required
 ## `gcRegisterOperators()`
 
 ```php
-gcRegisterOperators($channel_url, $api_token, $gc_register_operators_data): \Sendbird\Model\InlineResponse20038
+gcRegisterOperators($channel_url, $api_token, $gc_register_operators_data): \Sendbird\Model\GcRegisterOperatorsResponse
 ```
 
 Register operators
@@ -1253,7 +1253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20038**](../Model/InlineResponse20038.md)
+[**\Sendbird\Model\GcRegisterOperatorsResponse**](../Model/GcRegisterOperatorsResponse.md)
 
 ### Authorization
 
@@ -1759,7 +1759,7 @@ No authorization required
 ## `gcViewMuteById()`
 
 ```php
-gcViewMuteById($channel_url, $muted_user_id, $api_token): \Sendbird\Model\InlineResponse20035
+gcViewMuteById($channel_url, $muted_user_id, $api_token): \Sendbird\Model\GcViewMuteByIdResponse
 ```
 
 View a mute
@@ -1801,7 +1801,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
+[**\Sendbird\Model\GcViewMuteByIdResponse**](../Model/GcViewMuteByIdResponse.md)
 
 ### Authorization
 

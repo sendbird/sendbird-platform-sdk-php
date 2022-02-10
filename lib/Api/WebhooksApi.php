@@ -125,7 +125,7 @@ class WebhooksApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20067
+     * @return \Sendbird\Model\ChooseWhichEventsToSubscribeToResponse
      */
     public function chooseWhichEventsToSubscribeTo($api_token = null, $choose_which_events_to_subscribe_to_data = null)
     {
@@ -143,7 +143,7 @@ class WebhooksApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20067, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ChooseWhichEventsToSubscribeToResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function chooseWhichEventsToSubscribeToWithHttpInfo($api_token = null, $choose_which_events_to_subscribe_to_data = null)
     {
@@ -186,20 +186,20 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20067' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ChooseWhichEventsToSubscribeToResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20067', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ChooseWhichEventsToSubscribeToResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20067';
+            $returnType = '\Sendbird\Model\ChooseWhichEventsToSubscribeToResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -217,7 +217,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20067',
+                        '\Sendbird\Model\ChooseWhichEventsToSubscribeToResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -261,7 +261,7 @@ class WebhooksApi
      */
     public function chooseWhichEventsToSubscribeToAsyncWithHttpInfo($api_token = null, $choose_which_events_to_subscribe_to_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20067';
+        $returnType = '\Sendbird\Model\ChooseWhichEventsToSubscribeToResponse';
         $request = $this->chooseWhichEventsToSubscribeToRequest($api_token, $choose_which_events_to_subscribe_to_data);
 
         return $this->client
@@ -397,7 +397,7 @@ class WebhooksApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20066
+     * @return \Sendbird\Model\RetrieveListOfSubscribedEventsResponse
      */
     public function retrieveListOfSubscribedEvents($api_token = null, $display_all_webhook_categories = null)
     {
@@ -415,7 +415,7 @@ class WebhooksApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20066, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\RetrieveListOfSubscribedEventsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveListOfSubscribedEventsWithHttpInfo($api_token = null, $display_all_webhook_categories = null)
     {
@@ -458,20 +458,20 @@ class WebhooksApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20066' === '\SplFileObject') {
+                    if ('\Sendbird\Model\RetrieveListOfSubscribedEventsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20066', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\RetrieveListOfSubscribedEventsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20066';
+            $returnType = '\Sendbird\Model\RetrieveListOfSubscribedEventsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -489,7 +489,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20066',
+                        '\Sendbird\Model\RetrieveListOfSubscribedEventsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -533,7 +533,7 @@ class WebhooksApi
      */
     public function retrieveListOfSubscribedEventsAsyncWithHttpInfo($api_token = null, $display_all_webhook_categories = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20066';
+        $returnType = '\Sendbird\Model\RetrieveListOfSubscribedEventsResponse';
         $request = $this->retrieveListOfSubscribedEventsRequest($api_token, $display_all_webhook_categories);
 
         return $this->client

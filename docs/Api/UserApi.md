@@ -45,7 +45,7 @@ Method | HTTP request | Description
 ## `addRegistrationOrDeviceToken()`
 
 ```php
-addRegistrationOrDeviceToken($user_id, $token_type, $api_token, $add_registration_or_device_token_data): \Sendbird\Model\InlineResponse20025
+addRegistrationOrDeviceToken($user_id, $token_type, $api_token, $add_registration_or_device_token_data): \Sendbird\Model\AddRegistrationOrDeviceTokenResponse
 ```
 
 Add a registration or device token
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20025**](../Model/InlineResponse20025.md)
+[**\Sendbird\Model\AddRegistrationOrDeviceTokenResponse**](../Model/AddRegistrationOrDeviceTokenResponse.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ No authorization required
 ## `choosePushNotificationContentTemplate()`
 
 ```php
-choosePushNotificationContentTemplate($user_id, $api_token, $body): \Sendbird\Model\InlineResponse20029
+choosePushNotificationContentTemplate($user_id, $api_token, $body): \Sendbird\Model\ChoosePushNotificationContentTemplateResponse
 ```
 
 Choose a push notification content template
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20029**](../Model/InlineResponse20029.md)
+[**\Sendbird\Model\ChoosePushNotificationContentTemplateResponse**](../Model/ChoosePushNotificationContentTemplateResponse.md)
 
 ### Authorization
 
@@ -460,7 +460,7 @@ No authorization required
 ## `listBannedChannels()`
 
 ```php
-listBannedChannels($user_id, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20022
+listBannedChannels($user_id, $api_token, $token, $limit): \Sendbird\Model\ListBannedChannelsResponse
 ```
 
 List banned channels
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20022**](../Model/InlineResponse20022.md)
+[**\Sendbird\Model\ListBannedChannelsResponse**](../Model/ListBannedChannelsResponse.md)
 
 ### Authorization
 
@@ -522,7 +522,7 @@ No authorization required
 ## `listBlockedUsers()`
 
 ```php
-listBlockedUsers($user_id, $api_token, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in): \Sendbird\Model\InlineResponse20016
+listBlockedUsers($user_id, $api_token, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in): \Sendbird\Model\ListBlockedUsersResponse
 ```
 
 List blocked users
@@ -572,7 +572,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\Sendbird\Model\ListBlockedUsersResponse**](../Model/ListBlockedUsersResponse.md)
 
 ### Authorization
 
@@ -590,7 +590,7 @@ No authorization required
 ## `listMutedChannels()`
 
 ```php
-listMutedChannels($user_id, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20023
+listMutedChannels($user_id, $api_token, $token, $limit): \Sendbird\Model\ListMutedChannelsResponse
 ```
 
 List muted channels
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20023**](../Model/InlineResponse20023.md)
+[**\Sendbird\Model\ListMutedChannelsResponse**](../Model/ListMutedChannelsResponse.md)
 
 ### Authorization
 
@@ -652,7 +652,7 @@ No authorization required
 ## `listMyGroupChannels()`
 
 ```php
-listMyGroupChannels($user_id, $api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $hidden_mode, $member_state_filter, $unread_filter, $created_after, $created_before, $show_empty, $show_frozen, $show_member, $show_delivery_receipt, $show_read_receipt, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $search_query, $search_fields, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $custom_type): \Sendbird\Model\InlineResponse20017
+listMyGroupChannels($user_id, $api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $hidden_mode, $member_state_filter, $unread_filter, $created_after, $created_before, $show_empty, $show_frozen, $show_member, $show_delivery_receipt, $show_read_receipt, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $search_query, $search_fields, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $custom_type): \Sendbird\Model\ListMyGroupChannelsResponse
 ```
 
 List my group channels
@@ -772,7 +772,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20017**](../Model/InlineResponse20017.md)
+[**\Sendbird\Model\ListMyGroupChannelsResponse**](../Model/ListMyGroupChannelsResponse.md)
 
 ### Authorization
 
@@ -790,7 +790,7 @@ No authorization required
 ## `listRegistrationOrDeviceTokens()`
 
 ```php
-listRegistrationOrDeviceTokens($user_id, $token_type, $api_token): \Sendbird\Model\InlineResponse20024
+listRegistrationOrDeviceTokens($user_id, $token_type, $api_token): \Sendbird\Model\ListRegistrationOrDeviceTokensResponse
 ```
 
 List registration or device tokens
@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20024**](../Model/InlineResponse20024.md)
+[**\Sendbird\Model\ListRegistrationOrDeviceTokensResponse**](../Model/ListRegistrationOrDeviceTokensResponse.md)
 
 ### Authorization
 
@@ -850,7 +850,7 @@ No authorization required
 ## `listUsers()`
 
 ```php
-listUsers($api_token, $token, $limit, $active_mode, $show_bot, $user_ids, $nickname, $nickname_startswith, $metadatakey, $metadatavalues_in): \Sendbird\Model\InlineResponse20016
+listUsers($api_token, $token, $limit, $active_mode, $show_bot, $user_ids, $nickname, $nickname_startswith, $metadatakey, $metadatavalues_in): \Sendbird\Model\ListUsersResponse
 ```
 
 List users
@@ -906,7 +906,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20016**](../Model/InlineResponse20016.md)
+[**\Sendbird\Model\ListUsersResponse**](../Model/ListUsersResponse.md)
 
 ### Authorization
 
@@ -1101,7 +1101,7 @@ No authorization required
 ## `removeRegistrationOrDeviceToken()`
 
 ```php
-removeRegistrationOrDeviceToken($user_id, $api_token): \Sendbird\Model\InlineResponse20026
+removeRegistrationOrDeviceToken($user_id, $api_token): \Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse
 ```
 
 Remove a registration or device token - When unregistering all device tokens
@@ -1141,7 +1141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse**](../Model/RemoveRegistrationOrDeviceTokenResponse.md)
 
 ### Authorization
 
@@ -1159,7 +1159,7 @@ No authorization required
 ## `removeRegistrationOrDeviceTokenByToken()`
 
 ```php
-removeRegistrationOrDeviceTokenByToken($user_id, $token_type, $token, $api_token): \Sendbird\Model\InlineResponse20026
+removeRegistrationOrDeviceTokenByToken($user_id, $token_type, $token, $api_token): \Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse
 ```
 
 Remove a registration or device token - When unregistering a specific token
@@ -1203,7 +1203,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20026**](../Model/InlineResponse20026.md)
+[**\Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse**](../Model/RemoveRegistrationOrDeviceTokenByTokenResponse.md)
 
 ### Authorization
 
@@ -1221,7 +1221,7 @@ No authorization required
 ## `removeRegistrationOrDeviceTokenFromOwnerByToken()`
 
 ```php
-removeRegistrationOrDeviceTokenFromOwnerByToken($token_type, $token, $api_token): \Sendbird\Model\InlineResponse20027
+removeRegistrationOrDeviceTokenFromOwnerByToken($token_type, $token, $api_token): \Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse
 ```
 
 Remove a registration or device token from an owner
@@ -1263,7 +1263,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
+[**\Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse**](../Model/RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse.md)
 
 ### Authorization
 
@@ -1397,7 +1397,7 @@ No authorization required
 ## `updateChannelInvitationPreference()`
 
 ```php
-updateChannelInvitationPreference($user_id, $api_token, $update_channel_invitation_preference_data): \Sendbird\Model\InlineResponse2005
+updateChannelInvitationPreference($user_id, $api_token, $update_channel_invitation_preference_data): \Sendbird\Model\UpdateChannelInvitationPreferenceResponse
 ```
 
 Update channel invitation preference
@@ -1439,7 +1439,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\Sendbird\Model\UpdateChannelInvitationPreferenceResponse**](../Model/UpdateChannelInvitationPreferenceResponse.md)
 
 ### Authorization
 
@@ -1457,7 +1457,7 @@ No authorization required
 ## `updateCountPreferenceOfChannelByUrl()`
 
 ```php
-updateCountPreferenceOfChannelByUrl($user_id, $channel_url, $api_token, $update_count_preference_of_channel_by_url_data): \Sendbird\Model\InlineResponse20021
+updateCountPreferenceOfChannelByUrl($user_id, $channel_url, $api_token, $update_count_preference_of_channel_by_url_data): \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlResponse
 ```
 
 Update count preference of a channel
@@ -1501,7 +1501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\Sendbird\Model\UpdateCountPreferenceOfChannelByUrlResponse**](../Model/UpdateCountPreferenceOfChannelByUrlResponse.md)
 
 ### Authorization
 
@@ -1519,7 +1519,7 @@ No authorization required
 ## `updatePushPreferences()`
 
 ```php
-updatePushPreferences($user_id, $api_token, $update_push_preferences_data): \Sendbird\Model\InlineResponse20028
+updatePushPreferences($user_id, $api_token, $update_push_preferences_data): \Sendbird\Model\UpdatePushPreferencesResponse
 ```
 
 Update push preferences
@@ -1561,7 +1561,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\Sendbird\Model\UpdatePushPreferencesResponse**](../Model/UpdatePushPreferencesResponse.md)
 
 ### Authorization
 
@@ -1579,7 +1579,7 @@ No authorization required
 ## `updatePushPreferencesForChannelByUrl()`
 
 ```php
-updatePushPreferencesForChannelByUrl($user_id, $channel_url, $api_token, $update_push_preferences_for_channel_by_url_data): \Sendbird\Model\InlineResponse20028
+updatePushPreferencesForChannelByUrl($user_id, $channel_url, $api_token, $update_push_preferences_for_channel_by_url_data): \Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse
 ```
 
 Update push preferences for a channel
@@ -1623,7 +1623,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse**](../Model/UpdatePushPreferencesForChannelByUrlResponse.md)
 
 ### Authorization
 
@@ -1701,7 +1701,7 @@ No authorization required
 ## `viewChannelInvitationPreference()`
 
 ```php
-viewChannelInvitationPreference($user_id, $api_token): \Sendbird\Model\InlineResponse2005
+viewChannelInvitationPreference($user_id, $api_token): \Sendbird\Model\ViewChannelInvitationPreferenceResponse
 ```
 
 View channel invitation preference
@@ -1741,7 +1741,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\Sendbird\Model\ViewChannelInvitationPreferenceResponse**](../Model/ViewChannelInvitationPreferenceResponse.md)
 
 ### Authorization
 
@@ -1759,7 +1759,7 @@ No authorization required
 ## `viewCountPreferenceOfChannelByUrl()`
 
 ```php
-viewCountPreferenceOfChannelByUrl($user_id, $channel_url, $api_token): \Sendbird\Model\InlineResponse20021
+viewCountPreferenceOfChannelByUrl($user_id, $channel_url, $api_token): \Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse
 ```
 
 View count preference of a channel
@@ -1801,7 +1801,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20021**](../Model/InlineResponse20021.md)
+[**\Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse**](../Model/ViewCountPreferenceOfChannelByUrlResponse.md)
 
 ### Authorization
 
@@ -1819,7 +1819,7 @@ No authorization required
 ## `viewNumberOfChannelsByJoinStatus()`
 
 ```php
-viewNumberOfChannelsByJoinStatus($user_id, $api_token, $state): \Sendbird\Model\InlineResponse20020
+viewNumberOfChannelsByJoinStatus($user_id, $api_token, $state): \Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse
 ```
 
 View number of channels by join status
@@ -1861,7 +1861,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20020**](../Model/InlineResponse20020.md)
+[**\Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse**](../Model/ViewNumberOfChannelsByJoinStatusResponse.md)
 
 ### Authorization
 
@@ -1879,7 +1879,7 @@ No authorization required
 ## `viewNumberOfChannelsWithUnreadMessages()`
 
 ```php
-viewNumberOfChannelsWithUnreadMessages($user_id, $api_token, $custom_types, $super_mode): \Sendbird\Model\InlineResponse20018
+viewNumberOfChannelsWithUnreadMessages($user_id, $api_token, $custom_types, $super_mode): \Sendbird\Model\ViewNumberOfChannelsWithUnreadMessagesResponse
 ```
 
 View number of channels with unread messages
@@ -1923,7 +1923,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
+[**\Sendbird\Model\ViewNumberOfChannelsWithUnreadMessagesResponse**](../Model/ViewNumberOfChannelsWithUnreadMessagesResponse.md)
 
 ### Authorization
 
@@ -1941,7 +1941,7 @@ No authorization required
 ## `viewNumberOfUnreadItems()`
 
 ```php
-viewNumberOfUnreadItems($user_id, $api_token, $custom_type, $item_keys): \Sendbird\Model\InlineResponse20019
+viewNumberOfUnreadItems($user_id, $api_token, $custom_type, $item_keys): \Sendbird\Model\ViewNumberOfUnreadItemsResponse
 ```
 
 View number of unread items
@@ -1985,7 +1985,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20019**](../Model/InlineResponse20019.md)
+[**\Sendbird\Model\ViewNumberOfUnreadItemsResponse**](../Model/ViewNumberOfUnreadItemsResponse.md)
 
 ### Authorization
 
@@ -2003,7 +2003,7 @@ No authorization required
 ## `viewNumberOfUnreadMessages()`
 
 ```php
-viewNumberOfUnreadMessages($user_id, $api_token, $custom_types, $super_mode): \Sendbird\Model\InlineResponse20018
+viewNumberOfUnreadMessages($user_id, $api_token, $custom_types, $super_mode): \Sendbird\Model\ViewNumberOfUnreadMessagesResponse
 ```
 
 View number of unread messages
@@ -2047,7 +2047,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20018**](../Model/InlineResponse20018.md)
+[**\Sendbird\Model\ViewNumberOfUnreadMessagesResponse**](../Model/ViewNumberOfUnreadMessagesResponse.md)
 
 ### Authorization
 
@@ -2065,7 +2065,7 @@ No authorization required
 ## `viewPushPreferences()`
 
 ```php
-viewPushPreferences($user_id, $api_token): \Sendbird\Model\InlineResponse20028
+viewPushPreferences($user_id, $api_token): \Sendbird\Model\ViewPushPreferencesResponse
 ```
 
 View push preferences
@@ -2105,7 +2105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\Sendbird\Model\ViewPushPreferencesResponse**](../Model/ViewPushPreferencesResponse.md)
 
 ### Authorization
 
@@ -2123,7 +2123,7 @@ No authorization required
 ## `viewPushPreferencesForChannelByUrl()`
 
 ```php
-viewPushPreferencesForChannelByUrl($user_id, $channel_url, $api_token): \Sendbird\Model\InlineResponse20028
+viewPushPreferencesForChannelByUrl($user_id, $channel_url, $api_token): \Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse
 ```
 
 View push preferences for a channel
@@ -2165,7 +2165,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20028**](../Model/InlineResponse20028.md)
+[**\Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse**](../Model/ViewPushPreferencesForChannelByUrlResponse.md)
 
 ### Authorization
 
@@ -2247,7 +2247,7 @@ No authorization required
 ## `viewWhoOwnsRegistrationOrDeviceTokenByToken()`
 
 ```php
-viewWhoOwnsRegistrationOrDeviceTokenByToken($token_type, $token, $api_token): \Sendbird\Model\InlineResponse20027
+viewWhoOwnsRegistrationOrDeviceTokenByToken($token_type, $token, $api_token): \Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse
 ```
 
 View who owns a registration or device token
@@ -2289,7 +2289,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20027**](../Model/InlineResponse20027.md)
+[**\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse**](../Model/ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse.md)
 
 ### Authorization
 

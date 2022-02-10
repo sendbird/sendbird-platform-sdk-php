@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ## `chooseWhichEventsToSubscribeTo()`
 
 ```php
-chooseWhichEventsToSubscribeTo($api_token, $choose_which_events_to_subscribe_to_data): \Sendbird\Model\InlineResponse20067
+chooseWhichEventsToSubscribeTo($api_token, $choose_which_events_to_subscribe_to_data): \Sendbird\Model\ChooseWhichEventsToSubscribeToResponse
 ```
 
 Choose which events to subscribe to
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20067**](../Model/InlineResponse20067.md)
+[**\Sendbird\Model\ChooseWhichEventsToSubscribeToResponse**](../Model/ChooseWhichEventsToSubscribeToResponse.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ No authorization required
 ## `retrieveListOfSubscribedEvents()`
 
 ```php
-retrieveListOfSubscribedEvents($api_token, $display_all_webhook_categories): \Sendbird\Model\InlineResponse20066
+retrieveListOfSubscribedEvents($api_token, $display_all_webhook_categories): \Sendbird\Model\RetrieveListOfSubscribedEventsResponse
 ```
 
 Retrieve a list of subscribed events
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20066**](../Model/InlineResponse20066.md)
+[**\Sendbird\Model\RetrieveListOfSubscribedEventsResponse**](../Model/RetrieveListOfSubscribedEventsResponse.md)
 
 ### Authorization
 

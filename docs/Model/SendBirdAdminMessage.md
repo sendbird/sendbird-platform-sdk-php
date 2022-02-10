@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **message** | **string** |  | [optional]
 **message_id** | **float** |  | [optional]
 **message_type** | **string** |  | [optional]
-**meta_array** | [**\Sendbird\Model\Object**](Object.md) |  | [optional]
+**meta_array** | [**\Sendbird\Model\SBObject**](SBObject.md) |  | [optional]
 **meta_arrays** | [**\Sendbird\Model\SendBirdMessageMetaArray[]**](SendBirdMessageMetaArray.md) |  | [optional]
 **og_meta_data** | [**\Sendbird\Model\SendBirdOGMetaData**](SendBirdOGMetaData.md) |  | [optional]
 **parent_message** | [**\Sendbird\Model\SendBirdMessageResponse**](SendBirdMessageResponse.md) |  | [optional]
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **sending_status** | **string** |  | [optional]
 **silent** | **bool** |  | [optional]
 **thread_info** | [**\Sendbird\Model\SendBirdThreadInfo**](SendBirdThreadInfo.md) |  | [optional]
-**translations** | [**\Sendbird\Model\Object**](Object.md) |  | [optional]
+**translations** | [**\Sendbird\Model\SBObject**](SBObject.md) |  | [optional]
 **updated_at** | **float** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -71,7 +71,7 @@ class SendBirdBaseMessageInstance implements ModelInterface, ArrayAccess, \JsonS
         'mentioned_users' => '\Sendbird\Model\SendBirdUser[]',
         'message_id' => 'float',
         'message_type' => 'string',
-        'meta_array' => '\Sendbird\Model\Object',
+        'meta_array' => '\Sendbird\Model\SBObject',
         'meta_arrays' => '\Sendbird\Model\SendBirdMessageMetaArray[]',
         'og_meta_data' => '\Sendbird\Model\SendBirdOGMetaData',
         'parent_message' => '\Sendbird\Model\SendBirdMessageResponse',
@@ -667,7 +667,7 @@ class SendBirdBaseMessageInstance implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets meta_array
      *
-     * @return \Sendbird\Model\Object|null
+     * @return \Sendbird\Model\SBObject|null
      */
     public function getMetaArray()
     {
@@ -677,7 +677,7 @@ class SendBirdBaseMessageInstance implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets meta_array
      *
-     * @param \Sendbird\Model\Object|null $meta_array meta_array
+     * @param \Sendbird\Model\SBObject|null $meta_array meta_array
      *
      * @return self
      */

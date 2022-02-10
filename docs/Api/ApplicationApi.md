@@ -35,7 +35,7 @@ Method | HTTP request | Description
 ## `addApnsPushConfiguration()`
 
 ```php
-addApnsPushConfiguration($api_token, $add_apns_push_configuration_data): \Sendbird\Model\InlineResponse2003
+addApnsPushConfiguration($api_token, $add_apns_push_configuration_data): \Sendbird\Model\AddApnsPushConfigurationResponse
 ```
 
 Add an APNs push configuration
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\Sendbird\Model\AddApnsPushConfigurationResponse**](../Model/AddApnsPushConfigurationResponse.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ No authorization required
 ## `addFcmPushConfiguration()`
 
 ```php
-addFcmPushConfiguration($api_token, $add_fcm_push_configuration_data): \Sendbird\Model\InlineResponse2001
+addFcmPushConfiguration($api_token, $add_fcm_push_configuration_data): \Sendbird\Model\AddFcmPushConfigurationResponse
 ```
 
 Add a FCM push configuration
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\AddFcmPushConfigurationResponse**](../Model/AddFcmPushConfigurationResponse.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ No authorization required
 ## `addHmsPushConfiguration()`
 
 ```php
-addHmsPushConfiguration($api_token, $add_hms_push_configuration_data): \Sendbird\Model\InlineResponse2002
+addHmsPushConfiguration($api_token, $add_hms_push_configuration_data): \Sendbird\Model\AddHmsPushConfigurationResponse
 ```
 
 Add an HMS push configuration
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\Sendbird\Model\AddHmsPushConfigurationResponse**](../Model/AddHmsPushConfigurationResponse.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ No authorization required
 ## `addIpToWhitelist()`
 
 ```php
-addIpToWhitelist($api_token, $add_ip_to_whitelist_data): \Sendbird\Model\InlineResponse2006
+addIpToWhitelist($api_token, $add_ip_to_whitelist_data): \Sendbird\Model\AddIpToWhitelistResponse
 ```
 
 Add an IP to a whitelist
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\Sendbird\Model\AddIpToWhitelistResponse**](../Model/AddIpToWhitelistResponse.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ No authorization required
 ## `deleteAllowedIpsFromWhitelist()`
 
 ```php
-deleteAllowedIpsFromWhitelist($ip_whitelist_addresses, $api_token): \Sendbird\Model\InlineResponse2006
+deleteAllowedIpsFromWhitelist($ip_whitelist_addresses, $api_token): \Sendbird\Model\DeleteAllowedIpsFromWhitelistResponse
 ```
 
 Delete allowed IPs from a whitelist
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\Sendbird\Model\DeleteAllowedIpsFromWhitelistResponse**](../Model/DeleteAllowedIpsFromWhitelistResponse.md)
 
 ### Authorization
 
@@ -325,7 +325,7 @@ No authorization required
 ## `deleteApnsCertificateById()`
 
 ```php
-deleteApnsCertificateById($provider_id, $api_token): \Sendbird\Model\InlineResponse20013
+deleteApnsCertificateById($provider_id, $api_token): \Sendbird\Model\DeleteApnsCertificateByIdResponse
 ```
 
 Delete an APNs certificate
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\Sendbird\Model\DeleteApnsCertificateByIdResponse**](../Model/DeleteApnsCertificateByIdResponse.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ No authorization required
 ## `generateSecondaryApiToken()`
 
 ```php
-generateSecondaryApiToken($api_token, $generate_secondary_api_token_data): \Sendbird\Model\InlineResponse2007
+generateSecondaryApiToken($api_token, $generate_secondary_api_token_data): \Sendbird\Model\GenerateSecondaryApiTokenResponse
 ```
 
 Generate a secondary API token
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\Sendbird\Model\GenerateSecondaryApiTokenResponse**](../Model/GenerateSecondaryApiTokenResponse.md)
 
 ### Authorization
 
@@ -441,7 +441,7 @@ No authorization required
 ## `listPushConfigurations()`
 
 ```php
-listPushConfigurations($push_type, $api_token): \Sendbird\Model\InlineResponse20012
+listPushConfigurations($push_type, $api_token): \Sendbird\Model\ListPushConfigurationsResponse
 ```
 
 List push configurations
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\Sendbird\Model\ListPushConfigurationsResponse**](../Model/ListPushConfigurationsResponse.md)
 
 ### Authorization
 
@@ -499,7 +499,7 @@ No authorization required
 ## `listPushNotificationContentTemplates()`
 
 ```php
-listPushNotificationContentTemplates($api_token): \Sendbird\Model\InlineResponse2004
+listPushNotificationContentTemplates($api_token): \Sendbird\Model\ListPushNotificationContentTemplatesResponse
 ```
 
 List push notification content templates
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\Sendbird\Model\ListPushNotificationContentTemplatesResponse**](../Model/ListPushNotificationContentTemplatesResponse.md)
 
 ### Authorization
 
@@ -555,7 +555,7 @@ No authorization required
 ## `listSecondaryApiTokens()`
 
 ```php
-listSecondaryApiTokens($api_token): \Sendbird\Model\InlineResponse2008
+listSecondaryApiTokens($api_token): \Sendbird\Model\ListSecondaryApiTokensResponse
 ```
 
 List secondary API tokens
@@ -593,7 +593,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
+[**\Sendbird\Model\ListSecondaryApiTokensResponse**](../Model/ListSecondaryApiTokensResponse.md)
 
 ### Authorization
 
@@ -611,7 +611,7 @@ No authorization required
 ## `removePushConfigurationById()`
 
 ```php
-removePushConfigurationById($push_type, $provider_id, $api_token): \Sendbird\Model\InlineResponse20013
+removePushConfigurationById($push_type, $provider_id, $api_token): \Sendbird\Model\RemovePushConfigurationByIdResponse
 ```
 
 Remove a push configuration
@@ -653,7 +653,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20013**](../Model/InlineResponse20013.md)
+[**\Sendbird\Model\RemovePushConfigurationByIdResponse**](../Model/RemovePushConfigurationByIdResponse.md)
 
 ### Authorization
 
@@ -671,7 +671,7 @@ No authorization required
 ## `retrieveIpWhitelist()`
 
 ```php
-retrieveIpWhitelist($api_token): \Sendbird\Model\InlineResponse2006
+retrieveIpWhitelist($api_token): \Sendbird\Model\RetrieveIpWhitelistResponse
 ```
 
 Retrieve an IP whitelist
@@ -709,7 +709,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\Sendbird\Model\RetrieveIpWhitelistResponse**](../Model/RetrieveIpWhitelistResponse.md)
 
 ### Authorization
 
@@ -727,7 +727,7 @@ No authorization required
 ## `revokeSecondaryApiTokenByToken()`
 
 ```php
-revokeSecondaryApiTokenByToken($api_token2, $api_token): \Sendbird\Model\InlineResponse2007
+revokeSecondaryApiTokenByToken($api_token2, $api_token): \Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse
 ```
 
 Revoke a secondary API token
@@ -767,7 +767,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse**](../Model/RevokeSecondaryApiTokenByTokenResponse.md)
 
 ### Authorization
 
@@ -785,7 +785,7 @@ No authorization required
 ## `updateApnsPushConfigurationById()`
 
 ```php
-updateApnsPushConfigurationById($provider_id, $api_token, $update_apns_push_configuration_by_id_data): \Sendbird\Model\InlineResponse20014
+updateApnsPushConfigurationById($provider_id, $api_token, $update_apns_push_configuration_by_id_data): \Sendbird\Model\UpdateApnsPushConfigurationByIdResponse
 ```
 
 Update an APNs push configuration
@@ -827,7 +827,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\Sendbird\Model\UpdateApnsPushConfigurationByIdResponse**](../Model/UpdateApnsPushConfigurationByIdResponse.md)
 
 ### Authorization
 
@@ -845,7 +845,7 @@ No authorization required
 ## `updateDefaultChannelInvitationPreference()`
 
 ```php
-updateDefaultChannelInvitationPreference($api_token, $update_default_channel_invitation_preference_data): \Sendbird\Model\InlineResponse2005
+updateDefaultChannelInvitationPreference($api_token, $update_default_channel_invitation_preference_data): \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceResponse
 ```
 
 Update default channel invitation preference
@@ -885,7 +885,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\Sendbird\Model\UpdateDefaultChannelInvitationPreferenceResponse**](../Model/UpdateDefaultChannelInvitationPreferenceResponse.md)
 
 ### Authorization
 
@@ -903,7 +903,7 @@ No authorization required
 ## `updateFcmPushConfigurationById()`
 
 ```php
-updateFcmPushConfigurationById($provider_id, $api_token, $update_fcm_push_configuration_by_id_data): \Sendbird\Model\InlineResponse20014
+updateFcmPushConfigurationById($provider_id, $api_token, $update_fcm_push_configuration_by_id_data): \Sendbird\Model\UpdateFcmPushConfigurationByIdResponse
 ```
 
 Update a FCM push configuration
@@ -945,7 +945,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\Sendbird\Model\UpdateFcmPushConfigurationByIdResponse**](../Model/UpdateFcmPushConfigurationByIdResponse.md)
 
 ### Authorization
 
@@ -963,7 +963,7 @@ No authorization required
 ## `updateHmsPushConfigurationById()`
 
 ```php
-updateHmsPushConfigurationById($provider_id, $api_token, $update_hms_push_configuration_by_id_data): \Sendbird\Model\InlineResponse20014
+updateHmsPushConfigurationById($provider_id, $api_token, $update_hms_push_configuration_by_id_data): \Sendbird\Model\UpdateHmsPushConfigurationByIdResponse
 ```
 
 Update an HMS push configuration
@@ -1005,7 +1005,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20014**](../Model/InlineResponse20014.md)
+[**\Sendbird\Model\UpdateHmsPushConfigurationByIdResponse**](../Model/UpdateHmsPushConfigurationByIdResponse.md)
 
 ### Authorization
 
@@ -1023,7 +1023,7 @@ No authorization required
 ## `updatePushNotificationContentTemplate()`
 
 ```php
-updatePushNotificationContentTemplate($template_name, $api_token, $update_push_notification_content_template_data): \Sendbird\Model\InlineResponse20015
+updatePushNotificationContentTemplate($template_name, $api_token, $update_push_notification_content_template_data): \Sendbird\Model\UpdatePushNotificationContentTemplateResponse
 ```
 
 Update a push notification content template
@@ -1065,7 +1065,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\Sendbird\Model\UpdatePushNotificationContentTemplateResponse**](../Model/UpdatePushNotificationContentTemplateResponse.md)
 
 ### Authorization
 
@@ -1083,7 +1083,7 @@ No authorization required
 ## `viewDefaultChannelInvitationPreference()`
 
 ```php
-viewDefaultChannelInvitationPreference($api_token): \Sendbird\Model\InlineResponse2005
+viewDefaultChannelInvitationPreference($api_token): \Sendbird\Model\ViewDefaultChannelInvitationPreferenceResponse
 ```
 
 View default channel invitation preference
@@ -1121,7 +1121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\Sendbird\Model\ViewDefaultChannelInvitationPreferenceResponse**](../Model/ViewDefaultChannelInvitationPreferenceResponse.md)
 
 ### Authorization
 
@@ -1139,7 +1139,7 @@ No authorization required
 ## `viewNumberOfConcurrentConnections()`
 
 ```php
-viewNumberOfConcurrentConnections($api_token): \Sendbird\Model\InlineResponse200
+viewNumberOfConcurrentConnections($api_token): \Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse
 ```
 
 View number of concurrent connections
@@ -1177,7 +1177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse**](../Model/ViewNumberOfConcurrentConnectionsResponse.md)
 
 ### Authorization
 
@@ -1195,7 +1195,7 @@ No authorization required
 ## `viewNumberOfDailyActiveUsers()`
 
 ```php
-viewNumberOfDailyActiveUsers($api_token, $date): \Sendbird\Model\InlineResponse20011
+viewNumberOfDailyActiveUsers($api_token, $date): \Sendbird\Model\ViewNumberOfDailyActiveUsersResponse
 ```
 
 View number of daily active users
@@ -1235,7 +1235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20011**](../Model/InlineResponse20011.md)
+[**\Sendbird\Model\ViewNumberOfDailyActiveUsersResponse**](../Model/ViewNumberOfDailyActiveUsersResponse.md)
 
 ### Authorization
 
@@ -1253,7 +1253,7 @@ No authorization required
 ## `viewNumberOfMonthlyActiveUsers()`
 
 ```php
-viewNumberOfMonthlyActiveUsers($api_token, $date): \Sendbird\Model\InlineResponse20010
+viewNumberOfMonthlyActiveUsers($api_token, $date): \Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse
 ```
 
 View number of monthly active users
@@ -1293,7 +1293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20010**](../Model/InlineResponse20010.md)
+[**\Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse**](../Model/ViewNumberOfMonthlyActiveUsersResponse.md)
 
 ### Authorization
 
@@ -1311,7 +1311,7 @@ No authorization required
 ## `viewNumberOfPeakConnections()`
 
 ```php
-viewNumberOfPeakConnections($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token, $start_day, $end_day): \Sendbird\Model\InlineResponse2009
+viewNumberOfPeakConnections($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token, $start_day, $end_day): \Sendbird\Model\ViewNumberOfPeakConnectionsResponse
 ```
 
 View number of peak connections
@@ -1363,7 +1363,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2009**](../Model/InlineResponse2009.md)
+[**\Sendbird\Model\ViewNumberOfPeakConnectionsResponse**](../Model/ViewNumberOfPeakConnectionsResponse.md)
 
 ### Authorization
 
@@ -1381,7 +1381,7 @@ No authorization required
 ## `viewPushConfigurationById()`
 
 ```php
-viewPushConfigurationById($push_type, $provider_id, $api_token): \Sendbird\Model\InlineResponse20012
+viewPushConfigurationById($push_type, $provider_id, $api_token): \Sendbird\Model\ViewPushConfigurationByIdResponse
 ```
 
 View a push configuration
@@ -1423,7 +1423,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20012**](../Model/InlineResponse20012.md)
+[**\Sendbird\Model\ViewPushConfigurationByIdResponse**](../Model/ViewPushConfigurationByIdResponse.md)
 
 ### Authorization
 
@@ -1441,7 +1441,7 @@ No authorization required
 ## `viewPushNotificationContentTemplate()`
 
 ```php
-viewPushNotificationContentTemplate($template_name, $api_token): \Sendbird\Model\InlineResponse20015
+viewPushNotificationContentTemplate($template_name, $api_token): \Sendbird\Model\ViewPushNotificationContentTemplateResponse
 ```
 
 View a push notification content template
@@ -1481,7 +1481,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20015**](../Model/InlineResponse20015.md)
+[**\Sendbird\Model\ViewPushNotificationContentTemplateResponse**](../Model/ViewPushNotificationContentTemplateResponse.md)
 
 ### Authorization
 
@@ -1499,7 +1499,7 @@ No authorization required
 ## `viewSecondaryApiTokenByToken()`
 
 ```php
-viewSecondaryApiTokenByToken($api_token2, $api_token): \Sendbird\Model\InlineResponse2007
+viewSecondaryApiTokenByToken($api_token2, $api_token): \Sendbird\Model\ViewSecondaryApiTokenByTokenResponse
 ```
 
 View a secondary API token
@@ -1539,7 +1539,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
+[**\Sendbird\Model\ViewSecondaryApiTokenByTokenResponse**](../Model/ViewSecondaryApiTokenByTokenResponse.md)
 
 ### Authorization
 

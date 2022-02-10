@@ -18,7 +18,7 @@ Method | HTTP request | Description
 ## `createBot()`
 
 ```php
-createBot($api_token, $create_bot_data): \Sendbird\Model\InlineResponse20065Bots
+createBot($api_token, $create_bot_data): \Sendbird\Model\CreateBotResponse
 ```
 
 Create a bot
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20065Bots**](../Model/InlineResponse20065Bots.md)
+[**\Sendbird\Model\CreateBotResponse**](../Model/CreateBotResponse.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ No authorization required
 ## `listBots()`
 
 ```php
-listBots($api_token, $token, $limit): \Sendbird\Model\InlineResponse20065
+listBots($api_token, $token, $limit): \Sendbird\Model\ListBotsResponse
 ```
 
 List bots
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20065**](../Model/InlineResponse20065.md)
+[**\Sendbird\Model\ListBotsResponse**](../Model/ListBotsResponse.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ No authorization required
 ## `updateBotById()`
 
 ```php
-updateBotById($bot_userid, $api_token, $update_bot_by_id_data): \Sendbird\Model\InlineResponse20065Bots
+updateBotById($bot_userid, $api_token, $update_bot_by_id_data): \Sendbird\Model\UpdateBotByIdResponse
 ```
 
 Update a bot
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20065Bots**](../Model/InlineResponse20065Bots.md)
+[**\Sendbird\Model\UpdateBotByIdResponse**](../Model/UpdateBotByIdResponse.md)
 
 ### Authorization
 
@@ -491,7 +491,7 @@ No authorization required
 ## `viewBotById()`
 
 ```php
-viewBotById($bot_userid, $api_token): \Sendbird\Model\InlineResponse20065Bots
+viewBotById($bot_userid, $api_token): \Sendbird\Model\ViewBotByIdResponse
 ```
 
 View a bot
@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20065Bots**](../Model/InlineResponse20065Bots.md)
+[**\Sendbird\Model\ViewBotByIdResponse**](../Model/ViewBotByIdResponse.md)
 
 ### Authorization
 

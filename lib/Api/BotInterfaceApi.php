@@ -125,7 +125,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20065Bots
+     * @return \Sendbird\Model\CreateBotResponse
      */
     public function createBot($api_token = null, $create_bot_data = null)
     {
@@ -143,7 +143,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20065Bots, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\CreateBotResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createBotWithHttpInfo($api_token = null, $create_bot_data = null)
     {
@@ -186,20 +186,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20065Bots' === '\SplFileObject') {
+                    if ('\Sendbird\Model\CreateBotResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20065Bots', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateBotResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20065Bots';
+            $returnType = '\Sendbird\Model\CreateBotResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -217,7 +217,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20065Bots',
+                        '\Sendbird\Model\CreateBotResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -261,7 +261,7 @@ class BotInterfaceApi
      */
     public function createBotAsyncWithHttpInfo($api_token = null, $create_bot_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20065Bots';
+        $returnType = '\Sendbird\Model\CreateBotResponse';
         $request = $this->createBotRequest($api_token, $create_bot_data);
 
         return $this->client
@@ -1429,7 +1429,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20065
+     * @return \Sendbird\Model\ListBotsResponse
      */
     public function listBots($api_token = null, $token = null, $limit = null)
     {
@@ -1448,7 +1448,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20065, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListBotsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listBotsWithHttpInfo($api_token = null, $token = null, $limit = null)
     {
@@ -1491,20 +1491,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20065' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListBotsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20065', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListBotsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20065';
+            $returnType = '\Sendbird\Model\ListBotsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1522,7 +1522,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20065',
+                        '\Sendbird\Model\ListBotsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1568,7 +1568,7 @@ class BotInterfaceApi
      */
     public function listBotsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20065';
+        $returnType = '\Sendbird\Model\ListBotsResponse';
         $request = $this->listBotsRequest($api_token, $token, $limit);
 
         return $this->client
@@ -2013,7 +2013,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20065Bots
+     * @return \Sendbird\Model\UpdateBotByIdResponse
      */
     public function updateBotById($bot_userid, $api_token = null, $update_bot_by_id_data = null)
     {
@@ -2032,7 +2032,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20065Bots, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\UpdateBotByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateBotByIdWithHttpInfo($bot_userid, $api_token = null, $update_bot_by_id_data = null)
     {
@@ -2075,20 +2075,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20065Bots' === '\SplFileObject') {
+                    if ('\Sendbird\Model\UpdateBotByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20065Bots', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UpdateBotByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20065Bots';
+            $returnType = '\Sendbird\Model\UpdateBotByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2106,7 +2106,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20065Bots',
+                        '\Sendbird\Model\UpdateBotByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2152,7 +2152,7 @@ class BotInterfaceApi
      */
     public function updateBotByIdAsyncWithHttpInfo($bot_userid, $api_token = null, $update_bot_by_id_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20065Bots';
+        $returnType = '\Sendbird\Model\UpdateBotByIdResponse';
         $request = $this->updateBotByIdRequest($bot_userid, $api_token, $update_bot_by_id_data);
 
         return $this->client
@@ -2303,7 +2303,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20065Bots
+     * @return \Sendbird\Model\ViewBotByIdResponse
      */
     public function viewBotById($bot_userid, $api_token = null)
     {
@@ -2321,7 +2321,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20065Bots, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ViewBotByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewBotByIdWithHttpInfo($bot_userid, $api_token = null)
     {
@@ -2364,20 +2364,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20065Bots' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ViewBotByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20065Bots', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewBotByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20065Bots';
+            $returnType = '\Sendbird\Model\ViewBotByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2395,7 +2395,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20065Bots',
+                        '\Sendbird\Model\ViewBotByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2439,7 +2439,7 @@ class BotInterfaceApi
      */
     public function viewBotByIdAsyncWithHttpInfo($bot_userid, $api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20065Bots';
+        $returnType = '\Sendbird\Model\ViewBotByIdResponse';
         $request = $this->viewBotByIdRequest($bot_userid, $api_token);
 
         return $this->client

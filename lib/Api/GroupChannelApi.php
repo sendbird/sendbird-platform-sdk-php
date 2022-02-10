@@ -417,7 +417,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20033BannedList
+     * @return \Sendbird\Model\GcBanUserResponse
      */
     public function gcBanUser($channel_url, $api_token = null, $gc_ban_user_data = null)
     {
@@ -436,7 +436,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20033BannedList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcBanUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcBanUserWithHttpInfo($channel_url, $api_token = null, $gc_ban_user_data = null)
     {
@@ -479,20 +479,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20033BannedList' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcBanUserResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20033BannedList', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcBanUserResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20033BannedList';
+            $returnType = '\Sendbird\Model\GcBanUserResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -510,7 +510,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20033BannedList',
+                        '\Sendbird\Model\GcBanUserResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -556,7 +556,7 @@ class GroupChannelApi
      */
     public function gcBanUserAsyncWithHttpInfo($channel_url, $api_token = null, $gc_ban_user_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20033BannedList';
+        $returnType = '\Sendbird\Model\GcBanUserResponse';
         $request = $this->gcBanUserRequest($channel_url, $api_token, $gc_ban_user_data);
 
         return $this->client
@@ -981,7 +981,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20037
+     * @return \Sendbird\Model\GcCheckIfMemberByIdResponse
      */
     public function gcCheckIfMemberById($channel_url, $user_id, $api_token = null)
     {
@@ -1000,7 +1000,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20037, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcCheckIfMemberByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcCheckIfMemberByIdWithHttpInfo($channel_url, $user_id, $api_token = null)
     {
@@ -1043,20 +1043,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20037' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcCheckIfMemberByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20037', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcCheckIfMemberByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20037';
+            $returnType = '\Sendbird\Model\GcCheckIfMemberByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1074,7 +1074,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20037',
+                        '\Sendbird\Model\GcCheckIfMemberByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1120,7 +1120,7 @@ class GroupChannelApi
      */
     public function gcCheckIfMemberByIdAsyncWithHttpInfo($channel_url, $user_id, $api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20037';
+        $returnType = '\Sendbird\Model\GcCheckIfMemberByIdResponse';
         $request = $this->gcCheckIfMemberByIdRequest($channel_url, $user_id, $api_token);
 
         return $this->client
@@ -3354,7 +3354,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20033
+     * @return \Sendbird\Model\GcListBannedUsersResponse
      */
     public function gcListBannedUsers($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -3374,7 +3374,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20033, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcListBannedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcListBannedUsersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -3417,20 +3417,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20033' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcListBannedUsersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20033', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcListBannedUsersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20033';
+            $returnType = '\Sendbird\Model\GcListBannedUsersResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3448,7 +3448,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20033',
+                        '\Sendbird\Model\GcListBannedUsersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3496,7 +3496,7 @@ class GroupChannelApi
      */
     public function gcListBannedUsersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20033';
+        $returnType = '\Sendbird\Model\GcListBannedUsersResponse';
         $request = $this->gcListBannedUsersRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -3705,7 +3705,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20017
+     * @return \Sendbird\Model\GcListChannelsResponse
      */
     public function gcListChannels($api_token = null, $token = null, $limit = null, $distinct_mode = null, $public_mode = null, $super_mode = null, $created_after = null, $created_before = null, $show_empty = null, $show_member = null, $show_delivery_receipt = null, $show_read_receipt = null, $show_metadata = null, $show_frozen = null, $order = null, $metadata_order_key = null, $custom_types = null, $custom_type_startswith = null, $channel_urls = null, $name = null, $name_contains = null, $name_startswith = null, $members_exactly_in = null, $members_include_in = null, $query_type = null, $members_nickname = null, $members_nickname_contains = null, $metadata_key = null, $metadata_values = null, $metadata_value_startswith = null, $metacounter_key = null, $metacounter_values = null, $metacounter_value_gt = null, $metacounter_value_gte = null, $metacounter_value_lt = null, $metacounter_value_lte = null, $include_sorted_metaarray_in_last_message = null, $custom_type = null, $read_receipt = null, $member = null, $is_distinct = null, $members_in = null, $user_id = null)
     {
@@ -3764,7 +3764,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20017, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcListChannelsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcListChannelsWithHttpInfo($api_token = null, $token = null, $limit = null, $distinct_mode = null, $public_mode = null, $super_mode = null, $created_after = null, $created_before = null, $show_empty = null, $show_member = null, $show_delivery_receipt = null, $show_read_receipt = null, $show_metadata = null, $show_frozen = null, $order = null, $metadata_order_key = null, $custom_types = null, $custom_type_startswith = null, $channel_urls = null, $name = null, $name_contains = null, $name_startswith = null, $members_exactly_in = null, $members_include_in = null, $query_type = null, $members_nickname = null, $members_nickname_contains = null, $metadata_key = null, $metadata_values = null, $metadata_value_startswith = null, $metacounter_key = null, $metacounter_values = null, $metacounter_value_gt = null, $metacounter_value_gte = null, $metacounter_value_lt = null, $metacounter_value_lte = null, $include_sorted_metaarray_in_last_message = null, $custom_type = null, $read_receipt = null, $member = null, $is_distinct = null, $members_in = null, $user_id = null)
     {
@@ -3807,20 +3807,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20017' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcListChannelsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20017', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcListChannelsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20017';
+            $returnType = '\Sendbird\Model\GcListChannelsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3838,7 +3838,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20017',
+                        '\Sendbird\Model\GcListChannelsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3964,7 +3964,7 @@ class GroupChannelApi
      */
     public function gcListChannelsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null, $distinct_mode = null, $public_mode = null, $super_mode = null, $created_after = null, $created_before = null, $show_empty = null, $show_member = null, $show_delivery_receipt = null, $show_read_receipt = null, $show_metadata = null, $show_frozen = null, $order = null, $metadata_order_key = null, $custom_types = null, $custom_type_startswith = null, $channel_urls = null, $name = null, $name_contains = null, $name_startswith = null, $members_exactly_in = null, $members_include_in = null, $query_type = null, $members_nickname = null, $members_nickname_contains = null, $metadata_key = null, $metadata_values = null, $metadata_value_startswith = null, $metacounter_key = null, $metacounter_values = null, $metacounter_value_gt = null, $metacounter_value_gte = null, $metacounter_value_lt = null, $metacounter_value_lte = null, $include_sorted_metaarray_in_last_message = null, $custom_type = null, $read_receipt = null, $member = null, $is_distinct = null, $members_in = null, $user_id = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20017';
+        $returnType = '\Sendbird\Model\GcListChannelsResponse';
         $request = $this->gcListChannelsRequest($api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $created_after, $created_before, $show_empty, $show_member, $show_delivery_receipt, $show_read_receipt, $show_metadata, $show_frozen, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $include_sorted_metaarray_in_last_message, $custom_type, $read_receipt, $member, $is_distinct, $members_in, $user_id);
 
         return $this->client
@@ -4606,7 +4606,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20036
+     * @return \Sendbird\Model\GcListMembersResponse
      */
     public function gcListMembers($channel_url, $api_token = null, $token = null, $limit = null, $show_delivery_receipt = null, $show_read_receipt = null, $order = null, $operator_filter = null, $member_state_filter = null, $muted_member_filter = null, $nickname_startswith = null)
     {
@@ -4633,7 +4633,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20036, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcListMembersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcListMembersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null, $show_delivery_receipt = null, $show_read_receipt = null, $order = null, $operator_filter = null, $member_state_filter = null, $muted_member_filter = null, $nickname_startswith = null)
     {
@@ -4676,20 +4676,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20036' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcListMembersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20036', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcListMembersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20036';
+            $returnType = '\Sendbird\Model\GcListMembersResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4707,7 +4707,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20036',
+                        '\Sendbird\Model\GcListMembersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4769,7 +4769,7 @@ class GroupChannelApi
      */
     public function gcListMembersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null, $show_delivery_receipt = null, $show_read_receipt = null, $order = null, $operator_filter = null, $member_state_filter = null, $muted_member_filter = null, $nickname_startswith = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20036';
+        $returnType = '\Sendbird\Model\GcListMembersResponse';
         $request = $this->gcListMembersRequest($channel_url, $api_token, $token, $limit, $show_delivery_receipt, $show_read_receipt, $order, $operator_filter, $member_state_filter, $muted_member_filter, $nickname_startswith);
 
         return $this->client
@@ -5023,7 +5023,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20031
+     * @return \Sendbird\Model\GcListMutedUsersResponse
      */
     public function gcListMutedUsers($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -5043,7 +5043,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20031, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcListMutedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcListMutedUsersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -5086,20 +5086,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20031' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcListMutedUsersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20031', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcListMutedUsersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20031';
+            $returnType = '\Sendbird\Model\GcListMutedUsersResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5117,7 +5117,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20031',
+                        '\Sendbird\Model\GcListMutedUsersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5165,7 +5165,7 @@ class GroupChannelApi
      */
     public function gcListMutedUsersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20031';
+        $returnType = '\Sendbird\Model\GcListMutedUsersResponse';
         $request = $this->gcListMutedUsersRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -5335,7 +5335,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20034
+     * @return \Sendbird\Model\GcListOperatorsResponse
      */
     public function gcListOperators($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -5355,7 +5355,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20034, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcListOperatorsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcListOperatorsWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -5398,20 +5398,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20034' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcListOperatorsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20034', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcListOperatorsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20034';
+            $returnType = '\Sendbird\Model\GcListOperatorsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5429,7 +5429,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20034',
+                        '\Sendbird\Model\GcListOperatorsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5477,7 +5477,7 @@ class GroupChannelApi
      */
     public function gcListOperatorsAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20034';
+        $returnType = '\Sendbird\Model\GcListOperatorsResponse';
         $request = $this->gcListOperatorsRequest($channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -5937,7 +5937,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20038
+     * @return \Sendbird\Model\GcRegisterOperatorsResponse
      */
     public function gcRegisterOperators($channel_url, $api_token = null, $gc_register_operators_data = null)
     {
@@ -5956,7 +5956,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20038, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcRegisterOperatorsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcRegisterOperatorsWithHttpInfo($channel_url, $api_token = null, $gc_register_operators_data = null)
     {
@@ -5999,20 +5999,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20038' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcRegisterOperatorsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20038', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcRegisterOperatorsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20038';
+            $returnType = '\Sendbird\Model\GcRegisterOperatorsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6030,7 +6030,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20038',
+                        '\Sendbird\Model\GcRegisterOperatorsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6076,7 +6076,7 @@ class GroupChannelApi
      */
     public function gcRegisterOperatorsAsyncWithHttpInfo($channel_url, $api_token = null, $gc_register_operators_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20038';
+        $returnType = '\Sendbird\Model\GcRegisterOperatorsResponse';
         $request = $this->gcRegisterOperatorsRequest($channel_url, $api_token, $gc_register_operators_data);
 
         return $this->client
@@ -8515,7 +8515,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20035
+     * @return \Sendbird\Model\GcViewMuteByIdResponse
      */
     public function gcViewMuteById($channel_url, $muted_user_id, $api_token = null)
     {
@@ -8534,7 +8534,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20035, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GcViewMuteByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcViewMuteByIdWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
     {
@@ -8577,20 +8577,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20035' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GcViewMuteByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20035', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcViewMuteByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20035';
+            $returnType = '\Sendbird\Model\GcViewMuteByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -8608,7 +8608,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20035',
+                        '\Sendbird\Model\GcViewMuteByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8654,7 +8654,7 @@ class GroupChannelApi
      */
     public function gcViewMuteByIdAsyncWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20035';
+        $returnType = '\Sendbird\Model\GcViewMuteByIdResponse';
         $request = $this->gcViewMuteByIdRequest($channel_url, $muted_user_id, $api_token);
 
         return $this->client

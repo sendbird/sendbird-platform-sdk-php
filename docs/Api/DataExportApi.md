@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `listDataExportsByMessageChannelOrUser()`
 
 ```php
-listDataExportsByMessageChannelOrUser($data_type, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20063
+listDataExportsByMessageChannelOrUser($data_type, $api_token, $token, $limit): \Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse
 ```
 
 List data exports by message, channel, or user
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20063**](../Model/InlineResponse20063.md)
+[**\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse**](../Model/ListDataExportsByMessageChannelOrUserResponse.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ No authorization required
 ## `registerAndScheduleDataExport()`
 
 ```php
-registerAndScheduleDataExport($data_type, $api_token, $register_and_schedule_data_export_data): \Sendbird\Model\InlineResponse20063ExportedData
+registerAndScheduleDataExport($data_type, $api_token, $register_and_schedule_data_export_data): \Sendbird\Model\RegisterAndScheduleDataExportResponse
 ```
 
 Register and schedule a data export
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20063ExportedData**](../Model/InlineResponse20063ExportedData.md)
+[**\Sendbird\Model\RegisterAndScheduleDataExportResponse**](../Model/RegisterAndScheduleDataExportResponse.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ No authorization required
 ## `viewDataExportById()`
 
 ```php
-viewDataExportById($data_type, $request_id, $api_token): \Sendbird\Model\InlineResponse20064
+viewDataExportById($data_type, $request_id, $api_token): \Sendbird\Model\ViewDataExportByIdResponse
 ```
 
 View a data export
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20064**](../Model/InlineResponse20064.md)
+[**\Sendbird\Model\ViewDataExportByIdResponse**](../Model/ViewDataExportByIdResponse.md)
 
 ### Authorization
 

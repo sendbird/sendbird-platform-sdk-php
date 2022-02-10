@@ -65,7 +65,7 @@ class SendBirdSender implements ModelInterface, ArrayAccess, \JsonSerializable
         'is_active' => 'bool',
         'is_blocked_by_me' => 'bool',
         'last_seen_at' => 'int',
-        'meta_data' => '\Sendbird\Model\Object',
+        'meta_data' => '\Sendbird\Model\SBObject',
         'nickname' => 'string',
         'plain_profile_url' => 'string',
         'preferred_languages' => 'string[]',
@@ -424,7 +424,7 @@ class SendBirdSender implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets meta_data
      *
-     * @return \Sendbird\Model\Object|null
+     * @return \Sendbird\Model\SBObject|null
      */
     public function getMetaData()
     {
@@ -434,7 +434,7 @@ class SendBirdSender implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets meta_data
      *
-     * @param \Sendbird\Model\Object|null $meta_data meta_data
+     * @param \Sendbird\Model\SBObject|null $meta_data meta_data
      *
      * @return self
      */

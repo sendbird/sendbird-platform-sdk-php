@@ -361,7 +361,7 @@ class DataPrivacyApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20068
+     * @return \Sendbird\Model\ListGdprRequestsResponse
      */
     public function listGdprRequests($api_token = null, $token = null, $limit = null)
     {
@@ -380,7 +380,7 @@ class DataPrivacyApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20068, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListGdprRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listGdprRequestsWithHttpInfo($api_token = null, $token = null, $limit = null)
     {
@@ -423,20 +423,20 @@ class DataPrivacyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20068' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListGdprRequestsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20068', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListGdprRequestsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20068';
+            $returnType = '\Sendbird\Model\ListGdprRequestsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -454,7 +454,7 @@ class DataPrivacyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20068',
+                        '\Sendbird\Model\ListGdprRequestsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -500,7 +500,7 @@ class DataPrivacyApi
      */
     public function listGdprRequestsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20068';
+        $returnType = '\Sendbird\Model\ListGdprRequestsResponse';
         $request = $this->listGdprRequestsRequest($api_token, $token, $limit);
 
         return $this->client
@@ -653,7 +653,7 @@ class DataPrivacyApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20069
+     * @return \Sendbird\Model\RegisterGdprRequestResponse
      */
     public function registerGdprRequest($api_token = null, $register_gdpr_request_data = null)
     {
@@ -671,7 +671,7 @@ class DataPrivacyApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20069, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\RegisterGdprRequestResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function registerGdprRequestWithHttpInfo($api_token = null, $register_gdpr_request_data = null)
     {
@@ -714,20 +714,20 @@ class DataPrivacyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20069' === '\SplFileObject') {
+                    if ('\Sendbird\Model\RegisterGdprRequestResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20069', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\RegisterGdprRequestResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20069';
+            $returnType = '\Sendbird\Model\RegisterGdprRequestResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -745,7 +745,7 @@ class DataPrivacyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20069',
+                        '\Sendbird\Model\RegisterGdprRequestResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -789,7 +789,7 @@ class DataPrivacyApi
      */
     public function registerGdprRequestAsyncWithHttpInfo($api_token = null, $register_gdpr_request_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20069';
+        $returnType = '\Sendbird\Model\RegisterGdprRequestResponse';
         $request = $this->registerGdprRequestRequest($api_token, $register_gdpr_request_data);
 
         return $this->client
@@ -925,7 +925,7 @@ class DataPrivacyApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20068Requests
+     * @return \Sendbird\Model\ViewGdprRequestByIdResponse
      */
     public function viewGdprRequestById($request_id, $api_token = null)
     {
@@ -943,7 +943,7 @@ class DataPrivacyApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20068Requests, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ViewGdprRequestByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewGdprRequestByIdWithHttpInfo($request_id, $api_token = null)
     {
@@ -986,20 +986,20 @@ class DataPrivacyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20068Requests' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ViewGdprRequestByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20068Requests', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewGdprRequestByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20068Requests';
+            $returnType = '\Sendbird\Model\ViewGdprRequestByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1017,7 +1017,7 @@ class DataPrivacyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20068Requests',
+                        '\Sendbird\Model\ViewGdprRequestByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1061,7 +1061,7 @@ class DataPrivacyApi
      */
     public function viewGdprRequestByIdAsyncWithHttpInfo($request_id, $api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20068Requests';
+        $returnType = '\Sendbird\Model\ViewGdprRequestByIdResponse';
         $request = $this->viewGdprRequestByIdRequest($request_id, $api_token);
 
         return $this->client

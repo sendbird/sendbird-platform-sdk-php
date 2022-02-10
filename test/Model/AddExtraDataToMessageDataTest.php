@@ -114,13 +114,4 @@ class AddExtraDataToMessageDataTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "metaarray"
-     */
-    public function testPropertyMetaarray()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
 }

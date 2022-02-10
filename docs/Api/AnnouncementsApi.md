@@ -20,7 +20,7 @@ Method | HTTP request | Description
 ## `getDetailedOpenRateOfAnnouncementById()`
 
 ```php
-getDetailedOpenRateOfAnnouncementById($unique_id, $api_token): \Sendbird\Model\InlineResponse20042
+getDetailedOpenRateOfAnnouncementById($unique_id, $api_token): \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse
 ```
 
 Get detailed open rate of an announcement
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20042**](../Model/InlineResponse20042.md)
+[**\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse**](../Model/GetDetailedOpenRateOfAnnouncementByIdResponse.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ No authorization required
 ## `getDetailedOpenRateOfAnnouncementGroup()`
 
 ```php
-getDetailedOpenRateOfAnnouncementGroup($announcement_group, $api_token): \Sendbird\Model\InlineResponse20046
+getDetailedOpenRateOfAnnouncementGroup($announcement_group, $api_token): \Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse
 ```
 
 Get detailed open rate of an announcement group
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20046**](../Model/InlineResponse20046.md)
+[**\Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse**](../Model/GetDetailedOpenRateOfAnnouncementGroupResponse.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ No authorization required
 ## `getDetailedOpenStatusOfAnnouncementById()`
 
 ```php
-getDetailedOpenStatusOfAnnouncementById($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened): \Sendbird\Model\InlineResponse20043
+getDetailedOpenStatusOfAnnouncementById($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened): \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse
 ```
 
 Get detailed open status of an announcement
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20043**](../Model/InlineResponse20043.md)
+[**\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse**](../Model/GetDetailedOpenStatusOfAnnouncementByIdResponse.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ No authorization required
 ## `getStatistics()`
 
 ```php
-getStatistics($api_token): \Sendbird\Model\InlineResponse20044
+getStatistics($api_token): \Sendbird\Model\GetStatisticsResponse
 ```
 
 Get statistics - weekly
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
+[**\Sendbird\Model\GetStatisticsResponse**](../Model/GetStatisticsResponse.md)
 
 ### Authorization
 
@@ -260,7 +260,7 @@ No authorization required
 ## `getStatisticsDaily()`
 
 ```php
-getStatisticsDaily($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group): \Sendbird\Model\InlineResponse20044
+getStatisticsDaily($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group): \Sendbird\Model\GetStatisticsDailyResponse
 ```
 
 Get statistics - daily
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
+[**\Sendbird\Model\GetStatisticsDailyResponse**](../Model/GetStatisticsDailyResponse.md)
 
 ### Authorization
 
@@ -330,7 +330,7 @@ No authorization required
 ## `getStatisticsMonthly()`
 
 ```php
-getStatisticsMonthly($api_token): \Sendbird\Model\InlineResponse20044
+getStatisticsMonthly($api_token): \Sendbird\Model\GetStatisticsMonthlyResponse
 ```
 
 Get statistics - monthly
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20044**](../Model/InlineResponse20044.md)
+[**\Sendbird\Model\GetStatisticsMonthlyResponse**](../Model/GetStatisticsMonthlyResponse.md)
 
 ### Authorization
 
@@ -386,7 +386,7 @@ No authorization required
 ## `listAnnouncementGroups()`
 
 ```php
-listAnnouncementGroups($api_token, $token, $limit): \Sendbird\Model\InlineResponse20045
+listAnnouncementGroups($api_token, $token, $limit): \Sendbird\Model\ListAnnouncementGroupsResponse
 ```
 
 List announcement groups
@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20045**](../Model/InlineResponse20045.md)
+[**\Sendbird\Model\ListAnnouncementGroupsResponse**](../Model/ListAnnouncementGroupsResponse.md)
 
 ### Authorization
 
@@ -446,7 +446,7 @@ No authorization required
 ## `listAnnouncements()`
 
 ```php
-listAnnouncements($api_token, $token, $limit, $order, $status, $announcement_group): \Sendbird\Model\InlineResponse20039
+listAnnouncements($api_token, $token, $limit, $order, $status, $announcement_group): \Sendbird\Model\ListAnnouncementsResponse
 ```
 
 List announcements
@@ -494,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20039**](../Model/InlineResponse20039.md)
+[**\Sendbird\Model\ListAnnouncementsResponse**](../Model/ListAnnouncementsResponse.md)
 
 ### Authorization
 
@@ -512,7 +512,7 @@ No authorization required
 ## `scheduleAnnouncement()`
 
 ```php
-scheduleAnnouncement($api_token, $schedule_announcement_data): \Sendbird\Model\InlineResponse20040
+scheduleAnnouncement($api_token, $schedule_announcement_data): \Sendbird\Model\ScheduleAnnouncementResponse
 ```
 
 Schedule an announcement
@@ -552,7 +552,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20040**](../Model/InlineResponse20040.md)
+[**\Sendbird\Model\ScheduleAnnouncementResponse**](../Model/ScheduleAnnouncementResponse.md)
 
 ### Authorization
 
@@ -570,7 +570,7 @@ No authorization required
 ## `updateAnnouncementById()`
 
 ```php
-updateAnnouncementById($unique_id, $api_token, $update_announcement_by_id_data): \Sendbird\Model\InlineResponse20041
+updateAnnouncementById($unique_id, $api_token, $update_announcement_by_id_data): \Sendbird\Model\UpdateAnnouncementByIdResponse
 ```
 
 Update an announcement
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20041**](../Model/InlineResponse20041.md)
+[**\Sendbird\Model\UpdateAnnouncementByIdResponse**](../Model/UpdateAnnouncementByIdResponse.md)
 
 ### Authorization
 
@@ -630,7 +630,7 @@ No authorization required
 ## `viewAnnouncementById()`
 
 ```php
-viewAnnouncementById($unique_id, $api_token): \Sendbird\Model\InlineResponse20039Announcements
+viewAnnouncementById($unique_id, $api_token): \Sendbird\Model\ViewAnnouncementByIdResponse
 ```
 
 View an announcement
@@ -670,7 +670,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20039Announcements**](../Model/InlineResponse20039Announcements.md)
+[**\Sendbird\Model\ViewAnnouncementByIdResponse**](../Model/ViewAnnouncementByIdResponse.md)
 
 ### Authorization
 

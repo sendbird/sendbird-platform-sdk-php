@@ -17,7 +17,7 @@ Method | HTTP request | Description
 ## `listReports()`
 
 ```php
-listReports($api_token, $token, $limit, $start_ts, $end_ts): \Sendbird\Model\InlineResponse20070
+listReports($api_token, $token, $limit, $start_ts, $end_ts): \Sendbird\Model\ListReportsResponse
 ```
 
 List reports
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20070**](../Model/InlineResponse20070.md)
+[**\Sendbird\Model\ListReportsResponse**](../Model/ListReportsResponse.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ No authorization required
 ## `listReportsOnChannelByUrl()`
 
 ```php
-listReportsOnChannelByUrl($channel_type, $channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20071
+listReportsOnChannelByUrl($channel_type, $channel_url, $api_token, $token, $limit): \Sendbird\Model\ListReportsOnChannelByUrlResponse
 ```
 
 List reports on a channel
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20071**](../Model/InlineResponse20071.md)
+[**\Sendbird\Model\ListReportsOnChannelByUrlResponse**](../Model/ListReportsOnChannelByUrlResponse.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ No authorization required
 ## `listReportsOnMessageById()`
 
 ```php
-listReportsOnMessageById($channel_type, $channel_url, $message_id, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20071
+listReportsOnMessageById($channel_type, $channel_url, $message_id, $api_token, $token, $limit): \Sendbird\Model\ListReportsOnMessageByIdResponse
 ```
 
 List reports on a message
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20071**](../Model/InlineResponse20071.md)
+[**\Sendbird\Model\ListReportsOnMessageByIdResponse**](../Model/ListReportsOnMessageByIdResponse.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ No authorization required
 ## `listReportsOnUserById()`
 
 ```php
-listReportsOnUserById($offending_user_id, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20071
+listReportsOnUserById($offending_user_id, $api_token, $token, $limit): \Sendbird\Model\ListReportsOnUserByIdResponse
 ```
 
 List reports on a user
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20071**](../Model/InlineResponse20071.md)
+[**\Sendbird\Model\ListReportsOnUserByIdResponse**](../Model/ListReportsOnUserByIdResponse.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ No authorization required
 ## `reportChannelByUrl()`
 
 ```php
-reportChannelByUrl($channel_type, $channel_url, $api_token, $report_channel_by_url_data): \Sendbird\Model\InlineResponse20071ReportLogs
+reportChannelByUrl($channel_type, $channel_url, $api_token, $report_channel_by_url_data): \Sendbird\Model\ReportChannelByUrlResponse
 ```
 
 Report a channel
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20071ReportLogs**](../Model/InlineResponse20071ReportLogs.md)
+[**\Sendbird\Model\ReportChannelByUrlResponse**](../Model/ReportChannelByUrlResponse.md)
 
 ### Authorization
 
@@ -335,7 +335,7 @@ No authorization required
 ## `reportMessageById()`
 
 ```php
-reportMessageById($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data): \Sendbird\Model\InlineResponse20071ReportLogs
+reportMessageById($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data): \Sendbird\Model\ReportMessageByIdResponse
 ```
 
 Report a message
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20071ReportLogs**](../Model/InlineResponse20071ReportLogs.md)
+[**\Sendbird\Model\ReportMessageByIdResponse**](../Model/ReportMessageByIdResponse.md)
 
 ### Authorization
 
@@ -399,7 +399,7 @@ No authorization required
 ## `reportUserById()`
 
 ```php
-reportUserById($offending_user_id, $api_token, $report_user_by_id_data): \Sendbird\Model\InlineResponse20071ReportLogs
+reportUserById($offending_user_id, $api_token, $report_user_by_id_data): \Sendbird\Model\ReportUserByIdResponse
 ```
 
 Report a user
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20071ReportLogs**](../Model/InlineResponse20071ReportLogs.md)
+[**\Sendbird\Model\ReportUserByIdResponse**](../Model/ReportUserByIdResponse.md)
 
 ### Authorization
 

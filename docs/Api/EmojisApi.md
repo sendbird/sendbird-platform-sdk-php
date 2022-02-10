@@ -21,7 +21,7 @@ Method | HTTP request | Description
 ## `addEmojiCategories()`
 
 ```php
-addEmojiCategories($api_token, $body): \Sendbird\Model\InlineResponse20057
+addEmojiCategories($api_token, $body): \Sendbird\Model\AddEmojiCategoriesResponse
 ```
 
 Add emoji categories
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20057**](../Model/InlineResponse20057.md)
+[**\Sendbird\Model\AddEmojiCategoriesResponse**](../Model/AddEmojiCategoriesResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ No authorization required
 ## `addEmojis()`
 
 ```php
-addEmojis($api_token, $add_emojis_data): \Sendbird\Model\InlineResponse20059
+addEmojis($api_token, $add_emojis_data): \Sendbird\Model\AddEmojisResponse
 ```
 
 Add emojis
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20059**](../Model/InlineResponse20059.md)
+[**\Sendbird\Model\AddEmojisResponse**](../Model/AddEmojisResponse.md)
 
 ### Authorization
 
@@ -251,7 +251,7 @@ No authorization required
 ## `enableReactions()`
 
 ```php
-enableReactions($api_token, $enable_reactions_data): \Sendbird\Model\InlineResponse20051
+enableReactions($api_token, $enable_reactions_data): \Sendbird\Model\EnableReactionsResponse
 ```
 
 Enable reactions
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20051**](../Model/InlineResponse20051.md)
+[**\Sendbird\Model\EnableReactionsResponse**](../Model/EnableReactionsResponse.md)
 
 ### Authorization
 
@@ -425,7 +425,7 @@ No authorization required
 ## `listAllEmojisAndEmojiCategories()`
 
 ```php
-listAllEmojisAndEmojiCategories($api_token): \Sendbird\Model\InlineResponse20056
+listAllEmojisAndEmojiCategories($api_token): \Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse
 ```
 
 List all emojis and emoji categories
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20056**](../Model/InlineResponse20056.md)
+[**\Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse**](../Model/ListAllEmojisAndEmojiCategoriesResponse.md)
 
 ### Authorization
 
@@ -481,7 +481,7 @@ No authorization required
 ## `listEmojis()`
 
 ```php
-listEmojis($api_token): \Sendbird\Model\InlineResponse20058
+listEmojis($api_token): \Sendbird\Model\ListEmojisResponse
 ```
 
 List emojis
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20058**](../Model/InlineResponse20058.md)
+[**\Sendbird\Model\ListEmojisResponse**](../Model/ListEmojisResponse.md)
 
 ### Authorization
 
@@ -657,7 +657,7 @@ No authorization required
 ## `useDefaultEmojis()`
 
 ```php
-useDefaultEmojis($api_token, $use_default_emojis_data): \Sendbird\Model\InlineResponse20055
+useDefaultEmojis($api_token, $use_default_emojis_data): \Sendbird\Model\UseDefaultEmojisResponse
 ```
 
 Use default emojis
@@ -697,7 +697,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20055**](../Model/InlineResponse20055.md)
+[**\Sendbird\Model\UseDefaultEmojisResponse**](../Model/UseDefaultEmojisResponse.md)
 
 ### Authorization
 

@@ -96,22 +96,4 @@ class AddEmojisDataTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "_emoji_key"
-     */
-    public function testPropertyEmojiKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "_emoji_url"
-     */
-    public function testPropertyEmojiUrl()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
 }

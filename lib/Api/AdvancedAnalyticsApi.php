@@ -124,7 +124,7 @@ class AdvancedAnalyticsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20062
+     * @return \Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse
      */
     public function retrieveAdvancedAnalyticsMetrics($api_token = null)
     {
@@ -141,7 +141,7 @@ class AdvancedAnalyticsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20062, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveAdvancedAnalyticsMetricsWithHttpInfo($api_token = null)
     {
@@ -184,20 +184,20 @@ class AdvancedAnalyticsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20062' === '\SplFileObject') {
+                    if ('\Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20062', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20062';
+            $returnType = '\Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -215,7 +215,7 @@ class AdvancedAnalyticsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20062',
+                        '\Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -257,7 +257,7 @@ class AdvancedAnalyticsApi
      */
     public function retrieveAdvancedAnalyticsMetricsAsyncWithHttpInfo($api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20062';
+        $returnType = '\Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse';
         $request = $this->retrieveAdvancedAnalyticsMetricsRequest($api_token);
 
         return $this->client

@@ -70,7 +70,7 @@ No authorization required
 ## `listGdprRequests()`
 
 ```php
-listGdprRequests($api_token, $token, $limit): \Sendbird\Model\InlineResponse20068
+listGdprRequests($api_token, $token, $limit): \Sendbird\Model\ListGdprRequestsResponse
 ```
 
 List GDPR requests
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20068**](../Model/InlineResponse20068.md)
+[**\Sendbird\Model\ListGdprRequestsResponse**](../Model/ListGdprRequestsResponse.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ No authorization required
 ## `registerGdprRequest()`
 
 ```php
-registerGdprRequest($api_token, $register_gdpr_request_data): \Sendbird\Model\InlineResponse20069
+registerGdprRequest($api_token, $register_gdpr_request_data): \Sendbird\Model\RegisterGdprRequestResponse
 ```
 
 Register a GDPR request
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20069**](../Model/InlineResponse20069.md)
+[**\Sendbird\Model\RegisterGdprRequestResponse**](../Model/RegisterGdprRequestResponse.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ No authorization required
 ## `viewGdprRequestById()`
 
 ```php
-viewGdprRequestById($request_id, $api_token): \Sendbird\Model\InlineResponse20068Requests
+viewGdprRequestById($request_id, $api_token): \Sendbird\Model\ViewGdprRequestByIdResponse
 ```
 
 View a GDPR request
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20068Requests**](../Model/InlineResponse20068Requests.md)
+[**\Sendbird\Model\ViewGdprRequestByIdResponse**](../Model/ViewGdprRequestByIdResponse.md)
 
 ### Authorization
 

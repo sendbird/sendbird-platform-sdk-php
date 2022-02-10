@@ -125,7 +125,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20042
+     * @return \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse
      */
     public function getDetailedOpenRateOfAnnouncementById($unique_id, $api_token = null)
     {
@@ -143,7 +143,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20042, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($unique_id, $api_token = null)
     {
@@ -186,20 +186,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20042' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20042', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20042';
+            $returnType = '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -217,7 +217,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20042',
+                        '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -261,7 +261,7 @@ class AnnouncementsApi
      */
     public function getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20042';
+        $returnType = '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse';
         $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($unique_id, $api_token);
 
         return $this->client
@@ -405,7 +405,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20046
+     * @return \Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse
      */
     public function getDetailedOpenRateOfAnnouncementGroup($announcement_group, $api_token = null)
     {
@@ -423,7 +423,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20046, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDetailedOpenRateOfAnnouncementGroupWithHttpInfo($announcement_group, $api_token = null)
     {
@@ -466,20 +466,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20046' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20046', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20046';
+            $returnType = '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -497,7 +497,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20046',
+                        '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -541,7 +541,7 @@ class AnnouncementsApi
      */
     public function getDetailedOpenRateOfAnnouncementGroupAsyncWithHttpInfo($announcement_group, $api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20046';
+        $returnType = '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse';
         $request = $this->getDetailedOpenRateOfAnnouncementGroupRequest($announcement_group, $api_token);
 
         return $this->client
@@ -690,7 +690,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20043
+     * @return \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse
      */
     public function getDetailedOpenStatusOfAnnouncementById($unique_id, $api_token = null, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
     {
@@ -713,7 +713,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20043, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($unique_id, $api_token = null, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
     {
@@ -756,20 +756,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20043' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20043', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20043';
+            $returnType = '\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -787,7 +787,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20043',
+                        '\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -841,7 +841,7 @@ class AnnouncementsApi
      */
     public function getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token = null, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20043';
+        $returnType = '\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse';
         $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened);
 
         return $this->client
@@ -1044,7 +1044,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20044
+     * @return \Sendbird\Model\GetStatisticsResponse
      */
     public function getStatistics($api_token = null)
     {
@@ -1061,7 +1061,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20044, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GetStatisticsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStatisticsWithHttpInfo($api_token = null)
     {
@@ -1104,20 +1104,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20044' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GetStatisticsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20044', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GetStatisticsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20044';
+            $returnType = '\Sendbird\Model\GetStatisticsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1135,7 +1135,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20044',
+                        '\Sendbird\Model\GetStatisticsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1177,7 +1177,7 @@ class AnnouncementsApi
      */
     public function getStatisticsAsyncWithHttpInfo($api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20044';
+        $returnType = '\Sendbird\Model\GetStatisticsResponse';
         $request = $this->getStatisticsRequest($api_token);
 
         return $this->client
@@ -1312,7 +1312,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20044
+     * @return \Sendbird\Model\GetStatisticsDailyResponse
      */
     public function getStatisticsDaily($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token = null, $announcement_group = null)
     {
@@ -1336,7 +1336,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20044, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GetStatisticsDailyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStatisticsDailyWithHttpInfo($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token = null, $announcement_group = null)
     {
@@ -1379,20 +1379,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20044' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GetStatisticsDailyResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20044', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GetStatisticsDailyResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20044';
+            $returnType = '\Sendbird\Model\GetStatisticsDailyResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1410,7 +1410,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20044',
+                        '\Sendbird\Model\GetStatisticsDailyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1466,7 +1466,7 @@ class AnnouncementsApi
      */
     public function getStatisticsDailyAsyncWithHttpInfo($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token = null, $announcement_group = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20044';
+        $returnType = '\Sendbird\Model\GetStatisticsDailyResponse';
         $request = $this->getStatisticsDailyRequest($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group);
 
         return $this->client
@@ -1714,7 +1714,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20044
+     * @return \Sendbird\Model\GetStatisticsMonthlyResponse
      */
     public function getStatisticsMonthly($api_token = null)
     {
@@ -1731,7 +1731,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20044, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GetStatisticsMonthlyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStatisticsMonthlyWithHttpInfo($api_token = null)
     {
@@ -1774,20 +1774,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20044' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GetStatisticsMonthlyResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20044', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GetStatisticsMonthlyResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20044';
+            $returnType = '\Sendbird\Model\GetStatisticsMonthlyResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1805,7 +1805,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20044',
+                        '\Sendbird\Model\GetStatisticsMonthlyResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1847,7 +1847,7 @@ class AnnouncementsApi
      */
     public function getStatisticsMonthlyAsyncWithHttpInfo($api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20044';
+        $returnType = '\Sendbird\Model\GetStatisticsMonthlyResponse';
         $request = $this->getStatisticsMonthlyRequest($api_token);
 
         return $this->client
@@ -1977,7 +1977,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20045
+     * @return \Sendbird\Model\ListAnnouncementGroupsResponse
      */
     public function listAnnouncementGroups($api_token = null, $token = null, $limit = null)
     {
@@ -1996,7 +1996,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20045, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListAnnouncementGroupsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAnnouncementGroupsWithHttpInfo($api_token = null, $token = null, $limit = null)
     {
@@ -2039,20 +2039,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20045' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListAnnouncementGroupsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20045', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListAnnouncementGroupsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20045';
+            $returnType = '\Sendbird\Model\ListAnnouncementGroupsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2070,7 +2070,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20045',
+                        '\Sendbird\Model\ListAnnouncementGroupsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2116,7 +2116,7 @@ class AnnouncementsApi
      */
     public function listAnnouncementGroupsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20045';
+        $returnType = '\Sendbird\Model\ListAnnouncementGroupsResponse';
         $request = $this->listAnnouncementGroupsRequest($api_token, $token, $limit);
 
         return $this->client
@@ -2273,7 +2273,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20039
+     * @return \Sendbird\Model\ListAnnouncementsResponse
      */
     public function listAnnouncements($api_token = null, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
     {
@@ -2295,7 +2295,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20039, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListAnnouncementsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAnnouncementsWithHttpInfo($api_token = null, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
     {
@@ -2338,20 +2338,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20039' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListAnnouncementsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20039', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListAnnouncementsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20039';
+            $returnType = '\Sendbird\Model\ListAnnouncementsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2369,7 +2369,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20039',
+                        '\Sendbird\Model\ListAnnouncementsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2421,7 +2421,7 @@ class AnnouncementsApi
      */
     public function listAnnouncementsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20039';
+        $returnType = '\Sendbird\Model\ListAnnouncementsResponse';
         $request = $this->listAnnouncementsRequest($api_token, $token, $limit, $order, $status, $announcement_group);
 
         return $this->client
@@ -2610,7 +2610,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20040
+     * @return \Sendbird\Model\ScheduleAnnouncementResponse
      */
     public function scheduleAnnouncement($api_token = null, $schedule_announcement_data = null)
     {
@@ -2628,7 +2628,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20040, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ScheduleAnnouncementResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function scheduleAnnouncementWithHttpInfo($api_token = null, $schedule_announcement_data = null)
     {
@@ -2671,20 +2671,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20040' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ScheduleAnnouncementResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20040', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ScheduleAnnouncementResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20040';
+            $returnType = '\Sendbird\Model\ScheduleAnnouncementResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2702,7 +2702,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20040',
+                        '\Sendbird\Model\ScheduleAnnouncementResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2746,7 +2746,7 @@ class AnnouncementsApi
      */
     public function scheduleAnnouncementAsyncWithHttpInfo($api_token = null, $schedule_announcement_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20040';
+        $returnType = '\Sendbird\Model\ScheduleAnnouncementResponse';
         $request = $this->scheduleAnnouncementRequest($api_token, $schedule_announcement_data);
 
         return $this->client
@@ -2883,7 +2883,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20041
+     * @return \Sendbird\Model\UpdateAnnouncementByIdResponse
      */
     public function updateAnnouncementById($unique_id, $api_token = null, $update_announcement_by_id_data = null)
     {
@@ -2902,7 +2902,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20041, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\UpdateAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateAnnouncementByIdWithHttpInfo($unique_id, $api_token = null, $update_announcement_by_id_data = null)
     {
@@ -2945,20 +2945,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20041' === '\SplFileObject') {
+                    if ('\Sendbird\Model\UpdateAnnouncementByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20041', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UpdateAnnouncementByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20041';
+            $returnType = '\Sendbird\Model\UpdateAnnouncementByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2976,7 +2976,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20041',
+                        '\Sendbird\Model\UpdateAnnouncementByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3022,7 +3022,7 @@ class AnnouncementsApi
      */
     public function updateAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token = null, $update_announcement_by_id_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20041';
+        $returnType = '\Sendbird\Model\UpdateAnnouncementByIdResponse';
         $request = $this->updateAnnouncementByIdRequest($unique_id, $api_token, $update_announcement_by_id_data);
 
         return $this->client
@@ -3173,7 +3173,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20039Announcements
+     * @return \Sendbird\Model\ViewAnnouncementByIdResponse
      */
     public function viewAnnouncementById($unique_id, $api_token = null)
     {
@@ -3191,7 +3191,7 @@ class AnnouncementsApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20039Announcements, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ViewAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewAnnouncementByIdWithHttpInfo($unique_id, $api_token = null)
     {
@@ -3234,20 +3234,20 @@ class AnnouncementsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20039Announcements' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ViewAnnouncementByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20039Announcements', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewAnnouncementByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20039Announcements';
+            $returnType = '\Sendbird\Model\ViewAnnouncementByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3265,7 +3265,7 @@ class AnnouncementsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20039Announcements',
+                        '\Sendbird\Model\ViewAnnouncementByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3309,7 +3309,7 @@ class AnnouncementsApi
      */
     public function viewAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20039Announcements';
+        $returnType = '\Sendbird\Model\ViewAnnouncementByIdResponse';
         $request = $this->viewAnnouncementByIdRequest($unique_id, $api_token);
 
         return $this->client

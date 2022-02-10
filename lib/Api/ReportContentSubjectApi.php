@@ -128,7 +128,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20070
+     * @return \Sendbird\Model\ListReportsResponse
      */
     public function listReports($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
@@ -149,7 +149,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20070, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListReportsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReportsWithHttpInfo($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
@@ -192,20 +192,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20070' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListReportsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20070', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListReportsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20070';
+            $returnType = '\Sendbird\Model\ListReportsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -223,7 +223,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20070',
+                        '\Sendbird\Model\ListReportsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -273,7 +273,7 @@ class ReportContentSubjectApi
      */
     public function listReportsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20070';
+        $returnType = '\Sendbird\Model\ListReportsResponse';
         $request = $this->listReportsRequest($api_token, $token, $limit, $start_ts, $end_ts);
 
         return $this->client
@@ -453,7 +453,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20071
+     * @return \Sendbird\Model\ListReportsOnChannelByUrlResponse
      */
     public function listReportsOnChannelByUrl($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -474,7 +474,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20071, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListReportsOnChannelByUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReportsOnChannelByUrlWithHttpInfo($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
     {
@@ -517,20 +517,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20071' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListReportsOnChannelByUrlResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListReportsOnChannelByUrlResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20071';
+            $returnType = '\Sendbird\Model\ListReportsOnChannelByUrlResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -548,7 +548,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20071',
+                        '\Sendbird\Model\ListReportsOnChannelByUrlResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -598,7 +598,7 @@ class ReportContentSubjectApi
      */
     public function listReportsOnChannelByUrlAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20071';
+        $returnType = '\Sendbird\Model\ListReportsOnChannelByUrlResponse';
         $request = $this->listReportsOnChannelByUrlRequest($channel_type, $channel_url, $api_token, $token, $limit);
 
         return $this->client
@@ -785,7 +785,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20071
+     * @return \Sendbird\Model\ListReportsOnMessageByIdResponse
      */
     public function listReportsOnMessageById($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
     {
@@ -807,7 +807,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20071, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListReportsOnMessageByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReportsOnMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
     {
@@ -850,20 +850,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20071' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListReportsOnMessageByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListReportsOnMessageByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20071';
+            $returnType = '\Sendbird\Model\ListReportsOnMessageByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -881,7 +881,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20071',
+                        '\Sendbird\Model\ListReportsOnMessageByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -933,7 +933,7 @@ class ReportContentSubjectApi
      */
     public function listReportsOnMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20071';
+        $returnType = '\Sendbird\Model\ListReportsOnMessageByIdResponse';
         $request = $this->listReportsOnMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $token, $limit);
 
         return $this->client
@@ -1133,7 +1133,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20071
+     * @return \Sendbird\Model\ListReportsOnUserByIdResponse
      */
     public function listReportsOnUserById($offending_user_id, $api_token = null, $token = null, $limit = null)
     {
@@ -1153,7 +1153,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20071, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListReportsOnUserByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReportsOnUserByIdWithHttpInfo($offending_user_id, $api_token = null, $token = null, $limit = null)
     {
@@ -1196,20 +1196,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20071' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListReportsOnUserByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListReportsOnUserByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20071';
+            $returnType = '\Sendbird\Model\ListReportsOnUserByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1227,7 +1227,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20071',
+                        '\Sendbird\Model\ListReportsOnUserByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1275,7 +1275,7 @@ class ReportContentSubjectApi
      */
     public function listReportsOnUserByIdAsyncWithHttpInfo($offending_user_id, $api_token = null, $token = null, $limit = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20071';
+        $returnType = '\Sendbird\Model\ListReportsOnUserByIdResponse';
         $request = $this->listReportsOnUserByIdRequest($offending_user_id, $api_token, $token, $limit);
 
         return $this->client
@@ -1445,7 +1445,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20071ReportLogs
+     * @return \Sendbird\Model\ReportChannelByUrlResponse
      */
     public function reportChannelByUrl($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
     {
@@ -1465,7 +1465,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20071ReportLogs, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ReportChannelByUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function reportChannelByUrlWithHttpInfo($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
     {
@@ -1508,20 +1508,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20071ReportLogs' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ReportChannelByUrlResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071ReportLogs', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ReportChannelByUrlResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
+            $returnType = '\Sendbird\Model\ReportChannelByUrlResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1539,7 +1539,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20071ReportLogs',
+                        '\Sendbird\Model\ReportChannelByUrlResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1587,7 +1587,7 @@ class ReportContentSubjectApi
      */
     public function reportChannelByUrlAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
+        $returnType = '\Sendbird\Model\ReportChannelByUrlResponse';
         $request = $this->reportChannelByUrlRequest($channel_type, $channel_url, $api_token, $report_channel_by_url_data);
 
         return $this->client
@@ -1756,7 +1756,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20071ReportLogs
+     * @return \Sendbird\Model\ReportMessageByIdResponse
      */
     public function reportMessageById($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
     {
@@ -1777,7 +1777,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20071ReportLogs, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ReportMessageByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function reportMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
     {
@@ -1820,20 +1820,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20071ReportLogs' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ReportMessageByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071ReportLogs', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ReportMessageByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
+            $returnType = '\Sendbird\Model\ReportMessageByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1851,7 +1851,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20071ReportLogs',
+                        '\Sendbird\Model\ReportMessageByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1901,7 +1901,7 @@ class ReportContentSubjectApi
      */
     public function reportMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
+        $returnType = '\Sendbird\Model\ReportMessageByIdResponse';
         $request = $this->reportMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data);
 
         return $this->client
@@ -2083,7 +2083,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20071ReportLogs
+     * @return \Sendbird\Model\ReportUserByIdResponse
      */
     public function reportUserById($offending_user_id, $api_token = null, $report_user_by_id_data = null)
     {
@@ -2102,7 +2102,7 @@ class ReportContentSubjectApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20071ReportLogs, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ReportUserByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function reportUserByIdWithHttpInfo($offending_user_id, $api_token = null, $report_user_by_id_data = null)
     {
@@ -2145,20 +2145,20 @@ class ReportContentSubjectApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20071ReportLogs' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ReportUserByIdResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20071ReportLogs', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ReportUserByIdResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
+            $returnType = '\Sendbird\Model\ReportUserByIdResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2176,7 +2176,7 @@ class ReportContentSubjectApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20071ReportLogs',
+                        '\Sendbird\Model\ReportUserByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2222,7 +2222,7 @@ class ReportContentSubjectApi
      */
     public function reportUserByIdAsyncWithHttpInfo($offending_user_id, $api_token = null, $report_user_by_id_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20071ReportLogs';
+        $returnType = '\Sendbird\Model\ReportUserByIdResponse';
         $request = $this->reportUserByIdRequest($offending_user_id, $api_token, $report_user_by_id_data);
 
         return $this->client

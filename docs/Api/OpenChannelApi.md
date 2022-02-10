@@ -28,7 +28,7 @@ Method | HTTP request | Description
 ## `ocBanUser()`
 
 ```php
-ocBanUser($channel_url, $api_token, $oc_ban_user_data): \Sendbird\Model\InlineResponse20033BannedList
+ocBanUser($channel_url, $api_token, $oc_ban_user_data): \Sendbird\Model\OcBanUserResponse
 ```
 
 Ban a user
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20033BannedList**](../Model/InlineResponse20033BannedList.md)
+[**\Sendbird\Model\OcBanUserResponse**](../Model/OcBanUserResponse.md)
 
 ### Authorization
 
@@ -324,7 +324,7 @@ No authorization required
 ## `ocListBannedUsers()`
 
 ```php
-ocListBannedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20033
+ocListBannedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\OcListBannedUsersResponse
 ```
 
 List banned users
@@ -368,7 +368,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20033**](../Model/InlineResponse20033.md)
+[**\Sendbird\Model\OcListBannedUsersResponse**](../Model/OcListBannedUsersResponse.md)
 
 ### Authorization
 
@@ -386,7 +386,7 @@ No authorization required
 ## `ocListChannels()`
 
 ```php
-ocListChannels($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type): \Sendbird\Model\InlineResponse20030
+ocListChannels($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type): \Sendbird\Model\OcListChannelsResponse
 ```
 
 List channels
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20030**](../Model/InlineResponse20030.md)
+[**\Sendbird\Model\OcListChannelsResponse**](../Model/OcListChannelsResponse.md)
 
 ### Authorization
 
@@ -458,7 +458,7 @@ No authorization required
 ## `ocListMutedUsers()`
 
 ```php
-ocListMutedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20031
+ocListMutedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\OcListMutedUsersResponse
 ```
 
 List muted users
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20031**](../Model/InlineResponse20031.md)
+[**\Sendbird\Model\OcListMutedUsersResponse**](../Model/OcListMutedUsersResponse.md)
 
 ### Authorization
 
@@ -520,7 +520,7 @@ No authorization required
 ## `ocListOperators()`
 
 ```php
-ocListOperators($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20034
+ocListOperators($channel_url, $api_token, $token, $limit): \Sendbird\Model\OcListOperatorsResponse
 ```
 
 List operators
@@ -564,7 +564,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20034**](../Model/InlineResponse20034.md)
+[**\Sendbird\Model\OcListOperatorsResponse**](../Model/OcListOperatorsResponse.md)
 
 ### Authorization
 
@@ -582,7 +582,7 @@ No authorization required
 ## `ocListParticipants()`
 
 ```php
-ocListParticipants($channel_url, $api_token, $token, $limit): \Sendbird\Model\InlineResponse20032
+ocListParticipants($channel_url, $api_token, $token, $limit): \Sendbird\Model\OcListParticipantsResponse
 ```
 
 List participants
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20032**](../Model/InlineResponse20032.md)
+[**\Sendbird\Model\OcListParticipantsResponse**](../Model/OcListParticipantsResponse.md)
 
 ### Authorization
 
@@ -1121,7 +1121,7 @@ No authorization required
 ## `ocViewMuteById()`
 
 ```php
-ocViewMuteById($channel_url, $muted_user_id, $api_token): \Sendbird\Model\InlineResponse20035
+ocViewMuteById($channel_url, $muted_user_id, $api_token): \Sendbird\Model\OcViewMuteByIdResponse
 ```
 
 View a mute
@@ -1163,7 +1163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20035**](../Model/InlineResponse20035.md)
+[**\Sendbird\Model\OcViewMuteByIdResponse**](../Model/OcViewMuteByIdResponse.md)
 
 ### Authorization
 

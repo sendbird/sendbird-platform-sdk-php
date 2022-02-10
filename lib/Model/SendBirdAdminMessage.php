@@ -71,7 +71,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
         'message' => 'string',
         'message_id' => 'float',
         'message_type' => 'string',
-        'meta_array' => '\Sendbird\Model\Object',
+        'meta_array' => '\Sendbird\Model\SBObject',
         'meta_arrays' => '\Sendbird\Model\SendBirdMessageMetaArray[]',
         'og_meta_data' => '\Sendbird\Model\SendBirdOGMetaData',
         'parent_message' => '\Sendbird\Model\SendBirdMessageResponse',
@@ -81,7 +81,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
         'sending_status' => 'string',
         'silent' => 'bool',
         'thread_info' => '\Sendbird\Model\SendBirdThreadInfo',
-        'translations' => '\Sendbird\Model\Object',
+        'translations' => '\Sendbird\Model\SBObject',
         'updated_at' => 'float'
     ];
 
@@ -700,7 +700,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets meta_array
      *
-     * @return \Sendbird\Model\Object|null
+     * @return \Sendbird\Model\SBObject|null
      */
     public function getMetaArray()
     {
@@ -710,7 +710,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets meta_array
      *
-     * @param \Sendbird\Model\Object|null $meta_array meta_array
+     * @param \Sendbird\Model\SBObject|null $meta_array meta_array
      *
      * @return self
      */
@@ -950,7 +950,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets translations
      *
-     * @return \Sendbird\Model\Object|null
+     * @return \Sendbird\Model\SBObject|null
      */
     public function getTranslations()
     {
@@ -960,7 +960,7 @@ class SendBirdAdminMessage implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets translations
      *
-     * @param \Sendbird\Model\Object|null $translations translations
+     * @param \Sendbird\Model\SBObject|null $translations translations
      *
      * @return self
      */

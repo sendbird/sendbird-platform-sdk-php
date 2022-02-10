@@ -25,7 +25,7 @@ Method | HTTP request | Description
 ## `addExtraDataToMessage()`
 
 ```php
-addExtraDataToMessage($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data): \Sendbird\Model\InlineResponse20054
+addExtraDataToMessage($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data): \Sendbird\Model\AddExtraDataToMessageResponse
 ```
 
 Add extra data to a message
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20054**](../Model/InlineResponse20054.md)
+[**\Sendbird\Model\AddExtraDataToMessageResponse**](../Model/AddExtraDataToMessageResponse.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ No authorization required
 ## `addReactionToAMessage()`
 
 ```php
-addReactionToAMessage($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data): \Sendbird\Model\InlineResponse20053
+addReactionToAMessage($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data): \Sendbird\Model\AddReactionToAMessageResponse
 ```
 
 Add a reaction to a message
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20053**](../Model/InlineResponse20053.md)
+[**\Sendbird\Model\AddReactionToAMessageResponse**](../Model/AddReactionToAMessageResponse.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ No authorization required
 ## `gcMarkAllMessagesAsDelivered()`
 
 ```php
-gcMarkAllMessagesAsDelivered($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data): \Sendbird\Model\InlineResponse20050
+gcMarkAllMessagesAsDelivered($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data): \Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse
 ```
 
 Mark all messages as delivered
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20050**](../Model/InlineResponse20050.md)
+[**\Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse**](../Model/GcMarkAllMessagesAsDeliveredResponse.md)
 
 ### Authorization
 
@@ -333,7 +333,7 @@ No authorization required
 ## `gcViewNumberOfEachMembersUnreadMessages()`
 
 ```php
-gcViewNumberOfEachMembersUnreadMessages($channel_url, $api_token, $user_ids): \Sendbird\Model\InlineResponse20049
+gcViewNumberOfEachMembersUnreadMessages($channel_url, $api_token, $user_ids): \Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse
 ```
 
 View number of each member's unread messages
@@ -375,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20049**](../Model/InlineResponse20049.md)
+[**\Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse**](../Model/GcViewNumberOfEachMembersUnreadMessagesResponse.md)
 
 ### Authorization
 
@@ -393,7 +393,7 @@ No authorization required
 ## `listMessages()`
 
 ```php
-listMessages($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array): \Sendbird\Model\InlineResponse20047
+listMessages($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array): \Sendbird\Model\ListMessagesResponse
 ```
 
 List messages
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20047**](../Model/InlineResponse20047.md)
+[**\Sendbird\Model\ListMessagesResponse**](../Model/ListMessagesResponse.md)
 
 ### Authorization
 
@@ -489,7 +489,7 @@ No authorization required
 ## `listReactionsOfMessage()`
 
 ```php
-listReactionsOfMessage($channel_type, $channel_url, $message_id, $api_token, $list_users): \Sendbird\Model\InlineResponse20052
+listReactionsOfMessage($channel_type, $channel_url, $message_id, $api_token, $list_users): \Sendbird\Model\ListReactionsOfMessageResponse
 ```
 
 List reactions of a message
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20052**](../Model/InlineResponse20052.md)
+[**\Sendbird\Model\ListReactionsOfMessageResponse**](../Model/ListReactionsOfMessageResponse.md)
 
 ### Authorization
 
@@ -616,7 +616,7 @@ No authorization required
 ## `removeReactionFromAMessage()`
 
 ```php
-removeReactionFromAMessage($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction): \Sendbird\Model\InlineResponse20053
+removeReactionFromAMessage($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction): \Sendbird\Model\RemoveReactionFromAMessageResponse
 ```
 
 Remove a reaction from a message
@@ -664,7 +664,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20053**](../Model/InlineResponse20053.md)
+[**\Sendbird\Model\RemoveReactionFromAMessageResponse**](../Model/RemoveReactionFromAMessageResponse.md)
 
 ### Authorization
 
@@ -808,7 +808,7 @@ No authorization required
 ## `updateExtraDataInMessage()`
 
 ```php
-updateExtraDataInMessage($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data): \Sendbird\Model\InlineResponse20054
+updateExtraDataInMessage($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data): \Sendbird\Model\UpdateExtraDataInMessageResponse
 ```
 
 Update extra data in a message
@@ -854,7 +854,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20054**](../Model/InlineResponse20054.md)
+[**\Sendbird\Model\UpdateExtraDataInMessageResponse**](../Model/UpdateExtraDataInMessageResponse.md)
 
 ### Authorization
 
@@ -1002,7 +1002,7 @@ No authorization required
 ## `viewTotalNumberOfMessagesInChannel()`
 
 ```php
-viewTotalNumberOfMessagesInChannel($channel_type, $channel_url, $api_token): \Sendbird\Model\InlineResponse20048
+viewTotalNumberOfMessagesInChannel($channel_type, $channel_url, $api_token): \Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse
 ```
 
 View total number of messages in a channel
@@ -1044,7 +1044,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse20048**](../Model/InlineResponse20048.md)
+[**\Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse**](../Model/ViewTotalNumberOfMessagesInChannelResponse.md)
 
 ### Authorization
 

@@ -437,7 +437,7 @@ class UserChannelMetadataApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20061
+     * @return \Sendbird\Model\CreateChannelMetadataResponse
      */
     public function createChannelMetadata($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
     {
@@ -457,7 +457,7 @@ class UserChannelMetadataApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20061, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\CreateChannelMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createChannelMetadataWithHttpInfo($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
     {
@@ -500,20 +500,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20061' === '\SplFileObject') {
+                    if ('\Sendbird\Model\CreateChannelMetadataResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20061', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateChannelMetadataResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20061';
+            $returnType = '\Sendbird\Model\CreateChannelMetadataResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -531,7 +531,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20061',
+                        '\Sendbird\Model\CreateChannelMetadataResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -579,7 +579,7 @@ class UserChannelMetadataApi
      */
     public function createChannelMetadataAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20061';
+        $returnType = '\Sendbird\Model\CreateChannelMetadataResponse';
         $request = $this->createChannelMetadataRequest($channel_type, $channel_url, $api_token, $create_channel_metadata_data);
 
         return $this->client
@@ -746,7 +746,7 @@ class UserChannelMetadataApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20047UserMetadata
+     * @return \Sendbird\Model\CreateUserMetadataResponse
      */
     public function createUserMetadata($user_id, $api_token = null, $create_user_metadata_data = null)
     {
@@ -765,7 +765,7 @@ class UserChannelMetadataApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20047UserMetadata, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\CreateUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createUserMetadataWithHttpInfo($user_id, $api_token = null, $create_user_metadata_data = null)
     {
@@ -808,20 +808,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20047UserMetadata' === '\SplFileObject') {
+                    if ('\Sendbird\Model\CreateUserMetadataResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20047UserMetadata', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateUserMetadataResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20047UserMetadata';
+            $returnType = '\Sendbird\Model\CreateUserMetadataResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -839,7 +839,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20047UserMetadata',
+                        '\Sendbird\Model\CreateUserMetadataResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -885,7 +885,7 @@ class UserChannelMetadataApi
      */
     public function createUserMetadataAsyncWithHttpInfo($user_id, $api_token = null, $create_user_metadata_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20047UserMetadata';
+        $returnType = '\Sendbird\Model\CreateUserMetadataResponse';
         $request = $this->createUserMetadataRequest($user_id, $api_token, $create_user_metadata_data);
 
         return $this->client
@@ -3890,7 +3890,7 @@ class UserChannelMetadataApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20060
+     * @return \Sendbird\Model\UpdateUserMetadataResponse
      */
     public function updateUserMetadata($user_id, $api_token = null, $update_user_metadata_data = null)
     {
@@ -3909,7 +3909,7 @@ class UserChannelMetadataApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20060, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\UpdateUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateUserMetadataWithHttpInfo($user_id, $api_token = null, $update_user_metadata_data = null)
     {
@@ -3952,20 +3952,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20060' === '\SplFileObject') {
+                    if ('\Sendbird\Model\UpdateUserMetadataResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20060', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UpdateUserMetadataResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20060';
+            $returnType = '\Sendbird\Model\UpdateUserMetadataResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3983,7 +3983,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20060',
+                        '\Sendbird\Model\UpdateUserMetadataResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4029,7 +4029,7 @@ class UserChannelMetadataApi
      */
     public function updateUserMetadataAsyncWithHttpInfo($user_id, $api_token = null, $update_user_metadata_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20060';
+        $returnType = '\Sendbird\Model\UpdateUserMetadataResponse';
         $request = $this->updateUserMetadataRequest($user_id, $api_token, $update_user_metadata_data);
 
         return $this->client
@@ -5790,7 +5790,7 @@ class UserChannelMetadataApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse20047UserMetadata
+     * @return \Sendbird\Model\ViewUserMetadataResponse
      */
     public function viewUserMetadata($user_id, $api_token = null, $key = null, $keys = null)
     {
@@ -5810,7 +5810,7 @@ class UserChannelMetadataApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse20047UserMetadata, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ViewUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function viewUserMetadataWithHttpInfo($user_id, $api_token = null, $key = null, $keys = null)
     {
@@ -5853,20 +5853,20 @@ class UserChannelMetadataApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse20047UserMetadata' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ViewUserMetadataResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse20047UserMetadata', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewUserMetadataResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse20047UserMetadata';
+            $returnType = '\Sendbird\Model\ViewUserMetadataResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5884,7 +5884,7 @@ class UserChannelMetadataApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse20047UserMetadata',
+                        '\Sendbird\Model\ViewUserMetadataResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5932,7 +5932,7 @@ class UserChannelMetadataApi
      */
     public function viewUserMetadataAsyncWithHttpInfo($user_id, $api_token = null, $key = null, $keys = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse20047UserMetadata';
+        $returnType = '\Sendbird\Model\ViewUserMetadataResponse';
         $request = $this->viewUserMetadataRequest($user_id, $api_token, $key, $keys);
 
         return $this->client
