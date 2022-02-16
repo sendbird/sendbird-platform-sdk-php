@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
 
 ### Return type
 

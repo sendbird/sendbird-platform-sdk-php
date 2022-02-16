@@ -120,16 +120,16 @@ class DataPrivacyApi
      *
      * Cancel the registration of a GDPR request
      *
+     * @param  string $api_token api_token (required)
      * @param  string $request_id request_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function cancelTheRegistrationOfGdprRequestById($request_id, $api_token = null)
+    public function cancelTheRegistrationOfGdprRequestById($api_token, $request_id)
     {
-        $this->cancelTheRegistrationOfGdprRequestByIdWithHttpInfo($request_id, $api_token);
+        $this->cancelTheRegistrationOfGdprRequestByIdWithHttpInfo($api_token, $request_id);
     }
 
     /**
@@ -137,16 +137,16 @@ class DataPrivacyApi
      *
      * Cancel the registration of a GDPR request
      *
+     * @param  string $api_token (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelTheRegistrationOfGdprRequestByIdWithHttpInfo($request_id, $api_token = null)
+    public function cancelTheRegistrationOfGdprRequestByIdWithHttpInfo($api_token, $request_id)
     {
-        $request = $this->cancelTheRegistrationOfGdprRequestByIdRequest($request_id, $api_token);
+        $request = $this->cancelTheRegistrationOfGdprRequestByIdRequest($api_token, $request_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -197,15 +197,15 @@ class DataPrivacyApi
      *
      * Cancel the registration of a GDPR request
      *
+     * @param  string $api_token (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelTheRegistrationOfGdprRequestByIdAsync($request_id, $api_token = null)
+    public function cancelTheRegistrationOfGdprRequestByIdAsync($api_token, $request_id)
     {
-        return $this->cancelTheRegistrationOfGdprRequestByIdAsyncWithHttpInfo($request_id, $api_token)
+        return $this->cancelTheRegistrationOfGdprRequestByIdAsyncWithHttpInfo($api_token, $request_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -218,16 +218,16 @@ class DataPrivacyApi
      *
      * Cancel the registration of a GDPR request
      *
+     * @param  string $api_token (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelTheRegistrationOfGdprRequestByIdAsyncWithHttpInfo($request_id, $api_token = null)
+    public function cancelTheRegistrationOfGdprRequestByIdAsyncWithHttpInfo($api_token, $request_id)
     {
         $returnType = '';
-        $request = $this->cancelTheRegistrationOfGdprRequestByIdRequest($request_id, $api_token);
+        $request = $this->cancelTheRegistrationOfGdprRequestByIdRequest($api_token, $request_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -255,14 +255,20 @@ class DataPrivacyApi
     /**
      * Create request for operation 'cancelTheRegistrationOfGdprRequestById'
      *
+     * @param  string $api_token (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cancelTheRegistrationOfGdprRequestByIdRequest($request_id, $api_token = null)
+    public function cancelTheRegistrationOfGdprRequestByIdRequest($api_token, $request_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling cancelTheRegistrationOfGdprRequestById'
+            );
+        }
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -355,7 +361,7 @@ class DataPrivacyApi
      *
      * List GDPR requests
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -363,7 +369,7 @@ class DataPrivacyApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListGdprRequestsResponse
      */
-    public function listGdprRequests($api_token = null, $token = null, $limit = null)
+    public function listGdprRequests($api_token, $token = null, $limit = null)
     {
         list($response) = $this->listGdprRequestsWithHttpInfo($api_token, $token, $limit);
         return $response;
@@ -374,7 +380,7 @@ class DataPrivacyApi
      *
      * List GDPR requests
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -382,7 +388,7 @@ class DataPrivacyApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListGdprRequestsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listGdprRequestsWithHttpInfo($api_token = null, $token = null, $limit = null)
+    public function listGdprRequestsWithHttpInfo($api_token, $token = null, $limit = null)
     {
         $request = $this->listGdprRequestsRequest($api_token, $token, $limit);
 
@@ -469,14 +475,14 @@ class DataPrivacyApi
      *
      * List GDPR requests
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listGdprRequestsAsync($api_token = null, $token = null, $limit = null)
+    public function listGdprRequestsAsync($api_token, $token = null, $limit = null)
     {
         return $this->listGdprRequestsAsyncWithHttpInfo($api_token, $token, $limit)
             ->then(
@@ -491,14 +497,14 @@ class DataPrivacyApi
      *
      * List GDPR requests
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listGdprRequestsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null)
+    public function listGdprRequestsAsyncWithHttpInfo($api_token, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\ListGdprRequestsResponse';
         $request = $this->listGdprRequestsRequest($api_token, $token, $limit);
@@ -539,15 +545,21 @@ class DataPrivacyApi
     /**
      * Create request for operation 'listGdprRequests'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listGdprRequestsRequest($api_token = null, $token = null, $limit = null)
+    public function listGdprRequestsRequest($api_token, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listGdprRequests'
+            );
+        }
 
         $resourcePath = '/v3/privacy/gdpr';
         $formParams = [];
@@ -648,14 +660,14 @@ class DataPrivacyApi
      *
      * Register a GDPR request
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\RegisterGdprRequestData $register_gdpr_request_data register_gdpr_request_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RegisterGdprRequestResponse
      */
-    public function registerGdprRequest($api_token = null, $register_gdpr_request_data = null)
+    public function registerGdprRequest($api_token, $register_gdpr_request_data = null)
     {
         list($response) = $this->registerGdprRequestWithHttpInfo($api_token, $register_gdpr_request_data);
         return $response;
@@ -666,14 +678,14 @@ class DataPrivacyApi
      *
      * Register a GDPR request
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RegisterGdprRequestResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function registerGdprRequestWithHttpInfo($api_token = null, $register_gdpr_request_data = null)
+    public function registerGdprRequestWithHttpInfo($api_token, $register_gdpr_request_data = null)
     {
         $request = $this->registerGdprRequestRequest($api_token, $register_gdpr_request_data);
 
@@ -760,13 +772,13 @@ class DataPrivacyApi
      *
      * Register a GDPR request
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerGdprRequestAsync($api_token = null, $register_gdpr_request_data = null)
+    public function registerGdprRequestAsync($api_token, $register_gdpr_request_data = null)
     {
         return $this->registerGdprRequestAsyncWithHttpInfo($api_token, $register_gdpr_request_data)
             ->then(
@@ -781,13 +793,13 @@ class DataPrivacyApi
      *
      * Register a GDPR request
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerGdprRequestAsyncWithHttpInfo($api_token = null, $register_gdpr_request_data = null)
+    public function registerGdprRequestAsyncWithHttpInfo($api_token, $register_gdpr_request_data = null)
     {
         $returnType = '\Sendbird\Model\RegisterGdprRequestResponse';
         $request = $this->registerGdprRequestRequest($api_token, $register_gdpr_request_data);
@@ -828,14 +840,20 @@ class DataPrivacyApi
     /**
      * Create request for operation 'registerGdprRequest'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\RegisterGdprRequestData $register_gdpr_request_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function registerGdprRequestRequest($api_token = null, $register_gdpr_request_data = null)
+    public function registerGdprRequestRequest($api_token, $register_gdpr_request_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling registerGdprRequest'
+            );
+        }
 
         $resourcePath = '/v3/privacy/gdpr';
         $formParams = [];
@@ -920,16 +938,16 @@ class DataPrivacyApi
      *
      * View a GDPR request
      *
+     * @param  string $api_token api_token (required)
      * @param  string $request_id request_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewGdprRequestByIdResponse
      */
-    public function viewGdprRequestById($request_id, $api_token = null)
+    public function viewGdprRequestById($api_token, $request_id)
     {
-        list($response) = $this->viewGdprRequestByIdWithHttpInfo($request_id, $api_token);
+        list($response) = $this->viewGdprRequestByIdWithHttpInfo($api_token, $request_id);
         return $response;
     }
 
@@ -938,16 +956,16 @@ class DataPrivacyApi
      *
      * View a GDPR request
      *
+     * @param  string $api_token (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewGdprRequestByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewGdprRequestByIdWithHttpInfo($request_id, $api_token = null)
+    public function viewGdprRequestByIdWithHttpInfo($api_token, $request_id)
     {
-        $request = $this->viewGdprRequestByIdRequest($request_id, $api_token);
+        $request = $this->viewGdprRequestByIdRequest($api_token, $request_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1032,15 +1050,15 @@ class DataPrivacyApi
      *
      * View a GDPR request
      *
+     * @param  string $api_token (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewGdprRequestByIdAsync($request_id, $api_token = null)
+    public function viewGdprRequestByIdAsync($api_token, $request_id)
     {
-        return $this->viewGdprRequestByIdAsyncWithHttpInfo($request_id, $api_token)
+        return $this->viewGdprRequestByIdAsyncWithHttpInfo($api_token, $request_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1053,16 +1071,16 @@ class DataPrivacyApi
      *
      * View a GDPR request
      *
+     * @param  string $api_token (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewGdprRequestByIdAsyncWithHttpInfo($request_id, $api_token = null)
+    public function viewGdprRequestByIdAsyncWithHttpInfo($api_token, $request_id)
     {
         $returnType = '\Sendbird\Model\ViewGdprRequestByIdResponse';
-        $request = $this->viewGdprRequestByIdRequest($request_id, $api_token);
+        $request = $this->viewGdprRequestByIdRequest($api_token, $request_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1100,14 +1118,20 @@ class DataPrivacyApi
     /**
      * Create request for operation 'viewGdprRequestById'
      *
+     * @param  string $api_token (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewGdprRequestByIdRequest($request_id, $api_token = null)
+    public function viewGdprRequestByIdRequest($api_token, $request_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewGdprRequestById'
+            );
+        }
         // verify the required parameter 'request_id' is set
         if ($request_id === null || (is_array($request_id) && count($request_id) === 0)) {
             throw new \InvalidArgumentException(

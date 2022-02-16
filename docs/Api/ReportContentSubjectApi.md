@@ -55,7 +55,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
  **start_ts** | **int**|  | [optional]
@@ -81,7 +81,7 @@ No authorization required
 ## `listReportsOnChannelByUrl()`
 
 ```php
-listReportsOnChannelByUrl($channel_type, $channel_url, $api_token, $token, $limit): \Sendbird\Model\ListReportsOnChannelByUrlResponse
+listReportsOnChannelByUrl($api_token, $channel_type, $channel_url, $token, $limit): \Sendbird\Model\ListReportsOnChannelByUrlResponse
 ```
 
 List reports on a channel
@@ -101,14 +101,14 @@ $apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 
 try {
-    $result = $apiInstance->listReportsOnChannelByUrl($channel_type, $channel_url, $api_token, $token, $limit);
+    $result = $apiInstance->listReportsOnChannelByUrl($api_token, $channel_type, $channel_url, $token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportContentSubjectApi->listReportsOnChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -119,9 +119,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -145,7 +145,7 @@ No authorization required
 ## `listReportsOnMessageById()`
 
 ```php
-listReportsOnMessageById($channel_type, $channel_url, $message_id, $api_token, $token, $limit): \Sendbird\Model\ListReportsOnMessageByIdResponse
+listReportsOnMessageById($api_token, $channel_type, $channel_url, $message_id, $token, $limit): \Sendbird\Model\ListReportsOnMessageByIdResponse
 ```
 
 List reports on a message
@@ -165,15 +165,15 @@ $apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 
 try {
-    $result = $apiInstance->listReportsOnMessageById($channel_type, $channel_url, $message_id, $api_token, $token, $limit);
+    $result = $apiInstance->listReportsOnMessageById($api_token, $channel_type, $channel_url, $message_id, $token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportContentSubjectApi->listReportsOnMessageById: ', $e->getMessage(), PHP_EOL;
@@ -184,10 +184,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -211,7 +211,7 @@ No authorization required
 ## `listReportsOnUserById()`
 
 ```php
-listReportsOnUserById($offending_user_id, $api_token, $token, $limit): \Sendbird\Model\ListReportsOnUserByIdResponse
+listReportsOnUserById($api_token, $offending_user_id, $token, $limit): \Sendbird\Model\ListReportsOnUserByIdResponse
 ```
 
 List reports on a user
@@ -231,13 +231,13 @@ $apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$offending_user_id = 'offending_user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$offending_user_id = 'offending_user_id_example'; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 
 try {
-    $result = $apiInstance->listReportsOnUserById($offending_user_id, $api_token, $token, $limit);
+    $result = $apiInstance->listReportsOnUserById($api_token, $offending_user_id, $token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportContentSubjectApi->listReportsOnUserById: ', $e->getMessage(), PHP_EOL;
@@ -248,8 +248,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **offending_user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -273,7 +273,7 @@ No authorization required
 ## `reportChannelByUrl()`
 
 ```php
-reportChannelByUrl($channel_type, $channel_url, $api_token, $report_channel_by_url_data): \Sendbird\Model\ReportChannelByUrlResponse
+reportChannelByUrl($api_token, $channel_type, $channel_url, $report_channel_by_url_data): \Sendbird\Model\ReportChannelByUrlResponse
 ```
 
 Report a channel
@@ -293,13 +293,13 @@ $apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $report_channel_by_url_data = new \Sendbird\Model\ReportChannelByUrlData(); // \Sendbird\Model\ReportChannelByUrlData
 
 try {
-    $result = $apiInstance->reportChannelByUrl($channel_type, $channel_url, $api_token, $report_channel_by_url_data);
+    $result = $apiInstance->reportChannelByUrl($api_token, $channel_type, $channel_url, $report_channel_by_url_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportContentSubjectApi->reportChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -310,9 +310,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **report_channel_by_url_data** | [**\Sendbird\Model\ReportChannelByUrlData**](../Model/ReportChannelByUrlData.md)|  | [optional]
 
 ### Return type
@@ -335,7 +335,7 @@ No authorization required
 ## `reportMessageById()`
 
 ```php
-reportMessageById($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data): \Sendbird\Model\ReportMessageByIdResponse
+reportMessageById($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data): \Sendbird\Model\ReportMessageByIdResponse
 ```
 
 Report a message
@@ -355,14 +355,14 @@ $apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $report_message_by_id_data = new \Sendbird\Model\ReportMessageByIdData(); // \Sendbird\Model\ReportMessageByIdData
 
 try {
-    $result = $apiInstance->reportMessageById($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data);
+    $result = $apiInstance->reportMessageById($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportContentSubjectApi->reportMessageById: ', $e->getMessage(), PHP_EOL;
@@ -373,10 +373,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **report_message_by_id_data** | [**\Sendbird\Model\ReportMessageByIdData**](../Model/ReportMessageByIdData.md)|  | [optional]
 
 ### Return type
@@ -399,7 +399,7 @@ No authorization required
 ## `reportUserById()`
 
 ```php
-reportUserById($offending_user_id, $api_token, $report_user_by_id_data): \Sendbird\Model\ReportUserByIdResponse
+reportUserById($api_token, $offending_user_id, $report_user_by_id_data): \Sendbird\Model\ReportUserByIdResponse
 ```
 
 Report a user
@@ -419,12 +419,12 @@ $apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$offending_user_id = 'offending_user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$offending_user_id = 'offending_user_id_example'; // string
 $report_user_by_id_data = new \Sendbird\Model\ReportUserByIdData(); // \Sendbird\Model\ReportUserByIdData
 
 try {
-    $result = $apiInstance->reportUserById($offending_user_id, $api_token, $report_user_by_id_data);
+    $result = $apiInstance->reportUserById($api_token, $offending_user_id, $report_user_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportContentSubjectApi->reportUserById: ', $e->getMessage(), PHP_EOL;
@@ -435,8 +435,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **offending_user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **report_user_by_id_data** | [**\Sendbird\Model\ReportUserByIdData**](../Model/ReportUserByIdData.md)|  | [optional]
 
 ### Return type
@@ -459,7 +459,7 @@ No authorization required
 ## `viewModeratedMessageById()`
 
 ```php
-viewModeratedMessageById($channel_type, $channel_url, $message_id, $api_token): array<string,string>
+viewModeratedMessageById($api_token, $channel_type, $channel_url, $message_id): array<string,string>
 ```
 
 View a moderated message
@@ -479,13 +479,13 @@ $apiInstance = new Sendbird\Api\ReportContentSubjectApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewModeratedMessageById($channel_type, $channel_url, $message_id, $api_token);
+    $result = $apiInstance->viewModeratedMessageById($api_token, $channel_type, $channel_url, $message_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportContentSubjectApi->viewModeratedMessageById: ', $e->getMessage(), PHP_EOL;
@@ -496,10 +496,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 

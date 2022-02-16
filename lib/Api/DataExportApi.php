@@ -120,8 +120,8 @@ class DataExportApi
      *
      * List data exports by message, channel, or user
      *
+     * @param  string $api_token api_token (required)
      * @param  string $data_type data_type (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -129,9 +129,9 @@ class DataExportApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse
      */
-    public function listDataExportsByMessageChannelOrUser($data_type, $api_token = null, $token = null, $limit = null)
+    public function listDataExportsByMessageChannelOrUser($api_token, $data_type, $token = null, $limit = null)
     {
-        list($response) = $this->listDataExportsByMessageChannelOrUserWithHttpInfo($data_type, $api_token, $token, $limit);
+        list($response) = $this->listDataExportsByMessageChannelOrUserWithHttpInfo($api_token, $data_type, $token, $limit);
         return $response;
     }
 
@@ -140,8 +140,8 @@ class DataExportApi
      *
      * List data exports by message, channel, or user
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -149,9 +149,9 @@ class DataExportApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listDataExportsByMessageChannelOrUserWithHttpInfo($data_type, $api_token = null, $token = null, $limit = null)
+    public function listDataExportsByMessageChannelOrUserWithHttpInfo($api_token, $data_type, $token = null, $limit = null)
     {
-        $request = $this->listDataExportsByMessageChannelOrUserRequest($data_type, $api_token, $token, $limit);
+        $request = $this->listDataExportsByMessageChannelOrUserRequest($api_token, $data_type, $token, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -236,17 +236,17 @@ class DataExportApi
      *
      * List data exports by message, channel, or user
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDataExportsByMessageChannelOrUserAsync($data_type, $api_token = null, $token = null, $limit = null)
+    public function listDataExportsByMessageChannelOrUserAsync($api_token, $data_type, $token = null, $limit = null)
     {
-        return $this->listDataExportsByMessageChannelOrUserAsyncWithHttpInfo($data_type, $api_token, $token, $limit)
+        return $this->listDataExportsByMessageChannelOrUserAsyncWithHttpInfo($api_token, $data_type, $token, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -259,18 +259,18 @@ class DataExportApi
      *
      * List data exports by message, channel, or user
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDataExportsByMessageChannelOrUserAsyncWithHttpInfo($data_type, $api_token = null, $token = null, $limit = null)
+    public function listDataExportsByMessageChannelOrUserAsyncWithHttpInfo($api_token, $data_type, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse';
-        $request = $this->listDataExportsByMessageChannelOrUserRequest($data_type, $api_token, $token, $limit);
+        $request = $this->listDataExportsByMessageChannelOrUserRequest($api_token, $data_type, $token, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -308,16 +308,22 @@ class DataExportApi
     /**
      * Create request for operation 'listDataExportsByMessageChannelOrUser'
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listDataExportsByMessageChannelOrUserRequest($data_type, $api_token = null, $token = null, $limit = null)
+    public function listDataExportsByMessageChannelOrUserRequest($api_token, $data_type, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listDataExportsByMessageChannelOrUser'
+            );
+        }
         // verify the required parameter 'data_type' is set
         if ($data_type === null || (is_array($data_type) && count($data_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -432,17 +438,17 @@ class DataExportApi
      *
      * Register and schedule a data export
      *
+     * @param  string $api_token api_token (required)
      * @param  string $data_type data_type (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data register_and_schedule_data_export_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RegisterAndScheduleDataExportResponse
      */
-    public function registerAndScheduleDataExport($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
+    public function registerAndScheduleDataExport($api_token, $data_type, $register_and_schedule_data_export_data = null)
     {
-        list($response) = $this->registerAndScheduleDataExportWithHttpInfo($data_type, $api_token, $register_and_schedule_data_export_data);
+        list($response) = $this->registerAndScheduleDataExportWithHttpInfo($api_token, $data_type, $register_and_schedule_data_export_data);
         return $response;
     }
 
@@ -451,17 +457,17 @@ class DataExportApi
      *
      * Register and schedule a data export
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RegisterAndScheduleDataExportResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function registerAndScheduleDataExportWithHttpInfo($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
+    public function registerAndScheduleDataExportWithHttpInfo($api_token, $data_type, $register_and_schedule_data_export_data = null)
     {
-        $request = $this->registerAndScheduleDataExportRequest($data_type, $api_token, $register_and_schedule_data_export_data);
+        $request = $this->registerAndScheduleDataExportRequest($api_token, $data_type, $register_and_schedule_data_export_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -546,16 +552,16 @@ class DataExportApi
      *
      * Register and schedule a data export
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerAndScheduleDataExportAsync($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
+    public function registerAndScheduleDataExportAsync($api_token, $data_type, $register_and_schedule_data_export_data = null)
     {
-        return $this->registerAndScheduleDataExportAsyncWithHttpInfo($data_type, $api_token, $register_and_schedule_data_export_data)
+        return $this->registerAndScheduleDataExportAsyncWithHttpInfo($api_token, $data_type, $register_and_schedule_data_export_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -568,17 +574,17 @@ class DataExportApi
      *
      * Register and schedule a data export
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function registerAndScheduleDataExportAsyncWithHttpInfo($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
+    public function registerAndScheduleDataExportAsyncWithHttpInfo($api_token, $data_type, $register_and_schedule_data_export_data = null)
     {
         $returnType = '\Sendbird\Model\RegisterAndScheduleDataExportResponse';
-        $request = $this->registerAndScheduleDataExportRequest($data_type, $api_token, $register_and_schedule_data_export_data);
+        $request = $this->registerAndScheduleDataExportRequest($api_token, $data_type, $register_and_schedule_data_export_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -616,15 +622,21 @@ class DataExportApi
     /**
      * Create request for operation 'registerAndScheduleDataExport'
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\RegisterAndScheduleDataExportData $register_and_schedule_data_export_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function registerAndScheduleDataExportRequest($data_type, $api_token = null, $register_and_schedule_data_export_data = null)
+    public function registerAndScheduleDataExportRequest($api_token, $data_type, $register_and_schedule_data_export_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling registerAndScheduleDataExport'
+            );
+        }
         // verify the required parameter 'data_type' is set
         if ($data_type === null || (is_array($data_type) && count($data_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -723,17 +735,17 @@ class DataExportApi
      *
      * View a data export
      *
+     * @param  string $api_token api_token (required)
      * @param  string $data_type data_type (required)
      * @param  string $request_id request_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewDataExportByIdResponse
      */
-    public function viewDataExportById($data_type, $request_id, $api_token = null)
+    public function viewDataExportById($api_token, $data_type, $request_id)
     {
-        list($response) = $this->viewDataExportByIdWithHttpInfo($data_type, $request_id, $api_token);
+        list($response) = $this->viewDataExportByIdWithHttpInfo($api_token, $data_type, $request_id);
         return $response;
     }
 
@@ -742,17 +754,17 @@ class DataExportApi
      *
      * View a data export
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewDataExportByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewDataExportByIdWithHttpInfo($data_type, $request_id, $api_token = null)
+    public function viewDataExportByIdWithHttpInfo($api_token, $data_type, $request_id)
     {
-        $request = $this->viewDataExportByIdRequest($data_type, $request_id, $api_token);
+        $request = $this->viewDataExportByIdRequest($api_token, $data_type, $request_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -837,16 +849,16 @@ class DataExportApi
      *
      * View a data export
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewDataExportByIdAsync($data_type, $request_id, $api_token = null)
+    public function viewDataExportByIdAsync($api_token, $data_type, $request_id)
     {
-        return $this->viewDataExportByIdAsyncWithHttpInfo($data_type, $request_id, $api_token)
+        return $this->viewDataExportByIdAsyncWithHttpInfo($api_token, $data_type, $request_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -859,17 +871,17 @@ class DataExportApi
      *
      * View a data export
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewDataExportByIdAsyncWithHttpInfo($data_type, $request_id, $api_token = null)
+    public function viewDataExportByIdAsyncWithHttpInfo($api_token, $data_type, $request_id)
     {
         $returnType = '\Sendbird\Model\ViewDataExportByIdResponse';
-        $request = $this->viewDataExportByIdRequest($data_type, $request_id, $api_token);
+        $request = $this->viewDataExportByIdRequest($api_token, $data_type, $request_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -907,15 +919,21 @@ class DataExportApi
     /**
      * Create request for operation 'viewDataExportById'
      *
+     * @param  string $api_token (required)
      * @param  string $data_type (required)
      * @param  string $request_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewDataExportByIdRequest($data_type, $request_id, $api_token = null)
+    public function viewDataExportByIdRequest($api_token, $data_type, $request_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewDataExportById'
+            );
+        }
         // verify the required parameter 'data_type' is set
         if ($data_type === null || (is_array($data_type) && count($data_type) === 0)) {
             throw new \InvalidArgumentException(

@@ -30,7 +30,7 @@ Method | HTTP request | Description
 ## `createChannelMetacounter()`
 
 ```php
-createChannelMetacounter($channel_type, $channel_url, $api_token, $create_channel_metacounter_data): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
+createChannelMetacounter($api_token, $channel_type, $channel_url, $create_channel_metacounter_data): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
 ```
 
 Create a channel metacounter
@@ -50,13 +50,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $create_channel_metacounter_data = new \Sendbird\Model\CreateChannelMetacounterData(); // \Sendbird\Model\CreateChannelMetacounterData
 
 try {
-    $result = $apiInstance->createChannelMetacounter($channel_type, $channel_url, $api_token, $create_channel_metacounter_data);
+    $result = $apiInstance->createChannelMetacounter($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->createChannelMetacounter: ', $e->getMessage(), PHP_EOL;
@@ -67,9 +67,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **create_channel_metacounter_data** | [**\Sendbird\Model\CreateChannelMetacounterData**](../Model/CreateChannelMetacounterData.md)|  | [optional]
 
 ### Return type
@@ -92,7 +92,7 @@ No authorization required
 ## `createChannelMetadata()`
 
 ```php
-createChannelMetadata($channel_type, $channel_url, $api_token, $create_channel_metadata_data): \Sendbird\Model\CreateChannelMetadataResponse
+createChannelMetadata($api_token, $channel_type, $channel_url, $create_channel_metadata_data): \Sendbird\Model\CreateChannelMetadataResponse
 ```
 
 Create a channel metadata
@@ -112,13 +112,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $create_channel_metadata_data = new \Sendbird\Model\CreateChannelMetadataData(); // \Sendbird\Model\CreateChannelMetadataData
 
 try {
-    $result = $apiInstance->createChannelMetadata($channel_type, $channel_url, $api_token, $create_channel_metadata_data);
+    $result = $apiInstance->createChannelMetadata($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->createChannelMetadata: ', $e->getMessage(), PHP_EOL;
@@ -129,9 +129,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **create_channel_metadata_data** | [**\Sendbird\Model\CreateChannelMetadataData**](../Model/CreateChannelMetadataData.md)|  | [optional]
 
 ### Return type
@@ -154,7 +154,7 @@ No authorization required
 ## `createUserMetadata()`
 
 ```php
-createUserMetadata($user_id, $api_token, $create_user_metadata_data): \Sendbird\Model\CreateUserMetadataResponse
+createUserMetadata($api_token, $user_id, $create_user_metadata_data): \Sendbird\Model\CreateUserMetadataResponse
 ```
 
 Create a user metadata
@@ -174,12 +174,12 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $create_user_metadata_data = new \Sendbird\Model\CreateUserMetadataData(); // \Sendbird\Model\CreateUserMetadataData
 
 try {
-    $result = $apiInstance->createUserMetadata($user_id, $api_token, $create_user_metadata_data);
+    $result = $apiInstance->createUserMetadata($api_token, $user_id, $create_user_metadata_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->createUserMetadata: ', $e->getMessage(), PHP_EOL;
@@ -190,8 +190,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **create_user_metadata_data** | [**\Sendbird\Model\CreateUserMetadataData**](../Model/CreateUserMetadataData.md)|  | [optional]
 
 ### Return type
@@ -214,7 +214,7 @@ No authorization required
 ## `deleteChannelMetacounter()`
 
 ```php
-deleteChannelMetacounter($channel_type, $channel_url, $api_token)
+deleteChannelMetacounter($api_token, $channel_type, $channel_url)
 ```
 
 Delete a channel metacounter - When deleting all items of a channel metacounter
@@ -234,12 +234,12 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $apiInstance->deleteChannelMetacounter($channel_type, $channel_url, $api_token);
+    $apiInstance->deleteChannelMetacounter($api_token, $channel_type, $channel_url);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->deleteChannelMetacounter: ', $e->getMessage(), PHP_EOL;
 }
@@ -249,9 +249,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -273,7 +273,7 @@ No authorization required
 ## `deleteChannelMetacounterByKey()`
 
 ```php
-deleteChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token)
+deleteChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key)
 ```
 
 Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
@@ -293,13 +293,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $key = 'key_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $apiInstance->deleteChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token);
+    $apiInstance->deleteChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->deleteChannelMetacounterByKey: ', $e->getMessage(), PHP_EOL;
 }
@@ -309,10 +309,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **key** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -334,7 +334,7 @@ No authorization required
 ## `deleteChannelMetadata()`
 
 ```php
-deleteChannelMetadata($channel_type, $channel_url, $api_token, $key)
+deleteChannelMetadata($api_token, $channel_type, $channel_url, $key)
 ```
 
 Delete a channel metadata - When deleting all items of a channel metadata
@@ -354,13 +354,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $key = 'key_example'; // string
 
 try {
-    $apiInstance->deleteChannelMetadata($channel_type, $channel_url, $api_token, $key);
+    $apiInstance->deleteChannelMetadata($api_token, $channel_type, $channel_url, $key);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->deleteChannelMetadata: ', $e->getMessage(), PHP_EOL;
 }
@@ -370,9 +370,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **key** | **string**|  | [optional]
 
 ### Return type
@@ -395,7 +395,7 @@ No authorization required
 ## `deleteChannelMetadataByKey()`
 
 ```php
-deleteChannelMetadataByKey($channel_type, $channel_url, $key, $api_token)
+deleteChannelMetadataByKey($api_token, $channel_type, $channel_url, $key)
 ```
 
 Delete a channel metadata - When deleting a specific item of a channel metadata by its key
@@ -415,13 +415,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $key = 'key_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $apiInstance->deleteChannelMetadataByKey($channel_type, $channel_url, $key, $api_token);
+    $apiInstance->deleteChannelMetadataByKey($api_token, $channel_type, $channel_url, $key);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->deleteChannelMetadataByKey: ', $e->getMessage(), PHP_EOL;
 }
@@ -431,10 +431,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **key** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -456,7 +456,7 @@ No authorization required
 ## `deleteUserMetadata()`
 
 ```php
-deleteUserMetadata($user_id, $api_token, $key)
+deleteUserMetadata($api_token, $user_id, $key)
 ```
 
 Delete a user metadata - When deleting all items of a user metadata
@@ -476,12 +476,12 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $key = 'key_example'; // string
 
 try {
-    $apiInstance->deleteUserMetadata($user_id, $api_token, $key);
+    $apiInstance->deleteUserMetadata($api_token, $user_id, $key);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->deleteUserMetadata: ', $e->getMessage(), PHP_EOL;
 }
@@ -491,8 +491,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **key** | **string**|  | [optional]
 
 ### Return type
@@ -515,7 +515,7 @@ No authorization required
 ## `deleteUserMetadataByKey()`
 
 ```php
-deleteUserMetadataByKey($user_id, $key, $api_token)
+deleteUserMetadataByKey($api_token, $user_id, $key)
 ```
 
 Delete a user metadata - When deleting a specific item of a user metadata by its key
@@ -535,12 +535,12 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $key = 'key_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $apiInstance->deleteUserMetadataByKey($user_id, $key, $api_token);
+    $apiInstance->deleteUserMetadataByKey($api_token, $user_id, $key);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->deleteUserMetadataByKey: ', $e->getMessage(), PHP_EOL;
 }
@@ -550,9 +550,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **key** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -574,7 +574,7 @@ No authorization required
 ## `updateChannelMetacounter()`
 
 ```php
-updateChannelMetacounter($channel_type, $channel_url, $api_token, $update_channel_metacounter_data): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
+updateChannelMetacounter($api_token, $channel_type, $channel_url, $update_channel_metacounter_data): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
 ```
 
 Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
@@ -594,13 +594,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $update_channel_metacounter_data = new \Sendbird\Model\UpdateChannelMetacounterData(); // \Sendbird\Model\UpdateChannelMetacounterData
 
 try {
-    $result = $apiInstance->updateChannelMetacounter($channel_type, $channel_url, $api_token, $update_channel_metacounter_data);
+    $result = $apiInstance->updateChannelMetacounter($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->updateChannelMetacounter: ', $e->getMessage(), PHP_EOL;
@@ -611,9 +611,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_channel_metacounter_data** | [**\Sendbird\Model\UpdateChannelMetacounterData**](../Model/UpdateChannelMetacounterData.md)|  | [optional]
 
 ### Return type
@@ -636,7 +636,7 @@ No authorization required
 ## `updateChannelMetacounterByKey()`
 
 ```php
-updateChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token, $body): array<string,string>
+updateChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key, $body): array<string,string>
 ```
 
 Update a channel metacounter - When updating a specific item of a channel metacounter by its key
@@ -656,14 +656,14 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $key = 'key_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $body = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->updateChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token, $body);
+    $result = $apiInstance->updateChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->updateChannelMetacounterByKey: ', $e->getMessage(), PHP_EOL;
@@ -674,10 +674,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **key** | **string**|  |
- **api_token** | **string**|  | [optional]
  **body** | **object**|  | [optional]
 
 ### Return type
@@ -700,7 +700,7 @@ No authorization required
 ## `updateChannelMetadata()`
 
 ```php
-updateChannelMetadata($channel_type, $channel_url, $api_token, $update_channel_metadata_data): array<string,string>
+updateChannelMetadata($api_token, $channel_type, $channel_url, $update_channel_metadata_data): array<string,string>
 ```
 
 Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
@@ -720,13 +720,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $update_channel_metadata_data = new \Sendbird\Model\UpdateChannelMetadataData(); // \Sendbird\Model\UpdateChannelMetadataData
 
 try {
-    $result = $apiInstance->updateChannelMetadata($channel_type, $channel_url, $api_token, $update_channel_metadata_data);
+    $result = $apiInstance->updateChannelMetadata($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->updateChannelMetadata: ', $e->getMessage(), PHP_EOL;
@@ -737,9 +737,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_channel_metadata_data** | [**\Sendbird\Model\UpdateChannelMetadataData**](../Model/UpdateChannelMetadataData.md)|  | [optional]
 
 ### Return type
@@ -762,7 +762,7 @@ No authorization required
 ## `updateChannelMetadataByKey()`
 
 ```php
-updateChannelMetadataByKey($channel_type, $channel_url, $key, $api_token, $body): array<string,string>
+updateChannelMetadataByKey($api_token, $channel_type, $channel_url, $key, $body): array<string,string>
 ```
 
 Update a channel metadata - When updating a specific item of a channel metadata by its key
@@ -782,14 +782,14 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $key = 'key_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $body = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->updateChannelMetadataByKey($channel_type, $channel_url, $key, $api_token, $body);
+    $result = $apiInstance->updateChannelMetadataByKey($api_token, $channel_type, $channel_url, $key, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->updateChannelMetadataByKey: ', $e->getMessage(), PHP_EOL;
@@ -800,10 +800,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **key** | **string**|  |
- **api_token** | **string**|  | [optional]
  **body** | **object**|  | [optional]
 
 ### Return type
@@ -826,7 +826,7 @@ No authorization required
 ## `updateUserMetadata()`
 
 ```php
-updateUserMetadata($user_id, $api_token, $update_user_metadata_data): \Sendbird\Model\UpdateUserMetadataResponse
+updateUserMetadata($api_token, $user_id, $update_user_metadata_data): \Sendbird\Model\UpdateUserMetadataResponse
 ```
 
 Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
@@ -846,12 +846,12 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $update_user_metadata_data = new \Sendbird\Model\UpdateUserMetadataData(); // \Sendbird\Model\UpdateUserMetadataData
 
 try {
-    $result = $apiInstance->updateUserMetadata($user_id, $api_token, $update_user_metadata_data);
+    $result = $apiInstance->updateUserMetadata($api_token, $user_id, $update_user_metadata_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->updateUserMetadata: ', $e->getMessage(), PHP_EOL;
@@ -862,8 +862,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_user_metadata_data** | [**\Sendbird\Model\UpdateUserMetadataData**](../Model/UpdateUserMetadataData.md)|  | [optional]
 
 ### Return type
@@ -886,7 +886,7 @@ No authorization required
 ## `updateUserMetadataByKey()`
 
 ```php
-updateUserMetadataByKey($user_id, $key, $api_token, $body): array<string,string>
+updateUserMetadataByKey($api_token, $user_id, $key, $body): array<string,string>
 ```
 
 Update a user metadata - When updating a specific item of a user metadata by its key
@@ -906,13 +906,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $key = 'key_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $body = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->updateUserMetadataByKey($user_id, $key, $api_token, $body);
+    $result = $apiInstance->updateUserMetadataByKey($api_token, $user_id, $key, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->updateUserMetadataByKey: ', $e->getMessage(), PHP_EOL;
@@ -923,9 +923,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **key** | **string**|  |
- **api_token** | **string**|  | [optional]
  **body** | **object**|  | [optional]
 
 ### Return type
@@ -948,7 +948,7 @@ No authorization required
 ## `viewChannelMetacounter()`
 
 ```php
-viewChannelMetacounter($channel_type, $channel_url, $api_token, $key, $keys): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
+viewChannelMetacounter($api_token, $channel_type, $channel_url, $key, $keys): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
 ```
 
 View a channel metacounter - When retrieving all items of a channel metacounter
@@ -968,14 +968,14 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $key = 'key_example'; // string
 $keys = array('keys_example'); // string[]
 
 try {
-    $result = $apiInstance->viewChannelMetacounter($channel_type, $channel_url, $api_token, $key, $keys);
+    $result = $apiInstance->viewChannelMetacounter($api_token, $channel_type, $channel_url, $key, $keys);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->viewChannelMetacounter: ', $e->getMessage(), PHP_EOL;
@@ -986,9 +986,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **key** | **string**|  | [optional]
  **keys** | [**string[]**](../Model/string.md)|  | [optional]
 
@@ -1012,7 +1012,7 @@ No authorization required
 ## `viewChannelMetacounterByKey()`
 
 ```php
-viewChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
+viewChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
 ```
 
 View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
@@ -1032,13 +1032,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $key = 'key_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token);
+    $result = $apiInstance->viewChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->viewChannelMetacounterByKey: ', $e->getMessage(), PHP_EOL;
@@ -1049,10 +1049,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **key** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1074,7 +1074,7 @@ No authorization required
 ## `viewChannelMetadata()`
 
 ```php
-viewChannelMetadata($channel_type, $channel_url, $api_token, $key, $keys): array<string,string>
+viewChannelMetadata($api_token, $channel_type, $channel_url, $key, $keys): array<string,string>
 ```
 
 View a channel metadata - When retrieving all items of a channel metadata
@@ -1094,14 +1094,14 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $key = 'key_example'; // string
 $keys = array('keys_example'); // string[]
 
 try {
-    $result = $apiInstance->viewChannelMetadata($channel_type, $channel_url, $api_token, $key, $keys);
+    $result = $apiInstance->viewChannelMetadata($api_token, $channel_type, $channel_url, $key, $keys);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->viewChannelMetadata: ', $e->getMessage(), PHP_EOL;
@@ -1112,9 +1112,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **key** | **string**|  | [optional]
  **keys** | [**string[]**](../Model/string.md)|  | [optional]
 
@@ -1138,7 +1138,7 @@ No authorization required
 ## `viewChannelMetadataByKey()`
 
 ```php
-viewChannelMetadataByKey($channel_type, $channel_url, $key, $api_token): array<string,string>
+viewChannelMetadataByKey($api_token, $channel_type, $channel_url, $key): array<string,string>
 ```
 
 View a channel metadata - When retrieving a specific item of a channel metadata by its key
@@ -1158,13 +1158,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $key = 'key_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewChannelMetadataByKey($channel_type, $channel_url, $key, $api_token);
+    $result = $apiInstance->viewChannelMetadataByKey($api_token, $channel_type, $channel_url, $key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->viewChannelMetadataByKey: ', $e->getMessage(), PHP_EOL;
@@ -1175,10 +1175,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **key** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1200,7 +1200,7 @@ No authorization required
 ## `viewUserMetadata()`
 
 ```php
-viewUserMetadata($user_id, $api_token, $key, $keys): \Sendbird\Model\ViewUserMetadataResponse
+viewUserMetadata($api_token, $user_id, $key, $keys): \Sendbird\Model\ViewUserMetadataResponse
 ```
 
 View a user metadata - When retrieving all items of a user metadata
@@ -1220,13 +1220,13 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $key = 'key_example'; // string
 $keys = array('keys_example'); // string[]
 
 try {
-    $result = $apiInstance->viewUserMetadata($user_id, $api_token, $key, $keys);
+    $result = $apiInstance->viewUserMetadata($api_token, $user_id, $key, $keys);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->viewUserMetadata: ', $e->getMessage(), PHP_EOL;
@@ -1237,8 +1237,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **key** | **string**|  | [optional]
  **keys** | [**string[]**](../Model/string.md)|  | [optional]
 
@@ -1262,7 +1262,7 @@ No authorization required
 ## `viewUserMetadataByKey()`
 
 ```php
-viewUserMetadataByKey($user_id, $key, $api_token): array<string,string>
+viewUserMetadataByKey($api_token, $user_id, $key): array<string,string>
 ```
 
 View a user metadata - When retrieving a specific item of a user metadata by its key
@@ -1282,12 +1282,12 @@ $apiInstance = new Sendbird\Api\UserChannelMetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $key = 'key_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewUserMetadataByKey($user_id, $key, $api_token);
+    $result = $apiInstance->viewUserMetadataByKey($api_token, $user_id, $key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserChannelMetadataApi->viewUserMetadataByKey: ', $e->getMessage(), PHP_EOL;
@@ -1298,9 +1298,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **key** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 

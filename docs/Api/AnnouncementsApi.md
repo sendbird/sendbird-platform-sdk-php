@@ -20,7 +20,7 @@ Method | HTTP request | Description
 ## `getDetailedOpenRateOfAnnouncementById()`
 
 ```php
-getDetailedOpenRateOfAnnouncementById($unique_id, $api_token): \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse
+getDetailedOpenRateOfAnnouncementById($api_token, $unique_id): \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse
 ```
 
 Get detailed open rate of an announcement
@@ -40,11 +40,11 @@ $apiInstance = new Sendbird\Api\AnnouncementsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$unique_id = 'unique_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$unique_id = 'unique_id_example'; // string
 
 try {
-    $result = $apiInstance->getDetailedOpenRateOfAnnouncementById($unique_id, $api_token);
+    $result = $apiInstance->getDetailedOpenRateOfAnnouncementById($api_token, $unique_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementsApi->getDetailedOpenRateOfAnnouncementById: ', $e->getMessage(), PHP_EOL;
@@ -55,8 +55,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **unique_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -78,7 +78,7 @@ No authorization required
 ## `getDetailedOpenRateOfAnnouncementGroup()`
 
 ```php
-getDetailedOpenRateOfAnnouncementGroup($announcement_group, $api_token): \Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse
+getDetailedOpenRateOfAnnouncementGroup($api_token, $announcement_group): \Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse
 ```
 
 Get detailed open rate of an announcement group
@@ -98,11 +98,11 @@ $apiInstance = new Sendbird\Api\AnnouncementsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$announcement_group = 'announcement_group_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$announcement_group = 'announcement_group_example'; // string
 
 try {
-    $result = $apiInstance->getDetailedOpenRateOfAnnouncementGroup($announcement_group, $api_token);
+    $result = $apiInstance->getDetailedOpenRateOfAnnouncementGroup($api_token, $announcement_group);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementsApi->getDetailedOpenRateOfAnnouncementGroup: ', $e->getMessage(), PHP_EOL;
@@ -113,8 +113,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **announcement_group** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -136,7 +136,7 @@ No authorization required
 ## `getDetailedOpenStatusOfAnnouncementById()`
 
 ```php
-getDetailedOpenStatusOfAnnouncementById($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened): \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse
+getDetailedOpenStatusOfAnnouncementById($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened): \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse
 ```
 
 Get detailed open status of an announcement
@@ -156,8 +156,8 @@ $apiInstance = new Sendbird\Api\AnnouncementsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$unique_id = 'unique_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$unique_id = 'unique_id_example'; // string
 $limit = 56; // int
 $next = 'next_example'; // string
 $unique_ids = array('unique_ids_example'); // string[]
@@ -165,7 +165,7 @@ $channel_urls = array('channel_urls_example'); // string[]
 $has_opened = True; // bool
 
 try {
-    $result = $apiInstance->getDetailedOpenStatusOfAnnouncementById($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+    $result = $apiInstance->getDetailedOpenStatusOfAnnouncementById($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementsApi->getDetailedOpenStatusOfAnnouncementById: ', $e->getMessage(), PHP_EOL;
@@ -176,8 +176,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **unique_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
  **next** | **string**|  | [optional]
  **unique_ids** | [**string[]**](../Model/string.md)|  | [optional]
@@ -238,7 +238,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
 
 ### Return type
 
@@ -260,7 +260,7 @@ No authorization required
 ## `getStatisticsDaily()`
 
 ```php
-getStatisticsDaily($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group): \Sendbird\Model\GetStatisticsDailyResponse
+getStatisticsDaily($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group): \Sendbird\Model\GetStatisticsDailyResponse
 ```
 
 Get statistics - daily
@@ -280,17 +280,17 @@ $apiInstance = new Sendbird\Api\AnnouncementsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $start_date = 'start_date_example'; // string
 $end_date = 'end_date_example'; // string
 $start_week = 'start_week_example'; // string
 $end_week = 'end_week_example'; // string
 $start_month = 'start_month_example'; // string
 $end_month = 'end_month_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $announcement_group = 'announcement_group_example'; // string
 
 try {
-    $result = $apiInstance->getStatisticsDaily($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group);
+    $result = $apiInstance->getStatisticsDaily($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementsApi->getStatisticsDaily: ', $e->getMessage(), PHP_EOL;
@@ -301,13 +301,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **start_date** | **string**|  |
  **end_date** | **string**|  |
  **start_week** | **string**|  |
  **end_week** | **string**|  |
  **start_month** | **string**|  |
  **end_month** | **string**|  |
- **api_token** | **string**|  | [optional]
  **announcement_group** | **string**|  | [optional]
 
 ### Return type
@@ -364,7 +364,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
 
 ### Return type
 
@@ -422,7 +422,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -485,7 +485,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
  **order** | **string**|  | [optional]
@@ -547,7 +547,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **schedule_announcement_data** | [**\Sendbird\Model\ScheduleAnnouncementData**](../Model/ScheduleAnnouncementData.md)|  | [optional]
 
 ### Return type
@@ -570,7 +570,7 @@ No authorization required
 ## `updateAnnouncementById()`
 
 ```php
-updateAnnouncementById($unique_id, $api_token, $update_announcement_by_id_data): \Sendbird\Model\UpdateAnnouncementByIdResponse
+updateAnnouncementById($api_token, $unique_id, $update_announcement_by_id_data): \Sendbird\Model\UpdateAnnouncementByIdResponse
 ```
 
 Update an announcement
@@ -590,12 +590,12 @@ $apiInstance = new Sendbird\Api\AnnouncementsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$unique_id = 'unique_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$unique_id = 'unique_id_example'; // string
 $update_announcement_by_id_data = new \Sendbird\Model\UpdateAnnouncementByIdData(); // \Sendbird\Model\UpdateAnnouncementByIdData
 
 try {
-    $result = $apiInstance->updateAnnouncementById($unique_id, $api_token, $update_announcement_by_id_data);
+    $result = $apiInstance->updateAnnouncementById($api_token, $unique_id, $update_announcement_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementsApi->updateAnnouncementById: ', $e->getMessage(), PHP_EOL;
@@ -606,8 +606,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **unique_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_announcement_by_id_data** | [**\Sendbird\Model\UpdateAnnouncementByIdData**](../Model/UpdateAnnouncementByIdData.md)|  | [optional]
 
 ### Return type
@@ -630,7 +630,7 @@ No authorization required
 ## `viewAnnouncementById()`
 
 ```php
-viewAnnouncementById($unique_id, $api_token): \Sendbird\Model\ViewAnnouncementByIdResponse
+viewAnnouncementById($api_token, $unique_id): \Sendbird\Model\ViewAnnouncementByIdResponse
 ```
 
 View an announcement
@@ -650,11 +650,11 @@ $apiInstance = new Sendbird\Api\AnnouncementsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$unique_id = 'unique_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$unique_id = 'unique_id_example'; // string
 
 try {
-    $result = $apiInstance->viewAnnouncementById($unique_id, $api_token);
+    $result = $apiInstance->viewAnnouncementById($api_token, $unique_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementsApi->viewAnnouncementById: ', $e->getMessage(), PHP_EOL;
@@ -665,8 +665,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **unique_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 

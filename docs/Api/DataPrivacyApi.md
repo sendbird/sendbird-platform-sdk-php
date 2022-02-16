@@ -13,7 +13,7 @@ Method | HTTP request | Description
 ## `cancelTheRegistrationOfGdprRequestById()`
 
 ```php
-cancelTheRegistrationOfGdprRequestById($request_id, $api_token)
+cancelTheRegistrationOfGdprRequestById($api_token, $request_id)
 ```
 
 Cancel the registration of a GDPR request
@@ -33,11 +33,11 @@ $apiInstance = new Sendbird\Api\DataPrivacyApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$request_id = 'request_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$request_id = 'request_id_example'; // string
 
 try {
-    $apiInstance->cancelTheRegistrationOfGdprRequestById($request_id, $api_token);
+    $apiInstance->cancelTheRegistrationOfGdprRequestById($api_token, $request_id);
 } catch (Exception $e) {
     echo 'Exception when calling DataPrivacyApi->cancelTheRegistrationOfGdprRequestById: ', $e->getMessage(), PHP_EOL;
 }
@@ -47,8 +47,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **request_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -106,7 +106,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -165,7 +165,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **register_gdpr_request_data** | [**\Sendbird\Model\RegisterGdprRequestData**](../Model/RegisterGdprRequestData.md)|  | [optional]
 
 ### Return type
@@ -188,7 +188,7 @@ No authorization required
 ## `viewGdprRequestById()`
 
 ```php
-viewGdprRequestById($request_id, $api_token): \Sendbird\Model\ViewGdprRequestByIdResponse
+viewGdprRequestById($api_token, $request_id): \Sendbird\Model\ViewGdprRequestByIdResponse
 ```
 
 View a GDPR request
@@ -208,11 +208,11 @@ $apiInstance = new Sendbird\Api\DataPrivacyApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$request_id = 'request_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$request_id = 'request_id_example'; // string
 
 try {
-    $result = $apiInstance->viewGdprRequestById($request_id, $api_token);
+    $result = $apiInstance->viewGdprRequestById($api_token, $request_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataPrivacyApi->viewGdprRequestById: ', $e->getMessage(), PHP_EOL;
@@ -223,8 +223,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **request_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 

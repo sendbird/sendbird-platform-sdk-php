@@ -46,7 +46,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **choose_which_events_to_subscribe_to_data** | [**\Sendbird\Model\ChooseWhichEventsToSubscribeToData**](../Model/ChooseWhichEventsToSubscribeToData.md)|  | [optional]
 
 ### Return type
@@ -104,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **display_all_webhook_categories** | **bool**|  | [optional]
 
 ### Return type

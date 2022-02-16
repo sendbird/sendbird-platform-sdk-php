@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## `listDataExportsByMessageChannelOrUser()`
 
 ```php
-listDataExportsByMessageChannelOrUser($data_type, $api_token, $token, $limit): \Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse
+listDataExportsByMessageChannelOrUser($api_token, $data_type, $token, $limit): \Sendbird\Model\ListDataExportsByMessageChannelOrUserResponse
 ```
 
 List data exports by message, channel, or user
@@ -32,13 +32,13 @@ $apiInstance = new Sendbird\Api\DataExportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$data_type = 'data_type_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$data_type = 'data_type_example'; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 
 try {
-    $result = $apiInstance->listDataExportsByMessageChannelOrUser($data_type, $api_token, $token, $limit);
+    $result = $apiInstance->listDataExportsByMessageChannelOrUser($api_token, $data_type, $token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataExportApi->listDataExportsByMessageChannelOrUser: ', $e->getMessage(), PHP_EOL;
@@ -49,8 +49,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **data_type** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -74,7 +74,7 @@ No authorization required
 ## `registerAndScheduleDataExport()`
 
 ```php
-registerAndScheduleDataExport($data_type, $api_token, $register_and_schedule_data_export_data): \Sendbird\Model\RegisterAndScheduleDataExportResponse
+registerAndScheduleDataExport($api_token, $data_type, $register_and_schedule_data_export_data): \Sendbird\Model\RegisterAndScheduleDataExportResponse
 ```
 
 Register and schedule a data export
@@ -94,12 +94,12 @@ $apiInstance = new Sendbird\Api\DataExportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$data_type = 'data_type_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$data_type = 'data_type_example'; // string
 $register_and_schedule_data_export_data = new \Sendbird\Model\RegisterAndScheduleDataExportData(); // \Sendbird\Model\RegisterAndScheduleDataExportData
 
 try {
-    $result = $apiInstance->registerAndScheduleDataExport($data_type, $api_token, $register_and_schedule_data_export_data);
+    $result = $apiInstance->registerAndScheduleDataExport($api_token, $data_type, $register_and_schedule_data_export_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataExportApi->registerAndScheduleDataExport: ', $e->getMessage(), PHP_EOL;
@@ -110,8 +110,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **data_type** | **string**|  |
- **api_token** | **string**|  | [optional]
  **register_and_schedule_data_export_data** | [**\Sendbird\Model\RegisterAndScheduleDataExportData**](../Model/RegisterAndScheduleDataExportData.md)|  | [optional]
 
 ### Return type
@@ -134,7 +134,7 @@ No authorization required
 ## `viewDataExportById()`
 
 ```php
-viewDataExportById($data_type, $request_id, $api_token): \Sendbird\Model\ViewDataExportByIdResponse
+viewDataExportById($api_token, $data_type, $request_id): \Sendbird\Model\ViewDataExportByIdResponse
 ```
 
 View a data export
@@ -154,12 +154,12 @@ $apiInstance = new Sendbird\Api\DataExportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $data_type = 'data_type_example'; // string
 $request_id = 'request_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewDataExportById($data_type, $request_id, $api_token);
+    $result = $apiInstance->viewDataExportById($api_token, $data_type, $request_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataExportApi->viewDataExportById: ', $e->getMessage(), PHP_EOL;
@@ -170,9 +170,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **data_type** | **string**|  |
  **request_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 

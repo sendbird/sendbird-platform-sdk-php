@@ -25,7 +25,7 @@ Method | HTTP request | Description
 ## `addExtraDataToMessage()`
 
 ```php
-addExtraDataToMessage($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data): \Sendbird\Model\AddExtraDataToMessageResponse
+addExtraDataToMessage($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data): \Sendbird\Model\AddExtraDataToMessageResponse
 ```
 
 Add extra data to a message
@@ -45,14 +45,14 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $add_extra_data_to_message_data = new \Sendbird\Model\AddExtraDataToMessageData(); // \Sendbird\Model\AddExtraDataToMessageData
 
 try {
-    $result = $apiInstance->addExtraDataToMessage($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data);
+    $result = $apiInstance->addExtraDataToMessage($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->addExtraDataToMessage: ', $e->getMessage(), PHP_EOL;
@@ -63,10 +63,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **add_extra_data_to_message_data** | [**\Sendbird\Model\AddExtraDataToMessageData**](../Model/AddExtraDataToMessageData.md)|  | [optional]
 
 ### Return type
@@ -89,7 +89,7 @@ No authorization required
 ## `addReactionToAMessage()`
 
 ```php
-addReactionToAMessage($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data): \Sendbird\Model\AddReactionToAMessageResponse
+addReactionToAMessage($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data): \Sendbird\Model\AddReactionToAMessageResponse
 ```
 
 Add a reaction to a message
@@ -109,14 +109,14 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $add_reaction_to_a_message_data = new \Sendbird\Model\AddReactionToAMessageData(); // \Sendbird\Model\AddReactionToAMessageData
 
 try {
-    $result = $apiInstance->addReactionToAMessage($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data);
+    $result = $apiInstance->addReactionToAMessage($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->addReactionToAMessage: ', $e->getMessage(), PHP_EOL;
@@ -127,10 +127,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **add_reaction_to_a_message_data** | [**\Sendbird\Model\AddReactionToAMessageData**](../Model/AddReactionToAMessageData.md)|  | [optional]
 
 ### Return type
@@ -153,7 +153,7 @@ No authorization required
 ## `deleteMessageById()`
 
 ```php
-deleteMessageById($channel_type, $channel_url, $message_id, $api_token)
+deleteMessageById($api_token, $channel_type, $channel_url, $message_id)
 ```
 
 Delete a message
@@ -173,13 +173,13 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $apiInstance->deleteMessageById($channel_type, $channel_url, $message_id, $api_token);
+    $apiInstance->deleteMessageById($api_token, $channel_type, $channel_url, $message_id);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->deleteMessageById: ', $e->getMessage(), PHP_EOL;
 }
@@ -189,10 +189,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -214,7 +214,7 @@ No authorization required
 ## `gcMarkAllMessagesAsDelivered()`
 
 ```php
-gcMarkAllMessagesAsDelivered($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data): \Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse
+gcMarkAllMessagesAsDelivered($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data): \Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse
 ```
 
 Mark all messages as delivered
@@ -234,12 +234,12 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $gc_mark_all_messages_as_delivered_data = new \Sendbird\Model\GcMarkAllMessagesAsDeliveredData(); // \Sendbird\Model\GcMarkAllMessagesAsDeliveredData
 
 try {
-    $result = $apiInstance->gcMarkAllMessagesAsDelivered($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data);
+    $result = $apiInstance->gcMarkAllMessagesAsDelivered($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->gcMarkAllMessagesAsDelivered: ', $e->getMessage(), PHP_EOL;
@@ -250,8 +250,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **gc_mark_all_messages_as_delivered_data** | [**\Sendbird\Model\GcMarkAllMessagesAsDeliveredData**](../Model/GcMarkAllMessagesAsDeliveredData.md)|  | [optional]
 
 ### Return type
@@ -274,7 +274,7 @@ No authorization required
 ## `gcMarkAllMessagesAsRead()`
 
 ```php
-gcMarkAllMessagesAsRead($channel_url, $api_token, $gc_mark_all_messages_as_read_data)
+gcMarkAllMessagesAsRead($api_token, $channel_url, $gc_mark_all_messages_as_read_data)
 ```
 
 Mark all messages as read
@@ -294,12 +294,12 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $gc_mark_all_messages_as_read_data = new \Sendbird\Model\GcMarkAllMessagesAsReadData(); // \Sendbird\Model\GcMarkAllMessagesAsReadData
 
 try {
-    $apiInstance->gcMarkAllMessagesAsRead($channel_url, $api_token, $gc_mark_all_messages_as_read_data);
+    $apiInstance->gcMarkAllMessagesAsRead($api_token, $channel_url, $gc_mark_all_messages_as_read_data);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->gcMarkAllMessagesAsRead: ', $e->getMessage(), PHP_EOL;
 }
@@ -309,8 +309,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **gc_mark_all_messages_as_read_data** | [**\Sendbird\Model\GcMarkAllMessagesAsReadData**](../Model/GcMarkAllMessagesAsReadData.md)|  | [optional]
 
 ### Return type
@@ -333,7 +333,7 @@ No authorization required
 ## `gcViewNumberOfEachMembersUnreadMessages()`
 
 ```php
-gcViewNumberOfEachMembersUnreadMessages($channel_url, $api_token, $user_ids): \Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse
+gcViewNumberOfEachMembersUnreadMessages($api_token, $channel_url, $user_ids): \Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse
 ```
 
 View number of each member's unread messages
@@ -353,12 +353,12 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $user_ids = 'user_ids_example'; // string
 
 try {
-    $result = $apiInstance->gcViewNumberOfEachMembersUnreadMessages($channel_url, $api_token, $user_ids);
+    $result = $apiInstance->gcViewNumberOfEachMembersUnreadMessages($api_token, $channel_url, $user_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->gcViewNumberOfEachMembersUnreadMessages: ', $e->getMessage(), PHP_EOL;
@@ -369,8 +369,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **user_ids** | **string**|  | [optional]
 
 ### Return type
@@ -393,7 +393,7 @@ No authorization required
 ## `listMessages()`
 
 ```php
-listMessages($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array): \Sendbird\Model\ListMessagesResponse
+listMessages($api_token, $channel_type, $channel_url, $message_ts, $message_id, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array): \Sendbird\Model\ListMessagesResponse
 ```
 
 List messages
@@ -413,11 +413,11 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_ts = 56; // int
 $message_id = 56; // int
-$api_token = {{API_TOKEN}}; // string
 $prev_limit = 56; // int
 $next_limit = 56; // int
 $include = True; // bool
@@ -436,7 +436,7 @@ $custom_type = 'custom_type_example'; // string
 $with_meta_array = True; // bool
 
 try {
-    $result = $apiInstance->listMessages($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array);
+    $result = $apiInstance->listMessages($api_token, $channel_type, $channel_url, $message_ts, $message_id, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->listMessages: ', $e->getMessage(), PHP_EOL;
@@ -447,11 +447,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **message_ts** | **int**|  |
- **message_id** | **int**|  |
- **api_token** | **string**|  | [optional]
+ **message_ts** | **int**|  | [optional]
+ **message_id** | **int**|  | [optional]
  **prev_limit** | **int**|  | [optional]
  **next_limit** | **int**|  | [optional]
  **include** | **bool**|  | [optional]
@@ -489,7 +489,7 @@ No authorization required
 ## `listReactionsOfMessage()`
 
 ```php
-listReactionsOfMessage($channel_type, $channel_url, $message_id, $api_token, $list_users): \Sendbird\Model\ListReactionsOfMessageResponse
+listReactionsOfMessage($api_token, $channel_type, $channel_url, $message_id, $list_users): \Sendbird\Model\ListReactionsOfMessageResponse
 ```
 
 List reactions of a message
@@ -509,14 +509,14 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $list_users = True; // bool
 
 try {
-    $result = $apiInstance->listReactionsOfMessage($channel_type, $channel_url, $message_id, $api_token, $list_users);
+    $result = $apiInstance->listReactionsOfMessage($api_token, $channel_type, $channel_url, $message_id, $list_users);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->listReactionsOfMessage: ', $e->getMessage(), PHP_EOL;
@@ -527,10 +527,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **list_users** | **bool**|  | [optional]
 
 ### Return type
@@ -553,7 +553,7 @@ No authorization required
 ## `removeExtraDataFromMessage()`
 
 ```php
-removeExtraDataFromMessage($channel_type, $channel_url, $message_id, $api_token, $keys)
+removeExtraDataFromMessage($api_token, $channel_type, $channel_url, $message_id, $keys)
 ```
 
 Remove extra data from a message
@@ -573,14 +573,14 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $keys = array('keys_example'); // string[]
 
 try {
-    $apiInstance->removeExtraDataFromMessage($channel_type, $channel_url, $message_id, $api_token, $keys);
+    $apiInstance->removeExtraDataFromMessage($api_token, $channel_type, $channel_url, $message_id, $keys);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->removeExtraDataFromMessage: ', $e->getMessage(), PHP_EOL;
 }
@@ -590,10 +590,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **keys** | [**string[]**](../Model/string.md)|  | [optional]
 
 ### Return type
@@ -616,7 +616,7 @@ No authorization required
 ## `removeReactionFromAMessage()`
 
 ```php
-removeReactionFromAMessage($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction): \Sendbird\Model\RemoveReactionFromAMessageResponse
+removeReactionFromAMessage($api_token, $channel_type, $channel_url, $message_id, $user_id, $reaction): \Sendbird\Model\RemoveReactionFromAMessageResponse
 ```
 
 Remove a reaction from a message
@@ -636,15 +636,15 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $reaction = 'reaction_example'; // string
 
 try {
-    $result = $apiInstance->removeReactionFromAMessage($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction);
+    $result = $apiInstance->removeReactionFromAMessage($api_token, $channel_type, $channel_url, $message_id, $user_id, $reaction);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->removeReactionFromAMessage: ', $e->getMessage(), PHP_EOL;
@@ -655,10 +655,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **user_id** | **string**|  | [optional]
  **reaction** | **string**|  | [optional]
 
@@ -682,7 +682,7 @@ No authorization required
 ## `sendMessage()`
 
 ```php
-sendMessage($channel_type, $channel_url, $api_token, $send_message_data): \Sendbird\Model\SendBirdMessageResponse
+sendMessage($api_token, $channel_type, $channel_url, $send_message_data): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 Send a message
@@ -702,13 +702,13 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $send_message_data = new \Sendbird\Model\SendMessageData(); // \Sendbird\Model\SendMessageData
 
 try {
-    $result = $apiInstance->sendMessage($channel_type, $channel_url, $api_token, $send_message_data);
+    $result = $apiInstance->sendMessage($api_token, $channel_type, $channel_url, $send_message_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->sendMessage: ', $e->getMessage(), PHP_EOL;
@@ -719,9 +719,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **send_message_data** | [**\Sendbird\Model\SendMessageData**](../Model/SendMessageData.md)|  | [optional]
 
 ### Return type
@@ -744,7 +744,7 @@ No authorization required
 ## `translateMessageIntoOtherLanguages()`
 
 ```php
-translateMessageIntoOtherLanguages($channel_type, $channel_url, $message_id, $api_token, $body): \Sendbird\Model\SendBirdMessageResponse
+translateMessageIntoOtherLanguages($api_token, $channel_type, $channel_url, $message_id, $body): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 Translate a message into other languages
@@ -764,14 +764,14 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $body = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->translateMessageIntoOtherLanguages($channel_type, $channel_url, $message_id, $api_token, $body);
+    $result = $apiInstance->translateMessageIntoOtherLanguages($api_token, $channel_type, $channel_url, $message_id, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->translateMessageIntoOtherLanguages: ', $e->getMessage(), PHP_EOL;
@@ -782,10 +782,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **body** | **object**|  | [optional]
 
 ### Return type
@@ -808,7 +808,7 @@ No authorization required
 ## `updateExtraDataInMessage()`
 
 ```php
-updateExtraDataInMessage($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data): \Sendbird\Model\UpdateExtraDataInMessageResponse
+updateExtraDataInMessage($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data): \Sendbird\Model\UpdateExtraDataInMessageResponse
 ```
 
 Update extra data in a message
@@ -828,14 +828,14 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $update_extra_data_in_message_data = new \Sendbird\Model\UpdateExtraDataInMessageData(); // \Sendbird\Model\UpdateExtraDataInMessageData
 
 try {
-    $result = $apiInstance->updateExtraDataInMessage($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data);
+    $result = $apiInstance->updateExtraDataInMessage($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->updateExtraDataInMessage: ', $e->getMessage(), PHP_EOL;
@@ -846,10 +846,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_extra_data_in_message_data** | [**\Sendbird\Model\UpdateExtraDataInMessageData**](../Model/UpdateExtraDataInMessageData.md)|  | [optional]
 
 ### Return type
@@ -872,7 +872,7 @@ No authorization required
 ## `updateMessageById()`
 
 ```php
-updateMessageById($channel_type, $channel_url, $message_id, $api_token, $update_message_by_id_data): \Sendbird\Model\SendBirdMessageResponse
+updateMessageById($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 Update a message
@@ -892,14 +892,14 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $update_message_by_id_data = new \Sendbird\Model\UpdateMessageByIdData(); // \Sendbird\Model\UpdateMessageByIdData
 
 try {
-    $result = $apiInstance->updateMessageById($channel_type, $channel_url, $message_id, $api_token, $update_message_by_id_data);
+    $result = $apiInstance->updateMessageById($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->updateMessageById: ', $e->getMessage(), PHP_EOL;
@@ -910,10 +910,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_message_by_id_data** | [**\Sendbird\Model\UpdateMessageByIdData**](../Model/UpdateMessageByIdData.md)|  | [optional]
 
 ### Return type
@@ -936,7 +936,7 @@ No authorization required
 ## `viewMessageById()`
 
 ```php
-viewMessageById($channel_type, $channel_url, $message_id, $api_token, $with_sorted_meta_array, $with_meta_array): \Sendbird\Model\SendBirdMessageResponse
+viewMessageById($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array, $with_meta_array): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 View a message
@@ -956,15 +956,15 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $with_sorted_meta_array = True; // bool
 $with_meta_array = True; // bool
 
 try {
-    $result = $apiInstance->viewMessageById($channel_type, $channel_url, $message_id, $api_token, $with_sorted_meta_array, $with_meta_array);
+    $result = $apiInstance->viewMessageById($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array, $with_meta_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->viewMessageById: ', $e->getMessage(), PHP_EOL;
@@ -975,10 +975,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **with_sorted_meta_array** | **bool**|  | [optional]
  **with_meta_array** | **bool**|  | [optional]
 
@@ -1002,7 +1002,7 @@ No authorization required
 ## `viewTotalNumberOfMessagesInChannel()`
 
 ```php
-viewTotalNumberOfMessagesInChannel($channel_type, $channel_url, $api_token): \Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse
+viewTotalNumberOfMessagesInChannel($api_token, $channel_type, $channel_url): \Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse
 ```
 
 View total number of messages in a channel
@@ -1022,12 +1022,12 @@ $apiInstance = new Sendbird\Api\MessagesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewTotalNumberOfMessagesInChannel($channel_type, $channel_url, $api_token);
+    $result = $apiInstance->viewTotalNumberOfMessagesInChannel($api_token, $channel_type, $channel_url);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->viewTotalNumberOfMessagesInChannel: ', $e->getMessage(), PHP_EOL;
@@ -1038,9 +1038,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 

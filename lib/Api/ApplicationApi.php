@@ -120,14 +120,14 @@ class ApplicationApi
      *
      * Add an APNs push configuration
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\AddApnsPushConfigurationData $add_apns_push_configuration_data add_apns_push_configuration_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddApnsPushConfigurationResponse
      */
-    public function addApnsPushConfiguration($api_token = null, $add_apns_push_configuration_data = null)
+    public function addApnsPushConfiguration($api_token, $add_apns_push_configuration_data = null)
     {
         list($response) = $this->addApnsPushConfigurationWithHttpInfo($api_token, $add_apns_push_configuration_data);
         return $response;
@@ -138,14 +138,14 @@ class ApplicationApi
      *
      * Add an APNs push configuration
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddApnsPushConfigurationData $add_apns_push_configuration_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddApnsPushConfigurationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addApnsPushConfigurationWithHttpInfo($api_token = null, $add_apns_push_configuration_data = null)
+    public function addApnsPushConfigurationWithHttpInfo($api_token, $add_apns_push_configuration_data = null)
     {
         $request = $this->addApnsPushConfigurationRequest($api_token, $add_apns_push_configuration_data);
 
@@ -232,13 +232,13 @@ class ApplicationApi
      *
      * Add an APNs push configuration
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddApnsPushConfigurationData $add_apns_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addApnsPushConfigurationAsync($api_token = null, $add_apns_push_configuration_data = null)
+    public function addApnsPushConfigurationAsync($api_token, $add_apns_push_configuration_data = null)
     {
         return $this->addApnsPushConfigurationAsyncWithHttpInfo($api_token, $add_apns_push_configuration_data)
             ->then(
@@ -253,13 +253,13 @@ class ApplicationApi
      *
      * Add an APNs push configuration
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddApnsPushConfigurationData $add_apns_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addApnsPushConfigurationAsyncWithHttpInfo($api_token = null, $add_apns_push_configuration_data = null)
+    public function addApnsPushConfigurationAsyncWithHttpInfo($api_token, $add_apns_push_configuration_data = null)
     {
         $returnType = '\Sendbird\Model\AddApnsPushConfigurationResponse';
         $request = $this->addApnsPushConfigurationRequest($api_token, $add_apns_push_configuration_data);
@@ -300,14 +300,20 @@ class ApplicationApi
     /**
      * Create request for operation 'addApnsPushConfiguration'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddApnsPushConfigurationData $add_apns_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addApnsPushConfigurationRequest($api_token = null, $add_apns_push_configuration_data = null)
+    public function addApnsPushConfigurationRequest($api_token, $add_apns_push_configuration_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling addApnsPushConfiguration'
+            );
+        }
 
         $resourcePath = '/v3/applications/push/apns';
         $formParams = [];
@@ -392,14 +398,14 @@ class ApplicationApi
      *
      * Add a FCM push configuration
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\AddFcmPushConfigurationData $add_fcm_push_configuration_data add_fcm_push_configuration_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddFcmPushConfigurationResponse
      */
-    public function addFcmPushConfiguration($api_token = null, $add_fcm_push_configuration_data = null)
+    public function addFcmPushConfiguration($api_token, $add_fcm_push_configuration_data = null)
     {
         list($response) = $this->addFcmPushConfigurationWithHttpInfo($api_token, $add_fcm_push_configuration_data);
         return $response;
@@ -410,14 +416,14 @@ class ApplicationApi
      *
      * Add a FCM push configuration
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddFcmPushConfigurationData $add_fcm_push_configuration_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddFcmPushConfigurationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addFcmPushConfigurationWithHttpInfo($api_token = null, $add_fcm_push_configuration_data = null)
+    public function addFcmPushConfigurationWithHttpInfo($api_token, $add_fcm_push_configuration_data = null)
     {
         $request = $this->addFcmPushConfigurationRequest($api_token, $add_fcm_push_configuration_data);
 
@@ -504,13 +510,13 @@ class ApplicationApi
      *
      * Add a FCM push configuration
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddFcmPushConfigurationData $add_fcm_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addFcmPushConfigurationAsync($api_token = null, $add_fcm_push_configuration_data = null)
+    public function addFcmPushConfigurationAsync($api_token, $add_fcm_push_configuration_data = null)
     {
         return $this->addFcmPushConfigurationAsyncWithHttpInfo($api_token, $add_fcm_push_configuration_data)
             ->then(
@@ -525,13 +531,13 @@ class ApplicationApi
      *
      * Add a FCM push configuration
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddFcmPushConfigurationData $add_fcm_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addFcmPushConfigurationAsyncWithHttpInfo($api_token = null, $add_fcm_push_configuration_data = null)
+    public function addFcmPushConfigurationAsyncWithHttpInfo($api_token, $add_fcm_push_configuration_data = null)
     {
         $returnType = '\Sendbird\Model\AddFcmPushConfigurationResponse';
         $request = $this->addFcmPushConfigurationRequest($api_token, $add_fcm_push_configuration_data);
@@ -572,14 +578,20 @@ class ApplicationApi
     /**
      * Create request for operation 'addFcmPushConfiguration'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddFcmPushConfigurationData $add_fcm_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addFcmPushConfigurationRequest($api_token = null, $add_fcm_push_configuration_data = null)
+    public function addFcmPushConfigurationRequest($api_token, $add_fcm_push_configuration_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling addFcmPushConfiguration'
+            );
+        }
 
         $resourcePath = '/v3/applications/push/fcm';
         $formParams = [];
@@ -664,14 +676,14 @@ class ApplicationApi
      *
      * Add an HMS push configuration
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\AddHmsPushConfigurationData $add_hms_push_configuration_data add_hms_push_configuration_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddHmsPushConfigurationResponse
      */
-    public function addHmsPushConfiguration($api_token = null, $add_hms_push_configuration_data = null)
+    public function addHmsPushConfiguration($api_token, $add_hms_push_configuration_data = null)
     {
         list($response) = $this->addHmsPushConfigurationWithHttpInfo($api_token, $add_hms_push_configuration_data);
         return $response;
@@ -682,14 +694,14 @@ class ApplicationApi
      *
      * Add an HMS push configuration
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddHmsPushConfigurationData $add_hms_push_configuration_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddHmsPushConfigurationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addHmsPushConfigurationWithHttpInfo($api_token = null, $add_hms_push_configuration_data = null)
+    public function addHmsPushConfigurationWithHttpInfo($api_token, $add_hms_push_configuration_data = null)
     {
         $request = $this->addHmsPushConfigurationRequest($api_token, $add_hms_push_configuration_data);
 
@@ -776,13 +788,13 @@ class ApplicationApi
      *
      * Add an HMS push configuration
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddHmsPushConfigurationData $add_hms_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addHmsPushConfigurationAsync($api_token = null, $add_hms_push_configuration_data = null)
+    public function addHmsPushConfigurationAsync($api_token, $add_hms_push_configuration_data = null)
     {
         return $this->addHmsPushConfigurationAsyncWithHttpInfo($api_token, $add_hms_push_configuration_data)
             ->then(
@@ -797,13 +809,13 @@ class ApplicationApi
      *
      * Add an HMS push configuration
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddHmsPushConfigurationData $add_hms_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addHmsPushConfigurationAsyncWithHttpInfo($api_token = null, $add_hms_push_configuration_data = null)
+    public function addHmsPushConfigurationAsyncWithHttpInfo($api_token, $add_hms_push_configuration_data = null)
     {
         $returnType = '\Sendbird\Model\AddHmsPushConfigurationResponse';
         $request = $this->addHmsPushConfigurationRequest($api_token, $add_hms_push_configuration_data);
@@ -844,14 +856,20 @@ class ApplicationApi
     /**
      * Create request for operation 'addHmsPushConfiguration'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddHmsPushConfigurationData $add_hms_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addHmsPushConfigurationRequest($api_token = null, $add_hms_push_configuration_data = null)
+    public function addHmsPushConfigurationRequest($api_token, $add_hms_push_configuration_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling addHmsPushConfiguration'
+            );
+        }
 
         $resourcePath = '/v3/applications/push/hms';
         $formParams = [];
@@ -936,14 +954,14 @@ class ApplicationApi
      *
      * Add an IP to a whitelist
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\AddIpToWhitelistData $add_ip_to_whitelist_data add_ip_to_whitelist_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddIpToWhitelistResponse
      */
-    public function addIpToWhitelist($api_token = null, $add_ip_to_whitelist_data = null)
+    public function addIpToWhitelist($api_token, $add_ip_to_whitelist_data = null)
     {
         list($response) = $this->addIpToWhitelistWithHttpInfo($api_token, $add_ip_to_whitelist_data);
         return $response;
@@ -954,14 +972,14 @@ class ApplicationApi
      *
      * Add an IP to a whitelist
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddIpToWhitelistData $add_ip_to_whitelist_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddIpToWhitelistResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addIpToWhitelistWithHttpInfo($api_token = null, $add_ip_to_whitelist_data = null)
+    public function addIpToWhitelistWithHttpInfo($api_token, $add_ip_to_whitelist_data = null)
     {
         $request = $this->addIpToWhitelistRequest($api_token, $add_ip_to_whitelist_data);
 
@@ -1048,13 +1066,13 @@ class ApplicationApi
      *
      * Add an IP to a whitelist
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddIpToWhitelistData $add_ip_to_whitelist_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addIpToWhitelistAsync($api_token = null, $add_ip_to_whitelist_data = null)
+    public function addIpToWhitelistAsync($api_token, $add_ip_to_whitelist_data = null)
     {
         return $this->addIpToWhitelistAsyncWithHttpInfo($api_token, $add_ip_to_whitelist_data)
             ->then(
@@ -1069,13 +1087,13 @@ class ApplicationApi
      *
      * Add an IP to a whitelist
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddIpToWhitelistData $add_ip_to_whitelist_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addIpToWhitelistAsyncWithHttpInfo($api_token = null, $add_ip_to_whitelist_data = null)
+    public function addIpToWhitelistAsyncWithHttpInfo($api_token, $add_ip_to_whitelist_data = null)
     {
         $returnType = '\Sendbird\Model\AddIpToWhitelistResponse';
         $request = $this->addIpToWhitelistRequest($api_token, $add_ip_to_whitelist_data);
@@ -1116,14 +1134,20 @@ class ApplicationApi
     /**
      * Create request for operation 'addIpToWhitelist'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddIpToWhitelistData $add_ip_to_whitelist_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addIpToWhitelistRequest($api_token = null, $add_ip_to_whitelist_data = null)
+    public function addIpToWhitelistRequest($api_token, $add_ip_to_whitelist_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling addIpToWhitelist'
+            );
+        }
 
         $resourcePath = '/v3/applications/settings/ip_whitelist';
         $formParams = [];
@@ -1208,16 +1232,16 @@ class ApplicationApi
      *
      * Delete allowed IPs from a whitelist
      *
+     * @param  string $api_token api_token (required)
      * @param  string[] $ip_whitelist_addresses ip_whitelist_addresses (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\DeleteAllowedIpsFromWhitelistResponse
      */
-    public function deleteAllowedIpsFromWhitelist($ip_whitelist_addresses, $api_token = null)
+    public function deleteAllowedIpsFromWhitelist($api_token, $ip_whitelist_addresses)
     {
-        list($response) = $this->deleteAllowedIpsFromWhitelistWithHttpInfo($ip_whitelist_addresses, $api_token);
+        list($response) = $this->deleteAllowedIpsFromWhitelistWithHttpInfo($api_token, $ip_whitelist_addresses);
         return $response;
     }
 
@@ -1226,16 +1250,16 @@ class ApplicationApi
      *
      * Delete allowed IPs from a whitelist
      *
+     * @param  string $api_token (required)
      * @param  string[] $ip_whitelist_addresses (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\DeleteAllowedIpsFromWhitelistResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteAllowedIpsFromWhitelistWithHttpInfo($ip_whitelist_addresses, $api_token = null)
+    public function deleteAllowedIpsFromWhitelistWithHttpInfo($api_token, $ip_whitelist_addresses)
     {
-        $request = $this->deleteAllowedIpsFromWhitelistRequest($ip_whitelist_addresses, $api_token);
+        $request = $this->deleteAllowedIpsFromWhitelistRequest($api_token, $ip_whitelist_addresses);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1320,15 +1344,15 @@ class ApplicationApi
      *
      * Delete allowed IPs from a whitelist
      *
+     * @param  string $api_token (required)
      * @param  string[] $ip_whitelist_addresses (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAllowedIpsFromWhitelistAsync($ip_whitelist_addresses, $api_token = null)
+    public function deleteAllowedIpsFromWhitelistAsync($api_token, $ip_whitelist_addresses)
     {
-        return $this->deleteAllowedIpsFromWhitelistAsyncWithHttpInfo($ip_whitelist_addresses, $api_token)
+        return $this->deleteAllowedIpsFromWhitelistAsyncWithHttpInfo($api_token, $ip_whitelist_addresses)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1341,16 +1365,16 @@ class ApplicationApi
      *
      * Delete allowed IPs from a whitelist
      *
+     * @param  string $api_token (required)
      * @param  string[] $ip_whitelist_addresses (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAllowedIpsFromWhitelistAsyncWithHttpInfo($ip_whitelist_addresses, $api_token = null)
+    public function deleteAllowedIpsFromWhitelistAsyncWithHttpInfo($api_token, $ip_whitelist_addresses)
     {
         $returnType = '\Sendbird\Model\DeleteAllowedIpsFromWhitelistResponse';
-        $request = $this->deleteAllowedIpsFromWhitelistRequest($ip_whitelist_addresses, $api_token);
+        $request = $this->deleteAllowedIpsFromWhitelistRequest($api_token, $ip_whitelist_addresses);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1388,14 +1412,20 @@ class ApplicationApi
     /**
      * Create request for operation 'deleteAllowedIpsFromWhitelist'
      *
+     * @param  string $api_token (required)
      * @param  string[] $ip_whitelist_addresses (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteAllowedIpsFromWhitelistRequest($ip_whitelist_addresses, $api_token = null)
+    public function deleteAllowedIpsFromWhitelistRequest($api_token, $ip_whitelist_addresses)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteAllowedIpsFromWhitelist'
+            );
+        }
         // verify the required parameter 'ip_whitelist_addresses' is set
         if ($ip_whitelist_addresses === null || (is_array($ip_whitelist_addresses) && count($ip_whitelist_addresses) === 0)) {
             throw new \InvalidArgumentException(
@@ -1491,16 +1521,16 @@ class ApplicationApi
      *
      * Delete an APNs certificate
      *
+     * @param  string $api_token api_token (required)
      * @param  string $provider_id provider_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\DeleteApnsCertificateByIdResponse
      */
-    public function deleteApnsCertificateById($provider_id, $api_token = null)
+    public function deleteApnsCertificateById($api_token, $provider_id)
     {
-        list($response) = $this->deleteApnsCertificateByIdWithHttpInfo($provider_id, $api_token);
+        list($response) = $this->deleteApnsCertificateByIdWithHttpInfo($api_token, $provider_id);
         return $response;
     }
 
@@ -1509,16 +1539,16 @@ class ApplicationApi
      *
      * Delete an APNs certificate
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\DeleteApnsCertificateByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteApnsCertificateByIdWithHttpInfo($provider_id, $api_token = null)
+    public function deleteApnsCertificateByIdWithHttpInfo($api_token, $provider_id)
     {
-        $request = $this->deleteApnsCertificateByIdRequest($provider_id, $api_token);
+        $request = $this->deleteApnsCertificateByIdRequest($api_token, $provider_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1603,15 +1633,15 @@ class ApplicationApi
      *
      * Delete an APNs certificate
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteApnsCertificateByIdAsync($provider_id, $api_token = null)
+    public function deleteApnsCertificateByIdAsync($api_token, $provider_id)
     {
-        return $this->deleteApnsCertificateByIdAsyncWithHttpInfo($provider_id, $api_token)
+        return $this->deleteApnsCertificateByIdAsyncWithHttpInfo($api_token, $provider_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1624,16 +1654,16 @@ class ApplicationApi
      *
      * Delete an APNs certificate
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteApnsCertificateByIdAsyncWithHttpInfo($provider_id, $api_token = null)
+    public function deleteApnsCertificateByIdAsyncWithHttpInfo($api_token, $provider_id)
     {
         $returnType = '\Sendbird\Model\DeleteApnsCertificateByIdResponse';
-        $request = $this->deleteApnsCertificateByIdRequest($provider_id, $api_token);
+        $request = $this->deleteApnsCertificateByIdRequest($api_token, $provider_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1671,14 +1701,20 @@ class ApplicationApi
     /**
      * Create request for operation 'deleteApnsCertificateById'
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteApnsCertificateByIdRequest($provider_id, $api_token = null)
+    public function deleteApnsCertificateByIdRequest($api_token, $provider_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteApnsCertificateById'
+            );
+        }
         // verify the required parameter 'provider_id' is set
         if ($provider_id === null || (is_array($provider_id) && count($provider_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1771,14 +1807,14 @@ class ApplicationApi
      *
      * Generate a secondary API token
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\GenerateSecondaryApiTokenData $generate_secondary_api_token_data generate_secondary_api_token_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GenerateSecondaryApiTokenResponse
      */
-    public function generateSecondaryApiToken($api_token = null, $generate_secondary_api_token_data = null)
+    public function generateSecondaryApiToken($api_token, $generate_secondary_api_token_data = null)
     {
         list($response) = $this->generateSecondaryApiTokenWithHttpInfo($api_token, $generate_secondary_api_token_data);
         return $response;
@@ -1789,14 +1825,14 @@ class ApplicationApi
      *
      * Generate a secondary API token
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\GenerateSecondaryApiTokenData $generate_secondary_api_token_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GenerateSecondaryApiTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateSecondaryApiTokenWithHttpInfo($api_token = null, $generate_secondary_api_token_data = null)
+    public function generateSecondaryApiTokenWithHttpInfo($api_token, $generate_secondary_api_token_data = null)
     {
         $request = $this->generateSecondaryApiTokenRequest($api_token, $generate_secondary_api_token_data);
 
@@ -1883,13 +1919,13 @@ class ApplicationApi
      *
      * Generate a secondary API token
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\GenerateSecondaryApiTokenData $generate_secondary_api_token_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateSecondaryApiTokenAsync($api_token = null, $generate_secondary_api_token_data = null)
+    public function generateSecondaryApiTokenAsync($api_token, $generate_secondary_api_token_data = null)
     {
         return $this->generateSecondaryApiTokenAsyncWithHttpInfo($api_token, $generate_secondary_api_token_data)
             ->then(
@@ -1904,13 +1940,13 @@ class ApplicationApi
      *
      * Generate a secondary API token
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\GenerateSecondaryApiTokenData $generate_secondary_api_token_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateSecondaryApiTokenAsyncWithHttpInfo($api_token = null, $generate_secondary_api_token_data = null)
+    public function generateSecondaryApiTokenAsyncWithHttpInfo($api_token, $generate_secondary_api_token_data = null)
     {
         $returnType = '\Sendbird\Model\GenerateSecondaryApiTokenResponse';
         $request = $this->generateSecondaryApiTokenRequest($api_token, $generate_secondary_api_token_data);
@@ -1951,14 +1987,20 @@ class ApplicationApi
     /**
      * Create request for operation 'generateSecondaryApiToken'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\GenerateSecondaryApiTokenData $generate_secondary_api_token_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function generateSecondaryApiTokenRequest($api_token = null, $generate_secondary_api_token_data = null)
+    public function generateSecondaryApiTokenRequest($api_token, $generate_secondary_api_token_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling generateSecondaryApiToken'
+            );
+        }
 
         $resourcePath = '/v3/applications/api_tokens';
         $formParams = [];
@@ -2043,16 +2085,16 @@ class ApplicationApi
      *
      * List push configurations
      *
+     * @param  string $api_token api_token (required)
      * @param  string $push_type push_type (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListPushConfigurationsResponse
      */
-    public function listPushConfigurations($push_type, $api_token = null)
+    public function listPushConfigurations($api_token, $push_type)
     {
-        list($response) = $this->listPushConfigurationsWithHttpInfo($push_type, $api_token);
+        list($response) = $this->listPushConfigurationsWithHttpInfo($api_token, $push_type);
         return $response;
     }
 
@@ -2061,16 +2103,16 @@ class ApplicationApi
      *
      * List push configurations
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListPushConfigurationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listPushConfigurationsWithHttpInfo($push_type, $api_token = null)
+    public function listPushConfigurationsWithHttpInfo($api_token, $push_type)
     {
-        $request = $this->listPushConfigurationsRequest($push_type, $api_token);
+        $request = $this->listPushConfigurationsRequest($api_token, $push_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2155,15 +2197,15 @@ class ApplicationApi
      *
      * List push configurations
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPushConfigurationsAsync($push_type, $api_token = null)
+    public function listPushConfigurationsAsync($api_token, $push_type)
     {
-        return $this->listPushConfigurationsAsyncWithHttpInfo($push_type, $api_token)
+        return $this->listPushConfigurationsAsyncWithHttpInfo($api_token, $push_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2176,16 +2218,16 @@ class ApplicationApi
      *
      * List push configurations
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPushConfigurationsAsyncWithHttpInfo($push_type, $api_token = null)
+    public function listPushConfigurationsAsyncWithHttpInfo($api_token, $push_type)
     {
         $returnType = '\Sendbird\Model\ListPushConfigurationsResponse';
-        $request = $this->listPushConfigurationsRequest($push_type, $api_token);
+        $request = $this->listPushConfigurationsRequest($api_token, $push_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2223,14 +2265,20 @@ class ApplicationApi
     /**
      * Create request for operation 'listPushConfigurations'
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listPushConfigurationsRequest($push_type, $api_token = null)
+    public function listPushConfigurationsRequest($api_token, $push_type)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listPushConfigurations'
+            );
+        }
         // verify the required parameter 'push_type' is set
         if ($push_type === null || (is_array($push_type) && count($push_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -2323,13 +2371,13 @@ class ApplicationApi
      *
      * List push notification content templates
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListPushNotificationContentTemplatesResponse
      */
-    public function listPushNotificationContentTemplates($api_token = null)
+    public function listPushNotificationContentTemplates($api_token)
     {
         list($response) = $this->listPushNotificationContentTemplatesWithHttpInfo($api_token);
         return $response;
@@ -2340,13 +2388,13 @@ class ApplicationApi
      *
      * List push notification content templates
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListPushNotificationContentTemplatesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listPushNotificationContentTemplatesWithHttpInfo($api_token = null)
+    public function listPushNotificationContentTemplatesWithHttpInfo($api_token)
     {
         $request = $this->listPushNotificationContentTemplatesRequest($api_token);
 
@@ -2433,12 +2481,12 @@ class ApplicationApi
      *
      * List push notification content templates
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPushNotificationContentTemplatesAsync($api_token = null)
+    public function listPushNotificationContentTemplatesAsync($api_token)
     {
         return $this->listPushNotificationContentTemplatesAsyncWithHttpInfo($api_token)
             ->then(
@@ -2453,12 +2501,12 @@ class ApplicationApi
      *
      * List push notification content templates
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPushNotificationContentTemplatesAsyncWithHttpInfo($api_token = null)
+    public function listPushNotificationContentTemplatesAsyncWithHttpInfo($api_token)
     {
         $returnType = '\Sendbird\Model\ListPushNotificationContentTemplatesResponse';
         $request = $this->listPushNotificationContentTemplatesRequest($api_token);
@@ -2499,13 +2547,19 @@ class ApplicationApi
     /**
      * Create request for operation 'listPushNotificationContentTemplates'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listPushNotificationContentTemplatesRequest($api_token = null)
+    public function listPushNotificationContentTemplatesRequest($api_token)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listPushNotificationContentTemplates'
+            );
+        }
 
         $resourcePath = '/v3/applications/push/message_templates';
         $formParams = [];
@@ -2584,13 +2638,13 @@ class ApplicationApi
      *
      * List secondary API tokens
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListSecondaryApiTokensResponse
      */
-    public function listSecondaryApiTokens($api_token = null)
+    public function listSecondaryApiTokens($api_token)
     {
         list($response) = $this->listSecondaryApiTokensWithHttpInfo($api_token);
         return $response;
@@ -2601,13 +2655,13 @@ class ApplicationApi
      *
      * List secondary API tokens
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListSecondaryApiTokensResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSecondaryApiTokensWithHttpInfo($api_token = null)
+    public function listSecondaryApiTokensWithHttpInfo($api_token)
     {
         $request = $this->listSecondaryApiTokensRequest($api_token);
 
@@ -2694,12 +2748,12 @@ class ApplicationApi
      *
      * List secondary API tokens
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSecondaryApiTokensAsync($api_token = null)
+    public function listSecondaryApiTokensAsync($api_token)
     {
         return $this->listSecondaryApiTokensAsyncWithHttpInfo($api_token)
             ->then(
@@ -2714,12 +2768,12 @@ class ApplicationApi
      *
      * List secondary API tokens
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSecondaryApiTokensAsyncWithHttpInfo($api_token = null)
+    public function listSecondaryApiTokensAsyncWithHttpInfo($api_token)
     {
         $returnType = '\Sendbird\Model\ListSecondaryApiTokensResponse';
         $request = $this->listSecondaryApiTokensRequest($api_token);
@@ -2760,13 +2814,19 @@ class ApplicationApi
     /**
      * Create request for operation 'listSecondaryApiTokens'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listSecondaryApiTokensRequest($api_token = null)
+    public function listSecondaryApiTokensRequest($api_token)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listSecondaryApiTokens'
+            );
+        }
 
         $resourcePath = '/v3/applications/api_tokens';
         $formParams = [];
@@ -2845,17 +2905,17 @@ class ApplicationApi
      *
      * Remove a push configuration
      *
+     * @param  string $api_token api_token (required)
      * @param  string $push_type push_type (required)
      * @param  string $provider_id provider_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RemovePushConfigurationByIdResponse
      */
-    public function removePushConfigurationById($push_type, $provider_id, $api_token = null)
+    public function removePushConfigurationById($api_token, $push_type, $provider_id)
     {
-        list($response) = $this->removePushConfigurationByIdWithHttpInfo($push_type, $provider_id, $api_token);
+        list($response) = $this->removePushConfigurationByIdWithHttpInfo($api_token, $push_type, $provider_id);
         return $response;
     }
 
@@ -2864,17 +2924,17 @@ class ApplicationApi
      *
      * Remove a push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RemovePushConfigurationByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removePushConfigurationByIdWithHttpInfo($push_type, $provider_id, $api_token = null)
+    public function removePushConfigurationByIdWithHttpInfo($api_token, $push_type, $provider_id)
     {
-        $request = $this->removePushConfigurationByIdRequest($push_type, $provider_id, $api_token);
+        $request = $this->removePushConfigurationByIdRequest($api_token, $push_type, $provider_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2959,16 +3019,16 @@ class ApplicationApi
      *
      * Remove a push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removePushConfigurationByIdAsync($push_type, $provider_id, $api_token = null)
+    public function removePushConfigurationByIdAsync($api_token, $push_type, $provider_id)
     {
-        return $this->removePushConfigurationByIdAsyncWithHttpInfo($push_type, $provider_id, $api_token)
+        return $this->removePushConfigurationByIdAsyncWithHttpInfo($api_token, $push_type, $provider_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2981,17 +3041,17 @@ class ApplicationApi
      *
      * Remove a push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removePushConfigurationByIdAsyncWithHttpInfo($push_type, $provider_id, $api_token = null)
+    public function removePushConfigurationByIdAsyncWithHttpInfo($api_token, $push_type, $provider_id)
     {
         $returnType = '\Sendbird\Model\RemovePushConfigurationByIdResponse';
-        $request = $this->removePushConfigurationByIdRequest($push_type, $provider_id, $api_token);
+        $request = $this->removePushConfigurationByIdRequest($api_token, $push_type, $provider_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3029,15 +3089,21 @@ class ApplicationApi
     /**
      * Create request for operation 'removePushConfigurationById'
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removePushConfigurationByIdRequest($push_type, $provider_id, $api_token = null)
+    public function removePushConfigurationByIdRequest($api_token, $push_type, $provider_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling removePushConfigurationById'
+            );
+        }
         // verify the required parameter 'push_type' is set
         if ($push_type === null || (is_array($push_type) && count($push_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -3144,13 +3210,13 @@ class ApplicationApi
      *
      * Retrieve an IP whitelist
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RetrieveIpWhitelistResponse
      */
-    public function retrieveIpWhitelist($api_token = null)
+    public function retrieveIpWhitelist($api_token)
     {
         list($response) = $this->retrieveIpWhitelistWithHttpInfo($api_token);
         return $response;
@@ -3161,13 +3227,13 @@ class ApplicationApi
      *
      * Retrieve an IP whitelist
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RetrieveIpWhitelistResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveIpWhitelistWithHttpInfo($api_token = null)
+    public function retrieveIpWhitelistWithHttpInfo($api_token)
     {
         $request = $this->retrieveIpWhitelistRequest($api_token);
 
@@ -3254,12 +3320,12 @@ class ApplicationApi
      *
      * Retrieve an IP whitelist
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveIpWhitelistAsync($api_token = null)
+    public function retrieveIpWhitelistAsync($api_token)
     {
         return $this->retrieveIpWhitelistAsyncWithHttpInfo($api_token)
             ->then(
@@ -3274,12 +3340,12 @@ class ApplicationApi
      *
      * Retrieve an IP whitelist
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveIpWhitelistAsyncWithHttpInfo($api_token = null)
+    public function retrieveIpWhitelistAsyncWithHttpInfo($api_token)
     {
         $returnType = '\Sendbird\Model\RetrieveIpWhitelistResponse';
         $request = $this->retrieveIpWhitelistRequest($api_token);
@@ -3320,13 +3386,19 @@ class ApplicationApi
     /**
      * Create request for operation 'retrieveIpWhitelist'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function retrieveIpWhitelistRequest($api_token = null)
+    public function retrieveIpWhitelistRequest($api_token)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling retrieveIpWhitelist'
+            );
+        }
 
         $resourcePath = '/v3/applications/settings/ip_whitelist';
         $formParams = [];
@@ -3405,16 +3477,16 @@ class ApplicationApi
      *
      * Revoke a secondary API token
      *
+     * @param  string $api_token api_token (required)
      * @param  string $api_token2 api_token2 (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse
      */
-    public function revokeSecondaryApiTokenByToken($api_token2, $api_token = null)
+    public function revokeSecondaryApiTokenByToken($api_token, $api_token2)
     {
-        list($response) = $this->revokeSecondaryApiTokenByTokenWithHttpInfo($api_token2, $api_token);
+        list($response) = $this->revokeSecondaryApiTokenByTokenWithHttpInfo($api_token, $api_token2);
         return $response;
     }
 
@@ -3423,16 +3495,16 @@ class ApplicationApi
      *
      * Revoke a secondary API token
      *
+     * @param  string $api_token (required)
      * @param  string $api_token2 (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function revokeSecondaryApiTokenByTokenWithHttpInfo($api_token2, $api_token = null)
+    public function revokeSecondaryApiTokenByTokenWithHttpInfo($api_token, $api_token2)
     {
-        $request = $this->revokeSecondaryApiTokenByTokenRequest($api_token2, $api_token);
+        $request = $this->revokeSecondaryApiTokenByTokenRequest($api_token, $api_token2);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3517,15 +3589,15 @@ class ApplicationApi
      *
      * Revoke a secondary API token
      *
+     * @param  string $api_token (required)
      * @param  string $api_token2 (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function revokeSecondaryApiTokenByTokenAsync($api_token2, $api_token = null)
+    public function revokeSecondaryApiTokenByTokenAsync($api_token, $api_token2)
     {
-        return $this->revokeSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token2, $api_token)
+        return $this->revokeSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token, $api_token2)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3538,16 +3610,16 @@ class ApplicationApi
      *
      * Revoke a secondary API token
      *
+     * @param  string $api_token (required)
      * @param  string $api_token2 (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function revokeSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token2, $api_token = null)
+    public function revokeSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token, $api_token2)
     {
         $returnType = '\Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse';
-        $request = $this->revokeSecondaryApiTokenByTokenRequest($api_token2, $api_token);
+        $request = $this->revokeSecondaryApiTokenByTokenRequest($api_token, $api_token2);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3585,14 +3657,20 @@ class ApplicationApi
     /**
      * Create request for operation 'revokeSecondaryApiTokenByToken'
      *
+     * @param  string $api_token (required)
      * @param  string $api_token2 (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function revokeSecondaryApiTokenByTokenRequest($api_token2, $api_token = null)
+    public function revokeSecondaryApiTokenByTokenRequest($api_token, $api_token2)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling revokeSecondaryApiTokenByToken'
+            );
+        }
         // verify the required parameter 'api_token2' is set
         if ($api_token2 === null || (is_array($api_token2) && count($api_token2) === 0)) {
             throw new \InvalidArgumentException(
@@ -3685,17 +3763,17 @@ class ApplicationApi
      *
      * Update an APNs push configuration
      *
+     * @param  string $api_token api_token (required)
      * @param  string $provider_id provider_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateApnsPushConfigurationByIdData $update_apns_push_configuration_by_id_data update_apns_push_configuration_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateApnsPushConfigurationByIdResponse
      */
-    public function updateApnsPushConfigurationById($provider_id, $api_token = null, $update_apns_push_configuration_by_id_data = null)
+    public function updateApnsPushConfigurationById($api_token, $provider_id, $update_apns_push_configuration_by_id_data = null)
     {
-        list($response) = $this->updateApnsPushConfigurationByIdWithHttpInfo($provider_id, $api_token, $update_apns_push_configuration_by_id_data);
+        list($response) = $this->updateApnsPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_apns_push_configuration_by_id_data);
         return $response;
     }
 
@@ -3704,17 +3782,17 @@ class ApplicationApi
      *
      * Update an APNs push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateApnsPushConfigurationByIdData $update_apns_push_configuration_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateApnsPushConfigurationByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateApnsPushConfigurationByIdWithHttpInfo($provider_id, $api_token = null, $update_apns_push_configuration_by_id_data = null)
+    public function updateApnsPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_apns_push_configuration_by_id_data = null)
     {
-        $request = $this->updateApnsPushConfigurationByIdRequest($provider_id, $api_token, $update_apns_push_configuration_by_id_data);
+        $request = $this->updateApnsPushConfigurationByIdRequest($api_token, $provider_id, $update_apns_push_configuration_by_id_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3799,16 +3877,16 @@ class ApplicationApi
      *
      * Update an APNs push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateApnsPushConfigurationByIdData $update_apns_push_configuration_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApnsPushConfigurationByIdAsync($provider_id, $api_token = null, $update_apns_push_configuration_by_id_data = null)
+    public function updateApnsPushConfigurationByIdAsync($api_token, $provider_id, $update_apns_push_configuration_by_id_data = null)
     {
-        return $this->updateApnsPushConfigurationByIdAsyncWithHttpInfo($provider_id, $api_token, $update_apns_push_configuration_by_id_data)
+        return $this->updateApnsPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_apns_push_configuration_by_id_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3821,17 +3899,17 @@ class ApplicationApi
      *
      * Update an APNs push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateApnsPushConfigurationByIdData $update_apns_push_configuration_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApnsPushConfigurationByIdAsyncWithHttpInfo($provider_id, $api_token = null, $update_apns_push_configuration_by_id_data = null)
+    public function updateApnsPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_apns_push_configuration_by_id_data = null)
     {
         $returnType = '\Sendbird\Model\UpdateApnsPushConfigurationByIdResponse';
-        $request = $this->updateApnsPushConfigurationByIdRequest($provider_id, $api_token, $update_apns_push_configuration_by_id_data);
+        $request = $this->updateApnsPushConfigurationByIdRequest($api_token, $provider_id, $update_apns_push_configuration_by_id_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3869,15 +3947,21 @@ class ApplicationApi
     /**
      * Create request for operation 'updateApnsPushConfigurationById'
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateApnsPushConfigurationByIdData $update_apns_push_configuration_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateApnsPushConfigurationByIdRequest($provider_id, $api_token = null, $update_apns_push_configuration_by_id_data = null)
+    public function updateApnsPushConfigurationByIdRequest($api_token, $provider_id, $update_apns_push_configuration_by_id_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateApnsPushConfigurationById'
+            );
+        }
         // verify the required parameter 'provider_id' is set
         if ($provider_id === null || (is_array($provider_id) && count($provider_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3976,14 +4060,14 @@ class ApplicationApi
      *
      * Update default channel invitation preference
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData $update_default_channel_invitation_preference_data update_default_channel_invitation_preference_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceResponse
      */
-    public function updateDefaultChannelInvitationPreference($api_token = null, $update_default_channel_invitation_preference_data = null)
+    public function updateDefaultChannelInvitationPreference($api_token, $update_default_channel_invitation_preference_data = null)
     {
         list($response) = $this->updateDefaultChannelInvitationPreferenceWithHttpInfo($api_token, $update_default_channel_invitation_preference_data);
         return $response;
@@ -3994,14 +4078,14 @@ class ApplicationApi
      *
      * Update default channel invitation preference
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData $update_default_channel_invitation_preference_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDefaultChannelInvitationPreferenceWithHttpInfo($api_token = null, $update_default_channel_invitation_preference_data = null)
+    public function updateDefaultChannelInvitationPreferenceWithHttpInfo($api_token, $update_default_channel_invitation_preference_data = null)
     {
         $request = $this->updateDefaultChannelInvitationPreferenceRequest($api_token, $update_default_channel_invitation_preference_data);
 
@@ -4088,13 +4172,13 @@ class ApplicationApi
      *
      * Update default channel invitation preference
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData $update_default_channel_invitation_preference_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDefaultChannelInvitationPreferenceAsync($api_token = null, $update_default_channel_invitation_preference_data = null)
+    public function updateDefaultChannelInvitationPreferenceAsync($api_token, $update_default_channel_invitation_preference_data = null)
     {
         return $this->updateDefaultChannelInvitationPreferenceAsyncWithHttpInfo($api_token, $update_default_channel_invitation_preference_data)
             ->then(
@@ -4109,13 +4193,13 @@ class ApplicationApi
      *
      * Update default channel invitation preference
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData $update_default_channel_invitation_preference_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDefaultChannelInvitationPreferenceAsyncWithHttpInfo($api_token = null, $update_default_channel_invitation_preference_data = null)
+    public function updateDefaultChannelInvitationPreferenceAsyncWithHttpInfo($api_token, $update_default_channel_invitation_preference_data = null)
     {
         $returnType = '\Sendbird\Model\UpdateDefaultChannelInvitationPreferenceResponse';
         $request = $this->updateDefaultChannelInvitationPreferenceRequest($api_token, $update_default_channel_invitation_preference_data);
@@ -4156,14 +4240,20 @@ class ApplicationApi
     /**
      * Create request for operation 'updateDefaultChannelInvitationPreference'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData $update_default_channel_invitation_preference_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateDefaultChannelInvitationPreferenceRequest($api_token = null, $update_default_channel_invitation_preference_data = null)
+    public function updateDefaultChannelInvitationPreferenceRequest($api_token, $update_default_channel_invitation_preference_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateDefaultChannelInvitationPreference'
+            );
+        }
 
         $resourcePath = '/v3/applications/default_channel_invitation_preference';
         $formParams = [];
@@ -4248,17 +4338,17 @@ class ApplicationApi
      *
      * Update a FCM push configuration
      *
+     * @param  string $api_token api_token (required)
      * @param  string $provider_id provider_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateFcmPushConfigurationByIdData $update_fcm_push_configuration_by_id_data update_fcm_push_configuration_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateFcmPushConfigurationByIdResponse
      */
-    public function updateFcmPushConfigurationById($provider_id, $api_token = null, $update_fcm_push_configuration_by_id_data = null)
+    public function updateFcmPushConfigurationById($api_token, $provider_id, $update_fcm_push_configuration_by_id_data = null)
     {
-        list($response) = $this->updateFcmPushConfigurationByIdWithHttpInfo($provider_id, $api_token, $update_fcm_push_configuration_by_id_data);
+        list($response) = $this->updateFcmPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_fcm_push_configuration_by_id_data);
         return $response;
     }
 
@@ -4267,17 +4357,17 @@ class ApplicationApi
      *
      * Update a FCM push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateFcmPushConfigurationByIdData $update_fcm_push_configuration_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateFcmPushConfigurationByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateFcmPushConfigurationByIdWithHttpInfo($provider_id, $api_token = null, $update_fcm_push_configuration_by_id_data = null)
+    public function updateFcmPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_fcm_push_configuration_by_id_data = null)
     {
-        $request = $this->updateFcmPushConfigurationByIdRequest($provider_id, $api_token, $update_fcm_push_configuration_by_id_data);
+        $request = $this->updateFcmPushConfigurationByIdRequest($api_token, $provider_id, $update_fcm_push_configuration_by_id_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4362,16 +4452,16 @@ class ApplicationApi
      *
      * Update a FCM push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateFcmPushConfigurationByIdData $update_fcm_push_configuration_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFcmPushConfigurationByIdAsync($provider_id, $api_token = null, $update_fcm_push_configuration_by_id_data = null)
+    public function updateFcmPushConfigurationByIdAsync($api_token, $provider_id, $update_fcm_push_configuration_by_id_data = null)
     {
-        return $this->updateFcmPushConfigurationByIdAsyncWithHttpInfo($provider_id, $api_token, $update_fcm_push_configuration_by_id_data)
+        return $this->updateFcmPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_fcm_push_configuration_by_id_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4384,17 +4474,17 @@ class ApplicationApi
      *
      * Update a FCM push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateFcmPushConfigurationByIdData $update_fcm_push_configuration_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFcmPushConfigurationByIdAsyncWithHttpInfo($provider_id, $api_token = null, $update_fcm_push_configuration_by_id_data = null)
+    public function updateFcmPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_fcm_push_configuration_by_id_data = null)
     {
         $returnType = '\Sendbird\Model\UpdateFcmPushConfigurationByIdResponse';
-        $request = $this->updateFcmPushConfigurationByIdRequest($provider_id, $api_token, $update_fcm_push_configuration_by_id_data);
+        $request = $this->updateFcmPushConfigurationByIdRequest($api_token, $provider_id, $update_fcm_push_configuration_by_id_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4432,15 +4522,21 @@ class ApplicationApi
     /**
      * Create request for operation 'updateFcmPushConfigurationById'
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateFcmPushConfigurationByIdData $update_fcm_push_configuration_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateFcmPushConfigurationByIdRequest($provider_id, $api_token = null, $update_fcm_push_configuration_by_id_data = null)
+    public function updateFcmPushConfigurationByIdRequest($api_token, $provider_id, $update_fcm_push_configuration_by_id_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateFcmPushConfigurationById'
+            );
+        }
         // verify the required parameter 'provider_id' is set
         if ($provider_id === null || (is_array($provider_id) && count($provider_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -4539,17 +4635,17 @@ class ApplicationApi
      *
      * Update an HMS push configuration
      *
+     * @param  string $api_token api_token (required)
      * @param  string $provider_id provider_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateHmsPushConfigurationByIdData $update_hms_push_configuration_by_id_data update_hms_push_configuration_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateHmsPushConfigurationByIdResponse
      */
-    public function updateHmsPushConfigurationById($provider_id, $api_token = null, $update_hms_push_configuration_by_id_data = null)
+    public function updateHmsPushConfigurationById($api_token, $provider_id, $update_hms_push_configuration_by_id_data = null)
     {
-        list($response) = $this->updateHmsPushConfigurationByIdWithHttpInfo($provider_id, $api_token, $update_hms_push_configuration_by_id_data);
+        list($response) = $this->updateHmsPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_hms_push_configuration_by_id_data);
         return $response;
     }
 
@@ -4558,17 +4654,17 @@ class ApplicationApi
      *
      * Update an HMS push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateHmsPushConfigurationByIdData $update_hms_push_configuration_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateHmsPushConfigurationByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateHmsPushConfigurationByIdWithHttpInfo($provider_id, $api_token = null, $update_hms_push_configuration_by_id_data = null)
+    public function updateHmsPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_hms_push_configuration_by_id_data = null)
     {
-        $request = $this->updateHmsPushConfigurationByIdRequest($provider_id, $api_token, $update_hms_push_configuration_by_id_data);
+        $request = $this->updateHmsPushConfigurationByIdRequest($api_token, $provider_id, $update_hms_push_configuration_by_id_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4653,16 +4749,16 @@ class ApplicationApi
      *
      * Update an HMS push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateHmsPushConfigurationByIdData $update_hms_push_configuration_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateHmsPushConfigurationByIdAsync($provider_id, $api_token = null, $update_hms_push_configuration_by_id_data = null)
+    public function updateHmsPushConfigurationByIdAsync($api_token, $provider_id, $update_hms_push_configuration_by_id_data = null)
     {
-        return $this->updateHmsPushConfigurationByIdAsyncWithHttpInfo($provider_id, $api_token, $update_hms_push_configuration_by_id_data)
+        return $this->updateHmsPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_hms_push_configuration_by_id_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4675,17 +4771,17 @@ class ApplicationApi
      *
      * Update an HMS push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateHmsPushConfigurationByIdData $update_hms_push_configuration_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateHmsPushConfigurationByIdAsyncWithHttpInfo($provider_id, $api_token = null, $update_hms_push_configuration_by_id_data = null)
+    public function updateHmsPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_hms_push_configuration_by_id_data = null)
     {
         $returnType = '\Sendbird\Model\UpdateHmsPushConfigurationByIdResponse';
-        $request = $this->updateHmsPushConfigurationByIdRequest($provider_id, $api_token, $update_hms_push_configuration_by_id_data);
+        $request = $this->updateHmsPushConfigurationByIdRequest($api_token, $provider_id, $update_hms_push_configuration_by_id_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4723,15 +4819,21 @@ class ApplicationApi
     /**
      * Create request for operation 'updateHmsPushConfigurationById'
      *
+     * @param  string $api_token (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateHmsPushConfigurationByIdData $update_hms_push_configuration_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateHmsPushConfigurationByIdRequest($provider_id, $api_token = null, $update_hms_push_configuration_by_id_data = null)
+    public function updateHmsPushConfigurationByIdRequest($api_token, $provider_id, $update_hms_push_configuration_by_id_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateHmsPushConfigurationById'
+            );
+        }
         // verify the required parameter 'provider_id' is set
         if ($provider_id === null || (is_array($provider_id) && count($provider_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -4830,17 +4932,17 @@ class ApplicationApi
      *
      * Update a push notification content template
      *
+     * @param  string $api_token api_token (required)
      * @param  string $template_name template_name (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdatePushNotificationContentTemplateData $update_push_notification_content_template_data update_push_notification_content_template_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdatePushNotificationContentTemplateResponse
      */
-    public function updatePushNotificationContentTemplate($template_name, $api_token = null, $update_push_notification_content_template_data = null)
+    public function updatePushNotificationContentTemplate($api_token, $template_name, $update_push_notification_content_template_data = null)
     {
-        list($response) = $this->updatePushNotificationContentTemplateWithHttpInfo($template_name, $api_token, $update_push_notification_content_template_data);
+        list($response) = $this->updatePushNotificationContentTemplateWithHttpInfo($api_token, $template_name, $update_push_notification_content_template_data);
         return $response;
     }
 
@@ -4849,17 +4951,17 @@ class ApplicationApi
      *
      * Update a push notification content template
      *
+     * @param  string $api_token (required)
      * @param  string $template_name (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdatePushNotificationContentTemplateData $update_push_notification_content_template_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdatePushNotificationContentTemplateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePushNotificationContentTemplateWithHttpInfo($template_name, $api_token = null, $update_push_notification_content_template_data = null)
+    public function updatePushNotificationContentTemplateWithHttpInfo($api_token, $template_name, $update_push_notification_content_template_data = null)
     {
-        $request = $this->updatePushNotificationContentTemplateRequest($template_name, $api_token, $update_push_notification_content_template_data);
+        $request = $this->updatePushNotificationContentTemplateRequest($api_token, $template_name, $update_push_notification_content_template_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4944,16 +5046,16 @@ class ApplicationApi
      *
      * Update a push notification content template
      *
+     * @param  string $api_token (required)
      * @param  string $template_name (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdatePushNotificationContentTemplateData $update_push_notification_content_template_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePushNotificationContentTemplateAsync($template_name, $api_token = null, $update_push_notification_content_template_data = null)
+    public function updatePushNotificationContentTemplateAsync($api_token, $template_name, $update_push_notification_content_template_data = null)
     {
-        return $this->updatePushNotificationContentTemplateAsyncWithHttpInfo($template_name, $api_token, $update_push_notification_content_template_data)
+        return $this->updatePushNotificationContentTemplateAsyncWithHttpInfo($api_token, $template_name, $update_push_notification_content_template_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4966,17 +5068,17 @@ class ApplicationApi
      *
      * Update a push notification content template
      *
+     * @param  string $api_token (required)
      * @param  string $template_name (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdatePushNotificationContentTemplateData $update_push_notification_content_template_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePushNotificationContentTemplateAsyncWithHttpInfo($template_name, $api_token = null, $update_push_notification_content_template_data = null)
+    public function updatePushNotificationContentTemplateAsyncWithHttpInfo($api_token, $template_name, $update_push_notification_content_template_data = null)
     {
         $returnType = '\Sendbird\Model\UpdatePushNotificationContentTemplateResponse';
-        $request = $this->updatePushNotificationContentTemplateRequest($template_name, $api_token, $update_push_notification_content_template_data);
+        $request = $this->updatePushNotificationContentTemplateRequest($api_token, $template_name, $update_push_notification_content_template_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5014,15 +5116,21 @@ class ApplicationApi
     /**
      * Create request for operation 'updatePushNotificationContentTemplate'
      *
+     * @param  string $api_token (required)
      * @param  string $template_name (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdatePushNotificationContentTemplateData $update_push_notification_content_template_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePushNotificationContentTemplateRequest($template_name, $api_token = null, $update_push_notification_content_template_data = null)
+    public function updatePushNotificationContentTemplateRequest($api_token, $template_name, $update_push_notification_content_template_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updatePushNotificationContentTemplate'
+            );
+        }
         // verify the required parameter 'template_name' is set
         if ($template_name === null || (is_array($template_name) && count($template_name) === 0)) {
             throw new \InvalidArgumentException(
@@ -5121,13 +5229,13 @@ class ApplicationApi
      *
      * View default channel invitation preference
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewDefaultChannelInvitationPreferenceResponse
      */
-    public function viewDefaultChannelInvitationPreference($api_token = null)
+    public function viewDefaultChannelInvitationPreference($api_token)
     {
         list($response) = $this->viewDefaultChannelInvitationPreferenceWithHttpInfo($api_token);
         return $response;
@@ -5138,13 +5246,13 @@ class ApplicationApi
      *
      * View default channel invitation preference
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewDefaultChannelInvitationPreferenceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewDefaultChannelInvitationPreferenceWithHttpInfo($api_token = null)
+    public function viewDefaultChannelInvitationPreferenceWithHttpInfo($api_token)
     {
         $request = $this->viewDefaultChannelInvitationPreferenceRequest($api_token);
 
@@ -5231,12 +5339,12 @@ class ApplicationApi
      *
      * View default channel invitation preference
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewDefaultChannelInvitationPreferenceAsync($api_token = null)
+    public function viewDefaultChannelInvitationPreferenceAsync($api_token)
     {
         return $this->viewDefaultChannelInvitationPreferenceAsyncWithHttpInfo($api_token)
             ->then(
@@ -5251,12 +5359,12 @@ class ApplicationApi
      *
      * View default channel invitation preference
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewDefaultChannelInvitationPreferenceAsyncWithHttpInfo($api_token = null)
+    public function viewDefaultChannelInvitationPreferenceAsyncWithHttpInfo($api_token)
     {
         $returnType = '\Sendbird\Model\ViewDefaultChannelInvitationPreferenceResponse';
         $request = $this->viewDefaultChannelInvitationPreferenceRequest($api_token);
@@ -5297,13 +5405,19 @@ class ApplicationApi
     /**
      * Create request for operation 'viewDefaultChannelInvitationPreference'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewDefaultChannelInvitationPreferenceRequest($api_token = null)
+    public function viewDefaultChannelInvitationPreferenceRequest($api_token)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewDefaultChannelInvitationPreference'
+            );
+        }
 
         $resourcePath = '/v3/applications/default_channel_invitation_preference';
         $formParams = [];
@@ -5382,13 +5496,13 @@ class ApplicationApi
      *
      * View number of concurrent connections
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse
      */
-    public function viewNumberOfConcurrentConnections($api_token = null)
+    public function viewNumberOfConcurrentConnections($api_token)
     {
         list($response) = $this->viewNumberOfConcurrentConnectionsWithHttpInfo($api_token);
         return $response;
@@ -5399,13 +5513,13 @@ class ApplicationApi
      *
      * View number of concurrent connections
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewNumberOfConcurrentConnectionsWithHttpInfo($api_token = null)
+    public function viewNumberOfConcurrentConnectionsWithHttpInfo($api_token)
     {
         $request = $this->viewNumberOfConcurrentConnectionsRequest($api_token);
 
@@ -5492,12 +5606,12 @@ class ApplicationApi
      *
      * View number of concurrent connections
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfConcurrentConnectionsAsync($api_token = null)
+    public function viewNumberOfConcurrentConnectionsAsync($api_token)
     {
         return $this->viewNumberOfConcurrentConnectionsAsyncWithHttpInfo($api_token)
             ->then(
@@ -5512,12 +5626,12 @@ class ApplicationApi
      *
      * View number of concurrent connections
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfConcurrentConnectionsAsyncWithHttpInfo($api_token = null)
+    public function viewNumberOfConcurrentConnectionsAsyncWithHttpInfo($api_token)
     {
         $returnType = '\Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse';
         $request = $this->viewNumberOfConcurrentConnectionsRequest($api_token);
@@ -5558,13 +5672,19 @@ class ApplicationApi
     /**
      * Create request for operation 'viewNumberOfConcurrentConnections'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewNumberOfConcurrentConnectionsRequest($api_token = null)
+    public function viewNumberOfConcurrentConnectionsRequest($api_token)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewNumberOfConcurrentConnections'
+            );
+        }
 
         $resourcePath = '/v3/applications/ccu';
         $formParams = [];
@@ -5643,14 +5763,14 @@ class ApplicationApi
      *
      * View number of daily active users
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  string $date date (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewNumberOfDailyActiveUsersResponse
      */
-    public function viewNumberOfDailyActiveUsers($api_token = null, $date = null)
+    public function viewNumberOfDailyActiveUsers($api_token, $date = null)
     {
         list($response) = $this->viewNumberOfDailyActiveUsersWithHttpInfo($api_token, $date);
         return $response;
@@ -5661,14 +5781,14 @@ class ApplicationApi
      *
      * View number of daily active users
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewNumberOfDailyActiveUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewNumberOfDailyActiveUsersWithHttpInfo($api_token = null, $date = null)
+    public function viewNumberOfDailyActiveUsersWithHttpInfo($api_token, $date = null)
     {
         $request = $this->viewNumberOfDailyActiveUsersRequest($api_token, $date);
 
@@ -5755,13 +5875,13 @@ class ApplicationApi
      *
      * View number of daily active users
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfDailyActiveUsersAsync($api_token = null, $date = null)
+    public function viewNumberOfDailyActiveUsersAsync($api_token, $date = null)
     {
         return $this->viewNumberOfDailyActiveUsersAsyncWithHttpInfo($api_token, $date)
             ->then(
@@ -5776,13 +5896,13 @@ class ApplicationApi
      *
      * View number of daily active users
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfDailyActiveUsersAsyncWithHttpInfo($api_token = null, $date = null)
+    public function viewNumberOfDailyActiveUsersAsyncWithHttpInfo($api_token, $date = null)
     {
         $returnType = '\Sendbird\Model\ViewNumberOfDailyActiveUsersResponse';
         $request = $this->viewNumberOfDailyActiveUsersRequest($api_token, $date);
@@ -5823,14 +5943,20 @@ class ApplicationApi
     /**
      * Create request for operation 'viewNumberOfDailyActiveUsers'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewNumberOfDailyActiveUsersRequest($api_token = null, $date = null)
+    public function viewNumberOfDailyActiveUsersRequest($api_token, $date = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewNumberOfDailyActiveUsers'
+            );
+        }
 
         $resourcePath = '/v3/applications/dau';
         $formParams = [];
@@ -5920,14 +6046,14 @@ class ApplicationApi
      *
      * View number of monthly active users
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  string $date date (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse
      */
-    public function viewNumberOfMonthlyActiveUsers($api_token = null, $date = null)
+    public function viewNumberOfMonthlyActiveUsers($api_token, $date = null)
     {
         list($response) = $this->viewNumberOfMonthlyActiveUsersWithHttpInfo($api_token, $date);
         return $response;
@@ -5938,14 +6064,14 @@ class ApplicationApi
      *
      * View number of monthly active users
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewNumberOfMonthlyActiveUsersWithHttpInfo($api_token = null, $date = null)
+    public function viewNumberOfMonthlyActiveUsersWithHttpInfo($api_token, $date = null)
     {
         $request = $this->viewNumberOfMonthlyActiveUsersRequest($api_token, $date);
 
@@ -6032,13 +6158,13 @@ class ApplicationApi
      *
      * View number of monthly active users
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfMonthlyActiveUsersAsync($api_token = null, $date = null)
+    public function viewNumberOfMonthlyActiveUsersAsync($api_token, $date = null)
     {
         return $this->viewNumberOfMonthlyActiveUsersAsyncWithHttpInfo($api_token, $date)
             ->then(
@@ -6053,13 +6179,13 @@ class ApplicationApi
      *
      * View number of monthly active users
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfMonthlyActiveUsersAsyncWithHttpInfo($api_token = null, $date = null)
+    public function viewNumberOfMonthlyActiveUsersAsyncWithHttpInfo($api_token, $date = null)
     {
         $returnType = '\Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse';
         $request = $this->viewNumberOfMonthlyActiveUsersRequest($api_token, $date);
@@ -6100,14 +6226,20 @@ class ApplicationApi
     /**
      * Create request for operation 'viewNumberOfMonthlyActiveUsers'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewNumberOfMonthlyActiveUsersRequest($api_token = null, $date = null)
+    public function viewNumberOfMonthlyActiveUsersRequest($api_token, $date = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewNumberOfMonthlyActiveUsers'
+            );
+        }
 
         $resourcePath = '/v3/applications/mau';
         $formParams = [];
@@ -6197,12 +6329,12 @@ class ApplicationApi
      *
      * View number of peak connections
      *
+     * @param  string $api_token api_token (required)
      * @param  string $time_dimension time_dimension (required)
      * @param  int $start_year start_year (required)
      * @param  int $start_month start_month (required)
      * @param  int $end_year end_year (required)
      * @param  int $end_month end_month (required)
-     * @param  string $api_token api_token (optional)
      * @param  int $start_day start_day (optional)
      * @param  int $end_day end_day (optional)
      *
@@ -6210,9 +6342,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewNumberOfPeakConnectionsResponse
      */
-    public function viewNumberOfPeakConnections($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token = null, $start_day = null, $end_day = null)
+    public function viewNumberOfPeakConnections($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
     {
-        list($response) = $this->viewNumberOfPeakConnectionsWithHttpInfo($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token, $start_day, $end_day);
+        list($response) = $this->viewNumberOfPeakConnectionsWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
         return $response;
     }
 
@@ -6221,12 +6353,12 @@ class ApplicationApi
      *
      * View number of peak connections
      *
+     * @param  string $api_token (required)
      * @param  string $time_dimension (required)
      * @param  int $start_year (required)
      * @param  int $start_month (required)
      * @param  int $end_year (required)
      * @param  int $end_month (required)
-     * @param  string $api_token (optional)
      * @param  int $start_day (optional)
      * @param  int $end_day (optional)
      *
@@ -6234,9 +6366,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewNumberOfPeakConnectionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewNumberOfPeakConnectionsWithHttpInfo($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token = null, $start_day = null, $end_day = null)
+    public function viewNumberOfPeakConnectionsWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
     {
-        $request = $this->viewNumberOfPeakConnectionsRequest($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token, $start_day, $end_day);
+        $request = $this->viewNumberOfPeakConnectionsRequest($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6321,21 +6453,21 @@ class ApplicationApi
      *
      * View number of peak connections
      *
+     * @param  string $api_token (required)
      * @param  string $time_dimension (required)
      * @param  int $start_year (required)
      * @param  int $start_month (required)
      * @param  int $end_year (required)
      * @param  int $end_month (required)
-     * @param  string $api_token (optional)
      * @param  int $start_day (optional)
      * @param  int $end_day (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfPeakConnectionsAsync($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token = null, $start_day = null, $end_day = null)
+    public function viewNumberOfPeakConnectionsAsync($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
     {
-        return $this->viewNumberOfPeakConnectionsAsyncWithHttpInfo($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token, $start_day, $end_day)
+        return $this->viewNumberOfPeakConnectionsAsyncWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6348,22 +6480,22 @@ class ApplicationApi
      *
      * View number of peak connections
      *
+     * @param  string $api_token (required)
      * @param  string $time_dimension (required)
      * @param  int $start_year (required)
      * @param  int $start_month (required)
      * @param  int $end_year (required)
      * @param  int $end_month (required)
-     * @param  string $api_token (optional)
      * @param  int $start_day (optional)
      * @param  int $end_day (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfPeakConnectionsAsyncWithHttpInfo($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token = null, $start_day = null, $end_day = null)
+    public function viewNumberOfPeakConnectionsAsyncWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
     {
         $returnType = '\Sendbird\Model\ViewNumberOfPeakConnectionsResponse';
-        $request = $this->viewNumberOfPeakConnectionsRequest($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token, $start_day, $end_day);
+        $request = $this->viewNumberOfPeakConnectionsRequest($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6401,20 +6533,26 @@ class ApplicationApi
     /**
      * Create request for operation 'viewNumberOfPeakConnections'
      *
+     * @param  string $api_token (required)
      * @param  string $time_dimension (required)
      * @param  int $start_year (required)
      * @param  int $start_month (required)
      * @param  int $end_year (required)
      * @param  int $end_month (required)
-     * @param  string $api_token (optional)
      * @param  int $start_day (optional)
      * @param  int $end_day (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewNumberOfPeakConnectionsRequest($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token = null, $start_day = null, $end_day = null)
+    public function viewNumberOfPeakConnectionsRequest($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewNumberOfPeakConnections'
+            );
+        }
         // verify the required parameter 'time_dimension' is set
         if ($time_dimension === null || (is_array($time_dimension) && count($time_dimension) === 0)) {
             throw new \InvalidArgumentException(
@@ -6600,17 +6738,17 @@ class ApplicationApi
      *
      * View a push configuration
      *
+     * @param  string $api_token api_token (required)
      * @param  string $push_type push_type (required)
      * @param  string $provider_id provider_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewPushConfigurationByIdResponse
      */
-    public function viewPushConfigurationById($push_type, $provider_id, $api_token = null)
+    public function viewPushConfigurationById($api_token, $push_type, $provider_id)
     {
-        list($response) = $this->viewPushConfigurationByIdWithHttpInfo($push_type, $provider_id, $api_token);
+        list($response) = $this->viewPushConfigurationByIdWithHttpInfo($api_token, $push_type, $provider_id);
         return $response;
     }
 
@@ -6619,17 +6757,17 @@ class ApplicationApi
      *
      * View a push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewPushConfigurationByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewPushConfigurationByIdWithHttpInfo($push_type, $provider_id, $api_token = null)
+    public function viewPushConfigurationByIdWithHttpInfo($api_token, $push_type, $provider_id)
     {
-        $request = $this->viewPushConfigurationByIdRequest($push_type, $provider_id, $api_token);
+        $request = $this->viewPushConfigurationByIdRequest($api_token, $push_type, $provider_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6714,16 +6852,16 @@ class ApplicationApi
      *
      * View a push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewPushConfigurationByIdAsync($push_type, $provider_id, $api_token = null)
+    public function viewPushConfigurationByIdAsync($api_token, $push_type, $provider_id)
     {
-        return $this->viewPushConfigurationByIdAsyncWithHttpInfo($push_type, $provider_id, $api_token)
+        return $this->viewPushConfigurationByIdAsyncWithHttpInfo($api_token, $push_type, $provider_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6736,17 +6874,17 @@ class ApplicationApi
      *
      * View a push configuration
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewPushConfigurationByIdAsyncWithHttpInfo($push_type, $provider_id, $api_token = null)
+    public function viewPushConfigurationByIdAsyncWithHttpInfo($api_token, $push_type, $provider_id)
     {
         $returnType = '\Sendbird\Model\ViewPushConfigurationByIdResponse';
-        $request = $this->viewPushConfigurationByIdRequest($push_type, $provider_id, $api_token);
+        $request = $this->viewPushConfigurationByIdRequest($api_token, $push_type, $provider_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6784,15 +6922,21 @@ class ApplicationApi
     /**
      * Create request for operation 'viewPushConfigurationById'
      *
+     * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewPushConfigurationByIdRequest($push_type, $provider_id, $api_token = null)
+    public function viewPushConfigurationByIdRequest($api_token, $push_type, $provider_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewPushConfigurationById'
+            );
+        }
         // verify the required parameter 'push_type' is set
         if ($push_type === null || (is_array($push_type) && count($push_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -6899,16 +7043,16 @@ class ApplicationApi
      *
      * View a push notification content template
      *
+     * @param  string $api_token api_token (required)
      * @param  string $template_name template_name (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewPushNotificationContentTemplateResponse
      */
-    public function viewPushNotificationContentTemplate($template_name, $api_token = null)
+    public function viewPushNotificationContentTemplate($api_token, $template_name)
     {
-        list($response) = $this->viewPushNotificationContentTemplateWithHttpInfo($template_name, $api_token);
+        list($response) = $this->viewPushNotificationContentTemplateWithHttpInfo($api_token, $template_name);
         return $response;
     }
 
@@ -6917,16 +7061,16 @@ class ApplicationApi
      *
      * View a push notification content template
      *
+     * @param  string $api_token (required)
      * @param  string $template_name (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewPushNotificationContentTemplateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewPushNotificationContentTemplateWithHttpInfo($template_name, $api_token = null)
+    public function viewPushNotificationContentTemplateWithHttpInfo($api_token, $template_name)
     {
-        $request = $this->viewPushNotificationContentTemplateRequest($template_name, $api_token);
+        $request = $this->viewPushNotificationContentTemplateRequest($api_token, $template_name);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7011,15 +7155,15 @@ class ApplicationApi
      *
      * View a push notification content template
      *
+     * @param  string $api_token (required)
      * @param  string $template_name (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewPushNotificationContentTemplateAsync($template_name, $api_token = null)
+    public function viewPushNotificationContentTemplateAsync($api_token, $template_name)
     {
-        return $this->viewPushNotificationContentTemplateAsyncWithHttpInfo($template_name, $api_token)
+        return $this->viewPushNotificationContentTemplateAsyncWithHttpInfo($api_token, $template_name)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7032,16 +7176,16 @@ class ApplicationApi
      *
      * View a push notification content template
      *
+     * @param  string $api_token (required)
      * @param  string $template_name (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewPushNotificationContentTemplateAsyncWithHttpInfo($template_name, $api_token = null)
+    public function viewPushNotificationContentTemplateAsyncWithHttpInfo($api_token, $template_name)
     {
         $returnType = '\Sendbird\Model\ViewPushNotificationContentTemplateResponse';
-        $request = $this->viewPushNotificationContentTemplateRequest($template_name, $api_token);
+        $request = $this->viewPushNotificationContentTemplateRequest($api_token, $template_name);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7079,14 +7223,20 @@ class ApplicationApi
     /**
      * Create request for operation 'viewPushNotificationContentTemplate'
      *
+     * @param  string $api_token (required)
      * @param  string $template_name (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewPushNotificationContentTemplateRequest($template_name, $api_token = null)
+    public function viewPushNotificationContentTemplateRequest($api_token, $template_name)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewPushNotificationContentTemplate'
+            );
+        }
         // verify the required parameter 'template_name' is set
         if ($template_name === null || (is_array($template_name) && count($template_name) === 0)) {
             throw new \InvalidArgumentException(
@@ -7179,16 +7329,16 @@ class ApplicationApi
      *
      * View a secondary API token
      *
+     * @param  string $api_token api_token (required)
      * @param  string $api_token2 api_token2 (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewSecondaryApiTokenByTokenResponse
      */
-    public function viewSecondaryApiTokenByToken($api_token2, $api_token = null)
+    public function viewSecondaryApiTokenByToken($api_token, $api_token2)
     {
-        list($response) = $this->viewSecondaryApiTokenByTokenWithHttpInfo($api_token2, $api_token);
+        list($response) = $this->viewSecondaryApiTokenByTokenWithHttpInfo($api_token, $api_token2);
         return $response;
     }
 
@@ -7197,16 +7347,16 @@ class ApplicationApi
      *
      * View a secondary API token
      *
+     * @param  string $api_token (required)
      * @param  string $api_token2 (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewSecondaryApiTokenByTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewSecondaryApiTokenByTokenWithHttpInfo($api_token2, $api_token = null)
+    public function viewSecondaryApiTokenByTokenWithHttpInfo($api_token, $api_token2)
     {
-        $request = $this->viewSecondaryApiTokenByTokenRequest($api_token2, $api_token);
+        $request = $this->viewSecondaryApiTokenByTokenRequest($api_token, $api_token2);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7291,15 +7441,15 @@ class ApplicationApi
      *
      * View a secondary API token
      *
+     * @param  string $api_token (required)
      * @param  string $api_token2 (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewSecondaryApiTokenByTokenAsync($api_token2, $api_token = null)
+    public function viewSecondaryApiTokenByTokenAsync($api_token, $api_token2)
     {
-        return $this->viewSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token2, $api_token)
+        return $this->viewSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token, $api_token2)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7312,16 +7462,16 @@ class ApplicationApi
      *
      * View a secondary API token
      *
+     * @param  string $api_token (required)
      * @param  string $api_token2 (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token2, $api_token = null)
+    public function viewSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token, $api_token2)
     {
         $returnType = '\Sendbird\Model\ViewSecondaryApiTokenByTokenResponse';
-        $request = $this->viewSecondaryApiTokenByTokenRequest($api_token2, $api_token);
+        $request = $this->viewSecondaryApiTokenByTokenRequest($api_token, $api_token2);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7359,14 +7509,20 @@ class ApplicationApi
     /**
      * Create request for operation 'viewSecondaryApiTokenByToken'
      *
+     * @param  string $api_token (required)
      * @param  string $api_token2 (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewSecondaryApiTokenByTokenRequest($api_token2, $api_token = null)
+    public function viewSecondaryApiTokenByTokenRequest($api_token, $api_token2)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewSecondaryApiTokenByToken'
+            );
+        }
         // verify the required parameter 'api_token2' is set
         if ($api_token2 === null || (is_array($api_token2) && count($api_token2) === 0)) {
             throw new \InvalidArgumentException(

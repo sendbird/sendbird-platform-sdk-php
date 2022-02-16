@@ -28,7 +28,7 @@ Method | HTTP request | Description
 ## `ocBanUser()`
 
 ```php
-ocBanUser($channel_url, $api_token, $oc_ban_user_data): \Sendbird\Model\OcBanUserResponse
+ocBanUser($api_token, $channel_url, $oc_ban_user_data): \Sendbird\Model\OcBanUserResponse
 ```
 
 Ban a user
@@ -48,12 +48,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $oc_ban_user_data = new \Sendbird\Model\OcBanUserData(); // \Sendbird\Model\OcBanUserData
 
 try {
-    $result = $apiInstance->ocBanUser($channel_url, $api_token, $oc_ban_user_data);
+    $result = $apiInstance->ocBanUser($api_token, $channel_url, $oc_ban_user_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocBanUser: ', $e->getMessage(), PHP_EOL;
@@ -64,8 +64,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **oc_ban_user_data** | [**\Sendbird\Model\OcBanUserData**](../Model/OcBanUserData.md)|  | [optional]
 
 ### Return type
@@ -88,7 +88,7 @@ No authorization required
 ## `ocCancelTheRegistrationOfOperators()`
 
 ```php
-ocCancelTheRegistrationOfOperators($channel_url, $operator_ids, $api_token, $delete_all)
+ocCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all)
 ```
 
 Cancel the registration of operators
@@ -108,13 +108,13 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_url = 'channel_url_example'; // string
 $operator_ids = array('operator_ids_example'); // string[]
-$api_token = {{API_TOKEN}}; // string
 $delete_all = True; // bool
 
 try {
-    $apiInstance->ocCancelTheRegistrationOfOperators($channel_url, $operator_ids, $api_token, $delete_all);
+    $apiInstance->ocCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocCancelTheRegistrationOfOperators: ', $e->getMessage(), PHP_EOL;
 }
@@ -124,9 +124,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
  **operator_ids** | [**string[]**](../Model/string.md)|  |
- **api_token** | **string**|  | [optional]
  **delete_all** | **bool**|  | [optional]
 
 ### Return type
@@ -184,7 +184,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **oc_create_channel_data** | [**\Sendbird\Model\OcCreateChannelData**](../Model/OcCreateChannelData.md)|  | [optional]
 
 ### Return type
@@ -207,7 +207,7 @@ No authorization required
 ## `ocDeleteChannelByUrl()`
 
 ```php
-ocDeleteChannelByUrl($channel_url, $api_token)
+ocDeleteChannelByUrl($api_token, $channel_url)
 ```
 
 Delete a channel
@@ -227,11 +227,11 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 
 try {
-    $apiInstance->ocDeleteChannelByUrl($channel_url, $api_token);
+    $apiInstance->ocDeleteChannelByUrl($api_token, $channel_url);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocDeleteChannelByUrl: ', $e->getMessage(), PHP_EOL;
 }
@@ -241,8 +241,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -264,7 +264,7 @@ No authorization required
 ## `ocFreezeChannel()`
 
 ```php
-ocFreezeChannel($channel_url, $api_token, $oc_freeze_channel_data): \Sendbird\Model\SendBirdOpenChannel
+ocFreezeChannel($api_token, $channel_url, $oc_freeze_channel_data): \Sendbird\Model\SendBirdOpenChannel
 ```
 
 Freeze a channel
@@ -284,12 +284,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $oc_freeze_channel_data = new \Sendbird\Model\OcFreezeChannelData(); // \Sendbird\Model\OcFreezeChannelData
 
 try {
-    $result = $apiInstance->ocFreezeChannel($channel_url, $api_token, $oc_freeze_channel_data);
+    $result = $apiInstance->ocFreezeChannel($api_token, $channel_url, $oc_freeze_channel_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocFreezeChannel: ', $e->getMessage(), PHP_EOL;
@@ -300,8 +300,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **oc_freeze_channel_data** | [**\Sendbird\Model\OcFreezeChannelData**](../Model/OcFreezeChannelData.md)|  | [optional]
 
 ### Return type
@@ -324,7 +324,7 @@ No authorization required
 ## `ocListBannedUsers()`
 
 ```php
-ocListBannedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\OcListBannedUsersResponse
+ocListBannedUsers($api_token, $channel_url, $token, $limit): \Sendbird\Model\OcListBannedUsersResponse
 ```
 
 List banned users
@@ -344,13 +344,13 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 
 try {
-    $result = $apiInstance->ocListBannedUsers($channel_url, $api_token, $token, $limit);
+    $result = $apiInstance->ocListBannedUsers($api_token, $channel_url, $token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocListBannedUsers: ', $e->getMessage(), PHP_EOL;
@@ -361,8 +361,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -428,7 +428,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
  **custom_types** | **string**|  | [optional]
@@ -458,7 +458,7 @@ No authorization required
 ## `ocListMutedUsers()`
 
 ```php
-ocListMutedUsers($channel_url, $api_token, $token, $limit): \Sendbird\Model\OcListMutedUsersResponse
+ocListMutedUsers($api_token, $channel_url, $token, $limit): \Sendbird\Model\OcListMutedUsersResponse
 ```
 
 List muted users
@@ -478,13 +478,13 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 
 try {
-    $result = $apiInstance->ocListMutedUsers($channel_url, $api_token, $token, $limit);
+    $result = $apiInstance->ocListMutedUsers($api_token, $channel_url, $token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocListMutedUsers: ', $e->getMessage(), PHP_EOL;
@@ -495,8 +495,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -520,7 +520,7 @@ No authorization required
 ## `ocListOperators()`
 
 ```php
-ocListOperators($channel_url, $api_token, $token, $limit): \Sendbird\Model\OcListOperatorsResponse
+ocListOperators($api_token, $channel_url, $token, $limit): \Sendbird\Model\OcListOperatorsResponse
 ```
 
 List operators
@@ -540,13 +540,13 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 
 try {
-    $result = $apiInstance->ocListOperators($channel_url, $api_token, $token, $limit);
+    $result = $apiInstance->ocListOperators($api_token, $channel_url, $token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocListOperators: ', $e->getMessage(), PHP_EOL;
@@ -557,8 +557,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -582,7 +582,7 @@ No authorization required
 ## `ocListParticipants()`
 
 ```php
-ocListParticipants($channel_url, $api_token, $token, $limit): \Sendbird\Model\OcListParticipantsResponse
+ocListParticipants($api_token, $channel_url, $token, $limit): \Sendbird\Model\OcListParticipantsResponse
 ```
 
 List participants
@@ -602,13 +602,13 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 
 try {
-    $result = $apiInstance->ocListParticipants($channel_url, $api_token, $token, $limit);
+    $result = $apiInstance->ocListParticipants($api_token, $channel_url, $token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocListParticipants: ', $e->getMessage(), PHP_EOL;
@@ -619,8 +619,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -644,7 +644,7 @@ No authorization required
 ## `ocMuteUser()`
 
 ```php
-ocMuteUser($channel_url, $api_token, $oc_mute_user_data): \Sendbird\Model\SendBirdOpenChannel
+ocMuteUser($api_token, $channel_url, $oc_mute_user_data): \Sendbird\Model\SendBirdOpenChannel
 ```
 
 Mute a user
@@ -664,12 +664,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $oc_mute_user_data = new \Sendbird\Model\OcMuteUserData(); // \Sendbird\Model\OcMuteUserData
 
 try {
-    $result = $apiInstance->ocMuteUser($channel_url, $api_token, $oc_mute_user_data);
+    $result = $apiInstance->ocMuteUser($api_token, $channel_url, $oc_mute_user_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocMuteUser: ', $e->getMessage(), PHP_EOL;
@@ -680,8 +680,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **oc_mute_user_data** | [**\Sendbird\Model\OcMuteUserData**](../Model/OcMuteUserData.md)|  | [optional]
 
 ### Return type
@@ -704,7 +704,7 @@ No authorization required
 ## `ocRegisterOperators()`
 
 ```php
-ocRegisterOperators($channel_url, $api_token, $oc_register_operators_data)
+ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data)
 ```
 
 Register operators
@@ -724,12 +724,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $oc_register_operators_data = new \Sendbird\Model\OcRegisterOperatorsData(); // \Sendbird\Model\OcRegisterOperatorsData
 
 try {
-    $apiInstance->ocRegisterOperators($channel_url, $api_token, $oc_register_operators_data);
+    $apiInstance->ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocRegisterOperators: ', $e->getMessage(), PHP_EOL;
 }
@@ -739,8 +739,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **oc_register_operators_data** | [**\Sendbird\Model\OcRegisterOperatorsData**](../Model/OcRegisterOperatorsData.md)|  | [optional]
 
 ### Return type
@@ -763,7 +763,7 @@ No authorization required
 ## `ocUnbanUserById()`
 
 ```php
-ocUnbanUserById($channel_url, $banned_user_id, $api_token)
+ocUnbanUserById($api_token, $channel_url, $banned_user_id)
 ```
 
 Unban a user
@@ -783,12 +783,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_url = 'channel_url_example'; // string
 $banned_user_id = 'banned_user_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $apiInstance->ocUnbanUserById($channel_url, $banned_user_id, $api_token);
+    $apiInstance->ocUnbanUserById($api_token, $channel_url, $banned_user_id);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocUnbanUserById: ', $e->getMessage(), PHP_EOL;
 }
@@ -798,9 +798,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
  **banned_user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -822,7 +822,7 @@ No authorization required
 ## `ocUnmuteUserById()`
 
 ```php
-ocUnmuteUserById($channel_url, $muted_user_id, $api_token)
+ocUnmuteUserById($api_token, $channel_url, $muted_user_id)
 ```
 
 Unmute a user
@@ -842,12 +842,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_url = 'channel_url_example'; // string
 $muted_user_id = 'muted_user_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $apiInstance->ocUnmuteUserById($channel_url, $muted_user_id, $api_token);
+    $apiInstance->ocUnmuteUserById($api_token, $channel_url, $muted_user_id);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocUnmuteUserById: ', $e->getMessage(), PHP_EOL;
 }
@@ -857,9 +857,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
  **muted_user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -881,7 +881,7 @@ No authorization required
 ## `ocUpdateBanById()`
 
 ```php
-ocUpdateBanById($channel_url, $banned_user_id, $api_token, $oc_update_ban_by_id_data): \Sendbird\Model\SendBirdUser
+ocUpdateBanById($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data): \Sendbird\Model\SendBirdUser
 ```
 
 Update a ban
@@ -901,13 +901,13 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_url = 'channel_url_example'; // string
 $banned_user_id = 'banned_user_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $oc_update_ban_by_id_data = new \Sendbird\Model\OcUpdateBanByIdData(); // \Sendbird\Model\OcUpdateBanByIdData
 
 try {
-    $result = $apiInstance->ocUpdateBanById($channel_url, $banned_user_id, $api_token, $oc_update_ban_by_id_data);
+    $result = $apiInstance->ocUpdateBanById($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocUpdateBanById: ', $e->getMessage(), PHP_EOL;
@@ -918,9 +918,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
  **banned_user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **oc_update_ban_by_id_data** | [**\Sendbird\Model\OcUpdateBanByIdData**](../Model/OcUpdateBanByIdData.md)|  | [optional]
 
 ### Return type
@@ -943,7 +943,7 @@ No authorization required
 ## `ocUpdateChannelByUrl()`
 
 ```php
-ocUpdateChannelByUrl($channel_url, $api_token, $oc_update_channel_by_url_data): \Sendbird\Model\SendBirdOpenChannel
+ocUpdateChannelByUrl($api_token, $channel_url, $oc_update_channel_by_url_data): \Sendbird\Model\SendBirdOpenChannel
 ```
 
 Update a channel
@@ -963,12 +963,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 $oc_update_channel_by_url_data = new \Sendbird\Model\OcUpdateChannelByUrlData(); // \Sendbird\Model\OcUpdateChannelByUrlData
 
 try {
-    $result = $apiInstance->ocUpdateChannelByUrl($channel_url, $api_token, $oc_update_channel_by_url_data);
+    $result = $apiInstance->ocUpdateChannelByUrl($api_token, $channel_url, $oc_update_channel_by_url_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocUpdateChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -979,8 +979,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **oc_update_channel_by_url_data** | [**\Sendbird\Model\OcUpdateChannelByUrlData**](../Model/OcUpdateChannelByUrlData.md)|  | [optional]
 
 ### Return type
@@ -1003,7 +1003,7 @@ No authorization required
 ## `ocViewBanById()`
 
 ```php
-ocViewBanById($channel_url, $banned_user_id, $api_token): \Sendbird\Model\SendBirdUser
+ocViewBanById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\SendBirdUser
 ```
 
 View a ban
@@ -1023,12 +1023,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_url = 'channel_url_example'; // string
 $banned_user_id = 'banned_user_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->ocViewBanById($channel_url, $banned_user_id, $api_token);
+    $result = $apiInstance->ocViewBanById($api_token, $channel_url, $banned_user_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocViewBanById: ', $e->getMessage(), PHP_EOL;
@@ -1039,9 +1039,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
  **banned_user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1063,7 +1063,7 @@ No authorization required
 ## `ocViewChannelByUrl()`
 
 ```php
-ocViewChannelByUrl($channel_url, $api_token): \Sendbird\Model\SendBirdOpenChannel
+ocViewChannelByUrl($api_token, $channel_url): \Sendbird\Model\SendBirdOpenChannel
 ```
 
 View a channel
@@ -1083,11 +1083,11 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$channel_url = 'channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$channel_url = 'channel_url_example'; // string
 
 try {
-    $result = $apiInstance->ocViewChannelByUrl($channel_url, $api_token);
+    $result = $apiInstance->ocViewChannelByUrl($api_token, $channel_url);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocViewChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -1098,8 +1098,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1121,7 +1121,7 @@ No authorization required
 ## `ocViewMuteById()`
 
 ```php
-ocViewMuteById($channel_url, $muted_user_id, $api_token): \Sendbird\Model\OcViewMuteByIdResponse
+ocViewMuteById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\OcViewMuteByIdResponse
 ```
 
 View a mute
@@ -1141,12 +1141,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $channel_url = 'channel_url_example'; // string
 $muted_user_id = 'muted_user_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->ocViewMuteById($channel_url, $muted_user_id, $api_token);
+    $result = $apiInstance->ocViewMuteById($api_token, $channel_url, $muted_user_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocViewMuteById: ', $e->getMessage(), PHP_EOL;
@@ -1157,9 +1157,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **channel_url** | **string**|  |
  **muted_user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 

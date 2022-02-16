@@ -120,19 +120,19 @@ class MessagesApi
      *
      * Add extra data to a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\AddExtraDataToMessageData $add_extra_data_to_message_data add_extra_data_to_message_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddExtraDataToMessageResponse
      */
-    public function addExtraDataToMessage($channel_type, $channel_url, $message_id, $api_token = null, $add_extra_data_to_message_data = null)
+    public function addExtraDataToMessage($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data = null)
     {
-        list($response) = $this->addExtraDataToMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data);
+        list($response) = $this->addExtraDataToMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data);
         return $response;
     }
 
@@ -141,19 +141,19 @@ class MessagesApi
      *
      * Add extra data to a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddExtraDataToMessageData $add_extra_data_to_message_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddExtraDataToMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addExtraDataToMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $add_extra_data_to_message_data = null)
+    public function addExtraDataToMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data = null)
     {
-        $request = $this->addExtraDataToMessageRequest($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data);
+        $request = $this->addExtraDataToMessageRequest($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -238,18 +238,18 @@ class MessagesApi
      *
      * Add extra data to a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddExtraDataToMessageData $add_extra_data_to_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addExtraDataToMessageAsync($channel_type, $channel_url, $message_id, $api_token = null, $add_extra_data_to_message_data = null)
+    public function addExtraDataToMessageAsync($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data = null)
     {
-        return $this->addExtraDataToMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data)
+        return $this->addExtraDataToMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -262,19 +262,19 @@ class MessagesApi
      *
      * Add extra data to a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddExtraDataToMessageData $add_extra_data_to_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addExtraDataToMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $add_extra_data_to_message_data = null)
+    public function addExtraDataToMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data = null)
     {
         $returnType = '\Sendbird\Model\AddExtraDataToMessageResponse';
-        $request = $this->addExtraDataToMessageRequest($channel_type, $channel_url, $message_id, $api_token, $add_extra_data_to_message_data);
+        $request = $this->addExtraDataToMessageRequest($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,17 +312,23 @@ class MessagesApi
     /**
      * Create request for operation 'addExtraDataToMessage'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddExtraDataToMessageData $add_extra_data_to_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addExtraDataToMessageRequest($channel_type, $channel_url, $message_id, $api_token = null, $add_extra_data_to_message_data = null)
+    public function addExtraDataToMessageRequest($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling addExtraDataToMessage'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -449,19 +455,19 @@ class MessagesApi
      *
      * Add a reaction to a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\AddReactionToAMessageData $add_reaction_to_a_message_data add_reaction_to_a_message_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddReactionToAMessageResponse
      */
-    public function addReactionToAMessage($channel_type, $channel_url, $message_id, $api_token = null, $add_reaction_to_a_message_data = null)
+    public function addReactionToAMessage($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data = null)
     {
-        list($response) = $this->addReactionToAMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data);
+        list($response) = $this->addReactionToAMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data);
         return $response;
     }
 
@@ -470,19 +476,19 @@ class MessagesApi
      *
      * Add a reaction to a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddReactionToAMessageData $add_reaction_to_a_message_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddReactionToAMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addReactionToAMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $add_reaction_to_a_message_data = null)
+    public function addReactionToAMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data = null)
     {
-        $request = $this->addReactionToAMessageRequest($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data);
+        $request = $this->addReactionToAMessageRequest($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -567,18 +573,18 @@ class MessagesApi
      *
      * Add a reaction to a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddReactionToAMessageData $add_reaction_to_a_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addReactionToAMessageAsync($channel_type, $channel_url, $message_id, $api_token = null, $add_reaction_to_a_message_data = null)
+    public function addReactionToAMessageAsync($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data = null)
     {
-        return $this->addReactionToAMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data)
+        return $this->addReactionToAMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -591,19 +597,19 @@ class MessagesApi
      *
      * Add a reaction to a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddReactionToAMessageData $add_reaction_to_a_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addReactionToAMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $add_reaction_to_a_message_data = null)
+    public function addReactionToAMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data = null)
     {
         $returnType = '\Sendbird\Model\AddReactionToAMessageResponse';
-        $request = $this->addReactionToAMessageRequest($channel_type, $channel_url, $message_id, $api_token, $add_reaction_to_a_message_data);
+        $request = $this->addReactionToAMessageRequest($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -641,17 +647,23 @@ class MessagesApi
     /**
      * Create request for operation 'addReactionToAMessage'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddReactionToAMessageData $add_reaction_to_a_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addReactionToAMessageRequest($channel_type, $channel_url, $message_id, $api_token = null, $add_reaction_to_a_message_data = null)
+    public function addReactionToAMessageRequest($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling addReactionToAMessage'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -778,18 +790,18 @@ class MessagesApi
      *
      * Delete a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteMessageById($channel_type, $channel_url, $message_id, $api_token = null)
+    public function deleteMessageById($api_token, $channel_type, $channel_url, $message_id)
     {
-        $this->deleteMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token);
+        $this->deleteMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id);
     }
 
     /**
@@ -797,18 +809,18 @@ class MessagesApi
      *
      * Delete a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null)
+    public function deleteMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id)
     {
-        $request = $this->deleteMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token);
+        $request = $this->deleteMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -859,17 +871,17 @@ class MessagesApi
      *
      * Delete a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMessageByIdAsync($channel_type, $channel_url, $message_id, $api_token = null)
+    public function deleteMessageByIdAsync($api_token, $channel_type, $channel_url, $message_id)
     {
-        return $this->deleteMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token)
+        return $this->deleteMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -882,18 +894,18 @@ class MessagesApi
      *
      * Delete a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null)
+    public function deleteMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id)
     {
         $returnType = '';
-        $request = $this->deleteMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token);
+        $request = $this->deleteMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -921,16 +933,22 @@ class MessagesApi
     /**
      * Create request for operation 'deleteMessageById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token = null)
+    public function deleteMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteMessageById'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -1051,17 +1069,17 @@ class MessagesApi
      *
      * Mark all messages as delivered
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\GcMarkAllMessagesAsDeliveredData $gc_mark_all_messages_as_delivered_data gc_mark_all_messages_as_delivered_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse
      */
-    public function gcMarkAllMessagesAsDelivered($channel_url, $api_token = null, $gc_mark_all_messages_as_delivered_data = null)
+    public function gcMarkAllMessagesAsDelivered($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data = null)
     {
-        list($response) = $this->gcMarkAllMessagesAsDeliveredWithHttpInfo($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data);
+        list($response) = $this->gcMarkAllMessagesAsDeliveredWithHttpInfo($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data);
         return $response;
     }
 
@@ -1070,17 +1088,17 @@ class MessagesApi
      *
      * Mark all messages as delivered
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\GcMarkAllMessagesAsDeliveredData $gc_mark_all_messages_as_delivered_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcMarkAllMessagesAsDeliveredWithHttpInfo($channel_url, $api_token = null, $gc_mark_all_messages_as_delivered_data = null)
+    public function gcMarkAllMessagesAsDeliveredWithHttpInfo($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data = null)
     {
-        $request = $this->gcMarkAllMessagesAsDeliveredRequest($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data);
+        $request = $this->gcMarkAllMessagesAsDeliveredRequest($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1165,16 +1183,16 @@ class MessagesApi
      *
      * Mark all messages as delivered
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\GcMarkAllMessagesAsDeliveredData $gc_mark_all_messages_as_delivered_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcMarkAllMessagesAsDeliveredAsync($channel_url, $api_token = null, $gc_mark_all_messages_as_delivered_data = null)
+    public function gcMarkAllMessagesAsDeliveredAsync($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data = null)
     {
-        return $this->gcMarkAllMessagesAsDeliveredAsyncWithHttpInfo($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data)
+        return $this->gcMarkAllMessagesAsDeliveredAsyncWithHttpInfo($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1187,17 +1205,17 @@ class MessagesApi
      *
      * Mark all messages as delivered
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\GcMarkAllMessagesAsDeliveredData $gc_mark_all_messages_as_delivered_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcMarkAllMessagesAsDeliveredAsyncWithHttpInfo($channel_url, $api_token = null, $gc_mark_all_messages_as_delivered_data = null)
+    public function gcMarkAllMessagesAsDeliveredAsyncWithHttpInfo($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data = null)
     {
         $returnType = '\Sendbird\Model\GcMarkAllMessagesAsDeliveredResponse';
-        $request = $this->gcMarkAllMessagesAsDeliveredRequest($channel_url, $api_token, $gc_mark_all_messages_as_delivered_data);
+        $request = $this->gcMarkAllMessagesAsDeliveredRequest($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1235,15 +1253,21 @@ class MessagesApi
     /**
      * Create request for operation 'gcMarkAllMessagesAsDelivered'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\GcMarkAllMessagesAsDeliveredData $gc_mark_all_messages_as_delivered_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcMarkAllMessagesAsDeliveredRequest($channel_url, $api_token = null, $gc_mark_all_messages_as_delivered_data = null)
+    public function gcMarkAllMessagesAsDeliveredRequest($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling gcMarkAllMessagesAsDelivered'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -1342,17 +1366,17 @@ class MessagesApi
      *
      * Mark all messages as read
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\GcMarkAllMessagesAsReadData $gc_mark_all_messages_as_read_data gc_mark_all_messages_as_read_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function gcMarkAllMessagesAsRead($channel_url, $api_token = null, $gc_mark_all_messages_as_read_data = null)
+    public function gcMarkAllMessagesAsRead($api_token, $channel_url, $gc_mark_all_messages_as_read_data = null)
     {
-        $this->gcMarkAllMessagesAsReadWithHttpInfo($channel_url, $api_token, $gc_mark_all_messages_as_read_data);
+        $this->gcMarkAllMessagesAsReadWithHttpInfo($api_token, $channel_url, $gc_mark_all_messages_as_read_data);
     }
 
     /**
@@ -1360,17 +1384,17 @@ class MessagesApi
      *
      * Mark all messages as read
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\GcMarkAllMessagesAsReadData $gc_mark_all_messages_as_read_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcMarkAllMessagesAsReadWithHttpInfo($channel_url, $api_token = null, $gc_mark_all_messages_as_read_data = null)
+    public function gcMarkAllMessagesAsReadWithHttpInfo($api_token, $channel_url, $gc_mark_all_messages_as_read_data = null)
     {
-        $request = $this->gcMarkAllMessagesAsReadRequest($channel_url, $api_token, $gc_mark_all_messages_as_read_data);
+        $request = $this->gcMarkAllMessagesAsReadRequest($api_token, $channel_url, $gc_mark_all_messages_as_read_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1421,16 +1445,16 @@ class MessagesApi
      *
      * Mark all messages as read
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\GcMarkAllMessagesAsReadData $gc_mark_all_messages_as_read_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcMarkAllMessagesAsReadAsync($channel_url, $api_token = null, $gc_mark_all_messages_as_read_data = null)
+    public function gcMarkAllMessagesAsReadAsync($api_token, $channel_url, $gc_mark_all_messages_as_read_data = null)
     {
-        return $this->gcMarkAllMessagesAsReadAsyncWithHttpInfo($channel_url, $api_token, $gc_mark_all_messages_as_read_data)
+        return $this->gcMarkAllMessagesAsReadAsyncWithHttpInfo($api_token, $channel_url, $gc_mark_all_messages_as_read_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1443,17 +1467,17 @@ class MessagesApi
      *
      * Mark all messages as read
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\GcMarkAllMessagesAsReadData $gc_mark_all_messages_as_read_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcMarkAllMessagesAsReadAsyncWithHttpInfo($channel_url, $api_token = null, $gc_mark_all_messages_as_read_data = null)
+    public function gcMarkAllMessagesAsReadAsyncWithHttpInfo($api_token, $channel_url, $gc_mark_all_messages_as_read_data = null)
     {
         $returnType = '';
-        $request = $this->gcMarkAllMessagesAsReadRequest($channel_url, $api_token, $gc_mark_all_messages_as_read_data);
+        $request = $this->gcMarkAllMessagesAsReadRequest($api_token, $channel_url, $gc_mark_all_messages_as_read_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1481,15 +1505,21 @@ class MessagesApi
     /**
      * Create request for operation 'gcMarkAllMessagesAsRead'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\GcMarkAllMessagesAsReadData $gc_mark_all_messages_as_read_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcMarkAllMessagesAsReadRequest($channel_url, $api_token = null, $gc_mark_all_messages_as_read_data = null)
+    public function gcMarkAllMessagesAsReadRequest($api_token, $channel_url, $gc_mark_all_messages_as_read_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling gcMarkAllMessagesAsRead'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -1588,17 +1618,17 @@ class MessagesApi
      *
      * View number of each member&#39;s unread messages
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $user_ids user_ids (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse
      */
-    public function gcViewNumberOfEachMembersUnreadMessages($channel_url, $api_token = null, $user_ids = null)
+    public function gcViewNumberOfEachMembersUnreadMessages($api_token, $channel_url, $user_ids = null)
     {
-        list($response) = $this->gcViewNumberOfEachMembersUnreadMessagesWithHttpInfo($channel_url, $api_token, $user_ids);
+        list($response) = $this->gcViewNumberOfEachMembersUnreadMessagesWithHttpInfo($api_token, $channel_url, $user_ids);
         return $response;
     }
 
@@ -1607,17 +1637,17 @@ class MessagesApi
      *
      * View number of each member&#39;s unread messages
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $user_ids (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcViewNumberOfEachMembersUnreadMessagesWithHttpInfo($channel_url, $api_token = null, $user_ids = null)
+    public function gcViewNumberOfEachMembersUnreadMessagesWithHttpInfo($api_token, $channel_url, $user_ids = null)
     {
-        $request = $this->gcViewNumberOfEachMembersUnreadMessagesRequest($channel_url, $api_token, $user_ids);
+        $request = $this->gcViewNumberOfEachMembersUnreadMessagesRequest($api_token, $channel_url, $user_ids);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1702,16 +1732,16 @@ class MessagesApi
      *
      * View number of each member&#39;s unread messages
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $user_ids (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcViewNumberOfEachMembersUnreadMessagesAsync($channel_url, $api_token = null, $user_ids = null)
+    public function gcViewNumberOfEachMembersUnreadMessagesAsync($api_token, $channel_url, $user_ids = null)
     {
-        return $this->gcViewNumberOfEachMembersUnreadMessagesAsyncWithHttpInfo($channel_url, $api_token, $user_ids)
+        return $this->gcViewNumberOfEachMembersUnreadMessagesAsyncWithHttpInfo($api_token, $channel_url, $user_ids)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1724,17 +1754,17 @@ class MessagesApi
      *
      * View number of each member&#39;s unread messages
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $user_ids (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcViewNumberOfEachMembersUnreadMessagesAsyncWithHttpInfo($channel_url, $api_token = null, $user_ids = null)
+    public function gcViewNumberOfEachMembersUnreadMessagesAsyncWithHttpInfo($api_token, $channel_url, $user_ids = null)
     {
         $returnType = '\Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponse';
-        $request = $this->gcViewNumberOfEachMembersUnreadMessagesRequest($channel_url, $api_token, $user_ids);
+        $request = $this->gcViewNumberOfEachMembersUnreadMessagesRequest($api_token, $channel_url, $user_ids);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1772,15 +1802,21 @@ class MessagesApi
     /**
      * Create request for operation 'gcViewNumberOfEachMembersUnreadMessages'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $user_ids (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcViewNumberOfEachMembersUnreadMessagesRequest($channel_url, $api_token = null, $user_ids = null)
+    public function gcViewNumberOfEachMembersUnreadMessagesRequest($api_token, $channel_url, $user_ids = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling gcViewNumberOfEachMembersUnreadMessages'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -1884,11 +1920,11 @@ class MessagesApi
      *
      * List messages
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  int $message_ts message_ts (required)
-     * @param  int $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
+     * @param  int $message_ts message_ts (optional)
+     * @param  int $message_id message_id (optional)
      * @param  int $prev_limit prev_limit (optional)
      * @param  int $next_limit next_limit (optional)
      * @param  bool $include include (optional)
@@ -1910,9 +1946,9 @@ class MessagesApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListMessagesResponse
      */
-    public function listMessages($channel_type, $channel_url, $message_ts, $message_id, $api_token = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
+    public function listMessages($api_token, $channel_type, $channel_url, $message_ts = null, $message_id = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
     {
-        list($response) = $this->listMessagesWithHttpInfo($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array);
+        list($response) = $this->listMessagesWithHttpInfo($api_token, $channel_type, $channel_url, $message_ts, $message_id, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array);
         return $response;
     }
 
@@ -1921,11 +1957,11 @@ class MessagesApi
      *
      * List messages
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  int $message_ts (required)
-     * @param  int $message_id (required)
-     * @param  string $api_token (optional)
+     * @param  int $message_ts (optional)
+     * @param  int $message_id (optional)
      * @param  int $prev_limit (optional)
      * @param  int $next_limit (optional)
      * @param  bool $include (optional)
@@ -1947,9 +1983,9 @@ class MessagesApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListMessagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listMessagesWithHttpInfo($channel_type, $channel_url, $message_ts, $message_id, $api_token = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
+    public function listMessagesWithHttpInfo($api_token, $channel_type, $channel_url, $message_ts = null, $message_id = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
     {
-        $request = $this->listMessagesRequest($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array);
+        $request = $this->listMessagesRequest($api_token, $channel_type, $channel_url, $message_ts, $message_id, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2034,11 +2070,11 @@ class MessagesApi
      *
      * List messages
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  int $message_ts (required)
-     * @param  int $message_id (required)
-     * @param  string $api_token (optional)
+     * @param  int $message_ts (optional)
+     * @param  int $message_id (optional)
      * @param  int $prev_limit (optional)
      * @param  int $next_limit (optional)
      * @param  bool $include (optional)
@@ -2059,9 +2095,9 @@ class MessagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMessagesAsync($channel_type, $channel_url, $message_ts, $message_id, $api_token = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
+    public function listMessagesAsync($api_token, $channel_type, $channel_url, $message_ts = null, $message_id = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
     {
-        return $this->listMessagesAsyncWithHttpInfo($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array)
+        return $this->listMessagesAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_ts, $message_id, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2074,11 +2110,11 @@ class MessagesApi
      *
      * List messages
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  int $message_ts (required)
-     * @param  int $message_id (required)
-     * @param  string $api_token (optional)
+     * @param  int $message_ts (optional)
+     * @param  int $message_id (optional)
      * @param  int $prev_limit (optional)
      * @param  int $next_limit (optional)
      * @param  bool $include (optional)
@@ -2099,10 +2135,10 @@ class MessagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMessagesAsyncWithHttpInfo($channel_type, $channel_url, $message_ts, $message_id, $api_token = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
+    public function listMessagesAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_ts = null, $message_id = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
     {
         $returnType = '\Sendbird\Model\ListMessagesResponse';
-        $request = $this->listMessagesRequest($channel_type, $channel_url, $message_ts, $message_id, $api_token, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array);
+        $request = $this->listMessagesRequest($api_token, $channel_type, $channel_url, $message_ts, $message_id, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2140,11 +2176,11 @@ class MessagesApi
     /**
      * Create request for operation 'listMessages'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  int $message_ts (required)
-     * @param  int $message_id (required)
-     * @param  string $api_token (optional)
+     * @param  int $message_ts (optional)
+     * @param  int $message_id (optional)
      * @param  int $prev_limit (optional)
      * @param  int $next_limit (optional)
      * @param  bool $include (optional)
@@ -2165,8 +2201,14 @@ class MessagesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listMessagesRequest($channel_type, $channel_url, $message_ts, $message_id, $api_token = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
+    public function listMessagesRequest($api_token, $channel_type, $channel_url, $message_ts = null, $message_id = null, $prev_limit = null, $next_limit = null, $include = null, $reverse = null, $sender_id = null, $sender_ids = null, $operator_filter = null, $custom_types = null, $message_type = null, $including_removed = null, $include_reactions = null, $with_sorted_meta_array = null, $show_subchannel_messages_only = null, $user_id = null, $custom_type = null, $with_meta_array = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listMessages'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -2177,18 +2219,6 @@ class MessagesApi
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $channel_url when calling listMessages'
-            );
-        }
-        // verify the required parameter 'message_ts' is set
-        if ($message_ts === null || (is_array($message_ts) && count($message_ts) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $message_ts when calling listMessages'
-            );
-        }
-        // verify the required parameter 'message_id' is set
-        if ($message_id === null || (is_array($message_id) && count($message_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $message_id when calling listMessages'
             );
         }
 
@@ -2483,19 +2513,19 @@ class MessagesApi
      *
      * List reactions of a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  bool $list_users list_users (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListReactionsOfMessageResponse
      */
-    public function listReactionsOfMessage($channel_type, $channel_url, $message_id, $api_token = null, $list_users = null)
+    public function listReactionsOfMessage($api_token, $channel_type, $channel_url, $message_id, $list_users = null)
     {
-        list($response) = $this->listReactionsOfMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $list_users);
+        list($response) = $this->listReactionsOfMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $list_users);
         return $response;
     }
 
@@ -2504,19 +2534,19 @@ class MessagesApi
      *
      * List reactions of a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  bool $list_users (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListReactionsOfMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReactionsOfMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $list_users = null)
+    public function listReactionsOfMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $list_users = null)
     {
-        $request = $this->listReactionsOfMessageRequest($channel_type, $channel_url, $message_id, $api_token, $list_users);
+        $request = $this->listReactionsOfMessageRequest($api_token, $channel_type, $channel_url, $message_id, $list_users);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2601,18 +2631,18 @@ class MessagesApi
      *
      * List reactions of a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  bool $list_users (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReactionsOfMessageAsync($channel_type, $channel_url, $message_id, $api_token = null, $list_users = null)
+    public function listReactionsOfMessageAsync($api_token, $channel_type, $channel_url, $message_id, $list_users = null)
     {
-        return $this->listReactionsOfMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $list_users)
+        return $this->listReactionsOfMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $list_users)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2625,19 +2655,19 @@ class MessagesApi
      *
      * List reactions of a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  bool $list_users (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReactionsOfMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $list_users = null)
+    public function listReactionsOfMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $list_users = null)
     {
         $returnType = '\Sendbird\Model\ListReactionsOfMessageResponse';
-        $request = $this->listReactionsOfMessageRequest($channel_type, $channel_url, $message_id, $api_token, $list_users);
+        $request = $this->listReactionsOfMessageRequest($api_token, $channel_type, $channel_url, $message_id, $list_users);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2675,17 +2705,23 @@ class MessagesApi
     /**
      * Create request for operation 'listReactionsOfMessage'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  bool $list_users (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReactionsOfMessageRequest($channel_type, $channel_url, $message_id, $api_token = null, $list_users = null)
+    public function listReactionsOfMessageRequest($api_token, $channel_type, $channel_url, $message_id, $list_users = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listReactionsOfMessage'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -2817,19 +2853,19 @@ class MessagesApi
      *
      * Remove extra data from a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  string[] $keys keys (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function removeExtraDataFromMessage($channel_type, $channel_url, $message_id, $api_token = null, $keys = null)
+    public function removeExtraDataFromMessage($api_token, $channel_type, $channel_url, $message_id, $keys = null)
     {
-        $this->removeExtraDataFromMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $keys);
+        $this->removeExtraDataFromMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $keys);
     }
 
     /**
@@ -2837,19 +2873,19 @@ class MessagesApi
      *
      * Remove extra data from a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeExtraDataFromMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $keys = null)
+    public function removeExtraDataFromMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $keys = null)
     {
-        $request = $this->removeExtraDataFromMessageRequest($channel_type, $channel_url, $message_id, $api_token, $keys);
+        $request = $this->removeExtraDataFromMessageRequest($api_token, $channel_type, $channel_url, $message_id, $keys);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2900,18 +2936,18 @@ class MessagesApi
      *
      * Remove extra data from a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeExtraDataFromMessageAsync($channel_type, $channel_url, $message_id, $api_token = null, $keys = null)
+    public function removeExtraDataFromMessageAsync($api_token, $channel_type, $channel_url, $message_id, $keys = null)
     {
-        return $this->removeExtraDataFromMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $keys)
+        return $this->removeExtraDataFromMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $keys)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2924,19 +2960,19 @@ class MessagesApi
      *
      * Remove extra data from a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeExtraDataFromMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $keys = null)
+    public function removeExtraDataFromMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $keys = null)
     {
         $returnType = '';
-        $request = $this->removeExtraDataFromMessageRequest($channel_type, $channel_url, $message_id, $api_token, $keys);
+        $request = $this->removeExtraDataFromMessageRequest($api_token, $channel_type, $channel_url, $message_id, $keys);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2964,17 +3000,23 @@ class MessagesApi
     /**
      * Create request for operation 'removeExtraDataFromMessage'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeExtraDataFromMessageRequest($channel_type, $channel_url, $message_id, $api_token = null, $keys = null)
+    public function removeExtraDataFromMessageRequest($api_token, $channel_type, $channel_url, $message_id, $keys = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling removeExtraDataFromMessage'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -3106,10 +3148,10 @@ class MessagesApi
      *
      * Remove a reaction from a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $user_id user_id (optional)
      * @param  string $reaction reaction (optional)
      *
@@ -3117,9 +3159,9 @@ class MessagesApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RemoveReactionFromAMessageResponse
      */
-    public function removeReactionFromAMessage($channel_type, $channel_url, $message_id, $api_token = null, $user_id = null, $reaction = null)
+    public function removeReactionFromAMessage($api_token, $channel_type, $channel_url, $message_id, $user_id = null, $reaction = null)
     {
-        list($response) = $this->removeReactionFromAMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction);
+        list($response) = $this->removeReactionFromAMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $user_id, $reaction);
         return $response;
     }
 
@@ -3128,10 +3170,10 @@ class MessagesApi
      *
      * Remove a reaction from a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string $user_id (optional)
      * @param  string $reaction (optional)
      *
@@ -3139,9 +3181,9 @@ class MessagesApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RemoveReactionFromAMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removeReactionFromAMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $user_id = null, $reaction = null)
+    public function removeReactionFromAMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $user_id = null, $reaction = null)
     {
-        $request = $this->removeReactionFromAMessageRequest($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction);
+        $request = $this->removeReactionFromAMessageRequest($api_token, $channel_type, $channel_url, $message_id, $user_id, $reaction);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3226,19 +3268,19 @@ class MessagesApi
      *
      * Remove a reaction from a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string $user_id (optional)
      * @param  string $reaction (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeReactionFromAMessageAsync($channel_type, $channel_url, $message_id, $api_token = null, $user_id = null, $reaction = null)
+    public function removeReactionFromAMessageAsync($api_token, $channel_type, $channel_url, $message_id, $user_id = null, $reaction = null)
     {
-        return $this->removeReactionFromAMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction)
+        return $this->removeReactionFromAMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $user_id, $reaction)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3251,20 +3293,20 @@ class MessagesApi
      *
      * Remove a reaction from a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string $user_id (optional)
      * @param  string $reaction (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removeReactionFromAMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $user_id = null, $reaction = null)
+    public function removeReactionFromAMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $user_id = null, $reaction = null)
     {
         $returnType = '\Sendbird\Model\RemoveReactionFromAMessageResponse';
-        $request = $this->removeReactionFromAMessageRequest($channel_type, $channel_url, $message_id, $api_token, $user_id, $reaction);
+        $request = $this->removeReactionFromAMessageRequest($api_token, $channel_type, $channel_url, $message_id, $user_id, $reaction);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3302,18 +3344,24 @@ class MessagesApi
     /**
      * Create request for operation 'removeReactionFromAMessage'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string $user_id (optional)
      * @param  string $reaction (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removeReactionFromAMessageRequest($channel_type, $channel_url, $message_id, $api_token = null, $user_id = null, $reaction = null)
+    public function removeReactionFromAMessageRequest($api_token, $channel_type, $channel_url, $message_id, $user_id = null, $reaction = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling removeReactionFromAMessage'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -3456,18 +3504,18 @@ class MessagesApi
      *
      * Send a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\SendMessageData $send_message_data send_message_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdMessageResponse
      */
-    public function sendMessage($channel_type, $channel_url, $api_token = null, $send_message_data = null)
+    public function sendMessage($api_token, $channel_type, $channel_url, $send_message_data = null)
     {
-        list($response) = $this->sendMessageWithHttpInfo($channel_type, $channel_url, $api_token, $send_message_data);
+        list($response) = $this->sendMessageWithHttpInfo($api_token, $channel_type, $channel_url, $send_message_data);
         return $response;
     }
 
@@ -3476,18 +3524,18 @@ class MessagesApi
      *
      * Send a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\SendMessageData $send_message_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendMessageWithHttpInfo($channel_type, $channel_url, $api_token = null, $send_message_data = null)
+    public function sendMessageWithHttpInfo($api_token, $channel_type, $channel_url, $send_message_data = null)
     {
-        $request = $this->sendMessageRequest($channel_type, $channel_url, $api_token, $send_message_data);
+        $request = $this->sendMessageRequest($api_token, $channel_type, $channel_url, $send_message_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3572,17 +3620,17 @@ class MessagesApi
      *
      * Send a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\SendMessageData $send_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendMessageAsync($channel_type, $channel_url, $api_token = null, $send_message_data = null)
+    public function sendMessageAsync($api_token, $channel_type, $channel_url, $send_message_data = null)
     {
-        return $this->sendMessageAsyncWithHttpInfo($channel_type, $channel_url, $api_token, $send_message_data)
+        return $this->sendMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $send_message_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3595,18 +3643,18 @@ class MessagesApi
      *
      * Send a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\SendMessageData $send_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendMessageAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $send_message_data = null)
+    public function sendMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $send_message_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdMessageResponse';
-        $request = $this->sendMessageRequest($channel_type, $channel_url, $api_token, $send_message_data);
+        $request = $this->sendMessageRequest($api_token, $channel_type, $channel_url, $send_message_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3644,16 +3692,22 @@ class MessagesApi
     /**
      * Create request for operation 'sendMessage'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\SendMessageData $send_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendMessageRequest($channel_type, $channel_url, $api_token = null, $send_message_data = null)
+    public function sendMessageRequest($api_token, $channel_type, $channel_url, $send_message_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling sendMessage'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -3766,19 +3820,19 @@ class MessagesApi
      *
      * Translate a message into other languages
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  object $body body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdMessageResponse
      */
-    public function translateMessageIntoOtherLanguages($channel_type, $channel_url, $message_id, $api_token = null, $body = null)
+    public function translateMessageIntoOtherLanguages($api_token, $channel_type, $channel_url, $message_id, $body = null)
     {
-        list($response) = $this->translateMessageIntoOtherLanguagesWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $body);
+        list($response) = $this->translateMessageIntoOtherLanguagesWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $body);
         return $response;
     }
 
@@ -3787,19 +3841,19 @@ class MessagesApi
      *
      * Translate a message into other languages
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function translateMessageIntoOtherLanguagesWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $body = null)
+    public function translateMessageIntoOtherLanguagesWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $body = null)
     {
-        $request = $this->translateMessageIntoOtherLanguagesRequest($channel_type, $channel_url, $message_id, $api_token, $body);
+        $request = $this->translateMessageIntoOtherLanguagesRequest($api_token, $channel_type, $channel_url, $message_id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3884,18 +3938,18 @@ class MessagesApi
      *
      * Translate a message into other languages
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translateMessageIntoOtherLanguagesAsync($channel_type, $channel_url, $message_id, $api_token = null, $body = null)
+    public function translateMessageIntoOtherLanguagesAsync($api_token, $channel_type, $channel_url, $message_id, $body = null)
     {
-        return $this->translateMessageIntoOtherLanguagesAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $body)
+        return $this->translateMessageIntoOtherLanguagesAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3908,19 +3962,19 @@ class MessagesApi
      *
      * Translate a message into other languages
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translateMessageIntoOtherLanguagesAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $body = null)
+    public function translateMessageIntoOtherLanguagesAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $body = null)
     {
         $returnType = '\Sendbird\Model\SendBirdMessageResponse';
-        $request = $this->translateMessageIntoOtherLanguagesRequest($channel_type, $channel_url, $message_id, $api_token, $body);
+        $request = $this->translateMessageIntoOtherLanguagesRequest($api_token, $channel_type, $channel_url, $message_id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3958,17 +4012,23 @@ class MessagesApi
     /**
      * Create request for operation 'translateMessageIntoOtherLanguages'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function translateMessageIntoOtherLanguagesRequest($channel_type, $channel_url, $message_id, $api_token = null, $body = null)
+    public function translateMessageIntoOtherLanguagesRequest($api_token, $channel_type, $channel_url, $message_id, $body = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling translateMessageIntoOtherLanguages'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -4095,19 +4155,19 @@ class MessagesApi
      *
      * Update extra data in a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateExtraDataInMessageData $update_extra_data_in_message_data update_extra_data_in_message_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateExtraDataInMessageResponse
      */
-    public function updateExtraDataInMessage($channel_type, $channel_url, $message_id, $api_token = null, $update_extra_data_in_message_data = null)
+    public function updateExtraDataInMessage($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data = null)
     {
-        list($response) = $this->updateExtraDataInMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data);
+        list($response) = $this->updateExtraDataInMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data);
         return $response;
     }
 
@@ -4116,19 +4176,19 @@ class MessagesApi
      *
      * Update extra data in a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateExtraDataInMessageData $update_extra_data_in_message_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateExtraDataInMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateExtraDataInMessageWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $update_extra_data_in_message_data = null)
+    public function updateExtraDataInMessageWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data = null)
     {
-        $request = $this->updateExtraDataInMessageRequest($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data);
+        $request = $this->updateExtraDataInMessageRequest($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4213,18 +4273,18 @@ class MessagesApi
      *
      * Update extra data in a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateExtraDataInMessageData $update_extra_data_in_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateExtraDataInMessageAsync($channel_type, $channel_url, $message_id, $api_token = null, $update_extra_data_in_message_data = null)
+    public function updateExtraDataInMessageAsync($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data = null)
     {
-        return $this->updateExtraDataInMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data)
+        return $this->updateExtraDataInMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4237,19 +4297,19 @@ class MessagesApi
      *
      * Update extra data in a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateExtraDataInMessageData $update_extra_data_in_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateExtraDataInMessageAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $update_extra_data_in_message_data = null)
+    public function updateExtraDataInMessageAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data = null)
     {
         $returnType = '\Sendbird\Model\UpdateExtraDataInMessageResponse';
-        $request = $this->updateExtraDataInMessageRequest($channel_type, $channel_url, $message_id, $api_token, $update_extra_data_in_message_data);
+        $request = $this->updateExtraDataInMessageRequest($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4287,17 +4347,23 @@ class MessagesApi
     /**
      * Create request for operation 'updateExtraDataInMessage'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateExtraDataInMessageData $update_extra_data_in_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateExtraDataInMessageRequest($channel_type, $channel_url, $message_id, $api_token = null, $update_extra_data_in_message_data = null)
+    public function updateExtraDataInMessageRequest($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateExtraDataInMessage'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -4424,19 +4490,19 @@ class MessagesApi
      *
      * Update a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateMessageByIdData $update_message_by_id_data update_message_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdMessageResponse
      */
-    public function updateMessageById($channel_type, $channel_url, $message_id, $api_token = null, $update_message_by_id_data = null)
+    public function updateMessageById($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data = null)
     {
-        list($response) = $this->updateMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $update_message_by_id_data);
+        list($response) = $this->updateMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data);
         return $response;
     }
 
@@ -4445,19 +4511,19 @@ class MessagesApi
      *
      * Update a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateMessageByIdData $update_message_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $update_message_by_id_data = null)
+    public function updateMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data = null)
     {
-        $request = $this->updateMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $update_message_by_id_data);
+        $request = $this->updateMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4542,18 +4608,18 @@ class MessagesApi
      *
      * Update a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateMessageByIdData $update_message_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMessageByIdAsync($channel_type, $channel_url, $message_id, $api_token = null, $update_message_by_id_data = null)
+    public function updateMessageByIdAsync($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data = null)
     {
-        return $this->updateMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $update_message_by_id_data)
+        return $this->updateMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4566,19 +4632,19 @@ class MessagesApi
      *
      * Update a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateMessageByIdData $update_message_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $update_message_by_id_data = null)
+    public function updateMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdMessageResponse';
-        $request = $this->updateMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $update_message_by_id_data);
+        $request = $this->updateMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4616,17 +4682,23 @@ class MessagesApi
     /**
      * Create request for operation 'updateMessageById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateMessageByIdData $update_message_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token = null, $update_message_by_id_data = null)
+    public function updateMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateMessageById'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -4753,10 +4825,10 @@ class MessagesApi
      *
      * View a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  bool $with_sorted_meta_array with_sorted_meta_array (optional)
      * @param  bool $with_meta_array with_meta_array (optional)
      *
@@ -4764,9 +4836,9 @@ class MessagesApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdMessageResponse
      */
-    public function viewMessageById($channel_type, $channel_url, $message_id, $api_token = null, $with_sorted_meta_array = null, $with_meta_array = null)
+    public function viewMessageById($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array = null, $with_meta_array = null)
     {
-        list($response) = $this->viewMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $with_sorted_meta_array, $with_meta_array);
+        list($response) = $this->viewMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array, $with_meta_array);
         return $response;
     }
 
@@ -4775,10 +4847,10 @@ class MessagesApi
      *
      * View a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  bool $with_sorted_meta_array (optional)
      * @param  bool $with_meta_array (optional)
      *
@@ -4786,9 +4858,9 @@ class MessagesApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $with_sorted_meta_array = null, $with_meta_array = null)
+    public function viewMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array = null, $with_meta_array = null)
     {
-        $request = $this->viewMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $with_sorted_meta_array, $with_meta_array);
+        $request = $this->viewMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array, $with_meta_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4873,19 +4945,19 @@ class MessagesApi
      *
      * View a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  bool $with_sorted_meta_array (optional)
      * @param  bool $with_meta_array (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewMessageByIdAsync($channel_type, $channel_url, $message_id, $api_token = null, $with_sorted_meta_array = null, $with_meta_array = null)
+    public function viewMessageByIdAsync($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array = null, $with_meta_array = null)
     {
-        return $this->viewMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $with_sorted_meta_array, $with_meta_array)
+        return $this->viewMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array, $with_meta_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4898,20 +4970,20 @@ class MessagesApi
      *
      * View a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  bool $with_sorted_meta_array (optional)
      * @param  bool $with_meta_array (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $with_sorted_meta_array = null, $with_meta_array = null)
+    public function viewMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array = null, $with_meta_array = null)
     {
         $returnType = '\Sendbird\Model\SendBirdMessageResponse';
-        $request = $this->viewMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $with_sorted_meta_array, $with_meta_array);
+        $request = $this->viewMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array, $with_meta_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4949,18 +5021,24 @@ class MessagesApi
     /**
      * Create request for operation 'viewMessageById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  bool $with_sorted_meta_array (optional)
      * @param  bool $with_meta_array (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token = null, $with_sorted_meta_array = null, $with_meta_array = null)
+    public function viewMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array = null, $with_meta_array = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewMessageById'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -5103,17 +5181,17 @@ class MessagesApi
      *
      * View total number of messages in a channel
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse
      */
-    public function viewTotalNumberOfMessagesInChannel($channel_type, $channel_url, $api_token = null)
+    public function viewTotalNumberOfMessagesInChannel($api_token, $channel_type, $channel_url)
     {
-        list($response) = $this->viewTotalNumberOfMessagesInChannelWithHttpInfo($channel_type, $channel_url, $api_token);
+        list($response) = $this->viewTotalNumberOfMessagesInChannelWithHttpInfo($api_token, $channel_type, $channel_url);
         return $response;
     }
 
@@ -5122,17 +5200,17 @@ class MessagesApi
      *
      * View total number of messages in a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewTotalNumberOfMessagesInChannelWithHttpInfo($channel_type, $channel_url, $api_token = null)
+    public function viewTotalNumberOfMessagesInChannelWithHttpInfo($api_token, $channel_type, $channel_url)
     {
-        $request = $this->viewTotalNumberOfMessagesInChannelRequest($channel_type, $channel_url, $api_token);
+        $request = $this->viewTotalNumberOfMessagesInChannelRequest($api_token, $channel_type, $channel_url);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5217,16 +5295,16 @@ class MessagesApi
      *
      * View total number of messages in a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewTotalNumberOfMessagesInChannelAsync($channel_type, $channel_url, $api_token = null)
+    public function viewTotalNumberOfMessagesInChannelAsync($api_token, $channel_type, $channel_url)
     {
-        return $this->viewTotalNumberOfMessagesInChannelAsyncWithHttpInfo($channel_type, $channel_url, $api_token)
+        return $this->viewTotalNumberOfMessagesInChannelAsyncWithHttpInfo($api_token, $channel_type, $channel_url)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5239,17 +5317,17 @@ class MessagesApi
      *
      * View total number of messages in a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewTotalNumberOfMessagesInChannelAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null)
+    public function viewTotalNumberOfMessagesInChannelAsyncWithHttpInfo($api_token, $channel_type, $channel_url)
     {
         $returnType = '\Sendbird\Model\ViewTotalNumberOfMessagesInChannelResponse';
-        $request = $this->viewTotalNumberOfMessagesInChannelRequest($channel_type, $channel_url, $api_token);
+        $request = $this->viewTotalNumberOfMessagesInChannelRequest($api_token, $channel_type, $channel_url);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5287,15 +5365,21 @@ class MessagesApi
     /**
      * Create request for operation 'viewTotalNumberOfMessagesInChannel'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewTotalNumberOfMessagesInChannelRequest($channel_type, $channel_url, $api_token = null)
+    public function viewTotalNumberOfMessagesInChannelRequest($api_token, $channel_type, $channel_url)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewTotalNumberOfMessagesInChannel'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(

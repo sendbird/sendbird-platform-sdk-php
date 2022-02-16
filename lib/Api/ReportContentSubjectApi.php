@@ -120,7 +120,7 @@ class ReportContentSubjectApi
      *
      * List reports
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      * @param  int $start_ts start_ts (optional)
@@ -130,7 +130,7 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListReportsResponse
      */
-    public function listReports($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
+    public function listReports($api_token, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
         list($response) = $this->listReportsWithHttpInfo($api_token, $token, $limit, $start_ts, $end_ts);
         return $response;
@@ -141,7 +141,7 @@ class ReportContentSubjectApi
      *
      * List reports
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  int $start_ts (optional)
@@ -151,7 +151,7 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListReportsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReportsWithHttpInfo($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
+    public function listReportsWithHttpInfo($api_token, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
         $request = $this->listReportsRequest($api_token, $token, $limit, $start_ts, $end_ts);
 
@@ -238,7 +238,7 @@ class ReportContentSubjectApi
      *
      * List reports
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  int $start_ts (optional)
@@ -247,7 +247,7 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsAsync($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
+    public function listReportsAsync($api_token, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
         return $this->listReportsAsyncWithHttpInfo($api_token, $token, $limit, $start_ts, $end_ts)
             ->then(
@@ -262,7 +262,7 @@ class ReportContentSubjectApi
      *
      * List reports
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  int $start_ts (optional)
@@ -271,7 +271,7 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
+    public function listReportsAsyncWithHttpInfo($api_token, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
         $returnType = '\Sendbird\Model\ListReportsResponse';
         $request = $this->listReportsRequest($api_token, $token, $limit, $start_ts, $end_ts);
@@ -312,7 +312,7 @@ class ReportContentSubjectApi
     /**
      * Create request for operation 'listReports'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  int $start_ts (optional)
@@ -321,8 +321,14 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReportsRequest($api_token = null, $token = null, $limit = null, $start_ts = null, $end_ts = null)
+    public function listReportsRequest($api_token, $token = null, $limit = null, $start_ts = null, $end_ts = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listReports'
+            );
+        }
 
         $resourcePath = '/v3/report';
         $formParams = [];
@@ -445,9 +451,9 @@ class ReportContentSubjectApi
      *
      * List reports on a channel
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -455,9 +461,9 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListReportsOnChannelByUrlResponse
      */
-    public function listReportsOnChannelByUrl($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnChannelByUrl($api_token, $channel_type, $channel_url, $token = null, $limit = null)
     {
-        list($response) = $this->listReportsOnChannelByUrlWithHttpInfo($channel_type, $channel_url, $api_token, $token, $limit);
+        list($response) = $this->listReportsOnChannelByUrlWithHttpInfo($api_token, $channel_type, $channel_url, $token, $limit);
         return $response;
     }
 
@@ -466,9 +472,9 @@ class ReportContentSubjectApi
      *
      * List reports on a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -476,9 +482,9 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListReportsOnChannelByUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReportsOnChannelByUrlWithHttpInfo($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnChannelByUrlWithHttpInfo($api_token, $channel_type, $channel_url, $token = null, $limit = null)
     {
-        $request = $this->listReportsOnChannelByUrlRequest($channel_type, $channel_url, $api_token, $token, $limit);
+        $request = $this->listReportsOnChannelByUrlRequest($api_token, $channel_type, $channel_url, $token, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -563,18 +569,18 @@ class ReportContentSubjectApi
      *
      * List reports on a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnChannelByUrlAsync($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnChannelByUrlAsync($api_token, $channel_type, $channel_url, $token = null, $limit = null)
     {
-        return $this->listReportsOnChannelByUrlAsyncWithHttpInfo($channel_type, $channel_url, $api_token, $token, $limit)
+        return $this->listReportsOnChannelByUrlAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $token, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -587,19 +593,19 @@ class ReportContentSubjectApi
      *
      * List reports on a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnChannelByUrlAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnChannelByUrlAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\ListReportsOnChannelByUrlResponse';
-        $request = $this->listReportsOnChannelByUrlRequest($channel_type, $channel_url, $api_token, $token, $limit);
+        $request = $this->listReportsOnChannelByUrlRequest($api_token, $channel_type, $channel_url, $token, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -637,17 +643,23 @@ class ReportContentSubjectApi
     /**
      * Create request for operation 'listReportsOnChannelByUrl'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReportsOnChannelByUrlRequest($channel_type, $channel_url, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnChannelByUrlRequest($api_token, $channel_type, $channel_url, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listReportsOnChannelByUrl'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -776,10 +788,10 @@ class ReportContentSubjectApi
      *
      * List reports on a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -787,9 +799,9 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListReportsOnMessageByIdResponse
      */
-    public function listReportsOnMessageById($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnMessageById($api_token, $channel_type, $channel_url, $message_id, $token = null, $limit = null)
     {
-        list($response) = $this->listReportsOnMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $token, $limit);
+        list($response) = $this->listReportsOnMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $token, $limit);
         return $response;
     }
 
@@ -798,10 +810,10 @@ class ReportContentSubjectApi
      *
      * List reports on a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -809,9 +821,9 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListReportsOnMessageByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReportsOnMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $token = null, $limit = null)
     {
-        $request = $this->listReportsOnMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $token, $limit);
+        $request = $this->listReportsOnMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $token, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -896,19 +908,19 @@ class ReportContentSubjectApi
      *
      * List reports on a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnMessageByIdAsync($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnMessageByIdAsync($api_token, $channel_type, $channel_url, $message_id, $token = null, $limit = null)
     {
-        return $this->listReportsOnMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $token, $limit)
+        return $this->listReportsOnMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $token, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -921,20 +933,20 @@ class ReportContentSubjectApi
      *
      * List reports on a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\ListReportsOnMessageByIdResponse';
-        $request = $this->listReportsOnMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $token, $limit);
+        $request = $this->listReportsOnMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $token, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -972,18 +984,24 @@ class ReportContentSubjectApi
     /**
      * Create request for operation 'listReportsOnMessageById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReportsOnMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listReportsOnMessageById'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -1126,8 +1144,8 @@ class ReportContentSubjectApi
      *
      * List reports on a user
      *
+     * @param  string $api_token api_token (required)
      * @param  string $offending_user_id offending_user_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -1135,9 +1153,9 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListReportsOnUserByIdResponse
      */
-    public function listReportsOnUserById($offending_user_id, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnUserById($api_token, $offending_user_id, $token = null, $limit = null)
     {
-        list($response) = $this->listReportsOnUserByIdWithHttpInfo($offending_user_id, $api_token, $token, $limit);
+        list($response) = $this->listReportsOnUserByIdWithHttpInfo($api_token, $offending_user_id, $token, $limit);
         return $response;
     }
 
@@ -1146,8 +1164,8 @@ class ReportContentSubjectApi
      *
      * List reports on a user
      *
+     * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -1155,9 +1173,9 @@ class ReportContentSubjectApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListReportsOnUserByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReportsOnUserByIdWithHttpInfo($offending_user_id, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnUserByIdWithHttpInfo($api_token, $offending_user_id, $token = null, $limit = null)
     {
-        $request = $this->listReportsOnUserByIdRequest($offending_user_id, $api_token, $token, $limit);
+        $request = $this->listReportsOnUserByIdRequest($api_token, $offending_user_id, $token, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1242,17 +1260,17 @@ class ReportContentSubjectApi
      *
      * List reports on a user
      *
+     * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnUserByIdAsync($offending_user_id, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnUserByIdAsync($api_token, $offending_user_id, $token = null, $limit = null)
     {
-        return $this->listReportsOnUserByIdAsyncWithHttpInfo($offending_user_id, $api_token, $token, $limit)
+        return $this->listReportsOnUserByIdAsyncWithHttpInfo($api_token, $offending_user_id, $token, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1265,18 +1283,18 @@ class ReportContentSubjectApi
      *
      * List reports on a user
      *
+     * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnUserByIdAsyncWithHttpInfo($offending_user_id, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnUserByIdAsyncWithHttpInfo($api_token, $offending_user_id, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\ListReportsOnUserByIdResponse';
-        $request = $this->listReportsOnUserByIdRequest($offending_user_id, $api_token, $token, $limit);
+        $request = $this->listReportsOnUserByIdRequest($api_token, $offending_user_id, $token, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1314,16 +1332,22 @@ class ReportContentSubjectApi
     /**
      * Create request for operation 'listReportsOnUserById'
      *
+     * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReportsOnUserByIdRequest($offending_user_id, $api_token = null, $token = null, $limit = null)
+    public function listReportsOnUserByIdRequest($api_token, $offending_user_id, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listReportsOnUserById'
+            );
+        }
         // verify the required parameter 'offending_user_id' is set
         if ($offending_user_id === null || (is_array($offending_user_id) && count($offending_user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1438,18 +1462,18 @@ class ReportContentSubjectApi
      *
      * Report a channel
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\ReportChannelByUrlData $report_channel_by_url_data report_channel_by_url_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ReportChannelByUrlResponse
      */
-    public function reportChannelByUrl($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
+    public function reportChannelByUrl($api_token, $channel_type, $channel_url, $report_channel_by_url_data = null)
     {
-        list($response) = $this->reportChannelByUrlWithHttpInfo($channel_type, $channel_url, $api_token, $report_channel_by_url_data);
+        list($response) = $this->reportChannelByUrlWithHttpInfo($api_token, $channel_type, $channel_url, $report_channel_by_url_data);
         return $response;
     }
 
@@ -1458,18 +1482,18 @@ class ReportContentSubjectApi
      *
      * Report a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ReportChannelByUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reportChannelByUrlWithHttpInfo($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
+    public function reportChannelByUrlWithHttpInfo($api_token, $channel_type, $channel_url, $report_channel_by_url_data = null)
     {
-        $request = $this->reportChannelByUrlRequest($channel_type, $channel_url, $api_token, $report_channel_by_url_data);
+        $request = $this->reportChannelByUrlRequest($api_token, $channel_type, $channel_url, $report_channel_by_url_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1554,17 +1578,17 @@ class ReportContentSubjectApi
      *
      * Report a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportChannelByUrlAsync($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
+    public function reportChannelByUrlAsync($api_token, $channel_type, $channel_url, $report_channel_by_url_data = null)
     {
-        return $this->reportChannelByUrlAsyncWithHttpInfo($channel_type, $channel_url, $api_token, $report_channel_by_url_data)
+        return $this->reportChannelByUrlAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $report_channel_by_url_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1577,18 +1601,18 @@ class ReportContentSubjectApi
      *
      * Report a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportChannelByUrlAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
+    public function reportChannelByUrlAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $report_channel_by_url_data = null)
     {
         $returnType = '\Sendbird\Model\ReportChannelByUrlResponse';
-        $request = $this->reportChannelByUrlRequest($channel_type, $channel_url, $api_token, $report_channel_by_url_data);
+        $request = $this->reportChannelByUrlRequest($api_token, $channel_type, $channel_url, $report_channel_by_url_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1626,16 +1650,22 @@ class ReportContentSubjectApi
     /**
      * Create request for operation 'reportChannelByUrl'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportChannelByUrlData $report_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reportChannelByUrlRequest($channel_type, $channel_url, $api_token = null, $report_channel_by_url_data = null)
+    public function reportChannelByUrlRequest($api_token, $channel_type, $channel_url, $report_channel_by_url_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling reportChannelByUrl'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -1748,19 +1778,19 @@ class ReportContentSubjectApi
      *
      * Report a message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\ReportMessageByIdData $report_message_by_id_data report_message_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ReportMessageByIdResponse
      */
-    public function reportMessageById($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
+    public function reportMessageById($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data = null)
     {
-        list($response) = $this->reportMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data);
+        list($response) = $this->reportMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data);
         return $response;
     }
 
@@ -1769,19 +1799,19 @@ class ReportContentSubjectApi
      *
      * Report a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportMessageByIdData $report_message_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ReportMessageByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reportMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
+    public function reportMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data = null)
     {
-        $request = $this->reportMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data);
+        $request = $this->reportMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1866,18 +1896,18 @@ class ReportContentSubjectApi
      *
      * Report a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportMessageByIdData $report_message_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportMessageByIdAsync($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
+    public function reportMessageByIdAsync($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data = null)
     {
-        return $this->reportMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data)
+        return $this->reportMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1890,19 +1920,19 @@ class ReportContentSubjectApi
      *
      * Report a message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportMessageByIdData $report_message_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
+    public function reportMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data = null)
     {
         $returnType = '\Sendbird\Model\ReportMessageByIdResponse';
-        $request = $this->reportMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token, $report_message_by_id_data);
+        $request = $this->reportMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1940,17 +1970,23 @@ class ReportContentSubjectApi
     /**
      * Create request for operation 'reportMessageById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportMessageByIdData $report_message_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reportMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token = null, $report_message_by_id_data = null)
+    public function reportMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling reportMessageById'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -2077,17 +2113,17 @@ class ReportContentSubjectApi
      *
      * Report a user
      *
+     * @param  string $api_token api_token (required)
      * @param  string $offending_user_id offending_user_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data report_user_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ReportUserByIdResponse
      */
-    public function reportUserById($offending_user_id, $api_token = null, $report_user_by_id_data = null)
+    public function reportUserById($api_token, $offending_user_id, $report_user_by_id_data = null)
     {
-        list($response) = $this->reportUserByIdWithHttpInfo($offending_user_id, $api_token, $report_user_by_id_data);
+        list($response) = $this->reportUserByIdWithHttpInfo($api_token, $offending_user_id, $report_user_by_id_data);
         return $response;
     }
 
@@ -2096,17 +2132,17 @@ class ReportContentSubjectApi
      *
      * Report a user
      *
+     * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ReportUserByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reportUserByIdWithHttpInfo($offending_user_id, $api_token = null, $report_user_by_id_data = null)
+    public function reportUserByIdWithHttpInfo($api_token, $offending_user_id, $report_user_by_id_data = null)
     {
-        $request = $this->reportUserByIdRequest($offending_user_id, $api_token, $report_user_by_id_data);
+        $request = $this->reportUserByIdRequest($api_token, $offending_user_id, $report_user_by_id_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2191,16 +2227,16 @@ class ReportContentSubjectApi
      *
      * Report a user
      *
+     * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportUserByIdAsync($offending_user_id, $api_token = null, $report_user_by_id_data = null)
+    public function reportUserByIdAsync($api_token, $offending_user_id, $report_user_by_id_data = null)
     {
-        return $this->reportUserByIdAsyncWithHttpInfo($offending_user_id, $api_token, $report_user_by_id_data)
+        return $this->reportUserByIdAsyncWithHttpInfo($api_token, $offending_user_id, $report_user_by_id_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2213,17 +2249,17 @@ class ReportContentSubjectApi
      *
      * Report a user
      *
+     * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportUserByIdAsyncWithHttpInfo($offending_user_id, $api_token = null, $report_user_by_id_data = null)
+    public function reportUserByIdAsyncWithHttpInfo($api_token, $offending_user_id, $report_user_by_id_data = null)
     {
         $returnType = '\Sendbird\Model\ReportUserByIdResponse';
-        $request = $this->reportUserByIdRequest($offending_user_id, $api_token, $report_user_by_id_data);
+        $request = $this->reportUserByIdRequest($api_token, $offending_user_id, $report_user_by_id_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2261,15 +2297,21 @@ class ReportContentSubjectApi
     /**
      * Create request for operation 'reportUserById'
      *
+     * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reportUserByIdRequest($offending_user_id, $api_token = null, $report_user_by_id_data = null)
+    public function reportUserByIdRequest($api_token, $offending_user_id, $report_user_by_id_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling reportUserById'
+            );
+        }
         // verify the required parameter 'offending_user_id' is set
         if ($offending_user_id === null || (is_array($offending_user_id) && count($offending_user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2368,18 +2410,18 @@ class ReportContentSubjectApi
      *
      * View a moderated message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $message_id message_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function viewModeratedMessageById($channel_type, $channel_url, $message_id, $api_token = null)
+    public function viewModeratedMessageById($api_token, $channel_type, $channel_url, $message_id)
     {
-        list($response) = $this->viewModeratedMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token);
+        list($response) = $this->viewModeratedMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id);
         return $response;
     }
 
@@ -2388,18 +2430,18 @@ class ReportContentSubjectApi
      *
      * View a moderated message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewModeratedMessageByIdWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null)
+    public function viewModeratedMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id)
     {
-        $request = $this->viewModeratedMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token);
+        $request = $this->viewModeratedMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2484,17 +2526,17 @@ class ReportContentSubjectApi
      *
      * View a moderated message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewModeratedMessageByIdAsync($channel_type, $channel_url, $message_id, $api_token = null)
+    public function viewModeratedMessageByIdAsync($api_token, $channel_type, $channel_url, $message_id)
     {
-        return $this->viewModeratedMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token)
+        return $this->viewModeratedMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2507,18 +2549,18 @@ class ReportContentSubjectApi
      *
      * View a moderated message
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewModeratedMessageByIdAsyncWithHttpInfo($channel_type, $channel_url, $message_id, $api_token = null)
+    public function viewModeratedMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id)
     {
         $returnType = 'array<string,string>';
-        $request = $this->viewModeratedMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token);
+        $request = $this->viewModeratedMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2556,16 +2598,22 @@ class ReportContentSubjectApi
     /**
      * Create request for operation 'viewModeratedMessageById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $message_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewModeratedMessageByIdRequest($channel_type, $channel_url, $message_id, $api_token = null)
+    public function viewModeratedMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewModeratedMessageById'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(

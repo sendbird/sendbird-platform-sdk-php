@@ -120,16 +120,16 @@ class AnnouncementsApi
      *
      * Get detailed open rate of an announcement
      *
+     * @param  string $api_token api_token (required)
      * @param  string $unique_id unique_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse
      */
-    public function getDetailedOpenRateOfAnnouncementById($unique_id, $api_token = null)
+    public function getDetailedOpenRateOfAnnouncementById($api_token, $unique_id)
     {
-        list($response) = $this->getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($unique_id, $api_token);
+        list($response) = $this->getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($api_token, $unique_id);
         return $response;
     }
 
@@ -138,16 +138,16 @@ class AnnouncementsApi
      *
      * Get detailed open rate of an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($unique_id, $api_token = null)
+    public function getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($api_token, $unique_id)
     {
-        $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($unique_id, $api_token);
+        $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($api_token, $unique_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -232,15 +232,15 @@ class AnnouncementsApi
      *
      * Get detailed open rate of an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenRateOfAnnouncementByIdAsync($unique_id, $api_token = null)
+    public function getDetailedOpenRateOfAnnouncementByIdAsync($api_token, $unique_id)
     {
-        return $this->getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token)
+        return $this->getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -253,16 +253,16 @@ class AnnouncementsApi
      *
      * Get detailed open rate of an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token = null)
+    public function getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id)
     {
         $returnType = '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse';
-        $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($unique_id, $api_token);
+        $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($api_token, $unique_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -300,14 +300,20 @@ class AnnouncementsApi
     /**
      * Create request for operation 'getDetailedOpenRateOfAnnouncementById'
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDetailedOpenRateOfAnnouncementByIdRequest($unique_id, $api_token = null)
+    public function getDetailedOpenRateOfAnnouncementByIdRequest($api_token, $unique_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling getDetailedOpenRateOfAnnouncementById'
+            );
+        }
         // verify the required parameter 'unique_id' is set
         if ($unique_id === null || (is_array($unique_id) && count($unique_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -400,16 +406,16 @@ class AnnouncementsApi
      *
      * Get detailed open rate of an announcement group
      *
+     * @param  string $api_token api_token (required)
      * @param  string $announcement_group announcement_group (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse
      */
-    public function getDetailedOpenRateOfAnnouncementGroup($announcement_group, $api_token = null)
+    public function getDetailedOpenRateOfAnnouncementGroup($api_token, $announcement_group)
     {
-        list($response) = $this->getDetailedOpenRateOfAnnouncementGroupWithHttpInfo($announcement_group, $api_token);
+        list($response) = $this->getDetailedOpenRateOfAnnouncementGroupWithHttpInfo($api_token, $announcement_group);
         return $response;
     }
 
@@ -418,16 +424,16 @@ class AnnouncementsApi
      *
      * Get detailed open rate of an announcement group
      *
+     * @param  string $api_token (required)
      * @param  string $announcement_group (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDetailedOpenRateOfAnnouncementGroupWithHttpInfo($announcement_group, $api_token = null)
+    public function getDetailedOpenRateOfAnnouncementGroupWithHttpInfo($api_token, $announcement_group)
     {
-        $request = $this->getDetailedOpenRateOfAnnouncementGroupRequest($announcement_group, $api_token);
+        $request = $this->getDetailedOpenRateOfAnnouncementGroupRequest($api_token, $announcement_group);
 
         try {
             $options = $this->createHttpClientOption();
@@ -512,15 +518,15 @@ class AnnouncementsApi
      *
      * Get detailed open rate of an announcement group
      *
+     * @param  string $api_token (required)
      * @param  string $announcement_group (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenRateOfAnnouncementGroupAsync($announcement_group, $api_token = null)
+    public function getDetailedOpenRateOfAnnouncementGroupAsync($api_token, $announcement_group)
     {
-        return $this->getDetailedOpenRateOfAnnouncementGroupAsyncWithHttpInfo($announcement_group, $api_token)
+        return $this->getDetailedOpenRateOfAnnouncementGroupAsyncWithHttpInfo($api_token, $announcement_group)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -533,16 +539,16 @@ class AnnouncementsApi
      *
      * Get detailed open rate of an announcement group
      *
+     * @param  string $api_token (required)
      * @param  string $announcement_group (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenRateOfAnnouncementGroupAsyncWithHttpInfo($announcement_group, $api_token = null)
+    public function getDetailedOpenRateOfAnnouncementGroupAsyncWithHttpInfo($api_token, $announcement_group)
     {
         $returnType = '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse';
-        $request = $this->getDetailedOpenRateOfAnnouncementGroupRequest($announcement_group, $api_token);
+        $request = $this->getDetailedOpenRateOfAnnouncementGroupRequest($api_token, $announcement_group);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -580,14 +586,20 @@ class AnnouncementsApi
     /**
      * Create request for operation 'getDetailedOpenRateOfAnnouncementGroup'
      *
+     * @param  string $api_token (required)
      * @param  string $announcement_group (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDetailedOpenRateOfAnnouncementGroupRequest($announcement_group, $api_token = null)
+    public function getDetailedOpenRateOfAnnouncementGroupRequest($api_token, $announcement_group)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling getDetailedOpenRateOfAnnouncementGroup'
+            );
+        }
         // verify the required parameter 'announcement_group' is set
         if ($announcement_group === null || (is_array($announcement_group) && count($announcement_group) === 0)) {
             throw new \InvalidArgumentException(
@@ -680,8 +692,8 @@ class AnnouncementsApi
      *
      * Get detailed open status of an announcement
      *
+     * @param  string $api_token api_token (required)
      * @param  string $unique_id unique_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  int $limit limit (optional)
      * @param  string $next next (optional)
      * @param  string[] $unique_ids unique_ids (optional)
@@ -692,9 +704,9 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse
      */
-    public function getDetailedOpenStatusOfAnnouncementById($unique_id, $api_token = null, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    public function getDetailedOpenStatusOfAnnouncementById($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
     {
-        list($response) = $this->getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+        list($response) = $this->getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
         return $response;
     }
 
@@ -703,8 +715,8 @@ class AnnouncementsApi
      *
      * Get detailed open status of an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      * @param  int $limit (optional)
      * @param  string $next (optional)
      * @param  string[] $unique_ids (optional)
@@ -715,9 +727,9 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($unique_id, $api_token = null, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    public function getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
     {
-        $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+        $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
 
         try {
             $options = $this->createHttpClientOption();
@@ -802,8 +814,8 @@ class AnnouncementsApi
      *
      * Get detailed open status of an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      * @param  int $limit (optional)
      * @param  string $next (optional)
      * @param  string[] $unique_ids (optional)
@@ -813,9 +825,9 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenStatusOfAnnouncementByIdAsync($unique_id, $api_token = null, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    public function getDetailedOpenStatusOfAnnouncementByIdAsync($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
     {
-        return $this->getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened)
+        return $this->getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -828,8 +840,8 @@ class AnnouncementsApi
      *
      * Get detailed open status of an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      * @param  int $limit (optional)
      * @param  string $next (optional)
      * @param  string[] $unique_ids (optional)
@@ -839,10 +851,10 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token = null, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    public function getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
     {
         $returnType = '\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse';
-        $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($unique_id, $api_token, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+        $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -880,8 +892,8 @@ class AnnouncementsApi
     /**
      * Create request for operation 'getDetailedOpenStatusOfAnnouncementById'
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      * @param  int $limit (optional)
      * @param  string $next (optional)
      * @param  string[] $unique_ids (optional)
@@ -891,8 +903,14 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDetailedOpenStatusOfAnnouncementByIdRequest($unique_id, $api_token = null, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    public function getDetailedOpenStatusOfAnnouncementByIdRequest($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling getDetailedOpenStatusOfAnnouncementById'
+            );
+        }
         // verify the required parameter 'unique_id' is set
         if ($unique_id === null || (is_array($unique_id) && count($unique_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1040,13 +1058,13 @@ class AnnouncementsApi
      *
      * Get statistics - weekly
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetStatisticsResponse
      */
-    public function getStatistics($api_token = null)
+    public function getStatistics($api_token)
     {
         list($response) = $this->getStatisticsWithHttpInfo($api_token);
         return $response;
@@ -1057,13 +1075,13 @@ class AnnouncementsApi
      *
      * Get statistics - weekly
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetStatisticsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStatisticsWithHttpInfo($api_token = null)
+    public function getStatisticsWithHttpInfo($api_token)
     {
         $request = $this->getStatisticsRequest($api_token);
 
@@ -1150,12 +1168,12 @@ class AnnouncementsApi
      *
      * Get statistics - weekly
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsAsync($api_token = null)
+    public function getStatisticsAsync($api_token)
     {
         return $this->getStatisticsAsyncWithHttpInfo($api_token)
             ->then(
@@ -1170,12 +1188,12 @@ class AnnouncementsApi
      *
      * Get statistics - weekly
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsAsyncWithHttpInfo($api_token = null)
+    public function getStatisticsAsyncWithHttpInfo($api_token)
     {
         $returnType = '\Sendbird\Model\GetStatisticsResponse';
         $request = $this->getStatisticsRequest($api_token);
@@ -1216,13 +1234,19 @@ class AnnouncementsApi
     /**
      * Create request for operation 'getStatistics'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStatisticsRequest($api_token = null)
+    public function getStatisticsRequest($api_token)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling getStatistics'
+            );
+        }
 
         $resourcePath = '/v3/announcement_stats/weekly';
         $formParams = [];
@@ -1301,22 +1325,22 @@ class AnnouncementsApi
      *
      * Get statistics - daily
      *
+     * @param  string $api_token api_token (required)
      * @param  string $start_date start_date (required)
      * @param  string $end_date end_date (required)
      * @param  string $start_week start_week (required)
      * @param  string $end_week end_week (required)
      * @param  string $start_month start_month (required)
      * @param  string $end_month end_month (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $announcement_group announcement_group (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetStatisticsDailyResponse
      */
-    public function getStatisticsDaily($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token = null, $announcement_group = null)
+    public function getStatisticsDaily($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group = null)
     {
-        list($response) = $this->getStatisticsDailyWithHttpInfo($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group);
+        list($response) = $this->getStatisticsDailyWithHttpInfo($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group);
         return $response;
     }
 
@@ -1325,22 +1349,22 @@ class AnnouncementsApi
      *
      * Get statistics - daily
      *
+     * @param  string $api_token (required)
      * @param  string $start_date (required)
      * @param  string $end_date (required)
      * @param  string $start_week (required)
      * @param  string $end_week (required)
      * @param  string $start_month (required)
      * @param  string $end_month (required)
-     * @param  string $api_token (optional)
      * @param  string $announcement_group (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetStatisticsDailyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStatisticsDailyWithHttpInfo($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token = null, $announcement_group = null)
+    public function getStatisticsDailyWithHttpInfo($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group = null)
     {
-        $request = $this->getStatisticsDailyRequest($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group);
+        $request = $this->getStatisticsDailyRequest($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1425,21 +1449,21 @@ class AnnouncementsApi
      *
      * Get statistics - daily
      *
+     * @param  string $api_token (required)
      * @param  string $start_date (required)
      * @param  string $end_date (required)
      * @param  string $start_week (required)
      * @param  string $end_week (required)
      * @param  string $start_month (required)
      * @param  string $end_month (required)
-     * @param  string $api_token (optional)
      * @param  string $announcement_group (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsDailyAsync($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token = null, $announcement_group = null)
+    public function getStatisticsDailyAsync($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group = null)
     {
-        return $this->getStatisticsDailyAsyncWithHttpInfo($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group)
+        return $this->getStatisticsDailyAsyncWithHttpInfo($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1452,22 +1476,22 @@ class AnnouncementsApi
      *
      * Get statistics - daily
      *
+     * @param  string $api_token (required)
      * @param  string $start_date (required)
      * @param  string $end_date (required)
      * @param  string $start_week (required)
      * @param  string $end_week (required)
      * @param  string $start_month (required)
      * @param  string $end_month (required)
-     * @param  string $api_token (optional)
      * @param  string $announcement_group (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsDailyAsyncWithHttpInfo($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token = null, $announcement_group = null)
+    public function getStatisticsDailyAsyncWithHttpInfo($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group = null)
     {
         $returnType = '\Sendbird\Model\GetStatisticsDailyResponse';
-        $request = $this->getStatisticsDailyRequest($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token, $announcement_group);
+        $request = $this->getStatisticsDailyRequest($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1505,20 +1529,26 @@ class AnnouncementsApi
     /**
      * Create request for operation 'getStatisticsDaily'
      *
+     * @param  string $api_token (required)
      * @param  string $start_date (required)
      * @param  string $end_date (required)
      * @param  string $start_week (required)
      * @param  string $end_week (required)
      * @param  string $start_month (required)
      * @param  string $end_month (required)
-     * @param  string $api_token (optional)
      * @param  string $announcement_group (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStatisticsDailyRequest($start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $api_token = null, $announcement_group = null)
+    public function getStatisticsDailyRequest($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling getStatisticsDaily'
+            );
+        }
         // verify the required parameter 'start_date' is set
         if ($start_date === null || (is_array($start_date) && count($start_date) === 0)) {
             throw new \InvalidArgumentException(
@@ -1710,13 +1740,13 @@ class AnnouncementsApi
      *
      * Get statistics - monthly
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetStatisticsMonthlyResponse
      */
-    public function getStatisticsMonthly($api_token = null)
+    public function getStatisticsMonthly($api_token)
     {
         list($response) = $this->getStatisticsMonthlyWithHttpInfo($api_token);
         return $response;
@@ -1727,13 +1757,13 @@ class AnnouncementsApi
      *
      * Get statistics - monthly
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetStatisticsMonthlyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStatisticsMonthlyWithHttpInfo($api_token = null)
+    public function getStatisticsMonthlyWithHttpInfo($api_token)
     {
         $request = $this->getStatisticsMonthlyRequest($api_token);
 
@@ -1820,12 +1850,12 @@ class AnnouncementsApi
      *
      * Get statistics - monthly
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsMonthlyAsync($api_token = null)
+    public function getStatisticsMonthlyAsync($api_token)
     {
         return $this->getStatisticsMonthlyAsyncWithHttpInfo($api_token)
             ->then(
@@ -1840,12 +1870,12 @@ class AnnouncementsApi
      *
      * Get statistics - monthly
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsMonthlyAsyncWithHttpInfo($api_token = null)
+    public function getStatisticsMonthlyAsyncWithHttpInfo($api_token)
     {
         $returnType = '\Sendbird\Model\GetStatisticsMonthlyResponse';
         $request = $this->getStatisticsMonthlyRequest($api_token);
@@ -1886,13 +1916,19 @@ class AnnouncementsApi
     /**
      * Create request for operation 'getStatisticsMonthly'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStatisticsMonthlyRequest($api_token = null)
+    public function getStatisticsMonthlyRequest($api_token)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling getStatisticsMonthly'
+            );
+        }
 
         $resourcePath = '/v3/announcement_stats/monthly';
         $formParams = [];
@@ -1971,7 +2007,7 @@ class AnnouncementsApi
      *
      * List announcement groups
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -1979,7 +2015,7 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListAnnouncementGroupsResponse
      */
-    public function listAnnouncementGroups($api_token = null, $token = null, $limit = null)
+    public function listAnnouncementGroups($api_token, $token = null, $limit = null)
     {
         list($response) = $this->listAnnouncementGroupsWithHttpInfo($api_token, $token, $limit);
         return $response;
@@ -1990,7 +2026,7 @@ class AnnouncementsApi
      *
      * List announcement groups
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -1998,7 +2034,7 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListAnnouncementGroupsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAnnouncementGroupsWithHttpInfo($api_token = null, $token = null, $limit = null)
+    public function listAnnouncementGroupsWithHttpInfo($api_token, $token = null, $limit = null)
     {
         $request = $this->listAnnouncementGroupsRequest($api_token, $token, $limit);
 
@@ -2085,14 +2121,14 @@ class AnnouncementsApi
      *
      * List announcement groups
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAnnouncementGroupsAsync($api_token = null, $token = null, $limit = null)
+    public function listAnnouncementGroupsAsync($api_token, $token = null, $limit = null)
     {
         return $this->listAnnouncementGroupsAsyncWithHttpInfo($api_token, $token, $limit)
             ->then(
@@ -2107,14 +2143,14 @@ class AnnouncementsApi
      *
      * List announcement groups
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAnnouncementGroupsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null)
+    public function listAnnouncementGroupsAsyncWithHttpInfo($api_token, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\ListAnnouncementGroupsResponse';
         $request = $this->listAnnouncementGroupsRequest($api_token, $token, $limit);
@@ -2155,15 +2191,21 @@ class AnnouncementsApi
     /**
      * Create request for operation 'listAnnouncementGroups'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listAnnouncementGroupsRequest($api_token = null, $token = null, $limit = null)
+    public function listAnnouncementGroupsRequest($api_token, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listAnnouncementGroups'
+            );
+        }
 
         $resourcePath = '/v3/announcement_group';
         $formParams = [];
@@ -2264,7 +2306,7 @@ class AnnouncementsApi
      *
      * List announcements
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      * @param  string $order order (optional)
@@ -2275,7 +2317,7 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListAnnouncementsResponse
      */
-    public function listAnnouncements($api_token = null, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
+    public function listAnnouncements($api_token, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
     {
         list($response) = $this->listAnnouncementsWithHttpInfo($api_token, $token, $limit, $order, $status, $announcement_group);
         return $response;
@@ -2286,7 +2328,7 @@ class AnnouncementsApi
      *
      * List announcements
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  string $order (optional)
@@ -2297,7 +2339,7 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListAnnouncementsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAnnouncementsWithHttpInfo($api_token = null, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
+    public function listAnnouncementsWithHttpInfo($api_token, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
     {
         $request = $this->listAnnouncementsRequest($api_token, $token, $limit, $order, $status, $announcement_group);
 
@@ -2384,7 +2426,7 @@ class AnnouncementsApi
      *
      * List announcements
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  string $order (optional)
@@ -2394,7 +2436,7 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAnnouncementsAsync($api_token = null, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
+    public function listAnnouncementsAsync($api_token, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
     {
         return $this->listAnnouncementsAsyncWithHttpInfo($api_token, $token, $limit, $order, $status, $announcement_group)
             ->then(
@@ -2409,7 +2451,7 @@ class AnnouncementsApi
      *
      * List announcements
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  string $order (optional)
@@ -2419,7 +2461,7 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAnnouncementsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
+    public function listAnnouncementsAsyncWithHttpInfo($api_token, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
     {
         $returnType = '\Sendbird\Model\ListAnnouncementsResponse';
         $request = $this->listAnnouncementsRequest($api_token, $token, $limit, $order, $status, $announcement_group);
@@ -2460,7 +2502,7 @@ class AnnouncementsApi
     /**
      * Create request for operation 'listAnnouncements'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  string $order (optional)
@@ -2470,8 +2512,14 @@ class AnnouncementsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listAnnouncementsRequest($api_token = null, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
+    public function listAnnouncementsRequest($api_token, $token = null, $limit = null, $order = null, $status = null, $announcement_group = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listAnnouncements'
+            );
+        }
 
         $resourcePath = '/v3/announcements';
         $formParams = [];
@@ -2605,14 +2653,14 @@ class AnnouncementsApi
      *
      * Schedule an announcement
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\ScheduleAnnouncementData $schedule_announcement_data schedule_announcement_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ScheduleAnnouncementResponse
      */
-    public function scheduleAnnouncement($api_token = null, $schedule_announcement_data = null)
+    public function scheduleAnnouncement($api_token, $schedule_announcement_data = null)
     {
         list($response) = $this->scheduleAnnouncementWithHttpInfo($api_token, $schedule_announcement_data);
         return $response;
@@ -2623,14 +2671,14 @@ class AnnouncementsApi
      *
      * Schedule an announcement
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\ScheduleAnnouncementData $schedule_announcement_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ScheduleAnnouncementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function scheduleAnnouncementWithHttpInfo($api_token = null, $schedule_announcement_data = null)
+    public function scheduleAnnouncementWithHttpInfo($api_token, $schedule_announcement_data = null)
     {
         $request = $this->scheduleAnnouncementRequest($api_token, $schedule_announcement_data);
 
@@ -2717,13 +2765,13 @@ class AnnouncementsApi
      *
      * Schedule an announcement
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\ScheduleAnnouncementData $schedule_announcement_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scheduleAnnouncementAsync($api_token = null, $schedule_announcement_data = null)
+    public function scheduleAnnouncementAsync($api_token, $schedule_announcement_data = null)
     {
         return $this->scheduleAnnouncementAsyncWithHttpInfo($api_token, $schedule_announcement_data)
             ->then(
@@ -2738,13 +2786,13 @@ class AnnouncementsApi
      *
      * Schedule an announcement
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\ScheduleAnnouncementData $schedule_announcement_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scheduleAnnouncementAsyncWithHttpInfo($api_token = null, $schedule_announcement_data = null)
+    public function scheduleAnnouncementAsyncWithHttpInfo($api_token, $schedule_announcement_data = null)
     {
         $returnType = '\Sendbird\Model\ScheduleAnnouncementResponse';
         $request = $this->scheduleAnnouncementRequest($api_token, $schedule_announcement_data);
@@ -2785,14 +2833,20 @@ class AnnouncementsApi
     /**
      * Create request for operation 'scheduleAnnouncement'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\ScheduleAnnouncementData $schedule_announcement_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function scheduleAnnouncementRequest($api_token = null, $schedule_announcement_data = null)
+    public function scheduleAnnouncementRequest($api_token, $schedule_announcement_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling scheduleAnnouncement'
+            );
+        }
 
         $resourcePath = '/v3/announcements';
         $formParams = [];
@@ -2877,17 +2931,17 @@ class AnnouncementsApi
      *
      * Update an announcement
      *
+     * @param  string $api_token api_token (required)
      * @param  string $unique_id unique_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateAnnouncementByIdData $update_announcement_by_id_data update_announcement_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateAnnouncementByIdResponse
      */
-    public function updateAnnouncementById($unique_id, $api_token = null, $update_announcement_by_id_data = null)
+    public function updateAnnouncementById($api_token, $unique_id, $update_announcement_by_id_data = null)
     {
-        list($response) = $this->updateAnnouncementByIdWithHttpInfo($unique_id, $api_token, $update_announcement_by_id_data);
+        list($response) = $this->updateAnnouncementByIdWithHttpInfo($api_token, $unique_id, $update_announcement_by_id_data);
         return $response;
     }
 
@@ -2896,17 +2950,17 @@ class AnnouncementsApi
      *
      * Update an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateAnnouncementByIdData $update_announcement_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAnnouncementByIdWithHttpInfo($unique_id, $api_token = null, $update_announcement_by_id_data = null)
+    public function updateAnnouncementByIdWithHttpInfo($api_token, $unique_id, $update_announcement_by_id_data = null)
     {
-        $request = $this->updateAnnouncementByIdRequest($unique_id, $api_token, $update_announcement_by_id_data);
+        $request = $this->updateAnnouncementByIdRequest($api_token, $unique_id, $update_announcement_by_id_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2991,16 +3045,16 @@ class AnnouncementsApi
      *
      * Update an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateAnnouncementByIdData $update_announcement_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAnnouncementByIdAsync($unique_id, $api_token = null, $update_announcement_by_id_data = null)
+    public function updateAnnouncementByIdAsync($api_token, $unique_id, $update_announcement_by_id_data = null)
     {
-        return $this->updateAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token, $update_announcement_by_id_data)
+        return $this->updateAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id, $update_announcement_by_id_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3013,17 +3067,17 @@ class AnnouncementsApi
      *
      * Update an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateAnnouncementByIdData $update_announcement_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token = null, $update_announcement_by_id_data = null)
+    public function updateAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id, $update_announcement_by_id_data = null)
     {
         $returnType = '\Sendbird\Model\UpdateAnnouncementByIdResponse';
-        $request = $this->updateAnnouncementByIdRequest($unique_id, $api_token, $update_announcement_by_id_data);
+        $request = $this->updateAnnouncementByIdRequest($api_token, $unique_id, $update_announcement_by_id_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3061,15 +3115,21 @@ class AnnouncementsApi
     /**
      * Create request for operation 'updateAnnouncementById'
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateAnnouncementByIdData $update_announcement_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateAnnouncementByIdRequest($unique_id, $api_token = null, $update_announcement_by_id_data = null)
+    public function updateAnnouncementByIdRequest($api_token, $unique_id, $update_announcement_by_id_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateAnnouncementById'
+            );
+        }
         // verify the required parameter 'unique_id' is set
         if ($unique_id === null || (is_array($unique_id) && count($unique_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3168,16 +3228,16 @@ class AnnouncementsApi
      *
      * View an announcement
      *
+     * @param  string $api_token api_token (required)
      * @param  string $unique_id unique_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewAnnouncementByIdResponse
      */
-    public function viewAnnouncementById($unique_id, $api_token = null)
+    public function viewAnnouncementById($api_token, $unique_id)
     {
-        list($response) = $this->viewAnnouncementByIdWithHttpInfo($unique_id, $api_token);
+        list($response) = $this->viewAnnouncementByIdWithHttpInfo($api_token, $unique_id);
         return $response;
     }
 
@@ -3186,16 +3246,16 @@ class AnnouncementsApi
      *
      * View an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewAnnouncementByIdWithHttpInfo($unique_id, $api_token = null)
+    public function viewAnnouncementByIdWithHttpInfo($api_token, $unique_id)
     {
-        $request = $this->viewAnnouncementByIdRequest($unique_id, $api_token);
+        $request = $this->viewAnnouncementByIdRequest($api_token, $unique_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3280,15 +3340,15 @@ class AnnouncementsApi
      *
      * View an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewAnnouncementByIdAsync($unique_id, $api_token = null)
+    public function viewAnnouncementByIdAsync($api_token, $unique_id)
     {
-        return $this->viewAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token)
+        return $this->viewAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3301,16 +3361,16 @@ class AnnouncementsApi
      *
      * View an announcement
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewAnnouncementByIdAsyncWithHttpInfo($unique_id, $api_token = null)
+    public function viewAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id)
     {
         $returnType = '\Sendbird\Model\ViewAnnouncementByIdResponse';
-        $request = $this->viewAnnouncementByIdRequest($unique_id, $api_token);
+        $request = $this->viewAnnouncementByIdRequest($api_token, $unique_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3348,14 +3408,20 @@ class AnnouncementsApi
     /**
      * Create request for operation 'viewAnnouncementById'
      *
+     * @param  string $api_token (required)
      * @param  string $unique_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewAnnouncementByIdRequest($unique_id, $api_token = null)
+    public function viewAnnouncementByIdRequest($api_token, $unique_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewAnnouncementById'
+            );
+        }
         // verify the required parameter 'unique_id' is set
         if ($unique_id === null || (is_array($unique_id) && count($unique_id) === 0)) {
             throw new \InvalidArgumentException(

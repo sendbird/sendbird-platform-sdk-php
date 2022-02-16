@@ -45,7 +45,7 @@ Method | HTTP request | Description
 ## `addRegistrationOrDeviceToken()`
 
 ```php
-addRegistrationOrDeviceToken($user_id, $token_type, $api_token, $add_registration_or_device_token_data): \Sendbird\Model\AddRegistrationOrDeviceTokenResponse
+addRegistrationOrDeviceToken($api_token, $user_id, $token_type, $add_registration_or_device_token_data): \Sendbird\Model\AddRegistrationOrDeviceTokenResponse
 ```
 
 Add a registration or device token
@@ -65,13 +65,13 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $token_type = 'token_type_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $add_registration_or_device_token_data = new \Sendbird\Model\AddRegistrationOrDeviceTokenData(); // \Sendbird\Model\AddRegistrationOrDeviceTokenData
 
 try {
-    $result = $apiInstance->addRegistrationOrDeviceToken($user_id, $token_type, $api_token, $add_registration_or_device_token_data);
+    $result = $apiInstance->addRegistrationOrDeviceToken($api_token, $user_id, $token_type, $add_registration_or_device_token_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->addRegistrationOrDeviceToken: ', $e->getMessage(), PHP_EOL;
@@ -82,9 +82,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **token_type** | **string**|  |
- **api_token** | **string**|  | [optional]
  **add_registration_or_device_token_data** | [**\Sendbird\Model\AddRegistrationOrDeviceTokenData**](../Model/AddRegistrationOrDeviceTokenData.md)|  | [optional]
 
 ### Return type
@@ -107,7 +107,7 @@ No authorization required
 ## `banFromChannelsWithCustomChannelTypes()`
 
 ```php
-banFromChannelsWithCustomChannelTypes($user_id, $api_token, $ban_from_channels_with_custom_channel_types_data)
+banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data)
 ```
 
 Ban from channels with custom channel types
@@ -127,12 +127,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $ban_from_channels_with_custom_channel_types_data = new \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData(); // \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData
 
 try {
-    $apiInstance->banFromChannelsWithCustomChannelTypes($user_id, $api_token, $ban_from_channels_with_custom_channel_types_data);
+    $apiInstance->banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->banFromChannelsWithCustomChannelTypes: ', $e->getMessage(), PHP_EOL;
 }
@@ -142,8 +142,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **ban_from_channels_with_custom_channel_types_data** | [**\Sendbird\Model\BanFromChannelsWithCustomChannelTypesData**](../Model/BanFromChannelsWithCustomChannelTypesData.md)|  | [optional]
 
 ### Return type
@@ -166,7 +166,7 @@ No authorization required
 ## `blockUser()`
 
 ```php
-blockUser($user_id, $api_token, $block_user_data): \Sendbird\Model\SendBirdUser
+blockUser($api_token, $user_id, $block_user_data): \Sendbird\Model\SendBirdUser
 ```
 
 Block a user
@@ -186,12 +186,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $block_user_data = new \Sendbird\Model\BlockUserData(); // \Sendbird\Model\BlockUserData
 
 try {
-    $result = $apiInstance->blockUser($user_id, $api_token, $block_user_data);
+    $result = $apiInstance->blockUser($api_token, $user_id, $block_user_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->blockUser: ', $e->getMessage(), PHP_EOL;
@@ -202,8 +202,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **block_user_data** | [**\Sendbird\Model\BlockUserData**](../Model/BlockUserData.md)|  | [optional]
 
 ### Return type
@@ -226,7 +226,7 @@ No authorization required
 ## `choosePushNotificationContentTemplate()`
 
 ```php
-choosePushNotificationContentTemplate($user_id, $api_token, $body): \Sendbird\Model\ChoosePushNotificationContentTemplateResponse
+choosePushNotificationContentTemplate($api_token, $user_id, $body): \Sendbird\Model\ChoosePushNotificationContentTemplateResponse
 ```
 
 Choose a push notification content template
@@ -246,12 +246,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $body = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->choosePushNotificationContentTemplate($user_id, $api_token, $body);
+    $result = $apiInstance->choosePushNotificationContentTemplate($api_token, $user_id, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->choosePushNotificationContentTemplate: ', $e->getMessage(), PHP_EOL;
@@ -262,8 +262,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **body** | **object**|  | [optional]
 
 ### Return type
@@ -321,7 +321,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **create_user_data** | [**\Sendbird\Model\CreateUserData**](../Model/CreateUserData.md)|  | [optional]
 
 ### Return type
@@ -344,7 +344,7 @@ No authorization required
 ## `deleteUserById()`
 
 ```php
-deleteUserById($user_id, $api_token)
+deleteUserById($api_token, $user_id)
 ```
 
 Delete a user
@@ -364,11 +364,11 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 
 try {
-    $apiInstance->deleteUserById($user_id, $api_token);
+    $apiInstance->deleteUserById($api_token, $user_id);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->deleteUserById: ', $e->getMessage(), PHP_EOL;
 }
@@ -378,8 +378,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -401,7 +401,7 @@ No authorization required
 ## `leaveMyGroupChannels()`
 
 ```php
-leaveMyGroupChannels($user_id, $api_token, $leave_my_group_channels_data)
+leaveMyGroupChannels($api_token, $user_id, $leave_my_group_channels_data)
 ```
 
 Leave my group channels
@@ -421,12 +421,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $leave_my_group_channels_data = new \Sendbird\Model\LeaveMyGroupChannelsData(); // \Sendbird\Model\LeaveMyGroupChannelsData
 
 try {
-    $apiInstance->leaveMyGroupChannels($user_id, $api_token, $leave_my_group_channels_data);
+    $apiInstance->leaveMyGroupChannels($api_token, $user_id, $leave_my_group_channels_data);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->leaveMyGroupChannels: ', $e->getMessage(), PHP_EOL;
 }
@@ -436,8 +436,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **leave_my_group_channels_data** | [**\Sendbird\Model\LeaveMyGroupChannelsData**](../Model/LeaveMyGroupChannelsData.md)|  | [optional]
 
 ### Return type
@@ -460,7 +460,7 @@ No authorization required
 ## `listBannedChannels()`
 
 ```php
-listBannedChannels($user_id, $api_token, $token, $limit): \Sendbird\Model\ListBannedChannelsResponse
+listBannedChannels($api_token, $user_id, $token, $limit): \Sendbird\Model\ListBannedChannelsResponse
 ```
 
 List banned channels
@@ -480,13 +480,13 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 
 try {
-    $result = $apiInstance->listBannedChannels($user_id, $api_token, $token, $limit);
+    $result = $apiInstance->listBannedChannels($api_token, $user_id, $token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->listBannedChannels: ', $e->getMessage(), PHP_EOL;
@@ -497,8 +497,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -522,7 +522,7 @@ No authorization required
 ## `listBlockedUsers()`
 
 ```php
-listBlockedUsers($user_id, $api_token, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in): \Sendbird\Model\ListBlockedUsersResponse
+listBlockedUsers($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in): \Sendbird\Model\ListBlockedUsersResponse
 ```
 
 List blocked users
@@ -542,8 +542,8 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 $user_ids = 'user_ids_example'; // string
@@ -551,7 +551,7 @@ $metadatakey = 'metadatakey_example'; // string
 $metadatavalues_in = 'metadatavalues_in_example'; // string
 
 try {
-    $result = $apiInstance->listBlockedUsers($user_id, $api_token, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in);
+    $result = $apiInstance->listBlockedUsers($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->listBlockedUsers: ', $e->getMessage(), PHP_EOL;
@@ -562,8 +562,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
  **user_ids** | **string**|  | [optional]
@@ -590,7 +590,7 @@ No authorization required
 ## `listMutedChannels()`
 
 ```php
-listMutedChannels($user_id, $api_token, $token, $limit): \Sendbird\Model\ListMutedChannelsResponse
+listMutedChannels($api_token, $user_id, $token, $limit): \Sendbird\Model\ListMutedChannelsResponse
 ```
 
 List muted channels
@@ -610,13 +610,13 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 
 try {
-    $result = $apiInstance->listMutedChannels($user_id, $api_token, $token, $limit);
+    $result = $apiInstance->listMutedChannels($api_token, $user_id, $token, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->listMutedChannels: ', $e->getMessage(), PHP_EOL;
@@ -627,8 +627,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -652,7 +652,7 @@ No authorization required
 ## `listMyGroupChannels()`
 
 ```php
-listMyGroupChannels($user_id, $api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $hidden_mode, $member_state_filter, $unread_filter, $created_after, $created_before, $show_empty, $show_frozen, $show_member, $show_delivery_receipt, $show_read_receipt, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $search_query, $search_fields, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $custom_type): \Sendbird\Model\ListMyGroupChannelsResponse
+listMyGroupChannels($api_token, $user_id, $token, $limit, $distinct_mode, $public_mode, $super_mode, $hidden_mode, $member_state_filter, $unread_filter, $created_after, $created_before, $show_empty, $show_frozen, $show_member, $show_delivery_receipt, $show_read_receipt, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $search_query, $search_fields, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $custom_type): \Sendbird\Model\ListMyGroupChannelsResponse
 ```
 
 List my group channels
@@ -672,8 +672,8 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $token = 'token_example'; // string
 $limit = 56; // int
 $distinct_mode = 'distinct_mode_example'; // string
@@ -716,7 +716,7 @@ $metacounter_value_lte = 'metacounter_value_lte_example'; // string
 $custom_type = 'custom_type_example'; // string
 
 try {
-    $result = $apiInstance->listMyGroupChannels($user_id, $api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $hidden_mode, $member_state_filter, $unread_filter, $created_after, $created_before, $show_empty, $show_frozen, $show_member, $show_delivery_receipt, $show_read_receipt, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $search_query, $search_fields, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $custom_type);
+    $result = $apiInstance->listMyGroupChannels($api_token, $user_id, $token, $limit, $distinct_mode, $public_mode, $super_mode, $hidden_mode, $member_state_filter, $unread_filter, $created_after, $created_before, $show_empty, $show_frozen, $show_member, $show_delivery_receipt, $show_read_receipt, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $search_query, $search_fields, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $custom_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->listMyGroupChannels: ', $e->getMessage(), PHP_EOL;
@@ -727,8 +727,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
  **distinct_mode** | **string**|  | [optional]
@@ -790,7 +790,7 @@ No authorization required
 ## `listRegistrationOrDeviceTokens()`
 
 ```php
-listRegistrationOrDeviceTokens($user_id, $token_type, $api_token): \Sendbird\Model\ListRegistrationOrDeviceTokensResponse
+listRegistrationOrDeviceTokens($api_token, $user_id, $token_type): \Sendbird\Model\ListRegistrationOrDeviceTokensResponse
 ```
 
 List registration or device tokens
@@ -810,12 +810,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $token_type = 'token_type_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->listRegistrationOrDeviceTokens($user_id, $token_type, $api_token);
+    $result = $apiInstance->listRegistrationOrDeviceTokens($api_token, $user_id, $token_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->listRegistrationOrDeviceTokens: ', $e->getMessage(), PHP_EOL;
@@ -826,9 +826,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **token_type** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -893,7 +893,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
  **active_mode** | **string**|  | [optional]
@@ -924,7 +924,7 @@ No authorization required
 ## `markAllMessagesAsRead()`
 
 ```php
-markAllMessagesAsRead($user_id, $api_token, $mark_all_messages_as_read_data)
+markAllMessagesAsRead($api_token, $user_id, $mark_all_messages_as_read_data)
 ```
 
 Mark all messages as read
@@ -944,12 +944,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $mark_all_messages_as_read_data = new \Sendbird\Model\MarkAllMessagesAsReadData(); // \Sendbird\Model\MarkAllMessagesAsReadData
 
 try {
-    $apiInstance->markAllMessagesAsRead($user_id, $api_token, $mark_all_messages_as_read_data);
+    $apiInstance->markAllMessagesAsRead($api_token, $user_id, $mark_all_messages_as_read_data);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->markAllMessagesAsRead: ', $e->getMessage(), PHP_EOL;
 }
@@ -959,8 +959,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **mark_all_messages_as_read_data** | [**\Sendbird\Model\MarkAllMessagesAsReadData**](../Model/MarkAllMessagesAsReadData.md)|  | [optional]
 
 ### Return type
@@ -983,7 +983,7 @@ No authorization required
 ## `muteInChannelsWithCustomChannelTypes()`
 
 ```php
-muteInChannelsWithCustomChannelTypes($user_id, $api_token, $mute_in_channels_with_custom_channel_types_data)
+muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data)
 ```
 
 Mute in channels with custom channel types
@@ -1003,12 +1003,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $mute_in_channels_with_custom_channel_types_data = new \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData(); // \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData
 
 try {
-    $apiInstance->muteInChannelsWithCustomChannelTypes($user_id, $api_token, $mute_in_channels_with_custom_channel_types_data);
+    $apiInstance->muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->muteInChannelsWithCustomChannelTypes: ', $e->getMessage(), PHP_EOL;
 }
@@ -1018,8 +1018,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **mute_in_channels_with_custom_channel_types_data** | [**\Sendbird\Model\MuteInChannelsWithCustomChannelTypesData**](../Model/MuteInChannelsWithCustomChannelTypesData.md)|  | [optional]
 
 ### Return type
@@ -1042,7 +1042,7 @@ No authorization required
 ## `registerAsOperatorToChannelsWithCustomChannelTypes()`
 
 ```php
-registerAsOperatorToChannelsWithCustomChannelTypes($user_id, $api_token, $register_as_operator_to_channels_with_custom_channel_types_data)
+registerAsOperatorToChannelsWithCustomChannelTypes($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data)
 ```
 
 Register as an operator to channels with custom channel types
@@ -1062,12 +1062,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $register_as_operator_to_channels_with_custom_channel_types_data = new \Sendbird\Model\RegisterAsOperatorToChannelsWithCustomChannelTypesData(); // \Sendbird\Model\RegisterAsOperatorToChannelsWithCustomChannelTypesData
 
 try {
-    $apiInstance->registerAsOperatorToChannelsWithCustomChannelTypes($user_id, $api_token, $register_as_operator_to_channels_with_custom_channel_types_data);
+    $apiInstance->registerAsOperatorToChannelsWithCustomChannelTypes($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->registerAsOperatorToChannelsWithCustomChannelTypes: ', $e->getMessage(), PHP_EOL;
 }
@@ -1077,8 +1077,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **register_as_operator_to_channels_with_custom_channel_types_data** | [**\Sendbird\Model\RegisterAsOperatorToChannelsWithCustomChannelTypesData**](../Model/RegisterAsOperatorToChannelsWithCustomChannelTypesData.md)|  | [optional]
 
 ### Return type
@@ -1101,7 +1101,7 @@ No authorization required
 ## `removeRegistrationOrDeviceToken()`
 
 ```php
-removeRegistrationOrDeviceToken($user_id, $api_token): \Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse
+removeRegistrationOrDeviceToken($api_token, $user_id): \Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse
 ```
 
 Remove a registration or device token - When unregistering all device tokens
@@ -1121,11 +1121,11 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 
 try {
-    $result = $apiInstance->removeRegistrationOrDeviceToken($user_id, $api_token);
+    $result = $apiInstance->removeRegistrationOrDeviceToken($api_token, $user_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->removeRegistrationOrDeviceToken: ', $e->getMessage(), PHP_EOL;
@@ -1136,8 +1136,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1159,7 +1159,7 @@ No authorization required
 ## `removeRegistrationOrDeviceTokenByToken()`
 
 ```php
-removeRegistrationOrDeviceTokenByToken($user_id, $token_type, $token, $api_token): \Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse
+removeRegistrationOrDeviceTokenByToken($api_token, $user_id, $token_type, $token): \Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse
 ```
 
 Remove a registration or device token - When unregistering a specific token
@@ -1179,13 +1179,13 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $token_type = 'token_type_example'; // string
 $token = 'token_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->removeRegistrationOrDeviceTokenByToken($user_id, $token_type, $token, $api_token);
+    $result = $apiInstance->removeRegistrationOrDeviceTokenByToken($api_token, $user_id, $token_type, $token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->removeRegistrationOrDeviceTokenByToken: ', $e->getMessage(), PHP_EOL;
@@ -1196,10 +1196,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **token_type** | **string**|  |
  **token** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1221,7 +1221,7 @@ No authorization required
 ## `removeRegistrationOrDeviceTokenFromOwnerByToken()`
 
 ```php
-removeRegistrationOrDeviceTokenFromOwnerByToken($token_type, $token, $api_token): \Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse
+removeRegistrationOrDeviceTokenFromOwnerByToken($api_token, $token_type, $token): \Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse
 ```
 
 Remove a registration or device token from an owner
@@ -1241,12 +1241,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $token_type = 'token_type_example'; // string
 $token = 'token_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->removeRegistrationOrDeviceTokenFromOwnerByToken($token_type, $token, $api_token);
+    $result = $apiInstance->removeRegistrationOrDeviceTokenFromOwnerByToken($api_token, $token_type, $token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->removeRegistrationOrDeviceTokenFromOwnerByToken: ', $e->getMessage(), PHP_EOL;
@@ -1257,9 +1257,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **token_type** | **string**|  |
  **token** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1281,7 +1281,7 @@ No authorization required
 ## `resetPushPreferences()`
 
 ```php
-resetPushPreferences($user_id, $api_token)
+resetPushPreferences($api_token, $user_id)
 ```
 
 Reset push preferences
@@ -1301,11 +1301,11 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 
 try {
-    $apiInstance->resetPushPreferences($user_id, $api_token);
+    $apiInstance->resetPushPreferences($api_token, $user_id);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->resetPushPreferences: ', $e->getMessage(), PHP_EOL;
 }
@@ -1315,8 +1315,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1338,7 +1338,7 @@ No authorization required
 ## `unblockUserById()`
 
 ```php
-unblockUserById($user_id, $target_id, $api_token)
+unblockUserById($api_token, $user_id, $target_id)
 ```
 
 Unblock a user
@@ -1358,12 +1358,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $target_id = 'target_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $apiInstance->unblockUserById($user_id, $target_id, $api_token);
+    $apiInstance->unblockUserById($api_token, $user_id, $target_id);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->unblockUserById: ', $e->getMessage(), PHP_EOL;
 }
@@ -1373,9 +1373,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **target_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1397,7 +1397,7 @@ No authorization required
 ## `updateChannelInvitationPreference()`
 
 ```php
-updateChannelInvitationPreference($user_id, $api_token, $update_channel_invitation_preference_data): \Sendbird\Model\UpdateChannelInvitationPreferenceResponse
+updateChannelInvitationPreference($api_token, $user_id, $update_channel_invitation_preference_data): \Sendbird\Model\UpdateChannelInvitationPreferenceResponse
 ```
 
 Update channel invitation preference
@@ -1417,12 +1417,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $update_channel_invitation_preference_data = new \Sendbird\Model\UpdateChannelInvitationPreferenceData(); // \Sendbird\Model\UpdateChannelInvitationPreferenceData
 
 try {
-    $result = $apiInstance->updateChannelInvitationPreference($user_id, $api_token, $update_channel_invitation_preference_data);
+    $result = $apiInstance->updateChannelInvitationPreference($api_token, $user_id, $update_channel_invitation_preference_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->updateChannelInvitationPreference: ', $e->getMessage(), PHP_EOL;
@@ -1433,8 +1433,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_channel_invitation_preference_data** | [**\Sendbird\Model\UpdateChannelInvitationPreferenceData**](../Model/UpdateChannelInvitationPreferenceData.md)|  | [optional]
 
 ### Return type
@@ -1457,7 +1457,7 @@ No authorization required
 ## `updateCountPreferenceOfChannelByUrl()`
 
 ```php
-updateCountPreferenceOfChannelByUrl($user_id, $channel_url, $api_token, $update_count_preference_of_channel_by_url_data): \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlResponse
+updateCountPreferenceOfChannelByUrl($api_token, $user_id, $channel_url, $update_count_preference_of_channel_by_url_data): \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlResponse
 ```
 
 Update count preference of a channel
@@ -1477,13 +1477,13 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $update_count_preference_of_channel_by_url_data = new \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlData(); // \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlData
 
 try {
-    $result = $apiInstance->updateCountPreferenceOfChannelByUrl($user_id, $channel_url, $api_token, $update_count_preference_of_channel_by_url_data);
+    $result = $apiInstance->updateCountPreferenceOfChannelByUrl($api_token, $user_id, $channel_url, $update_count_preference_of_channel_by_url_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->updateCountPreferenceOfChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -1494,9 +1494,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_count_preference_of_channel_by_url_data** | [**\Sendbird\Model\UpdateCountPreferenceOfChannelByUrlData**](../Model/UpdateCountPreferenceOfChannelByUrlData.md)|  | [optional]
 
 ### Return type
@@ -1519,7 +1519,7 @@ No authorization required
 ## `updatePushPreferences()`
 
 ```php
-updatePushPreferences($user_id, $api_token, $update_push_preferences_data): \Sendbird\Model\UpdatePushPreferencesResponse
+updatePushPreferences($api_token, $user_id, $update_push_preferences_data): \Sendbird\Model\UpdatePushPreferencesResponse
 ```
 
 Update push preferences
@@ -1539,12 +1539,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $update_push_preferences_data = new \Sendbird\Model\UpdatePushPreferencesData(); // \Sendbird\Model\UpdatePushPreferencesData
 
 try {
-    $result = $apiInstance->updatePushPreferences($user_id, $api_token, $update_push_preferences_data);
+    $result = $apiInstance->updatePushPreferences($api_token, $user_id, $update_push_preferences_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->updatePushPreferences: ', $e->getMessage(), PHP_EOL;
@@ -1555,8 +1555,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_push_preferences_data** | [**\Sendbird\Model\UpdatePushPreferencesData**](../Model/UpdatePushPreferencesData.md)|  | [optional]
 
 ### Return type
@@ -1579,7 +1579,7 @@ No authorization required
 ## `updatePushPreferencesForChannelByUrl()`
 
 ```php
-updatePushPreferencesForChannelByUrl($user_id, $channel_url, $api_token, $update_push_preferences_for_channel_by_url_data): \Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse
+updatePushPreferencesForChannelByUrl($api_token, $user_id, $channel_url, $update_push_preferences_for_channel_by_url_data): \Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse
 ```
 
 Update push preferences for a channel
@@ -1599,13 +1599,13 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 $update_push_preferences_for_channel_by_url_data = new \Sendbird\Model\UpdatePushPreferencesForChannelByUrlData(); // \Sendbird\Model\UpdatePushPreferencesForChannelByUrlData
 
 try {
-    $result = $apiInstance->updatePushPreferencesForChannelByUrl($user_id, $channel_url, $api_token, $update_push_preferences_for_channel_by_url_data);
+    $result = $apiInstance->updatePushPreferencesForChannelByUrl($api_token, $user_id, $channel_url, $update_push_preferences_for_channel_by_url_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->updatePushPreferencesForChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -1616,9 +1616,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_push_preferences_for_channel_by_url_data** | [**\Sendbird\Model\UpdatePushPreferencesForChannelByUrlData**](../Model/UpdatePushPreferencesForChannelByUrlData.md)|  | [optional]
 
 ### Return type
@@ -1641,7 +1641,7 @@ No authorization required
 ## `updateUserById()`
 
 ```php
-updateUserById($user_id, $api_token, $update_user_by_id_data): \Sendbird\Model\SendBirdUser
+updateUserById($api_token, $user_id, $update_user_by_id_data): \Sendbird\Model\SendBirdUser
 ```
 
 Update a user
@@ -1661,12 +1661,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $update_user_by_id_data = new \Sendbird\Model\UpdateUserByIdData(); // \Sendbird\Model\UpdateUserByIdData
 
 try {
-    $result = $apiInstance->updateUserById($user_id, $api_token, $update_user_by_id_data);
+    $result = $apiInstance->updateUserById($api_token, $user_id, $update_user_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->updateUserById: ', $e->getMessage(), PHP_EOL;
@@ -1677,8 +1677,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_user_by_id_data** | [**\Sendbird\Model\UpdateUserByIdData**](../Model/UpdateUserByIdData.md)|  | [optional]
 
 ### Return type
@@ -1701,7 +1701,7 @@ No authorization required
 ## `viewChannelInvitationPreference()`
 
 ```php
-viewChannelInvitationPreference($user_id, $api_token): \Sendbird\Model\ViewChannelInvitationPreferenceResponse
+viewChannelInvitationPreference($api_token, $user_id): \Sendbird\Model\ViewChannelInvitationPreferenceResponse
 ```
 
 View channel invitation preference
@@ -1721,11 +1721,11 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 
 try {
-    $result = $apiInstance->viewChannelInvitationPreference($user_id, $api_token);
+    $result = $apiInstance->viewChannelInvitationPreference($api_token, $user_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->viewChannelInvitationPreference: ', $e->getMessage(), PHP_EOL;
@@ -1736,8 +1736,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1759,7 +1759,7 @@ No authorization required
 ## `viewCountPreferenceOfChannelByUrl()`
 
 ```php
-viewCountPreferenceOfChannelByUrl($user_id, $channel_url, $api_token): \Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse
+viewCountPreferenceOfChannelByUrl($api_token, $user_id, $channel_url): \Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse
 ```
 
 View count preference of a channel
@@ -1779,12 +1779,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewCountPreferenceOfChannelByUrl($user_id, $channel_url, $api_token);
+    $result = $apiInstance->viewCountPreferenceOfChannelByUrl($api_token, $user_id, $channel_url);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->viewCountPreferenceOfChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -1795,9 +1795,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1819,7 +1819,7 @@ No authorization required
 ## `viewNumberOfChannelsByJoinStatus()`
 
 ```php
-viewNumberOfChannelsByJoinStatus($user_id, $api_token, $state): \Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse
+viewNumberOfChannelsByJoinStatus($api_token, $user_id, $state): \Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse
 ```
 
 View number of channels by join status
@@ -1839,12 +1839,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $state = 'state_example'; // string
 
 try {
-    $result = $apiInstance->viewNumberOfChannelsByJoinStatus($user_id, $api_token, $state);
+    $result = $apiInstance->viewNumberOfChannelsByJoinStatus($api_token, $user_id, $state);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->viewNumberOfChannelsByJoinStatus: ', $e->getMessage(), PHP_EOL;
@@ -1855,8 +1855,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **state** | **string**|  | [optional]
 
 ### Return type
@@ -1879,7 +1879,7 @@ No authorization required
 ## `viewNumberOfChannelsWithUnreadMessages()`
 
 ```php
-viewNumberOfChannelsWithUnreadMessages($user_id, $api_token, $custom_types, $super_mode): \Sendbird\Model\ViewNumberOfChannelsWithUnreadMessagesResponse
+viewNumberOfChannelsWithUnreadMessages($api_token, $user_id, $custom_types, $super_mode): \Sendbird\Model\ViewNumberOfChannelsWithUnreadMessagesResponse
 ```
 
 View number of channels with unread messages
@@ -1899,13 +1899,13 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $custom_types = array('custom_types_example'); // string[]
 $super_mode = 'super_mode_example'; // string
 
 try {
-    $result = $apiInstance->viewNumberOfChannelsWithUnreadMessages($user_id, $api_token, $custom_types, $super_mode);
+    $result = $apiInstance->viewNumberOfChannelsWithUnreadMessages($api_token, $user_id, $custom_types, $super_mode);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->viewNumberOfChannelsWithUnreadMessages: ', $e->getMessage(), PHP_EOL;
@@ -1916,8 +1916,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **custom_types** | [**string[]**](../Model/string.md)|  | [optional]
  **super_mode** | **string**|  | [optional]
 
@@ -1941,7 +1941,7 @@ No authorization required
 ## `viewNumberOfUnreadItems()`
 
 ```php
-viewNumberOfUnreadItems($user_id, $api_token, $custom_type, $item_keys): \Sendbird\Model\ViewNumberOfUnreadItemsResponse
+viewNumberOfUnreadItems($api_token, $user_id, $custom_type, $item_keys): \Sendbird\Model\ViewNumberOfUnreadItemsResponse
 ```
 
 View number of unread items
@@ -1961,13 +1961,13 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $custom_type = 'custom_type_example'; // string
 $item_keys = 'item_keys_example'; // string
 
 try {
-    $result = $apiInstance->viewNumberOfUnreadItems($user_id, $api_token, $custom_type, $item_keys);
+    $result = $apiInstance->viewNumberOfUnreadItems($api_token, $user_id, $custom_type, $item_keys);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->viewNumberOfUnreadItems: ', $e->getMessage(), PHP_EOL;
@@ -1978,8 +1978,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **custom_type** | **string**|  | [optional]
  **item_keys** | **string**|  | [optional]
 
@@ -2003,7 +2003,7 @@ No authorization required
 ## `viewNumberOfUnreadMessages()`
 
 ```php
-viewNumberOfUnreadMessages($user_id, $api_token, $custom_types, $super_mode): \Sendbird\Model\ViewNumberOfUnreadMessagesResponse
+viewNumberOfUnreadMessages($api_token, $user_id, $custom_types, $super_mode): \Sendbird\Model\ViewNumberOfUnreadMessagesResponse
 ```
 
 View number of unread messages
@@ -2023,13 +2023,13 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $custom_types = 'custom_types_example'; // string
 $super_mode = 'super_mode_example'; // string
 
 try {
-    $result = $apiInstance->viewNumberOfUnreadMessages($user_id, $api_token, $custom_types, $super_mode);
+    $result = $apiInstance->viewNumberOfUnreadMessages($api_token, $user_id, $custom_types, $super_mode);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->viewNumberOfUnreadMessages: ', $e->getMessage(), PHP_EOL;
@@ -2040,8 +2040,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **custom_types** | **string**|  | [optional]
  **super_mode** | **string**|  | [optional]
 
@@ -2065,7 +2065,7 @@ No authorization required
 ## `viewPushPreferences()`
 
 ```php
-viewPushPreferences($user_id, $api_token): \Sendbird\Model\ViewPushPreferencesResponse
+viewPushPreferences($api_token, $user_id): \Sendbird\Model\ViewPushPreferencesResponse
 ```
 
 View push preferences
@@ -2085,11 +2085,11 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 
 try {
-    $result = $apiInstance->viewPushPreferences($user_id, $api_token);
+    $result = $apiInstance->viewPushPreferences($api_token, $user_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->viewPushPreferences: ', $e->getMessage(), PHP_EOL;
@@ -2100,8 +2100,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -2123,7 +2123,7 @@ No authorization required
 ## `viewPushPreferencesForChannelByUrl()`
 
 ```php
-viewPushPreferencesForChannelByUrl($user_id, $channel_url, $api_token): \Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse
+viewPushPreferencesForChannelByUrl($api_token, $user_id, $channel_url): \Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse
 ```
 
 View push preferences for a channel
@@ -2143,12 +2143,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewPushPreferencesForChannelByUrl($user_id, $channel_url, $api_token);
+    $result = $apiInstance->viewPushPreferencesForChannelByUrl($api_token, $user_id, $channel_url);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->viewPushPreferencesForChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -2159,9 +2159,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -2183,7 +2183,7 @@ No authorization required
 ## `viewUserById()`
 
 ```php
-viewUserById($user_id, $api_token, $include_unread_count, $custom_types, $super_mode): \Sendbird\Model\SendBirdUser
+viewUserById($api_token, $user_id, $include_unread_count, $custom_types, $super_mode): \Sendbird\Model\SendBirdUser
 ```
 
 View a user
@@ -2203,14 +2203,14 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$user_id = 'user_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
 $include_unread_count = True; // bool
 $custom_types = 'custom_types_example'; // string
 $super_mode = 'super_mode_example'; // string
 
 try {
-    $result = $apiInstance->viewUserById($user_id, $api_token, $include_unread_count, $custom_types, $super_mode);
+    $result = $apiInstance->viewUserById($api_token, $user_id, $include_unread_count, $custom_types, $super_mode);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->viewUserById: ', $e->getMessage(), PHP_EOL;
@@ -2221,8 +2221,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **user_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **include_unread_count** | **bool**|  | [optional]
  **custom_types** | **string**|  | [optional]
  **super_mode** | **string**|  | [optional]
@@ -2247,7 +2247,7 @@ No authorization required
 ## `viewWhoOwnsRegistrationOrDeviceTokenByToken()`
 
 ```php
-viewWhoOwnsRegistrationOrDeviceTokenByToken($token_type, $token, $api_token): \Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse
+viewWhoOwnsRegistrationOrDeviceTokenByToken($api_token, $token_type, $token): \Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse
 ```
 
 View who owns a registration or device token
@@ -2267,12 +2267,12 @@ $apiInstance = new Sendbird\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $token_type = 'token_type_example'; // string
 $token = 'token_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewWhoOwnsRegistrationOrDeviceTokenByToken($token_type, $token, $api_token);
+    $result = $apiInstance->viewWhoOwnsRegistrationOrDeviceTokenByToken($api_token, $token_type, $token);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->viewWhoOwnsRegistrationOrDeviceTokenByToken: ', $e->getMessage(), PHP_EOL;
@@ -2283,9 +2283,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **token_type** | **string**|  |
  **token** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 

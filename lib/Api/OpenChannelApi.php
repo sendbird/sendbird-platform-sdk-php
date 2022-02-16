@@ -120,17 +120,17 @@ class OpenChannelApi
      *
      * Ban a user
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data oc_ban_user_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcBanUserResponse
      */
-    public function ocBanUser($channel_url, $api_token = null, $oc_ban_user_data = null)
+    public function ocBanUser($api_token, $channel_url, $oc_ban_user_data = null)
     {
-        list($response) = $this->ocBanUserWithHttpInfo($channel_url, $api_token, $oc_ban_user_data);
+        list($response) = $this->ocBanUserWithHttpInfo($api_token, $channel_url, $oc_ban_user_data);
         return $response;
     }
 
@@ -139,17 +139,17 @@ class OpenChannelApi
      *
      * Ban a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcBanUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocBanUserWithHttpInfo($channel_url, $api_token = null, $oc_ban_user_data = null)
+    public function ocBanUserWithHttpInfo($api_token, $channel_url, $oc_ban_user_data = null)
     {
-        $request = $this->ocBanUserRequest($channel_url, $api_token, $oc_ban_user_data);
+        $request = $this->ocBanUserRequest($api_token, $channel_url, $oc_ban_user_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -234,16 +234,16 @@ class OpenChannelApi
      *
      * Ban a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocBanUserAsync($channel_url, $api_token = null, $oc_ban_user_data = null)
+    public function ocBanUserAsync($api_token, $channel_url, $oc_ban_user_data = null)
     {
-        return $this->ocBanUserAsyncWithHttpInfo($channel_url, $api_token, $oc_ban_user_data)
+        return $this->ocBanUserAsyncWithHttpInfo($api_token, $channel_url, $oc_ban_user_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -256,17 +256,17 @@ class OpenChannelApi
      *
      * Ban a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocBanUserAsyncWithHttpInfo($channel_url, $api_token = null, $oc_ban_user_data = null)
+    public function ocBanUserAsyncWithHttpInfo($api_token, $channel_url, $oc_ban_user_data = null)
     {
         $returnType = '\Sendbird\Model\OcBanUserResponse';
-        $request = $this->ocBanUserRequest($channel_url, $api_token, $oc_ban_user_data);
+        $request = $this->ocBanUserRequest($api_token, $channel_url, $oc_ban_user_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -304,15 +304,21 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocBanUser'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocBanUserRequest($channel_url, $api_token = null, $oc_ban_user_data = null)
+    public function ocBanUserRequest($api_token, $channel_url, $oc_ban_user_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocBanUser'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -411,18 +417,18 @@ class OpenChannelApi
      *
      * Cancel the registration of operators
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string[] $operator_ids operator_ids (required)
-     * @param  string $api_token api_token (optional)
      * @param  bool $delete_all delete_all (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function ocCancelTheRegistrationOfOperators($channel_url, $operator_ids, $api_token = null, $delete_all = null)
+    public function ocCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all = null)
     {
-        $this->ocCancelTheRegistrationOfOperatorsWithHttpInfo($channel_url, $operator_ids, $api_token, $delete_all);
+        $this->ocCancelTheRegistrationOfOperatorsWithHttpInfo($api_token, $channel_url, $operator_ids, $delete_all);
     }
 
     /**
@@ -430,18 +436,18 @@ class OpenChannelApi
      *
      * Cancel the registration of operators
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string[] $operator_ids (required)
-     * @param  string $api_token (optional)
      * @param  bool $delete_all (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocCancelTheRegistrationOfOperatorsWithHttpInfo($channel_url, $operator_ids, $api_token = null, $delete_all = null)
+    public function ocCancelTheRegistrationOfOperatorsWithHttpInfo($api_token, $channel_url, $operator_ids, $delete_all = null)
     {
-        $request = $this->ocCancelTheRegistrationOfOperatorsRequest($channel_url, $operator_ids, $api_token, $delete_all);
+        $request = $this->ocCancelTheRegistrationOfOperatorsRequest($api_token, $channel_url, $operator_ids, $delete_all);
 
         try {
             $options = $this->createHttpClientOption();
@@ -492,17 +498,17 @@ class OpenChannelApi
      *
      * Cancel the registration of operators
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string[] $operator_ids (required)
-     * @param  string $api_token (optional)
      * @param  bool $delete_all (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocCancelTheRegistrationOfOperatorsAsync($channel_url, $operator_ids, $api_token = null, $delete_all = null)
+    public function ocCancelTheRegistrationOfOperatorsAsync($api_token, $channel_url, $operator_ids, $delete_all = null)
     {
-        return $this->ocCancelTheRegistrationOfOperatorsAsyncWithHttpInfo($channel_url, $operator_ids, $api_token, $delete_all)
+        return $this->ocCancelTheRegistrationOfOperatorsAsyncWithHttpInfo($api_token, $channel_url, $operator_ids, $delete_all)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -515,18 +521,18 @@ class OpenChannelApi
      *
      * Cancel the registration of operators
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string[] $operator_ids (required)
-     * @param  string $api_token (optional)
      * @param  bool $delete_all (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocCancelTheRegistrationOfOperatorsAsyncWithHttpInfo($channel_url, $operator_ids, $api_token = null, $delete_all = null)
+    public function ocCancelTheRegistrationOfOperatorsAsyncWithHttpInfo($api_token, $channel_url, $operator_ids, $delete_all = null)
     {
         $returnType = '';
-        $request = $this->ocCancelTheRegistrationOfOperatorsRequest($channel_url, $operator_ids, $api_token, $delete_all);
+        $request = $this->ocCancelTheRegistrationOfOperatorsRequest($api_token, $channel_url, $operator_ids, $delete_all);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -554,16 +560,22 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocCancelTheRegistrationOfOperators'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string[] $operator_ids (required)
-     * @param  string $api_token (optional)
      * @param  bool $delete_all (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocCancelTheRegistrationOfOperatorsRequest($channel_url, $operator_ids, $api_token = null, $delete_all = null)
+    public function ocCancelTheRegistrationOfOperatorsRequest($api_token, $channel_url, $operator_ids, $delete_all = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocCancelTheRegistrationOfOperators'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -684,14 +696,14 @@ class OpenChannelApi
      *
      * Create a channel
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data oc_create_channel_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdOpenChannel
      */
-    public function ocCreateChannel($api_token = null, $oc_create_channel_data = null)
+    public function ocCreateChannel($api_token, $oc_create_channel_data = null)
     {
         list($response) = $this->ocCreateChannelWithHttpInfo($api_token, $oc_create_channel_data);
         return $response;
@@ -702,14 +714,14 @@ class OpenChannelApi
      *
      * Create a channel
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocCreateChannelWithHttpInfo($api_token = null, $oc_create_channel_data = null)
+    public function ocCreateChannelWithHttpInfo($api_token, $oc_create_channel_data = null)
     {
         $request = $this->ocCreateChannelRequest($api_token, $oc_create_channel_data);
 
@@ -796,13 +808,13 @@ class OpenChannelApi
      *
      * Create a channel
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocCreateChannelAsync($api_token = null, $oc_create_channel_data = null)
+    public function ocCreateChannelAsync($api_token, $oc_create_channel_data = null)
     {
         return $this->ocCreateChannelAsyncWithHttpInfo($api_token, $oc_create_channel_data)
             ->then(
@@ -817,13 +829,13 @@ class OpenChannelApi
      *
      * Create a channel
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocCreateChannelAsyncWithHttpInfo($api_token = null, $oc_create_channel_data = null)
+    public function ocCreateChannelAsyncWithHttpInfo($api_token, $oc_create_channel_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdOpenChannel';
         $request = $this->ocCreateChannelRequest($api_token, $oc_create_channel_data);
@@ -864,14 +876,20 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocCreateChannel'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocCreateChannelRequest($api_token = null, $oc_create_channel_data = null)
+    public function ocCreateChannelRequest($api_token, $oc_create_channel_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocCreateChannel'
+            );
+        }
 
         $resourcePath = '/v3/open_channels';
         $formParams = [];
@@ -956,16 +974,16 @@ class OpenChannelApi
      *
      * Delete a channel
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function ocDeleteChannelByUrl($channel_url, $api_token = null)
+    public function ocDeleteChannelByUrl($api_token, $channel_url)
     {
-        $this->ocDeleteChannelByUrlWithHttpInfo($channel_url, $api_token);
+        $this->ocDeleteChannelByUrlWithHttpInfo($api_token, $channel_url);
     }
 
     /**
@@ -973,16 +991,16 @@ class OpenChannelApi
      *
      * Delete a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocDeleteChannelByUrlWithHttpInfo($channel_url, $api_token = null)
+    public function ocDeleteChannelByUrlWithHttpInfo($api_token, $channel_url)
     {
-        $request = $this->ocDeleteChannelByUrlRequest($channel_url, $api_token);
+        $request = $this->ocDeleteChannelByUrlRequest($api_token, $channel_url);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1033,15 +1051,15 @@ class OpenChannelApi
      *
      * Delete a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocDeleteChannelByUrlAsync($channel_url, $api_token = null)
+    public function ocDeleteChannelByUrlAsync($api_token, $channel_url)
     {
-        return $this->ocDeleteChannelByUrlAsyncWithHttpInfo($channel_url, $api_token)
+        return $this->ocDeleteChannelByUrlAsyncWithHttpInfo($api_token, $channel_url)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1054,16 +1072,16 @@ class OpenChannelApi
      *
      * Delete a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocDeleteChannelByUrlAsyncWithHttpInfo($channel_url, $api_token = null)
+    public function ocDeleteChannelByUrlAsyncWithHttpInfo($api_token, $channel_url)
     {
         $returnType = '';
-        $request = $this->ocDeleteChannelByUrlRequest($channel_url, $api_token);
+        $request = $this->ocDeleteChannelByUrlRequest($api_token, $channel_url);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1091,14 +1109,20 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocDeleteChannelByUrl'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocDeleteChannelByUrlRequest($channel_url, $api_token = null)
+    public function ocDeleteChannelByUrlRequest($api_token, $channel_url)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocDeleteChannelByUrl'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -1191,17 +1215,17 @@ class OpenChannelApi
      *
      * Freeze a channel
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data oc_freeze_channel_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdOpenChannel
      */
-    public function ocFreezeChannel($channel_url, $api_token = null, $oc_freeze_channel_data = null)
+    public function ocFreezeChannel($api_token, $channel_url, $oc_freeze_channel_data = null)
     {
-        list($response) = $this->ocFreezeChannelWithHttpInfo($channel_url, $api_token, $oc_freeze_channel_data);
+        list($response) = $this->ocFreezeChannelWithHttpInfo($api_token, $channel_url, $oc_freeze_channel_data);
         return $response;
     }
 
@@ -1210,17 +1234,17 @@ class OpenChannelApi
      *
      * Freeze a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocFreezeChannelWithHttpInfo($channel_url, $api_token = null, $oc_freeze_channel_data = null)
+    public function ocFreezeChannelWithHttpInfo($api_token, $channel_url, $oc_freeze_channel_data = null)
     {
-        $request = $this->ocFreezeChannelRequest($channel_url, $api_token, $oc_freeze_channel_data);
+        $request = $this->ocFreezeChannelRequest($api_token, $channel_url, $oc_freeze_channel_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1305,16 +1329,16 @@ class OpenChannelApi
      *
      * Freeze a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocFreezeChannelAsync($channel_url, $api_token = null, $oc_freeze_channel_data = null)
+    public function ocFreezeChannelAsync($api_token, $channel_url, $oc_freeze_channel_data = null)
     {
-        return $this->ocFreezeChannelAsyncWithHttpInfo($channel_url, $api_token, $oc_freeze_channel_data)
+        return $this->ocFreezeChannelAsyncWithHttpInfo($api_token, $channel_url, $oc_freeze_channel_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1327,17 +1351,17 @@ class OpenChannelApi
      *
      * Freeze a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocFreezeChannelAsyncWithHttpInfo($channel_url, $api_token = null, $oc_freeze_channel_data = null)
+    public function ocFreezeChannelAsyncWithHttpInfo($api_token, $channel_url, $oc_freeze_channel_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdOpenChannel';
-        $request = $this->ocFreezeChannelRequest($channel_url, $api_token, $oc_freeze_channel_data);
+        $request = $this->ocFreezeChannelRequest($api_token, $channel_url, $oc_freeze_channel_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1375,15 +1399,21 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocFreezeChannel'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocFreezeChannelRequest($channel_url, $api_token = null, $oc_freeze_channel_data = null)
+    public function ocFreezeChannelRequest($api_token, $channel_url, $oc_freeze_channel_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocFreezeChannel'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -1482,8 +1512,8 @@ class OpenChannelApi
      *
      * List banned users
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -1491,9 +1521,9 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcListBannedUsersResponse
      */
-    public function ocListBannedUsers($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListBannedUsers($api_token, $channel_url, $token = null, $limit = null)
     {
-        list($response) = $this->ocListBannedUsersWithHttpInfo($channel_url, $api_token, $token, $limit);
+        list($response) = $this->ocListBannedUsersWithHttpInfo($api_token, $channel_url, $token, $limit);
         return $response;
     }
 
@@ -1502,8 +1532,8 @@ class OpenChannelApi
      *
      * List banned users
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -1511,9 +1541,9 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcListBannedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocListBannedUsersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListBannedUsersWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
     {
-        $request = $this->ocListBannedUsersRequest($channel_url, $api_token, $token, $limit);
+        $request = $this->ocListBannedUsersRequest($api_token, $channel_url, $token, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1598,17 +1628,17 @@ class OpenChannelApi
      *
      * List banned users
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListBannedUsersAsync($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListBannedUsersAsync($api_token, $channel_url, $token = null, $limit = null)
     {
-        return $this->ocListBannedUsersAsyncWithHttpInfo($channel_url, $api_token, $token, $limit)
+        return $this->ocListBannedUsersAsyncWithHttpInfo($api_token, $channel_url, $token, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1621,18 +1651,18 @@ class OpenChannelApi
      *
      * List banned users
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListBannedUsersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListBannedUsersAsyncWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\OcListBannedUsersResponse';
-        $request = $this->ocListBannedUsersRequest($channel_url, $api_token, $token, $limit);
+        $request = $this->ocListBannedUsersRequest($api_token, $channel_url, $token, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1670,16 +1700,22 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocListBannedUsers'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocListBannedUsersRequest($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListBannedUsersRequest($api_token, $channel_url, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocListBannedUsers'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -1794,7 +1830,7 @@ class OpenChannelApi
      *
      * List channels
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      * @param  string $custom_types custom_types (optional)
@@ -1808,7 +1844,7 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcListChannelsResponse
      */
-    public function ocListChannels($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
+    public function ocListChannels($api_token, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
         list($response) = $this->ocListChannelsWithHttpInfo($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type);
         return $response;
@@ -1819,7 +1855,7 @@ class OpenChannelApi
      *
      * List channels
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  string $custom_types (optional)
@@ -1833,7 +1869,7 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcListChannelsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocListChannelsWithHttpInfo($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
+    public function ocListChannelsWithHttpInfo($api_token, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
         $request = $this->ocListChannelsRequest($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type);
 
@@ -1920,7 +1956,7 @@ class OpenChannelApi
      *
      * List channels
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  string $custom_types (optional)
@@ -1933,7 +1969,7 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListChannelsAsync($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
+    public function ocListChannelsAsync($api_token, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
         return $this->ocListChannelsAsyncWithHttpInfo($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type)
             ->then(
@@ -1948,7 +1984,7 @@ class OpenChannelApi
      *
      * List channels
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  string $custom_types (optional)
@@ -1961,7 +1997,7 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListChannelsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
+    public function ocListChannelsAsyncWithHttpInfo($api_token, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
         $returnType = '\Sendbird\Model\OcListChannelsResponse';
         $request = $this->ocListChannelsRequest($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type);
@@ -2002,7 +2038,7 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocListChannels'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      * @param  string $custom_types (optional)
@@ -2015,8 +2051,14 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocListChannelsRequest($api_token = null, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
+    public function ocListChannelsRequest($api_token, $token = null, $limit = null, $custom_types = null, $name_contains = null, $url_contains = null, $show_frozen = null, $show_metadata = null, $custom_type = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocListChannels'
+            );
+        }
 
         $resourcePath = '/v3/open_channels';
         $formParams = [];
@@ -2183,8 +2225,8 @@ class OpenChannelApi
      *
      * List muted users
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -2192,9 +2234,9 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcListMutedUsersResponse
      */
-    public function ocListMutedUsers($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListMutedUsers($api_token, $channel_url, $token = null, $limit = null)
     {
-        list($response) = $this->ocListMutedUsersWithHttpInfo($channel_url, $api_token, $token, $limit);
+        list($response) = $this->ocListMutedUsersWithHttpInfo($api_token, $channel_url, $token, $limit);
         return $response;
     }
 
@@ -2203,8 +2245,8 @@ class OpenChannelApi
      *
      * List muted users
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -2212,9 +2254,9 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcListMutedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocListMutedUsersWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListMutedUsersWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
     {
-        $request = $this->ocListMutedUsersRequest($channel_url, $api_token, $token, $limit);
+        $request = $this->ocListMutedUsersRequest($api_token, $channel_url, $token, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2299,17 +2341,17 @@ class OpenChannelApi
      *
      * List muted users
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListMutedUsersAsync($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListMutedUsersAsync($api_token, $channel_url, $token = null, $limit = null)
     {
-        return $this->ocListMutedUsersAsyncWithHttpInfo($channel_url, $api_token, $token, $limit)
+        return $this->ocListMutedUsersAsyncWithHttpInfo($api_token, $channel_url, $token, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2322,18 +2364,18 @@ class OpenChannelApi
      *
      * List muted users
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListMutedUsersAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListMutedUsersAsyncWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\OcListMutedUsersResponse';
-        $request = $this->ocListMutedUsersRequest($channel_url, $api_token, $token, $limit);
+        $request = $this->ocListMutedUsersRequest($api_token, $channel_url, $token, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2371,16 +2413,22 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocListMutedUsers'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocListMutedUsersRequest($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListMutedUsersRequest($api_token, $channel_url, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocListMutedUsers'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -2495,8 +2543,8 @@ class OpenChannelApi
      *
      * List operators
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -2504,9 +2552,9 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcListOperatorsResponse
      */
-    public function ocListOperators($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListOperators($api_token, $channel_url, $token = null, $limit = null)
     {
-        list($response) = $this->ocListOperatorsWithHttpInfo($channel_url, $api_token, $token, $limit);
+        list($response) = $this->ocListOperatorsWithHttpInfo($api_token, $channel_url, $token, $limit);
         return $response;
     }
 
@@ -2515,8 +2563,8 @@ class OpenChannelApi
      *
      * List operators
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -2524,9 +2572,9 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcListOperatorsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocListOperatorsWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListOperatorsWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
     {
-        $request = $this->ocListOperatorsRequest($channel_url, $api_token, $token, $limit);
+        $request = $this->ocListOperatorsRequest($api_token, $channel_url, $token, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2611,17 +2659,17 @@ class OpenChannelApi
      *
      * List operators
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListOperatorsAsync($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListOperatorsAsync($api_token, $channel_url, $token = null, $limit = null)
     {
-        return $this->ocListOperatorsAsyncWithHttpInfo($channel_url, $api_token, $token, $limit)
+        return $this->ocListOperatorsAsyncWithHttpInfo($api_token, $channel_url, $token, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2634,18 +2682,18 @@ class OpenChannelApi
      *
      * List operators
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListOperatorsAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListOperatorsAsyncWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\OcListOperatorsResponse';
-        $request = $this->ocListOperatorsRequest($channel_url, $api_token, $token, $limit);
+        $request = $this->ocListOperatorsRequest($api_token, $channel_url, $token, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2683,16 +2731,22 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocListOperators'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocListOperatorsRequest($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListOperatorsRequest($api_token, $channel_url, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocListOperators'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -2807,8 +2861,8 @@ class OpenChannelApi
      *
      * List participants
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -2816,9 +2870,9 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcListParticipantsResponse
      */
-    public function ocListParticipants($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListParticipants($api_token, $channel_url, $token = null, $limit = null)
     {
-        list($response) = $this->ocListParticipantsWithHttpInfo($channel_url, $api_token, $token, $limit);
+        list($response) = $this->ocListParticipantsWithHttpInfo($api_token, $channel_url, $token, $limit);
         return $response;
     }
 
@@ -2827,8 +2881,8 @@ class OpenChannelApi
      *
      * List participants
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -2836,9 +2890,9 @@ class OpenChannelApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcListParticipantsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocListParticipantsWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListParticipantsWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
     {
-        $request = $this->ocListParticipantsRequest($channel_url, $api_token, $token, $limit);
+        $request = $this->ocListParticipantsRequest($api_token, $channel_url, $token, $limit);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2923,17 +2977,17 @@ class OpenChannelApi
      *
      * List participants
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListParticipantsAsync($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListParticipantsAsync($api_token, $channel_url, $token = null, $limit = null)
     {
-        return $this->ocListParticipantsAsyncWithHttpInfo($channel_url, $api_token, $token, $limit)
+        return $this->ocListParticipantsAsyncWithHttpInfo($api_token, $channel_url, $token, $limit)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2946,18 +3000,18 @@ class OpenChannelApi
      *
      * List participants
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListParticipantsAsyncWithHttpInfo($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListParticipantsAsyncWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\OcListParticipantsResponse';
-        $request = $this->ocListParticipantsRequest($channel_url, $api_token, $token, $limit);
+        $request = $this->ocListParticipantsRequest($api_token, $channel_url, $token, $limit);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2995,16 +3049,22 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocListParticipants'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocListParticipantsRequest($channel_url, $api_token = null, $token = null, $limit = null)
+    public function ocListParticipantsRequest($api_token, $channel_url, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocListParticipants'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -3119,17 +3179,17 @@ class OpenChannelApi
      *
      * Mute a user
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data oc_mute_user_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdOpenChannel
      */
-    public function ocMuteUser($channel_url, $api_token = null, $oc_mute_user_data = null)
+    public function ocMuteUser($api_token, $channel_url, $oc_mute_user_data = null)
     {
-        list($response) = $this->ocMuteUserWithHttpInfo($channel_url, $api_token, $oc_mute_user_data);
+        list($response) = $this->ocMuteUserWithHttpInfo($api_token, $channel_url, $oc_mute_user_data);
         return $response;
     }
 
@@ -3138,17 +3198,17 @@ class OpenChannelApi
      *
      * Mute a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocMuteUserWithHttpInfo($channel_url, $api_token = null, $oc_mute_user_data = null)
+    public function ocMuteUserWithHttpInfo($api_token, $channel_url, $oc_mute_user_data = null)
     {
-        $request = $this->ocMuteUserRequest($channel_url, $api_token, $oc_mute_user_data);
+        $request = $this->ocMuteUserRequest($api_token, $channel_url, $oc_mute_user_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3233,16 +3293,16 @@ class OpenChannelApi
      *
      * Mute a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocMuteUserAsync($channel_url, $api_token = null, $oc_mute_user_data = null)
+    public function ocMuteUserAsync($api_token, $channel_url, $oc_mute_user_data = null)
     {
-        return $this->ocMuteUserAsyncWithHttpInfo($channel_url, $api_token, $oc_mute_user_data)
+        return $this->ocMuteUserAsyncWithHttpInfo($api_token, $channel_url, $oc_mute_user_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3255,17 +3315,17 @@ class OpenChannelApi
      *
      * Mute a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocMuteUserAsyncWithHttpInfo($channel_url, $api_token = null, $oc_mute_user_data = null)
+    public function ocMuteUserAsyncWithHttpInfo($api_token, $channel_url, $oc_mute_user_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdOpenChannel';
-        $request = $this->ocMuteUserRequest($channel_url, $api_token, $oc_mute_user_data);
+        $request = $this->ocMuteUserRequest($api_token, $channel_url, $oc_mute_user_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3303,15 +3363,21 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocMuteUser'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocMuteUserRequest($channel_url, $api_token = null, $oc_mute_user_data = null)
+    public function ocMuteUserRequest($api_token, $channel_url, $oc_mute_user_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocMuteUser'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -3410,17 +3476,17 @@ class OpenChannelApi
      *
      * Register operators
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data oc_register_operators_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function ocRegisterOperators($channel_url, $api_token = null, $oc_register_operators_data = null)
+    public function ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data = null)
     {
-        $this->ocRegisterOperatorsWithHttpInfo($channel_url, $api_token, $oc_register_operators_data);
+        $this->ocRegisterOperatorsWithHttpInfo($api_token, $channel_url, $oc_register_operators_data);
     }
 
     /**
@@ -3428,17 +3494,17 @@ class OpenChannelApi
      *
      * Register operators
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocRegisterOperatorsWithHttpInfo($channel_url, $api_token = null, $oc_register_operators_data = null)
+    public function ocRegisterOperatorsWithHttpInfo($api_token, $channel_url, $oc_register_operators_data = null)
     {
-        $request = $this->ocRegisterOperatorsRequest($channel_url, $api_token, $oc_register_operators_data);
+        $request = $this->ocRegisterOperatorsRequest($api_token, $channel_url, $oc_register_operators_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3489,16 +3555,16 @@ class OpenChannelApi
      *
      * Register operators
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocRegisterOperatorsAsync($channel_url, $api_token = null, $oc_register_operators_data = null)
+    public function ocRegisterOperatorsAsync($api_token, $channel_url, $oc_register_operators_data = null)
     {
-        return $this->ocRegisterOperatorsAsyncWithHttpInfo($channel_url, $api_token, $oc_register_operators_data)
+        return $this->ocRegisterOperatorsAsyncWithHttpInfo($api_token, $channel_url, $oc_register_operators_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3511,17 +3577,17 @@ class OpenChannelApi
      *
      * Register operators
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocRegisterOperatorsAsyncWithHttpInfo($channel_url, $api_token = null, $oc_register_operators_data = null)
+    public function ocRegisterOperatorsAsyncWithHttpInfo($api_token, $channel_url, $oc_register_operators_data = null)
     {
         $returnType = '';
-        $request = $this->ocRegisterOperatorsRequest($channel_url, $api_token, $oc_register_operators_data);
+        $request = $this->ocRegisterOperatorsRequest($api_token, $channel_url, $oc_register_operators_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3549,15 +3615,21 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocRegisterOperators'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocRegisterOperatorsRequest($channel_url, $api_token = null, $oc_register_operators_data = null)
+    public function ocRegisterOperatorsRequest($api_token, $channel_url, $oc_register_operators_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocRegisterOperators'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -3656,17 +3728,17 @@ class OpenChannelApi
      *
      * Unban a user
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function ocUnbanUserById($channel_url, $banned_user_id, $api_token = null)
+    public function ocUnbanUserById($api_token, $channel_url, $banned_user_id)
     {
-        $this->ocUnbanUserByIdWithHttpInfo($channel_url, $banned_user_id, $api_token);
+        $this->ocUnbanUserByIdWithHttpInfo($api_token, $channel_url, $banned_user_id);
     }
 
     /**
@@ -3674,17 +3746,17 @@ class OpenChannelApi
      *
      * Unban a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocUnbanUserByIdWithHttpInfo($channel_url, $banned_user_id, $api_token = null)
+    public function ocUnbanUserByIdWithHttpInfo($api_token, $channel_url, $banned_user_id)
     {
-        $request = $this->ocUnbanUserByIdRequest($channel_url, $banned_user_id, $api_token);
+        $request = $this->ocUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3735,16 +3807,16 @@ class OpenChannelApi
      *
      * Unban a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUnbanUserByIdAsync($channel_url, $banned_user_id, $api_token = null)
+    public function ocUnbanUserByIdAsync($api_token, $channel_url, $banned_user_id)
     {
-        return $this->ocUnbanUserByIdAsyncWithHttpInfo($channel_url, $banned_user_id, $api_token)
+        return $this->ocUnbanUserByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3757,17 +3829,17 @@ class OpenChannelApi
      *
      * Unban a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUnbanUserByIdAsyncWithHttpInfo($channel_url, $banned_user_id, $api_token = null)
+    public function ocUnbanUserByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
     {
         $returnType = '';
-        $request = $this->ocUnbanUserByIdRequest($channel_url, $banned_user_id, $api_token);
+        $request = $this->ocUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3795,15 +3867,21 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocUnbanUserById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocUnbanUserByIdRequest($channel_url, $banned_user_id, $api_token = null)
+    public function ocUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocUnbanUserById'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -3910,17 +3988,17 @@ class OpenChannelApi
      *
      * Unmute a user
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $muted_user_id muted_user_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function ocUnmuteUserById($channel_url, $muted_user_id, $api_token = null)
+    public function ocUnmuteUserById($api_token, $channel_url, $muted_user_id)
     {
-        $this->ocUnmuteUserByIdWithHttpInfo($channel_url, $muted_user_id, $api_token);
+        $this->ocUnmuteUserByIdWithHttpInfo($api_token, $channel_url, $muted_user_id);
     }
 
     /**
@@ -3928,17 +4006,17 @@ class OpenChannelApi
      *
      * Unmute a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocUnmuteUserByIdWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
+    public function ocUnmuteUserByIdWithHttpInfo($api_token, $channel_url, $muted_user_id)
     {
-        $request = $this->ocUnmuteUserByIdRequest($channel_url, $muted_user_id, $api_token);
+        $request = $this->ocUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3989,16 +4067,16 @@ class OpenChannelApi
      *
      * Unmute a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUnmuteUserByIdAsync($channel_url, $muted_user_id, $api_token = null)
+    public function ocUnmuteUserByIdAsync($api_token, $channel_url, $muted_user_id)
     {
-        return $this->ocUnmuteUserByIdAsyncWithHttpInfo($channel_url, $muted_user_id, $api_token)
+        return $this->ocUnmuteUserByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4011,17 +4089,17 @@ class OpenChannelApi
      *
      * Unmute a user
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUnmuteUserByIdAsyncWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
+    public function ocUnmuteUserByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
     {
         $returnType = '';
-        $request = $this->ocUnmuteUserByIdRequest($channel_url, $muted_user_id, $api_token);
+        $request = $this->ocUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4049,15 +4127,21 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocUnmuteUserById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocUnmuteUserByIdRequest($channel_url, $muted_user_id, $api_token = null)
+    public function ocUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocUnmuteUserById'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -4164,18 +4248,18 @@ class OpenChannelApi
      *
      * Update a ban
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data oc_update_ban_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdUser
      */
-    public function ocUpdateBanById($channel_url, $banned_user_id, $api_token = null, $oc_update_ban_by_id_data = null)
+    public function ocUpdateBanById($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data = null)
     {
-        list($response) = $this->ocUpdateBanByIdWithHttpInfo($channel_url, $banned_user_id, $api_token, $oc_update_ban_by_id_data);
+        list($response) = $this->ocUpdateBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data);
         return $response;
     }
 
@@ -4184,18 +4268,18 @@ class OpenChannelApi
      *
      * Update a ban
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocUpdateBanByIdWithHttpInfo($channel_url, $banned_user_id, $api_token = null, $oc_update_ban_by_id_data = null)
+    public function ocUpdateBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data = null)
     {
-        $request = $this->ocUpdateBanByIdRequest($channel_url, $banned_user_id, $api_token, $oc_update_ban_by_id_data);
+        $request = $this->ocUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4280,17 +4364,17 @@ class OpenChannelApi
      *
      * Update a ban
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUpdateBanByIdAsync($channel_url, $banned_user_id, $api_token = null, $oc_update_ban_by_id_data = null)
+    public function ocUpdateBanByIdAsync($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data = null)
     {
-        return $this->ocUpdateBanByIdAsyncWithHttpInfo($channel_url, $banned_user_id, $api_token, $oc_update_ban_by_id_data)
+        return $this->ocUpdateBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4303,18 +4387,18 @@ class OpenChannelApi
      *
      * Update a ban
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUpdateBanByIdAsyncWithHttpInfo($channel_url, $banned_user_id, $api_token = null, $oc_update_ban_by_id_data = null)
+    public function ocUpdateBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdUser';
-        $request = $this->ocUpdateBanByIdRequest($channel_url, $banned_user_id, $api_token, $oc_update_ban_by_id_data);
+        $request = $this->ocUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4352,16 +4436,22 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocUpdateBanById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcUpdateBanByIdData $oc_update_ban_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocUpdateBanByIdRequest($channel_url, $banned_user_id, $api_token = null, $oc_update_ban_by_id_data = null)
+    public function ocUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocUpdateBanById'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -4474,17 +4564,17 @@ class OpenChannelApi
      *
      * Update a channel
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data oc_update_channel_by_url_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdOpenChannel
      */
-    public function ocUpdateChannelByUrl($channel_url, $api_token = null, $oc_update_channel_by_url_data = null)
+    public function ocUpdateChannelByUrl($api_token, $channel_url, $oc_update_channel_by_url_data = null)
     {
-        list($response) = $this->ocUpdateChannelByUrlWithHttpInfo($channel_url, $api_token, $oc_update_channel_by_url_data);
+        list($response) = $this->ocUpdateChannelByUrlWithHttpInfo($api_token, $channel_url, $oc_update_channel_by_url_data);
         return $response;
     }
 
@@ -4493,17 +4583,17 @@ class OpenChannelApi
      *
      * Update a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocUpdateChannelByUrlWithHttpInfo($channel_url, $api_token = null, $oc_update_channel_by_url_data = null)
+    public function ocUpdateChannelByUrlWithHttpInfo($api_token, $channel_url, $oc_update_channel_by_url_data = null)
     {
-        $request = $this->ocUpdateChannelByUrlRequest($channel_url, $api_token, $oc_update_channel_by_url_data);
+        $request = $this->ocUpdateChannelByUrlRequest($api_token, $channel_url, $oc_update_channel_by_url_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4588,16 +4678,16 @@ class OpenChannelApi
      *
      * Update a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUpdateChannelByUrlAsync($channel_url, $api_token = null, $oc_update_channel_by_url_data = null)
+    public function ocUpdateChannelByUrlAsync($api_token, $channel_url, $oc_update_channel_by_url_data = null)
     {
-        return $this->ocUpdateChannelByUrlAsyncWithHttpInfo($channel_url, $api_token, $oc_update_channel_by_url_data)
+        return $this->ocUpdateChannelByUrlAsyncWithHttpInfo($api_token, $channel_url, $oc_update_channel_by_url_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4610,17 +4700,17 @@ class OpenChannelApi
      *
      * Update a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUpdateChannelByUrlAsyncWithHttpInfo($channel_url, $api_token = null, $oc_update_channel_by_url_data = null)
+    public function ocUpdateChannelByUrlAsyncWithHttpInfo($api_token, $channel_url, $oc_update_channel_by_url_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdOpenChannel';
-        $request = $this->ocUpdateChannelByUrlRequest($channel_url, $api_token, $oc_update_channel_by_url_data);
+        $request = $this->ocUpdateChannelByUrlRequest($api_token, $channel_url, $oc_update_channel_by_url_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4658,15 +4748,21 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocUpdateChannelByUrl'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocUpdateChannelByUrlRequest($channel_url, $api_token = null, $oc_update_channel_by_url_data = null)
+    public function ocUpdateChannelByUrlRequest($api_token, $channel_url, $oc_update_channel_by_url_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocUpdateChannelByUrl'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -4765,17 +4861,17 @@ class OpenChannelApi
      *
      * View a ban
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdUser
      */
-    public function ocViewBanById($channel_url, $banned_user_id, $api_token = null)
+    public function ocViewBanById($api_token, $channel_url, $banned_user_id)
     {
-        list($response) = $this->ocViewBanByIdWithHttpInfo($channel_url, $banned_user_id, $api_token);
+        list($response) = $this->ocViewBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id);
         return $response;
     }
 
@@ -4784,17 +4880,17 @@ class OpenChannelApi
      *
      * View a ban
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocViewBanByIdWithHttpInfo($channel_url, $banned_user_id, $api_token = null)
+    public function ocViewBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id)
     {
-        $request = $this->ocViewBanByIdRequest($channel_url, $banned_user_id, $api_token);
+        $request = $this->ocViewBanByIdRequest($api_token, $channel_url, $banned_user_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4879,16 +4975,16 @@ class OpenChannelApi
      *
      * View a ban
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocViewBanByIdAsync($channel_url, $banned_user_id, $api_token = null)
+    public function ocViewBanByIdAsync($api_token, $channel_url, $banned_user_id)
     {
-        return $this->ocViewBanByIdAsyncWithHttpInfo($channel_url, $banned_user_id, $api_token)
+        return $this->ocViewBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4901,17 +4997,17 @@ class OpenChannelApi
      *
      * View a ban
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocViewBanByIdAsyncWithHttpInfo($channel_url, $banned_user_id, $api_token = null)
+    public function ocViewBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
     {
         $returnType = '\Sendbird\Model\SendBirdUser';
-        $request = $this->ocViewBanByIdRequest($channel_url, $banned_user_id, $api_token);
+        $request = $this->ocViewBanByIdRequest($api_token, $channel_url, $banned_user_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4949,15 +5045,21 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocViewBanById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocViewBanByIdRequest($channel_url, $banned_user_id, $api_token = null)
+    public function ocViewBanByIdRequest($api_token, $channel_url, $banned_user_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocViewBanById'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -5064,16 +5166,16 @@ class OpenChannelApi
      *
      * View a channel
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdOpenChannel
      */
-    public function ocViewChannelByUrl($channel_url, $api_token = null)
+    public function ocViewChannelByUrl($api_token, $channel_url)
     {
-        list($response) = $this->ocViewChannelByUrlWithHttpInfo($channel_url, $api_token);
+        list($response) = $this->ocViewChannelByUrlWithHttpInfo($api_token, $channel_url);
         return $response;
     }
 
@@ -5082,16 +5184,16 @@ class OpenChannelApi
      *
      * View a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocViewChannelByUrlWithHttpInfo($channel_url, $api_token = null)
+    public function ocViewChannelByUrlWithHttpInfo($api_token, $channel_url)
     {
-        $request = $this->ocViewChannelByUrlRequest($channel_url, $api_token);
+        $request = $this->ocViewChannelByUrlRequest($api_token, $channel_url);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5176,15 +5278,15 @@ class OpenChannelApi
      *
      * View a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocViewChannelByUrlAsync($channel_url, $api_token = null)
+    public function ocViewChannelByUrlAsync($api_token, $channel_url)
     {
-        return $this->ocViewChannelByUrlAsyncWithHttpInfo($channel_url, $api_token)
+        return $this->ocViewChannelByUrlAsyncWithHttpInfo($api_token, $channel_url)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5197,16 +5299,16 @@ class OpenChannelApi
      *
      * View a channel
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocViewChannelByUrlAsyncWithHttpInfo($channel_url, $api_token = null)
+    public function ocViewChannelByUrlAsyncWithHttpInfo($api_token, $channel_url)
     {
         $returnType = '\Sendbird\Model\SendBirdOpenChannel';
-        $request = $this->ocViewChannelByUrlRequest($channel_url, $api_token);
+        $request = $this->ocViewChannelByUrlRequest($api_token, $channel_url);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5244,14 +5346,20 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocViewChannelByUrl'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocViewChannelByUrlRequest($channel_url, $api_token = null)
+    public function ocViewChannelByUrlRequest($api_token, $channel_url)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocViewChannelByUrl'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
@@ -5344,17 +5452,17 @@ class OpenChannelApi
      *
      * View a mute
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $muted_user_id muted_user_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcViewMuteByIdResponse
      */
-    public function ocViewMuteById($channel_url, $muted_user_id, $api_token = null)
+    public function ocViewMuteById($api_token, $channel_url, $muted_user_id)
     {
-        list($response) = $this->ocViewMuteByIdWithHttpInfo($channel_url, $muted_user_id, $api_token);
+        list($response) = $this->ocViewMuteByIdWithHttpInfo($api_token, $channel_url, $muted_user_id);
         return $response;
     }
 
@@ -5363,17 +5471,17 @@ class OpenChannelApi
      *
      * View a mute
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcViewMuteByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocViewMuteByIdWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
+    public function ocViewMuteByIdWithHttpInfo($api_token, $channel_url, $muted_user_id)
     {
-        $request = $this->ocViewMuteByIdRequest($channel_url, $muted_user_id, $api_token);
+        $request = $this->ocViewMuteByIdRequest($api_token, $channel_url, $muted_user_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5458,16 +5566,16 @@ class OpenChannelApi
      *
      * View a mute
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocViewMuteByIdAsync($channel_url, $muted_user_id, $api_token = null)
+    public function ocViewMuteByIdAsync($api_token, $channel_url, $muted_user_id)
     {
-        return $this->ocViewMuteByIdAsyncWithHttpInfo($channel_url, $muted_user_id, $api_token)
+        return $this->ocViewMuteByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5480,17 +5588,17 @@ class OpenChannelApi
      *
      * View a mute
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocViewMuteByIdAsyncWithHttpInfo($channel_url, $muted_user_id, $api_token = null)
+    public function ocViewMuteByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
     {
         $returnType = '\Sendbird\Model\OcViewMuteByIdResponse';
-        $request = $this->ocViewMuteByIdRequest($channel_url, $muted_user_id, $api_token);
+        $request = $this->ocViewMuteByIdRequest($api_token, $channel_url, $muted_user_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5528,15 +5636,21 @@ class OpenChannelApi
     /**
      * Create request for operation 'ocViewMuteById'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocViewMuteByIdRequest($channel_url, $muted_user_id, $api_token = null)
+    public function ocViewMuteByIdRequest($api_token, $channel_url, $muted_user_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling ocViewMuteById'
+            );
+        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(

@@ -120,17 +120,17 @@ class MigrationApi
      *
      * Migrate messages
      *
+     * @param  string $api_token api_token (required)
      * @param  string $target_channel_url target_channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  object $body body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function migrateMessagesByUrl($target_channel_url, $api_token = null, $body = null)
+    public function migrateMessagesByUrl($api_token, $target_channel_url, $body = null)
     {
-        $this->migrateMessagesByUrlWithHttpInfo($target_channel_url, $api_token, $body);
+        $this->migrateMessagesByUrlWithHttpInfo($api_token, $target_channel_url, $body);
     }
 
     /**
@@ -138,17 +138,17 @@ class MigrationApi
      *
      * Migrate messages
      *
+     * @param  string $api_token (required)
      * @param  string $target_channel_url (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function migrateMessagesByUrlWithHttpInfo($target_channel_url, $api_token = null, $body = null)
+    public function migrateMessagesByUrlWithHttpInfo($api_token, $target_channel_url, $body = null)
     {
-        $request = $this->migrateMessagesByUrlRequest($target_channel_url, $api_token, $body);
+        $request = $this->migrateMessagesByUrlRequest($api_token, $target_channel_url, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -199,16 +199,16 @@ class MigrationApi
      *
      * Migrate messages
      *
+     * @param  string $api_token (required)
      * @param  string $target_channel_url (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function migrateMessagesByUrlAsync($target_channel_url, $api_token = null, $body = null)
+    public function migrateMessagesByUrlAsync($api_token, $target_channel_url, $body = null)
     {
-        return $this->migrateMessagesByUrlAsyncWithHttpInfo($target_channel_url, $api_token, $body)
+        return $this->migrateMessagesByUrlAsyncWithHttpInfo($api_token, $target_channel_url, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -221,17 +221,17 @@ class MigrationApi
      *
      * Migrate messages
      *
+     * @param  string $api_token (required)
      * @param  string $target_channel_url (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function migrateMessagesByUrlAsyncWithHttpInfo($target_channel_url, $api_token = null, $body = null)
+    public function migrateMessagesByUrlAsyncWithHttpInfo($api_token, $target_channel_url, $body = null)
     {
         $returnType = '';
-        $request = $this->migrateMessagesByUrlRequest($target_channel_url, $api_token, $body);
+        $request = $this->migrateMessagesByUrlRequest($api_token, $target_channel_url, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -259,15 +259,21 @@ class MigrationApi
     /**
      * Create request for operation 'migrateMessagesByUrl'
      *
+     * @param  string $api_token (required)
      * @param  string $target_channel_url (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function migrateMessagesByUrlRequest($target_channel_url, $api_token = null, $body = null)
+    public function migrateMessagesByUrlRequest($api_token, $target_channel_url, $body = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling migrateMessagesByUrl'
+            );
+        }
         // verify the required parameter 'target_channel_url' is set
         if ($target_channel_url === null || (is_array($target_channel_url) && count($target_channel_url) === 0)) {
             throw new \InvalidArgumentException(

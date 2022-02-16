@@ -120,18 +120,18 @@ class UserChannelMetadataApi
      *
      * Create a channel metacounter
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data create_channel_metacounter_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,\Sendbird\Model\SendBirdAdditionalProperties>
      */
-    public function createChannelMetacounter($channel_type, $channel_url, $api_token = null, $create_channel_metacounter_data = null)
+    public function createChannelMetacounter($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
     {
-        list($response) = $this->createChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token, $create_channel_metacounter_data);
+        list($response) = $this->createChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
         return $response;
     }
 
@@ -140,18 +140,18 @@ class UserChannelMetadataApi
      *
      * Create a channel metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,\Sendbird\Model\SendBirdAdditionalProperties>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token = null, $create_channel_metacounter_data = null)
+    public function createChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
     {
-        $request = $this->createChannelMetacounterRequest($channel_type, $channel_url, $api_token, $create_channel_metacounter_data);
+        $request = $this->createChannelMetacounterRequest($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -236,17 +236,17 @@ class UserChannelMetadataApi
      *
      * Create a channel metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createChannelMetacounterAsync($channel_type, $channel_url, $api_token = null, $create_channel_metacounter_data = null)
+    public function createChannelMetacounterAsync($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
     {
-        return $this->createChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token, $create_channel_metacounter_data)
+        return $this->createChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -259,18 +259,18 @@ class UserChannelMetadataApi
      *
      * Create a channel metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $create_channel_metacounter_data = null)
+    public function createChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
     {
         $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
-        $request = $this->createChannelMetacounterRequest($channel_type, $channel_url, $api_token, $create_channel_metacounter_data);
+        $request = $this->createChannelMetacounterRequest($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -308,16 +308,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'createChannelMetacounter'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createChannelMetacounterRequest($channel_type, $channel_url, $api_token = null, $create_channel_metacounter_data = null)
+    public function createChannelMetacounterRequest($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling createChannelMetacounter'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -430,18 +436,18 @@ class UserChannelMetadataApi
      *
      * Create a channel metadata
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data create_channel_metadata_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\CreateChannelMetadataResponse
      */
-    public function createChannelMetadata($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
+    public function createChannelMetadata($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
     {
-        list($response) = $this->createChannelMetadataWithHttpInfo($channel_type, $channel_url, $api_token, $create_channel_metadata_data);
+        list($response) = $this->createChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
         return $response;
     }
 
@@ -450,18 +456,18 @@ class UserChannelMetadataApi
      *
      * Create a channel metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\CreateChannelMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createChannelMetadataWithHttpInfo($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
+    public function createChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
     {
-        $request = $this->createChannelMetadataRequest($channel_type, $channel_url, $api_token, $create_channel_metadata_data);
+        $request = $this->createChannelMetadataRequest($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -546,17 +552,17 @@ class UserChannelMetadataApi
      *
      * Create a channel metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createChannelMetadataAsync($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
+    public function createChannelMetadataAsync($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
     {
-        return $this->createChannelMetadataAsyncWithHttpInfo($channel_type, $channel_url, $api_token, $create_channel_metadata_data)
+        return $this->createChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -569,18 +575,18 @@ class UserChannelMetadataApi
      *
      * Create a channel metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createChannelMetadataAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
+    public function createChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
     {
         $returnType = '\Sendbird\Model\CreateChannelMetadataResponse';
-        $request = $this->createChannelMetadataRequest($channel_type, $channel_url, $api_token, $create_channel_metadata_data);
+        $request = $this->createChannelMetadataRequest($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -618,16 +624,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'createChannelMetadata'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createChannelMetadataRequest($channel_type, $channel_url, $api_token = null, $create_channel_metadata_data = null)
+    public function createChannelMetadataRequest($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling createChannelMetadata'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -740,17 +752,17 @@ class UserChannelMetadataApi
      *
      * Create a user metadata
      *
+     * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data create_user_metadata_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\CreateUserMetadataResponse
      */
-    public function createUserMetadata($user_id, $api_token = null, $create_user_metadata_data = null)
+    public function createUserMetadata($api_token, $user_id, $create_user_metadata_data = null)
     {
-        list($response) = $this->createUserMetadataWithHttpInfo($user_id, $api_token, $create_user_metadata_data);
+        list($response) = $this->createUserMetadataWithHttpInfo($api_token, $user_id, $create_user_metadata_data);
         return $response;
     }
 
@@ -759,17 +771,17 @@ class UserChannelMetadataApi
      *
      * Create a user metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\CreateUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createUserMetadataWithHttpInfo($user_id, $api_token = null, $create_user_metadata_data = null)
+    public function createUserMetadataWithHttpInfo($api_token, $user_id, $create_user_metadata_data = null)
     {
-        $request = $this->createUserMetadataRequest($user_id, $api_token, $create_user_metadata_data);
+        $request = $this->createUserMetadataRequest($api_token, $user_id, $create_user_metadata_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -854,16 +866,16 @@ class UserChannelMetadataApi
      *
      * Create a user metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createUserMetadataAsync($user_id, $api_token = null, $create_user_metadata_data = null)
+    public function createUserMetadataAsync($api_token, $user_id, $create_user_metadata_data = null)
     {
-        return $this->createUserMetadataAsyncWithHttpInfo($user_id, $api_token, $create_user_metadata_data)
+        return $this->createUserMetadataAsyncWithHttpInfo($api_token, $user_id, $create_user_metadata_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -876,17 +888,17 @@ class UserChannelMetadataApi
      *
      * Create a user metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createUserMetadataAsyncWithHttpInfo($user_id, $api_token = null, $create_user_metadata_data = null)
+    public function createUserMetadataAsyncWithHttpInfo($api_token, $user_id, $create_user_metadata_data = null)
     {
         $returnType = '\Sendbird\Model\CreateUserMetadataResponse';
-        $request = $this->createUserMetadataRequest($user_id, $api_token, $create_user_metadata_data);
+        $request = $this->createUserMetadataRequest($api_token, $user_id, $create_user_metadata_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -924,15 +936,21 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'createUserMetadata'
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createUserMetadataRequest($user_id, $api_token = null, $create_user_metadata_data = null)
+    public function createUserMetadataRequest($api_token, $user_id, $create_user_metadata_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling createUserMetadata'
+            );
+        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1031,17 +1049,17 @@ class UserChannelMetadataApi
      *
      * Delete a channel metacounter - When deleting all items of a channel metacounter
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChannelMetacounter($channel_type, $channel_url, $api_token = null)
+    public function deleteChannelMetacounter($api_token, $channel_type, $channel_url)
     {
-        $this->deleteChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token);
+        $this->deleteChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url);
     }
 
     /**
@@ -1049,17 +1067,17 @@ class UserChannelMetadataApi
      *
      * Delete a channel metacounter - When deleting all items of a channel metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token = null)
+    public function deleteChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url)
     {
-        $request = $this->deleteChannelMetacounterRequest($channel_type, $channel_url, $api_token);
+        $request = $this->deleteChannelMetacounterRequest($api_token, $channel_type, $channel_url);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1110,16 +1128,16 @@ class UserChannelMetadataApi
      *
      * Delete a channel metacounter - When deleting all items of a channel metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetacounterAsync($channel_type, $channel_url, $api_token = null)
+    public function deleteChannelMetacounterAsync($api_token, $channel_type, $channel_url)
     {
-        return $this->deleteChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token)
+        return $this->deleteChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1132,17 +1150,17 @@ class UserChannelMetadataApi
      *
      * Delete a channel metacounter - When deleting all items of a channel metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null)
+    public function deleteChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url)
     {
         $returnType = '';
-        $request = $this->deleteChannelMetacounterRequest($channel_type, $channel_url, $api_token);
+        $request = $this->deleteChannelMetacounterRequest($api_token, $channel_type, $channel_url);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1170,15 +1188,21 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'deleteChannelMetacounter'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteChannelMetacounterRequest($channel_type, $channel_url, $api_token = null)
+    public function deleteChannelMetacounterRequest($api_token, $channel_type, $channel_url)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteChannelMetacounter'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -1285,18 +1309,18 @@ class UserChannelMetadataApi
      *
      * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $key key (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token = null)
+    public function deleteChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key)
     {
-        $this->deleteChannelMetacounterByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token);
+        $this->deleteChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key);
     }
 
     /**
@@ -1304,18 +1328,18 @@ class UserChannelMetadataApi
      *
      * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChannelMetacounterByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token = null)
+    public function deleteChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key)
     {
-        $request = $this->deleteChannelMetacounterByKeyRequest($channel_type, $channel_url, $key, $api_token);
+        $request = $this->deleteChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1366,17 +1390,17 @@ class UserChannelMetadataApi
      *
      * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetacounterByKeyAsync($channel_type, $channel_url, $key, $api_token = null)
+    public function deleteChannelMetacounterByKeyAsync($api_token, $channel_type, $channel_url, $key)
     {
-        return $this->deleteChannelMetacounterByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token)
+        return $this->deleteChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1389,18 +1413,18 @@ class UserChannelMetadataApi
      *
      * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetacounterByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token = null)
+    public function deleteChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
     {
         $returnType = '';
-        $request = $this->deleteChannelMetacounterByKeyRequest($channel_type, $channel_url, $key, $api_token);
+        $request = $this->deleteChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1428,16 +1452,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'deleteChannelMetacounterByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteChannelMetacounterByKeyRequest($channel_type, $channel_url, $key, $api_token = null)
+    public function deleteChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteChannelMetacounterByKey'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -1558,18 +1588,18 @@ class UserChannelMetadataApi
      *
      * Delete a channel metadata - When deleting all items of a channel metadata
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $key key (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChannelMetadata($channel_type, $channel_url, $api_token = null, $key = null)
+    public function deleteChannelMetadata($api_token, $channel_type, $channel_url, $key = null)
     {
-        $this->deleteChannelMetadataWithHttpInfo($channel_type, $channel_url, $api_token, $key);
+        $this->deleteChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $key);
     }
 
     /**
@@ -1577,18 +1607,18 @@ class UserChannelMetadataApi
      *
      * Delete a channel metadata - When deleting all items of a channel metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChannelMetadataWithHttpInfo($channel_type, $channel_url, $api_token = null, $key = null)
+    public function deleteChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $key = null)
     {
-        $request = $this->deleteChannelMetadataRequest($channel_type, $channel_url, $api_token, $key);
+        $request = $this->deleteChannelMetadataRequest($api_token, $channel_type, $channel_url, $key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1639,17 +1669,17 @@ class UserChannelMetadataApi
      *
      * Delete a channel metadata - When deleting all items of a channel metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetadataAsync($channel_type, $channel_url, $api_token = null, $key = null)
+    public function deleteChannelMetadataAsync($api_token, $channel_type, $channel_url, $key = null)
     {
-        return $this->deleteChannelMetadataAsyncWithHttpInfo($channel_type, $channel_url, $api_token, $key)
+        return $this->deleteChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1662,18 +1692,18 @@ class UserChannelMetadataApi
      *
      * Delete a channel metadata - When deleting all items of a channel metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetadataAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $key = null)
+    public function deleteChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key = null)
     {
         $returnType = '';
-        $request = $this->deleteChannelMetadataRequest($channel_type, $channel_url, $api_token, $key);
+        $request = $this->deleteChannelMetadataRequest($api_token, $channel_type, $channel_url, $key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1701,16 +1731,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'deleteChannelMetadata'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteChannelMetadataRequest($channel_type, $channel_url, $api_token = null, $key = null)
+    public function deleteChannelMetadataRequest($api_token, $channel_type, $channel_url, $key = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteChannelMetadata'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -1828,18 +1864,18 @@ class UserChannelMetadataApi
      *
      * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $key key (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChannelMetadataByKey($channel_type, $channel_url, $key, $api_token = null)
+    public function deleteChannelMetadataByKey($api_token, $channel_type, $channel_url, $key)
     {
-        $this->deleteChannelMetadataByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token);
+        $this->deleteChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key);
     }
 
     /**
@@ -1847,18 +1883,18 @@ class UserChannelMetadataApi
      *
      * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChannelMetadataByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token = null)
+    public function deleteChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key)
     {
-        $request = $this->deleteChannelMetadataByKeyRequest($channel_type, $channel_url, $key, $api_token);
+        $request = $this->deleteChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1909,17 +1945,17 @@ class UserChannelMetadataApi
      *
      * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetadataByKeyAsync($channel_type, $channel_url, $key, $api_token = null)
+    public function deleteChannelMetadataByKeyAsync($api_token, $channel_type, $channel_url, $key)
     {
-        return $this->deleteChannelMetadataByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token)
+        return $this->deleteChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1932,18 +1968,18 @@ class UserChannelMetadataApi
      *
      * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetadataByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token = null)
+    public function deleteChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
     {
         $returnType = '';
-        $request = $this->deleteChannelMetadataByKeyRequest($channel_type, $channel_url, $key, $api_token);
+        $request = $this->deleteChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1971,16 +2007,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'deleteChannelMetadataByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteChannelMetadataByKeyRequest($channel_type, $channel_url, $key, $api_token = null)
+    public function deleteChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteChannelMetadataByKey'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -2101,17 +2143,17 @@ class UserChannelMetadataApi
      *
      * Delete a user metadata - When deleting all items of a user metadata
      *
+     * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $key key (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteUserMetadata($user_id, $api_token = null, $key = null)
+    public function deleteUserMetadata($api_token, $user_id, $key = null)
     {
-        $this->deleteUserMetadataWithHttpInfo($user_id, $api_token, $key);
+        $this->deleteUserMetadataWithHttpInfo($api_token, $user_id, $key);
     }
 
     /**
@@ -2119,17 +2161,17 @@ class UserChannelMetadataApi
      *
      * Delete a user metadata - When deleting all items of a user metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteUserMetadataWithHttpInfo($user_id, $api_token = null, $key = null)
+    public function deleteUserMetadataWithHttpInfo($api_token, $user_id, $key = null)
     {
-        $request = $this->deleteUserMetadataRequest($user_id, $api_token, $key);
+        $request = $this->deleteUserMetadataRequest($api_token, $user_id, $key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2180,16 +2222,16 @@ class UserChannelMetadataApi
      *
      * Delete a user metadata - When deleting all items of a user metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserMetadataAsync($user_id, $api_token = null, $key = null)
+    public function deleteUserMetadataAsync($api_token, $user_id, $key = null)
     {
-        return $this->deleteUserMetadataAsyncWithHttpInfo($user_id, $api_token, $key)
+        return $this->deleteUserMetadataAsyncWithHttpInfo($api_token, $user_id, $key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2202,17 +2244,17 @@ class UserChannelMetadataApi
      *
      * Delete a user metadata - When deleting all items of a user metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserMetadataAsyncWithHttpInfo($user_id, $api_token = null, $key = null)
+    public function deleteUserMetadataAsyncWithHttpInfo($api_token, $user_id, $key = null)
     {
         $returnType = '';
-        $request = $this->deleteUserMetadataRequest($user_id, $api_token, $key);
+        $request = $this->deleteUserMetadataRequest($api_token, $user_id, $key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2240,15 +2282,21 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'deleteUserMetadata'
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteUserMetadataRequest($user_id, $api_token = null, $key = null)
+    public function deleteUserMetadataRequest($api_token, $user_id, $key = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteUserMetadata'
+            );
+        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2352,17 +2400,17 @@ class UserChannelMetadataApi
      *
      * Delete a user metadata - When deleting a specific item of a user metadata by its key
      *
+     * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $key key (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteUserMetadataByKey($user_id, $key, $api_token = null)
+    public function deleteUserMetadataByKey($api_token, $user_id, $key)
     {
-        $this->deleteUserMetadataByKeyWithHttpInfo($user_id, $key, $api_token);
+        $this->deleteUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key);
     }
 
     /**
@@ -2370,17 +2418,17 @@ class UserChannelMetadataApi
      *
      * Delete a user metadata - When deleting a specific item of a user metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteUserMetadataByKeyWithHttpInfo($user_id, $key, $api_token = null)
+    public function deleteUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key)
     {
-        $request = $this->deleteUserMetadataByKeyRequest($user_id, $key, $api_token);
+        $request = $this->deleteUserMetadataByKeyRequest($api_token, $user_id, $key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2431,16 +2479,16 @@ class UserChannelMetadataApi
      *
      * Delete a user metadata - When deleting a specific item of a user metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserMetadataByKeyAsync($user_id, $key, $api_token = null)
+    public function deleteUserMetadataByKeyAsync($api_token, $user_id, $key)
     {
-        return $this->deleteUserMetadataByKeyAsyncWithHttpInfo($user_id, $key, $api_token)
+        return $this->deleteUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2453,17 +2501,17 @@ class UserChannelMetadataApi
      *
      * Delete a user metadata - When deleting a specific item of a user metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserMetadataByKeyAsyncWithHttpInfo($user_id, $key, $api_token = null)
+    public function deleteUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key)
     {
         $returnType = '';
-        $request = $this->deleteUserMetadataByKeyRequest($user_id, $key, $api_token);
+        $request = $this->deleteUserMetadataByKeyRequest($api_token, $user_id, $key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2491,15 +2539,21 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'deleteUserMetadataByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteUserMetadataByKeyRequest($user_id, $key, $api_token = null)
+    public function deleteUserMetadataByKeyRequest($api_token, $user_id, $key)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteUserMetadataByKey'
+            );
+        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2606,18 +2660,18 @@ class UserChannelMetadataApi
      *
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data update_channel_metacounter_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,\Sendbird\Model\SendBirdAdditionalProperties>
      */
-    public function updateChannelMetacounter($channel_type, $channel_url, $api_token = null, $update_channel_metacounter_data = null)
+    public function updateChannelMetacounter($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
     {
-        list($response) = $this->updateChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token, $update_channel_metacounter_data);
+        list($response) = $this->updateChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
         return $response;
     }
 
@@ -2626,18 +2680,18 @@ class UserChannelMetadataApi
      *
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,\Sendbird\Model\SendBirdAdditionalProperties>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token = null, $update_channel_metacounter_data = null)
+    public function updateChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
     {
-        $request = $this->updateChannelMetacounterRequest($channel_type, $channel_url, $api_token, $update_channel_metacounter_data);
+        $request = $this->updateChannelMetacounterRequest($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2722,17 +2776,17 @@ class UserChannelMetadataApi
      *
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetacounterAsync($channel_type, $channel_url, $api_token = null, $update_channel_metacounter_data = null)
+    public function updateChannelMetacounterAsync($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
     {
-        return $this->updateChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token, $update_channel_metacounter_data)
+        return $this->updateChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2745,18 +2799,18 @@ class UserChannelMetadataApi
      *
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $update_channel_metacounter_data = null)
+    public function updateChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
     {
         $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
-        $request = $this->updateChannelMetacounterRequest($channel_type, $channel_url, $api_token, $update_channel_metacounter_data);
+        $request = $this->updateChannelMetacounterRequest($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2794,16 +2848,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'updateChannelMetacounter'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateChannelMetacounterRequest($channel_type, $channel_url, $api_token = null, $update_channel_metacounter_data = null)
+    public function updateChannelMetacounterRequest($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateChannelMetacounter'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -2916,19 +2976,19 @@ class UserChannelMetadataApi
      *
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $key key (required)
-     * @param  string $api_token api_token (optional)
      * @param  object $body body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function updateChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token = null, $body = null)
+    public function updateChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key, $body = null)
     {
-        list($response) = $this->updateChannelMetacounterByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token, $body);
+        list($response) = $this->updateChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body);
         return $response;
     }
 
@@ -2937,19 +2997,19 @@ class UserChannelMetadataApi
      *
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChannelMetacounterByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token = null, $body = null)
+    public function updateChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
     {
-        $request = $this->updateChannelMetacounterByKeyRequest($channel_type, $channel_url, $key, $api_token, $body);
+        $request = $this->updateChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3034,18 +3094,18 @@ class UserChannelMetadataApi
      *
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetacounterByKeyAsync($channel_type, $channel_url, $key, $api_token = null, $body = null)
+    public function updateChannelMetacounterByKeyAsync($api_token, $channel_type, $channel_url, $key, $body = null)
     {
-        return $this->updateChannelMetacounterByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token, $body)
+        return $this->updateChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3058,19 +3118,19 @@ class UserChannelMetadataApi
      *
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetacounterByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token = null, $body = null)
+    public function updateChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
     {
         $returnType = 'array<string,string>';
-        $request = $this->updateChannelMetacounterByKeyRequest($channel_type, $channel_url, $key, $api_token, $body);
+        $request = $this->updateChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3108,17 +3168,23 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'updateChannelMetacounterByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateChannelMetacounterByKeyRequest($channel_type, $channel_url, $key, $api_token = null, $body = null)
+    public function updateChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key, $body = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateChannelMetacounterByKey'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -3245,18 +3311,18 @@ class UserChannelMetadataApi
      *
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data update_channel_metadata_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function updateChannelMetadata($channel_type, $channel_url, $api_token = null, $update_channel_metadata_data = null)
+    public function updateChannelMetadata($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
     {
-        list($response) = $this->updateChannelMetadataWithHttpInfo($channel_type, $channel_url, $api_token, $update_channel_metadata_data);
+        list($response) = $this->updateChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
         return $response;
     }
 
@@ -3265,18 +3331,18 @@ class UserChannelMetadataApi
      *
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChannelMetadataWithHttpInfo($channel_type, $channel_url, $api_token = null, $update_channel_metadata_data = null)
+    public function updateChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
     {
-        $request = $this->updateChannelMetadataRequest($channel_type, $channel_url, $api_token, $update_channel_metadata_data);
+        $request = $this->updateChannelMetadataRequest($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3361,17 +3427,17 @@ class UserChannelMetadataApi
      *
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetadataAsync($channel_type, $channel_url, $api_token = null, $update_channel_metadata_data = null)
+    public function updateChannelMetadataAsync($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
     {
-        return $this->updateChannelMetadataAsyncWithHttpInfo($channel_type, $channel_url, $api_token, $update_channel_metadata_data)
+        return $this->updateChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3384,18 +3450,18 @@ class UserChannelMetadataApi
      *
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetadataAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $update_channel_metadata_data = null)
+    public function updateChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
     {
         $returnType = 'array<string,string>';
-        $request = $this->updateChannelMetadataRequest($channel_type, $channel_url, $api_token, $update_channel_metadata_data);
+        $request = $this->updateChannelMetadataRequest($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3433,16 +3499,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'updateChannelMetadata'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateChannelMetadataRequest($channel_type, $channel_url, $api_token = null, $update_channel_metadata_data = null)
+    public function updateChannelMetadataRequest($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateChannelMetadata'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -3555,19 +3627,19 @@ class UserChannelMetadataApi
      *
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $key key (required)
-     * @param  string $api_token api_token (optional)
      * @param  object $body body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function updateChannelMetadataByKey($channel_type, $channel_url, $key, $api_token = null, $body = null)
+    public function updateChannelMetadataByKey($api_token, $channel_type, $channel_url, $key, $body = null)
     {
-        list($response) = $this->updateChannelMetadataByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token, $body);
+        list($response) = $this->updateChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body);
         return $response;
     }
 
@@ -3576,19 +3648,19 @@ class UserChannelMetadataApi
      *
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChannelMetadataByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token = null, $body = null)
+    public function updateChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
     {
-        $request = $this->updateChannelMetadataByKeyRequest($channel_type, $channel_url, $key, $api_token, $body);
+        $request = $this->updateChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3673,18 +3745,18 @@ class UserChannelMetadataApi
      *
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetadataByKeyAsync($channel_type, $channel_url, $key, $api_token = null, $body = null)
+    public function updateChannelMetadataByKeyAsync($api_token, $channel_type, $channel_url, $key, $body = null)
     {
-        return $this->updateChannelMetadataByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token, $body)
+        return $this->updateChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3697,19 +3769,19 @@ class UserChannelMetadataApi
      *
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetadataByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token = null, $body = null)
+    public function updateChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
     {
         $returnType = 'array<string,string>';
-        $request = $this->updateChannelMetadataByKeyRequest($channel_type, $channel_url, $key, $api_token, $body);
+        $request = $this->updateChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3747,17 +3819,23 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'updateChannelMetadataByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateChannelMetadataByKeyRequest($channel_type, $channel_url, $key, $api_token = null, $body = null)
+    public function updateChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key, $body = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateChannelMetadataByKey'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -3884,17 +3962,17 @@ class UserChannelMetadataApi
      *
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
      *
+     * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data update_user_metadata_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateUserMetadataResponse
      */
-    public function updateUserMetadata($user_id, $api_token = null, $update_user_metadata_data = null)
+    public function updateUserMetadata($api_token, $user_id, $update_user_metadata_data = null)
     {
-        list($response) = $this->updateUserMetadataWithHttpInfo($user_id, $api_token, $update_user_metadata_data);
+        list($response) = $this->updateUserMetadataWithHttpInfo($api_token, $user_id, $update_user_metadata_data);
         return $response;
     }
 
@@ -3903,17 +3981,17 @@ class UserChannelMetadataApi
      *
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserMetadataWithHttpInfo($user_id, $api_token = null, $update_user_metadata_data = null)
+    public function updateUserMetadataWithHttpInfo($api_token, $user_id, $update_user_metadata_data = null)
     {
-        $request = $this->updateUserMetadataRequest($user_id, $api_token, $update_user_metadata_data);
+        $request = $this->updateUserMetadataRequest($api_token, $user_id, $update_user_metadata_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3998,16 +4076,16 @@ class UserChannelMetadataApi
      *
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserMetadataAsync($user_id, $api_token = null, $update_user_metadata_data = null)
+    public function updateUserMetadataAsync($api_token, $user_id, $update_user_metadata_data = null)
     {
-        return $this->updateUserMetadataAsyncWithHttpInfo($user_id, $api_token, $update_user_metadata_data)
+        return $this->updateUserMetadataAsyncWithHttpInfo($api_token, $user_id, $update_user_metadata_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4020,17 +4098,17 @@ class UserChannelMetadataApi
      *
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserMetadataAsyncWithHttpInfo($user_id, $api_token = null, $update_user_metadata_data = null)
+    public function updateUserMetadataAsyncWithHttpInfo($api_token, $user_id, $update_user_metadata_data = null)
     {
         $returnType = '\Sendbird\Model\UpdateUserMetadataResponse';
-        $request = $this->updateUserMetadataRequest($user_id, $api_token, $update_user_metadata_data);
+        $request = $this->updateUserMetadataRequest($api_token, $user_id, $update_user_metadata_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4068,15 +4146,21 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'updateUserMetadata'
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateUserMetadataRequest($user_id, $api_token = null, $update_user_metadata_data = null)
+    public function updateUserMetadataRequest($api_token, $user_id, $update_user_metadata_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateUserMetadata'
+            );
+        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -4175,18 +4259,18 @@ class UserChannelMetadataApi
      *
      * Update a user metadata - When updating a specific item of a user metadata by its key
      *
+     * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $key key (required)
-     * @param  string $api_token api_token (optional)
      * @param  object $body body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function updateUserMetadataByKey($user_id, $key, $api_token = null, $body = null)
+    public function updateUserMetadataByKey($api_token, $user_id, $key, $body = null)
     {
-        list($response) = $this->updateUserMetadataByKeyWithHttpInfo($user_id, $key, $api_token, $body);
+        list($response) = $this->updateUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key, $body);
         return $response;
     }
 
@@ -4195,18 +4279,18 @@ class UserChannelMetadataApi
      *
      * Update a user metadata - When updating a specific item of a user metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserMetadataByKeyWithHttpInfo($user_id, $key, $api_token = null, $body = null)
+    public function updateUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key, $body = null)
     {
-        $request = $this->updateUserMetadataByKeyRequest($user_id, $key, $api_token, $body);
+        $request = $this->updateUserMetadataByKeyRequest($api_token, $user_id, $key, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4291,17 +4375,17 @@ class UserChannelMetadataApi
      *
      * Update a user metadata - When updating a specific item of a user metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserMetadataByKeyAsync($user_id, $key, $api_token = null, $body = null)
+    public function updateUserMetadataByKeyAsync($api_token, $user_id, $key, $body = null)
     {
-        return $this->updateUserMetadataByKeyAsyncWithHttpInfo($user_id, $key, $api_token, $body)
+        return $this->updateUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4314,18 +4398,18 @@ class UserChannelMetadataApi
      *
      * Update a user metadata - When updating a specific item of a user metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserMetadataByKeyAsyncWithHttpInfo($user_id, $key, $api_token = null, $body = null)
+    public function updateUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key, $body = null)
     {
         $returnType = 'array<string,string>';
-        $request = $this->updateUserMetadataByKeyRequest($user_id, $key, $api_token, $body);
+        $request = $this->updateUserMetadataByKeyRequest($api_token, $user_id, $key, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4363,16 +4447,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'updateUserMetadataByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateUserMetadataByKeyRequest($user_id, $key, $api_token = null, $body = null)
+    public function updateUserMetadataByKeyRequest($api_token, $user_id, $key, $body = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateUserMetadataByKey'
+            );
+        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -4485,9 +4575,9 @@ class UserChannelMetadataApi
      *
      * View a channel metacounter - When retrieving all items of a channel metacounter
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $key key (optional)
      * @param  string[] $keys keys (optional)
      *
@@ -4495,9 +4585,9 @@ class UserChannelMetadataApi
      * @throws \InvalidArgumentException
      * @return array<string,\Sendbird\Model\SendBirdAdditionalProperties>
      */
-    public function viewChannelMetacounter($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
+    public function viewChannelMetacounter($api_token, $channel_type, $channel_url, $key = null, $keys = null)
     {
-        list($response) = $this->viewChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token, $key, $keys);
+        list($response) = $this->viewChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $key, $keys);
         return $response;
     }
 
@@ -4506,9 +4596,9 @@ class UserChannelMetadataApi
      *
      * View a channel metacounter - When retrieving all items of a channel metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
@@ -4516,9 +4606,9 @@ class UserChannelMetadataApi
      * @throws \InvalidArgumentException
      * @return array of array<string,\Sendbird\Model\SendBirdAdditionalProperties>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewChannelMetacounterWithHttpInfo($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
+    public function viewChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $key = null, $keys = null)
     {
-        $request = $this->viewChannelMetacounterRequest($channel_type, $channel_url, $api_token, $key, $keys);
+        $request = $this->viewChannelMetacounterRequest($api_token, $channel_type, $channel_url, $key, $keys);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4603,18 +4693,18 @@ class UserChannelMetadataApi
      *
      * View a channel metacounter - When retrieving all items of a channel metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetacounterAsync($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
+    public function viewChannelMetacounterAsync($api_token, $channel_type, $channel_url, $key = null, $keys = null)
     {
-        return $this->viewChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token, $key, $keys)
+        return $this->viewChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $keys)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4627,19 +4717,19 @@ class UserChannelMetadataApi
      *
      * View a channel metacounter - When retrieving all items of a channel metacounter
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetacounterAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
+    public function viewChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key = null, $keys = null)
     {
         $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
-        $request = $this->viewChannelMetacounterRequest($channel_type, $channel_url, $api_token, $key, $keys);
+        $request = $this->viewChannelMetacounterRequest($api_token, $channel_type, $channel_url, $key, $keys);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4677,17 +4767,23 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'viewChannelMetacounter'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewChannelMetacounterRequest($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
+    public function viewChannelMetacounterRequest($api_token, $channel_type, $channel_url, $key = null, $keys = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewChannelMetacounter'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -4816,18 +4912,18 @@ class UserChannelMetadataApi
      *
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $key key (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,\Sendbird\Model\SendBirdAdditionalProperties>
      */
-    public function viewChannelMetacounterByKey($channel_type, $channel_url, $key, $api_token = null)
+    public function viewChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key)
     {
-        list($response) = $this->viewChannelMetacounterByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token);
+        list($response) = $this->viewChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key);
         return $response;
     }
 
@@ -4836,18 +4932,18 @@ class UserChannelMetadataApi
      *
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,\Sendbird\Model\SendBirdAdditionalProperties>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewChannelMetacounterByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token = null)
+    public function viewChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key)
     {
-        $request = $this->viewChannelMetacounterByKeyRequest($channel_type, $channel_url, $key, $api_token);
+        $request = $this->viewChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4932,17 +5028,17 @@ class UserChannelMetadataApi
      *
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetacounterByKeyAsync($channel_type, $channel_url, $key, $api_token = null)
+    public function viewChannelMetacounterByKeyAsync($api_token, $channel_type, $channel_url, $key)
     {
-        return $this->viewChannelMetacounterByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token)
+        return $this->viewChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4955,18 +5051,18 @@ class UserChannelMetadataApi
      *
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetacounterByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token = null)
+    public function viewChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
     {
         $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
-        $request = $this->viewChannelMetacounterByKeyRequest($channel_type, $channel_url, $key, $api_token);
+        $request = $this->viewChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5004,16 +5100,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'viewChannelMetacounterByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewChannelMetacounterByKeyRequest($channel_type, $channel_url, $key, $api_token = null)
+    public function viewChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewChannelMetacounterByKey'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -5134,9 +5236,9 @@ class UserChannelMetadataApi
      *
      * View a channel metadata - When retrieving all items of a channel metadata
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $key key (optional)
      * @param  string[] $keys keys (optional)
      *
@@ -5144,9 +5246,9 @@ class UserChannelMetadataApi
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function viewChannelMetadata($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
+    public function viewChannelMetadata($api_token, $channel_type, $channel_url, $key = null, $keys = null)
     {
-        list($response) = $this->viewChannelMetadataWithHttpInfo($channel_type, $channel_url, $api_token, $key, $keys);
+        list($response) = $this->viewChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $key, $keys);
         return $response;
     }
 
@@ -5155,9 +5257,9 @@ class UserChannelMetadataApi
      *
      * View a channel metadata - When retrieving all items of a channel metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
@@ -5165,9 +5267,9 @@ class UserChannelMetadataApi
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewChannelMetadataWithHttpInfo($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
+    public function viewChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $key = null, $keys = null)
     {
-        $request = $this->viewChannelMetadataRequest($channel_type, $channel_url, $api_token, $key, $keys);
+        $request = $this->viewChannelMetadataRequest($api_token, $channel_type, $channel_url, $key, $keys);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5252,18 +5354,18 @@ class UserChannelMetadataApi
      *
      * View a channel metadata - When retrieving all items of a channel metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetadataAsync($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
+    public function viewChannelMetadataAsync($api_token, $channel_type, $channel_url, $key = null, $keys = null)
     {
-        return $this->viewChannelMetadataAsyncWithHttpInfo($channel_type, $channel_url, $api_token, $key, $keys)
+        return $this->viewChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $keys)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5276,19 +5378,19 @@ class UserChannelMetadataApi
      *
      * View a channel metadata - When retrieving all items of a channel metadata
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetadataAsyncWithHttpInfo($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
+    public function viewChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key = null, $keys = null)
     {
         $returnType = 'array<string,string>';
-        $request = $this->viewChannelMetadataRequest($channel_type, $channel_url, $api_token, $key, $keys);
+        $request = $this->viewChannelMetadataRequest($api_token, $channel_type, $channel_url, $key, $keys);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5326,17 +5428,23 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'viewChannelMetadata'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewChannelMetadataRequest($channel_type, $channel_url, $api_token = null, $key = null, $keys = null)
+    public function viewChannelMetadataRequest($api_token, $channel_type, $channel_url, $key = null, $keys = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewChannelMetadata'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -5465,18 +5573,18 @@ class UserChannelMetadataApi
      *
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
      *
+     * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $key key (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function viewChannelMetadataByKey($channel_type, $channel_url, $key, $api_token = null)
+    public function viewChannelMetadataByKey($api_token, $channel_type, $channel_url, $key)
     {
-        list($response) = $this->viewChannelMetadataByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token);
+        list($response) = $this->viewChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key);
         return $response;
     }
 
@@ -5485,18 +5593,18 @@ class UserChannelMetadataApi
      *
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewChannelMetadataByKeyWithHttpInfo($channel_type, $channel_url, $key, $api_token = null)
+    public function viewChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key)
     {
-        $request = $this->viewChannelMetadataByKeyRequest($channel_type, $channel_url, $key, $api_token);
+        $request = $this->viewChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5581,17 +5689,17 @@ class UserChannelMetadataApi
      *
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetadataByKeyAsync($channel_type, $channel_url, $key, $api_token = null)
+    public function viewChannelMetadataByKeyAsync($api_token, $channel_type, $channel_url, $key)
     {
-        return $this->viewChannelMetadataByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token)
+        return $this->viewChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5604,18 +5712,18 @@ class UserChannelMetadataApi
      *
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetadataByKeyAsyncWithHttpInfo($channel_type, $channel_url, $key, $api_token = null)
+    public function viewChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
     {
         $returnType = 'array<string,string>';
-        $request = $this->viewChannelMetadataByKeyRequest($channel_type, $channel_url, $key, $api_token);
+        $request = $this->viewChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5653,16 +5761,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'viewChannelMetadataByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewChannelMetadataByKeyRequest($channel_type, $channel_url, $key, $api_token = null)
+    public function viewChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewChannelMetadataByKey'
+            );
+        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
@@ -5783,8 +5897,8 @@ class UserChannelMetadataApi
      *
      * View a user metadata - When retrieving all items of a user metadata
      *
+     * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $key key (optional)
      * @param  string[] $keys keys (optional)
      *
@@ -5792,9 +5906,9 @@ class UserChannelMetadataApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewUserMetadataResponse
      */
-    public function viewUserMetadata($user_id, $api_token = null, $key = null, $keys = null)
+    public function viewUserMetadata($api_token, $user_id, $key = null, $keys = null)
     {
-        list($response) = $this->viewUserMetadataWithHttpInfo($user_id, $api_token, $key, $keys);
+        list($response) = $this->viewUserMetadataWithHttpInfo($api_token, $user_id, $key, $keys);
         return $response;
     }
 
@@ -5803,8 +5917,8 @@ class UserChannelMetadataApi
      *
      * View a user metadata - When retrieving all items of a user metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
@@ -5812,9 +5926,9 @@ class UserChannelMetadataApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewUserMetadataWithHttpInfo($user_id, $api_token = null, $key = null, $keys = null)
+    public function viewUserMetadataWithHttpInfo($api_token, $user_id, $key = null, $keys = null)
     {
-        $request = $this->viewUserMetadataRequest($user_id, $api_token, $key, $keys);
+        $request = $this->viewUserMetadataRequest($api_token, $user_id, $key, $keys);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5899,17 +6013,17 @@ class UserChannelMetadataApi
      *
      * View a user metadata - When retrieving all items of a user metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewUserMetadataAsync($user_id, $api_token = null, $key = null, $keys = null)
+    public function viewUserMetadataAsync($api_token, $user_id, $key = null, $keys = null)
     {
-        return $this->viewUserMetadataAsyncWithHttpInfo($user_id, $api_token, $key, $keys)
+        return $this->viewUserMetadataAsyncWithHttpInfo($api_token, $user_id, $key, $keys)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5922,18 +6036,18 @@ class UserChannelMetadataApi
      *
      * View a user metadata - When retrieving all items of a user metadata
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewUserMetadataAsyncWithHttpInfo($user_id, $api_token = null, $key = null, $keys = null)
+    public function viewUserMetadataAsyncWithHttpInfo($api_token, $user_id, $key = null, $keys = null)
     {
         $returnType = '\Sendbird\Model\ViewUserMetadataResponse';
-        $request = $this->viewUserMetadataRequest($user_id, $api_token, $key, $keys);
+        $request = $this->viewUserMetadataRequest($api_token, $user_id, $key, $keys);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5971,16 +6085,22 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'viewUserMetadata'
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
-     * @param  string $api_token (optional)
      * @param  string $key (optional)
      * @param  string[] $keys (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewUserMetadataRequest($user_id, $api_token = null, $key = null, $keys = null)
+    public function viewUserMetadataRequest($api_token, $user_id, $key = null, $keys = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewUserMetadata'
+            );
+        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -6095,17 +6215,17 @@ class UserChannelMetadataApi
      *
      * View a user metadata - When retrieving a specific item of a user metadata by its key
      *
+     * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $key key (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function viewUserMetadataByKey($user_id, $key, $api_token = null)
+    public function viewUserMetadataByKey($api_token, $user_id, $key)
     {
-        list($response) = $this->viewUserMetadataByKeyWithHttpInfo($user_id, $key, $api_token);
+        list($response) = $this->viewUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key);
         return $response;
     }
 
@@ -6114,17 +6234,17 @@ class UserChannelMetadataApi
      *
      * View a user metadata - When retrieving a specific item of a user metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewUserMetadataByKeyWithHttpInfo($user_id, $key, $api_token = null)
+    public function viewUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key)
     {
-        $request = $this->viewUserMetadataByKeyRequest($user_id, $key, $api_token);
+        $request = $this->viewUserMetadataByKeyRequest($api_token, $user_id, $key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6209,16 +6329,16 @@ class UserChannelMetadataApi
      *
      * View a user metadata - When retrieving a specific item of a user metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewUserMetadataByKeyAsync($user_id, $key, $api_token = null)
+    public function viewUserMetadataByKeyAsync($api_token, $user_id, $key)
     {
-        return $this->viewUserMetadataByKeyAsyncWithHttpInfo($user_id, $key, $api_token)
+        return $this->viewUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6231,17 +6351,17 @@ class UserChannelMetadataApi
      *
      * View a user metadata - When retrieving a specific item of a user metadata by its key
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewUserMetadataByKeyAsyncWithHttpInfo($user_id, $key, $api_token = null)
+    public function viewUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key)
     {
         $returnType = 'array<string,string>';
-        $request = $this->viewUserMetadataByKeyRequest($user_id, $key, $api_token);
+        $request = $this->viewUserMetadataByKeyRequest($api_token, $user_id, $key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6279,15 +6399,21 @@ class UserChannelMetadataApi
     /**
      * Create request for operation 'viewUserMetadataByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewUserMetadataByKeyRequest($user_id, $key, $api_token = null)
+    public function viewUserMetadataByKeyRequest($api_token, $user_id, $key)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewUserMetadataByKey'
+            );
+        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(

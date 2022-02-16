@@ -120,14 +120,14 @@ class WebhooksApi
      *
      * Choose which events to subscribe to
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data choose_which_events_to_subscribe_to_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ChooseWhichEventsToSubscribeToResponse
      */
-    public function chooseWhichEventsToSubscribeTo($api_token = null, $choose_which_events_to_subscribe_to_data = null)
+    public function chooseWhichEventsToSubscribeTo($api_token, $choose_which_events_to_subscribe_to_data = null)
     {
         list($response) = $this->chooseWhichEventsToSubscribeToWithHttpInfo($api_token, $choose_which_events_to_subscribe_to_data);
         return $response;
@@ -138,14 +138,14 @@ class WebhooksApi
      *
      * Choose which events to subscribe to
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ChooseWhichEventsToSubscribeToResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function chooseWhichEventsToSubscribeToWithHttpInfo($api_token = null, $choose_which_events_to_subscribe_to_data = null)
+    public function chooseWhichEventsToSubscribeToWithHttpInfo($api_token, $choose_which_events_to_subscribe_to_data = null)
     {
         $request = $this->chooseWhichEventsToSubscribeToRequest($api_token, $choose_which_events_to_subscribe_to_data);
 
@@ -232,13 +232,13 @@ class WebhooksApi
      *
      * Choose which events to subscribe to
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function chooseWhichEventsToSubscribeToAsync($api_token = null, $choose_which_events_to_subscribe_to_data = null)
+    public function chooseWhichEventsToSubscribeToAsync($api_token, $choose_which_events_to_subscribe_to_data = null)
     {
         return $this->chooseWhichEventsToSubscribeToAsyncWithHttpInfo($api_token, $choose_which_events_to_subscribe_to_data)
             ->then(
@@ -253,13 +253,13 @@ class WebhooksApi
      *
      * Choose which events to subscribe to
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function chooseWhichEventsToSubscribeToAsyncWithHttpInfo($api_token = null, $choose_which_events_to_subscribe_to_data = null)
+    public function chooseWhichEventsToSubscribeToAsyncWithHttpInfo($api_token, $choose_which_events_to_subscribe_to_data = null)
     {
         $returnType = '\Sendbird\Model\ChooseWhichEventsToSubscribeToResponse';
         $request = $this->chooseWhichEventsToSubscribeToRequest($api_token, $choose_which_events_to_subscribe_to_data);
@@ -300,14 +300,20 @@ class WebhooksApi
     /**
      * Create request for operation 'chooseWhichEventsToSubscribeTo'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\ChooseWhichEventsToSubscribeToData $choose_which_events_to_subscribe_to_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function chooseWhichEventsToSubscribeToRequest($api_token = null, $choose_which_events_to_subscribe_to_data = null)
+    public function chooseWhichEventsToSubscribeToRequest($api_token, $choose_which_events_to_subscribe_to_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling chooseWhichEventsToSubscribeTo'
+            );
+        }
 
         $resourcePath = '/v3/applications/settings/webhook';
         $formParams = [];
@@ -392,14 +398,14 @@ class WebhooksApi
      *
      * Retrieve a list of subscribed events
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  bool $display_all_webhook_categories display_all_webhook_categories (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RetrieveListOfSubscribedEventsResponse
      */
-    public function retrieveListOfSubscribedEvents($api_token = null, $display_all_webhook_categories = null)
+    public function retrieveListOfSubscribedEvents($api_token, $display_all_webhook_categories = null)
     {
         list($response) = $this->retrieveListOfSubscribedEventsWithHttpInfo($api_token, $display_all_webhook_categories);
         return $response;
@@ -410,14 +416,14 @@ class WebhooksApi
      *
      * Retrieve a list of subscribed events
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  bool $display_all_webhook_categories (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RetrieveListOfSubscribedEventsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveListOfSubscribedEventsWithHttpInfo($api_token = null, $display_all_webhook_categories = null)
+    public function retrieveListOfSubscribedEventsWithHttpInfo($api_token, $display_all_webhook_categories = null)
     {
         $request = $this->retrieveListOfSubscribedEventsRequest($api_token, $display_all_webhook_categories);
 
@@ -504,13 +510,13 @@ class WebhooksApi
      *
      * Retrieve a list of subscribed events
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  bool $display_all_webhook_categories (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveListOfSubscribedEventsAsync($api_token = null, $display_all_webhook_categories = null)
+    public function retrieveListOfSubscribedEventsAsync($api_token, $display_all_webhook_categories = null)
     {
         return $this->retrieveListOfSubscribedEventsAsyncWithHttpInfo($api_token, $display_all_webhook_categories)
             ->then(
@@ -525,13 +531,13 @@ class WebhooksApi
      *
      * Retrieve a list of subscribed events
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  bool $display_all_webhook_categories (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveListOfSubscribedEventsAsyncWithHttpInfo($api_token = null, $display_all_webhook_categories = null)
+    public function retrieveListOfSubscribedEventsAsyncWithHttpInfo($api_token, $display_all_webhook_categories = null)
     {
         $returnType = '\Sendbird\Model\RetrieveListOfSubscribedEventsResponse';
         $request = $this->retrieveListOfSubscribedEventsRequest($api_token, $display_all_webhook_categories);
@@ -572,14 +578,20 @@ class WebhooksApi
     /**
      * Create request for operation 'retrieveListOfSubscribedEvents'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  bool $display_all_webhook_categories (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function retrieveListOfSubscribedEventsRequest($api_token = null, $display_all_webhook_categories = null)
+    public function retrieveListOfSubscribedEventsRequest($api_token, $display_all_webhook_categories = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling retrieveListOfSubscribedEvents'
+            );
+        }
 
         $resourcePath = '/v3/applications/settings/webhook';
         $formParams = [];

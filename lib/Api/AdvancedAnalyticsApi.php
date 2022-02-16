@@ -120,13 +120,13 @@ class AdvancedAnalyticsApi
      *
      * Retrieve Advanced analytics metrics
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse
      */
-    public function retrieveAdvancedAnalyticsMetrics($api_token = null)
+    public function retrieveAdvancedAnalyticsMetrics($api_token)
     {
         list($response) = $this->retrieveAdvancedAnalyticsMetricsWithHttpInfo($api_token);
         return $response;
@@ -137,13 +137,13 @@ class AdvancedAnalyticsApi
      *
      * Retrieve Advanced analytics metrics
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveAdvancedAnalyticsMetricsWithHttpInfo($api_token = null)
+    public function retrieveAdvancedAnalyticsMetricsWithHttpInfo($api_token)
     {
         $request = $this->retrieveAdvancedAnalyticsMetricsRequest($api_token);
 
@@ -230,12 +230,12 @@ class AdvancedAnalyticsApi
      *
      * Retrieve Advanced analytics metrics
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveAdvancedAnalyticsMetricsAsync($api_token = null)
+    public function retrieveAdvancedAnalyticsMetricsAsync($api_token)
     {
         return $this->retrieveAdvancedAnalyticsMetricsAsyncWithHttpInfo($api_token)
             ->then(
@@ -250,12 +250,12 @@ class AdvancedAnalyticsApi
      *
      * Retrieve Advanced analytics metrics
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveAdvancedAnalyticsMetricsAsyncWithHttpInfo($api_token = null)
+    public function retrieveAdvancedAnalyticsMetricsAsyncWithHttpInfo($api_token)
     {
         $returnType = '\Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse';
         $request = $this->retrieveAdvancedAnalyticsMetricsRequest($api_token);
@@ -296,13 +296,19 @@ class AdvancedAnalyticsApi
     /**
      * Create request for operation 'retrieveAdvancedAnalyticsMetrics'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function retrieveAdvancedAnalyticsMetricsRequest($api_token = null)
+    public function retrieveAdvancedAnalyticsMetricsRequest($api_token)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling retrieveAdvancedAnalyticsMetrics'
+            );
+        }
 
         $resourcePath = '/v3/statistics/metric';
         $formParams = [];

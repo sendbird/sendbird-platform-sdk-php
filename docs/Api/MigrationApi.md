@@ -10,7 +10,7 @@ Method | HTTP request | Description
 ## `migrateMessagesByUrl()`
 
 ```php
-migrateMessagesByUrl($target_channel_url, $api_token, $body)
+migrateMessagesByUrl($api_token, $target_channel_url, $body)
 ```
 
 Migrate messages
@@ -30,12 +30,12 @@ $apiInstance = new Sendbird\Api\MigrationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$target_channel_url = 'target_channel_url_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$target_channel_url = 'target_channel_url_example'; // string
 $body = array('key' => new \stdClass); // object
 
 try {
-    $apiInstance->migrateMessagesByUrl($target_channel_url, $api_token, $body);
+    $apiInstance->migrateMessagesByUrl($api_token, $target_channel_url, $body);
 } catch (Exception $e) {
     echo 'Exception when calling MigrationApi->migrateMessagesByUrl: ', $e->getMessage(), PHP_EOL;
 }
@@ -45,8 +45,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **target_channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
  **body** | **object**|  | [optional]
 
 ### Return type

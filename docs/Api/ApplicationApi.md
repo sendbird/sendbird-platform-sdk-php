@@ -70,7 +70,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **add_apns_push_configuration_data** | [**\Sendbird\Model\AddApnsPushConfigurationData**](../Model/AddApnsPushConfigurationData.md)|  | [optional]
 
 ### Return type
@@ -128,7 +128,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **add_fcm_push_configuration_data** | [**\Sendbird\Model\AddFcmPushConfigurationData**](../Model/AddFcmPushConfigurationData.md)|  | [optional]
 
 ### Return type
@@ -186,7 +186,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **add_hms_push_configuration_data** | [**\Sendbird\Model\AddHmsPushConfigurationData**](../Model/AddHmsPushConfigurationData.md)|  | [optional]
 
 ### Return type
@@ -244,7 +244,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **add_ip_to_whitelist_data** | [**\Sendbird\Model\AddIpToWhitelistData**](../Model/AddIpToWhitelistData.md)|  | [optional]
 
 ### Return type
@@ -267,7 +267,7 @@ No authorization required
 ## `deleteAllowedIpsFromWhitelist()`
 
 ```php
-deleteAllowedIpsFromWhitelist($ip_whitelist_addresses, $api_token): \Sendbird\Model\DeleteAllowedIpsFromWhitelistResponse
+deleteAllowedIpsFromWhitelist($api_token, $ip_whitelist_addresses): \Sendbird\Model\DeleteAllowedIpsFromWhitelistResponse
 ```
 
 Delete allowed IPs from a whitelist
@@ -287,11 +287,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$ip_whitelist_addresses = array('ip_whitelist_addresses_example'); // string[]
 $api_token = {{API_TOKEN}}; // string
+$ip_whitelist_addresses = array('ip_whitelist_addresses_example'); // string[]
 
 try {
-    $result = $apiInstance->deleteAllowedIpsFromWhitelist($ip_whitelist_addresses, $api_token);
+    $result = $apiInstance->deleteAllowedIpsFromWhitelist($api_token, $ip_whitelist_addresses);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->deleteAllowedIpsFromWhitelist: ', $e->getMessage(), PHP_EOL;
@@ -302,8 +302,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **ip_whitelist_addresses** | [**string[]**](../Model/string.md)|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -325,7 +325,7 @@ No authorization required
 ## `deleteApnsCertificateById()`
 
 ```php
-deleteApnsCertificateById($provider_id, $api_token): \Sendbird\Model\DeleteApnsCertificateByIdResponse
+deleteApnsCertificateById($api_token, $provider_id): \Sendbird\Model\DeleteApnsCertificateByIdResponse
 ```
 
 Delete an APNs certificate
@@ -345,11 +345,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$provider_id = 'provider_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$provider_id = 'provider_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteApnsCertificateById($provider_id, $api_token);
+    $result = $apiInstance->deleteApnsCertificateById($api_token, $provider_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->deleteApnsCertificateById: ', $e->getMessage(), PHP_EOL;
@@ -360,8 +360,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **provider_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -418,7 +418,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **generate_secondary_api_token_data** | [**\Sendbird\Model\GenerateSecondaryApiTokenData**](../Model/GenerateSecondaryApiTokenData.md)|  | [optional]
 
 ### Return type
@@ -441,7 +441,7 @@ No authorization required
 ## `listPushConfigurations()`
 
 ```php
-listPushConfigurations($push_type, $api_token): \Sendbird\Model\ListPushConfigurationsResponse
+listPushConfigurations($api_token, $push_type): \Sendbird\Model\ListPushConfigurationsResponse
 ```
 
 List push configurations
@@ -461,11 +461,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$push_type = 'push_type_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$push_type = 'push_type_example'; // string
 
 try {
-    $result = $apiInstance->listPushConfigurations($push_type, $api_token);
+    $result = $apiInstance->listPushConfigurations($api_token, $push_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->listPushConfigurations: ', $e->getMessage(), PHP_EOL;
@@ -476,8 +476,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **push_type** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -533,7 +533,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
 
 ### Return type
 
@@ -589,7 +589,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
 
 ### Return type
 
@@ -611,7 +611,7 @@ No authorization required
 ## `removePushConfigurationById()`
 
 ```php
-removePushConfigurationById($push_type, $provider_id, $api_token): \Sendbird\Model\RemovePushConfigurationByIdResponse
+removePushConfigurationById($api_token, $push_type, $provider_id): \Sendbird\Model\RemovePushConfigurationByIdResponse
 ```
 
 Remove a push configuration
@@ -631,12 +631,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $push_type = 'push_type_example'; // string
 $provider_id = 'provider_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->removePushConfigurationById($push_type, $provider_id, $api_token);
+    $result = $apiInstance->removePushConfigurationById($api_token, $push_type, $provider_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->removePushConfigurationById: ', $e->getMessage(), PHP_EOL;
@@ -647,9 +647,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **push_type** | **string**|  |
  **provider_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -705,7 +705,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
 
 ### Return type
 
@@ -727,7 +727,7 @@ No authorization required
 ## `revokeSecondaryApiTokenByToken()`
 
 ```php
-revokeSecondaryApiTokenByToken($api_token2, $api_token): \Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse
+revokeSecondaryApiTokenByToken($api_token, $api_token2): \Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse
 ```
 
 Revoke a secondary API token
@@ -747,11 +747,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token2 = 'api_token_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$api_token2 = 'api_token_example'; // string
 
 try {
-    $result = $apiInstance->revokeSecondaryApiTokenByToken($api_token2, $api_token);
+    $result = $apiInstance->revokeSecondaryApiTokenByToken($api_token, $api_token2);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->revokeSecondaryApiTokenByToken: ', $e->getMessage(), PHP_EOL;
@@ -762,8 +762,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **api_token2** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -785,7 +785,7 @@ No authorization required
 ## `updateApnsPushConfigurationById()`
 
 ```php
-updateApnsPushConfigurationById($provider_id, $api_token, $update_apns_push_configuration_by_id_data): \Sendbird\Model\UpdateApnsPushConfigurationByIdResponse
+updateApnsPushConfigurationById($api_token, $provider_id, $update_apns_push_configuration_by_id_data): \Sendbird\Model\UpdateApnsPushConfigurationByIdResponse
 ```
 
 Update an APNs push configuration
@@ -805,12 +805,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$provider_id = 'provider_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$provider_id = 'provider_id_example'; // string
 $update_apns_push_configuration_by_id_data = new \Sendbird\Model\UpdateApnsPushConfigurationByIdData(); // \Sendbird\Model\UpdateApnsPushConfigurationByIdData
 
 try {
-    $result = $apiInstance->updateApnsPushConfigurationById($provider_id, $api_token, $update_apns_push_configuration_by_id_data);
+    $result = $apiInstance->updateApnsPushConfigurationById($api_token, $provider_id, $update_apns_push_configuration_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->updateApnsPushConfigurationById: ', $e->getMessage(), PHP_EOL;
@@ -821,8 +821,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **provider_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_apns_push_configuration_by_id_data** | [**\Sendbird\Model\UpdateApnsPushConfigurationByIdData**](../Model/UpdateApnsPushConfigurationByIdData.md)|  | [optional]
 
 ### Return type
@@ -880,7 +880,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **update_default_channel_invitation_preference_data** | [**\Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData**](../Model/UpdateDefaultChannelInvitationPreferenceData.md)|  | [optional]
 
 ### Return type
@@ -903,7 +903,7 @@ No authorization required
 ## `updateFcmPushConfigurationById()`
 
 ```php
-updateFcmPushConfigurationById($provider_id, $api_token, $update_fcm_push_configuration_by_id_data): \Sendbird\Model\UpdateFcmPushConfigurationByIdResponse
+updateFcmPushConfigurationById($api_token, $provider_id, $update_fcm_push_configuration_by_id_data): \Sendbird\Model\UpdateFcmPushConfigurationByIdResponse
 ```
 
 Update a FCM push configuration
@@ -923,12 +923,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$provider_id = 'provider_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$provider_id = 'provider_id_example'; // string
 $update_fcm_push_configuration_by_id_data = new \Sendbird\Model\UpdateFcmPushConfigurationByIdData(); // \Sendbird\Model\UpdateFcmPushConfigurationByIdData
 
 try {
-    $result = $apiInstance->updateFcmPushConfigurationById($provider_id, $api_token, $update_fcm_push_configuration_by_id_data);
+    $result = $apiInstance->updateFcmPushConfigurationById($api_token, $provider_id, $update_fcm_push_configuration_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->updateFcmPushConfigurationById: ', $e->getMessage(), PHP_EOL;
@@ -939,8 +939,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **provider_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_fcm_push_configuration_by_id_data** | [**\Sendbird\Model\UpdateFcmPushConfigurationByIdData**](../Model/UpdateFcmPushConfigurationByIdData.md)|  | [optional]
 
 ### Return type
@@ -963,7 +963,7 @@ No authorization required
 ## `updateHmsPushConfigurationById()`
 
 ```php
-updateHmsPushConfigurationById($provider_id, $api_token, $update_hms_push_configuration_by_id_data): \Sendbird\Model\UpdateHmsPushConfigurationByIdResponse
+updateHmsPushConfigurationById($api_token, $provider_id, $update_hms_push_configuration_by_id_data): \Sendbird\Model\UpdateHmsPushConfigurationByIdResponse
 ```
 
 Update an HMS push configuration
@@ -983,12 +983,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$provider_id = 'provider_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$provider_id = 'provider_id_example'; // string
 $update_hms_push_configuration_by_id_data = new \Sendbird\Model\UpdateHmsPushConfigurationByIdData(); // \Sendbird\Model\UpdateHmsPushConfigurationByIdData
 
 try {
-    $result = $apiInstance->updateHmsPushConfigurationById($provider_id, $api_token, $update_hms_push_configuration_by_id_data);
+    $result = $apiInstance->updateHmsPushConfigurationById($api_token, $provider_id, $update_hms_push_configuration_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->updateHmsPushConfigurationById: ', $e->getMessage(), PHP_EOL;
@@ -999,8 +999,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **provider_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_hms_push_configuration_by_id_data** | [**\Sendbird\Model\UpdateHmsPushConfigurationByIdData**](../Model/UpdateHmsPushConfigurationByIdData.md)|  | [optional]
 
 ### Return type
@@ -1023,7 +1023,7 @@ No authorization required
 ## `updatePushNotificationContentTemplate()`
 
 ```php
-updatePushNotificationContentTemplate($template_name, $api_token, $update_push_notification_content_template_data): \Sendbird\Model\UpdatePushNotificationContentTemplateResponse
+updatePushNotificationContentTemplate($api_token, $template_name, $update_push_notification_content_template_data): \Sendbird\Model\UpdatePushNotificationContentTemplateResponse
 ```
 
 Update a push notification content template
@@ -1043,12 +1043,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$template_name = 'template_name_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$template_name = 'template_name_example'; // string
 $update_push_notification_content_template_data = new \Sendbird\Model\UpdatePushNotificationContentTemplateData(); // \Sendbird\Model\UpdatePushNotificationContentTemplateData
 
 try {
-    $result = $apiInstance->updatePushNotificationContentTemplate($template_name, $api_token, $update_push_notification_content_template_data);
+    $result = $apiInstance->updatePushNotificationContentTemplate($api_token, $template_name, $update_push_notification_content_template_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->updatePushNotificationContentTemplate: ', $e->getMessage(), PHP_EOL;
@@ -1059,8 +1059,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **template_name** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_push_notification_content_template_data** | [**\Sendbird\Model\UpdatePushNotificationContentTemplateData**](../Model/UpdatePushNotificationContentTemplateData.md)|  | [optional]
 
 ### Return type
@@ -1117,7 +1117,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
 
 ### Return type
 
@@ -1173,7 +1173,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
 
 ### Return type
 
@@ -1230,7 +1230,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **date** | **string**|  | [optional]
 
 ### Return type
@@ -1288,7 +1288,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **date** | **string**|  | [optional]
 
 ### Return type
@@ -1311,7 +1311,7 @@ No authorization required
 ## `viewNumberOfPeakConnections()`
 
 ```php
-viewNumberOfPeakConnections($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token, $start_day, $end_day): \Sendbird\Model\ViewNumberOfPeakConnectionsResponse
+viewNumberOfPeakConnections($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day): \Sendbird\Model\ViewNumberOfPeakConnectionsResponse
 ```
 
 View number of peak connections
@@ -1331,17 +1331,17 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $time_dimension = 'time_dimension_example'; // string
 $start_year = 56; // int
 $start_month = 56; // int
 $end_year = 56; // int
 $end_month = 56; // int
-$api_token = {{API_TOKEN}}; // string
 $start_day = 56; // int
 $end_day = 56; // int
 
 try {
-    $result = $apiInstance->viewNumberOfPeakConnections($time_dimension, $start_year, $start_month, $end_year, $end_month, $api_token, $start_day, $end_day);
+    $result = $apiInstance->viewNumberOfPeakConnections($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->viewNumberOfPeakConnections: ', $e->getMessage(), PHP_EOL;
@@ -1352,12 +1352,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **time_dimension** | **string**|  |
  **start_year** | **int**|  |
  **start_month** | **int**|  |
  **end_year** | **int**|  |
  **end_month** | **int**|  |
- **api_token** | **string**|  | [optional]
  **start_day** | **int**|  | [optional]
  **end_day** | **int**|  | [optional]
 
@@ -1381,7 +1381,7 @@ No authorization required
 ## `viewPushConfigurationById()`
 
 ```php
-viewPushConfigurationById($push_type, $provider_id, $api_token): \Sendbird\Model\ViewPushConfigurationByIdResponse
+viewPushConfigurationById($api_token, $push_type, $provider_id): \Sendbird\Model\ViewPushConfigurationByIdResponse
 ```
 
 View a push configuration
@@ -1401,12 +1401,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $push_type = 'push_type_example'; // string
 $provider_id = 'provider_id_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewPushConfigurationById($push_type, $provider_id, $api_token);
+    $result = $apiInstance->viewPushConfigurationById($api_token, $push_type, $provider_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->viewPushConfigurationById: ', $e->getMessage(), PHP_EOL;
@@ -1417,9 +1417,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **push_type** | **string**|  |
  **provider_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1441,7 +1441,7 @@ No authorization required
 ## `viewPushNotificationContentTemplate()`
 
 ```php
-viewPushNotificationContentTemplate($template_name, $api_token): \Sendbird\Model\ViewPushNotificationContentTemplateResponse
+viewPushNotificationContentTemplate($api_token, $template_name): \Sendbird\Model\ViewPushNotificationContentTemplateResponse
 ```
 
 View a push notification content template
@@ -1461,11 +1461,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$template_name = 'template_name_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$template_name = 'template_name_example'; // string
 
 try {
-    $result = $apiInstance->viewPushNotificationContentTemplate($template_name, $api_token);
+    $result = $apiInstance->viewPushNotificationContentTemplate($api_token, $template_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->viewPushNotificationContentTemplate: ', $e->getMessage(), PHP_EOL;
@@ -1476,8 +1476,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **template_name** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -1499,7 +1499,7 @@ No authorization required
 ## `viewSecondaryApiTokenByToken()`
 
 ```php
-viewSecondaryApiTokenByToken($api_token2, $api_token): \Sendbird\Model\ViewSecondaryApiTokenByTokenResponse
+viewSecondaryApiTokenByToken($api_token, $api_token2): \Sendbird\Model\ViewSecondaryApiTokenByTokenResponse
 ```
 
 View a secondary API token
@@ -1519,11 +1519,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token2 = 'api_token_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$api_token2 = 'api_token_example'; // string
 
 try {
-    $result = $apiInstance->viewSecondaryApiTokenByToken($api_token2, $api_token);
+    $result = $apiInstance->viewSecondaryApiTokenByToken($api_token, $api_token2);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->viewSecondaryApiTokenByToken: ', $e->getMessage(), PHP_EOL;
@@ -1534,8 +1534,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **api_token2** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 

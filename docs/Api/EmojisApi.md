@@ -56,7 +56,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **body** | **object**|  | [optional]
 
 ### Return type
@@ -114,7 +114,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **add_emojis_data** | [**\Sendbird\Model\AddEmojisData**](../Model/AddEmojisData.md)|  | [optional]
 
 ### Return type
@@ -137,7 +137,7 @@ No authorization required
 ## `deleteEmojiByKey()`
 
 ```php
-deleteEmojiByKey($emoji_key, $api_token)
+deleteEmojiByKey($api_token, $emoji_key)
 ```
 
 Delete an emoji
@@ -157,11 +157,11 @@ $apiInstance = new Sendbird\Api\EmojisApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$emoji_key = 'emoji_key_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$emoji_key = 'emoji_key_example'; // string
 
 try {
-    $apiInstance->deleteEmojiByKey($emoji_key, $api_token);
+    $apiInstance->deleteEmojiByKey($api_token, $emoji_key);
 } catch (Exception $e) {
     echo 'Exception when calling EmojisApi->deleteEmojiByKey: ', $e->getMessage(), PHP_EOL;
 }
@@ -171,8 +171,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **emoji_key** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -194,7 +194,7 @@ No authorization required
 ## `deleteEmojiCategoryById()`
 
 ```php
-deleteEmojiCategoryById($emoji_category_id, $api_token)
+deleteEmojiCategoryById($api_token, $emoji_category_id)
 ```
 
 Delete an emoji category
@@ -214,11 +214,11 @@ $apiInstance = new Sendbird\Api\EmojisApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$emoji_category_id = 'emoji_category_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$emoji_category_id = 'emoji_category_id_example'; // string
 
 try {
-    $apiInstance->deleteEmojiCategoryById($emoji_category_id, $api_token);
+    $apiInstance->deleteEmojiCategoryById($api_token, $emoji_category_id);
 } catch (Exception $e) {
     echo 'Exception when calling EmojisApi->deleteEmojiCategoryById: ', $e->getMessage(), PHP_EOL;
 }
@@ -228,8 +228,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **emoji_category_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -286,7 +286,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **enable_reactions_data** | [**\Sendbird\Model\EnableReactionsData**](../Model/EnableReactionsData.md)|  | [optional]
 
 ### Return type
@@ -309,7 +309,7 @@ No authorization required
 ## `getEmojiByKey()`
 
 ```php
-getEmojiByKey($emoji_key, $api_token): \Sendbird\Model\SendBirdEmoji
+getEmojiByKey($api_token, $emoji_key): \Sendbird\Model\SendBirdEmoji
 ```
 
 Get an emoji
@@ -329,11 +329,11 @@ $apiInstance = new Sendbird\Api\EmojisApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$emoji_key = 'emoji_key_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$emoji_key = 'emoji_key_example'; // string
 
 try {
-    $result = $apiInstance->getEmojiByKey($emoji_key, $api_token);
+    $result = $apiInstance->getEmojiByKey($api_token, $emoji_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmojisApi->getEmojiByKey: ', $e->getMessage(), PHP_EOL;
@@ -344,8 +344,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **emoji_key** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -367,7 +367,7 @@ No authorization required
 ## `getEmojiCategoryById()`
 
 ```php
-getEmojiCategoryById($emoji_category_id, $api_token): \Sendbird\Model\SendBirdEmojiCategory
+getEmojiCategoryById($api_token, $emoji_category_id): \Sendbird\Model\SendBirdEmojiCategory
 ```
 
 Get an emoji category
@@ -387,11 +387,11 @@ $apiInstance = new Sendbird\Api\EmojisApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$emoji_category_id = 'emoji_category_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$emoji_category_id = 'emoji_category_id_example'; // string
 
 try {
-    $result = $apiInstance->getEmojiCategoryById($emoji_category_id, $api_token);
+    $result = $apiInstance->getEmojiCategoryById($api_token, $emoji_category_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmojisApi->getEmojiCategoryById: ', $e->getMessage(), PHP_EOL;
@@ -402,8 +402,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **emoji_category_id** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -459,7 +459,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
 
 ### Return type
 
@@ -515,7 +515,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
 
 ### Return type
 
@@ -537,7 +537,7 @@ No authorization required
 ## `updateEmojiCategoryUrlById()`
 
 ```php
-updateEmojiCategoryUrlById($emoji_category_id, $api_token, $update_emoji_category_url_by_id_data): \Sendbird\Model\SendBirdEmojiCategory
+updateEmojiCategoryUrlById($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data): \Sendbird\Model\SendBirdEmojiCategory
 ```
 
 Update an emoji category URL
@@ -557,12 +557,12 @@ $apiInstance = new Sendbird\Api\EmojisApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$emoji_category_id = 'emoji_category_id_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$emoji_category_id = 'emoji_category_id_example'; // string
 $update_emoji_category_url_by_id_data = new \Sendbird\Model\UpdateEmojiCategoryUrlByIdData(); // \Sendbird\Model\UpdateEmojiCategoryUrlByIdData
 
 try {
-    $result = $apiInstance->updateEmojiCategoryUrlById($emoji_category_id, $api_token, $update_emoji_category_url_by_id_data);
+    $result = $apiInstance->updateEmojiCategoryUrlById($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmojisApi->updateEmojiCategoryUrlById: ', $e->getMessage(), PHP_EOL;
@@ -573,8 +573,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **emoji_category_id** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_emoji_category_url_by_id_data** | [**\Sendbird\Model\UpdateEmojiCategoryUrlByIdData**](../Model/UpdateEmojiCategoryUrlByIdData.md)|  | [optional]
 
 ### Return type
@@ -597,7 +597,7 @@ No authorization required
 ## `updateEmojiUrlByKey()`
 
 ```php
-updateEmojiUrlByKey($emoji_key, $api_token, $update_emoji_url_by_key_data): \Sendbird\Model\SendBirdEmoji
+updateEmojiUrlByKey($api_token, $emoji_key, $update_emoji_url_by_key_data): \Sendbird\Model\SendBirdEmoji
 ```
 
 Update an emoji URL
@@ -617,12 +617,12 @@ $apiInstance = new Sendbird\Api\EmojisApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$emoji_key = 'emoji_key_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$emoji_key = 'emoji_key_example'; // string
 $update_emoji_url_by_key_data = new \Sendbird\Model\UpdateEmojiUrlByKeyData(); // \Sendbird\Model\UpdateEmojiUrlByKeyData
 
 try {
-    $result = $apiInstance->updateEmojiUrlByKey($emoji_key, $api_token, $update_emoji_url_by_key_data);
+    $result = $apiInstance->updateEmojiUrlByKey($api_token, $emoji_key, $update_emoji_url_by_key_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmojisApi->updateEmojiUrlByKey: ', $e->getMessage(), PHP_EOL;
@@ -633,8 +633,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **emoji_key** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_emoji_url_by_key_data** | [**\Sendbird\Model\UpdateEmojiUrlByKeyData**](../Model/UpdateEmojiUrlByKeyData.md)|  | [optional]
 
 ### Return type
@@ -692,7 +692,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **use_default_emojis_data** | [**\Sendbird\Model\UseDefaultEmojisData**](../Model/UseDefaultEmojisData.md)|  | [optional]
 
 ### Return type

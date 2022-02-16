@@ -120,14 +120,14 @@ class BotInterfaceApi
      *
      * Create a bot
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\CreateBotData $create_bot_data create_bot_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\CreateBotResponse
      */
-    public function createBot($api_token = null, $create_bot_data = null)
+    public function createBot($api_token, $create_bot_data = null)
     {
         list($response) = $this->createBotWithHttpInfo($api_token, $create_bot_data);
         return $response;
@@ -138,14 +138,14 @@ class BotInterfaceApi
      *
      * Create a bot
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\CreateBotResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBotWithHttpInfo($api_token = null, $create_bot_data = null)
+    public function createBotWithHttpInfo($api_token, $create_bot_data = null)
     {
         $request = $this->createBotRequest($api_token, $create_bot_data);
 
@@ -232,13 +232,13 @@ class BotInterfaceApi
      *
      * Create a bot
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBotAsync($api_token = null, $create_bot_data = null)
+    public function createBotAsync($api_token, $create_bot_data = null)
     {
         return $this->createBotAsyncWithHttpInfo($api_token, $create_bot_data)
             ->then(
@@ -253,13 +253,13 @@ class BotInterfaceApi
      *
      * Create a bot
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBotAsyncWithHttpInfo($api_token = null, $create_bot_data = null)
+    public function createBotAsyncWithHttpInfo($api_token, $create_bot_data = null)
     {
         $returnType = '\Sendbird\Model\CreateBotResponse';
         $request = $this->createBotRequest($api_token, $create_bot_data);
@@ -300,14 +300,20 @@ class BotInterfaceApi
     /**
      * Create request for operation 'createBot'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createBotRequest($api_token = null, $create_bot_data = null)
+    public function createBotRequest($api_token, $create_bot_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling createBot'
+            );
+        }
 
         $resourcePath = '/v3/bots';
         $formParams = [];
@@ -392,16 +398,16 @@ class BotInterfaceApi
      *
      * Delete a bot
      *
+     * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteBotById($bot_userid, $api_token = null)
+    public function deleteBotById($api_token, $bot_userid)
     {
-        $this->deleteBotByIdWithHttpInfo($bot_userid, $api_token);
+        $this->deleteBotByIdWithHttpInfo($api_token, $bot_userid);
     }
 
     /**
@@ -409,16 +415,16 @@ class BotInterfaceApi
      *
      * Delete a bot
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBotByIdWithHttpInfo($bot_userid, $api_token = null)
+    public function deleteBotByIdWithHttpInfo($api_token, $bot_userid)
     {
-        $request = $this->deleteBotByIdRequest($bot_userid, $api_token);
+        $request = $this->deleteBotByIdRequest($api_token, $bot_userid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -469,15 +475,15 @@ class BotInterfaceApi
      *
      * Delete a bot
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBotByIdAsync($bot_userid, $api_token = null)
+    public function deleteBotByIdAsync($api_token, $bot_userid)
     {
-        return $this->deleteBotByIdAsyncWithHttpInfo($bot_userid, $api_token)
+        return $this->deleteBotByIdAsyncWithHttpInfo($api_token, $bot_userid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -490,16 +496,16 @@ class BotInterfaceApi
      *
      * Delete a bot
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBotByIdAsyncWithHttpInfo($bot_userid, $api_token = null)
+    public function deleteBotByIdAsyncWithHttpInfo($api_token, $bot_userid)
     {
         $returnType = '';
-        $request = $this->deleteBotByIdRequest($bot_userid, $api_token);
+        $request = $this->deleteBotByIdRequest($api_token, $bot_userid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -527,14 +533,20 @@ class BotInterfaceApi
     /**
      * Create request for operation 'deleteBotById'
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteBotByIdRequest($bot_userid, $api_token = null)
+    public function deleteBotByIdRequest($api_token, $bot_userid)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteBotById'
+            );
+        }
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(
@@ -627,17 +639,17 @@ class BotInterfaceApi
      *
      * Join channels
      *
+     * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\JoinChannelsData $join_channels_data join_channels_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdGroupChannelCollection
      */
-    public function joinChannels($bot_userid, $api_token = null, $join_channels_data = null)
+    public function joinChannels($api_token, $bot_userid, $join_channels_data = null)
     {
-        list($response) = $this->joinChannelsWithHttpInfo($bot_userid, $api_token, $join_channels_data);
+        list($response) = $this->joinChannelsWithHttpInfo($api_token, $bot_userid, $join_channels_data);
         return $response;
     }
 
@@ -646,17 +658,17 @@ class BotInterfaceApi
      *
      * Join channels
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdGroupChannelCollection, HTTP status code, HTTP response headers (array of strings)
      */
-    public function joinChannelsWithHttpInfo($bot_userid, $api_token = null, $join_channels_data = null)
+    public function joinChannelsWithHttpInfo($api_token, $bot_userid, $join_channels_data = null)
     {
-        $request = $this->joinChannelsRequest($bot_userid, $api_token, $join_channels_data);
+        $request = $this->joinChannelsRequest($api_token, $bot_userid, $join_channels_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -741,16 +753,16 @@ class BotInterfaceApi
      *
      * Join channels
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function joinChannelsAsync($bot_userid, $api_token = null, $join_channels_data = null)
+    public function joinChannelsAsync($api_token, $bot_userid, $join_channels_data = null)
     {
-        return $this->joinChannelsAsyncWithHttpInfo($bot_userid, $api_token, $join_channels_data)
+        return $this->joinChannelsAsyncWithHttpInfo($api_token, $bot_userid, $join_channels_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -763,17 +775,17 @@ class BotInterfaceApi
      *
      * Join channels
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function joinChannelsAsyncWithHttpInfo($bot_userid, $api_token = null, $join_channels_data = null)
+    public function joinChannelsAsyncWithHttpInfo($api_token, $bot_userid, $join_channels_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdGroupChannelCollection';
-        $request = $this->joinChannelsRequest($bot_userid, $api_token, $join_channels_data);
+        $request = $this->joinChannelsRequest($api_token, $bot_userid, $join_channels_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -811,15 +823,21 @@ class BotInterfaceApi
     /**
      * Create request for operation 'joinChannels'
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function joinChannelsRequest($bot_userid, $api_token = null, $join_channels_data = null)
+    public function joinChannelsRequest($api_token, $bot_userid, $join_channels_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling joinChannels'
+            );
+        }
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(
@@ -918,17 +936,17 @@ class BotInterfaceApi
      *
      * Leave channels - When leaving all channels
      *
+     * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
-     * @param  string $api_token api_token (optional)
      * @param  string $channel_url channel_url (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function leaveChannels($bot_userid, $api_token = null, $channel_url = null)
+    public function leaveChannels($api_token, $bot_userid, $channel_url = null)
     {
-        $this->leaveChannelsWithHttpInfo($bot_userid, $api_token, $channel_url);
+        $this->leaveChannelsWithHttpInfo($api_token, $bot_userid, $channel_url);
     }
 
     /**
@@ -936,17 +954,17 @@ class BotInterfaceApi
      *
      * Leave channels - When leaving all channels
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  string $channel_url (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaveChannelsWithHttpInfo($bot_userid, $api_token = null, $channel_url = null)
+    public function leaveChannelsWithHttpInfo($api_token, $bot_userid, $channel_url = null)
     {
-        $request = $this->leaveChannelsRequest($bot_userid, $api_token, $channel_url);
+        $request = $this->leaveChannelsRequest($api_token, $bot_userid, $channel_url);
 
         try {
             $options = $this->createHttpClientOption();
@@ -997,16 +1015,16 @@ class BotInterfaceApi
      *
      * Leave channels - When leaving all channels
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  string $channel_url (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveChannelsAsync($bot_userid, $api_token = null, $channel_url = null)
+    public function leaveChannelsAsync($api_token, $bot_userid, $channel_url = null)
     {
-        return $this->leaveChannelsAsyncWithHttpInfo($bot_userid, $api_token, $channel_url)
+        return $this->leaveChannelsAsyncWithHttpInfo($api_token, $bot_userid, $channel_url)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1019,17 +1037,17 @@ class BotInterfaceApi
      *
      * Leave channels - When leaving all channels
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  string $channel_url (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveChannelsAsyncWithHttpInfo($bot_userid, $api_token = null, $channel_url = null)
+    public function leaveChannelsAsyncWithHttpInfo($api_token, $bot_userid, $channel_url = null)
     {
         $returnType = '';
-        $request = $this->leaveChannelsRequest($bot_userid, $api_token, $channel_url);
+        $request = $this->leaveChannelsRequest($api_token, $bot_userid, $channel_url);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1057,15 +1075,21 @@ class BotInterfaceApi
     /**
      * Create request for operation 'leaveChannels'
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  string $channel_url (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaveChannelsRequest($bot_userid, $api_token = null, $channel_url = null)
+    public function leaveChannelsRequest($api_token, $bot_userid, $channel_url = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling leaveChannels'
+            );
+        }
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(
@@ -1169,17 +1193,17 @@ class BotInterfaceApi
      *
      * Leave channels - When leaving a channel by its channel URL
      *
+     * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
      * @param  string $channel_url channel_url (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function leaveChannelsByUrl($bot_userid, $channel_url, $api_token = null)
+    public function leaveChannelsByUrl($api_token, $bot_userid, $channel_url)
     {
-        $this->leaveChannelsByUrlWithHttpInfo($bot_userid, $channel_url, $api_token);
+        $this->leaveChannelsByUrlWithHttpInfo($api_token, $bot_userid, $channel_url);
     }
 
     /**
@@ -1187,17 +1211,17 @@ class BotInterfaceApi
      *
      * Leave channels - When leaving a channel by its channel URL
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaveChannelsByUrlWithHttpInfo($bot_userid, $channel_url, $api_token = null)
+    public function leaveChannelsByUrlWithHttpInfo($api_token, $bot_userid, $channel_url)
     {
-        $request = $this->leaveChannelsByUrlRequest($bot_userid, $channel_url, $api_token);
+        $request = $this->leaveChannelsByUrlRequest($api_token, $bot_userid, $channel_url);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1248,16 +1272,16 @@ class BotInterfaceApi
      *
      * Leave channels - When leaving a channel by its channel URL
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveChannelsByUrlAsync($bot_userid, $channel_url, $api_token = null)
+    public function leaveChannelsByUrlAsync($api_token, $bot_userid, $channel_url)
     {
-        return $this->leaveChannelsByUrlAsyncWithHttpInfo($bot_userid, $channel_url, $api_token)
+        return $this->leaveChannelsByUrlAsyncWithHttpInfo($api_token, $bot_userid, $channel_url)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1270,17 +1294,17 @@ class BotInterfaceApi
      *
      * Leave channels - When leaving a channel by its channel URL
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveChannelsByUrlAsyncWithHttpInfo($bot_userid, $channel_url, $api_token = null)
+    public function leaveChannelsByUrlAsyncWithHttpInfo($api_token, $bot_userid, $channel_url)
     {
         $returnType = '';
-        $request = $this->leaveChannelsByUrlRequest($bot_userid, $channel_url, $api_token);
+        $request = $this->leaveChannelsByUrlRequest($api_token, $bot_userid, $channel_url);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1308,15 +1332,21 @@ class BotInterfaceApi
     /**
      * Create request for operation 'leaveChannelsByUrl'
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaveChannelsByUrlRequest($bot_userid, $channel_url, $api_token = null)
+    public function leaveChannelsByUrlRequest($api_token, $bot_userid, $channel_url)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling leaveChannelsByUrl'
+            );
+        }
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(
@@ -1423,7 +1453,7 @@ class BotInterfaceApi
      *
      * List bots
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
      *
@@ -1431,7 +1461,7 @@ class BotInterfaceApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListBotsResponse
      */
-    public function listBots($api_token = null, $token = null, $limit = null)
+    public function listBots($api_token, $token = null, $limit = null)
     {
         list($response) = $this->listBotsWithHttpInfo($api_token, $token, $limit);
         return $response;
@@ -1442,7 +1472,7 @@ class BotInterfaceApi
      *
      * List bots
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
@@ -1450,7 +1480,7 @@ class BotInterfaceApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListBotsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBotsWithHttpInfo($api_token = null, $token = null, $limit = null)
+    public function listBotsWithHttpInfo($api_token, $token = null, $limit = null)
     {
         $request = $this->listBotsRequest($api_token, $token, $limit);
 
@@ -1537,14 +1567,14 @@ class BotInterfaceApi
      *
      * List bots
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBotsAsync($api_token = null, $token = null, $limit = null)
+    public function listBotsAsync($api_token, $token = null, $limit = null)
     {
         return $this->listBotsAsyncWithHttpInfo($api_token, $token, $limit)
             ->then(
@@ -1559,14 +1589,14 @@ class BotInterfaceApi
      *
      * List bots
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBotsAsyncWithHttpInfo($api_token = null, $token = null, $limit = null)
+    public function listBotsAsyncWithHttpInfo($api_token, $token = null, $limit = null)
     {
         $returnType = '\Sendbird\Model\ListBotsResponse';
         $request = $this->listBotsRequest($api_token, $token, $limit);
@@ -1607,15 +1637,21 @@ class BotInterfaceApi
     /**
      * Create request for operation 'listBots'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listBotsRequest($api_token = null, $token = null, $limit = null)
+    public function listBotsRequest($api_token, $token = null, $limit = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listBots'
+            );
+        }
 
         $resourcePath = '/v3/bots';
         $formParams = [];
@@ -1716,17 +1752,17 @@ class BotInterfaceApi
      *
      * Send a bot&#39;s message
      *
+     * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data send_bot_s_message_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdMessageResponse
      */
-    public function sendBotsMessage($bot_userid, $api_token = null, $send_bot_s_message_data = null)
+    public function sendBotsMessage($api_token, $bot_userid, $send_bot_s_message_data = null)
     {
-        list($response) = $this->sendBotsMessageWithHttpInfo($bot_userid, $api_token, $send_bot_s_message_data);
+        list($response) = $this->sendBotsMessageWithHttpInfo($api_token, $bot_userid, $send_bot_s_message_data);
         return $response;
     }
 
@@ -1735,17 +1771,17 @@ class BotInterfaceApi
      *
      * Send a bot&#39;s message
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendBotsMessageWithHttpInfo($bot_userid, $api_token = null, $send_bot_s_message_data = null)
+    public function sendBotsMessageWithHttpInfo($api_token, $bot_userid, $send_bot_s_message_data = null)
     {
-        $request = $this->sendBotsMessageRequest($bot_userid, $api_token, $send_bot_s_message_data);
+        $request = $this->sendBotsMessageRequest($api_token, $bot_userid, $send_bot_s_message_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1830,16 +1866,16 @@ class BotInterfaceApi
      *
      * Send a bot&#39;s message
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendBotsMessageAsync($bot_userid, $api_token = null, $send_bot_s_message_data = null)
+    public function sendBotsMessageAsync($api_token, $bot_userid, $send_bot_s_message_data = null)
     {
-        return $this->sendBotsMessageAsyncWithHttpInfo($bot_userid, $api_token, $send_bot_s_message_data)
+        return $this->sendBotsMessageAsyncWithHttpInfo($api_token, $bot_userid, $send_bot_s_message_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1852,17 +1888,17 @@ class BotInterfaceApi
      *
      * Send a bot&#39;s message
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendBotsMessageAsyncWithHttpInfo($bot_userid, $api_token = null, $send_bot_s_message_data = null)
+    public function sendBotsMessageAsyncWithHttpInfo($api_token, $bot_userid, $send_bot_s_message_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdMessageResponse';
-        $request = $this->sendBotsMessageRequest($bot_userid, $api_token, $send_bot_s_message_data);
+        $request = $this->sendBotsMessageRequest($api_token, $bot_userid, $send_bot_s_message_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1900,15 +1936,21 @@ class BotInterfaceApi
     /**
      * Create request for operation 'sendBotsMessage'
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendBotsMessageRequest($bot_userid, $api_token = null, $send_bot_s_message_data = null)
+    public function sendBotsMessageRequest($api_token, $bot_userid, $send_bot_s_message_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling sendBotsMessage'
+            );
+        }
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(
@@ -2007,17 +2049,17 @@ class BotInterfaceApi
      *
      * Update a bot
      *
+     * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data update_bot_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateBotByIdResponse
      */
-    public function updateBotById($bot_userid, $api_token = null, $update_bot_by_id_data = null)
+    public function updateBotById($api_token, $bot_userid, $update_bot_by_id_data = null)
     {
-        list($response) = $this->updateBotByIdWithHttpInfo($bot_userid, $api_token, $update_bot_by_id_data);
+        list($response) = $this->updateBotByIdWithHttpInfo($api_token, $bot_userid, $update_bot_by_id_data);
         return $response;
     }
 
@@ -2026,17 +2068,17 @@ class BotInterfaceApi
      *
      * Update a bot
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateBotByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateBotByIdWithHttpInfo($bot_userid, $api_token = null, $update_bot_by_id_data = null)
+    public function updateBotByIdWithHttpInfo($api_token, $bot_userid, $update_bot_by_id_data = null)
     {
-        $request = $this->updateBotByIdRequest($bot_userid, $api_token, $update_bot_by_id_data);
+        $request = $this->updateBotByIdRequest($api_token, $bot_userid, $update_bot_by_id_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2121,16 +2163,16 @@ class BotInterfaceApi
      *
      * Update a bot
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBotByIdAsync($bot_userid, $api_token = null, $update_bot_by_id_data = null)
+    public function updateBotByIdAsync($api_token, $bot_userid, $update_bot_by_id_data = null)
     {
-        return $this->updateBotByIdAsyncWithHttpInfo($bot_userid, $api_token, $update_bot_by_id_data)
+        return $this->updateBotByIdAsyncWithHttpInfo($api_token, $bot_userid, $update_bot_by_id_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2143,17 +2185,17 @@ class BotInterfaceApi
      *
      * Update a bot
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBotByIdAsyncWithHttpInfo($bot_userid, $api_token = null, $update_bot_by_id_data = null)
+    public function updateBotByIdAsyncWithHttpInfo($api_token, $bot_userid, $update_bot_by_id_data = null)
     {
         $returnType = '\Sendbird\Model\UpdateBotByIdResponse';
-        $request = $this->updateBotByIdRequest($bot_userid, $api_token, $update_bot_by_id_data);
+        $request = $this->updateBotByIdRequest($api_token, $bot_userid, $update_bot_by_id_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2191,15 +2233,21 @@ class BotInterfaceApi
     /**
      * Create request for operation 'updateBotById'
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateBotByIdRequest($bot_userid, $api_token = null, $update_bot_by_id_data = null)
+    public function updateBotByIdRequest($api_token, $bot_userid, $update_bot_by_id_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateBotById'
+            );
+        }
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(
@@ -2298,16 +2346,16 @@ class BotInterfaceApi
      *
      * View a bot
      *
+     * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewBotByIdResponse
      */
-    public function viewBotById($bot_userid, $api_token = null)
+    public function viewBotById($api_token, $bot_userid)
     {
-        list($response) = $this->viewBotByIdWithHttpInfo($bot_userid, $api_token);
+        list($response) = $this->viewBotByIdWithHttpInfo($api_token, $bot_userid);
         return $response;
     }
 
@@ -2316,16 +2364,16 @@ class BotInterfaceApi
      *
      * View a bot
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewBotByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewBotByIdWithHttpInfo($bot_userid, $api_token = null)
+    public function viewBotByIdWithHttpInfo($api_token, $bot_userid)
     {
-        $request = $this->viewBotByIdRequest($bot_userid, $api_token);
+        $request = $this->viewBotByIdRequest($api_token, $bot_userid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2410,15 +2458,15 @@ class BotInterfaceApi
      *
      * View a bot
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewBotByIdAsync($bot_userid, $api_token = null)
+    public function viewBotByIdAsync($api_token, $bot_userid)
     {
-        return $this->viewBotByIdAsyncWithHttpInfo($bot_userid, $api_token)
+        return $this->viewBotByIdAsyncWithHttpInfo($api_token, $bot_userid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2431,16 +2479,16 @@ class BotInterfaceApi
      *
      * View a bot
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewBotByIdAsyncWithHttpInfo($bot_userid, $api_token = null)
+    public function viewBotByIdAsyncWithHttpInfo($api_token, $bot_userid)
     {
         $returnType = '\Sendbird\Model\ViewBotByIdResponse';
-        $request = $this->viewBotByIdRequest($bot_userid, $api_token);
+        $request = $this->viewBotByIdRequest($api_token, $bot_userid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2478,14 +2526,20 @@ class BotInterfaceApi
     /**
      * Create request for operation 'viewBotById'
      *
+     * @param  string $api_token (required)
      * @param  string $bot_userid (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewBotByIdRequest($bot_userid, $api_token = null)
+    public function viewBotByIdRequest($api_token, $bot_userid)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling viewBotById'
+            );
+        }
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(

@@ -53,7 +53,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **create_bot_data** | [**\Sendbird\Model\CreateBotData**](../Model/CreateBotData.md)|  | [optional]
 
 ### Return type
@@ -76,7 +76,7 @@ No authorization required
 ## `deleteBotById()`
 
 ```php
-deleteBotById($bot_userid, $api_token)
+deleteBotById($api_token, $bot_userid)
 ```
 
 Delete a bot
@@ -96,11 +96,11 @@ $apiInstance = new Sendbird\Api\BotInterfaceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$bot_userid = 'bot_userid_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$bot_userid = 'bot_userid_example'; // string
 
 try {
-    $apiInstance->deleteBotById($bot_userid, $api_token);
+    $apiInstance->deleteBotById($api_token, $bot_userid);
 } catch (Exception $e) {
     echo 'Exception when calling BotInterfaceApi->deleteBotById: ', $e->getMessage(), PHP_EOL;
 }
@@ -110,8 +110,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **bot_userid** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -133,7 +133,7 @@ No authorization required
 ## `joinChannels()`
 
 ```php
-joinChannels($bot_userid, $api_token, $join_channels_data): \Sendbird\Model\SendBirdGroupChannelCollection
+joinChannels($api_token, $bot_userid, $join_channels_data): \Sendbird\Model\SendBirdGroupChannelCollection
 ```
 
 Join channels
@@ -153,12 +153,12 @@ $apiInstance = new Sendbird\Api\BotInterfaceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$bot_userid = 'bot_userid_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$bot_userid = 'bot_userid_example'; // string
 $join_channels_data = new \Sendbird\Model\JoinChannelsData(); // \Sendbird\Model\JoinChannelsData
 
 try {
-    $result = $apiInstance->joinChannels($bot_userid, $api_token, $join_channels_data);
+    $result = $apiInstance->joinChannels($api_token, $bot_userid, $join_channels_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotInterfaceApi->joinChannels: ', $e->getMessage(), PHP_EOL;
@@ -169,8 +169,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **bot_userid** | **string**|  |
- **api_token** | **string**|  | [optional]
  **join_channels_data** | [**\Sendbird\Model\JoinChannelsData**](../Model/JoinChannelsData.md)|  | [optional]
 
 ### Return type
@@ -193,7 +193,7 @@ No authorization required
 ## `leaveChannels()`
 
 ```php
-leaveChannels($bot_userid, $api_token, $channel_url)
+leaveChannels($api_token, $bot_userid, $channel_url)
 ```
 
 Leave channels - When leaving all channels
@@ -213,12 +213,12 @@ $apiInstance = new Sendbird\Api\BotInterfaceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$bot_userid = 'bot_userid_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$bot_userid = 'bot_userid_example'; // string
 $channel_url = 'channel_url_example'; // string
 
 try {
-    $apiInstance->leaveChannels($bot_userid, $api_token, $channel_url);
+    $apiInstance->leaveChannels($api_token, $bot_userid, $channel_url);
 } catch (Exception $e) {
     echo 'Exception when calling BotInterfaceApi->leaveChannels: ', $e->getMessage(), PHP_EOL;
 }
@@ -228,8 +228,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **bot_userid** | **string**|  |
- **api_token** | **string**|  | [optional]
  **channel_url** | **string**|  | [optional]
 
 ### Return type
@@ -252,7 +252,7 @@ No authorization required
 ## `leaveChannelsByUrl()`
 
 ```php
-leaveChannelsByUrl($bot_userid, $channel_url, $api_token)
+leaveChannelsByUrl($api_token, $bot_userid, $channel_url)
 ```
 
 Leave channels - When leaving a channel by its channel URL
@@ -272,12 +272,12 @@ $apiInstance = new Sendbird\Api\BotInterfaceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$api_token = {{API_TOKEN}}; // string
 $bot_userid = 'bot_userid_example'; // string
 $channel_url = 'channel_url_example'; // string
-$api_token = {{API_TOKEN}}; // string
 
 try {
-    $apiInstance->leaveChannelsByUrl($bot_userid, $channel_url, $api_token);
+    $apiInstance->leaveChannelsByUrl($api_token, $bot_userid, $channel_url);
 } catch (Exception $e) {
     echo 'Exception when calling BotInterfaceApi->leaveChannelsByUrl: ', $e->getMessage(), PHP_EOL;
 }
@@ -287,9 +287,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **bot_userid** | **string**|  |
  **channel_url** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -347,7 +347,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  | [optional]
+ **api_token** | **string**|  |
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
 
@@ -371,7 +371,7 @@ No authorization required
 ## `sendBotsMessage()`
 
 ```php
-sendBotsMessage($bot_userid, $api_token, $send_bot_s_message_data): \Sendbird\Model\SendBirdMessageResponse
+sendBotsMessage($api_token, $bot_userid, $send_bot_s_message_data): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 Send a bot's message
@@ -391,12 +391,12 @@ $apiInstance = new Sendbird\Api\BotInterfaceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$bot_userid = 'bot_userid_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$bot_userid = 'bot_userid_example'; // string
 $send_bot_s_message_data = new \Sendbird\Model\SendBotSMessageData(); // \Sendbird\Model\SendBotSMessageData
 
 try {
-    $result = $apiInstance->sendBotsMessage($bot_userid, $api_token, $send_bot_s_message_data);
+    $result = $apiInstance->sendBotsMessage($api_token, $bot_userid, $send_bot_s_message_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotInterfaceApi->sendBotsMessage: ', $e->getMessage(), PHP_EOL;
@@ -407,8 +407,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **bot_userid** | **string**|  |
- **api_token** | **string**|  | [optional]
  **send_bot_s_message_data** | [**\Sendbird\Model\SendBotSMessageData**](../Model/SendBotSMessageData.md)|  | [optional]
 
 ### Return type
@@ -431,7 +431,7 @@ No authorization required
 ## `updateBotById()`
 
 ```php
-updateBotById($bot_userid, $api_token, $update_bot_by_id_data): \Sendbird\Model\UpdateBotByIdResponse
+updateBotById($api_token, $bot_userid, $update_bot_by_id_data): \Sendbird\Model\UpdateBotByIdResponse
 ```
 
 Update a bot
@@ -451,12 +451,12 @@ $apiInstance = new Sendbird\Api\BotInterfaceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$bot_userid = 'bot_userid_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$bot_userid = 'bot_userid_example'; // string
 $update_bot_by_id_data = new \Sendbird\Model\UpdateBotByIdData(); // \Sendbird\Model\UpdateBotByIdData
 
 try {
-    $result = $apiInstance->updateBotById($bot_userid, $api_token, $update_bot_by_id_data);
+    $result = $apiInstance->updateBotById($api_token, $bot_userid, $update_bot_by_id_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotInterfaceApi->updateBotById: ', $e->getMessage(), PHP_EOL;
@@ -467,8 +467,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **bot_userid** | **string**|  |
- **api_token** | **string**|  | [optional]
  **update_bot_by_id_data** | [**\Sendbird\Model\UpdateBotByIdData**](../Model/UpdateBotByIdData.md)|  | [optional]
 
 ### Return type
@@ -491,7 +491,7 @@ No authorization required
 ## `viewBotById()`
 
 ```php
-viewBotById($bot_userid, $api_token): \Sendbird\Model\ViewBotByIdResponse
+viewBotById($api_token, $bot_userid): \Sendbird\Model\ViewBotByIdResponse
 ```
 
 View a bot
@@ -511,11 +511,11 @@ $apiInstance = new Sendbird\Api\BotInterfaceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$bot_userid = 'bot_userid_example'; // string
 $api_token = {{API_TOKEN}}; // string
+$bot_userid = 'bot_userid_example'; // string
 
 try {
-    $result = $apiInstance->viewBotById($bot_userid, $api_token);
+    $result = $apiInstance->viewBotById($api_token, $bot_userid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotInterfaceApi->viewBotById: ', $e->getMessage(), PHP_EOL;
@@ -526,8 +526,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
  **bot_userid** | **string**|  |
- **api_token** | **string**|  | [optional]
 
 ### Return type
 

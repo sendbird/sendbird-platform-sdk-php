@@ -120,14 +120,14 @@ class EmojisApi
      *
      * Add emoji categories
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  object $body body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddEmojiCategoriesResponse
      */
-    public function addEmojiCategories($api_token = null, $body = null)
+    public function addEmojiCategories($api_token, $body = null)
     {
         list($response) = $this->addEmojiCategoriesWithHttpInfo($api_token, $body);
         return $response;
@@ -138,14 +138,14 @@ class EmojisApi
      *
      * Add emoji categories
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  object $body (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddEmojiCategoriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addEmojiCategoriesWithHttpInfo($api_token = null, $body = null)
+    public function addEmojiCategoriesWithHttpInfo($api_token, $body = null)
     {
         $request = $this->addEmojiCategoriesRequest($api_token, $body);
 
@@ -232,13 +232,13 @@ class EmojisApi
      *
      * Add emoji categories
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmojiCategoriesAsync($api_token = null, $body = null)
+    public function addEmojiCategoriesAsync($api_token, $body = null)
     {
         return $this->addEmojiCategoriesAsyncWithHttpInfo($api_token, $body)
             ->then(
@@ -253,13 +253,13 @@ class EmojisApi
      *
      * Add emoji categories
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmojiCategoriesAsyncWithHttpInfo($api_token = null, $body = null)
+    public function addEmojiCategoriesAsyncWithHttpInfo($api_token, $body = null)
     {
         $returnType = '\Sendbird\Model\AddEmojiCategoriesResponse';
         $request = $this->addEmojiCategoriesRequest($api_token, $body);
@@ -300,14 +300,20 @@ class EmojisApi
     /**
      * Create request for operation 'addEmojiCategories'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  object $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addEmojiCategoriesRequest($api_token = null, $body = null)
+    public function addEmojiCategoriesRequest($api_token, $body = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling addEmojiCategories'
+            );
+        }
 
         $resourcePath = '/v3/emoji_categories';
         $formParams = [];
@@ -392,14 +398,14 @@ class EmojisApi
      *
      * Add emojis
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\AddEmojisData $add_emojis_data add_emojis_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddEmojisResponse
      */
-    public function addEmojis($api_token = null, $add_emojis_data = null)
+    public function addEmojis($api_token, $add_emojis_data = null)
     {
         list($response) = $this->addEmojisWithHttpInfo($api_token, $add_emojis_data);
         return $response;
@@ -410,14 +416,14 @@ class EmojisApi
      *
      * Add emojis
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddEmojisData $add_emojis_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddEmojisResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addEmojisWithHttpInfo($api_token = null, $add_emojis_data = null)
+    public function addEmojisWithHttpInfo($api_token, $add_emojis_data = null)
     {
         $request = $this->addEmojisRequest($api_token, $add_emojis_data);
 
@@ -504,13 +510,13 @@ class EmojisApi
      *
      * Add emojis
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddEmojisData $add_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmojisAsync($api_token = null, $add_emojis_data = null)
+    public function addEmojisAsync($api_token, $add_emojis_data = null)
     {
         return $this->addEmojisAsyncWithHttpInfo($api_token, $add_emojis_data)
             ->then(
@@ -525,13 +531,13 @@ class EmojisApi
      *
      * Add emojis
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddEmojisData $add_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addEmojisAsyncWithHttpInfo($api_token = null, $add_emojis_data = null)
+    public function addEmojisAsyncWithHttpInfo($api_token, $add_emojis_data = null)
     {
         $returnType = '\Sendbird\Model\AddEmojisResponse';
         $request = $this->addEmojisRequest($api_token, $add_emojis_data);
@@ -572,14 +578,20 @@ class EmojisApi
     /**
      * Create request for operation 'addEmojis'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddEmojisData $add_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addEmojisRequest($api_token = null, $add_emojis_data = null)
+    public function addEmojisRequest($api_token, $add_emojis_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling addEmojis'
+            );
+        }
 
         $resourcePath = '/v3/emojis';
         $formParams = [];
@@ -664,16 +676,16 @@ class EmojisApi
      *
      * Delete an emoji
      *
+     * @param  string $api_token api_token (required)
      * @param  string $emoji_key emoji_key (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteEmojiByKey($emoji_key, $api_token = null)
+    public function deleteEmojiByKey($api_token, $emoji_key)
     {
-        $this->deleteEmojiByKeyWithHttpInfo($emoji_key, $api_token);
+        $this->deleteEmojiByKeyWithHttpInfo($api_token, $emoji_key);
     }
 
     /**
@@ -681,16 +693,16 @@ class EmojisApi
      *
      * Delete an emoji
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteEmojiByKeyWithHttpInfo($emoji_key, $api_token = null)
+    public function deleteEmojiByKeyWithHttpInfo($api_token, $emoji_key)
     {
-        $request = $this->deleteEmojiByKeyRequest($emoji_key, $api_token);
+        $request = $this->deleteEmojiByKeyRequest($api_token, $emoji_key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -741,15 +753,15 @@ class EmojisApi
      *
      * Delete an emoji
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmojiByKeyAsync($emoji_key, $api_token = null)
+    public function deleteEmojiByKeyAsync($api_token, $emoji_key)
     {
-        return $this->deleteEmojiByKeyAsyncWithHttpInfo($emoji_key, $api_token)
+        return $this->deleteEmojiByKeyAsyncWithHttpInfo($api_token, $emoji_key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -762,16 +774,16 @@ class EmojisApi
      *
      * Delete an emoji
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmojiByKeyAsyncWithHttpInfo($emoji_key, $api_token = null)
+    public function deleteEmojiByKeyAsyncWithHttpInfo($api_token, $emoji_key)
     {
         $returnType = '';
-        $request = $this->deleteEmojiByKeyRequest($emoji_key, $api_token);
+        $request = $this->deleteEmojiByKeyRequest($api_token, $emoji_key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -799,14 +811,20 @@ class EmojisApi
     /**
      * Create request for operation 'deleteEmojiByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteEmojiByKeyRequest($emoji_key, $api_token = null)
+    public function deleteEmojiByKeyRequest($api_token, $emoji_key)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteEmojiByKey'
+            );
+        }
         // verify the required parameter 'emoji_key' is set
         if ($emoji_key === null || (is_array($emoji_key) && count($emoji_key) === 0)) {
             throw new \InvalidArgumentException(
@@ -899,16 +917,16 @@ class EmojisApi
      *
      * Delete an emoji category
      *
+     * @param  string $api_token api_token (required)
      * @param  string $emoji_category_id emoji_category_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteEmojiCategoryById($emoji_category_id, $api_token = null)
+    public function deleteEmojiCategoryById($api_token, $emoji_category_id)
     {
-        $this->deleteEmojiCategoryByIdWithHttpInfo($emoji_category_id, $api_token);
+        $this->deleteEmojiCategoryByIdWithHttpInfo($api_token, $emoji_category_id);
     }
 
     /**
@@ -916,16 +934,16 @@ class EmojisApi
      *
      * Delete an emoji category
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteEmojiCategoryByIdWithHttpInfo($emoji_category_id, $api_token = null)
+    public function deleteEmojiCategoryByIdWithHttpInfo($api_token, $emoji_category_id)
     {
-        $request = $this->deleteEmojiCategoryByIdRequest($emoji_category_id, $api_token);
+        $request = $this->deleteEmojiCategoryByIdRequest($api_token, $emoji_category_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -976,15 +994,15 @@ class EmojisApi
      *
      * Delete an emoji category
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmojiCategoryByIdAsync($emoji_category_id, $api_token = null)
+    public function deleteEmojiCategoryByIdAsync($api_token, $emoji_category_id)
     {
-        return $this->deleteEmojiCategoryByIdAsyncWithHttpInfo($emoji_category_id, $api_token)
+        return $this->deleteEmojiCategoryByIdAsyncWithHttpInfo($api_token, $emoji_category_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -997,16 +1015,16 @@ class EmojisApi
      *
      * Delete an emoji category
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteEmojiCategoryByIdAsyncWithHttpInfo($emoji_category_id, $api_token = null)
+    public function deleteEmojiCategoryByIdAsyncWithHttpInfo($api_token, $emoji_category_id)
     {
         $returnType = '';
-        $request = $this->deleteEmojiCategoryByIdRequest($emoji_category_id, $api_token);
+        $request = $this->deleteEmojiCategoryByIdRequest($api_token, $emoji_category_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1034,14 +1052,20 @@ class EmojisApi
     /**
      * Create request for operation 'deleteEmojiCategoryById'
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteEmojiCategoryByIdRequest($emoji_category_id, $api_token = null)
+    public function deleteEmojiCategoryByIdRequest($api_token, $emoji_category_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteEmojiCategoryById'
+            );
+        }
         // verify the required parameter 'emoji_category_id' is set
         if ($emoji_category_id === null || (is_array($emoji_category_id) && count($emoji_category_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1134,14 +1158,14 @@ class EmojisApi
      *
      * Enable reactions
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\EnableReactionsData $enable_reactions_data enable_reactions_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\EnableReactionsResponse
      */
-    public function enableReactions($api_token = null, $enable_reactions_data = null)
+    public function enableReactions($api_token, $enable_reactions_data = null)
     {
         list($response) = $this->enableReactionsWithHttpInfo($api_token, $enable_reactions_data);
         return $response;
@@ -1152,14 +1176,14 @@ class EmojisApi
      *
      * Enable reactions
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\EnableReactionsData $enable_reactions_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\EnableReactionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function enableReactionsWithHttpInfo($api_token = null, $enable_reactions_data = null)
+    public function enableReactionsWithHttpInfo($api_token, $enable_reactions_data = null)
     {
         $request = $this->enableReactionsRequest($api_token, $enable_reactions_data);
 
@@ -1246,13 +1270,13 @@ class EmojisApi
      *
      * Enable reactions
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\EnableReactionsData $enable_reactions_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enableReactionsAsync($api_token = null, $enable_reactions_data = null)
+    public function enableReactionsAsync($api_token, $enable_reactions_data = null)
     {
         return $this->enableReactionsAsyncWithHttpInfo($api_token, $enable_reactions_data)
             ->then(
@@ -1267,13 +1291,13 @@ class EmojisApi
      *
      * Enable reactions
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\EnableReactionsData $enable_reactions_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enableReactionsAsyncWithHttpInfo($api_token = null, $enable_reactions_data = null)
+    public function enableReactionsAsyncWithHttpInfo($api_token, $enable_reactions_data = null)
     {
         $returnType = '\Sendbird\Model\EnableReactionsResponse';
         $request = $this->enableReactionsRequest($api_token, $enable_reactions_data);
@@ -1314,14 +1338,20 @@ class EmojisApi
     /**
      * Create request for operation 'enableReactions'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\EnableReactionsData $enable_reactions_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function enableReactionsRequest($api_token = null, $enable_reactions_data = null)
+    public function enableReactionsRequest($api_token, $enable_reactions_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling enableReactions'
+            );
+        }
 
         $resourcePath = '/v3/applications/settings/reactions';
         $formParams = [];
@@ -1406,16 +1436,16 @@ class EmojisApi
      *
      * Get an emoji
      *
+     * @param  string $api_token api_token (required)
      * @param  string $emoji_key emoji_key (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdEmoji
      */
-    public function getEmojiByKey($emoji_key, $api_token = null)
+    public function getEmojiByKey($api_token, $emoji_key)
     {
-        list($response) = $this->getEmojiByKeyWithHttpInfo($emoji_key, $api_token);
+        list($response) = $this->getEmojiByKeyWithHttpInfo($api_token, $emoji_key);
         return $response;
     }
 
@@ -1424,16 +1454,16 @@ class EmojisApi
      *
      * Get an emoji
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdEmoji, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmojiByKeyWithHttpInfo($emoji_key, $api_token = null)
+    public function getEmojiByKeyWithHttpInfo($api_token, $emoji_key)
     {
-        $request = $this->getEmojiByKeyRequest($emoji_key, $api_token);
+        $request = $this->getEmojiByKeyRequest($api_token, $emoji_key);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1518,15 +1548,15 @@ class EmojisApi
      *
      * Get an emoji
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmojiByKeyAsync($emoji_key, $api_token = null)
+    public function getEmojiByKeyAsync($api_token, $emoji_key)
     {
-        return $this->getEmojiByKeyAsyncWithHttpInfo($emoji_key, $api_token)
+        return $this->getEmojiByKeyAsyncWithHttpInfo($api_token, $emoji_key)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1539,16 +1569,16 @@ class EmojisApi
      *
      * Get an emoji
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmojiByKeyAsyncWithHttpInfo($emoji_key, $api_token = null)
+    public function getEmojiByKeyAsyncWithHttpInfo($api_token, $emoji_key)
     {
         $returnType = '\Sendbird\Model\SendBirdEmoji';
-        $request = $this->getEmojiByKeyRequest($emoji_key, $api_token);
+        $request = $this->getEmojiByKeyRequest($api_token, $emoji_key);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1586,14 +1616,20 @@ class EmojisApi
     /**
      * Create request for operation 'getEmojiByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmojiByKeyRequest($emoji_key, $api_token = null)
+    public function getEmojiByKeyRequest($api_token, $emoji_key)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling getEmojiByKey'
+            );
+        }
         // verify the required parameter 'emoji_key' is set
         if ($emoji_key === null || (is_array($emoji_key) && count($emoji_key) === 0)) {
             throw new \InvalidArgumentException(
@@ -1686,16 +1722,16 @@ class EmojisApi
      *
      * Get an emoji category
      *
+     * @param  string $api_token api_token (required)
      * @param  string $emoji_category_id emoji_category_id (required)
-     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdEmojiCategory
      */
-    public function getEmojiCategoryById($emoji_category_id, $api_token = null)
+    public function getEmojiCategoryById($api_token, $emoji_category_id)
     {
-        list($response) = $this->getEmojiCategoryByIdWithHttpInfo($emoji_category_id, $api_token);
+        list($response) = $this->getEmojiCategoryByIdWithHttpInfo($api_token, $emoji_category_id);
         return $response;
     }
 
@@ -1704,16 +1740,16 @@ class EmojisApi
      *
      * Get an emoji category
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdEmojiCategory, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getEmojiCategoryByIdWithHttpInfo($emoji_category_id, $api_token = null)
+    public function getEmojiCategoryByIdWithHttpInfo($api_token, $emoji_category_id)
     {
-        $request = $this->getEmojiCategoryByIdRequest($emoji_category_id, $api_token);
+        $request = $this->getEmojiCategoryByIdRequest($api_token, $emoji_category_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1798,15 +1834,15 @@ class EmojisApi
      *
      * Get an emoji category
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmojiCategoryByIdAsync($emoji_category_id, $api_token = null)
+    public function getEmojiCategoryByIdAsync($api_token, $emoji_category_id)
     {
-        return $this->getEmojiCategoryByIdAsyncWithHttpInfo($emoji_category_id, $api_token)
+        return $this->getEmojiCategoryByIdAsyncWithHttpInfo($api_token, $emoji_category_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1819,16 +1855,16 @@ class EmojisApi
      *
      * Get an emoji category
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getEmojiCategoryByIdAsyncWithHttpInfo($emoji_category_id, $api_token = null)
+    public function getEmojiCategoryByIdAsyncWithHttpInfo($api_token, $emoji_category_id)
     {
         $returnType = '\Sendbird\Model\SendBirdEmojiCategory';
-        $request = $this->getEmojiCategoryByIdRequest($emoji_category_id, $api_token);
+        $request = $this->getEmojiCategoryByIdRequest($api_token, $emoji_category_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1866,14 +1902,20 @@ class EmojisApi
     /**
      * Create request for operation 'getEmojiCategoryById'
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getEmojiCategoryByIdRequest($emoji_category_id, $api_token = null)
+    public function getEmojiCategoryByIdRequest($api_token, $emoji_category_id)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling getEmojiCategoryById'
+            );
+        }
         // verify the required parameter 'emoji_category_id' is set
         if ($emoji_category_id === null || (is_array($emoji_category_id) && count($emoji_category_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1966,13 +2008,13 @@ class EmojisApi
      *
      * List all emojis and emoji categories
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse
      */
-    public function listAllEmojisAndEmojiCategories($api_token = null)
+    public function listAllEmojisAndEmojiCategories($api_token)
     {
         list($response) = $this->listAllEmojisAndEmojiCategoriesWithHttpInfo($api_token);
         return $response;
@@ -1983,13 +2025,13 @@ class EmojisApi
      *
      * List all emojis and emoji categories
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAllEmojisAndEmojiCategoriesWithHttpInfo($api_token = null)
+    public function listAllEmojisAndEmojiCategoriesWithHttpInfo($api_token)
     {
         $request = $this->listAllEmojisAndEmojiCategoriesRequest($api_token);
 
@@ -2076,12 +2118,12 @@ class EmojisApi
      *
      * List all emojis and emoji categories
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAllEmojisAndEmojiCategoriesAsync($api_token = null)
+    public function listAllEmojisAndEmojiCategoriesAsync($api_token)
     {
         return $this->listAllEmojisAndEmojiCategoriesAsyncWithHttpInfo($api_token)
             ->then(
@@ -2096,12 +2138,12 @@ class EmojisApi
      *
      * List all emojis and emoji categories
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAllEmojisAndEmojiCategoriesAsyncWithHttpInfo($api_token = null)
+    public function listAllEmojisAndEmojiCategoriesAsyncWithHttpInfo($api_token)
     {
         $returnType = '\Sendbird\Model\ListAllEmojisAndEmojiCategoriesResponse';
         $request = $this->listAllEmojisAndEmojiCategoriesRequest($api_token);
@@ -2142,13 +2184,19 @@ class EmojisApi
     /**
      * Create request for operation 'listAllEmojisAndEmojiCategories'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listAllEmojisAndEmojiCategoriesRequest($api_token = null)
+    public function listAllEmojisAndEmojiCategoriesRequest($api_token)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listAllEmojisAndEmojiCategories'
+            );
+        }
 
         $resourcePath = '/v3/emoji_categories';
         $formParams = [];
@@ -2227,13 +2275,13 @@ class EmojisApi
      *
      * List emojis
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListEmojisResponse
      */
-    public function listEmojis($api_token = null)
+    public function listEmojis($api_token)
     {
         list($response) = $this->listEmojisWithHttpInfo($api_token);
         return $response;
@@ -2244,13 +2292,13 @@ class EmojisApi
      *
      * List emojis
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListEmojisResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listEmojisWithHttpInfo($api_token = null)
+    public function listEmojisWithHttpInfo($api_token)
     {
         $request = $this->listEmojisRequest($api_token);
 
@@ -2337,12 +2385,12 @@ class EmojisApi
      *
      * List emojis
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listEmojisAsync($api_token = null)
+    public function listEmojisAsync($api_token)
     {
         return $this->listEmojisAsyncWithHttpInfo($api_token)
             ->then(
@@ -2357,12 +2405,12 @@ class EmojisApi
      *
      * List emojis
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listEmojisAsyncWithHttpInfo($api_token = null)
+    public function listEmojisAsyncWithHttpInfo($api_token)
     {
         $returnType = '\Sendbird\Model\ListEmojisResponse';
         $request = $this->listEmojisRequest($api_token);
@@ -2403,13 +2451,19 @@ class EmojisApi
     /**
      * Create request for operation 'listEmojis'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listEmojisRequest($api_token = null)
+    public function listEmojisRequest($api_token)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listEmojis'
+            );
+        }
 
         $resourcePath = '/v3/emojis';
         $formParams = [];
@@ -2488,17 +2542,17 @@ class EmojisApi
      *
      * Update an emoji category URL
      *
+     * @param  string $api_token api_token (required)
      * @param  string $emoji_category_id emoji_category_id (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data update_emoji_category_url_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdEmojiCategory
      */
-    public function updateEmojiCategoryUrlById($emoji_category_id, $api_token = null, $update_emoji_category_url_by_id_data = null)
+    public function updateEmojiCategoryUrlById($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data = null)
     {
-        list($response) = $this->updateEmojiCategoryUrlByIdWithHttpInfo($emoji_category_id, $api_token, $update_emoji_category_url_by_id_data);
+        list($response) = $this->updateEmojiCategoryUrlByIdWithHttpInfo($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data);
         return $response;
     }
 
@@ -2507,17 +2561,17 @@ class EmojisApi
      *
      * Update an emoji category URL
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdEmojiCategory, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEmojiCategoryUrlByIdWithHttpInfo($emoji_category_id, $api_token = null, $update_emoji_category_url_by_id_data = null)
+    public function updateEmojiCategoryUrlByIdWithHttpInfo($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data = null)
     {
-        $request = $this->updateEmojiCategoryUrlByIdRequest($emoji_category_id, $api_token, $update_emoji_category_url_by_id_data);
+        $request = $this->updateEmojiCategoryUrlByIdRequest($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2602,16 +2656,16 @@ class EmojisApi
      *
      * Update an emoji category URL
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmojiCategoryUrlByIdAsync($emoji_category_id, $api_token = null, $update_emoji_category_url_by_id_data = null)
+    public function updateEmojiCategoryUrlByIdAsync($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data = null)
     {
-        return $this->updateEmojiCategoryUrlByIdAsyncWithHttpInfo($emoji_category_id, $api_token, $update_emoji_category_url_by_id_data)
+        return $this->updateEmojiCategoryUrlByIdAsyncWithHttpInfo($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2624,17 +2678,17 @@ class EmojisApi
      *
      * Update an emoji category URL
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmojiCategoryUrlByIdAsyncWithHttpInfo($emoji_category_id, $api_token = null, $update_emoji_category_url_by_id_data = null)
+    public function updateEmojiCategoryUrlByIdAsyncWithHttpInfo($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdEmojiCategory';
-        $request = $this->updateEmojiCategoryUrlByIdRequest($emoji_category_id, $api_token, $update_emoji_category_url_by_id_data);
+        $request = $this->updateEmojiCategoryUrlByIdRequest($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2672,15 +2726,21 @@ class EmojisApi
     /**
      * Create request for operation 'updateEmojiCategoryUrlById'
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_category_id (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateEmojiCategoryUrlByIdData $update_emoji_category_url_by_id_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateEmojiCategoryUrlByIdRequest($emoji_category_id, $api_token = null, $update_emoji_category_url_by_id_data = null)
+    public function updateEmojiCategoryUrlByIdRequest($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateEmojiCategoryUrlById'
+            );
+        }
         // verify the required parameter 'emoji_category_id' is set
         if ($emoji_category_id === null || (is_array($emoji_category_id) && count($emoji_category_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -2779,17 +2839,17 @@ class EmojisApi
      *
      * Update an emoji URL
      *
+     * @param  string $api_token api_token (required)
      * @param  string $emoji_key emoji_key (required)
-     * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data update_emoji_url_by_key_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdEmoji
      */
-    public function updateEmojiUrlByKey($emoji_key, $api_token = null, $update_emoji_url_by_key_data = null)
+    public function updateEmojiUrlByKey($api_token, $emoji_key, $update_emoji_url_by_key_data = null)
     {
-        list($response) = $this->updateEmojiUrlByKeyWithHttpInfo($emoji_key, $api_token, $update_emoji_url_by_key_data);
+        list($response) = $this->updateEmojiUrlByKeyWithHttpInfo($api_token, $emoji_key, $update_emoji_url_by_key_data);
         return $response;
     }
 
@@ -2798,17 +2858,17 @@ class EmojisApi
      *
      * Update an emoji URL
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdEmoji, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateEmojiUrlByKeyWithHttpInfo($emoji_key, $api_token = null, $update_emoji_url_by_key_data = null)
+    public function updateEmojiUrlByKeyWithHttpInfo($api_token, $emoji_key, $update_emoji_url_by_key_data = null)
     {
-        $request = $this->updateEmojiUrlByKeyRequest($emoji_key, $api_token, $update_emoji_url_by_key_data);
+        $request = $this->updateEmojiUrlByKeyRequest($api_token, $emoji_key, $update_emoji_url_by_key_data);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2893,16 +2953,16 @@ class EmojisApi
      *
      * Update an emoji URL
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmojiUrlByKeyAsync($emoji_key, $api_token = null, $update_emoji_url_by_key_data = null)
+    public function updateEmojiUrlByKeyAsync($api_token, $emoji_key, $update_emoji_url_by_key_data = null)
     {
-        return $this->updateEmojiUrlByKeyAsyncWithHttpInfo($emoji_key, $api_token, $update_emoji_url_by_key_data)
+        return $this->updateEmojiUrlByKeyAsyncWithHttpInfo($api_token, $emoji_key, $update_emoji_url_by_key_data)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2915,17 +2975,17 @@ class EmojisApi
      *
      * Update an emoji URL
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateEmojiUrlByKeyAsyncWithHttpInfo($emoji_key, $api_token = null, $update_emoji_url_by_key_data = null)
+    public function updateEmojiUrlByKeyAsyncWithHttpInfo($api_token, $emoji_key, $update_emoji_url_by_key_data = null)
     {
         $returnType = '\Sendbird\Model\SendBirdEmoji';
-        $request = $this->updateEmojiUrlByKeyRequest($emoji_key, $api_token, $update_emoji_url_by_key_data);
+        $request = $this->updateEmojiUrlByKeyRequest($api_token, $emoji_key, $update_emoji_url_by_key_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2963,15 +3023,21 @@ class EmojisApi
     /**
      * Create request for operation 'updateEmojiUrlByKey'
      *
+     * @param  string $api_token (required)
      * @param  string $emoji_key (required)
-     * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateEmojiUrlByKeyData $update_emoji_url_by_key_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateEmojiUrlByKeyRequest($emoji_key, $api_token = null, $update_emoji_url_by_key_data = null)
+    public function updateEmojiUrlByKeyRequest($api_token, $emoji_key, $update_emoji_url_by_key_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateEmojiUrlByKey'
+            );
+        }
         // verify the required parameter 'emoji_key' is set
         if ($emoji_key === null || (is_array($emoji_key) && count($emoji_key) === 0)) {
             throw new \InvalidArgumentException(
@@ -3070,14 +3136,14 @@ class EmojisApi
      *
      * Use default emojis
      *
-     * @param  string $api_token api_token (optional)
+     * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\UseDefaultEmojisData $use_default_emojis_data use_default_emojis_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UseDefaultEmojisResponse
      */
-    public function useDefaultEmojis($api_token = null, $use_default_emojis_data = null)
+    public function useDefaultEmojis($api_token, $use_default_emojis_data = null)
     {
         list($response) = $this->useDefaultEmojisWithHttpInfo($api_token, $use_default_emojis_data);
         return $response;
@@ -3088,14 +3154,14 @@ class EmojisApi
      *
      * Use default emojis
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UseDefaultEmojisResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function useDefaultEmojisWithHttpInfo($api_token = null, $use_default_emojis_data = null)
+    public function useDefaultEmojisWithHttpInfo($api_token, $use_default_emojis_data = null)
     {
         $request = $this->useDefaultEmojisRequest($api_token, $use_default_emojis_data);
 
@@ -3182,13 +3248,13 @@ class EmojisApi
      *
      * Use default emojis
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function useDefaultEmojisAsync($api_token = null, $use_default_emojis_data = null)
+    public function useDefaultEmojisAsync($api_token, $use_default_emojis_data = null)
     {
         return $this->useDefaultEmojisAsyncWithHttpInfo($api_token, $use_default_emojis_data)
             ->then(
@@ -3203,13 +3269,13 @@ class EmojisApi
      *
      * Use default emojis
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function useDefaultEmojisAsyncWithHttpInfo($api_token = null, $use_default_emojis_data = null)
+    public function useDefaultEmojisAsyncWithHttpInfo($api_token, $use_default_emojis_data = null)
     {
         $returnType = '\Sendbird\Model\UseDefaultEmojisResponse';
         $request = $this->useDefaultEmojisRequest($api_token, $use_default_emojis_data);
@@ -3250,14 +3316,20 @@ class EmojisApi
     /**
      * Create request for operation 'useDefaultEmojis'
      *
-     * @param  string $api_token (optional)
+     * @param  string $api_token (required)
      * @param  \Sendbird\Model\UseDefaultEmojisData $use_default_emojis_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function useDefaultEmojisRequest($api_token = null, $use_default_emojis_data = null)
+    public function useDefaultEmojisRequest($api_token, $use_default_emojis_data = null)
     {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling useDefaultEmojis'
+            );
+        }
 
         $resourcePath = '/v3/applications/settings/use_default_emoji';
         $formParams = [];
