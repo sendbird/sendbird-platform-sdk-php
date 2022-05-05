@@ -207,7 +207,7 @@ No authorization required
 ## `ocDeleteChannelByUrl()`
 
 ```php
-ocDeleteChannelByUrl($api_token, $channel_url)
+ocDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\InlineResponse200
 ```
 
 Delete a channel
@@ -231,7 +231,8 @@ $api_token = {{API_TOKEN}}; // string
 $channel_url = 'channel_url_example'; // string
 
 try {
-    $apiInstance->ocDeleteChannelByUrl($api_token, $channel_url);
+    $result = $apiInstance->ocDeleteChannelByUrl($api_token, $channel_url);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocDeleteChannelByUrl: ', $e->getMessage(), PHP_EOL;
 }
@@ -246,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -255,7 +256,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -704,7 +705,7 @@ No authorization required
 ## `ocRegisterOperators()`
 
 ```php
-ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data)
+ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data): \Sendbird\Model\InlineResponse200
 ```
 
 Register operators
@@ -729,7 +730,8 @@ $channel_url = 'channel_url_example'; // string
 $oc_register_operators_data = new \Sendbird\Model\OcRegisterOperatorsData(); // \Sendbird\Model\OcRegisterOperatorsData
 
 try {
-    $apiInstance->ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data);
+    $result = $apiInstance->ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocRegisterOperators: ', $e->getMessage(), PHP_EOL;
 }
@@ -745,7 +747,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -754,7 +756,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -763,7 +765,7 @@ No authorization required
 ## `ocUnbanUserById()`
 
 ```php
-ocUnbanUserById($api_token, $channel_url, $banned_user_id)
+ocUnbanUserById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\InlineResponse200
 ```
 
 Unban a user
@@ -788,7 +790,8 @@ $channel_url = 'channel_url_example'; // string
 $banned_user_id = 'banned_user_id_example'; // string
 
 try {
-    $apiInstance->ocUnbanUserById($api_token, $channel_url, $banned_user_id);
+    $result = $apiInstance->ocUnbanUserById($api_token, $channel_url, $banned_user_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocUnbanUserById: ', $e->getMessage(), PHP_EOL;
 }
@@ -804,7 +807,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -813,7 +816,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -822,7 +825,7 @@ No authorization required
 ## `ocUnmuteUserById()`
 
 ```php
-ocUnmuteUserById($api_token, $channel_url, $muted_user_id)
+ocUnmuteUserById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\InlineResponse200
 ```
 
 Unmute a user
@@ -847,7 +850,8 @@ $channel_url = 'channel_url_example'; // string
 $muted_user_id = 'muted_user_id_example'; // string
 
 try {
-    $apiInstance->ocUnmuteUserById($api_token, $channel_url, $muted_user_id);
+    $result = $apiInstance->ocUnmuteUserById($api_token, $channel_url, $muted_user_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocUnmuteUserById: ', $e->getMessage(), PHP_EOL;
 }
@@ -863,7 +867,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -872,7 +876,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -881,7 +885,7 @@ No authorization required
 ## `ocUpdateBanById()`
 
 ```php
-ocUpdateBanById($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data): \Sendbird\Model\SendBirdUser
+ocUpdateBanById($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data): \Sendbird\Model\OcUpdateBanByIdResponse
 ```
 
 Update a ban
@@ -925,7 +929,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
+[**\Sendbird\Model\OcUpdateBanByIdResponse**](../Model/OcUpdateBanByIdResponse.md)
 
 ### Authorization
 
@@ -1003,7 +1007,7 @@ No authorization required
 ## `ocViewBanById()`
 
 ```php
-ocViewBanById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\SendBirdUser
+ocViewBanById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\OcViewBanByIdResponse
 ```
 
 View a ban
@@ -1045,7 +1049,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
+[**\Sendbird\Model\OcViewBanByIdResponse**](../Model/OcViewBanByIdResponse.md)
 
 ### Authorization
 

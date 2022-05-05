@@ -59,22 +59,28 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message_id' => 'float',
-        'type' => 'string',
+        'message_survival_seconds' => 'float',
         'custom_type' => 'string',
-        'channel_url' => 'string',
-        'user' => '\Sendbird\Model\ListMessagesResponseUser',
-        'mention_type' => 'string',
-        'mentioned_users' => '\Sendbird\Model\ListMessagesResponseUser[]',
-        'is_removed' => 'bool',
-        'message' => 'string',
+        'mentioned_users' => '\Sendbird\Model\SendBirdMessageResponseMentionedUsers[]',
         'translations' => 'object',
-        'data' => 'string',
-        'sorted_metaarray' => '\Sendbird\Model\ListMessagesResponseSortedMetaarray[]',
-        'og_tag' => '\Sendbird\Model\ListMessagesResponseOgTag',
-        'created_at' => 'float',
         'updated_at' => 'float',
-        'file' => 'object'
+        'is_op_msg' => 'bool',
+        'is_removed' => 'bool',
+        'user' => '\Sendbird\Model\SendBirdMessageResponseUser',
+        'file' => 'object',
+        'message' => 'string',
+        'data' => 'string',
+        'message_retention_hour' => 'float',
+        'silent' => 'bool',
+        'type' => 'string',
+        'created_at' => 'float',
+        'channel_type' => 'string',
+        'req_id' => 'string',
+        'mention_type' => 'string',
+        'channel_url' => 'string',
+        'message_id' => 'float',
+        'sorted_metaarray' => '\Sendbird\Model\ListMessagesResponseSortedMetaarray[]',
+        'og_tag' => '\Sendbird\Model\ListMessagesResponseOgTag'
     ];
 
     /**
@@ -85,22 +91,28 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'message_id' => null,
-        'type' => null,
+        'message_survival_seconds' => null,
         'custom_type' => null,
-        'channel_url' => null,
-        'user' => null,
-        'mention_type' => null,
         'mentioned_users' => null,
-        'is_removed' => null,
-        'message' => null,
         'translations' => null,
-        'data' => null,
-        'sorted_metaarray' => null,
-        'og_tag' => null,
-        'created_at' => null,
         'updated_at' => null,
-        'file' => null
+        'is_op_msg' => null,
+        'is_removed' => null,
+        'user' => null,
+        'file' => null,
+        'message' => null,
+        'data' => null,
+        'message_retention_hour' => null,
+        'silent' => null,
+        'type' => null,
+        'created_at' => null,
+        'channel_type' => null,
+        'req_id' => null,
+        'mention_type' => null,
+        'channel_url' => null,
+        'message_id' => null,
+        'sorted_metaarray' => null,
+        'og_tag' => null
     ];
 
     /**
@@ -130,22 +142,28 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'message_id' => 'message_id',
-        'type' => 'type',
+        'message_survival_seconds' => 'message_survival_seconds',
         'custom_type' => 'custom_type',
-        'channel_url' => 'channel_url',
-        'user' => 'user',
-        'mention_type' => 'mention_type',
         'mentioned_users' => 'mentioned_users',
-        'is_removed' => 'is_removed',
-        'message' => 'message',
         'translations' => 'translations',
-        'data' => 'data',
-        'sorted_metaarray' => 'sorted_metaarray',
-        'og_tag' => 'og_tag',
-        'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'file' => 'file'
+        'is_op_msg' => 'is_op_msg',
+        'is_removed' => 'is_removed',
+        'user' => 'user',
+        'file' => 'file',
+        'message' => 'message',
+        'data' => 'data',
+        'message_retention_hour' => 'message_retention_hour',
+        'silent' => 'silent',
+        'type' => 'type',
+        'created_at' => 'created_at',
+        'channel_type' => 'channel_type',
+        'req_id' => 'req_id',
+        'mention_type' => 'mention_type',
+        'channel_url' => 'channel_url',
+        'message_id' => 'message_id',
+        'sorted_metaarray' => 'sorted_metaarray',
+        'og_tag' => 'og_tag'
     ];
 
     /**
@@ -154,22 +172,28 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'message_id' => 'setMessageId',
-        'type' => 'setType',
+        'message_survival_seconds' => 'setMessageSurvivalSeconds',
         'custom_type' => 'setCustomType',
-        'channel_url' => 'setChannelUrl',
-        'user' => 'setUser',
-        'mention_type' => 'setMentionType',
         'mentioned_users' => 'setMentionedUsers',
-        'is_removed' => 'setIsRemoved',
-        'message' => 'setMessage',
         'translations' => 'setTranslations',
-        'data' => 'setData',
-        'sorted_metaarray' => 'setSortedMetaarray',
-        'og_tag' => 'setOgTag',
-        'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'file' => 'setFile'
+        'is_op_msg' => 'setIsOpMsg',
+        'is_removed' => 'setIsRemoved',
+        'user' => 'setUser',
+        'file' => 'setFile',
+        'message' => 'setMessage',
+        'data' => 'setData',
+        'message_retention_hour' => 'setMessageRetentionHour',
+        'silent' => 'setSilent',
+        'type' => 'setType',
+        'created_at' => 'setCreatedAt',
+        'channel_type' => 'setChannelType',
+        'req_id' => 'setReqId',
+        'mention_type' => 'setMentionType',
+        'channel_url' => 'setChannelUrl',
+        'message_id' => 'setMessageId',
+        'sorted_metaarray' => 'setSortedMetaarray',
+        'og_tag' => 'setOgTag'
     ];
 
     /**
@@ -178,22 +202,28 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'message_id' => 'getMessageId',
-        'type' => 'getType',
+        'message_survival_seconds' => 'getMessageSurvivalSeconds',
         'custom_type' => 'getCustomType',
-        'channel_url' => 'getChannelUrl',
-        'user' => 'getUser',
-        'mention_type' => 'getMentionType',
         'mentioned_users' => 'getMentionedUsers',
-        'is_removed' => 'getIsRemoved',
-        'message' => 'getMessage',
         'translations' => 'getTranslations',
-        'data' => 'getData',
-        'sorted_metaarray' => 'getSortedMetaarray',
-        'og_tag' => 'getOgTag',
-        'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'file' => 'getFile'
+        'is_op_msg' => 'getIsOpMsg',
+        'is_removed' => 'getIsRemoved',
+        'user' => 'getUser',
+        'file' => 'getFile',
+        'message' => 'getMessage',
+        'data' => 'getData',
+        'message_retention_hour' => 'getMessageRetentionHour',
+        'silent' => 'getSilent',
+        'type' => 'getType',
+        'created_at' => 'getCreatedAt',
+        'channel_type' => 'getChannelType',
+        'req_id' => 'getReqId',
+        'mention_type' => 'getMentionType',
+        'channel_url' => 'getChannelUrl',
+        'message_id' => 'getMessageId',
+        'sorted_metaarray' => 'getSortedMetaarray',
+        'og_tag' => 'getOgTag'
     ];
 
     /**
@@ -253,22 +283,28 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(array $data = null)
     {
-        $this->container['message_id'] = $data['message_id'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
+        $this->container['message_survival_seconds'] = $data['message_survival_seconds'] ?? null;
         $this->container['custom_type'] = $data['custom_type'] ?? null;
-        $this->container['channel_url'] = $data['channel_url'] ?? null;
-        $this->container['user'] = $data['user'] ?? null;
-        $this->container['mention_type'] = $data['mention_type'] ?? null;
         $this->container['mentioned_users'] = $data['mentioned_users'] ?? null;
-        $this->container['is_removed'] = $data['is_removed'] ?? null;
-        $this->container['message'] = $data['message'] ?? null;
         $this->container['translations'] = $data['translations'] ?? null;
+        $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['is_op_msg'] = $data['is_op_msg'] ?? null;
+        $this->container['is_removed'] = $data['is_removed'] ?? null;
+        $this->container['user'] = $data['user'] ?? null;
+        $this->container['file'] = $data['file'] ?? null;
+        $this->container['message'] = $data['message'] ?? null;
         $this->container['data'] = $data['data'] ?? null;
+        $this->container['message_retention_hour'] = $data['message_retention_hour'] ?? null;
+        $this->container['silent'] = $data['silent'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['channel_type'] = $data['channel_type'] ?? null;
+        $this->container['req_id'] = $data['req_id'] ?? null;
+        $this->container['mention_type'] = $data['mention_type'] ?? null;
+        $this->container['channel_url'] = $data['channel_url'] ?? null;
+        $this->container['message_id'] = $data['message_id'] ?? null;
         $this->container['sorted_metaarray'] = $data['sorted_metaarray'] ?? null;
         $this->container['og_tag'] = $data['og_tag'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['updated_at'] = $data['updated_at'] ?? null;
-        $this->container['file'] = $data['file'] ?? null;
     }
 
     /**
@@ -296,49 +332,25 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets message_id
+     * Gets message_survival_seconds
      *
      * @return float|null
      */
-    public function getMessageId()
+    public function getMessageSurvivalSeconds()
     {
-        return $this->container['message_id'];
+        return $this->container['message_survival_seconds'];
     }
 
     /**
-     * Sets message_id
+     * Sets message_survival_seconds
      *
-     * @param float|null $message_id message_id
+     * @param float|null $message_survival_seconds message_survival_seconds
      *
      * @return self
      */
-    public function setMessageId($message_id)
+    public function setMessageSurvivalSeconds($message_survival_seconds)
     {
-        $this->container['message_id'] = $message_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
+        $this->container['message_survival_seconds'] = $message_survival_seconds;
 
         return $this;
     }
@@ -368,81 +380,9 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-     * Gets channel_url
-     *
-     * @return string|null
-     */
-    public function getChannelUrl()
-    {
-        return $this->container['channel_url'];
-    }
-
-    /**
-     * Sets channel_url
-     *
-     * @param string|null $channel_url channel_url
-     *
-     * @return self
-     */
-    public function setChannelUrl($channel_url)
-    {
-        $this->container['channel_url'] = $channel_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets user
-     *
-     * @return \Sendbird\Model\ListMessagesResponseUser|null
-     */
-    public function getUser()
-    {
-        return $this->container['user'];
-    }
-
-    /**
-     * Sets user
-     *
-     * @param \Sendbird\Model\ListMessagesResponseUser|null $user user
-     *
-     * @return self
-     */
-    public function setUser($user)
-    {
-        $this->container['user'] = $user;
-
-        return $this;
-    }
-
-    /**
-     * Gets mention_type
-     *
-     * @return string|null
-     */
-    public function getMentionType()
-    {
-        return $this->container['mention_type'];
-    }
-
-    /**
-     * Sets mention_type
-     *
-     * @param string|null $mention_type mention_type
-     *
-     * @return self
-     */
-    public function setMentionType($mention_type)
-    {
-        $this->container['mention_type'] = $mention_type;
-
-        return $this;
-    }
-
-    /**
      * Gets mentioned_users
      *
-     * @return \Sendbird\Model\ListMessagesResponseUser[]|null
+     * @return \Sendbird\Model\SendBirdMessageResponseMentionedUsers[]|null
      */
     public function getMentionedUsers()
     {
@@ -452,61 +392,13 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets mentioned_users
      *
-     * @param \Sendbird\Model\ListMessagesResponseUser[]|null $mentioned_users mentioned_users
+     * @param \Sendbird\Model\SendBirdMessageResponseMentionedUsers[]|null $mentioned_users mentioned_users
      *
      * @return self
      */
     public function setMentionedUsers($mentioned_users)
     {
         $this->container['mentioned_users'] = $mentioned_users;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_removed
-     *
-     * @return bool|null
-     */
-    public function getIsRemoved()
-    {
-        return $this->container['is_removed'];
-    }
-
-    /**
-     * Sets is_removed
-     *
-     * @param bool|null $is_removed is_removed
-     *
-     * @return self
-     */
-    public function setIsRemoved($is_removed)
-    {
-        $this->container['is_removed'] = $is_removed;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return string|null
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string|null $message message
-     *
-     * @return self
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
 
         return $this;
     }
@@ -536,6 +428,150 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
+     * Gets updated_at
+     *
+     * @return float|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param float|null $updated_at updated_at
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_op_msg
+     *
+     * @return bool|null
+     */
+    public function getIsOpMsg()
+    {
+        return $this->container['is_op_msg'];
+    }
+
+    /**
+     * Sets is_op_msg
+     *
+     * @param bool|null $is_op_msg is_op_msg
+     *
+     * @return self
+     */
+    public function setIsOpMsg($is_op_msg)
+    {
+        $this->container['is_op_msg'] = $is_op_msg;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_removed
+     *
+     * @return bool|null
+     */
+    public function getIsRemoved()
+    {
+        return $this->container['is_removed'];
+    }
+
+    /**
+     * Sets is_removed
+     *
+     * @param bool|null $is_removed is_removed
+     *
+     * @return self
+     */
+    public function setIsRemoved($is_removed)
+    {
+        $this->container['is_removed'] = $is_removed;
+
+        return $this;
+    }
+
+    /**
+     * Gets user
+     *
+     * @return \Sendbird\Model\SendBirdMessageResponseUser|null
+     */
+    public function getUser()
+    {
+        return $this->container['user'];
+    }
+
+    /**
+     * Sets user
+     *
+     * @param \Sendbird\Model\SendBirdMessageResponseUser|null $user user
+     *
+     * @return self
+     */
+    public function setUser($user)
+    {
+        $this->container['user'] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Gets file
+     *
+     * @return object|null
+     */
+    public function getFile()
+    {
+        return $this->container['file'];
+    }
+
+    /**
+     * Sets file
+     *
+     * @param object|null $file file
+     *
+     * @return self
+     */
+    public function setFile($file)
+    {
+        $this->container['file'] = $file;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message message
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
      * @return string|null
@@ -555,6 +591,222 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_retention_hour
+     *
+     * @return float|null
+     */
+    public function getMessageRetentionHour()
+    {
+        return $this->container['message_retention_hour'];
+    }
+
+    /**
+     * Sets message_retention_hour
+     *
+     * @param float|null $message_retention_hour message_retention_hour
+     *
+     * @return self
+     */
+    public function setMessageRetentionHour($message_retention_hour)
+    {
+        $this->container['message_retention_hour'] = $message_retention_hour;
+
+        return $this;
+    }
+
+    /**
+     * Gets silent
+     *
+     * @return bool|null
+     */
+    public function getSilent()
+    {
+        return $this->container['silent'];
+    }
+
+    /**
+     * Sets silent
+     *
+     * @param bool|null $silent silent
+     *
+     * @return self
+     */
+    public function setSilent($silent)
+    {
+        $this->container['silent'] = $silent;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return float|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param float|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_type
+     *
+     * @return string|null
+     */
+    public function getChannelType()
+    {
+        return $this->container['channel_type'];
+    }
+
+    /**
+     * Sets channel_type
+     *
+     * @param string|null $channel_type channel_type
+     *
+     * @return self
+     */
+    public function setChannelType($channel_type)
+    {
+        $this->container['channel_type'] = $channel_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets req_id
+     *
+     * @return string|null
+     */
+    public function getReqId()
+    {
+        return $this->container['req_id'];
+    }
+
+    /**
+     * Sets req_id
+     *
+     * @param string|null $req_id req_id
+     *
+     * @return self
+     */
+    public function setReqId($req_id)
+    {
+        $this->container['req_id'] = $req_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets mention_type
+     *
+     * @return string|null
+     */
+    public function getMentionType()
+    {
+        return $this->container['mention_type'];
+    }
+
+    /**
+     * Sets mention_type
+     *
+     * @param string|null $mention_type mention_type
+     *
+     * @return self
+     */
+    public function setMentionType($mention_type)
+    {
+        $this->container['mention_type'] = $mention_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_url
+     *
+     * @return string|null
+     */
+    public function getChannelUrl()
+    {
+        return $this->container['channel_url'];
+    }
+
+    /**
+     * Sets channel_url
+     *
+     * @param string|null $channel_url channel_url
+     *
+     * @return self
+     */
+    public function setChannelUrl($channel_url)
+    {
+        $this->container['channel_url'] = $channel_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_id
+     *
+     * @return float|null
+     */
+    public function getMessageId()
+    {
+        return $this->container['message_id'];
+    }
+
+    /**
+     * Sets message_id
+     *
+     * @param float|null $message_id message_id
+     *
+     * @return self
+     */
+    public function setMessageId($message_id)
+    {
+        $this->container['message_id'] = $message_id;
 
         return $this;
     }
@@ -603,78 +855,6 @@ class ListMessagesResponseMessages implements ModelInterface, ArrayAccess, \Json
     public function setOgTag($og_tag)
     {
         $this->container['og_tag'] = $og_tag;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return float|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param float|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return float|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param float|null $updated_at updated_at
-     *
-     * @return self
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets file
-     *
-     * @return object|null
-     */
-    public function getFile()
-    {
-        return $this->container['file'];
-    }
-
-    /**
-     * Sets file
-     *
-     * @param object|null $file file
-     *
-     * @return self
-     */
-    public function setFile($file)
-    {
-        $this->container['file'] = $file;
 
         return $this;
     }

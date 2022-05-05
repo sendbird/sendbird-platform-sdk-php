@@ -153,7 +153,7 @@ No authorization required
 ## `deleteMessageById()`
 
 ```php
-deleteMessageById($api_token, $channel_type, $channel_url, $message_id)
+deleteMessageById($api_token, $channel_type, $channel_url, $message_id): object
 ```
 
 Delete a message
@@ -179,7 +179,8 @@ $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
 
 try {
-    $apiInstance->deleteMessageById($api_token, $channel_type, $channel_url, $message_id);
+    $result = $apiInstance->deleteMessageById($api_token, $channel_type, $channel_url, $message_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->deleteMessageById: ', $e->getMessage(), PHP_EOL;
 }
@@ -196,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -205,7 +206,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -274,7 +275,7 @@ No authorization required
 ## `gcMarkAllMessagesAsRead()`
 
 ```php
-gcMarkAllMessagesAsRead($api_token, $channel_url, $gc_mark_all_messages_as_read_data)
+gcMarkAllMessagesAsRead($api_token, $channel_url, $gc_mark_all_messages_as_read_data): object
 ```
 
 Mark all messages as read
@@ -299,7 +300,8 @@ $channel_url = 'channel_url_example'; // string
 $gc_mark_all_messages_as_read_data = new \Sendbird\Model\GcMarkAllMessagesAsReadData(); // \Sendbird\Model\GcMarkAllMessagesAsReadData
 
 try {
-    $apiInstance->gcMarkAllMessagesAsRead($api_token, $channel_url, $gc_mark_all_messages_as_read_data);
+    $result = $apiInstance->gcMarkAllMessagesAsRead($api_token, $channel_url, $gc_mark_all_messages_as_read_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->gcMarkAllMessagesAsRead: ', $e->getMessage(), PHP_EOL;
 }
@@ -315,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -324,7 +326,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -553,7 +555,7 @@ No authorization required
 ## `removeExtraDataFromMessage()`
 
 ```php
-removeExtraDataFromMessage($api_token, $channel_type, $channel_url, $message_id, $keys)
+removeExtraDataFromMessage($api_token, $channel_type, $channel_url, $message_id, $keys): object
 ```
 
 Remove extra data from a message
@@ -580,7 +582,8 @@ $message_id = 'message_id_example'; // string
 $keys = array('keys_example'); // string[]
 
 try {
-    $apiInstance->removeExtraDataFromMessage($api_token, $channel_type, $channel_url, $message_id, $keys);
+    $result = $apiInstance->removeExtraDataFromMessage($api_token, $channel_type, $channel_url, $message_id, $keys);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessagesApi->removeExtraDataFromMessage: ', $e->getMessage(), PHP_EOL;
 }
@@ -598,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -607,7 +610,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

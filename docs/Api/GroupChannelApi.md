@@ -157,7 +157,7 @@ No authorization required
 ## `gcCancelTheRegistrationOfOperators()`
 
 ```php
-gcCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all)
+gcCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all): \Sendbird\Model\InlineResponse200
 ```
 
 Cancel the registration of operators
@@ -183,7 +183,8 @@ $operator_ids = array('operator_ids_example'); // string[]
 $delete_all = True; // bool
 
 try {
-    $apiInstance->gcCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all);
+    $result = $apiInstance->gcCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcCancelTheRegistrationOfOperators: ', $e->getMessage(), PHP_EOL;
 }
@@ -200,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -209,7 +210,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -336,7 +337,7 @@ No authorization required
 ## `gcDeclineInvitation()`
 
 ```php
-gcDeclineInvitation($api_token, $channel_url, $gc_decline_invitation_data)
+gcDeclineInvitation($api_token, $channel_url, $gc_decline_invitation_data): \Sendbird\Model\InlineResponse200
 ```
 
 Decline an invitation
@@ -361,7 +362,8 @@ $channel_url = 'channel_url_example'; // string
 $gc_decline_invitation_data = new \Sendbird\Model\GcDeclineInvitationData(); // \Sendbird\Model\GcDeclineInvitationData
 
 try {
-    $apiInstance->gcDeclineInvitation($api_token, $channel_url, $gc_decline_invitation_data);
+    $result = $apiInstance->gcDeclineInvitation($api_token, $channel_url, $gc_decline_invitation_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcDeclineInvitation: ', $e->getMessage(), PHP_EOL;
 }
@@ -377,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -386,7 +388,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -395,7 +397,7 @@ No authorization required
 ## `gcDeleteChannelByUrl()`
 
 ```php
-gcDeleteChannelByUrl($api_token, $channel_url)
+gcDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\InlineResponse200
 ```
 
 Delete a channel
@@ -419,7 +421,8 @@ $api_token = {{API_TOKEN}}; // string
 $channel_url = 'channel_url_example'; // string
 
 try {
-    $apiInstance->gcDeleteChannelByUrl($api_token, $channel_url);
+    $result = $apiInstance->gcDeleteChannelByUrl($api_token, $channel_url);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcDeleteChannelByUrl: ', $e->getMessage(), PHP_EOL;
 }
@@ -434,7 +437,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -443,7 +446,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -512,7 +515,7 @@ No authorization required
 ## `gcHideOrArchiveChannel()`
 
 ```php
-gcHideOrArchiveChannel($api_token, $channel_url, $gc_hide_or_archive_channel_data)
+gcHideOrArchiveChannel($api_token, $channel_url, $gc_hide_or_archive_channel_data): \Sendbird\Model\InlineResponse200
 ```
 
 Hide or archive a channel
@@ -537,7 +540,8 @@ $channel_url = 'channel_url_example'; // string
 $gc_hide_or_archive_channel_data = new \Sendbird\Model\GcHideOrArchiveChannelData(); // \Sendbird\Model\GcHideOrArchiveChannelData
 
 try {
-    $apiInstance->gcHideOrArchiveChannel($api_token, $channel_url, $gc_hide_or_archive_channel_data);
+    $result = $apiInstance->gcHideOrArchiveChannel($api_token, $channel_url, $gc_hide_or_archive_channel_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcHideOrArchiveChannel: ', $e->getMessage(), PHP_EOL;
 }
@@ -553,7 +557,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -562,7 +566,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -690,7 +694,7 @@ No authorization required
 ## `gcLeaveChannel()`
 
 ```php
-gcLeaveChannel($api_token, $channel_url, $gc_leave_channel_data)
+gcLeaveChannel($api_token, $channel_url, $gc_leave_channel_data): \Sendbird\Model\InlineResponse200
 ```
 
 Leave a channel
@@ -715,7 +719,8 @@ $channel_url = 'channel_url_example'; // string
 $gc_leave_channel_data = new \Sendbird\Model\GcLeaveChannelData(); // \Sendbird\Model\GcLeaveChannelData
 
 try {
-    $apiInstance->gcLeaveChannel($api_token, $channel_url, $gc_leave_channel_data);
+    $result = $apiInstance->gcLeaveChannel($api_token, $channel_url, $gc_leave_channel_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcLeaveChannel: ', $e->getMessage(), PHP_EOL;
 }
@@ -731,7 +736,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -740,7 +745,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1271,7 +1276,7 @@ No authorization required
 ## `gcResetChatHistory()`
 
 ```php
-gcResetChatHistory($api_token, $channel_url, $gc_reset_chat_history_data)
+gcResetChatHistory($api_token, $channel_url, $gc_reset_chat_history_data): \Sendbird\Model\GcResetChatHistoryResponse
 ```
 
 Reset chat history
@@ -1296,7 +1301,8 @@ $channel_url = 'channel_url_example'; // string
 $gc_reset_chat_history_data = new \Sendbird\Model\GcResetChatHistoryData(); // \Sendbird\Model\GcResetChatHistoryData
 
 try {
-    $apiInstance->gcResetChatHistory($api_token, $channel_url, $gc_reset_chat_history_data);
+    $result = $apiInstance->gcResetChatHistory($api_token, $channel_url, $gc_reset_chat_history_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcResetChatHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -1312,7 +1318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\GcResetChatHistoryResponse**](../Model/GcResetChatHistoryResponse.md)
 
 ### Authorization
 
@@ -1321,7 +1327,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1330,7 +1336,7 @@ No authorization required
 ## `gcUnbanUserById()`
 
 ```php
-gcUnbanUserById($api_token, $channel_url, $banned_user_id)
+gcUnbanUserById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\InlineResponse200
 ```
 
 Unban a user
@@ -1355,7 +1361,8 @@ $channel_url = 'channel_url_example'; // string
 $banned_user_id = 'banned_user_id_example'; // string
 
 try {
-    $apiInstance->gcUnbanUserById($api_token, $channel_url, $banned_user_id);
+    $result = $apiInstance->gcUnbanUserById($api_token, $channel_url, $banned_user_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcUnbanUserById: ', $e->getMessage(), PHP_EOL;
 }
@@ -1371,7 +1378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -1380,7 +1387,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1389,7 +1396,7 @@ No authorization required
 ## `gcUnhideOrUnarchiveChannel()`
 
 ```php
-gcUnhideOrUnarchiveChannel($api_token, $channel_url, $user_id, $should_unhide_all)
+gcUnhideOrUnarchiveChannel($api_token, $channel_url, $user_id, $should_unhide_all): \Sendbird\Model\InlineResponse200
 ```
 
 Unhide or unarchive a channel
@@ -1415,7 +1422,8 @@ $user_id = 'user_id_example'; // string
 $should_unhide_all = True; // bool
 
 try {
-    $apiInstance->gcUnhideOrUnarchiveChannel($api_token, $channel_url, $user_id, $should_unhide_all);
+    $result = $apiInstance->gcUnhideOrUnarchiveChannel($api_token, $channel_url, $user_id, $should_unhide_all);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcUnhideOrUnarchiveChannel: ', $e->getMessage(), PHP_EOL;
 }
@@ -1432,7 +1440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -1441,7 +1449,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1450,7 +1458,7 @@ No authorization required
 ## `gcUnmuteUserById()`
 
 ```php
-gcUnmuteUserById($api_token, $channel_url, $muted_user_id)
+gcUnmuteUserById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\InlineResponse200
 ```
 
 Unmute a user
@@ -1475,7 +1483,8 @@ $channel_url = 'channel_url_example'; // string
 $muted_user_id = 'muted_user_id_example'; // string
 
 try {
-    $apiInstance->gcUnmuteUserById($api_token, $channel_url, $muted_user_id);
+    $result = $apiInstance->gcUnmuteUserById($api_token, $channel_url, $muted_user_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcUnmuteUserById: ', $e->getMessage(), PHP_EOL;
 }
@@ -1491,7 +1500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -1500,7 +1509,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1509,7 +1518,7 @@ No authorization required
 ## `gcUpdateBanById()`
 
 ```php
-gcUpdateBanById($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data): \Sendbird\Model\SendBirdUser
+gcUpdateBanById($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data): \Sendbird\Model\GcUpdateBanByIdResponse
 ```
 
 Update a ban
@@ -1553,7 +1562,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
+[**\Sendbird\Model\GcUpdateBanByIdResponse**](../Model/GcUpdateBanByIdResponse.md)
 
 ### Authorization
 
@@ -1631,7 +1640,7 @@ No authorization required
 ## `gcViewBanById()`
 
 ```php
-gcViewBanById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\SendBirdUser
+gcViewBanById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\GcViewBanByIdResponse
 ```
 
 View a ban
@@ -1673,7 +1682,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
+[**\Sendbird\Model\GcViewBanByIdResponse**](../Model/GcViewBanByIdResponse.md)
 
 ### Authorization
 

@@ -59,17 +59,20 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cover_url' => 'string',
-        'created_at' => 'float',
-        'creator' => '\Sendbird\Model\SendBirdUser',
+        'name' => 'string',
         'custom_type' => 'string',
+        'channel_url' => 'string',
+        'created_at' => 'float',
+        'cover_url' => 'string',
+        'creator' => '\Sendbird\Model\SendBirdUser',
         'data' => 'string',
+        'is_dynamic_partitioned' => 'bool',
         'is_ephemeral' => 'bool',
         'is_frozen' => 'bool',
-        'name' => 'string',
+        'max_length_message' => 'float',
         'operators' => '\Sendbird\Model\SendBirdUser[]',
         'participant_count' => 'float',
-        'channel_url' => 'string'
+        'freeze' => 'bool'
     ];
 
     /**
@@ -80,17 +83,20 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cover_url' => null,
-        'created_at' => null,
-        'creator' => null,
+        'name' => null,
         'custom_type' => null,
+        'channel_url' => null,
+        'created_at' => null,
+        'cover_url' => null,
+        'creator' => null,
         'data' => null,
+        'is_dynamic_partitioned' => null,
         'is_ephemeral' => null,
         'is_frozen' => null,
-        'name' => null,
+        'max_length_message' => null,
         'operators' => null,
         'participant_count' => null,
-        'channel_url' => null
+        'freeze' => null
     ];
 
     /**
@@ -120,17 +126,20 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'cover_url' => 'cover_url',
-        'created_at' => 'created_at',
-        'creator' => 'creator',
+        'name' => 'name',
         'custom_type' => 'custom_type',
+        'channel_url' => 'channel_url',
+        'created_at' => 'created_at',
+        'cover_url' => 'cover_url',
+        'creator' => 'creator',
         'data' => 'data',
+        'is_dynamic_partitioned' => 'is_dynamic_partitioned',
         'is_ephemeral' => 'is_ephemeral',
         'is_frozen' => 'is_frozen',
-        'name' => 'name',
+        'max_length_message' => 'max_length_message',
         'operators' => 'operators',
         'participant_count' => 'participant_count',
-        'channel_url' => 'channel_url'
+        'freeze' => 'freeze'
     ];
 
     /**
@@ -139,17 +148,20 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'cover_url' => 'setCoverUrl',
-        'created_at' => 'setCreatedAt',
-        'creator' => 'setCreator',
+        'name' => 'setName',
         'custom_type' => 'setCustomType',
+        'channel_url' => 'setChannelUrl',
+        'created_at' => 'setCreatedAt',
+        'cover_url' => 'setCoverUrl',
+        'creator' => 'setCreator',
         'data' => 'setData',
+        'is_dynamic_partitioned' => 'setIsDynamicPartitioned',
         'is_ephemeral' => 'setIsEphemeral',
         'is_frozen' => 'setIsFrozen',
-        'name' => 'setName',
+        'max_length_message' => 'setMaxLengthMessage',
         'operators' => 'setOperators',
         'participant_count' => 'setParticipantCount',
-        'channel_url' => 'setChannelUrl'
+        'freeze' => 'setFreeze'
     ];
 
     /**
@@ -158,17 +170,20 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'cover_url' => 'getCoverUrl',
-        'created_at' => 'getCreatedAt',
-        'creator' => 'getCreator',
+        'name' => 'getName',
         'custom_type' => 'getCustomType',
+        'channel_url' => 'getChannelUrl',
+        'created_at' => 'getCreatedAt',
+        'cover_url' => 'getCoverUrl',
+        'creator' => 'getCreator',
         'data' => 'getData',
+        'is_dynamic_partitioned' => 'getIsDynamicPartitioned',
         'is_ephemeral' => 'getIsEphemeral',
         'is_frozen' => 'getIsFrozen',
-        'name' => 'getName',
+        'max_length_message' => 'getMaxLengthMessage',
         'operators' => 'getOperators',
         'participant_count' => 'getParticipantCount',
-        'channel_url' => 'getChannelUrl'
+        'freeze' => 'getFreeze'
     ];
 
     /**
@@ -228,17 +243,20 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['cover_url'] = $data['cover_url'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['creator'] = $data['creator'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
         $this->container['custom_type'] = $data['custom_type'] ?? null;
+        $this->container['channel_url'] = $data['channel_url'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['cover_url'] = $data['cover_url'] ?? null;
+        $this->container['creator'] = $data['creator'] ?? null;
         $this->container['data'] = $data['data'] ?? null;
+        $this->container['is_dynamic_partitioned'] = $data['is_dynamic_partitioned'] ?? null;
         $this->container['is_ephemeral'] = $data['is_ephemeral'] ?? null;
         $this->container['is_frozen'] = $data['is_frozen'] ?? null;
-        $this->container['name'] = $data['name'] ?? null;
+        $this->container['max_length_message'] = $data['max_length_message'] ?? null;
         $this->container['operators'] = $data['operators'] ?? null;
         $this->container['participant_count'] = $data['participant_count'] ?? null;
-        $this->container['channel_url'] = $data['channel_url'] ?? null;
+        $this->container['freeze'] = $data['freeze'] ?? null;
     }
 
     /**
@@ -266,73 +284,25 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets cover_url
+     * Gets name
      *
      * @return string|null
      */
-    public function getCoverUrl()
+    public function getName()
     {
-        return $this->container['cover_url'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets cover_url
+     * Sets name
      *
-     * @param string|null $cover_url cover_url
+     * @param string|null $name name
      *
      * @return self
      */
-    public function setCoverUrl($cover_url)
+    public function setName($name)
     {
-        $this->container['cover_url'] = $cover_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return float|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param float|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets creator
-     *
-     * @return \Sendbird\Model\SendBirdUser|null
-     */
-    public function getCreator()
-    {
-        return $this->container['creator'];
-    }
-
-    /**
-     * Sets creator
-     *
-     * @param \Sendbird\Model\SendBirdUser|null $creator creator
-     *
-     * @return self
-     */
-    public function setCreator($creator)
-    {
-        $this->container['creator'] = $creator;
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -362,6 +332,102 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets channel_url
+     *
+     * @return string|null
+     */
+    public function getChannelUrl()
+    {
+        return $this->container['channel_url'];
+    }
+
+    /**
+     * Sets channel_url
+     *
+     * @param string|null $channel_url channel_url
+     *
+     * @return self
+     */
+    public function setChannelUrl($channel_url)
+    {
+        $this->container['channel_url'] = $channel_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return float|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param float|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets cover_url
+     *
+     * @return string|null
+     */
+    public function getCoverUrl()
+    {
+        return $this->container['cover_url'];
+    }
+
+    /**
+     * Sets cover_url
+     *
+     * @param string|null $cover_url cover_url
+     *
+     * @return self
+     */
+    public function setCoverUrl($cover_url)
+    {
+        $this->container['cover_url'] = $cover_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets creator
+     *
+     * @return \Sendbird\Model\SendBirdUser|null
+     */
+    public function getCreator()
+    {
+        return $this->container['creator'];
+    }
+
+    /**
+     * Sets creator
+     *
+     * @param \Sendbird\Model\SendBirdUser|null $creator creator
+     *
+     * @return self
+     */
+    public function setCreator($creator)
+    {
+        $this->container['creator'] = $creator;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
      * @return string|null
@@ -381,6 +447,30 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_dynamic_partitioned
+     *
+     * @return bool|null
+     */
+    public function getIsDynamicPartitioned()
+    {
+        return $this->container['is_dynamic_partitioned'];
+    }
+
+    /**
+     * Sets is_dynamic_partitioned
+     *
+     * @param bool|null $is_dynamic_partitioned is_dynamic_partitioned
+     *
+     * @return self
+     */
+    public function setIsDynamicPartitioned($is_dynamic_partitioned)
+    {
+        $this->container['is_dynamic_partitioned'] = $is_dynamic_partitioned;
 
         return $this;
     }
@@ -434,25 +524,25 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets name
+     * Gets max_length_message
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getName()
+    public function getMaxLengthMessage()
     {
-        return $this->container['name'];
+        return $this->container['max_length_message'];
     }
 
     /**
-     * Sets name
+     * Sets max_length_message
      *
-     * @param string|null $name name
+     * @param float|null $max_length_message max_length_message
      *
      * @return self
      */
-    public function setName($name)
+    public function setMaxLengthMessage($max_length_message)
     {
-        $this->container['name'] = $name;
+        $this->container['max_length_message'] = $max_length_message;
 
         return $this;
     }
@@ -506,25 +596,25 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets channel_url
+     * Gets freeze
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getChannelUrl()
+    public function getFreeze()
     {
-        return $this->container['channel_url'];
+        return $this->container['freeze'];
     }
 
     /**
-     * Sets channel_url
+     * Sets freeze
      *
-     * @param string|null $channel_url channel_url
+     * @param bool|null $freeze freeze
      *
      * @return self
      */
-    public function setChannelUrl($channel_url)
+    public function setFreeze($freeze)
     {
-        $this->container['channel_url'] = $channel_url;
+        $this->container['freeze'] = $freeze;
 
         return $this;
     }

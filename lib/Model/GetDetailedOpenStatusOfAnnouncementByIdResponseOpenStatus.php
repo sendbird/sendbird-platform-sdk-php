@@ -61,7 +61,9 @@ class GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus implements Model
     protected static $openAPITypes = [
         'user_id' => 'string',
         'channel_url' => 'string',
-        'has_opened' => 'bool'
+        'has_opened' => 'bool',
+        'sent_at' => 'float',
+        'open_at' => 'float'
     ];
 
     /**
@@ -74,7 +76,9 @@ class GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus implements Model
     protected static $openAPIFormats = [
         'user_id' => null,
         'channel_url' => null,
-        'has_opened' => null
+        'has_opened' => null,
+        'sent_at' => null,
+        'open_at' => null
     ];
 
     /**
@@ -106,7 +110,9 @@ class GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus implements Model
     protected static $attributeMap = [
         'user_id' => 'user_id',
         'channel_url' => 'channel_url',
-        'has_opened' => 'has_opened'
+        'has_opened' => 'has_opened',
+        'sent_at' => 'sent_at',
+        'open_at' => 'open_at'
     ];
 
     /**
@@ -117,7 +123,9 @@ class GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus implements Model
     protected static $setters = [
         'user_id' => 'setUserId',
         'channel_url' => 'setChannelUrl',
-        'has_opened' => 'setHasOpened'
+        'has_opened' => 'setHasOpened',
+        'sent_at' => 'setSentAt',
+        'open_at' => 'setOpenAt'
     ];
 
     /**
@@ -128,7 +136,9 @@ class GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus implements Model
     protected static $getters = [
         'user_id' => 'getUserId',
         'channel_url' => 'getChannelUrl',
-        'has_opened' => 'getHasOpened'
+        'has_opened' => 'getHasOpened',
+        'sent_at' => 'getSentAt',
+        'open_at' => 'getOpenAt'
     ];
 
     /**
@@ -191,6 +201,8 @@ class GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus implements Model
         $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['channel_url'] = $data['channel_url'] ?? null;
         $this->container['has_opened'] = $data['has_opened'] ?? null;
+        $this->container['sent_at'] = $data['sent_at'] ?? null;
+        $this->container['open_at'] = $data['open_at'] ?? null;
     }
 
     /**
@@ -285,6 +297,54 @@ class GetDetailedOpenStatusOfAnnouncementByIdResponseOpenStatus implements Model
     public function setHasOpened($has_opened)
     {
         $this->container['has_opened'] = $has_opened;
+
+        return $this;
+    }
+
+    /**
+     * Gets sent_at
+     *
+     * @return float|null
+     */
+    public function getSentAt()
+    {
+        return $this->container['sent_at'];
+    }
+
+    /**
+     * Sets sent_at
+     *
+     * @param float|null $sent_at sent_at
+     *
+     * @return self
+     */
+    public function setSentAt($sent_at)
+    {
+        $this->container['sent_at'] = $sent_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_at
+     *
+     * @return float|null
+     */
+    public function getOpenAt()
+    {
+        return $this->container['open_at'];
+    }
+
+    /**
+     * Sets open_at
+     *
+     * @param float|null $open_at open_at
+     *
+     * @return self
+     */
+    public function setOpenAt($open_at)
+    {
+        $this->container['open_at'] = $open_at;
 
         return $this;
     }

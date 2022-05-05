@@ -59,6 +59,9 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
+        'block_push_from_bots' => 'bool',
+        'enable_push_for_replies' => 'bool',
+        'push_blocked_bot_ids' => 'string[]',
         'push_trigger_option' => 'string',
         'do_not_disturb' => 'bool',
         'start_hour' => 'float',
@@ -80,6 +83,9 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'block_push_from_bots' => null,
+        'enable_push_for_replies' => null,
+        'push_blocked_bot_ids' => null,
         'push_trigger_option' => null,
         'do_not_disturb' => null,
         'start_hour' => null,
@@ -120,6 +126,9 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
+        'block_push_from_bots' => 'block_push_from_bots',
+        'enable_push_for_replies' => 'enable_push_for_replies',
+        'push_blocked_bot_ids' => 'push_blocked_bot_ids',
         'push_trigger_option' => 'push_trigger_option',
         'do_not_disturb' => 'do_not_disturb',
         'start_hour' => 'start_hour',
@@ -139,6 +148,9 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
+        'block_push_from_bots' => 'setBlockPushFromBots',
+        'enable_push_for_replies' => 'setEnablePushForReplies',
+        'push_blocked_bot_ids' => 'setPushBlockedBotIds',
         'push_trigger_option' => 'setPushTriggerOption',
         'do_not_disturb' => 'setDoNotDisturb',
         'start_hour' => 'setStartHour',
@@ -158,6 +170,9 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
+        'block_push_from_bots' => 'getBlockPushFromBots',
+        'enable_push_for_replies' => 'getEnablePushForReplies',
+        'push_blocked_bot_ids' => 'getPushBlockedBotIds',
         'push_trigger_option' => 'getPushTriggerOption',
         'do_not_disturb' => 'getDoNotDisturb',
         'start_hour' => 'getStartHour',
@@ -228,6 +243,9 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
+        $this->container['block_push_from_bots'] = $data['block_push_from_bots'] ?? null;
+        $this->container['enable_push_for_replies'] = $data['enable_push_for_replies'] ?? null;
+        $this->container['push_blocked_bot_ids'] = $data['push_blocked_bot_ids'] ?? null;
         $this->container['push_trigger_option'] = $data['push_trigger_option'] ?? null;
         $this->container['do_not_disturb'] = $data['do_not_disturb'] ?? null;
         $this->container['start_hour'] = $data['start_hour'] ?? null;
@@ -264,6 +282,78 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets block_push_from_bots
+     *
+     * @return bool|null
+     */
+    public function getBlockPushFromBots()
+    {
+        return $this->container['block_push_from_bots'];
+    }
+
+    /**
+     * Sets block_push_from_bots
+     *
+     * @param bool|null $block_push_from_bots block_push_from_bots
+     *
+     * @return self
+     */
+    public function setBlockPushFromBots($block_push_from_bots)
+    {
+        $this->container['block_push_from_bots'] = $block_push_from_bots;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_push_for_replies
+     *
+     * @return bool|null
+     */
+    public function getEnablePushForReplies()
+    {
+        return $this->container['enable_push_for_replies'];
+    }
+
+    /**
+     * Sets enable_push_for_replies
+     *
+     * @param bool|null $enable_push_for_replies enable_push_for_replies
+     *
+     * @return self
+     */
+    public function setEnablePushForReplies($enable_push_for_replies)
+    {
+        $this->container['enable_push_for_replies'] = $enable_push_for_replies;
+
+        return $this;
+    }
+
+    /**
+     * Gets push_blocked_bot_ids
+     *
+     * @return string[]|null
+     */
+    public function getPushBlockedBotIds()
+    {
+        return $this->container['push_blocked_bot_ids'];
+    }
+
+    /**
+     * Sets push_blocked_bot_ids
+     *
+     * @param string[]|null $push_blocked_bot_ids push_blocked_bot_ids
+     *
+     * @return self
+     */
+    public function setPushBlockedBotIds($push_blocked_bot_ids)
+    {
+        $this->container['push_blocked_bot_ids'] = $push_blocked_bot_ids;
+
+        return $this;
+    }
 
     /**
      * Gets push_trigger_option

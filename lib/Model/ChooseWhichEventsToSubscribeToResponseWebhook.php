@@ -62,7 +62,8 @@ class ChooseWhichEventsToSubscribeToResponseWebhook implements ModelInterface, A
         'enabled' => 'bool',
         'url' => 'string',
         'include_members' => 'bool',
-        'enabled_events' => 'string[]'
+        'enabled_events' => 'string[]',
+        'include_unread_count' => 'bool'
     ];
 
     /**
@@ -76,7 +77,8 @@ class ChooseWhichEventsToSubscribeToResponseWebhook implements ModelInterface, A
         'enabled' => null,
         'url' => null,
         'include_members' => null,
-        'enabled_events' => null
+        'enabled_events' => null,
+        'include_unread_count' => null
     ];
 
     /**
@@ -109,7 +111,8 @@ class ChooseWhichEventsToSubscribeToResponseWebhook implements ModelInterface, A
         'enabled' => 'enabled',
         'url' => 'url',
         'include_members' => 'include_members',
-        'enabled_events' => 'enabled_events'
+        'enabled_events' => 'enabled_events',
+        'include_unread_count' => 'include_unread_count'
     ];
 
     /**
@@ -121,7 +124,8 @@ class ChooseWhichEventsToSubscribeToResponseWebhook implements ModelInterface, A
         'enabled' => 'setEnabled',
         'url' => 'setUrl',
         'include_members' => 'setIncludeMembers',
-        'enabled_events' => 'setEnabledEvents'
+        'enabled_events' => 'setEnabledEvents',
+        'include_unread_count' => 'setIncludeUnreadCount'
     ];
 
     /**
@@ -133,7 +137,8 @@ class ChooseWhichEventsToSubscribeToResponseWebhook implements ModelInterface, A
         'enabled' => 'getEnabled',
         'url' => 'getUrl',
         'include_members' => 'getIncludeMembers',
-        'enabled_events' => 'getEnabledEvents'
+        'enabled_events' => 'getEnabledEvents',
+        'include_unread_count' => 'getIncludeUnreadCount'
     ];
 
     /**
@@ -197,6 +202,7 @@ class ChooseWhichEventsToSubscribeToResponseWebhook implements ModelInterface, A
         $this->container['url'] = $data['url'] ?? null;
         $this->container['include_members'] = $data['include_members'] ?? null;
         $this->container['enabled_events'] = $data['enabled_events'] ?? null;
+        $this->container['include_unread_count'] = $data['include_unread_count'] ?? null;
     }
 
     /**
@@ -315,6 +321,30 @@ class ChooseWhichEventsToSubscribeToResponseWebhook implements ModelInterface, A
     public function setEnabledEvents($enabled_events)
     {
         $this->container['enabled_events'] = $enabled_events;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_unread_count
+     *
+     * @return bool|null
+     */
+    public function getIncludeUnreadCount()
+    {
+        return $this->container['include_unread_count'];
+    }
+
+    /**
+     * Sets include_unread_count
+     *
+     * @param bool|null $include_unread_count include_unread_count
+     *
+     * @return self
+     */
+    public function setIncludeUnreadCount($include_unread_count)
+    {
+        $this->container['include_unread_count'] = $include_unread_count;
 
         return $this;
     }

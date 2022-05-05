@@ -59,6 +59,7 @@ class ListRegistrationOrDeviceTokensResponse implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
+        'token' => 'string[]',
         'tokens' => 'string[]',
         'type' => 'string',
         'user' => '\Sendbird\Model\SendBirdUser'
@@ -72,6 +73,7 @@ class ListRegistrationOrDeviceTokensResponse implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'token' => null,
         'tokens' => null,
         'type' => null,
         'user' => null
@@ -104,6 +106,7 @@ class ListRegistrationOrDeviceTokensResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
+        'token' => 'token',
         'tokens' => 'tokens',
         'type' => 'type',
         'user' => 'user'
@@ -115,6 +118,7 @@ class ListRegistrationOrDeviceTokensResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
+        'token' => 'setToken',
         'tokens' => 'setTokens',
         'type' => 'setType',
         'user' => 'setUser'
@@ -126,6 +130,7 @@ class ListRegistrationOrDeviceTokensResponse implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
+        'token' => 'getToken',
         'tokens' => 'getTokens',
         'type' => 'getType',
         'user' => 'getUser'
@@ -188,6 +193,7 @@ class ListRegistrationOrDeviceTokensResponse implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
+        $this->container['token'] = $data['token'] ?? null;
         $this->container['tokens'] = $data['tokens'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['user'] = $data['user'] ?? null;
@@ -216,6 +222,30 @@ class ListRegistrationOrDeviceTokensResponse implements ModelInterface, ArrayAcc
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets token
+     *
+     * @return string[]|null
+     */
+    public function getToken()
+    {
+        return $this->container['token'];
+    }
+
+    /**
+     * Sets token
+     *
+     * @param string[]|null $token token
+     *
+     * @return self
+     */
+    public function setToken($token)
+    {
+        $this->container['token'] = $token;
+
+        return $this;
+    }
 
     /**
      * Gets tokens

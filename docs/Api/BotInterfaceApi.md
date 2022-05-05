@@ -76,7 +76,7 @@ No authorization required
 ## `deleteBotById()`
 
 ```php
-deleteBotById($api_token, $bot_userid)
+deleteBotById($api_token, $bot_userid): object
 ```
 
 Delete a bot
@@ -100,7 +100,8 @@ $api_token = {{API_TOKEN}}; // string
 $bot_userid = 'bot_userid_example'; // string
 
 try {
-    $apiInstance->deleteBotById($api_token, $bot_userid);
+    $result = $apiInstance->deleteBotById($api_token, $bot_userid);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotInterfaceApi->deleteBotById: ', $e->getMessage(), PHP_EOL;
 }
@@ -115,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -124,7 +125,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -133,7 +134,7 @@ No authorization required
 ## `joinChannels()`
 
 ```php
-joinChannels($api_token, $bot_userid, $join_channels_data): \Sendbird\Model\SendBirdGroupChannelCollection
+joinChannels($api_token, $bot_userid, $join_channels_data): \Sendbird\Model\JoinChannelsResponse
 ```
 
 Join channels
@@ -175,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\SendBirdGroupChannelCollection**](../Model/SendBirdGroupChannelCollection.md)
+[**\Sendbird\Model\JoinChannelsResponse**](../Model/JoinChannelsResponse.md)
 
 ### Authorization
 
@@ -252,7 +253,7 @@ No authorization required
 ## `leaveChannelsByUrl()`
 
 ```php
-leaveChannelsByUrl($api_token, $bot_userid, $channel_url)
+leaveChannelsByUrl($api_token, $bot_userid, $channel_url): object
 ```
 
 Leave channels - When leaving a channel by its channel URL
@@ -277,7 +278,8 @@ $bot_userid = 'bot_userid_example'; // string
 $channel_url = 'channel_url_example'; // string
 
 try {
-    $apiInstance->leaveChannelsByUrl($api_token, $bot_userid, $channel_url);
+    $result = $apiInstance->leaveChannelsByUrl($api_token, $bot_userid, $channel_url);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotInterfaceApi->leaveChannelsByUrl: ', $e->getMessage(), PHP_EOL;
 }
@@ -293,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -302,7 +304,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

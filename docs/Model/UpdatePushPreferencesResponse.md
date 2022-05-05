@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**block_push_from_bots** | **bool** |  | [optional]
+**enable_push_for_replies** | **bool** |  | [optional]
+**push_blocked_bot_ids** | **string[]** |  | [optional]
 **push_trigger_option** | **string** |  | [optional]
 **do_not_disturb** | **bool** |  | [optional]
 **start_hour** | **float** |  | [optional]

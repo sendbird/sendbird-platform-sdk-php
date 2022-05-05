@@ -59,7 +59,7 @@ class GcViewNumberOfEachMembersUnreadMessagesResponse implements ModelInterface,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'unread' => '\Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponseUnread'
+        'unread' => 'array<string,float>'
     ];
 
     /**
@@ -208,7 +208,7 @@ class GcViewNumberOfEachMembersUnreadMessagesResponse implements ModelInterface,
     /**
      * Gets unread
      *
-     * @return \Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponseUnread|null
+     * @return array<string,float>|null
      */
     public function getUnread()
     {
@@ -218,7 +218,7 @@ class GcViewNumberOfEachMembersUnreadMessagesResponse implements ModelInterface,
     /**
      * Sets unread
      *
-     * @param \Sendbird\Model\GcViewNumberOfEachMembersUnreadMessagesResponseUnread|null $unread unread
+     * @param array<string,float>|null $unread unread
      *
      * @return self
      */

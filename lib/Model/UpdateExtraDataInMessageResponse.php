@@ -59,7 +59,7 @@ class UpdateExtraDataInMessageResponse implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sorted_metaarray' => '\Sendbird\Model\ListMessagesResponseSortedMetaarray[]'
+        'sorted_metaarray' => '\Sendbird\Model\UpdateExtraDataInMessageResponseSortedMetaarray[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class UpdateExtraDataInMessageResponse implements ModelInterface, ArrayAccess, \
     /**
      * Gets sorted_metaarray
      *
-     * @return \Sendbird\Model\ListMessagesResponseSortedMetaarray[]|null
+     * @return \Sendbird\Model\UpdateExtraDataInMessageResponseSortedMetaarray[]|null
      */
     public function getSortedMetaarray()
     {
@@ -218,7 +218,7 @@ class UpdateExtraDataInMessageResponse implements ModelInterface, ArrayAccess, \
     /**
      * Sets sorted_metaarray
      *
-     * @param \Sendbird\Model\ListMessagesResponseSortedMetaarray[]|null $sorted_metaarray sorted_metaarray
+     * @param \Sendbird\Model\UpdateExtraDataInMessageResponseSortedMetaarray[]|null $sorted_metaarray sorted_metaarray
      *
      * @return self
      */

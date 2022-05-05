@@ -442,11 +442,12 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object
      */
     public function banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
     {
-        $this->banFromChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
+        list($response) = $this->banFromChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
+        return $response;
     }
 
     /**
@@ -460,7 +461,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function banFromChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
     {
@@ -501,10 +502,44 @@ class UserApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -546,14 +581,24 @@ class UserApi
      */
     public function banFromChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->banFromChannelsWithCustomChannelTypesRequest($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -622,11 +667,11 @@ class UserApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -694,7 +739,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdUser
+     * @return \Sendbird\Model\BlockUserResponse
      */
     public function blockUser($api_token, $user_id, $block_user_data = null)
     {
@@ -713,7 +758,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\BlockUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function blockUserWithHttpInfo($api_token, $user_id, $block_user_data = null)
     {
@@ -756,20 +801,20 @@ class UserApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdUser' === '\SplFileObject') {
+                    if ('\Sendbird\Model\BlockUserResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdUser', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\BlockUserResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdUser';
+            $returnType = '\Sendbird\Model\BlockUserResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -787,7 +832,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdUser',
+                        '\Sendbird\Model\BlockUserResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -833,7 +878,7 @@ class UserApi
      */
     public function blockUserAsyncWithHttpInfo($api_token, $user_id, $block_user_data = null)
     {
-        $returnType = '\Sendbird\Model\SendBirdUser';
+        $returnType = '\Sendbird\Model\BlockUserResponse';
         $request = $this->blockUserRequest($api_token, $user_id, $block_user_data);
 
         return $this->client
@@ -1565,11 +1610,12 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object
      */
     public function deleteUserById($api_token, $user_id)
     {
-        $this->deleteUserByIdWithHttpInfo($api_token, $user_id);
+        list($response) = $this->deleteUserByIdWithHttpInfo($api_token, $user_id);
+        return $response;
     }
 
     /**
@@ -1582,7 +1628,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteUserByIdWithHttpInfo($api_token, $user_id)
     {
@@ -1623,10 +1669,44 @@ class UserApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1666,14 +1746,24 @@ class UserApi
      */
     public function deleteUserByIdAsyncWithHttpInfo($api_token, $user_id)
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->deleteUserByIdRequest($api_token, $user_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1741,11 +1831,11 @@ class UserApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -1807,11 +1897,12 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object
      */
     public function leaveMyGroupChannels($api_token, $user_id, $leave_my_group_channels_data = null)
     {
-        $this->leaveMyGroupChannelsWithHttpInfo($api_token, $user_id, $leave_my_group_channels_data);
+        list($response) = $this->leaveMyGroupChannelsWithHttpInfo($api_token, $user_id, $leave_my_group_channels_data);
+        return $response;
     }
 
     /**
@@ -1825,7 +1916,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function leaveMyGroupChannelsWithHttpInfo($api_token, $user_id, $leave_my_group_channels_data = null)
     {
@@ -1866,10 +1957,44 @@ class UserApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1911,14 +2036,24 @@ class UserApi
      */
     public function leaveMyGroupChannelsAsyncWithHttpInfo($api_token, $user_id, $leave_my_group_channels_data = null)
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->leaveMyGroupChannelsRequest($api_token, $user_id, $leave_my_group_channels_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1987,11 +2122,11 @@ class UserApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -4703,11 +4838,12 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object
      */
     public function markAllMessagesAsRead($api_token, $user_id, $mark_all_messages_as_read_data = null)
     {
-        $this->markAllMessagesAsReadWithHttpInfo($api_token, $user_id, $mark_all_messages_as_read_data);
+        list($response) = $this->markAllMessagesAsReadWithHttpInfo($api_token, $user_id, $mark_all_messages_as_read_data);
+        return $response;
     }
 
     /**
@@ -4721,7 +4857,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function markAllMessagesAsReadWithHttpInfo($api_token, $user_id, $mark_all_messages_as_read_data = null)
     {
@@ -4762,10 +4898,44 @@ class UserApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -4807,14 +4977,24 @@ class UserApi
      */
     public function markAllMessagesAsReadAsyncWithHttpInfo($api_token, $user_id, $mark_all_messages_as_read_data = null)
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->markAllMessagesAsReadRequest($api_token, $user_id, $mark_all_messages_as_read_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -4883,11 +5063,11 @@ class UserApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -4955,11 +5135,12 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object
      */
     public function muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
     {
-        $this->muteInChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
+        list($response) = $this->muteInChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
+        return $response;
     }
 
     /**
@@ -4973,7 +5154,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function muteInChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
     {
@@ -5014,10 +5195,44 @@ class UserApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -5059,14 +5274,24 @@ class UserApi
      */
     public function muteInChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->muteInChannelsWithCustomChannelTypesRequest($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -5135,11 +5360,11 @@ class UserApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -5207,11 +5432,12 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object
      */
     public function registerAsOperatorToChannelsWithCustomChannelTypes($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data = null)
     {
-        $this->registerAsOperatorToChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data);
+        list($response) = $this->registerAsOperatorToChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data);
+        return $response;
     }
 
     /**
@@ -5225,7 +5451,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function registerAsOperatorToChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data = null)
     {
@@ -5266,10 +5492,44 @@ class UserApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -5311,14 +5571,24 @@ class UserApi
      */
     public function registerAsOperatorToChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data = null)
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->registerAsOperatorToChannelsWithCustomChannelTypesRequest($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -5387,11 +5657,11 @@ class UserApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -6373,11 +6643,12 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Sendbird\Model\ResetPushPreferencesResponse
      */
     public function resetPushPreferences($api_token, $user_id)
     {
-        $this->resetPushPreferencesWithHttpInfo($api_token, $user_id);
+        list($response) = $this->resetPushPreferencesWithHttpInfo($api_token, $user_id);
+        return $response;
     }
 
     /**
@@ -6390,7 +6661,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ResetPushPreferencesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function resetPushPreferencesWithHttpInfo($api_token, $user_id)
     {
@@ -6431,10 +6702,44 @@ class UserApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\ResetPushPreferencesResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ResetPushPreferencesResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\ResetPushPreferencesResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\ResetPushPreferencesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -6474,14 +6779,24 @@ class UserApi
      */
     public function resetPushPreferencesAsyncWithHttpInfo($api_token, $user_id)
     {
-        $returnType = '';
+        $returnType = '\Sendbird\Model\ResetPushPreferencesResponse';
         $request = $this->resetPushPreferencesRequest($api_token, $user_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -6549,11 +6864,11 @@ class UserApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -6615,11 +6930,12 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object
      */
     public function unblockUserById($api_token, $user_id, $target_id)
     {
-        $this->unblockUserByIdWithHttpInfo($api_token, $user_id, $target_id);
+        list($response) = $this->unblockUserByIdWithHttpInfo($api_token, $user_id, $target_id);
+        return $response;
     }
 
     /**
@@ -6633,7 +6949,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function unblockUserByIdWithHttpInfo($api_token, $user_id, $target_id)
     {
@@ -6674,10 +6990,44 @@ class UserApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -6719,14 +7069,24 @@ class UserApi
      */
     public function unblockUserByIdAsyncWithHttpInfo($api_token, $user_id, $target_id)
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->unblockUserByIdRequest($api_token, $user_id, $target_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -6809,11 +7169,11 @@ class UserApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -11170,7 +11530,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse
+     * @return object[]
      */
     public function viewWhoOwnsRegistrationOrDeviceTokenByToken($api_token, $token_type, $token)
     {
@@ -11189,7 +11549,7 @@ class UserApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object[], HTTP status code, HTTP response headers (array of strings)
      */
     public function viewWhoOwnsRegistrationOrDeviceTokenByTokenWithHttpInfo($api_token, $token_type, $token)
     {
@@ -11232,20 +11592,20 @@ class UserApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse' === '\SplFileObject') {
+                    if ('object[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse', []),
+                        ObjectSerializer::deserialize($content, 'object[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse';
+            $returnType = 'object[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -11263,7 +11623,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse',
+                        'object[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -11309,7 +11669,7 @@ class UserApi
      */
     public function viewWhoOwnsRegistrationOrDeviceTokenByTokenAsyncWithHttpInfo($api_token, $token_type, $token)
     {
-        $returnType = '\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse';
+        $returnType = 'object[]';
         $request = $this->viewWhoOwnsRegistrationOrDeviceTokenByTokenRequest($api_token, $token_type, $token);
 
         return $this->client

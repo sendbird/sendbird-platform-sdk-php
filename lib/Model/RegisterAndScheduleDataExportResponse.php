@@ -59,6 +59,8 @@ class RegisterAndScheduleDataExportResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
+        'channel_custom_types' => 'string[]',
+        'data_type' => 'string',
         'request_id' => 'string',
         'status' => 'string',
         'format' => 'string',
@@ -81,6 +83,8 @@ class RegisterAndScheduleDataExportResponse implements ModelInterface, ArrayAcce
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'channel_custom_types' => null,
+        'data_type' => null,
         'request_id' => null,
         'status' => null,
         'format' => null,
@@ -122,6 +126,8 @@ class RegisterAndScheduleDataExportResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
+        'channel_custom_types' => 'channel_custom_types',
+        'data_type' => 'data_type',
         'request_id' => 'request_id',
         'status' => 'status',
         'format' => 'format',
@@ -142,6 +148,8 @@ class RegisterAndScheduleDataExportResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
+        'channel_custom_types' => 'setChannelCustomTypes',
+        'data_type' => 'setDataType',
         'request_id' => 'setRequestId',
         'status' => 'setStatus',
         'format' => 'setFormat',
@@ -162,6 +170,8 @@ class RegisterAndScheduleDataExportResponse implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
+        'channel_custom_types' => 'getChannelCustomTypes',
+        'data_type' => 'getDataType',
         'request_id' => 'getRequestId',
         'status' => 'getStatus',
         'format' => 'getFormat',
@@ -233,6 +243,8 @@ class RegisterAndScheduleDataExportResponse implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
+        $this->container['channel_custom_types'] = $data['channel_custom_types'] ?? null;
+        $this->container['data_type'] = $data['data_type'] ?? null;
         $this->container['request_id'] = $data['request_id'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
         $this->container['format'] = $data['format'] ?? null;
@@ -270,6 +282,54 @@ class RegisterAndScheduleDataExportResponse implements ModelInterface, ArrayAcce
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets channel_custom_types
+     *
+     * @return string[]|null
+     */
+    public function getChannelCustomTypes()
+    {
+        return $this->container['channel_custom_types'];
+    }
+
+    /**
+     * Sets channel_custom_types
+     *
+     * @param string[]|null $channel_custom_types channel_custom_types
+     *
+     * @return self
+     */
+    public function setChannelCustomTypes($channel_custom_types)
+    {
+        $this->container['channel_custom_types'] = $channel_custom_types;
+
+        return $this;
+    }
+
+    /**
+     * Gets data_type
+     *
+     * @return string|null
+     */
+    public function getDataType()
+    {
+        return $this->container['data_type'];
+    }
+
+    /**
+     * Sets data_type
+     *
+     * @param string|null $data_type data_type
+     *
+     * @return self
+     */
+    public function setDataType($data_type)
+    {
+        $this->container['data_type'] = $data_type;
+
+        return $this;
+    }
 
     /**
      * Gets request_id

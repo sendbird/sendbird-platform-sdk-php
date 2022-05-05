@@ -59,7 +59,8 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'token' => 'string',
+        'tokens' => 'string[]',
+        'token' => 'string[]',
         'type' => 'string',
         'user' => '\Sendbird\Model\SendBirdUser'
     ];
@@ -72,6 +73,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'tokens' => null,
         'token' => null,
         'type' => null,
         'user' => null
@@ -104,6 +106,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
+        'tokens' => 'tokens',
         'token' => 'token',
         'type' => 'type',
         'user' => 'user'
@@ -115,6 +118,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
+        'tokens' => 'setTokens',
         'token' => 'setToken',
         'type' => 'setType',
         'user' => 'setUser'
@@ -126,6 +130,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
+        'tokens' => 'getTokens',
         'token' => 'getToken',
         'type' => 'getType',
         'user' => 'getUser'
@@ -188,6 +193,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
+        $this->container['tokens'] = $data['tokens'] ?? null;
         $this->container['token'] = $data['token'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
         $this->container['user'] = $data['user'] ?? null;
@@ -218,9 +224,33 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
 
 
     /**
+     * Gets tokens
+     *
+     * @return string[]|null
+     */
+    public function getTokens()
+    {
+        return $this->container['tokens'];
+    }
+
+    /**
+     * Sets tokens
+     *
+     * @param string[]|null $tokens tokens
+     *
+     * @return self
+     */
+    public function setTokens($tokens)
+    {
+        $this->container['tokens'] = $tokens;
+
+        return $this;
+    }
+
+    /**
      * Gets token
      *
-     * @return string|null
+     * @return string[]|null
      */
     public function getToken()
     {
@@ -230,7 +260,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
     /**
      * Sets token
      *
-     * @param string|null $token token
+     * @param string[]|null $token token
      *
      * @return self
      */

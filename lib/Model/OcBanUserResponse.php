@@ -59,10 +59,16 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user' => '\Sendbird\Model\SendBirdUser',
         'start_at' => 'float',
         'end_at' => 'float',
-        'description' => 'string'
+        'description' => 'string',
+        'user_id' => 'string',
+        'user' => '\Sendbird\Model\SendBirdUser',
+        'next_url' => 'string',
+        'require_auth_for_profile_image' => 'Boolean',
+        'nickname' => 'string',
+        'profile_url' => 'string',
+        'metadata' => '\Sendbird\Model\InlineResponse200'
     ];
 
     /**
@@ -73,10 +79,16 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user' => null,
         'start_at' => null,
         'end_at' => null,
-        'description' => null
+        'description' => null,
+        'user_id' => null,
+        'user' => null,
+        'next_url' => null,
+        'require_auth_for_profile_image' => null,
+        'nickname' => null,
+        'profile_url' => null,
+        'metadata' => null
     ];
 
     /**
@@ -106,10 +118,16 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'user' => 'user',
         'start_at' => 'start_at',
         'end_at' => 'end_at',
-        'description' => 'description'
+        'description' => 'description',
+        'user_id' => 'user_id',
+        'user' => 'user',
+        'next_url' => 'next_url',
+        'require_auth_for_profile_image' => 'require_auth_for_profile_image',
+        'nickname' => 'nickname',
+        'profile_url' => 'profile_url',
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -118,10 +136,16 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'user' => 'setUser',
         'start_at' => 'setStartAt',
         'end_at' => 'setEndAt',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'user_id' => 'setUserId',
+        'user' => 'setUser',
+        'next_url' => 'setNextUrl',
+        'require_auth_for_profile_image' => 'setRequireAuthForProfileImage',
+        'nickname' => 'setNickname',
+        'profile_url' => 'setProfileUrl',
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -130,10 +154,16 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'user' => 'getUser',
         'start_at' => 'getStartAt',
         'end_at' => 'getEndAt',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'user_id' => 'getUserId',
+        'user' => 'getUser',
+        'next_url' => 'getNextUrl',
+        'require_auth_for_profile_image' => 'getRequireAuthForProfileImage',
+        'nickname' => 'getNickname',
+        'profile_url' => 'getProfileUrl',
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -193,10 +223,16 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['user'] = $data['user'] ?? null;
         $this->container['start_at'] = $data['start_at'] ?? null;
         $this->container['end_at'] = $data['end_at'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['user'] = $data['user'] ?? null;
+        $this->container['next_url'] = $data['next_url'] ?? null;
+        $this->container['require_auth_for_profile_image'] = $data['require_auth_for_profile_image'] ?? null;
+        $this->container['nickname'] = $data['nickname'] ?? null;
+        $this->container['profile_url'] = $data['profile_url'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
     }
 
     /**
@@ -222,30 +258,6 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets user
-     *
-     * @return \Sendbird\Model\SendBirdUser|null
-     */
-    public function getUser()
-    {
-        return $this->container['user'];
-    }
-
-    /**
-     * Sets user
-     *
-     * @param \Sendbird\Model\SendBirdUser|null $user user
-     *
-     * @return self
-     */
-    public function setUser($user)
-    {
-        $this->container['user'] = $user;
-
-        return $this;
-    }
 
     /**
      * Gets start_at
@@ -315,6 +327,174 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return string|null
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param string|null $user_id user_id
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets user
+     *
+     * @return \Sendbird\Model\SendBirdUser|null
+     */
+    public function getUser()
+    {
+        return $this->container['user'];
+    }
+
+    /**
+     * Sets user
+     *
+     * @param \Sendbird\Model\SendBirdUser|null $user user
+     *
+     * @return self
+     */
+    public function setUser($user)
+    {
+        $this->container['user'] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_url
+     *
+     * @return string|null
+     */
+    public function getNextUrl()
+    {
+        return $this->container['next_url'];
+    }
+
+    /**
+     * Sets next_url
+     *
+     * @param string|null $next_url next_url
+     *
+     * @return self
+     */
+    public function setNextUrl($next_url)
+    {
+        $this->container['next_url'] = $next_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets require_auth_for_profile_image
+     *
+     * @return Boolean|null
+     */
+    public function getRequireAuthForProfileImage()
+    {
+        return $this->container['require_auth_for_profile_image'];
+    }
+
+    /**
+     * Sets require_auth_for_profile_image
+     *
+     * @param Boolean|null $require_auth_for_profile_image require_auth_for_profile_image
+     *
+     * @return self
+     */
+    public function setRequireAuthForProfileImage($require_auth_for_profile_image)
+    {
+        $this->container['require_auth_for_profile_image'] = $require_auth_for_profile_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets nickname
+     *
+     * @return string|null
+     */
+    public function getNickname()
+    {
+        return $this->container['nickname'];
+    }
+
+    /**
+     * Sets nickname
+     *
+     * @param string|null $nickname nickname
+     *
+     * @return self
+     */
+    public function setNickname($nickname)
+    {
+        $this->container['nickname'] = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Gets profile_url
+     *
+     * @return string|null
+     */
+    public function getProfileUrl()
+    {
+        return $this->container['profile_url'];
+    }
+
+    /**
+     * Sets profile_url
+     *
+     * @param string|null $profile_url profile_url
+     *
+     * @return self
+     */
+    public function setProfileUrl($profile_url)
+    {
+        $this->container['profile_url'] = $profile_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \Sendbird\Model\InlineResponse200|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \Sendbird\Model\InlineResponse200|null $metadata metadata
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

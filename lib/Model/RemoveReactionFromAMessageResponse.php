@@ -59,11 +59,12 @@ class RemoveReactionFromAMessageResponse implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user_id' => 'string',
-        'operation' => 'string',
-        'success' => 'bool',
         'reaction' => 'string',
-        'updated_at' => 'float'
+        'user_id' => 'float',
+        'success' => 'bool',
+        'msg_id' => 'float',
+        'updated_at' => 'float',
+        'operation' => 'string'
     ];
 
     /**
@@ -74,11 +75,12 @@ class RemoveReactionFromAMessageResponse implements ModelInterface, ArrayAccess,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user_id' => null,
-        'operation' => null,
-        'success' => null,
         'reaction' => null,
-        'updated_at' => null
+        'user_id' => null,
+        'success' => null,
+        'msg_id' => null,
+        'updated_at' => null,
+        'operation' => null
     ];
 
     /**
@@ -108,11 +110,12 @@ class RemoveReactionFromAMessageResponse implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_id' => 'user_id',
-        'operation' => 'operation',
-        'success' => 'success',
         'reaction' => 'reaction',
-        'updated_at' => 'updated_at'
+        'user_id' => 'user_id',
+        'success' => 'success',
+        'msg_id' => 'msg_id',
+        'updated_at' => 'updated_at',
+        'operation' => 'operation'
     ];
 
     /**
@@ -121,11 +124,12 @@ class RemoveReactionFromAMessageResponse implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
-        'user_id' => 'setUserId',
-        'operation' => 'setOperation',
-        'success' => 'setSuccess',
         'reaction' => 'setReaction',
-        'updated_at' => 'setUpdatedAt'
+        'user_id' => 'setUserId',
+        'success' => 'setSuccess',
+        'msg_id' => 'setMsgId',
+        'updated_at' => 'setUpdatedAt',
+        'operation' => 'setOperation'
     ];
 
     /**
@@ -134,11 +138,12 @@ class RemoveReactionFromAMessageResponse implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
-        'user_id' => 'getUserId',
-        'operation' => 'getOperation',
-        'success' => 'getSuccess',
         'reaction' => 'getReaction',
-        'updated_at' => 'getUpdatedAt'
+        'user_id' => 'getUserId',
+        'success' => 'getSuccess',
+        'msg_id' => 'getMsgId',
+        'updated_at' => 'getUpdatedAt',
+        'operation' => 'getOperation'
     ];
 
     /**
@@ -198,11 +203,12 @@ class RemoveReactionFromAMessageResponse implements ModelInterface, ArrayAccess,
      */
     public function __construct(array $data = null)
     {
-        $this->container['user_id'] = $data['user_id'] ?? null;
-        $this->container['operation'] = $data['operation'] ?? null;
-        $this->container['success'] = $data['success'] ?? null;
         $this->container['reaction'] = $data['reaction'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['success'] = $data['success'] ?? null;
+        $this->container['msg_id'] = $data['msg_id'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['operation'] = $data['operation'] ?? null;
     }
 
     /**
@@ -230,9 +236,33 @@ class RemoveReactionFromAMessageResponse implements ModelInterface, ArrayAccess,
 
 
     /**
-     * Gets user_id
+     * Gets reaction
      *
      * @return string|null
+     */
+    public function getReaction()
+    {
+        return $this->container['reaction'];
+    }
+
+    /**
+     * Sets reaction
+     *
+     * @param string|null $reaction reaction
+     *
+     * @return self
+     */
+    public function setReaction($reaction)
+    {
+        $this->container['reaction'] = $reaction;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return float|null
      */
     public function getUserId()
     {
@@ -242,37 +272,13 @@ class RemoveReactionFromAMessageResponse implements ModelInterface, ArrayAccess,
     /**
      * Sets user_id
      *
-     * @param string|null $user_id user_id
+     * @param float|null $user_id user_id
      *
      * @return self
      */
     public function setUserId($user_id)
     {
         $this->container['user_id'] = $user_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets operation
-     *
-     * @return string|null
-     */
-    public function getOperation()
-    {
-        return $this->container['operation'];
-    }
-
-    /**
-     * Sets operation
-     *
-     * @param string|null $operation operation
-     *
-     * @return self
-     */
-    public function setOperation($operation)
-    {
-        $this->container['operation'] = $operation;
 
         return $this;
     }
@@ -302,25 +308,25 @@ class RemoveReactionFromAMessageResponse implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets reaction
+     * Gets msg_id
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getReaction()
+    public function getMsgId()
     {
-        return $this->container['reaction'];
+        return $this->container['msg_id'];
     }
 
     /**
-     * Sets reaction
+     * Sets msg_id
      *
-     * @param string|null $reaction reaction
+     * @param float|null $msg_id msg_id
      *
      * @return self
      */
-    public function setReaction($reaction)
+    public function setMsgId($msg_id)
     {
-        $this->container['reaction'] = $reaction;
+        $this->container['msg_id'] = $msg_id;
 
         return $this;
     }
@@ -345,6 +351,30 @@ class RemoveReactionFromAMessageResponse implements ModelInterface, ArrayAccess,
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets operation
+     *
+     * @return string|null
+     */
+    public function getOperation()
+    {
+        return $this->container['operation'];
+    }
+
+    /**
+     * Sets operation
+     *
+     * @param string|null $operation operation
+     *
+     * @return self
+     */
+    public function setOperation($operation)
+    {
+        $this->container['operation'] = $operation;
 
         return $this;
     }

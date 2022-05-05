@@ -60,7 +60,8 @@ class GcListChannelsResponse implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'channels' => '\Sendbird\Model\SendBirdGroupChannel[]',
-        'next' => 'string'
+        'next' => 'string',
+        'ts' => 'float'
     ];
 
     /**
@@ -72,7 +73,8 @@ class GcListChannelsResponse implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'channels' => null,
-        'next' => null
+        'next' => null,
+        'ts' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class GcListChannelsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'channels' => 'channels',
-        'next' => 'next'
+        'next' => 'next',
+        'ts' => 'ts'
     ];
 
     /**
@@ -113,7 +116,8 @@ class GcListChannelsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'channels' => 'setChannels',
-        'next' => 'setNext'
+        'next' => 'setNext',
+        'ts' => 'setTs'
     ];
 
     /**
@@ -123,7 +127,8 @@ class GcListChannelsResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'channels' => 'getChannels',
-        'next' => 'getNext'
+        'next' => 'getNext',
+        'ts' => 'getTs'
     ];
 
     /**
@@ -185,6 +190,7 @@ class GcListChannelsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $this->container['channels'] = $data['channels'] ?? null;
         $this->container['next'] = $data['next'] ?? null;
+        $this->container['ts'] = $data['ts'] ?? null;
     }
 
     /**
@@ -255,6 +261,30 @@ class GcListChannelsResponse implements ModelInterface, ArrayAccess, \JsonSerial
     public function setNext($next)
     {
         $this->container['next'] = $next;
+
+        return $this;
+    }
+
+    /**
+     * Gets ts
+     *
+     * @return float|null
+     */
+    public function getTs()
+    {
+        return $this->container['ts'];
+    }
+
+    /**
+     * Sets ts
+     *
+     * @param float|null $ts ts
+     *
+     * @return self
+     */
+    public function setTs($ts)
+    {
+        $this->container['ts'] = $ts;
 
         return $this;
     }

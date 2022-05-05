@@ -69,7 +69,8 @@ class ViewPushPreferencesForChannelByUrlResponse implements ModelInterface, Arra
         'snooze_start_ts' => 'float',
         'snooze_end_ts' => 'float',
         'timezone' => 'string',
-        'push_sound' => 'string'
+        'push_sound' => 'string',
+        'enable' => 'bool'
     ];
 
     /**
@@ -90,7 +91,8 @@ class ViewPushPreferencesForChannelByUrlResponse implements ModelInterface, Arra
         'snooze_start_ts' => null,
         'snooze_end_ts' => null,
         'timezone' => null,
-        'push_sound' => null
+        'push_sound' => null,
+        'enable' => null
     ];
 
     /**
@@ -130,7 +132,8 @@ class ViewPushPreferencesForChannelByUrlResponse implements ModelInterface, Arra
         'snooze_start_ts' => 'snooze_start_ts',
         'snooze_end_ts' => 'snooze_end_ts',
         'timezone' => 'timezone',
-        'push_sound' => 'push_sound'
+        'push_sound' => 'push_sound',
+        'enable' => 'enable'
     ];
 
     /**
@@ -149,7 +152,8 @@ class ViewPushPreferencesForChannelByUrlResponse implements ModelInterface, Arra
         'snooze_start_ts' => 'setSnoozeStartTs',
         'snooze_end_ts' => 'setSnoozeEndTs',
         'timezone' => 'setTimezone',
-        'push_sound' => 'setPushSound'
+        'push_sound' => 'setPushSound',
+        'enable' => 'setEnable'
     ];
 
     /**
@@ -168,7 +172,8 @@ class ViewPushPreferencesForChannelByUrlResponse implements ModelInterface, Arra
         'snooze_start_ts' => 'getSnoozeStartTs',
         'snooze_end_ts' => 'getSnoozeEndTs',
         'timezone' => 'getTimezone',
-        'push_sound' => 'getPushSound'
+        'push_sound' => 'getPushSound',
+        'enable' => 'getEnable'
     ];
 
     /**
@@ -239,6 +244,7 @@ class ViewPushPreferencesForChannelByUrlResponse implements ModelInterface, Arra
         $this->container['snooze_end_ts'] = $data['snooze_end_ts'] ?? null;
         $this->container['timezone'] = $data['timezone'] ?? null;
         $this->container['push_sound'] = $data['push_sound'] ?? null;
+        $this->container['enable'] = $data['enable'] ?? null;
     }
 
     /**
@@ -525,6 +531,30 @@ class ViewPushPreferencesForChannelByUrlResponse implements ModelInterface, Arra
     public function setPushSound($push_sound)
     {
         $this->container['push_sound'] = $push_sound;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable
+     *
+     * @return bool|null
+     */
+    public function getEnable()
+    {
+        return $this->container['enable'];
+    }
+
+    /**
+     * Sets enable
+     *
+     * @param bool|null $enable enable
+     *
+     * @return self
+     */
+    public function setEnable($enable)
+    {
+        $this->container['enable'] = $enable;
 
         return $this;
     }

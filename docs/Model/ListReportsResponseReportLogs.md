@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**reporting_user** | [**\Sendbird\Model\SendBirdUser**](SendBirdUser.md) |  | [optional]
 **report_type** | **string** |  | [optional]
 **report_category** | **string** |  | [optional]
 **offending_user** | [**\Sendbird\Model\SendBirdUser**](SendBirdUser.md) |  | [optional]

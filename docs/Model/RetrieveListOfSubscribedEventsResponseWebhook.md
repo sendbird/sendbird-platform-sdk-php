@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **include_members** | **bool** |  | [optional]
 **enabled_events** | **string[]** |  | [optional]
 **all_webhook_categories** | **string[]** |  | [optional]
+**include_unread_count** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

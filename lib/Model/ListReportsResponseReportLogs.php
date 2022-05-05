@@ -59,6 +59,7 @@ class ListReportsResponseReportLogs implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
+        'reporting_user' => '\Sendbird\Model\SendBirdUser',
         'report_type' => 'string',
         'report_category' => 'string',
         'offending_user' => '\Sendbird\Model\SendBirdUser',
@@ -76,6 +77,7 @@ class ListReportsResponseReportLogs implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'reporting_user' => null,
         'report_type' => null,
         'report_category' => null,
         'offending_user' => null,
@@ -112,6 +114,7 @@ class ListReportsResponseReportLogs implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
+        'reporting_user' => 'reporting_user',
         'report_type' => 'report_type',
         'report_category' => 'report_category',
         'offending_user' => 'offending_user',
@@ -127,6 +130,7 @@ class ListReportsResponseReportLogs implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
+        'reporting_user' => 'setReportingUser',
         'report_type' => 'setReportType',
         'report_category' => 'setReportCategory',
         'offending_user' => 'setOffendingUser',
@@ -142,6 +146,7 @@ class ListReportsResponseReportLogs implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
+        'reporting_user' => 'getReportingUser',
         'report_type' => 'getReportType',
         'report_category' => 'getReportCategory',
         'offending_user' => 'getOffendingUser',
@@ -208,6 +213,7 @@ class ListReportsResponseReportLogs implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
+        $this->container['reporting_user'] = $data['reporting_user'] ?? null;
         $this->container['report_type'] = $data['report_type'] ?? null;
         $this->container['report_category'] = $data['report_category'] ?? null;
         $this->container['offending_user'] = $data['offending_user'] ?? null;
@@ -240,6 +246,30 @@ class ListReportsResponseReportLogs implements ModelInterface, ArrayAccess, \Jso
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets reporting_user
+     *
+     * @return \Sendbird\Model\SendBirdUser|null
+     */
+    public function getReportingUser()
+    {
+        return $this->container['reporting_user'];
+    }
+
+    /**
+     * Sets reporting_user
+     *
+     * @param \Sendbird\Model\SendBirdUser|null $reporting_user reporting_user
+     *
+     * @return self
+     */
+    public function setReportingUser($reporting_user)
+    {
+        $this->container['reporting_user'] = $reporting_user;
+
+        return $this;
+    }
 
     /**
      * Gets report_type

@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **snooze_end_ts** | **float** |  | [optional]
 **timezone** | **string** |  | [optional]
 **push_sound** | **string** |  | [optional]
+**enable** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

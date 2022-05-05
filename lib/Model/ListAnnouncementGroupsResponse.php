@@ -59,7 +59,7 @@ class ListAnnouncementGroupsResponse implements ModelInterface, ArrayAccess, \Js
       * @var string[]
       */
     protected static $openAPITypes = [
-        'announcement_group' => 'string[]',
+        'announcement_groups' => 'string[]',
         'next' => 'string'
     ];
 
@@ -71,7 +71,7 @@ class ListAnnouncementGroupsResponse implements ModelInterface, ArrayAccess, \Js
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'announcement_group' => null,
+        'announcement_groups' => null,
         'next' => null
     ];
 
@@ -102,7 +102,7 @@ class ListAnnouncementGroupsResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $attributeMap = [
-        'announcement_group' => 'announcement_group',
+        'announcement_groups' => 'announcement_groups',
         'next' => 'next'
     ];
 
@@ -112,7 +112,7 @@ class ListAnnouncementGroupsResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $setters = [
-        'announcement_group' => 'setAnnouncementGroup',
+        'announcement_groups' => 'setAnnouncementGroups',
         'next' => 'setNext'
     ];
 
@@ -122,7 +122,7 @@ class ListAnnouncementGroupsResponse implements ModelInterface, ArrayAccess, \Js
      * @var string[]
      */
     protected static $getters = [
-        'announcement_group' => 'getAnnouncementGroup',
+        'announcement_groups' => 'getAnnouncementGroups',
         'next' => 'getNext'
     ];
 
@@ -183,7 +183,7 @@ class ListAnnouncementGroupsResponse implements ModelInterface, ArrayAccess, \Js
      */
     public function __construct(array $data = null)
     {
-        $this->container['announcement_group'] = $data['announcement_group'] ?? null;
+        $this->container['announcement_groups'] = $data['announcement_groups'] ?? null;
         $this->container['next'] = $data['next'] ?? null;
     }
 
@@ -212,25 +212,25 @@ class ListAnnouncementGroupsResponse implements ModelInterface, ArrayAccess, \Js
 
 
     /**
-     * Gets announcement_group
+     * Gets announcement_groups
      *
      * @return string[]|null
      */
-    public function getAnnouncementGroup()
+    public function getAnnouncementGroups()
     {
-        return $this->container['announcement_group'];
+        return $this->container['announcement_groups'];
     }
 
     /**
-     * Sets announcement_group
+     * Sets announcement_groups
      *
-     * @param string[]|null $announcement_group announcement_group
+     * @param string[]|null $announcement_groups announcement_groups
      *
      * @return self
      */
-    public function setAnnouncementGroup($announcement_group)
+    public function setAnnouncementGroups($announcement_groups)
     {
-        $this->container['announcement_group'] = $announcement_group;
+        $this->container['announcement_groups'] = $announcement_groups;
 
         return $this;
     }

@@ -63,7 +63,8 @@ class AddReactionToAMessageResponse implements ModelInterface, ArrayAccess, \Jso
         'operation' => 'string',
         'success' => 'bool',
         'reaction' => 'string',
-        'updated_at' => 'float'
+        'updated_at' => 'float',
+        'msg_id' => 'float'
     ];
 
     /**
@@ -78,7 +79,8 @@ class AddReactionToAMessageResponse implements ModelInterface, ArrayAccess, \Jso
         'operation' => null,
         'success' => null,
         'reaction' => null,
-        'updated_at' => null
+        'updated_at' => null,
+        'msg_id' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class AddReactionToAMessageResponse implements ModelInterface, ArrayAccess, \Jso
         'operation' => 'operation',
         'success' => 'success',
         'reaction' => 'reaction',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'msg_id' => 'msg_id'
     ];
 
     /**
@@ -125,7 +128,8 @@ class AddReactionToAMessageResponse implements ModelInterface, ArrayAccess, \Jso
         'operation' => 'setOperation',
         'success' => 'setSuccess',
         'reaction' => 'setReaction',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'msg_id' => 'setMsgId'
     ];
 
     /**
@@ -138,7 +142,8 @@ class AddReactionToAMessageResponse implements ModelInterface, ArrayAccess, \Jso
         'operation' => 'getOperation',
         'success' => 'getSuccess',
         'reaction' => 'getReaction',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'msg_id' => 'getMsgId'
     ];
 
     /**
@@ -203,6 +208,7 @@ class AddReactionToAMessageResponse implements ModelInterface, ArrayAccess, \Jso
         $this->container['success'] = $data['success'] ?? null;
         $this->container['reaction'] = $data['reaction'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
+        $this->container['msg_id'] = $data['msg_id'] ?? null;
     }
 
     /**
@@ -345,6 +351,30 @@ class AddReactionToAMessageResponse implements ModelInterface, ArrayAccess, \Jso
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets msg_id
+     *
+     * @return float|null
+     */
+    public function getMsgId()
+    {
+        return $this->container['msg_id'];
+    }
+
+    /**
+     * Sets msg_id
+     *
+     * @param float|null $msg_id msg_id
+     *
+     * @return self
+     */
+    public function setMsgId($msg_id)
+    {
+        $this->container['msg_id'] = $msg_id;
 
         return $this;
     }

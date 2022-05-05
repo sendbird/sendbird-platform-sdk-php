@@ -62,7 +62,13 @@ class GcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'user' => '\Sendbird\Model\SendBirdUser',
         'start_at' => 'float',
         'end_at' => 'float',
-        'description' => 'string'
+        'description' => 'string',
+        'metadata' => '\Sendbird\Model\InlineResponse200',
+        'next_url' => 'string',
+        'nickname' => 'string',
+        'profile_url' => 'string',
+        'require_auth_for_profile_image' => 'bool',
+        'user_id' => 'string'
     ];
 
     /**
@@ -76,7 +82,13 @@ class GcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'user' => null,
         'start_at' => null,
         'end_at' => null,
-        'description' => null
+        'description' => null,
+        'metadata' => null,
+        'next_url' => null,
+        'nickname' => null,
+        'profile_url' => null,
+        'require_auth_for_profile_image' => null,
+        'user_id' => null
     ];
 
     /**
@@ -109,7 +121,13 @@ class GcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'user' => 'user',
         'start_at' => 'start_at',
         'end_at' => 'end_at',
-        'description' => 'description'
+        'description' => 'description',
+        'metadata' => 'metadata',
+        'next_url' => 'next_url',
+        'nickname' => 'nickname',
+        'profile_url' => 'profile_url',
+        'require_auth_for_profile_image' => 'require_auth_for_profile_image',
+        'user_id' => 'user_id'
     ];
 
     /**
@@ -121,7 +139,13 @@ class GcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'user' => 'setUser',
         'start_at' => 'setStartAt',
         'end_at' => 'setEndAt',
-        'description' => 'setDescription'
+        'description' => 'setDescription',
+        'metadata' => 'setMetadata',
+        'next_url' => 'setNextUrl',
+        'nickname' => 'setNickname',
+        'profile_url' => 'setProfileUrl',
+        'require_auth_for_profile_image' => 'setRequireAuthForProfileImage',
+        'user_id' => 'setUserId'
     ];
 
     /**
@@ -133,7 +157,13 @@ class GcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'user' => 'getUser',
         'start_at' => 'getStartAt',
         'end_at' => 'getEndAt',
-        'description' => 'getDescription'
+        'description' => 'getDescription',
+        'metadata' => 'getMetadata',
+        'next_url' => 'getNextUrl',
+        'nickname' => 'getNickname',
+        'profile_url' => 'getProfileUrl',
+        'require_auth_for_profile_image' => 'getRequireAuthForProfileImage',
+        'user_id' => 'getUserId'
     ];
 
     /**
@@ -197,6 +227,12 @@ class GcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->container['start_at'] = $data['start_at'] ?? null;
         $this->container['end_at'] = $data['end_at'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
+        $this->container['next_url'] = $data['next_url'] ?? null;
+        $this->container['nickname'] = $data['nickname'] ?? null;
+        $this->container['profile_url'] = $data['profile_url'] ?? null;
+        $this->container['require_auth_for_profile_image'] = $data['require_auth_for_profile_image'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
     }
 
     /**
@@ -315,6 +351,150 @@ class GcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setDescription($description)
     {
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return \Sendbird\Model\InlineResponse200|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param \Sendbird\Model\InlineResponse200|null $metadata metadata
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_url
+     *
+     * @return string|null
+     */
+    public function getNextUrl()
+    {
+        return $this->container['next_url'];
+    }
+
+    /**
+     * Sets next_url
+     *
+     * @param string|null $next_url next_url
+     *
+     * @return self
+     */
+    public function setNextUrl($next_url)
+    {
+        $this->container['next_url'] = $next_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets nickname
+     *
+     * @return string|null
+     */
+    public function getNickname()
+    {
+        return $this->container['nickname'];
+    }
+
+    /**
+     * Sets nickname
+     *
+     * @param string|null $nickname nickname
+     *
+     * @return self
+     */
+    public function setNickname($nickname)
+    {
+        $this->container['nickname'] = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Gets profile_url
+     *
+     * @return string|null
+     */
+    public function getProfileUrl()
+    {
+        return $this->container['profile_url'];
+    }
+
+    /**
+     * Sets profile_url
+     *
+     * @param string|null $profile_url profile_url
+     *
+     * @return self
+     */
+    public function setProfileUrl($profile_url)
+    {
+        $this->container['profile_url'] = $profile_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets require_auth_for_profile_image
+     *
+     * @return bool|null
+     */
+    public function getRequireAuthForProfileImage()
+    {
+        return $this->container['require_auth_for_profile_image'];
+    }
+
+    /**
+     * Sets require_auth_for_profile_image
+     *
+     * @param bool|null $require_auth_for_profile_image require_auth_for_profile_image
+     *
+     * @return self
+     */
+    public function setRequireAuthForProfileImage($require_auth_for_profile_image)
+    {
+        $this->container['require_auth_for_profile_image'] = $require_auth_for_profile_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return string|null
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param string|null $user_id user_id
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }

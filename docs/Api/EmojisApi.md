@@ -194,7 +194,7 @@ No authorization required
 ## `deleteEmojiCategoryById()`
 
 ```php
-deleteEmojiCategoryById($api_token, $emoji_category_id)
+deleteEmojiCategoryById($api_token, $emoji_category_id): object
 ```
 
 Delete an emoji category
@@ -218,7 +218,8 @@ $api_token = {{API_TOKEN}}; // string
 $emoji_category_id = 'emoji_category_id_example'; // string
 
 try {
-    $apiInstance->deleteEmojiCategoryById($api_token, $emoji_category_id);
+    $result = $apiInstance->deleteEmojiCategoryById($api_token, $emoji_category_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EmojisApi->deleteEmojiCategoryById: ', $e->getMessage(), PHP_EOL;
 }
@@ -233,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -242,7 +243,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

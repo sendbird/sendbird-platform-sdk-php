@@ -19,5 +19,12 @@ Name | Type | Description | Notes
 **sent_user_count** | **float** |  | [optional]
 **open_count** | **float** |  | [optional]
 **open_rate** | **float** |  | [optional]
+**create_channel** | **bool** |  | [optional]
+**create_channel_options** | [**\Sendbird\Model\ScheduleAnnouncementResponseCreateChannelOptions**](ScheduleAnnouncementResponseCreateChannelOptions.md) |  | [optional]
+**end_at** | **float** |  | [optional]
+**mark_as_read** | **bool** |  | [optional]
+**sent_channel_count** | **float** |  | [optional]
+**target_channel_type** | **string** |  | [optional]
+**target_custom_type** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

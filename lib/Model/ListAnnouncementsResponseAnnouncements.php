@@ -73,7 +73,14 @@ class ListAnnouncementsResponseAnnouncements implements ModelInterface, ArrayAcc
         'completed_at' => 'float',
         'sent_user_count' => 'float',
         'open_count' => 'float',
-        'open_rate' => 'float'
+        'open_rate' => 'float',
+        'create_channel' => 'bool',
+        'create_channel_options' => '\Sendbird\Model\ScheduleAnnouncementResponseCreateChannelOptions',
+        'end_at' => 'float',
+        'mark_as_read' => 'bool',
+        'sent_channel_count' => 'float',
+        'target_channel_type' => 'string',
+        'target_custom_type' => 'string'
     ];
 
     /**
@@ -98,7 +105,14 @@ class ListAnnouncementsResponseAnnouncements implements ModelInterface, ArrayAcc
         'completed_at' => null,
         'sent_user_count' => null,
         'open_count' => null,
-        'open_rate' => null
+        'open_rate' => null,
+        'create_channel' => null,
+        'create_channel_options' => null,
+        'end_at' => null,
+        'mark_as_read' => null,
+        'sent_channel_count' => null,
+        'target_channel_type' => null,
+        'target_custom_type' => null
     ];
 
     /**
@@ -142,7 +156,14 @@ class ListAnnouncementsResponseAnnouncements implements ModelInterface, ArrayAcc
         'completed_at' => 'completed_at',
         'sent_user_count' => 'sent_user_count',
         'open_count' => 'open_count',
-        'open_rate' => 'open_rate'
+        'open_rate' => 'open_rate',
+        'create_channel' => 'create_channel',
+        'create_channel_options' => 'create_channel_options',
+        'end_at' => 'end_at',
+        'mark_as_read' => 'mark_as_read',
+        'sent_channel_count' => 'sent_channel_count',
+        'target_channel_type' => 'target_channel_type',
+        'target_custom_type' => 'target_custom_type'
     ];
 
     /**
@@ -165,7 +186,14 @@ class ListAnnouncementsResponseAnnouncements implements ModelInterface, ArrayAcc
         'completed_at' => 'setCompletedAt',
         'sent_user_count' => 'setSentUserCount',
         'open_count' => 'setOpenCount',
-        'open_rate' => 'setOpenRate'
+        'open_rate' => 'setOpenRate',
+        'create_channel' => 'setCreateChannel',
+        'create_channel_options' => 'setCreateChannelOptions',
+        'end_at' => 'setEndAt',
+        'mark_as_read' => 'setMarkAsRead',
+        'sent_channel_count' => 'setSentChannelCount',
+        'target_channel_type' => 'setTargetChannelType',
+        'target_custom_type' => 'setTargetCustomType'
     ];
 
     /**
@@ -188,7 +216,14 @@ class ListAnnouncementsResponseAnnouncements implements ModelInterface, ArrayAcc
         'completed_at' => 'getCompletedAt',
         'sent_user_count' => 'getSentUserCount',
         'open_count' => 'getOpenCount',
-        'open_rate' => 'getOpenRate'
+        'open_rate' => 'getOpenRate',
+        'create_channel' => 'getCreateChannel',
+        'create_channel_options' => 'getCreateChannelOptions',
+        'end_at' => 'getEndAt',
+        'mark_as_read' => 'getMarkAsRead',
+        'sent_channel_count' => 'getSentChannelCount',
+        'target_channel_type' => 'getTargetChannelType',
+        'target_custom_type' => 'getTargetCustomType'
     ];
 
     /**
@@ -263,6 +298,13 @@ class ListAnnouncementsResponseAnnouncements implements ModelInterface, ArrayAcc
         $this->container['sent_user_count'] = $data['sent_user_count'] ?? null;
         $this->container['open_count'] = $data['open_count'] ?? null;
         $this->container['open_rate'] = $data['open_rate'] ?? null;
+        $this->container['create_channel'] = $data['create_channel'] ?? null;
+        $this->container['create_channel_options'] = $data['create_channel_options'] ?? null;
+        $this->container['end_at'] = $data['end_at'] ?? null;
+        $this->container['mark_as_read'] = $data['mark_as_read'] ?? null;
+        $this->container['sent_channel_count'] = $data['sent_channel_count'] ?? null;
+        $this->container['target_channel_type'] = $data['target_channel_type'] ?? null;
+        $this->container['target_custom_type'] = $data['target_custom_type'] ?? null;
     }
 
     /**
@@ -645,6 +687,174 @@ class ListAnnouncementsResponseAnnouncements implements ModelInterface, ArrayAcc
     public function setOpenRate($open_rate)
     {
         $this->container['open_rate'] = $open_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets create_channel
+     *
+     * @return bool|null
+     */
+    public function getCreateChannel()
+    {
+        return $this->container['create_channel'];
+    }
+
+    /**
+     * Sets create_channel
+     *
+     * @param bool|null $create_channel create_channel
+     *
+     * @return self
+     */
+    public function setCreateChannel($create_channel)
+    {
+        $this->container['create_channel'] = $create_channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets create_channel_options
+     *
+     * @return \Sendbird\Model\ScheduleAnnouncementResponseCreateChannelOptions|null
+     */
+    public function getCreateChannelOptions()
+    {
+        return $this->container['create_channel_options'];
+    }
+
+    /**
+     * Sets create_channel_options
+     *
+     * @param \Sendbird\Model\ScheduleAnnouncementResponseCreateChannelOptions|null $create_channel_options create_channel_options
+     *
+     * @return self
+     */
+    public function setCreateChannelOptions($create_channel_options)
+    {
+        $this->container['create_channel_options'] = $create_channel_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_at
+     *
+     * @return float|null
+     */
+    public function getEndAt()
+    {
+        return $this->container['end_at'];
+    }
+
+    /**
+     * Sets end_at
+     *
+     * @param float|null $end_at end_at
+     *
+     * @return self
+     */
+    public function setEndAt($end_at)
+    {
+        $this->container['end_at'] = $end_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets mark_as_read
+     *
+     * @return bool|null
+     */
+    public function getMarkAsRead()
+    {
+        return $this->container['mark_as_read'];
+    }
+
+    /**
+     * Sets mark_as_read
+     *
+     * @param bool|null $mark_as_read mark_as_read
+     *
+     * @return self
+     */
+    public function setMarkAsRead($mark_as_read)
+    {
+        $this->container['mark_as_read'] = $mark_as_read;
+
+        return $this;
+    }
+
+    /**
+     * Gets sent_channel_count
+     *
+     * @return float|null
+     */
+    public function getSentChannelCount()
+    {
+        return $this->container['sent_channel_count'];
+    }
+
+    /**
+     * Sets sent_channel_count
+     *
+     * @param float|null $sent_channel_count sent_channel_count
+     *
+     * @return self
+     */
+    public function setSentChannelCount($sent_channel_count)
+    {
+        $this->container['sent_channel_count'] = $sent_channel_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_channel_type
+     *
+     * @return string|null
+     */
+    public function getTargetChannelType()
+    {
+        return $this->container['target_channel_type'];
+    }
+
+    /**
+     * Sets target_channel_type
+     *
+     * @param string|null $target_channel_type target_channel_type
+     *
+     * @return self
+     */
+    public function setTargetChannelType($target_channel_type)
+    {
+        $this->container['target_channel_type'] = $target_channel_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_custom_type
+     *
+     * @return string|null
+     */
+    public function getTargetCustomType()
+    {
+        return $this->container['target_custom_type'];
+    }
+
+    /**
+     * Sets target_custom_type
+     *
+     * @param string|null $target_custom_type target_custom_type
+     *
+     * @return self
+     */
+    public function setTargetCustomType($target_custom_type)
+    {
+        $this->container['target_custom_type'] = $target_custom_type;
 
         return $this;
     }

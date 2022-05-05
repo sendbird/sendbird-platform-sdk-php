@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**token** | **string** |  | [optional]
+**tokens** | **string[]** |  | [optional]
+**token** | **string[]** |  | [optional]
 **type** | **string** |  | [optional]
 **user** | [**\Sendbird\Model\SendBirdUser**](SendBirdUser.md) |  | [optional]
 

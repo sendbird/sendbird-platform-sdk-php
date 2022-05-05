@@ -63,7 +63,8 @@ class RetrieveListOfSubscribedEventsResponseWebhook implements ModelInterface, A
         'url' => 'string',
         'include_members' => 'bool',
         'enabled_events' => 'string[]',
-        'all_webhook_categories' => 'string[]'
+        'all_webhook_categories' => 'string[]',
+        'include_unread_count' => 'bool'
     ];
 
     /**
@@ -78,7 +79,8 @@ class RetrieveListOfSubscribedEventsResponseWebhook implements ModelInterface, A
         'url' => null,
         'include_members' => null,
         'enabled_events' => null,
-        'all_webhook_categories' => null
+        'all_webhook_categories' => null,
+        'include_unread_count' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class RetrieveListOfSubscribedEventsResponseWebhook implements ModelInterface, A
         'url' => 'url',
         'include_members' => 'include_members',
         'enabled_events' => 'enabled_events',
-        'all_webhook_categories' => 'all_webhook_categories'
+        'all_webhook_categories' => 'all_webhook_categories',
+        'include_unread_count' => 'include_unread_count'
     ];
 
     /**
@@ -125,7 +128,8 @@ class RetrieveListOfSubscribedEventsResponseWebhook implements ModelInterface, A
         'url' => 'setUrl',
         'include_members' => 'setIncludeMembers',
         'enabled_events' => 'setEnabledEvents',
-        'all_webhook_categories' => 'setAllWebhookCategories'
+        'all_webhook_categories' => 'setAllWebhookCategories',
+        'include_unread_count' => 'setIncludeUnreadCount'
     ];
 
     /**
@@ -138,7 +142,8 @@ class RetrieveListOfSubscribedEventsResponseWebhook implements ModelInterface, A
         'url' => 'getUrl',
         'include_members' => 'getIncludeMembers',
         'enabled_events' => 'getEnabledEvents',
-        'all_webhook_categories' => 'getAllWebhookCategories'
+        'all_webhook_categories' => 'getAllWebhookCategories',
+        'include_unread_count' => 'getIncludeUnreadCount'
     ];
 
     /**
@@ -203,6 +208,7 @@ class RetrieveListOfSubscribedEventsResponseWebhook implements ModelInterface, A
         $this->container['include_members'] = $data['include_members'] ?? null;
         $this->container['enabled_events'] = $data['enabled_events'] ?? null;
         $this->container['all_webhook_categories'] = $data['all_webhook_categories'] ?? null;
+        $this->container['include_unread_count'] = $data['include_unread_count'] ?? null;
     }
 
     /**
@@ -345,6 +351,30 @@ class RetrieveListOfSubscribedEventsResponseWebhook implements ModelInterface, A
     public function setAllWebhookCategories($all_webhook_categories)
     {
         $this->container['all_webhook_categories'] = $all_webhook_categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_unread_count
+     *
+     * @return bool|null
+     */
+    public function getIncludeUnreadCount()
+    {
+        return $this->container['include_unread_count'];
+    }
+
+    /**
+     * Sets include_unread_count
+     *
+     * @param bool|null $include_unread_count include_unread_count
+     *
+     * @return self
+     */
+    public function setIncludeUnreadCount($include_unread_count)
+    {
+        $this->container['include_unread_count'] = $include_unread_count;
 
         return $this;
     }

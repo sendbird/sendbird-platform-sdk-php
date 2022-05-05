@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**channel_custom_types** | **string[]** |  | [optional]
+**data_type** | **string** |  | [optional]
 **request_id** | **string** |  | [optional]
 **status** | **string** |  | [optional]
 **format** | **string** |  | [optional]

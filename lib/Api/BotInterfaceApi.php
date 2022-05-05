@@ -403,11 +403,12 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object
      */
     public function deleteBotById($api_token, $bot_userid)
     {
-        $this->deleteBotByIdWithHttpInfo($api_token, $bot_userid);
+        list($response) = $this->deleteBotByIdWithHttpInfo($api_token, $bot_userid);
+        return $response;
     }
 
     /**
@@ -420,7 +421,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteBotByIdWithHttpInfo($api_token, $bot_userid)
     {
@@ -461,10 +462,44 @@ class BotInterfaceApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -504,14 +539,24 @@ class BotInterfaceApi
      */
     public function deleteBotByIdAsyncWithHttpInfo($api_token, $bot_userid)
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->deleteBotByIdRequest($api_token, $bot_userid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -579,11 +624,11 @@ class BotInterfaceApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -645,7 +690,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdGroupChannelCollection
+     * @return \Sendbird\Model\JoinChannelsResponse
      */
     public function joinChannels($api_token, $bot_userid, $join_channels_data = null)
     {
@@ -664,7 +709,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdGroupChannelCollection, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\JoinChannelsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function joinChannelsWithHttpInfo($api_token, $bot_userid, $join_channels_data = null)
     {
@@ -707,20 +752,20 @@ class BotInterfaceApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdGroupChannelCollection' === '\SplFileObject') {
+                    if ('\Sendbird\Model\JoinChannelsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannelCollection', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\JoinChannelsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdGroupChannelCollection';
+            $returnType = '\Sendbird\Model\JoinChannelsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -738,7 +783,7 @@ class BotInterfaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdGroupChannelCollection',
+                        '\Sendbird\Model\JoinChannelsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -784,7 +829,7 @@ class BotInterfaceApi
      */
     public function joinChannelsAsyncWithHttpInfo($api_token, $bot_userid, $join_channels_data = null)
     {
-        $returnType = '\Sendbird\Model\SendBirdGroupChannelCollection';
+        $returnType = '\Sendbird\Model\JoinChannelsResponse';
         $request = $this->joinChannelsRequest($api_token, $bot_userid, $join_channels_data);
 
         return $this->client
@@ -1199,11 +1244,12 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object
      */
     public function leaveChannelsByUrl($api_token, $bot_userid, $channel_url)
     {
-        $this->leaveChannelsByUrlWithHttpInfo($api_token, $bot_userid, $channel_url);
+        list($response) = $this->leaveChannelsByUrlWithHttpInfo($api_token, $bot_userid, $channel_url);
+        return $response;
     }
 
     /**
@@ -1217,7 +1263,7 @@ class BotInterfaceApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function leaveChannelsByUrlWithHttpInfo($api_token, $bot_userid, $channel_url)
     {
@@ -1258,10 +1304,44 @@ class BotInterfaceApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1303,14 +1383,24 @@ class BotInterfaceApi
      */
     public function leaveChannelsByUrlAsyncWithHttpInfo($api_token, $bot_userid, $channel_url)
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->leaveChannelsByUrlRequest($api_token, $bot_userid, $channel_url);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1393,11 +1483,11 @@ class BotInterfaceApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }

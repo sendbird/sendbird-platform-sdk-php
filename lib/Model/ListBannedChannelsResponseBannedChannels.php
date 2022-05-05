@@ -60,9 +60,9 @@ class ListBannedChannelsResponseBannedChannels implements ModelInterface, ArrayA
       */
     protected static $openAPITypes = [
         'start_at' => 'float',
-        'end_at' => 'float',
         'description' => 'string',
-        'channel' => '\Sendbird\Model\SendBirdChannelResponse'
+        'channel' => '\Sendbird\Model\SendBirdChannelResponse',
+        'end_at' => 'float'
     ];
 
     /**
@@ -74,9 +74,9 @@ class ListBannedChannelsResponseBannedChannels implements ModelInterface, ArrayA
       */
     protected static $openAPIFormats = [
         'start_at' => null,
-        'end_at' => null,
         'description' => null,
-        'channel' => null
+        'channel' => null,
+        'end_at' => null
     ];
 
     /**
@@ -107,9 +107,9 @@ class ListBannedChannelsResponseBannedChannels implements ModelInterface, ArrayA
      */
     protected static $attributeMap = [
         'start_at' => 'start_at',
-        'end_at' => 'end_at',
         'description' => 'description',
-        'channel' => 'channel'
+        'channel' => 'channel',
+        'end_at' => 'end_at'
     ];
 
     /**
@@ -119,9 +119,9 @@ class ListBannedChannelsResponseBannedChannels implements ModelInterface, ArrayA
      */
     protected static $setters = [
         'start_at' => 'setStartAt',
-        'end_at' => 'setEndAt',
         'description' => 'setDescription',
-        'channel' => 'setChannel'
+        'channel' => 'setChannel',
+        'end_at' => 'setEndAt'
     ];
 
     /**
@@ -131,9 +131,9 @@ class ListBannedChannelsResponseBannedChannels implements ModelInterface, ArrayA
      */
     protected static $getters = [
         'start_at' => 'getStartAt',
-        'end_at' => 'getEndAt',
         'description' => 'getDescription',
-        'channel' => 'getChannel'
+        'channel' => 'getChannel',
+        'end_at' => 'getEndAt'
     ];
 
     /**
@@ -194,9 +194,9 @@ class ListBannedChannelsResponseBannedChannels implements ModelInterface, ArrayA
     public function __construct(array $data = null)
     {
         $this->container['start_at'] = $data['start_at'] ?? null;
-        $this->container['end_at'] = $data['end_at'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
         $this->container['channel'] = $data['channel'] ?? null;
+        $this->container['end_at'] = $data['end_at'] ?? null;
     }
 
     /**
@@ -248,30 +248,6 @@ class ListBannedChannelsResponseBannedChannels implements ModelInterface, ArrayA
     }
 
     /**
-     * Gets end_at
-     *
-     * @return float|null
-     */
-    public function getEndAt()
-    {
-        return $this->container['end_at'];
-    }
-
-    /**
-     * Sets end_at
-     *
-     * @param float|null $end_at end_at
-     *
-     * @return self
-     */
-    public function setEndAt($end_at)
-    {
-        $this->container['end_at'] = $end_at;
-
-        return $this;
-    }
-
-    /**
      * Gets description
      *
      * @return string|null
@@ -315,6 +291,30 @@ class ListBannedChannelsResponseBannedChannels implements ModelInterface, ArrayA
     public function setChannel($channel)
     {
         $this->container['channel'] = $channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_at
+     *
+     * @return float|null
+     */
+    public function getEndAt()
+    {
+        return $this->container['end_at'];
+    }
+
+    /**
+     * Sets end_at
+     *
+     * @param float|null $end_at end_at
+     *
+     * @return self
+     */
+    public function setEndAt($end_at)
+    {
+        $this->container['end_at'] = $end_at;
 
         return $this;
     }

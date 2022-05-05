@@ -107,7 +107,7 @@ No authorization required
 ## `banFromChannelsWithCustomChannelTypes()`
 
 ```php
-banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data)
+banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data): object
 ```
 
 Ban from channels with custom channel types
@@ -132,7 +132,8 @@ $user_id = 'user_id_example'; // string
 $ban_from_channels_with_custom_channel_types_data = new \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData(); // \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData
 
 try {
-    $apiInstance->banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
+    $result = $apiInstance->banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->banFromChannelsWithCustomChannelTypes: ', $e->getMessage(), PHP_EOL;
 }
@@ -148,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -157,7 +158,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -166,7 +167,7 @@ No authorization required
 ## `blockUser()`
 
 ```php
-blockUser($api_token, $user_id, $block_user_data): \Sendbird\Model\SendBirdUser
+blockUser($api_token, $user_id, $block_user_data): \Sendbird\Model\BlockUserResponse
 ```
 
 Block a user
@@ -208,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
+[**\Sendbird\Model\BlockUserResponse**](../Model/BlockUserResponse.md)
 
 ### Authorization
 
@@ -344,7 +345,7 @@ No authorization required
 ## `deleteUserById()`
 
 ```php
-deleteUserById($api_token, $user_id)
+deleteUserById($api_token, $user_id): object
 ```
 
 Delete a user
@@ -368,7 +369,8 @@ $api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 
 try {
-    $apiInstance->deleteUserById($api_token, $user_id);
+    $result = $apiInstance->deleteUserById($api_token, $user_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->deleteUserById: ', $e->getMessage(), PHP_EOL;
 }
@@ -383,7 +385,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -392,7 +394,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -401,7 +403,7 @@ No authorization required
 ## `leaveMyGroupChannels()`
 
 ```php
-leaveMyGroupChannels($api_token, $user_id, $leave_my_group_channels_data)
+leaveMyGroupChannels($api_token, $user_id, $leave_my_group_channels_data): object
 ```
 
 Leave my group channels
@@ -426,7 +428,8 @@ $user_id = 'user_id_example'; // string
 $leave_my_group_channels_data = new \Sendbird\Model\LeaveMyGroupChannelsData(); // \Sendbird\Model\LeaveMyGroupChannelsData
 
 try {
-    $apiInstance->leaveMyGroupChannels($api_token, $user_id, $leave_my_group_channels_data);
+    $result = $apiInstance->leaveMyGroupChannels($api_token, $user_id, $leave_my_group_channels_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->leaveMyGroupChannels: ', $e->getMessage(), PHP_EOL;
 }
@@ -442,7 +445,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -451,7 +454,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -924,7 +927,7 @@ No authorization required
 ## `markAllMessagesAsRead()`
 
 ```php
-markAllMessagesAsRead($api_token, $user_id, $mark_all_messages_as_read_data)
+markAllMessagesAsRead($api_token, $user_id, $mark_all_messages_as_read_data): object
 ```
 
 Mark all messages as read
@@ -949,7 +952,8 @@ $user_id = 'user_id_example'; // string
 $mark_all_messages_as_read_data = new \Sendbird\Model\MarkAllMessagesAsReadData(); // \Sendbird\Model\MarkAllMessagesAsReadData
 
 try {
-    $apiInstance->markAllMessagesAsRead($api_token, $user_id, $mark_all_messages_as_read_data);
+    $result = $apiInstance->markAllMessagesAsRead($api_token, $user_id, $mark_all_messages_as_read_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->markAllMessagesAsRead: ', $e->getMessage(), PHP_EOL;
 }
@@ -965,7 +969,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -974,7 +978,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -983,7 +987,7 @@ No authorization required
 ## `muteInChannelsWithCustomChannelTypes()`
 
 ```php
-muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data)
+muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data): object
 ```
 
 Mute in channels with custom channel types
@@ -1008,7 +1012,8 @@ $user_id = 'user_id_example'; // string
 $mute_in_channels_with_custom_channel_types_data = new \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData(); // \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData
 
 try {
-    $apiInstance->muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
+    $result = $apiInstance->muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->muteInChannelsWithCustomChannelTypes: ', $e->getMessage(), PHP_EOL;
 }
@@ -1024,7 +1029,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -1033,7 +1038,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1042,7 +1047,7 @@ No authorization required
 ## `registerAsOperatorToChannelsWithCustomChannelTypes()`
 
 ```php
-registerAsOperatorToChannelsWithCustomChannelTypes($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data)
+registerAsOperatorToChannelsWithCustomChannelTypes($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data): object
 ```
 
 Register as an operator to channels with custom channel types
@@ -1067,7 +1072,8 @@ $user_id = 'user_id_example'; // string
 $register_as_operator_to_channels_with_custom_channel_types_data = new \Sendbird\Model\RegisterAsOperatorToChannelsWithCustomChannelTypesData(); // \Sendbird\Model\RegisterAsOperatorToChannelsWithCustomChannelTypesData
 
 try {
-    $apiInstance->registerAsOperatorToChannelsWithCustomChannelTypes($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data);
+    $result = $apiInstance->registerAsOperatorToChannelsWithCustomChannelTypes($api_token, $user_id, $register_as_operator_to_channels_with_custom_channel_types_data);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->registerAsOperatorToChannelsWithCustomChannelTypes: ', $e->getMessage(), PHP_EOL;
 }
@@ -1083,7 +1089,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -1092,7 +1098,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1281,7 +1287,7 @@ No authorization required
 ## `resetPushPreferences()`
 
 ```php
-resetPushPreferences($api_token, $user_id)
+resetPushPreferences($api_token, $user_id): \Sendbird\Model\ResetPushPreferencesResponse
 ```
 
 Reset push preferences
@@ -1305,7 +1311,8 @@ $api_token = {{API_TOKEN}}; // string
 $user_id = 'user_id_example'; // string
 
 try {
-    $apiInstance->resetPushPreferences($api_token, $user_id);
+    $result = $apiInstance->resetPushPreferences($api_token, $user_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->resetPushPreferences: ', $e->getMessage(), PHP_EOL;
 }
@@ -1320,7 +1327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Sendbird\Model\ResetPushPreferencesResponse**](../Model/ResetPushPreferencesResponse.md)
 
 ### Authorization
 
@@ -1329,7 +1336,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1338,7 +1345,7 @@ No authorization required
 ## `unblockUserById()`
 
 ```php
-unblockUserById($api_token, $user_id, $target_id)
+unblockUserById($api_token, $user_id, $target_id): object
 ```
 
 Unblock a user
@@ -1363,7 +1370,8 @@ $user_id = 'user_id_example'; // string
 $target_id = 'target_id_example'; // string
 
 try {
-    $apiInstance->unblockUserById($api_token, $user_id, $target_id);
+    $result = $apiInstance->unblockUserById($api_token, $user_id, $target_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->unblockUserById: ', $e->getMessage(), PHP_EOL;
 }
@@ -1379,7 +1387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -1388,7 +1396,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -2247,7 +2255,7 @@ No authorization required
 ## `viewWhoOwnsRegistrationOrDeviceTokenByToken()`
 
 ```php
-viewWhoOwnsRegistrationOrDeviceTokenByToken($api_token, $token_type, $token): \Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse
+viewWhoOwnsRegistrationOrDeviceTokenByToken($api_token, $token_type, $token): object[]
 ```
 
 View who owns a registration or device token
@@ -2289,7 +2297,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse**](../Model/ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponse.md)
+**object[]**
 
 ### Authorization
 

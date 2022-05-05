@@ -59,7 +59,8 @@ class GcCheckIfMemberByIdResponse implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is_member' => 'bool'
+        'is_member' => 'bool',
+        'state' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class GcCheckIfMemberByIdResponse implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'is_member' => null
+        'is_member' => null,
+        'state' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class GcCheckIfMemberByIdResponse implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_member' => 'is_member'
+        'is_member' => 'is_member',
+        'state' => 'state'
     ];
 
     /**
@@ -109,7 +112,8 @@ class GcCheckIfMemberByIdResponse implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'is_member' => 'setIsMember'
+        'is_member' => 'setIsMember',
+        'state' => 'setState'
     ];
 
     /**
@@ -118,7 +122,8 @@ class GcCheckIfMemberByIdResponse implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'is_member' => 'getIsMember'
+        'is_member' => 'getIsMember',
+        'state' => 'getState'
     ];
 
     /**
@@ -179,6 +184,7 @@ class GcCheckIfMemberByIdResponse implements ModelInterface, ArrayAccess, \JsonS
     public function __construct(array $data = null)
     {
         $this->container['is_member'] = $data['is_member'] ?? null;
+        $this->container['state'] = $data['state'] ?? null;
     }
 
     /**
@@ -225,6 +231,30 @@ class GcCheckIfMemberByIdResponse implements ModelInterface, ArrayAccess, \JsonS
     public function setIsMember($is_member)
     {
         $this->container['is_member'] = $is_member;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state state
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
 
         return $this;
     }
