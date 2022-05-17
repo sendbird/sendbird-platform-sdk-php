@@ -80,7 +80,7 @@ This SDK supports the following platform interfaces:
 | Announcements   | [docs/Api/AnnouncementsApi.md](docs/Api/AnnouncementsApi.md)|
 | Application | [docs/Api/ApplicationApi.md](docs/Api/ApplicationApi.md)  |
 | BotInterface | [docs/Api/BotInterfaceApi.md](docs/Api/BotInterfaceApi.md)  |
-| GroupChannel | [docs//Api/GroupChannelApi.md](docs/Api/docs/GroupChannelApi.md)  |
+| GroupChannel | [docs//Api/GroupChannelApi.md](docs/Api/GroupChannelApi.md)  |
 | Messages | [docs//Api/MessagesApi.md](docs/Api/MessagesApi.md)  |
 | OpenChannel | [docs//Api/OpenChannelApi.md](docs/Api/OpenChannelApi.md)  |
 | User | [docs//Api/UserApi.md](docs/Api/UserApi.md)  |
