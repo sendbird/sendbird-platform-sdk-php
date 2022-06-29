@@ -72,17 +72,16 @@ Then run `composer install`
 require_once('/path/to/sendbird-platform-sdk/vendor/autoload.php');
 ```
 
-# 🗃️ Documentation
+##### Helpful links
 
-This SDK supports the following platform interfaces:
 |       | Documentation |
 | ----------- | ----------- |
-| Announcements   | [docs/Api/AnnouncementsApi.md](docs/Api/AnnouncementsApi.md)|
-| Application | [docs/Api/ApplicationApi.md](docs/Api/ApplicationApi.md)  |
-| BotInterface | [docs/Api/BotInterfaceApi.md](docs/Api/BotInterfaceApi.md)  |
-| GroupChannel | [docs//Api/GroupChannelApi.md](docs/Api/GroupChannelApi.md)  |
-| Messages | [docs//Api/MessagesApi.md](docs/Api/MessagesApi.md)  |
-| OpenChannel | [docs//Api/OpenChannelApi.md](docs/Api/OpenChannelApi.md)  |
-| User | [docs//Api/UserApi.md](docs/Api/UserApi.md)  |
-| Webhooks | [docs//Api/WebhooksApi.md](docs/Api/WebhooksApi.md)  |
+| Announcement   | [docs/AnnouncementApi.md](docs/AnnouncementApi.md)|
+| Application | [docs/ApplicationApi.md](docs/ApplicationApi.md)  |
+| Bot | [docs/BotApi.md](docs/BotApi.md)  |
+| GroupChannel | [docs/GroupChannelApi.md](docs/GroupChannelApi.md)  |
+| Message | [docs/MessageApi.md](docs/MessageApi.md)  |
+| OpenChannel | [docs/OpenChannelApi.md ](docs/OpenChannelApi.md)  |
+| User | [docs/UserApi.md](docs/UserApi.md)  |
+| Webhooks | [docs/WebhooksApi.md](docs/WebhooksApi.md)  |
 
