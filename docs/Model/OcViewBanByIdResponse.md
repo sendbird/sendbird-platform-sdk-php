@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**\Sendbird\Model\SendbirdUser**](SendbirdUser.md) |  | [optional]
+**user** | [**\Sendbird\Model\SendBirdUser**](SendBirdUser.md) |  | [optional]
 **description** | **string** |  | [optional]
 **end_at** | **float** |  | [optional]
 **start_at** | **float** |  | [optional]

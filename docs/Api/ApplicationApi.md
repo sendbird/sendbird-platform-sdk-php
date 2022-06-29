@@ -8,25 +8,28 @@ Method | HTTP request | Description
 [**addFcmPushConfiguration()**](ApplicationApi.md#addFcmPushConfiguration) | **POST** /v3/applications/push/fcm | Add a FCM push configuration
 [**addHmsPushConfiguration()**](ApplicationApi.md#addHmsPushConfiguration) | **POST** /v3/applications/push/hms | Add an HMS push configuration
 [**addIpToWhitelist()**](ApplicationApi.md#addIpToWhitelist) | **PUT** /v3/applications/settings/ip_whitelist | Add an IP to a whitelist
+[**banUsersInChannelsWithCustomChannelType()**](ApplicationApi.md#banUsersInChannelsWithCustomChannelType) | **POST** /v3/applications/settings_by_channel_custom_type/{custom_type}/ban | Ban users in channels with a custom channel type
 [**deleteAllowedIpsFromWhitelist()**](ApplicationApi.md#deleteAllowedIpsFromWhitelist) | **DELETE** /v3/applications/settings/ip_whitelist | Delete allowed IPs from a whitelist
 [**deleteApnsCertificateById()**](ApplicationApi.md#deleteApnsCertificateById) | **DELETE** /v3/applications/push/apns/cert/{provider_id} | Delete an APNs certificate
 [**generateSecondaryApiToken()**](ApplicationApi.md#generateSecondaryApiToken) | **POST** /v3/applications/api_tokens | Generate a secondary API token
+[**listBannedUsersInChannelsWithCustomChannelType()**](ApplicationApi.md#listBannedUsersInChannelsWithCustomChannelType) | **GET** /v3/applications/settings_by_channel_custom_type/{custom_type}/ban | List banned users in channels with a custom channel type
+[**listMutedUsersInChannelsWithCustomChannelType()**](ApplicationApi.md#listMutedUsersInChannelsWithCustomChannelType) | **GET** /v3/applications/settings_by_channel_custom_type/{custom_type}/mute | List muted users in channels with a custom channel type
 [**listPushConfigurations()**](ApplicationApi.md#listPushConfigurations) | **GET** /v3/applications/push/{push_type} | List push configurations
 [**listPushNotificationContentTemplates()**](ApplicationApi.md#listPushNotificationContentTemplates) | **GET** /v3/applications/push/message_templates | List push notification content templates
 [**listSecondaryApiTokens()**](ApplicationApi.md#listSecondaryApiTokens) | **GET** /v3/applications/api_tokens | List secondary API tokens
+[**muteUsersInChannelsWithCustomChannelType()**](ApplicationApi.md#muteUsersInChannelsWithCustomChannelType) | **POST** /v3/applications/settings_by_channel_custom_type/{custom_type}/mute | Mute users in channels with a custom channel type
 [**removePushConfigurationById()**](ApplicationApi.md#removePushConfigurationById) | **DELETE** /v3/applications/push/{push_type}/{provider_id} | Remove a push configuration
 [**retrieveIpWhitelist()**](ApplicationApi.md#retrieveIpWhitelist) | **GET** /v3/applications/settings/ip_whitelist | Retrieve an IP whitelist
 [**revokeSecondaryApiTokenByToken()**](ApplicationApi.md#revokeSecondaryApiTokenByToken) | **DELETE** /v3/applications/api_tokens/{api_token} | Revoke a secondary API token
+[**setDomainFilter()**](ApplicationApi.md#setDomainFilter) | **PUT** /v3/applications/settings_global/{custom_type} | Message moderation
+[**unbanUsersInChannelsWithCustomChannelType()**](ApplicationApi.md#unbanUsersInChannelsWithCustomChannelType) | **DELETE** /v3/applications/settings_by_channel_custom_type/{custom_type}/ban | Unban users in channels with a custom channel type
+[**unmuteUsersInChannelsWithCustomChannelType()**](ApplicationApi.md#unmuteUsersInChannelsWithCustomChannelType) | **DELETE** /v3/applications/settings_by_channel_custom_type/{custom_type}/mute | Unmute users in channels with a custom channel type
 [**updateApnsPushConfigurationById()**](ApplicationApi.md#updateApnsPushConfigurationById) | **PUT** /v3/applications/push/apns/{provider_id} | Update an APNs push configuration
 [**updateDefaultChannelInvitationPreference()**](ApplicationApi.md#updateDefaultChannelInvitationPreference) | **PUT** /v3/applications/default_channel_invitation_preference | Update default channel invitation preference
 [**updateFcmPushConfigurationById()**](ApplicationApi.md#updateFcmPushConfigurationById) | **PUT** /v3/applications/push/fcm/{provider_id} | Update a FCM push configuration
 [**updateHmsPushConfigurationById()**](ApplicationApi.md#updateHmsPushConfigurationById) | **PUT** /v3/applications/push/hms/{provider_id} | Update an HMS push configuration
 [**updatePushNotificationContentTemplate()**](ApplicationApi.md#updatePushNotificationContentTemplate) | **PUT** /v3/applications/push/message_templates/{template_name} | Update a push notification content template
 [**viewDefaultChannelInvitationPreference()**](ApplicationApi.md#viewDefaultChannelInvitationPreference) | **GET** /v3/applications/default_channel_invitation_preference | View default channel invitation preference
-[**viewNumberOfConcurrentConnections()**](ApplicationApi.md#viewNumberOfConcurrentConnections) | **GET** /v3/applications/ccu | View number of concurrent connections
-[**viewNumberOfDailyActiveUsers()**](ApplicationApi.md#viewNumberOfDailyActiveUsers) | **GET** /v3/applications/dau | View number of daily active users
-[**viewNumberOfMonthlyActiveUsers()**](ApplicationApi.md#viewNumberOfMonthlyActiveUsers) | **GET** /v3/applications/mau | View number of monthly active users
-[**viewNumberOfPeakConnections()**](ApplicationApi.md#viewNumberOfPeakConnections) | **GET** /v3/applications/peak_connections | View number of peak connections
 [**viewPushConfigurationById()**](ApplicationApi.md#viewPushConfigurationById) | **GET** /v3/applications/push/{push_type}/{provider_id} | View a push configuration
 [**viewPushNotificationContentTemplate()**](ApplicationApi.md#viewPushNotificationContentTemplate) | **GET** /v3/applications/push/message_templates/{template_name} | View a push notification content template
 [**viewSecondaryApiTokenByToken()**](ApplicationApi.md#viewSecondaryApiTokenByToken) | **GET** /v3/applications/api_tokens/{api_token} | View a secondary API token
@@ -264,6 +267,66 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `banUsersInChannelsWithCustomChannelType()`
+
+```php
+banUsersInChannelsWithCustomChannelType($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data): object
+```
+
+Ban users in channels with a custom channel type
+
+## Ban specified users in channels with a custom channel type at once.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$custom_type = 'custom_type_example'; // string
+$ban_users_in_channels_with_custom_channel_type_data = new \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData(); // \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData
+
+try {
+    $result = $apiInstance->banUsersInChannelsWithCustomChannelType($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->banUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **custom_type** | **string**|  |
+ **ban_users_in_channels_with_custom_channel_type_data** | [**\Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData**](../Model/BanUsersInChannelsWithCustomChannelTypeData.md)|  | [optional]
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteAllowedIpsFromWhitelist()`
 
 ```php
@@ -432,6 +495,130 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listBannedUsersInChannelsWithCustomChannelType()`
+
+```php
+listBannedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token, $limit): \Sendbird\Model\CustomTypeListBannedUsersResponse
+```
+
+List banned users in channels with a custom channel type
+
+## Retrieves a list of users banned from channels with the specified custom channel type.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$custom_type = 'custom_type_example'; // string
+$token = 'token_example'; // string
+$limit = 56; // int
+
+try {
+    $result = $apiInstance->listBannedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->listBannedUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **custom_type** | **string**|  |
+ **token** | **string**|  | [optional]
+ **limit** | **int**|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\CustomTypeListBannedUsersResponse**](../Model/CustomTypeListBannedUsersResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listMutedUsersInChannelsWithCustomChannelType()`
+
+```php
+listMutedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token, $limit): \Sendbird\Model\InlineResponse200
+```
+
+List muted users in channels with a custom channel type
+
+## Retrieves a list of the muted users in channels with a custom channel type.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$custom_type = 'custom_type_example'; // string
+$token = 'token_example'; // string
+$limit = 56; // int
+
+try {
+    $result = $apiInstance->listMutedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->listMutedUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **custom_type** | **string**|  |
+ **token** | **string**|  | [optional]
+ **limit** | **int**|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -608,6 +795,66 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `muteUsersInChannelsWithCustomChannelType()`
+
+```php
+muteUsersInChannelsWithCustomChannelType($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data): object
+```
+
+Mute users in channels with a custom channel type
+
+## Mutes specified users in channels with a custom channel type at once.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$custom_type = 'custom_type_example'; // string
+$mute_users_in_channels_with_custom_channel_type_data = new \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData(); // \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData
+
+try {
+    $result = $apiInstance->muteUsersInChannelsWithCustomChannelType($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->muteUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **custom_type** | **string**|  |
+ **mute_users_in_channels_with_custom_channel_type_data** | [**\Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData**](../Model/MuteUsersInChannelsWithCustomChannelTypeData.md)|  | [optional]
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `removePushConfigurationById()`
 
 ```php
@@ -768,6 +1015,186 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse**](../Model/RevokeSecondaryApiTokenByTokenResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `setDomainFilter()`
+
+```php
+setDomainFilter($api_token, $custom_type, $set_domain_filter_data): \Sendbird\Model\SendBirdChannelResponse
+```
+
+Message moderation
+
+##
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$custom_type = 'custom_type_example'; // string
+$set_domain_filter_data = new \Sendbird\Model\SetDomainFilterData(); // \Sendbird\Model\SetDomainFilterData
+
+try {
+    $result = $apiInstance->setDomainFilter($api_token, $custom_type, $set_domain_filter_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->setDomainFilter: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **custom_type** | **string**|  |
+ **set_domain_filter_data** | [**\Sendbird\Model\SetDomainFilterData**](../Model/SetDomainFilterData.md)|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\SendBirdChannelResponse**](../Model/SendBirdChannelResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `unbanUsersInChannelsWithCustomChannelType()`
+
+```php
+unbanUsersInChannelsWithCustomChannelType($api_token, $custom_type, $user_ids): object
+```
+
+Unban users in channels with a custom channel type
+
+## Unban specified users in channels with a custom channel type at once.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$custom_type = 'custom_type_example'; // string
+$user_ids = array('user_ids_example'); // string[]
+
+try {
+    $result = $apiInstance->unbanUsersInChannelsWithCustomChannelType($api_token, $custom_type, $user_ids);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->unbanUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **custom_type** | **string**|  |
+ **user_ids** | [**string[]**](../Model/string.md)|  |
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `unmuteUsersInChannelsWithCustomChannelType()`
+
+```php
+unmuteUsersInChannelsWithCustomChannelType($api_token, $custom_type, $user_ids): object
+```
+
+Unmute users in channels with a custom channel type
+
+## Unmute specified users in channels with a custom channel type at once.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$custom_type = 'custom_type_example'; // string
+$user_ids = array('user_ids_example'); // string[]
+
+try {
+    $result = $apiInstance->unmuteUsersInChannelsWithCustomChannelType($api_token, $custom_type, $user_ids);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->unmuteUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **custom_type** | **string**|  |
+ **user_ids** | [**string[]**](../Model/string.md)|  |
+
+### Return type
+
+**object**
 
 ### Authorization
 
@@ -1122,248 +1549,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Sendbird\Model\ViewDefaultChannelInvitationPreferenceResponse**](../Model/ViewDefaultChannelInvitationPreferenceResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `viewNumberOfConcurrentConnections()`
-
-```php
-viewNumberOfConcurrentConnections($api_token): \Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse
-```
-
-View number of concurrent connections
-
-## View number of concurrent connections  Retrieves the number of devices and opened browser tabs which are currently connected to Sendbird server.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-concurrent-connections
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\ApplicationApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-
-try {
-    $result = $apiInstance->viewNumberOfConcurrentConnections($api_token);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ApplicationApi->viewNumberOfConcurrentConnections: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse**](../Model/ViewNumberOfConcurrentConnectionsResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `viewNumberOfDailyActiveUsers()`
-
-```php
-viewNumberOfDailyActiveUsers($api_token, $date): \Sendbird\Model\ViewNumberOfDailyActiveUsersResponse
-```
-
-View number of daily active users
-
-## View number of daily active users  Retrieves the number of daily active users of the application (DAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-daily-active-users ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\ApplicationApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$date = 'date_example'; // string
-
-try {
-    $result = $apiInstance->viewNumberOfDailyActiveUsers($api_token, $date);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ApplicationApi->viewNumberOfDailyActiveUsers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **date** | **string**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\ViewNumberOfDailyActiveUsersResponse**](../Model/ViewNumberOfDailyActiveUsersResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `viewNumberOfMonthlyActiveUsers()`
-
-```php
-viewNumberOfMonthlyActiveUsers($api_token, $date): \Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse
-```
-
-View number of monthly active users
-
-## View number of monthly active users  Retrieves the number of monthly active users of the application (MAU).  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-monthly-active-users ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\ApplicationApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$date = 'date_example'; // string
-
-try {
-    $result = $apiInstance->viewNumberOfMonthlyActiveUsers($api_token, $date);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ApplicationApi->viewNumberOfMonthlyActiveUsers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **date** | **string**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse**](../Model/ViewNumberOfMonthlyActiveUsersResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `viewNumberOfPeakConnections()`
-
-```php
-viewNumberOfPeakConnections($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day): \Sendbird\Model\ViewNumberOfPeakConnectionsResponse
-```
-
-View number of peak connections
-
-## View number of peak connections  Retrieves the number of concurrently connected devices to Sendbird server during the requested time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/application#2-view-number-of-peak-connections ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\ApplicationApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$time_dimension = 'time_dimension_example'; // string
-$start_year = 56; // int
-$start_month = 56; // int
-$end_year = 56; // int
-$end_month = 56; // int
-$start_day = 56; // int
-$end_day = 56; // int
-
-try {
-    $result = $apiInstance->viewNumberOfPeakConnections($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ApplicationApi->viewNumberOfPeakConnections: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **time_dimension** | **string**|  |
- **start_year** | **int**|  |
- **start_month** | **int**|  |
- **end_year** | **int**|  |
- **end_month** | **int**|  |
- **start_day** | **int**|  | [optional]
- **end_day** | **int**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\ViewNumberOfPeakConnectionsResponse**](../Model/ViewNumberOfPeakConnectionsResponse.md)
 
 ### Authorization
 

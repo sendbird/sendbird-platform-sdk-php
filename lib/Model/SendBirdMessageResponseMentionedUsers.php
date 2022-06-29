@@ -62,7 +62,7 @@ class SendBirdMessageResponseMentionedUsers implements ModelInterface, ArrayAcce
         'user_id' => 'string',
         'nickname' => 'string',
         'profile_url' => 'string',
-        'metadata' => '\Sendbird\Model\InlineResponse200'
+        'metadata' => '\Sendbird\Model\InlineResponse2001'
     ];
 
     /**
@@ -298,7 +298,7 @@ class SendBirdMessageResponseMentionedUsers implements ModelInterface, ArrayAcce
     /**
      * Gets metadata
      *
-     * @return \Sendbird\Model\InlineResponse200|null
+     * @return \Sendbird\Model\InlineResponse2001|null
      */
     public function getMetadata()
     {
@@ -308,7 +308,7 @@ class SendBirdMessageResponseMentionedUsers implements ModelInterface, ArrayAcce
     /**
      * Sets metadata
      *
-     * @param \Sendbird\Model\InlineResponse200|null $metadata metadata
+     * @param \Sendbird\Model\InlineResponse2001|null $metadata metadata
      *
      * @return self
      */

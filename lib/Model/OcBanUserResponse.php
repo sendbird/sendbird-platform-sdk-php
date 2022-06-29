@@ -65,10 +65,10 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'user_id' => 'string',
         'user' => '\Sendbird\Model\SendBirdUser',
         'next_url' => 'string',
-        'require_auth_for_profile_image' => 'Boolean',
+        'require_auth_for_profile_image' => 'bool',
         'nickname' => 'string',
         'profile_url' => 'string',
-        'metadata' => '\Sendbird\Model\InlineResponse200'
+        'metadata' => '\Sendbird\Model\InlineResponse2001'
     ];
 
     /**
@@ -406,7 +406,7 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets require_auth_for_profile_image
      *
-     * @return Boolean|null
+     * @return bool|null
      */
     public function getRequireAuthForProfileImage()
     {
@@ -416,7 +416,7 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets require_auth_for_profile_image
      *
-     * @param Boolean|null $require_auth_for_profile_image require_auth_for_profile_image
+     * @param bool|null $require_auth_for_profile_image require_auth_for_profile_image
      *
      * @return self
      */
@@ -478,7 +478,7 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets metadata
      *
-     * @return \Sendbird\Model\InlineResponse200|null
+     * @return \Sendbird\Model\InlineResponse2001|null
      */
     public function getMetadata()
     {
@@ -488,7 +488,7 @@ class OcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets metadata
      *
-     * @param \Sendbird\Model\InlineResponse200|null $metadata metadata
+     * @param \Sendbird\Model\InlineResponse2001|null $metadata metadata
      *
      * @return self
      */

@@ -59,7 +59,7 @@ class OcUpdateBanByIdResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user' => '\Sendbird\Model\SendbirdUser',
+        'user' => '\Sendbird\Model\SendBirdUser',
         'description' => 'string',
         'end_at' => 'float',
         'start_at' => 'float'
@@ -226,7 +226,7 @@ class OcUpdateBanByIdResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets user
      *
-     * @return \Sendbird\Model\SendbirdUser|null
+     * @return \Sendbird\Model\SendBirdUser|null
      */
     public function getUser()
     {
@@ -236,7 +236,7 @@ class OcUpdateBanByIdResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets user
      *
-     * @param \Sendbird\Model\SendbirdUser|null $user user
+     * @param \Sendbird\Model\SendBirdUser|null $user user
      *
      * @return self
      */

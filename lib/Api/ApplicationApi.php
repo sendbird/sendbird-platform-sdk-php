@@ -1228,6 +1228,303 @@ class ApplicationApi
     }
 
     /**
+     * Operation banUsersInChannelsWithCustomChannelType
+     *
+     * Ban users in channels with a custom channel type
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $custom_type custom_type (required)
+     * @param  \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData $ban_users_in_channels_with_custom_channel_type_data ban_users_in_channels_with_custom_channel_type_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function banUsersInChannelsWithCustomChannelType($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data = null)
+    {
+        list($response) = $this->banUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data);
+        return $response;
+    }
+
+    /**
+     * Operation banUsersInChannelsWithCustomChannelTypeWithHttpInfo
+     *
+     * Ban users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData $ban_users_in_channels_with_custom_channel_type_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function banUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data = null)
+    {
+        $request = $this->banUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation banUsersInChannelsWithCustomChannelTypeAsync
+     *
+     * Ban users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData $ban_users_in_channels_with_custom_channel_type_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function banUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data = null)
+    {
+        return $this->banUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation banUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo
+     *
+     * Ban users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData $ban_users_in_channels_with_custom_channel_type_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function banUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data = null)
+    {
+        $returnType = 'object';
+        $request = $this->banUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'banUsersInChannelsWithCustomChannelType'
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData $ban_users_in_channels_with_custom_channel_type_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function banUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling banUsersInChannelsWithCustomChannelType'
+            );
+        }
+        // verify the required parameter 'custom_type' is set
+        if ($custom_type === null || (is_array($custom_type) && count($custom_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_type when calling banUsersInChannelsWithCustomChannelType'
+            );
+        }
+
+        $resourcePath = '/v3/applications/settings_by_channel_custom_type/{custom_type}/ban';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($custom_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_type' . '}',
+                ObjectSerializer::toPathValue($custom_type),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($ban_users_in_channels_with_custom_channel_type_data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($ban_users_in_channels_with_custom_channel_type_data));
+            } else {
+                $httpBody = $ban_users_in_channels_with_custom_channel_type_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteAllowedIpsFromWhitelist
      *
      * Delete allowed IPs from a whitelist
@@ -2081,6 +2378,642 @@ class ApplicationApi
     }
 
     /**
+     * Operation listBannedUsersInChannelsWithCustomChannelType
+     *
+     * List banned users in channels with a custom channel type
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $custom_type custom_type (required)
+     * @param  string $token token (optional)
+     * @param  int $limit limit (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\CustomTypeListBannedUsersResponse
+     */
+    public function listBannedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token = null, $limit = null)
+    {
+        list($response) = $this->listBannedUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $token, $limit);
+        return $response;
+    }
+
+    /**
+     * Operation listBannedUsersInChannelsWithCustomChannelTypeWithHttpInfo
+     *
+     * List banned users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\CustomTypeListBannedUsersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listBannedUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $token = null, $limit = null)
+    {
+        $request = $this->listBannedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token, $limit);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\CustomTypeListBannedUsersResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CustomTypeListBannedUsersResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\CustomTypeListBannedUsersResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\CustomTypeListBannedUsersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listBannedUsersInChannelsWithCustomChannelTypeAsync
+     *
+     * List banned users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listBannedUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $token = null, $limit = null)
+    {
+        return $this->listBannedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $token, $limit)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listBannedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo
+     *
+     * List banned users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listBannedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $token = null, $limit = null)
+    {
+        $returnType = '\Sendbird\Model\CustomTypeListBannedUsersResponse';
+        $request = $this->listBannedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token, $limit);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listBannedUsersInChannelsWithCustomChannelType'
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function listBannedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token = null, $limit = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listBannedUsersInChannelsWithCustomChannelType'
+            );
+        }
+        // verify the required parameter 'custom_type' is set
+        if ($custom_type === null || (is_array($custom_type) && count($custom_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_type when calling listBannedUsersInChannelsWithCustomChannelType'
+            );
+        }
+
+        $resourcePath = '/v3/applications/settings_by_channel_custom_type/{custom_type}/ban';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($token !== null) {
+            if('form' === 'form' && is_array($token)) {
+                foreach($token as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['token'] = $token;
+            }
+        }
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($custom_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_type' . '}',
+                ObjectSerializer::toPathValue($custom_type),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listMutedUsersInChannelsWithCustomChannelType
+     *
+     * List muted users in channels with a custom channel type
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $custom_type custom_type (required)
+     * @param  string $token token (optional)
+     * @param  int $limit limit (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\InlineResponse200
+     */
+    public function listMutedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token = null, $limit = null)
+    {
+        list($response) = $this->listMutedUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $token, $limit);
+        return $response;
+    }
+
+    /**
+     * Operation listMutedUsersInChannelsWithCustomChannelTypeWithHttpInfo
+     *
+     * List muted users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listMutedUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $token = null, $limit = null)
+    {
+        $request = $this->listMutedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token, $limit);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\InlineResponse200' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse200', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\InlineResponse200';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\InlineResponse200',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listMutedUsersInChannelsWithCustomChannelTypeAsync
+     *
+     * List muted users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listMutedUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $token = null, $limit = null)
+    {
+        return $this->listMutedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $token, $limit)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listMutedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo
+     *
+     * List muted users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listMutedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $token = null, $limit = null)
+    {
+        $returnType = '\Sendbird\Model\InlineResponse200';
+        $request = $this->listMutedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token, $limit);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listMutedUsersInChannelsWithCustomChannelType'
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function listMutedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token = null, $limit = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listMutedUsersInChannelsWithCustomChannelType'
+            );
+        }
+        // verify the required parameter 'custom_type' is set
+        if ($custom_type === null || (is_array($custom_type) && count($custom_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_type when calling listMutedUsersInChannelsWithCustomChannelType'
+            );
+        }
+
+        $resourcePath = '/v3/applications/settings_by_channel_custom_type/{custom_type}/mute';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($token !== null) {
+            if('form' === 'form' && is_array($token)) {
+                foreach($token as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['token'] = $token;
+            }
+        }
+        // query params
+        if ($limit !== null) {
+            if('form' === 'form' && is_array($limit)) {
+                foreach($limit as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['limit'] = $limit;
+            }
+        }
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($custom_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_type' . '}',
+                ObjectSerializer::toPathValue($custom_type),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation listPushConfigurations
      *
      * List push configurations
@@ -2901,6 +3834,303 @@ class ApplicationApi
     }
 
     /**
+     * Operation muteUsersInChannelsWithCustomChannelType
+     *
+     * Mute users in channels with a custom channel type
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $custom_type custom_type (required)
+     * @param  \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData $mute_users_in_channels_with_custom_channel_type_data mute_users_in_channels_with_custom_channel_type_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function muteUsersInChannelsWithCustomChannelType($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data = null)
+    {
+        list($response) = $this->muteUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data);
+        return $response;
+    }
+
+    /**
+     * Operation muteUsersInChannelsWithCustomChannelTypeWithHttpInfo
+     *
+     * Mute users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData $mute_users_in_channels_with_custom_channel_type_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function muteUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data = null)
+    {
+        $request = $this->muteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation muteUsersInChannelsWithCustomChannelTypeAsync
+     *
+     * Mute users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData $mute_users_in_channels_with_custom_channel_type_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function muteUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data = null)
+    {
+        return $this->muteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation muteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo
+     *
+     * Mute users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData $mute_users_in_channels_with_custom_channel_type_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function muteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data = null)
+    {
+        $returnType = 'object';
+        $request = $this->muteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'muteUsersInChannelsWithCustomChannelType'
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData $mute_users_in_channels_with_custom_channel_type_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function muteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling muteUsersInChannelsWithCustomChannelType'
+            );
+        }
+        // verify the required parameter 'custom_type' is set
+        if ($custom_type === null || (is_array($custom_type) && count($custom_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_type when calling muteUsersInChannelsWithCustomChannelType'
+            );
+        }
+
+        $resourcePath = '/v3/applications/settings_by_channel_custom_type/{custom_type}/mute';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($custom_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_type' . '}',
+                ObjectSerializer::toPathValue($custom_type),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($mute_users_in_channels_with_custom_channel_type_data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($mute_users_in_channels_with_custom_channel_type_data));
+            } else {
+                $httpBody = $mute_users_in_channels_with_custom_channel_type_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation removePushConfigurationById
      *
      * Remove a push configuration
@@ -3696,6 +4926,919 @@ class ApplicationApi
             $resourcePath = str_replace(
                 '{' . 'api_token' . '}',
                 ObjectSerializer::toPathValue($api_token2),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setDomainFilter
+     *
+     * Message moderation
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $custom_type custom_type (required)
+     * @param  \Sendbird\Model\SetDomainFilterData $set_domain_filter_data set_domain_filter_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\SendBirdChannelResponse
+     */
+    public function setDomainFilter($api_token, $custom_type, $set_domain_filter_data = null)
+    {
+        list($response) = $this->setDomainFilterWithHttpInfo($api_token, $custom_type, $set_domain_filter_data);
+        return $response;
+    }
+
+    /**
+     * Operation setDomainFilterWithHttpInfo
+     *
+     * Message moderation
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\SetDomainFilterData $set_domain_filter_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\SendBirdChannelResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setDomainFilterWithHttpInfo($api_token, $custom_type, $set_domain_filter_data = null)
+    {
+        $request = $this->setDomainFilterRequest($api_token, $custom_type, $set_domain_filter_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\SendBirdChannelResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdChannelResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\SendBirdChannelResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\SendBirdChannelResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation setDomainFilterAsync
+     *
+     * Message moderation
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\SetDomainFilterData $set_domain_filter_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setDomainFilterAsync($api_token, $custom_type, $set_domain_filter_data = null)
+    {
+        return $this->setDomainFilterAsyncWithHttpInfo($api_token, $custom_type, $set_domain_filter_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setDomainFilterAsyncWithHttpInfo
+     *
+     * Message moderation
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\SetDomainFilterData $set_domain_filter_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setDomainFilterAsyncWithHttpInfo($api_token, $custom_type, $set_domain_filter_data = null)
+    {
+        $returnType = '\Sendbird\Model\SendBirdChannelResponse';
+        $request = $this->setDomainFilterRequest($api_token, $custom_type, $set_domain_filter_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setDomainFilter'
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  \Sendbird\Model\SetDomainFilterData $set_domain_filter_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function setDomainFilterRequest($api_token, $custom_type, $set_domain_filter_data = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling setDomainFilter'
+            );
+        }
+        // verify the required parameter 'custom_type' is set
+        if ($custom_type === null || (is_array($custom_type) && count($custom_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_type when calling setDomainFilter'
+            );
+        }
+
+        $resourcePath = '/v3/applications/settings_global/{custom_type}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($custom_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_type' . '}',
+                ObjectSerializer::toPathValue($custom_type),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($set_domain_filter_data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($set_domain_filter_data));
+            } else {
+                $httpBody = $set_domain_filter_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation unbanUsersInChannelsWithCustomChannelType
+     *
+     * Unban users in channels with a custom channel type
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $custom_type custom_type (required)
+     * @param  string[] $user_ids user_ids (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function unbanUsersInChannelsWithCustomChannelType($api_token, $custom_type, $user_ids)
+    {
+        list($response) = $this->unbanUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $user_ids);
+        return $response;
+    }
+
+    /**
+     * Operation unbanUsersInChannelsWithCustomChannelTypeWithHttpInfo
+     *
+     * Unban users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string[] $user_ids (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function unbanUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $user_ids)
+    {
+        $request = $this->unbanUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation unbanUsersInChannelsWithCustomChannelTypeAsync
+     *
+     * Unban users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string[] $user_ids (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function unbanUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $user_ids)
+    {
+        return $this->unbanUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $user_ids)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation unbanUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo
+     *
+     * Unban users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string[] $user_ids (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function unbanUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $user_ids)
+    {
+        $returnType = 'object';
+        $request = $this->unbanUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'unbanUsersInChannelsWithCustomChannelType'
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string[] $user_ids (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function unbanUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling unbanUsersInChannelsWithCustomChannelType'
+            );
+        }
+        // verify the required parameter 'custom_type' is set
+        if ($custom_type === null || (is_array($custom_type) && count($custom_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_type when calling unbanUsersInChannelsWithCustomChannelType'
+            );
+        }
+        // verify the required parameter 'user_ids' is set
+        if ($user_ids === null || (is_array($user_ids) && count($user_ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_ids when calling unbanUsersInChannelsWithCustomChannelType'
+            );
+        }
+
+        $resourcePath = '/v3/applications/settings_by_channel_custom_type/{custom_type}/ban';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($user_ids !== null) {
+            if('form' === 'form' && is_array($user_ids)) {
+                foreach($user_ids as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['user_ids'] = $user_ids;
+            }
+        }
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($custom_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_type' . '}',
+                ObjectSerializer::toPathValue($custom_type),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation unmuteUsersInChannelsWithCustomChannelType
+     *
+     * Unmute users in channels with a custom channel type
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $custom_type custom_type (required)
+     * @param  string[] $user_ids user_ids (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function unmuteUsersInChannelsWithCustomChannelType($api_token, $custom_type, $user_ids)
+    {
+        list($response) = $this->unmuteUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $user_ids);
+        return $response;
+    }
+
+    /**
+     * Operation unmuteUsersInChannelsWithCustomChannelTypeWithHttpInfo
+     *
+     * Unmute users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string[] $user_ids (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function unmuteUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $user_ids)
+    {
+        $request = $this->unmuteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation unmuteUsersInChannelsWithCustomChannelTypeAsync
+     *
+     * Unmute users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string[] $user_ids (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function unmuteUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $user_ids)
+    {
+        return $this->unmuteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $user_ids)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation unmuteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo
+     *
+     * Unmute users in channels with a custom channel type
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string[] $user_ids (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function unmuteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $user_ids)
+    {
+        $returnType = 'object';
+        $request = $this->unmuteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'unmuteUsersInChannelsWithCustomChannelType'
+     *
+     * @param  string $api_token (required)
+     * @param  string $custom_type (required)
+     * @param  string[] $user_ids (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function unmuteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling unmuteUsersInChannelsWithCustomChannelType'
+            );
+        }
+        // verify the required parameter 'custom_type' is set
+        if ($custom_type === null || (is_array($custom_type) && count($custom_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_type when calling unmuteUsersInChannelsWithCustomChannelType'
+            );
+        }
+        // verify the required parameter 'user_ids' is set
+        if ($user_ids === null || (is_array($user_ids) && count($user_ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_ids when calling unmuteUsersInChannelsWithCustomChannelType'
+            );
+        }
+
+        $resourcePath = '/v3/applications/settings_by_channel_custom_type/{custom_type}/mute';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($user_ids !== null) {
+            if('form' === 'form' && is_array($user_ids)) {
+                foreach($user_ids as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['user_ids'] = $user_ids;
+            }
+        }
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($custom_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'custom_type' . '}',
+                ObjectSerializer::toPathValue($custom_type),
                 $resourcePath
             );
         }
@@ -5426,1248 +7569,6 @@ class ApplicationApi
         $httpBody = '';
         $multipart = false;
 
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewNumberOfConcurrentConnections
-     *
-     * View number of concurrent connections
-     *
-     * @param  string $api_token api_token (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse
-     */
-    public function viewNumberOfConcurrentConnections($api_token)
-    {
-        list($response) = $this->viewNumberOfConcurrentConnectionsWithHttpInfo($api_token);
-        return $response;
-    }
-
-    /**
-     * Operation viewNumberOfConcurrentConnectionsWithHttpInfo
-     *
-     * View number of concurrent connections
-     *
-     * @param  string $api_token (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewNumberOfConcurrentConnectionsWithHttpInfo($api_token)
-    {
-        $request = $this->viewNumberOfConcurrentConnectionsRequest($api_token);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewNumberOfConcurrentConnectionsAsync
-     *
-     * View number of concurrent connections
-     *
-     * @param  string $api_token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfConcurrentConnectionsAsync($api_token)
-    {
-        return $this->viewNumberOfConcurrentConnectionsAsyncWithHttpInfo($api_token)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewNumberOfConcurrentConnectionsAsyncWithHttpInfo
-     *
-     * View number of concurrent connections
-     *
-     * @param  string $api_token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfConcurrentConnectionsAsyncWithHttpInfo($api_token)
-    {
-        $returnType = '\Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse';
-        $request = $this->viewNumberOfConcurrentConnectionsRequest($api_token);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewNumberOfConcurrentConnections'
-     *
-     * @param  string $api_token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewNumberOfConcurrentConnectionsRequest($api_token)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewNumberOfConcurrentConnections'
-            );
-        }
-
-        $resourcePath = '/v3/applications/ccu';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewNumberOfDailyActiveUsers
-     *
-     * View number of daily active users
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $date date (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewNumberOfDailyActiveUsersResponse
-     */
-    public function viewNumberOfDailyActiveUsers($api_token, $date = null)
-    {
-        list($response) = $this->viewNumberOfDailyActiveUsersWithHttpInfo($api_token, $date);
-        return $response;
-    }
-
-    /**
-     * Operation viewNumberOfDailyActiveUsersWithHttpInfo
-     *
-     * View number of daily active users
-     *
-     * @param  string $api_token (required)
-     * @param  string $date (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewNumberOfDailyActiveUsersResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewNumberOfDailyActiveUsersWithHttpInfo($api_token, $date = null)
-    {
-        $request = $this->viewNumberOfDailyActiveUsersRequest($api_token, $date);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ViewNumberOfDailyActiveUsersResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewNumberOfDailyActiveUsersResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ViewNumberOfDailyActiveUsersResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ViewNumberOfDailyActiveUsersResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewNumberOfDailyActiveUsersAsync
-     *
-     * View number of daily active users
-     *
-     * @param  string $api_token (required)
-     * @param  string $date (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfDailyActiveUsersAsync($api_token, $date = null)
-    {
-        return $this->viewNumberOfDailyActiveUsersAsyncWithHttpInfo($api_token, $date)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewNumberOfDailyActiveUsersAsyncWithHttpInfo
-     *
-     * View number of daily active users
-     *
-     * @param  string $api_token (required)
-     * @param  string $date (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfDailyActiveUsersAsyncWithHttpInfo($api_token, $date = null)
-    {
-        $returnType = '\Sendbird\Model\ViewNumberOfDailyActiveUsersResponse';
-        $request = $this->viewNumberOfDailyActiveUsersRequest($api_token, $date);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewNumberOfDailyActiveUsers'
-     *
-     * @param  string $api_token (required)
-     * @param  string $date (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewNumberOfDailyActiveUsersRequest($api_token, $date = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewNumberOfDailyActiveUsers'
-            );
-        }
-
-        $resourcePath = '/v3/applications/dau';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($date !== null) {
-            if('form' === 'form' && is_array($date)) {
-                foreach($date as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['date'] = $date;
-            }
-        }
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewNumberOfMonthlyActiveUsers
-     *
-     * View number of monthly active users
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $date date (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse
-     */
-    public function viewNumberOfMonthlyActiveUsers($api_token, $date = null)
-    {
-        list($response) = $this->viewNumberOfMonthlyActiveUsersWithHttpInfo($api_token, $date);
-        return $response;
-    }
-
-    /**
-     * Operation viewNumberOfMonthlyActiveUsersWithHttpInfo
-     *
-     * View number of monthly active users
-     *
-     * @param  string $api_token (required)
-     * @param  string $date (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewNumberOfMonthlyActiveUsersWithHttpInfo($api_token, $date = null)
-    {
-        $request = $this->viewNumberOfMonthlyActiveUsersRequest($api_token, $date);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewNumberOfMonthlyActiveUsersAsync
-     *
-     * View number of monthly active users
-     *
-     * @param  string $api_token (required)
-     * @param  string $date (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfMonthlyActiveUsersAsync($api_token, $date = null)
-    {
-        return $this->viewNumberOfMonthlyActiveUsersAsyncWithHttpInfo($api_token, $date)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewNumberOfMonthlyActiveUsersAsyncWithHttpInfo
-     *
-     * View number of monthly active users
-     *
-     * @param  string $api_token (required)
-     * @param  string $date (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfMonthlyActiveUsersAsyncWithHttpInfo($api_token, $date = null)
-    {
-        $returnType = '\Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse';
-        $request = $this->viewNumberOfMonthlyActiveUsersRequest($api_token, $date);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewNumberOfMonthlyActiveUsers'
-     *
-     * @param  string $api_token (required)
-     * @param  string $date (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewNumberOfMonthlyActiveUsersRequest($api_token, $date = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewNumberOfMonthlyActiveUsers'
-            );
-        }
-
-        $resourcePath = '/v3/applications/mau';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($date !== null) {
-            if('form' === 'form' && is_array($date)) {
-                foreach($date as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['date'] = $date;
-            }
-        }
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewNumberOfPeakConnections
-     *
-     * View number of peak connections
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $time_dimension time_dimension (required)
-     * @param  int $start_year start_year (required)
-     * @param  int $start_month start_month (required)
-     * @param  int $end_year end_year (required)
-     * @param  int $end_month end_month (required)
-     * @param  int $start_day start_day (optional)
-     * @param  int $end_day end_day (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewNumberOfPeakConnectionsResponse
-     */
-    public function viewNumberOfPeakConnections($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
-    {
-        list($response) = $this->viewNumberOfPeakConnectionsWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
-        return $response;
-    }
-
-    /**
-     * Operation viewNumberOfPeakConnectionsWithHttpInfo
-     *
-     * View number of peak connections
-     *
-     * @param  string $api_token (required)
-     * @param  string $time_dimension (required)
-     * @param  int $start_year (required)
-     * @param  int $start_month (required)
-     * @param  int $end_year (required)
-     * @param  int $end_month (required)
-     * @param  int $start_day (optional)
-     * @param  int $end_day (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewNumberOfPeakConnectionsResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewNumberOfPeakConnectionsWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
-    {
-        $request = $this->viewNumberOfPeakConnectionsRequest($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ViewNumberOfPeakConnectionsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewNumberOfPeakConnectionsResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ViewNumberOfPeakConnectionsResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ViewNumberOfPeakConnectionsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewNumberOfPeakConnectionsAsync
-     *
-     * View number of peak connections
-     *
-     * @param  string $api_token (required)
-     * @param  string $time_dimension (required)
-     * @param  int $start_year (required)
-     * @param  int $start_month (required)
-     * @param  int $end_year (required)
-     * @param  int $end_month (required)
-     * @param  int $start_day (optional)
-     * @param  int $end_day (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfPeakConnectionsAsync($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
-    {
-        return $this->viewNumberOfPeakConnectionsAsyncWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewNumberOfPeakConnectionsAsyncWithHttpInfo
-     *
-     * View number of peak connections
-     *
-     * @param  string $api_token (required)
-     * @param  string $time_dimension (required)
-     * @param  int $start_year (required)
-     * @param  int $start_month (required)
-     * @param  int $end_year (required)
-     * @param  int $end_month (required)
-     * @param  int $start_day (optional)
-     * @param  int $end_day (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfPeakConnectionsAsyncWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
-    {
-        $returnType = '\Sendbird\Model\ViewNumberOfPeakConnectionsResponse';
-        $request = $this->viewNumberOfPeakConnectionsRequest($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewNumberOfPeakConnections'
-     *
-     * @param  string $api_token (required)
-     * @param  string $time_dimension (required)
-     * @param  int $start_year (required)
-     * @param  int $start_month (required)
-     * @param  int $end_year (required)
-     * @param  int $end_month (required)
-     * @param  int $start_day (optional)
-     * @param  int $end_day (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewNumberOfPeakConnectionsRequest($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewNumberOfPeakConnections'
-            );
-        }
-        // verify the required parameter 'time_dimension' is set
-        if ($time_dimension === null || (is_array($time_dimension) && count($time_dimension) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $time_dimension when calling viewNumberOfPeakConnections'
-            );
-        }
-        // verify the required parameter 'start_year' is set
-        if ($start_year === null || (is_array($start_year) && count($start_year) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $start_year when calling viewNumberOfPeakConnections'
-            );
-        }
-        // verify the required parameter 'start_month' is set
-        if ($start_month === null || (is_array($start_month) && count($start_month) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $start_month when calling viewNumberOfPeakConnections'
-            );
-        }
-        // verify the required parameter 'end_year' is set
-        if ($end_year === null || (is_array($end_year) && count($end_year) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $end_year when calling viewNumberOfPeakConnections'
-            );
-        }
-        // verify the required parameter 'end_month' is set
-        if ($end_month === null || (is_array($end_month) && count($end_month) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $end_month when calling viewNumberOfPeakConnections'
-            );
-        }
-
-        $resourcePath = '/v3/applications/peak_connections';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($time_dimension !== null) {
-            if('form' === 'form' && is_array($time_dimension)) {
-                foreach($time_dimension as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['time_dimension'] = $time_dimension;
-            }
-        }
-        // query params
-        if ($start_year !== null) {
-            if('form' === 'form' && is_array($start_year)) {
-                foreach($start_year as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['start_year'] = $start_year;
-            }
-        }
-        // query params
-        if ($start_month !== null) {
-            if('form' === 'form' && is_array($start_month)) {
-                foreach($start_month as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['start_month'] = $start_month;
-            }
-        }
-        // query params
-        if ($end_year !== null) {
-            if('form' === 'form' && is_array($end_year)) {
-                foreach($end_year as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['end_year'] = $end_year;
-            }
-        }
-        // query params
-        if ($end_month !== null) {
-            if('form' === 'form' && is_array($end_month)) {
-                foreach($end_month as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['end_month'] = $end_month;
-            }
-        }
-        // query params
-        if ($start_day !== null) {
-            if('form' === 'form' && is_array($start_day)) {
-                foreach($start_day as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['start_day'] = $start_day;
-            }
-        }
-        // query params
-        if ($end_day !== null) {
-            if('form' === 'form' && is_array($end_day)) {
-                foreach($end_day as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['end_day'] = $end_day;
-            }
-        }
 
         // header params
         if ($api_token !== null) {

@@ -413,303 +413,6 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcBanUser
-     *
-     * Ban a user
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data gc_ban_user_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcBanUserResponse
-     */
-    public function gcBanUser($api_token, $channel_url, $gc_ban_user_data = null)
-    {
-        list($response) = $this->gcBanUserWithHttpInfo($api_token, $channel_url, $gc_ban_user_data);
-        return $response;
-    }
-
-    /**
-     * Operation gcBanUserWithHttpInfo
-     *
-     * Ban a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcBanUserResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcBanUserWithHttpInfo($api_token, $channel_url, $gc_ban_user_data = null)
-    {
-        $request = $this->gcBanUserRequest($api_token, $channel_url, $gc_ban_user_data);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\GcBanUserResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcBanUserResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\GcBanUserResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\GcBanUserResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcBanUserAsync
-     *
-     * Ban a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcBanUserAsync($api_token, $channel_url, $gc_ban_user_data = null)
-    {
-        return $this->gcBanUserAsyncWithHttpInfo($api_token, $channel_url, $gc_ban_user_data)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcBanUserAsyncWithHttpInfo
-     *
-     * Ban a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcBanUserAsyncWithHttpInfo($api_token, $channel_url, $gc_ban_user_data = null)
-    {
-        $returnType = '\Sendbird\Model\GcBanUserResponse';
-        $request = $this->gcBanUserRequest($api_token, $channel_url, $gc_ban_user_data);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcBanUser'
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcBanUserRequest($api_token, $channel_url, $gc_ban_user_data = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcBanUser'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcBanUser'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/ban';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($gc_ban_user_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_ban_user_data));
-            } else {
-                $httpBody = $gc_ban_user_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation gcCancelTheRegistrationOfOperators
      *
      * Cancel the registration of operators
@@ -721,7 +424,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse200
+     * @return \Sendbird\Model\InlineResponse2001
      */
     public function gcCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all = null)
     {
@@ -741,7 +444,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcCancelTheRegistrationOfOperatorsWithHttpInfo($api_token, $channel_url, $operator_ids, $delete_all = null)
     {
@@ -784,20 +487,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse2001' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse200';
+            $returnType = '\Sendbird\Model\InlineResponse2001';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -815,7 +518,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse200',
+                        '\Sendbird\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -863,7 +566,7 @@ class GroupChannelApi
      */
     public function gcCancelTheRegistrationOfOperatorsAsyncWithHttpInfo($api_token, $channel_url, $operator_ids, $delete_all = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse200';
+        $returnType = '\Sendbird\Model\InlineResponse2001';
         $request = $this->gcCancelTheRegistrationOfOperatorsRequest($api_token, $channel_url, $operator_ids, $delete_all);
 
         return $this->client
@@ -1627,7 +1330,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse200
+     * @return \Sendbird\Model\InlineResponse2001
      */
     public function gcDeclineInvitation($api_token, $channel_url, $gc_decline_invitation_data = null)
     {
@@ -1646,7 +1349,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcDeclineInvitationWithHttpInfo($api_token, $channel_url, $gc_decline_invitation_data = null)
     {
@@ -1689,20 +1392,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse2001' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse200';
+            $returnType = '\Sendbird\Model\InlineResponse2001';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1720,7 +1423,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse200',
+                        '\Sendbird\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1766,7 +1469,7 @@ class GroupChannelApi
      */
     public function gcDeclineInvitationAsyncWithHttpInfo($api_token, $channel_url, $gc_decline_invitation_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse200';
+        $returnType = '\Sendbird\Model\InlineResponse2001';
         $request = $this->gcDeclineInvitationRequest($api_token, $channel_url, $gc_decline_invitation_data);
 
         return $this->client
@@ -1923,7 +1626,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse200
+     * @return \Sendbird\Model\InlineResponse2001
      */
     public function gcDeleteChannelByUrl($api_token, $channel_url)
     {
@@ -1941,7 +1644,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcDeleteChannelByUrlWithHttpInfo($api_token, $channel_url)
     {
@@ -1984,20 +1687,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse2001' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse200';
+            $returnType = '\Sendbird\Model\InlineResponse2001';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2015,7 +1718,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse200',
+                        '\Sendbird\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2059,7 +1762,7 @@ class GroupChannelApi
      */
     public function gcDeleteChannelByUrlAsyncWithHttpInfo($api_token, $channel_url)
     {
-        $returnType = '\Sendbird\Model\InlineResponse200';
+        $returnType = '\Sendbird\Model\InlineResponse2001';
         $request = $this->gcDeleteChannelByUrlRequest($api_token, $channel_url);
 
         return $this->client
@@ -2200,303 +1903,6 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcFreezeChannel
-     *
-     * Freeze a channel
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data gc_freeze_channel_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdGroupChannel
-     */
-    public function gcFreezeChannel($api_token, $channel_url, $gc_freeze_channel_data = null)
-    {
-        list($response) = $this->gcFreezeChannelWithHttpInfo($api_token, $channel_url, $gc_freeze_channel_data);
-        return $response;
-    }
-
-    /**
-     * Operation gcFreezeChannelWithHttpInfo
-     *
-     * Freeze a channel
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcFreezeChannelWithHttpInfo($api_token, $channel_url, $gc_freeze_channel_data = null)
-    {
-        $request = $this->gcFreezeChannelRequest($api_token, $channel_url, $gc_freeze_channel_data);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdGroupChannel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcFreezeChannelAsync
-     *
-     * Freeze a channel
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcFreezeChannelAsync($api_token, $channel_url, $gc_freeze_channel_data = null)
-    {
-        return $this->gcFreezeChannelAsyncWithHttpInfo($api_token, $channel_url, $gc_freeze_channel_data)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcFreezeChannelAsyncWithHttpInfo
-     *
-     * Freeze a channel
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcFreezeChannelAsyncWithHttpInfo($api_token, $channel_url, $gc_freeze_channel_data = null)
-    {
-        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-        $request = $this->gcFreezeChannelRequest($api_token, $channel_url, $gc_freeze_channel_data);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcFreezeChannel'
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcFreezeChannelRequest($api_token, $channel_url, $gc_freeze_channel_data = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcFreezeChannel'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcFreezeChannel'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/freeze';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($gc_freeze_channel_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_freeze_channel_data));
-            } else {
-                $httpBody = $gc_freeze_channel_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation gcHideOrArchiveChannel
      *
      * Hide or archive a channel
@@ -2507,7 +1913,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse200
+     * @return \Sendbird\Model\InlineResponse2001
      */
     public function gcHideOrArchiveChannel($api_token, $channel_url, $gc_hide_or_archive_channel_data = null)
     {
@@ -2526,7 +1932,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcHideOrArchiveChannelWithHttpInfo($api_token, $channel_url, $gc_hide_or_archive_channel_data = null)
     {
@@ -2569,20 +1975,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse2001' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse200';
+            $returnType = '\Sendbird\Model\InlineResponse2001';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2600,7 +2006,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse200',
+                        '\Sendbird\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2646,7 +2052,7 @@ class GroupChannelApi
      */
     public function gcHideOrArchiveChannelAsyncWithHttpInfo($api_token, $channel_url, $gc_hide_or_archive_channel_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse200';
+        $returnType = '\Sendbird\Model\InlineResponse2001';
         $request = $this->gcHideOrArchiveChannelRequest($api_token, $channel_url, $gc_hide_or_archive_channel_data);
 
         return $this->client
@@ -3353,7 +2759,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse200
+     * @return \Sendbird\Model\InlineResponse2001
      */
     public function gcLeaveChannel($api_token, $channel_url, $gc_leave_channel_data = null)
     {
@@ -3372,7 +2778,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcLeaveChannelWithHttpInfo($api_token, $channel_url, $gc_leave_channel_data = null)
     {
@@ -3415,20 +2821,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse2001' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse200';
+            $returnType = '\Sendbird\Model\InlineResponse2001';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3446,7 +2852,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse200',
+                        '\Sendbird\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3492,7 +2898,7 @@ class GroupChannelApi
      */
     public function gcLeaveChannelAsyncWithHttpInfo($api_token, $channel_url, $gc_leave_channel_data = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse200';
+        $returnType = '\Sendbird\Model\InlineResponse2001';
         $request = $this->gcLeaveChannelRequest($api_token, $channel_url, $gc_leave_channel_data);
 
         return $this->client
@@ -3633,324 +3039,6 @@ class GroupChannelApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation gcListBannedUsers
-     *
-     * List banned users
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcListBannedUsersResponse
-     */
-    public function gcListBannedUsers($api_token, $channel_url, $token = null, $limit = null)
-    {
-        list($response) = $this->gcListBannedUsersWithHttpInfo($api_token, $channel_url, $token, $limit);
-        return $response;
-    }
-
-    /**
-     * Operation gcListBannedUsersWithHttpInfo
-     *
-     * List banned users
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcListBannedUsersResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcListBannedUsersWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
-    {
-        $request = $this->gcListBannedUsersRequest($api_token, $channel_url, $token, $limit);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\GcListBannedUsersResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcListBannedUsersResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\GcListBannedUsersResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\GcListBannedUsersResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcListBannedUsersAsync
-     *
-     * List banned users
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcListBannedUsersAsync($api_token, $channel_url, $token = null, $limit = null)
-    {
-        return $this->gcListBannedUsersAsyncWithHttpInfo($api_token, $channel_url, $token, $limit)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcListBannedUsersAsyncWithHttpInfo
-     *
-     * List banned users
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcListBannedUsersAsyncWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
-    {
-        $returnType = '\Sendbird\Model\GcListBannedUsersResponse';
-        $request = $this->gcListBannedUsersRequest($api_token, $channel_url, $token, $limit);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcListBannedUsers'
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcListBannedUsersRequest($api_token, $channel_url, $token = null, $limit = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcListBannedUsers'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcListBannedUsers'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/ban';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($token !== null) {
-            if('form' === 'form' && is_array($token)) {
-                foreach($token as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['token'] = $token;
-            }
-        }
-        // query params
-        if ($limit !== null) {
-            if('form' === 'form' && is_array($limit)) {
-                foreach($limit as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['limit'] = $limit;
-            }
-        }
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -5327,324 +4415,6 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcListMutedUsers
-     *
-     * List muted users
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcListMutedUsersResponse
-     */
-    public function gcListMutedUsers($api_token, $channel_url, $token = null, $limit = null)
-    {
-        list($response) = $this->gcListMutedUsersWithHttpInfo($api_token, $channel_url, $token, $limit);
-        return $response;
-    }
-
-    /**
-     * Operation gcListMutedUsersWithHttpInfo
-     *
-     * List muted users
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcListMutedUsersResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcListMutedUsersWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
-    {
-        $request = $this->gcListMutedUsersRequest($api_token, $channel_url, $token, $limit);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\GcListMutedUsersResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcListMutedUsersResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\GcListMutedUsersResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\GcListMutedUsersResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcListMutedUsersAsync
-     *
-     * List muted users
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcListMutedUsersAsync($api_token, $channel_url, $token = null, $limit = null)
-    {
-        return $this->gcListMutedUsersAsyncWithHttpInfo($api_token, $channel_url, $token, $limit)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcListMutedUsersAsyncWithHttpInfo
-     *
-     * List muted users
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcListMutedUsersAsyncWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
-    {
-        $returnType = '\Sendbird\Model\GcListMutedUsersResponse';
-        $request = $this->gcListMutedUsersRequest($api_token, $channel_url, $token, $limit);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcListMutedUsers'
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcListMutedUsersRequest($api_token, $channel_url, $token = null, $limit = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcListMutedUsers'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcListMutedUsers'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/mute';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($token !== null) {
-            if('form' === 'form' && is_array($token)) {
-                foreach($token as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['token'] = $token;
-            }
-        }
-        // query params
-        if ($limit !== null) {
-            if('form' === 'form' && is_array($limit)) {
-                foreach($limit as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['limit'] = $limit;
-            }
-        }
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation gcListOperators
      *
      * List operators
@@ -5956,303 +4726,6 @@ class GroupChannelApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation gcMuteUser
-     *
-     * Mute a user
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data gc_mute_user_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdGroupChannel
-     */
-    public function gcMuteUser($api_token, $channel_url, $gc_mute_user_data = null)
-    {
-        list($response) = $this->gcMuteUserWithHttpInfo($api_token, $channel_url, $gc_mute_user_data);
-        return $response;
-    }
-
-    /**
-     * Operation gcMuteUserWithHttpInfo
-     *
-     * Mute a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcMuteUserWithHttpInfo($api_token, $channel_url, $gc_mute_user_data = null)
-    {
-        $request = $this->gcMuteUserRequest($api_token, $channel_url, $gc_mute_user_data);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdGroupChannel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcMuteUserAsync
-     *
-     * Mute a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcMuteUserAsync($api_token, $channel_url, $gc_mute_user_data = null)
-    {
-        return $this->gcMuteUserAsyncWithHttpInfo($api_token, $channel_url, $gc_mute_user_data)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcMuteUserAsyncWithHttpInfo
-     *
-     * Mute a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcMuteUserAsyncWithHttpInfo($api_token, $channel_url, $gc_mute_user_data = null)
-    {
-        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-        $request = $this->gcMuteUserRequest($api_token, $channel_url, $gc_mute_user_data);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcMuteUser'
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcMuteUserRequest($api_token, $channel_url, $gc_mute_user_data = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcMuteUser'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcMuteUser'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/mute';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($gc_mute_user_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_mute_user_data));
-            } else {
-                $httpBody = $gc_mute_user_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -6854,311 +5327,6 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcUnbanUserById
-     *
-     * Unban a user
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $banned_user_id banned_user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse200
-     */
-    public function gcUnbanUserById($api_token, $channel_url, $banned_user_id)
-    {
-        list($response) = $this->gcUnbanUserByIdWithHttpInfo($api_token, $channel_url, $banned_user_id);
-        return $response;
-    }
-
-    /**
-     * Operation gcUnbanUserByIdWithHttpInfo
-     *
-     * Unban a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcUnbanUserByIdWithHttpInfo($api_token, $channel_url, $banned_user_id)
-    {
-        $request = $this->gcUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\InlineResponse200' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse200', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\InlineResponse200';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse200',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcUnbanUserByIdAsync
-     *
-     * Unban a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcUnbanUserByIdAsync($api_token, $channel_url, $banned_user_id)
-    {
-        return $this->gcUnbanUserByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcUnbanUserByIdAsyncWithHttpInfo
-     *
-     * Unban a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcUnbanUserByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
-    {
-        $returnType = '\Sendbird\Model\InlineResponse200';
-        $request = $this->gcUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcUnbanUserById'
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcUnbanUserById'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcUnbanUserById'
-            );
-        }
-        // verify the required parameter 'banned_user_id' is set
-        if ($banned_user_id === null || (is_array($banned_user_id) && count($banned_user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $banned_user_id when calling gcUnbanUserById'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/ban/{banned_user_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($banned_user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'banned_user_id' . '}',
-                ObjectSerializer::toPathValue($banned_user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation gcUnhideOrUnarchiveChannel
      *
      * Unhide or unarchive a channel
@@ -7170,7 +5338,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse200
+     * @return \Sendbird\Model\InlineResponse2001
      */
     public function gcUnhideOrUnarchiveChannel($api_token, $channel_url, $user_id, $should_unhide_all = null)
     {
@@ -7190,7 +5358,7 @@ class GroupChannelApi
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
     public function gcUnhideOrUnarchiveChannelWithHttpInfo($api_token, $channel_url, $user_id, $should_unhide_all = null)
     {
@@ -7233,20 +5401,20 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\InlineResponse200' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InlineResponse2001' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse200', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse2001', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\InlineResponse200';
+            $returnType = '\Sendbird\Model\InlineResponse2001';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7264,7 +5432,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse200',
+                        '\Sendbird\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7312,7 +5480,7 @@ class GroupChannelApi
      */
     public function gcUnhideOrUnarchiveChannelAsyncWithHttpInfo($api_token, $channel_url, $user_id, $should_unhide_all = null)
     {
-        $returnType = '\Sendbird\Model\InlineResponse200';
+        $returnType = '\Sendbird\Model\InlineResponse2001';
         $request = $this->gcUnhideOrUnarchiveChannelRequest($api_token, $channel_url, $user_id, $should_unhide_all);
 
         return $this->client
@@ -7476,627 +5644,6 @@ class GroupChannelApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation gcUnmuteUserById
-     *
-     * Unmute a user
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $muted_user_id muted_user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\InlineResponse200
-     */
-    public function gcUnmuteUserById($api_token, $channel_url, $muted_user_id)
-    {
-        list($response) = $this->gcUnmuteUserByIdWithHttpInfo($api_token, $channel_url, $muted_user_id);
-        return $response;
-    }
-
-    /**
-     * Operation gcUnmuteUserByIdWithHttpInfo
-     *
-     * Unmute a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $muted_user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcUnmuteUserByIdWithHttpInfo($api_token, $channel_url, $muted_user_id)
-    {
-        $request = $this->gcUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\InlineResponse200' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InlineResponse200', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\InlineResponse200';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\InlineResponse200',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcUnmuteUserByIdAsync
-     *
-     * Unmute a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $muted_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcUnmuteUserByIdAsync($api_token, $channel_url, $muted_user_id)
-    {
-        return $this->gcUnmuteUserByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcUnmuteUserByIdAsyncWithHttpInfo
-     *
-     * Unmute a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $muted_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcUnmuteUserByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
-    {
-        $returnType = '\Sendbird\Model\InlineResponse200';
-        $request = $this->gcUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcUnmuteUserById'
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $muted_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcUnmuteUserById'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcUnmuteUserById'
-            );
-        }
-        // verify the required parameter 'muted_user_id' is set
-        if ($muted_user_id === null || (is_array($muted_user_id) && count($muted_user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $muted_user_id when calling gcUnmuteUserById'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/mute/{muted_user_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($muted_user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'muted_user_id' . '}',
-                ObjectSerializer::toPathValue($muted_user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation gcUpdateBanById
-     *
-     * Update a ban
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $banned_user_id banned_user_id (required)
-     * @param  \Sendbird\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data gc_update_ban_by_id_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcUpdateBanByIdResponse
-     */
-    public function gcUpdateBanById($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data = null)
-    {
-        list($response) = $this->gcUpdateBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data);
-        return $response;
-    }
-
-    /**
-     * Operation gcUpdateBanByIdWithHttpInfo
-     *
-     * Update a ban
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     * @param  \Sendbird\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcUpdateBanByIdResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcUpdateBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data = null)
-    {
-        $request = $this->gcUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\GcUpdateBanByIdResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcUpdateBanByIdResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\GcUpdateBanByIdResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\GcUpdateBanByIdResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcUpdateBanByIdAsync
-     *
-     * Update a ban
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     * @param  \Sendbird\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcUpdateBanByIdAsync($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data = null)
-    {
-        return $this->gcUpdateBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcUpdateBanByIdAsyncWithHttpInfo
-     *
-     * Update a ban
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     * @param  \Sendbird\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcUpdateBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data = null)
-    {
-        $returnType = '\Sendbird\Model\GcUpdateBanByIdResponse';
-        $request = $this->gcUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcUpdateBanById'
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     * @param  \Sendbird\Model\GcUpdateBanByIdData $gc_update_ban_by_id_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcUpdateBanById'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcUpdateBanById'
-            );
-        }
-        // verify the required parameter 'banned_user_id' is set
-        if ($banned_user_id === null || (is_array($banned_user_id) && count($banned_user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $banned_user_id when calling gcUpdateBanById'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/ban/{banned_user_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($banned_user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'banned_user_id' . '}',
-                ObjectSerializer::toPathValue($banned_user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($gc_update_ban_by_id_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_update_ban_by_id_data));
-            } else {
-                $httpBody = $gc_update_ban_by_id_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -8394,311 +5941,6 @@ class GroupChannelApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation gcViewBanById
-     *
-     * View a ban
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $banned_user_id banned_user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcViewBanByIdResponse
-     */
-    public function gcViewBanById($api_token, $channel_url, $banned_user_id)
-    {
-        list($response) = $this->gcViewBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id);
-        return $response;
-    }
-
-    /**
-     * Operation gcViewBanByIdWithHttpInfo
-     *
-     * View a ban
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcViewBanByIdResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcViewBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id)
-    {
-        $request = $this->gcViewBanByIdRequest($api_token, $channel_url, $banned_user_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\GcViewBanByIdResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcViewBanByIdResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\GcViewBanByIdResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\GcViewBanByIdResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcViewBanByIdAsync
-     *
-     * View a ban
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcViewBanByIdAsync($api_token, $channel_url, $banned_user_id)
-    {
-        return $this->gcViewBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcViewBanByIdAsyncWithHttpInfo
-     *
-     * View a ban
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcViewBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
-    {
-        $returnType = '\Sendbird\Model\GcViewBanByIdResponse';
-        $request = $this->gcViewBanByIdRequest($api_token, $channel_url, $banned_user_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcViewBanById'
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $banned_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcViewBanByIdRequest($api_token, $channel_url, $banned_user_id)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcViewBanById'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcViewBanById'
-            );
-        }
-        // verify the required parameter 'banned_user_id' is set
-        if ($banned_user_id === null || (is_array($banned_user_id) && count($banned_user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $banned_user_id when calling gcViewBanById'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/ban/{banned_user_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($banned_user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'banned_user_id' . '}',
-                ObjectSerializer::toPathValue($banned_user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -9009,311 +6251,6 @@ class GroupChannelApi
             $resourcePath = str_replace(
                 '{' . 'channel_url' . '}',
                 ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation gcViewMuteById
-     *
-     * View a mute
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $muted_user_id muted_user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcViewMuteByIdResponse
-     */
-    public function gcViewMuteById($api_token, $channel_url, $muted_user_id)
-    {
-        list($response) = $this->gcViewMuteByIdWithHttpInfo($api_token, $channel_url, $muted_user_id);
-        return $response;
-    }
-
-    /**
-     * Operation gcViewMuteByIdWithHttpInfo
-     *
-     * View a mute
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $muted_user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcViewMuteByIdResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcViewMuteByIdWithHttpInfo($api_token, $channel_url, $muted_user_id)
-    {
-        $request = $this->gcViewMuteByIdRequest($api_token, $channel_url, $muted_user_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\GcViewMuteByIdResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcViewMuteByIdResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\GcViewMuteByIdResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\GcViewMuteByIdResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcViewMuteByIdAsync
-     *
-     * View a mute
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $muted_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcViewMuteByIdAsync($api_token, $channel_url, $muted_user_id)
-    {
-        return $this->gcViewMuteByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcViewMuteByIdAsyncWithHttpInfo
-     *
-     * View a mute
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $muted_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcViewMuteByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
-    {
-        $returnType = '\Sendbird\Model\GcViewMuteByIdResponse';
-        $request = $this->gcViewMuteByIdRequest($api_token, $channel_url, $muted_user_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcViewMuteById'
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $muted_user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcViewMuteByIdRequest($api_token, $channel_url, $muted_user_id)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcViewMuteById'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcViewMuteById'
-            );
-        }
-        // verify the required parameter 'muted_user_id' is set
-        if ($muted_user_id === null || (is_array($muted_user_id) && count($muted_user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $muted_user_id when calling gcViewMuteById'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/mute/{muted_user_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($muted_user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'muted_user_id' . '}',
-                ObjectSerializer::toPathValue($muted_user_id),
                 $resourcePath
             );
         }

@@ -63,7 +63,7 @@ class GcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
         'start_at' => 'float',
         'end_at' => 'float',
         'description' => 'string',
-        'metadata' => '\Sendbird\Model\InlineResponse200',
+        'metadata' => '\Sendbird\Model\InlineResponse2001',
         'next_url' => 'string',
         'nickname' => 'string',
         'profile_url' => 'string',
@@ -358,7 +358,7 @@ class GcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets metadata
      *
-     * @return \Sendbird\Model\InlineResponse200|null
+     * @return \Sendbird\Model\InlineResponse2001|null
      */
     public function getMetadata()
     {
@@ -368,7 +368,7 @@ class GcBanUserResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets metadata
      *
-     * @param \Sendbird\Model\InlineResponse200|null $metadata metadata
+     * @param \Sendbird\Model\InlineResponse2001|null $metadata metadata
      *
      * @return self
      */

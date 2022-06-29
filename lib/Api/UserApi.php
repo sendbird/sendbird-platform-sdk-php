@@ -432,600 +432,6 @@ class UserApi
     }
 
     /**
-     * Operation banFromChannelsWithCustomChannelTypes
-     *
-     * Ban from channels with custom channel types
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData $ban_from_channels_with_custom_channel_types_data ban_from_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return object
-     */
-    public function banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
-    {
-        list($response) = $this->banFromChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
-        return $response;
-    }
-
-    /**
-     * Operation banFromChannelsWithCustomChannelTypesWithHttpInfo
-     *
-     * Ban from channels with custom channel types
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData $ban_from_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function banFromChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
-    {
-        $request = $this->banFromChannelsWithCustomChannelTypesRequest($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'object', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'object';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation banFromChannelsWithCustomChannelTypesAsync
-     *
-     * Ban from channels with custom channel types
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData $ban_from_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function banFromChannelsWithCustomChannelTypesAsync($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
-    {
-        return $this->banFromChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation banFromChannelsWithCustomChannelTypesAsyncWithHttpInfo
-     *
-     * Ban from channels with custom channel types
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData $ban_from_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function banFromChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
-    {
-        $returnType = 'object';
-        $request = $this->banFromChannelsWithCustomChannelTypesRequest($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'banFromChannelsWithCustomChannelTypes'
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData $ban_from_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function banFromChannelsWithCustomChannelTypesRequest($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling banFromChannelsWithCustomChannelTypes'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling banFromChannelsWithCustomChannelTypes'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/banned_channel_custom_types';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($ban_from_channels_with_custom_channel_types_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($ban_from_channels_with_custom_channel_types_data));
-            } else {
-                $httpBody = $ban_from_channels_with_custom_channel_types_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation blockUser
-     *
-     * Block a user
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\BlockUserData $block_user_data block_user_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\BlockUserResponse
-     */
-    public function blockUser($api_token, $user_id, $block_user_data = null)
-    {
-        list($response) = $this->blockUserWithHttpInfo($api_token, $user_id, $block_user_data);
-        return $response;
-    }
-
-    /**
-     * Operation blockUserWithHttpInfo
-     *
-     * Block a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\BlockUserData $block_user_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\BlockUserResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function blockUserWithHttpInfo($api_token, $user_id, $block_user_data = null)
-    {
-        $request = $this->blockUserRequest($api_token, $user_id, $block_user_data);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\BlockUserResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\BlockUserResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\BlockUserResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\BlockUserResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation blockUserAsync
-     *
-     * Block a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\BlockUserData $block_user_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function blockUserAsync($api_token, $user_id, $block_user_data = null)
-    {
-        return $this->blockUserAsyncWithHttpInfo($api_token, $user_id, $block_user_data)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation blockUserAsyncWithHttpInfo
-     *
-     * Block a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\BlockUserData $block_user_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function blockUserAsyncWithHttpInfo($api_token, $user_id, $block_user_data = null)
-    {
-        $returnType = '\Sendbird\Model\BlockUserResponse';
-        $request = $this->blockUserRequest($api_token, $user_id, $block_user_data);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'blockUser'
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\BlockUserData $block_user_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function blockUserRequest($api_token, $user_id, $block_user_data = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling blockUser'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling blockUser'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/block';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($block_user_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($block_user_data));
-            } else {
-                $httpBody = $block_user_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation choosePushNotificationContentTemplate
      *
      * Choose a push notification content template
@@ -1323,6 +729,638 @@ class UserApi
     }
 
     /**
+     * Operation createChannelMetacounter
+     *
+     * Create a channel metacounter
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $channel_type channel_type (required)
+     * @param  string $channel_url channel_url (required)
+     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data create_channel_metacounter_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,\Sendbird\Model\SendBirdAdditionalProperties>
+     */
+    public function createChannelMetacounter($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
+    {
+        list($response) = $this->createChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
+        return $response;
+    }
+
+    /**
+     * Operation createChannelMetacounterWithHttpInfo
+     *
+     * Create a channel metacounter
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,\Sendbird\Model\SendBirdAdditionalProperties>, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
+    {
+        $request = $this->createChannelMetacounterRequest($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,\Sendbird\Model\SendBirdAdditionalProperties>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,\Sendbird\Model\SendBirdAdditionalProperties>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createChannelMetacounterAsync
+     *
+     * Create a channel metacounter
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createChannelMetacounterAsync($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
+    {
+        return $this->createChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createChannelMetacounterAsyncWithHttpInfo
+     *
+     * Create a channel metacounter
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
+    {
+        $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
+        $request = $this->createChannelMetacounterRequest($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createChannelMetacounter'
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createChannelMetacounterRequest($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling createChannelMetacounter'
+            );
+        }
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling createChannelMetacounter'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling createChannelMetacounter'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($create_channel_metacounter_data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_channel_metacounter_data));
+            } else {
+                $httpBody = $create_channel_metacounter_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation createChannelMetadata
+     *
+     * Create a channel metadata
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $channel_type channel_type (required)
+     * @param  string $channel_url channel_url (required)
+     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data create_channel_metadata_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\CreateChannelMetadataResponse
+     */
+    public function createChannelMetadata($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
+    {
+        list($response) = $this->createChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
+        return $response;
+    }
+
+    /**
+     * Operation createChannelMetadataWithHttpInfo
+     *
+     * Create a channel metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\CreateChannelMetadataResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
+    {
+        $request = $this->createChannelMetadataRequest($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\CreateChannelMetadataResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateChannelMetadataResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\CreateChannelMetadataResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\CreateChannelMetadataResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createChannelMetadataAsync
+     *
+     * Create a channel metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createChannelMetadataAsync($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
+    {
+        return $this->createChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createChannelMetadataAsyncWithHttpInfo
+     *
+     * Create a channel metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
+    {
+        $returnType = '\Sendbird\Model\CreateChannelMetadataResponse';
+        $request = $this->createChannelMetadataRequest($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createChannelMetadata'
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createChannelMetadataRequest($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling createChannelMetadata'
+            );
+        }
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling createChannelMetadata'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling createChannelMetadata'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metadata';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($create_channel_metadata_data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_channel_metadata_data));
+            } else {
+                $httpBody = $create_channel_metadata_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation createUser
      *
      * Create a user
@@ -1601,6 +1639,1397 @@ class UserApi
     }
 
     /**
+     * Operation createUserMetadata
+     *
+     * Create a user metadata
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $user_id user_id (required)
+     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data create_user_metadata_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\CreateUserMetadataResponse
+     */
+    public function createUserMetadata($api_token, $user_id, $create_user_metadata_data = null)
+    {
+        list($response) = $this->createUserMetadataWithHttpInfo($api_token, $user_id, $create_user_metadata_data);
+        return $response;
+    }
+
+    /**
+     * Operation createUserMetadataWithHttpInfo
+     *
+     * Create a user metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\CreateUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createUserMetadataWithHttpInfo($api_token, $user_id, $create_user_metadata_data = null)
+    {
+        $request = $this->createUserMetadataRequest($api_token, $user_id, $create_user_metadata_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\CreateUserMetadataResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateUserMetadataResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\CreateUserMetadataResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\CreateUserMetadataResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createUserMetadataAsync
+     *
+     * Create a user metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createUserMetadataAsync($api_token, $user_id, $create_user_metadata_data = null)
+    {
+        return $this->createUserMetadataAsyncWithHttpInfo($api_token, $user_id, $create_user_metadata_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createUserMetadataAsyncWithHttpInfo
+     *
+     * Create a user metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createUserMetadataAsyncWithHttpInfo($api_token, $user_id, $create_user_metadata_data = null)
+    {
+        $returnType = '\Sendbird\Model\CreateUserMetadataResponse';
+        $request = $this->createUserMetadataRequest($api_token, $user_id, $create_user_metadata_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createUserMetadata'
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createUserMetadataRequest($api_token, $user_id, $create_user_metadata_data = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling createUserMetadata'
+            );
+        }
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling createUserMetadata'
+            );
+        }
+
+        $resourcePath = '/v3/users/{user_id}/metadata';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($create_user_metadata_data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_user_metadata_data));
+            } else {
+                $httpBody = $create_user_metadata_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteChannelMetacounter
+     *
+     * Delete a channel metacounter - When deleting all items of a channel metacounter
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $channel_type channel_type (required)
+     * @param  string $channel_url channel_url (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteChannelMetacounter($api_token, $channel_type, $channel_url)
+    {
+        $this->deleteChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url);
+    }
+
+    /**
+     * Operation deleteChannelMetacounterWithHttpInfo
+     *
+     * Delete a channel metacounter - When deleting all items of a channel metacounter
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url)
+    {
+        $request = $this->deleteChannelMetacounterRequest($api_token, $channel_type, $channel_url);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteChannelMetacounterAsync
+     *
+     * Delete a channel metacounter - When deleting all items of a channel metacounter
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteChannelMetacounterAsync($api_token, $channel_type, $channel_url)
+    {
+        return $this->deleteChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteChannelMetacounterAsyncWithHttpInfo
+     *
+     * Delete a channel metacounter - When deleting all items of a channel metacounter
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url)
+    {
+        $returnType = '';
+        $request = $this->deleteChannelMetacounterRequest($api_token, $channel_type, $channel_url);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteChannelMetacounter'
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteChannelMetacounterRequest($api_token, $channel_type, $channel_url)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteChannelMetacounter'
+            );
+        }
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling deleteChannelMetacounter'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling deleteChannelMetacounter'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteChannelMetacounterByKey
+     *
+     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $channel_type channel_type (required)
+     * @param  string $channel_url channel_url (required)
+     * @param  string $key key (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key)
+    {
+        $this->deleteChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key);
+    }
+
+    /**
+     * Operation deleteChannelMetacounterByKeyWithHttpInfo
+     *
+     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    {
+        $request = $this->deleteChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteChannelMetacounterByKeyAsync
+     *
+     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteChannelMetacounterByKeyAsync($api_token, $channel_type, $channel_url, $key)
+    {
+        return $this->deleteChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteChannelMetacounterByKeyAsyncWithHttpInfo
+     *
+     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    {
+        $returnType = '';
+        $request = $this->deleteChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteChannelMetacounterByKey'
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteChannelMetacounterByKey'
+            );
+        }
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling deleteChannelMetacounterByKey'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling deleteChannelMetacounterByKey'
+            );
+        }
+        // verify the required parameter 'key' is set
+        if ($key === null || (is_array($key) && count($key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key when calling deleteChannelMetacounterByKey'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter/{key}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key' . '}',
+                ObjectSerializer::toPathValue($key),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteChannelMetadata
+     *
+     * Delete a channel metadata - When deleting all items of a channel metadata
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $channel_type channel_type (required)
+     * @param  string $channel_url channel_url (required)
+     * @param  string $key key (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteChannelMetadata($api_token, $channel_type, $channel_url, $key = null)
+    {
+        $this->deleteChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $key);
+    }
+
+    /**
+     * Operation deleteChannelMetadataWithHttpInfo
+     *
+     * Delete a channel metadata - When deleting all items of a channel metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $key = null)
+    {
+        $request = $this->deleteChannelMetadataRequest($api_token, $channel_type, $channel_url, $key);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteChannelMetadataAsync
+     *
+     * Delete a channel metadata - When deleting all items of a channel metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteChannelMetadataAsync($api_token, $channel_type, $channel_url, $key = null)
+    {
+        return $this->deleteChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteChannelMetadataAsyncWithHttpInfo
+     *
+     * Delete a channel metadata - When deleting all items of a channel metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key = null)
+    {
+        $returnType = '';
+        $request = $this->deleteChannelMetadataRequest($api_token, $channel_type, $channel_url, $key);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteChannelMetadata'
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteChannelMetadataRequest($api_token, $channel_type, $channel_url, $key = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteChannelMetadata'
+            );
+        }
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling deleteChannelMetadata'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling deleteChannelMetadata'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metadata';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($key !== null) {
+            if('form' === 'form' && is_array($key)) {
+                foreach($key as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['key'] = $key;
+            }
+        }
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteChannelMetadataByKey
+     *
+     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $channel_type channel_type (required)
+     * @param  string $channel_url channel_url (required)
+     * @param  string $key key (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteChannelMetadataByKey($api_token, $channel_type, $channel_url, $key)
+    {
+        $this->deleteChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key);
+    }
+
+    /**
+     * Operation deleteChannelMetadataByKeyWithHttpInfo
+     *
+     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    {
+        $request = $this->deleteChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteChannelMetadataByKeyAsync
+     *
+     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteChannelMetadataByKeyAsync($api_token, $channel_type, $channel_url, $key)
+    {
+        return $this->deleteChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteChannelMetadataByKeyAsyncWithHttpInfo
+     *
+     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    {
+        $returnType = '';
+        $request = $this->deleteChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteChannelMetadataByKey'
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteChannelMetadataByKey'
+            );
+        }
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling deleteChannelMetadataByKey'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling deleteChannelMetadataByKey'
+            );
+        }
+        // verify the required parameter 'key' is set
+        if ($key === null || (is_array($key) && count($key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key when calling deleteChannelMetadataByKey'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metadata/{key}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key' . '}',
+                ObjectSerializer::toPathValue($key),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteUserById
      *
      * Delete a user
@@ -1836,6 +3265,523 @@ class UserApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteUserMetadata
+     *
+     * Delete a user metadata - When deleting all items of a user metadata
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $user_id user_id (required)
+     * @param  string $key key (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteUserMetadata($api_token, $user_id, $key = null)
+    {
+        $this->deleteUserMetadataWithHttpInfo($api_token, $user_id, $key);
+    }
+
+    /**
+     * Operation deleteUserMetadataWithHttpInfo
+     *
+     * Delete a user metadata - When deleting all items of a user metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteUserMetadataWithHttpInfo($api_token, $user_id, $key = null)
+    {
+        $request = $this->deleteUserMetadataRequest($api_token, $user_id, $key);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteUserMetadataAsync
+     *
+     * Delete a user metadata - When deleting all items of a user metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteUserMetadataAsync($api_token, $user_id, $key = null)
+    {
+        return $this->deleteUserMetadataAsyncWithHttpInfo($api_token, $user_id, $key)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteUserMetadataAsyncWithHttpInfo
+     *
+     * Delete a user metadata - When deleting all items of a user metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteUserMetadataAsyncWithHttpInfo($api_token, $user_id, $key = null)
+    {
+        $returnType = '';
+        $request = $this->deleteUserMetadataRequest($api_token, $user_id, $key);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteUserMetadata'
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteUserMetadataRequest($api_token, $user_id, $key = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteUserMetadata'
+            );
+        }
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling deleteUserMetadata'
+            );
+        }
+
+        $resourcePath = '/v3/users/{user_id}/metadata';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($key !== null) {
+            if('form' === 'form' && is_array($key)) {
+                foreach($key as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['key'] = $key;
+            }
+        }
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteUserMetadataByKey
+     *
+     * Delete a user metadata - When deleting a specific item of a user metadata by its key
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $user_id user_id (required)
+     * @param  string $key key (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteUserMetadataByKey($api_token, $user_id, $key)
+    {
+        $this->deleteUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key);
+    }
+
+    /**
+     * Operation deleteUserMetadataByKeyWithHttpInfo
+     *
+     * Delete a user metadata - When deleting a specific item of a user metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key)
+    {
+        $request = $this->deleteUserMetadataByKeyRequest($api_token, $user_id, $key);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteUserMetadataByKeyAsync
+     *
+     * Delete a user metadata - When deleting a specific item of a user metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteUserMetadataByKeyAsync($api_token, $user_id, $key)
+    {
+        return $this->deleteUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteUserMetadataByKeyAsyncWithHttpInfo
+     *
+     * Delete a user metadata - When deleting a specific item of a user metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key)
+    {
+        $returnType = '';
+        $request = $this->deleteUserMetadataByKeyRequest($api_token, $user_id, $key);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteUserMetadataByKey'
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteUserMetadataByKeyRequest($api_token, $user_id, $key)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling deleteUserMetadataByKey'
+            );
+        }
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling deleteUserMetadataByKey'
+            );
+        }
+        // verify the required parameter 'key' is set
+        if ($key === null || (is_array($key) && count($key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key when calling deleteUserMetadataByKey'
+            );
+        }
+
+        $resourcePath = '/v3/users/{user_id}/metadata/{key}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key' . '}',
+                ObjectSerializer::toPathValue($key),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
                 []
             );
         }
@@ -2177,1008 +4123,6 @@ class UserApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listBannedChannels
-     *
-     * List banned channels
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ListBannedChannelsResponse
-     */
-    public function listBannedChannels($api_token, $user_id, $token = null, $limit = null)
-    {
-        list($response) = $this->listBannedChannelsWithHttpInfo($api_token, $user_id, $token, $limit);
-        return $response;
-    }
-
-    /**
-     * Operation listBannedChannelsWithHttpInfo
-     *
-     * List banned channels
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ListBannedChannelsResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listBannedChannelsWithHttpInfo($api_token, $user_id, $token = null, $limit = null)
-    {
-        $request = $this->listBannedChannelsRequest($api_token, $user_id, $token, $limit);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ListBannedChannelsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListBannedChannelsResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ListBannedChannelsResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ListBannedChannelsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listBannedChannelsAsync
-     *
-     * List banned channels
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listBannedChannelsAsync($api_token, $user_id, $token = null, $limit = null)
-    {
-        return $this->listBannedChannelsAsyncWithHttpInfo($api_token, $user_id, $token, $limit)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listBannedChannelsAsyncWithHttpInfo
-     *
-     * List banned channels
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listBannedChannelsAsyncWithHttpInfo($api_token, $user_id, $token = null, $limit = null)
-    {
-        $returnType = '\Sendbird\Model\ListBannedChannelsResponse';
-        $request = $this->listBannedChannelsRequest($api_token, $user_id, $token, $limit);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listBannedChannels'
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function listBannedChannelsRequest($api_token, $user_id, $token = null, $limit = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling listBannedChannels'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling listBannedChannels'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/ban';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($token !== null) {
-            if('form' === 'form' && is_array($token)) {
-                foreach($token as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['token'] = $token;
-            }
-        }
-        // query params
-        if ($limit !== null) {
-            if('form' === 'form' && is_array($limit)) {
-                foreach($limit as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['limit'] = $limit;
-            }
-        }
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listBlockedUsers
-     *
-     * List blocked users
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
-     * @param  string $user_ids user_ids (optional)
-     * @param  string $metadatakey metadatakey (optional)
-     * @param  string $metadatavalues_in metadatavalues_in (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ListBlockedUsersResponse
-     */
-    public function listBlockedUsers($api_token, $user_id, $token = null, $limit = null, $user_ids = null, $metadatakey = null, $metadatavalues_in = null)
-    {
-        list($response) = $this->listBlockedUsersWithHttpInfo($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in);
-        return $response;
-    }
-
-    /**
-     * Operation listBlockedUsersWithHttpInfo
-     *
-     * List blocked users
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     * @param  string $user_ids (optional)
-     * @param  string $metadatakey (optional)
-     * @param  string $metadatavalues_in (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ListBlockedUsersResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listBlockedUsersWithHttpInfo($api_token, $user_id, $token = null, $limit = null, $user_ids = null, $metadatakey = null, $metadatavalues_in = null)
-    {
-        $request = $this->listBlockedUsersRequest($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ListBlockedUsersResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListBlockedUsersResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ListBlockedUsersResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ListBlockedUsersResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listBlockedUsersAsync
-     *
-     * List blocked users
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     * @param  string $user_ids (optional)
-     * @param  string $metadatakey (optional)
-     * @param  string $metadatavalues_in (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listBlockedUsersAsync($api_token, $user_id, $token = null, $limit = null, $user_ids = null, $metadatakey = null, $metadatavalues_in = null)
-    {
-        return $this->listBlockedUsersAsyncWithHttpInfo($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listBlockedUsersAsyncWithHttpInfo
-     *
-     * List blocked users
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     * @param  string $user_ids (optional)
-     * @param  string $metadatakey (optional)
-     * @param  string $metadatavalues_in (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listBlockedUsersAsyncWithHttpInfo($api_token, $user_id, $token = null, $limit = null, $user_ids = null, $metadatakey = null, $metadatavalues_in = null)
-    {
-        $returnType = '\Sendbird\Model\ListBlockedUsersResponse';
-        $request = $this->listBlockedUsersRequest($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listBlockedUsers'
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     * @param  string $user_ids (optional)
-     * @param  string $metadatakey (optional)
-     * @param  string $metadatavalues_in (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function listBlockedUsersRequest($api_token, $user_id, $token = null, $limit = null, $user_ids = null, $metadatakey = null, $metadatavalues_in = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling listBlockedUsers'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling listBlockedUsers'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/block';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($token !== null) {
-            if('form' === 'form' && is_array($token)) {
-                foreach($token as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['token'] = $token;
-            }
-        }
-        // query params
-        if ($limit !== null) {
-            if('form' === 'form' && is_array($limit)) {
-                foreach($limit as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['limit'] = $limit;
-            }
-        }
-        // query params
-        if ($user_ids !== null) {
-            if('form' === 'form' && is_array($user_ids)) {
-                foreach($user_ids as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['user_ids'] = $user_ids;
-            }
-        }
-        // query params
-        if ($metadatakey !== null) {
-            if('form' === 'form' && is_array($metadatakey)) {
-                foreach($metadatakey as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['metadatakey'] = $metadatakey;
-            }
-        }
-        // query params
-        if ($metadatavalues_in !== null) {
-            if('form' === 'form' && is_array($metadatavalues_in)) {
-                foreach($metadatavalues_in as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['metadatavalues_in'] = $metadatavalues_in;
-            }
-        }
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation listMutedChannels
-     *
-     * List muted channels
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ListMutedChannelsResponse
-     */
-    public function listMutedChannels($api_token, $user_id, $token = null, $limit = null)
-    {
-        list($response) = $this->listMutedChannelsWithHttpInfo($api_token, $user_id, $token, $limit);
-        return $response;
-    }
-
-    /**
-     * Operation listMutedChannelsWithHttpInfo
-     *
-     * List muted channels
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ListMutedChannelsResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function listMutedChannelsWithHttpInfo($api_token, $user_id, $token = null, $limit = null)
-    {
-        $request = $this->listMutedChannelsRequest($api_token, $user_id, $token, $limit);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ListMutedChannelsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListMutedChannelsResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ListMutedChannelsResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ListMutedChannelsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation listMutedChannelsAsync
-     *
-     * List muted channels
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listMutedChannelsAsync($api_token, $user_id, $token = null, $limit = null)
-    {
-        return $this->listMutedChannelsAsyncWithHttpInfo($api_token, $user_id, $token, $limit)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation listMutedChannelsAsyncWithHttpInfo
-     *
-     * List muted channels
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function listMutedChannelsAsyncWithHttpInfo($api_token, $user_id, $token = null, $limit = null)
-    {
-        $returnType = '\Sendbird\Model\ListMutedChannelsResponse';
-        $request = $this->listMutedChannelsRequest($api_token, $user_id, $token, $limit);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'listMutedChannels'
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function listMutedChannelsRequest($api_token, $user_id, $token = null, $limit = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling listMutedChannels'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling listMutedChannels'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/mute';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($token !== null) {
-            if('form' === 'form' && is_array($token)) {
-                foreach($token as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['token'] = $token;
-            }
-        }
-        // query params
-        if ($limit !== null) {
-            if('form' === 'form' && is_array($limit)) {
-                foreach($limit as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['limit'] = $limit;
-            }
-        }
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -5125,303 +6069,6 @@ class UserApi
     }
 
     /**
-     * Operation muteInChannelsWithCustomChannelTypes
-     *
-     * Mute in channels with custom channel types
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData $mute_in_channels_with_custom_channel_types_data mute_in_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return object
-     */
-    public function muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
-    {
-        list($response) = $this->muteInChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
-        return $response;
-    }
-
-    /**
-     * Operation muteInChannelsWithCustomChannelTypesWithHttpInfo
-     *
-     * Mute in channels with custom channel types
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData $mute_in_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function muteInChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
-    {
-        $request = $this->muteInChannelsWithCustomChannelTypesRequest($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'object', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'object';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation muteInChannelsWithCustomChannelTypesAsync
-     *
-     * Mute in channels with custom channel types
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData $mute_in_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function muteInChannelsWithCustomChannelTypesAsync($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
-    {
-        return $this->muteInChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation muteInChannelsWithCustomChannelTypesAsyncWithHttpInfo
-     *
-     * Mute in channels with custom channel types
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData $mute_in_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function muteInChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
-    {
-        $returnType = 'object';
-        $request = $this->muteInChannelsWithCustomChannelTypesRequest($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'muteInChannelsWithCustomChannelTypes'
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData $mute_in_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function muteInChannelsWithCustomChannelTypesRequest($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling muteInChannelsWithCustomChannelTypes'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling muteInChannelsWithCustomChannelTypes'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/muted_channel_custom_types';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($mute_in_channels_with_custom_channel_types_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($mute_in_channels_with_custom_channel_types_data));
-            } else {
-                $httpBody = $mute_in_channels_with_custom_channel_types_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation registerAsOperatorToChannelsWithCustomChannelTypes
      *
      * Register as an operator to channels with custom channel types
@@ -6920,311 +7567,6 @@ class UserApi
     }
 
     /**
-     * Operation unblockUserById
-     *
-     * Unblock a user
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $target_id target_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return object
-     */
-    public function unblockUserById($api_token, $user_id, $target_id)
-    {
-        list($response) = $this->unblockUserByIdWithHttpInfo($api_token, $user_id, $target_id);
-        return $response;
-    }
-
-    /**
-     * Operation unblockUserByIdWithHttpInfo
-     *
-     * Unblock a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $target_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function unblockUserByIdWithHttpInfo($api_token, $user_id, $target_id)
-    {
-        $request = $this->unblockUserByIdRequest($api_token, $user_id, $target_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'object', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'object';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation unblockUserByIdAsync
-     *
-     * Unblock a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $target_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function unblockUserByIdAsync($api_token, $user_id, $target_id)
-    {
-        return $this->unblockUserByIdAsyncWithHttpInfo($api_token, $user_id, $target_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation unblockUserByIdAsyncWithHttpInfo
-     *
-     * Unblock a user
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $target_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function unblockUserByIdAsyncWithHttpInfo($api_token, $user_id, $target_id)
-    {
-        $returnType = 'object';
-        $request = $this->unblockUserByIdRequest($api_token, $user_id, $target_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'unblockUserById'
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $target_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function unblockUserByIdRequest($api_token, $user_id, $target_id)
-    {
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling unblockUserById'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling unblockUserById'
-            );
-        }
-        // verify the required parameter 'target_id' is set
-        if ($target_id === null || (is_array($target_id) && count($target_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $target_id when calling unblockUserById'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/block/{target_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($target_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'target_id' . '}',
-                ObjectSerializer::toPathValue($target_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation updateChannelInvitationPreference
      *
      * Update channel invitation preference
@@ -7475,6 +7817,1308 @@ class UserApi
                 $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_channel_invitation_preference_data));
             } else {
                 $httpBody = $update_channel_invitation_preference_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateChannelMetacounter
+     *
+     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $channel_type channel_type (required)
+     * @param  string $channel_url channel_url (required)
+     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data update_channel_metacounter_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,\Sendbird\Model\SendBirdAdditionalProperties>
+     */
+    public function updateChannelMetacounter($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
+    {
+        list($response) = $this->updateChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
+        return $response;
+    }
+
+    /**
+     * Operation updateChannelMetacounterWithHttpInfo
+     *
+     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,\Sendbird\Model\SendBirdAdditionalProperties>, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
+    {
+        $request = $this->updateChannelMetacounterRequest($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,\Sendbird\Model\SendBirdAdditionalProperties>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,\Sendbird\Model\SendBirdAdditionalProperties>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateChannelMetacounterAsync
+     *
+     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateChannelMetacounterAsync($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
+    {
+        return $this->updateChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateChannelMetacounterAsyncWithHttpInfo
+     *
+     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
+    {
+        $returnType = 'array<string,\Sendbird\Model\SendBirdAdditionalProperties>';
+        $request = $this->updateChannelMetacounterRequest($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateChannelMetacounter'
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateChannelMetacounterRequest($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateChannelMetacounter'
+            );
+        }
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling updateChannelMetacounter'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling updateChannelMetacounter'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($update_channel_metacounter_data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_channel_metacounter_data));
+            } else {
+                $httpBody = $update_channel_metacounter_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateChannelMetacounterByKey
+     *
+     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $channel_type channel_type (required)
+     * @param  string $channel_url channel_url (required)
+     * @param  string $key key (required)
+     * @param  object $body body (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,string>
+     */
+    public function updateChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key, $body = null)
+    {
+        list($response) = $this->updateChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateChannelMetacounterByKeyWithHttpInfo
+     *
+     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
+    {
+        $request = $this->updateChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,string>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,string>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,string>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateChannelMetacounterByKeyAsync
+     *
+     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateChannelMetacounterByKeyAsync($api_token, $channel_type, $channel_url, $key, $body = null)
+    {
+        return $this->updateChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateChannelMetacounterByKeyAsyncWithHttpInfo
+     *
+     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
+    {
+        $returnType = 'array<string,string>';
+        $request = $this->updateChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateChannelMetacounterByKey'
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key, $body = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateChannelMetacounterByKey'
+            );
+        }
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling updateChannelMetacounterByKey'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling updateChannelMetacounterByKey'
+            );
+        }
+        // verify the required parameter 'key' is set
+        if ($key === null || (is_array($key) && count($key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key when calling updateChannelMetacounterByKey'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter/{key}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key' . '}',
+                ObjectSerializer::toPathValue($key),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateChannelMetadata
+     *
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $channel_type channel_type (required)
+     * @param  string $channel_url channel_url (required)
+     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data update_channel_metadata_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,string>
+     */
+    public function updateChannelMetadata($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
+    {
+        list($response) = $this->updateChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
+        return $response;
+    }
+
+    /**
+     * Operation updateChannelMetadataWithHttpInfo
+     *
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
+    {
+        $request = $this->updateChannelMetadataRequest($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,string>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,string>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,string>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateChannelMetadataAsync
+     *
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateChannelMetadataAsync($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
+    {
+        return $this->updateChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateChannelMetadataAsyncWithHttpInfo
+     *
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
+    {
+        $returnType = 'array<string,string>';
+        $request = $this->updateChannelMetadataRequest($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateChannelMetadata'
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateChannelMetadataRequest($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateChannelMetadata'
+            );
+        }
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling updateChannelMetadata'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling updateChannelMetadata'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metadata';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($update_channel_metadata_data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_channel_metadata_data));
+            } else {
+                $httpBody = $update_channel_metadata_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateChannelMetadataByKey
+     *
+     * Update a channel metadata - When updating a specific item of a channel metadata by its key
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $channel_type channel_type (required)
+     * @param  string $channel_url channel_url (required)
+     * @param  string $key key (required)
+     * @param  object $body body (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,string>
+     */
+    public function updateChannelMetadataByKey($api_token, $channel_type, $channel_url, $key, $body = null)
+    {
+        list($response) = $this->updateChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateChannelMetadataByKeyWithHttpInfo
+     *
+     * Update a channel metadata - When updating a specific item of a channel metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
+    {
+        $request = $this->updateChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,string>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,string>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,string>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateChannelMetadataByKeyAsync
+     *
+     * Update a channel metadata - When updating a specific item of a channel metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateChannelMetadataByKeyAsync($api_token, $channel_type, $channel_url, $key, $body = null)
+    {
+        return $this->updateChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateChannelMetadataByKeyAsyncWithHttpInfo
+     *
+     * Update a channel metadata - When updating a specific item of a channel metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
+    {
+        $returnType = 'array<string,string>';
+        $request = $this->updateChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateChannelMetadataByKey'
+     *
+     * @param  string $api_token (required)
+     * @param  string $channel_type (required)
+     * @param  string $channel_url (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key, $body = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateChannelMetadataByKey'
+            );
+        }
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling updateChannelMetadataByKey'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling updateChannelMetadataByKey'
+            );
+        }
+        // verify the required parameter 'key' is set
+        if ($key === null || (is_array($key) && count($key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key when calling updateChannelMetadataByKey'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metadata/{key}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key' . '}',
+                ObjectSerializer::toPathValue($key),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -8701,6 +10345,619 @@ class UserApi
                 $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_user_by_id_data));
             } else {
                 $httpBody = $update_user_by_id_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateUserMetadata
+     *
+     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $user_id user_id (required)
+     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data update_user_metadata_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\UpdateUserMetadataResponse
+     */
+    public function updateUserMetadata($api_token, $user_id, $update_user_metadata_data = null)
+    {
+        list($response) = $this->updateUserMetadataWithHttpInfo($api_token, $user_id, $update_user_metadata_data);
+        return $response;
+    }
+
+    /**
+     * Operation updateUserMetadataWithHttpInfo
+     *
+     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\UpdateUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateUserMetadataWithHttpInfo($api_token, $user_id, $update_user_metadata_data = null)
+    {
+        $request = $this->updateUserMetadataRequest($api_token, $user_id, $update_user_metadata_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\UpdateUserMetadataResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UpdateUserMetadataResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\UpdateUserMetadataResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\UpdateUserMetadataResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateUserMetadataAsync
+     *
+     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateUserMetadataAsync($api_token, $user_id, $update_user_metadata_data = null)
+    {
+        return $this->updateUserMetadataAsyncWithHttpInfo($api_token, $user_id, $update_user_metadata_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateUserMetadataAsyncWithHttpInfo
+     *
+     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateUserMetadataAsyncWithHttpInfo($api_token, $user_id, $update_user_metadata_data = null)
+    {
+        $returnType = '\Sendbird\Model\UpdateUserMetadataResponse';
+        $request = $this->updateUserMetadataRequest($api_token, $user_id, $update_user_metadata_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateUserMetadata'
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateUserMetadataRequest($api_token, $user_id, $update_user_metadata_data = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateUserMetadata'
+            );
+        }
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling updateUserMetadata'
+            );
+        }
+
+        $resourcePath = '/v3/users/{user_id}/metadata';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($update_user_metadata_data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_user_metadata_data));
+            } else {
+                $httpBody = $update_user_metadata_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateUserMetadataByKey
+     *
+     * Update a user metadata - When updating a specific item of a user metadata by its key
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $user_id user_id (required)
+     * @param  string $key key (required)
+     * @param  object $body body (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array<string,string>
+     */
+    public function updateUserMetadataByKey($api_token, $user_id, $key, $body = null)
+    {
+        list($response) = $this->updateUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key, $body);
+        return $response;
+    }
+
+    /**
+     * Operation updateUserMetadataByKeyWithHttpInfo
+     *
+     * Update a user metadata - When updating a specific item of a user metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key, $body = null)
+    {
+        $request = $this->updateUserMetadataByKeyRequest($api_token, $user_id, $key, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('array<string,string>' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'array<string,string>';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'array<string,string>',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateUserMetadataByKeyAsync
+     *
+     * Update a user metadata - When updating a specific item of a user metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateUserMetadataByKeyAsync($api_token, $user_id, $key, $body = null)
+    {
+        return $this->updateUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateUserMetadataByKeyAsyncWithHttpInfo
+     *
+     * Update a user metadata - When updating a specific item of a user metadata by its key
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key, $body = null)
+    {
+        $returnType = 'array<string,string>';
+        $request = $this->updateUserMetadataByKeyRequest($api_token, $user_id, $key, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateUserMetadataByKey'
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  string $key (required)
+     * @param  object $body (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateUserMetadataByKeyRequest($api_token, $user_id, $key, $body = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling updateUserMetadataByKey'
+            );
+        }
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling updateUserMetadataByKey'
+            );
+        }
+        // verify the required parameter 'key' is set
+        if ($key === null || (is_array($key) && count($key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key when calling updateUserMetadataByKey'
+            );
+        }
+
+        $resourcePath = '/v3/users/{user_id}/metadata/{key}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key' . '}',
+                ObjectSerializer::toPathValue($key),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

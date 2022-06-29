@@ -59,7 +59,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'any_of' => 'string'
+        'muted_list' => '\Sendbird\Model\SendBirdUser[]',
+        'next' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'any_of' => null
+        'muted_list' => null,
+        'next' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'any_of' => 'anyOf'
+        'muted_list' => 'muted_list',
+        'next' => 'next'
     ];
 
     /**
@@ -109,7 +112,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'any_of' => 'setAnyOf'
+        'muted_list' => 'setMutedList',
+        'next' => 'setNext'
     ];
 
     /**
@@ -118,7 +122,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'any_of' => 'getAnyOf'
+        'muted_list' => 'getMutedList',
+        'next' => 'getNext'
     ];
 
     /**
@@ -178,7 +183,8 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['any_of'] = $data['any_of'] ?? null;
+        $this->container['muted_list'] = $data['muted_list'] ?? null;
+        $this->container['next'] = $data['next'] ?? null;
     }
 
     /**
@@ -206,25 +212,49 @@ class InlineResponse200 implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets any_of
+     * Gets muted_list
      *
-     * @return string|null
+     * @return \Sendbird\Model\SendBirdUser[]|null
      */
-    public function getAnyOf()
+    public function getMutedList()
     {
-        return $this->container['any_of'];
+        return $this->container['muted_list'];
     }
 
     /**
-     * Sets any_of
+     * Sets muted_list
      *
-     * @param string|null $any_of any_of
+     * @param \Sendbird\Model\SendBirdUser[]|null $muted_list muted_list
      *
      * @return self
      */
-    public function setAnyOf($any_of)
+    public function setMutedList($muted_list)
     {
-        $this->container['any_of'] = $any_of;
+        $this->container['muted_list'] = $muted_list;
+
+        return $this;
+    }
+
+    /**
+     * Gets next
+     *
+     * @return string|null
+     */
+    public function getNext()
+    {
+        return $this->container['next'];
+    }
+
+    /**
+     * Sets next
+     *
+     * @param string|null $next next
+     *
+     * @return self
+     */
+    public function setNext($next)
+    {
+        $this->container['next'] = $next;
 
         return $this;
     }

@@ -5,31 +5,39 @@ All URIs are relative to https://api-APP_ID.sendbird.com.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addRegistrationOrDeviceToken()**](UserApi.md#addRegistrationOrDeviceToken) | **POST** /v3/users/{user_id}/push/{token_type} | Add a registration or device token
-[**banFromChannelsWithCustomChannelTypes()**](UserApi.md#banFromChannelsWithCustomChannelTypes) | **POST** /v3/users/{user_id}/banned_channel_custom_types | Ban from channels with custom channel types
-[**blockUser()**](UserApi.md#blockUser) | **POST** /v3/users/{user_id}/block | Block a user
 [**choosePushNotificationContentTemplate()**](UserApi.md#choosePushNotificationContentTemplate) | **PUT** /v3/users/{user_id}/push/template | Choose a push notification content template
+[**createChannelMetacounter()**](UserApi.md#createChannelMetacounter) | **POST** /v3/{channel_type}/{channel_url}/metacounter | Create a channel metacounter
+[**createChannelMetadata()**](UserApi.md#createChannelMetadata) | **POST** /v3/{channel_type}/{channel_url}/metadata | Create a channel metadata
 [**createUser()**](UserApi.md#createUser) | **POST** /v3/users | Create a user
+[**createUserMetadata()**](UserApi.md#createUserMetadata) | **POST** /v3/users/{user_id}/metadata | Create a user metadata
+[**deleteChannelMetacounter()**](UserApi.md#deleteChannelMetacounter) | **DELETE** /v3/{channel_type}/{channel_url}/metacounter | Delete a channel metacounter - When deleting all items of a channel metacounter
+[**deleteChannelMetacounterByKey()**](UserApi.md#deleteChannelMetacounterByKey) | **DELETE** /v3/{channel_type}/{channel_url}/metacounter/{key} | Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+[**deleteChannelMetadata()**](UserApi.md#deleteChannelMetadata) | **DELETE** /v3/{channel_type}/{channel_url}/metadata | Delete a channel metadata - When deleting all items of a channel metadata
+[**deleteChannelMetadataByKey()**](UserApi.md#deleteChannelMetadataByKey) | **DELETE** /v3/{channel_type}/{channel_url}/metadata/{key} | Delete a channel metadata - When deleting a specific item of a channel metadata by its key
 [**deleteUserById()**](UserApi.md#deleteUserById) | **DELETE** /v3/users/{user_id} | Delete a user
+[**deleteUserMetadata()**](UserApi.md#deleteUserMetadata) | **DELETE** /v3/users/{user_id}/metadata | Delete a user metadata - When deleting all items of a user metadata
+[**deleteUserMetadataByKey()**](UserApi.md#deleteUserMetadataByKey) | **DELETE** /v3/users/{user_id}/metadata/{key} | Delete a user metadata - When deleting a specific item of a user metadata by its key
 [**leaveMyGroupChannels()**](UserApi.md#leaveMyGroupChannels) | **PUT** /v3/users/{user_id}/my_group_channels/leave | Leave my group channels
-[**listBannedChannels()**](UserApi.md#listBannedChannels) | **GET** /v3/users/{user_id}/ban | List banned channels
-[**listBlockedUsers()**](UserApi.md#listBlockedUsers) | **GET** /v3/users/{user_id}/block | List blocked users
-[**listMutedChannels()**](UserApi.md#listMutedChannels) | **GET** /v3/users/{user_id}/mute | List muted channels
 [**listMyGroupChannels()**](UserApi.md#listMyGroupChannels) | **GET** /v3/users/{user_id}/my_group_channels | List my group channels
 [**listRegistrationOrDeviceTokens()**](UserApi.md#listRegistrationOrDeviceTokens) | **GET** /v3/users/{user_id}/push/{token_type} | List registration or device tokens
 [**listUsers()**](UserApi.md#listUsers) | **GET** /v3/users | List users
 [**markAllMessagesAsRead()**](UserApi.md#markAllMessagesAsRead) | **PUT** /v3/users/{user_id}/mark_as_read_all | Mark all messages as read
-[**muteInChannelsWithCustomChannelTypes()**](UserApi.md#muteInChannelsWithCustomChannelTypes) | **POST** /v3/users/{user_id}/muted_channel_custom_types | Mute in channels with custom channel types
 [**registerAsOperatorToChannelsWithCustomChannelTypes()**](UserApi.md#registerAsOperatorToChannelsWithCustomChannelTypes) | **POST** /v3/users/{user_id}/operating_channel_custom_types | Register as an operator to channels with custom channel types
 [**removeRegistrationOrDeviceToken()**](UserApi.md#removeRegistrationOrDeviceToken) | **DELETE** /v3/users/{user_id}/push | Remove a registration or device token - When unregistering all device tokens
 [**removeRegistrationOrDeviceTokenByToken()**](UserApi.md#removeRegistrationOrDeviceTokenByToken) | **DELETE** /v3/users/{user_id}/push/{token_type}/{token} | Remove a registration or device token - When unregistering a specific token
 [**removeRegistrationOrDeviceTokenFromOwnerByToken()**](UserApi.md#removeRegistrationOrDeviceTokenFromOwnerByToken) | **DELETE** /v3/push/device_tokens/{token_type}/{token} | Remove a registration or device token from an owner
 [**resetPushPreferences()**](UserApi.md#resetPushPreferences) | **DELETE** /v3/users/{user_id}/push_preference | Reset push preferences
-[**unblockUserById()**](UserApi.md#unblockUserById) | **DELETE** /v3/users/{user_id}/block/{target_id} | Unblock a user
 [**updateChannelInvitationPreference()**](UserApi.md#updateChannelInvitationPreference) | **PUT** /v3/users/{user_id}/channel_invitation_preference | Update channel invitation preference
+[**updateChannelMetacounter()**](UserApi.md#updateChannelMetacounter) | **PUT** /v3/{channel_type}/{channel_url}/metacounter | Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+[**updateChannelMetacounterByKey()**](UserApi.md#updateChannelMetacounterByKey) | **PUT** /v3/{channel_type}/{channel_url}/metacounter/{key} | Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+[**updateChannelMetadata()**](UserApi.md#updateChannelMetadata) | **PUT** /v3/{channel_type}/{channel_url}/metadata | Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+[**updateChannelMetadataByKey()**](UserApi.md#updateChannelMetadataByKey) | **PUT** /v3/{channel_type}/{channel_url}/metadata/{key} | Update a channel metadata - When updating a specific item of a channel metadata by its key
 [**updateCountPreferenceOfChannelByUrl()**](UserApi.md#updateCountPreferenceOfChannelByUrl) | **PUT** /v3/users/{user_id}/count_preference/{channel_url} | Update count preference of a channel
 [**updatePushPreferences()**](UserApi.md#updatePushPreferences) | **PUT** /v3/users/{user_id}/push_preference | Update push preferences
 [**updatePushPreferencesForChannelByUrl()**](UserApi.md#updatePushPreferencesForChannelByUrl) | **PUT** /v3/users/{user_id}/push_preference/{channel_url} | Update push preferences for a channel
 [**updateUserById()**](UserApi.md#updateUserById) | **PUT** /v3/users/{user_id} | Update a user
+[**updateUserMetadata()**](UserApi.md#updateUserMetadata) | **PUT** /v3/users/{user_id}/metadata | Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+[**updateUserMetadataByKey()**](UserApi.md#updateUserMetadataByKey) | **PUT** /v3/users/{user_id}/metadata/{key} | Update a user metadata - When updating a specific item of a user metadata by its key
 [**viewChannelInvitationPreference()**](UserApi.md#viewChannelInvitationPreference) | **GET** /v3/users/{user_id}/channel_invitation_preference | View channel invitation preference
 [**viewCountPreferenceOfChannelByUrl()**](UserApi.md#viewCountPreferenceOfChannelByUrl) | **GET** /v3/users/{user_id}/count_preference/{channel_url} | View count preference of a channel
 [**viewNumberOfChannelsByJoinStatus()**](UserApi.md#viewNumberOfChannelsByJoinStatus) | **GET** /v3/users/{user_id}/group_channel_count | View number of channels by join status
@@ -104,126 +112,6 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `banFromChannelsWithCustomChannelTypes()`
-
-```php
-banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data): object
-```
-
-Ban from channels with custom channel types
-
-## Ban from channels with custom channel types  Bans a user from channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-ban-from-channels-with-custom-channel-types ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$ban_from_channels_with_custom_channel_types_data = new \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData(); // \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData
-
-try {
-    $result = $apiInstance->banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->banFromChannelsWithCustomChannelTypes: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **user_id** | **string**|  |
- **ban_from_channels_with_custom_channel_types_data** | [**\Sendbird\Model\BanFromChannelsWithCustomChannelTypesData**](../Model/BanFromChannelsWithCustomChannelTypesData.md)|  | [optional]
-
-### Return type
-
-**object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `blockUser()`
-
-```php
-blockUser($api_token, $user_id, $block_user_data): \Sendbird\Model\BlockUserResponse
-```
-
-Block a user
-
-## Block a user  Allows a user to block another user. A user doesn't receive messages from someone they have blocked anymore. Also, blocking someone doesn't alert them that they have been blocked. Blocked users still can send messages as normal in the channel: however, they can't receive any messages from the users who have blocked them.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-block-a-user ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$block_user_data = new \Sendbird\Model\BlockUserData(); // \Sendbird\Model\BlockUserData
-
-try {
-    $result = $apiInstance->blockUser($api_token, $user_id, $block_user_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->blockUser: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **user_id** | **string**|  |
- **block_user_data** | [**\Sendbird\Model\BlockUserData**](../Model/BlockUserData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\BlockUserResponse**](../Model/BlockUserResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `choosePushNotificationContentTemplate()`
 
 ```php
@@ -270,6 +158,130 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Sendbird\Model\ChoosePushNotificationContentTemplateResponse**](../Model/ChoosePushNotificationContentTemplateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createChannelMetacounter()`
+
+```php
+createChannelMetacounter($api_token, $channel_type, $channel_url, $create_channel_metacounter_data): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
+```
+
+Create a channel metacounter
+
+## Create a channel metacounter  Creates a channel metacounter's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metacounter ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$channel_type = 'channel_type_example'; // string
+$channel_url = 'channel_url_example'; // string
+$create_channel_metacounter_data = new \Sendbird\Model\CreateChannelMetacounterData(); // \Sendbird\Model\CreateChannelMetacounterData
+
+try {
+    $result = $apiInstance->createChannelMetacounter($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->createChannelMetacounter: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **channel_type** | **string**|  |
+ **channel_url** | **string**|  |
+ **create_channel_metacounter_data** | [**\Sendbird\Model\CreateChannelMetacounterData**](../Model/CreateChannelMetacounterData.md)|  | [optional]
+
+### Return type
+
+[**array<string,\Sendbird\Model\SendBirdAdditionalProperties>**](../Model/SendBirdAdditionalProperties.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createChannelMetadata()`
+
+```php
+createChannelMetadata($api_token, $channel_type, $channel_url, $create_channel_metadata_data): \Sendbird\Model\CreateChannelMetadataResponse
+```
+
+Create a channel metadata
+
+## Create a channel metadata  Creates a channel metadata's items to store in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-channel-metadata ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$channel_type = 'channel_type_example'; // string
+$channel_url = 'channel_url_example'; // string
+$create_channel_metadata_data = new \Sendbird\Model\CreateChannelMetadataData(); // \Sendbird\Model\CreateChannelMetadataData
+
+try {
+    $result = $apiInstance->createChannelMetadata($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->createChannelMetadata: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **channel_type** | **string**|  |
+ **channel_url** | **string**|  |
+ **create_channel_metadata_data** | [**\Sendbird\Model\CreateChannelMetadataData**](../Model/CreateChannelMetadataData.md)|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\CreateChannelMetadataResponse**](../Model/CreateChannelMetadataResponse.md)
 
 ### Authorization
 
@@ -342,6 +354,308 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createUserMetadata()`
+
+```php
+createUserMetadata($api_token, $user_id, $create_user_metadata_data): \Sendbird\Model\CreateUserMetadataResponse
+```
+
+Create a user metadata
+
+## Create a user metadata  Creates a user metadata's items to store in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-create-a-user-metadata ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
+$create_user_metadata_data = new \Sendbird\Model\CreateUserMetadataData(); // \Sendbird\Model\CreateUserMetadataData
+
+try {
+    $result = $apiInstance->createUserMetadata($api_token, $user_id, $create_user_metadata_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->createUserMetadata: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **user_id** | **string**|  |
+ **create_user_metadata_data** | [**\Sendbird\Model\CreateUserMetadataData**](../Model/CreateUserMetadataData.md)|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\CreateUserMetadataResponse**](../Model/CreateUserMetadataResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteChannelMetacounter()`
+
+```php
+deleteChannelMetacounter($api_token, $channel_type, $channel_url)
+```
+
+Delete a channel metacounter - When deleting all items of a channel metacounter
+
+## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$channel_type = 'channel_type_example'; // string
+$channel_url = 'channel_url_example'; // string
+
+try {
+    $apiInstance->deleteChannelMetacounter($api_token, $channel_type, $channel_url);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->deleteChannelMetacounter: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **channel_type** | **string**|  |
+ **channel_url** | **string**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteChannelMetacounterByKey()`
+
+```php
+deleteChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key)
+```
+
+Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+
+## Delete a channel metacounter  Deletes a channel metacounter's item that is stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metacounter to delete.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$channel_type = 'channel_type_example'; // string
+$channel_url = 'channel_url_example'; // string
+$key = 'key_example'; // string
+
+try {
+    $apiInstance->deleteChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->deleteChannelMetacounterByKey: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **channel_type** | **string**|  |
+ **channel_url** | **string**|  |
+ **key** | **string**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteChannelMetadata()`
+
+```php
+deleteChannelMetadata($api_token, $channel_type, $channel_url, $key)
+```
+
+Delete a channel metadata - When deleting all items of a channel metadata
+
+## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$channel_type = 'channel_type_example'; // string
+$channel_url = 'channel_url_example'; // string
+$key = 'key_example'; // string
+
+try {
+    $apiInstance->deleteChannelMetadata($api_token, $channel_type, $channel_url, $key);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->deleteChannelMetadata: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **channel_type** | **string**|  |
+ **channel_url** | **string**|  |
+ **key** | **string**|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteChannelMetadataByKey()`
+
+```php
+deleteChannelMetadataByKey($api_token, $channel_type, $channel_url, $key)
+```
+
+Delete a channel metadata - When deleting a specific item of a channel metadata by its key
+
+## Delete a channel metadata  Deletes a channel metadata's one or all items that are stored in a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the channel which has the metadata to delete.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$channel_type = 'channel_type_example'; // string
+$channel_url = 'channel_url_example'; // string
+$key = 'key_example'; // string
+
+try {
+    $apiInstance->deleteChannelMetadataByKey($api_token, $channel_type, $channel_url, $key);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->deleteChannelMetadataByKey: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **channel_type** | **string**|  |
+ **channel_url** | **string**|  |
+ **key** | **string**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteUserById()`
 
 ```php
@@ -395,6 +709,124 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteUserMetadata()`
+
+```php
+deleteUserMetadata($api_token, $user_id, $key)
+```
+
+Delete a user metadata - When deleting all items of a user metadata
+
+## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
+$key = 'key_example'; // string
+
+try {
+    $apiInstance->deleteUserMetadata($api_token, $user_id, $key);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->deleteUserMetadata: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **user_id** | **string**|  |
+ **key** | **string**|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteUserMetadataByKey()`
+
+```php
+deleteUserMetadataByKey($api_token, $user_id, $key)
+```
+
+Delete a user metadata - When deleting a specific item of a user metadata by its key
+
+## Delete a user metadata  Deletes a user metadata's one or all items that are stored in a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-delete-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user who has the metadata to delete.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
+$key = 'key_example'; // string
+
+try {
+    $apiInstance->deleteUserMetadataByKey($api_token, $user_id, $key);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->deleteUserMetadataByKey: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **user_id** | **string**|  |
+ **key** | **string**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -454,198 +886,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `listBannedChannels()`
-
-```php
-listBannedChannels($api_token, $user_id, $token, $limit): \Sendbird\Model\ListBannedChannelsResponse
-```
-
-List banned channels
-
-## List banned channels  Retrieves a list of open and group channels with additional information where a user is banned.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-banned-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-
-try {
-    $result = $apiInstance->listBannedChannels($api_token, $user_id, $token, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->listBannedChannels: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **user_id** | **string**|  |
- **token** | **string**|  | [optional]
- **limit** | **int**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\ListBannedChannelsResponse**](../Model/ListBannedChannelsResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `listBlockedUsers()`
-
-```php
-listBlockedUsers($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in): \Sendbird\Model\ListBlockedUsersResponse
-```
-
-List blocked users
-
-## List blocked users  Retrieves a list of other users that a user has blocked.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-blocked-users ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-$user_ids = 'user_ids_example'; // string
-$metadatakey = 'metadatakey_example'; // string
-$metadatavalues_in = 'metadatavalues_in_example'; // string
-
-try {
-    $result = $apiInstance->listBlockedUsers($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->listBlockedUsers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **user_id** | **string**|  |
- **token** | **string**|  | [optional]
- **limit** | **int**|  | [optional]
- **user_ids** | **string**|  | [optional]
- **metadatakey** | **string**|  | [optional]
- **metadatavalues_in** | **string**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\ListBlockedUsersResponse**](../Model/ListBlockedUsersResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `listMutedChannels()`
-
-```php
-listMutedChannels($api_token, $user_id, $token, $limit): \Sendbird\Model\ListMutedChannelsResponse
-```
-
-List muted channels
-
-## List muted channels  Retrieves a list of open and group channels with additional information where a user is muted.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-list-muted-channels ----------------------------   `user_id`      Type: string      Description: Specifies the unique ID of the target user.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-
-try {
-    $result = $apiInstance->listMutedChannels($api_token, $user_id, $token, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->listMutedChannels: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **user_id** | **string**|  |
- **token** | **string**|  | [optional]
- **limit** | **int**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\ListMutedChannelsResponse**](../Model/ListMutedChannelsResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -984,66 +1224,6 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `muteInChannelsWithCustomChannelTypes()`
-
-```php
-muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data): object
-```
-
-Mute in channels with custom channel types
-
-## Mute in channels with custom channel types  Mutes a user in channels with particular custom channel types.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-mute-in-channels-with-custom-channel-types ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$mute_in_channels_with_custom_channel_types_data = new \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData(); // \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData
-
-try {
-    $result = $apiInstance->muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->muteInChannelsWithCustomChannelTypes: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **user_id** | **string**|  |
- **mute_in_channels_with_custom_channel_types_data** | [**\Sendbird\Model\MuteInChannelsWithCustomChannelTypesData**](../Model/MuteInChannelsWithCustomChannelTypesData.md)|  | [optional]
-
-### Return type
-
-**object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `registerAsOperatorToChannelsWithCustomChannelTypes()`
 
 ```php
@@ -1342,66 +1522,6 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `unblockUserById()`
-
-```php
-unblockUserById($api_token, $user_id, $target_id): object
-```
-
-Unblock a user
-
-## Unblock a user  Unblocks the user.  https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-unblock-a-user ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$target_id = 'target_id_example'; // string
-
-try {
-    $result = $apiInstance->unblockUserById($api_token, $user_id, $target_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->unblockUserById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **user_id** | **string**|  |
- **target_id** | **string**|  |
-
-### Return type
-
-**object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `updateChannelInvitationPreference()`
 
 ```php
@@ -1448,6 +1568,258 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Sendbird\Model\UpdateChannelInvitationPreferenceResponse**](../Model/UpdateChannelInvitationPreferenceResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateChannelMetacounter()`
+
+```php
+updateChannelMetacounter($api_token, $channel_type, $channel_url, $update_channel_metacounter_data): array<string,\Sendbird\Model\SendBirdAdditionalProperties>
+```
+
+Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+
+## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$channel_type = 'channel_type_example'; // string
+$channel_url = 'channel_url_example'; // string
+$update_channel_metacounter_data = new \Sendbird\Model\UpdateChannelMetacounterData(); // \Sendbird\Model\UpdateChannelMetacounterData
+
+try {
+    $result = $apiInstance->updateChannelMetacounter($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->updateChannelMetacounter: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **channel_type** | **string**|  |
+ **channel_url** | **string**|  |
+ **update_channel_metacounter_data** | [**\Sendbird\Model\UpdateChannelMetacounterData**](../Model/UpdateChannelMetacounterData.md)|  | [optional]
+
+### Return type
+
+[**array<string,\Sendbird\Model\SendBirdAdditionalProperties>**](../Model/SendBirdAdditionalProperties.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateChannelMetacounterByKey()`
+
+```php
+updateChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key, $body): array<string,string>
+```
+
+Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+
+## Update a channel metacounter  Updates existing items of a channel metacounter by their keys, or adds new items to the metacounter.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metacounter ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$channel_type = 'channel_type_example'; // string
+$channel_url = 'channel_url_example'; // string
+$key = 'key_example'; // string
+$body = array('key' => new \stdClass); // object
+
+try {
+    $result = $apiInstance->updateChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->updateChannelMetacounterByKey: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **channel_type** | **string**|  |
+ **channel_url** | **string**|  |
+ **key** | **string**|  |
+ **body** | **object**|  | [optional]
+
+### Return type
+
+**array<string,string>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateChannelMetadata()`
+
+```php
+updateChannelMetadata($api_token, $channel_type, $channel_url, $update_channel_metadata_data): array<string,string>
+```
+
+Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+
+## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$channel_type = 'channel_type_example'; // string
+$channel_url = 'channel_url_example'; // string
+$update_channel_metadata_data = new \Sendbird\Model\UpdateChannelMetadataData(); // \Sendbird\Model\UpdateChannelMetadataData
+
+try {
+    $result = $apiInstance->updateChannelMetadata($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->updateChannelMetadata: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **channel_type** | **string**|  |
+ **channel_url** | **string**|  |
+ **update_channel_metadata_data** | [**\Sendbird\Model\UpdateChannelMetadataData**](../Model/UpdateChannelMetadataData.md)|  | [optional]
+
+### Return type
+
+**array<string,string>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateChannelMetadataByKey()`
+
+```php
+updateChannelMetadataByKey($api_token, $channel_type, $channel_url, $key, $body): array<string,string>
+```
+
+Update a channel metadata - When updating a specific item of a channel metadata by its key
+
+## Update a channel metadata  Updates existing items of a channel metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-channel-metadata ----------------------------   `channel_type`      Type: string      Description: Specifies the type of the channel. Either open_channels or group_channels.  `channel_url`      Type: string      Description: Specifies the URL of the target channel.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$channel_type = 'channel_type_example'; // string
+$channel_url = 'channel_url_example'; // string
+$key = 'key_example'; // string
+$body = array('key' => new \stdClass); // object
+
+try {
+    $result = $apiInstance->updateChannelMetadataByKey($api_token, $channel_type, $channel_url, $key, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->updateChannelMetadataByKey: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **channel_type** | **string**|  |
+ **channel_url** | **string**|  |
+ **key** | **string**|  |
+ **body** | **object**|  | [optional]
+
+### Return type
+
+**array<string,string>**
 
 ### Authorization
 
@@ -1692,6 +2064,128 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateUserMetadata()`
+
+```php
+updateUserMetadata($api_token, $user_id, $update_user_metadata_data): \Sendbird\Model\UpdateUserMetadataResponse
+```
+
+Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+
+## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
+$update_user_metadata_data = new \Sendbird\Model\UpdateUserMetadataData(); // \Sendbird\Model\UpdateUserMetadataData
+
+try {
+    $result = $apiInstance->updateUserMetadata($api_token, $user_id, $update_user_metadata_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->updateUserMetadata: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **user_id** | **string**|  |
+ **update_user_metadata_data** | [**\Sendbird\Model\UpdateUserMetadataData**](../Model/UpdateUserMetadataData.md)|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\UpdateUserMetadataResponse**](../Model/UpdateUserMetadataResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateUserMetadataByKey()`
+
+```php
+updateUserMetadataByKey($api_token, $user_id, $key, $body): array<string,string>
+```
+
+Update a user metadata - When updating a specific item of a user metadata by its key
+
+## Update a user metadata  Updates existing items of a user metadata by their keys, or adds new items to the metadata.  https://sendbird.com/docs/chat/v3/platform-api/guides/user-and-channel-metadata#2-update-a-user-metadata ----------------------------   `user_id`      Type: string      Description: Specifies the ID of the user to update the metadata in.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
+$key = 'key_example'; // string
+$body = array('key' => new \stdClass); // object
+
+try {
+    $result = $apiInstance->updateUserMetadataByKey($api_token, $user_id, $key, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->updateUserMetadataByKey: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **user_id** | **string**|  |
+ **key** | **string**|  |
+ **body** | **object**|  | [optional]
+
+### Return type
+
+**array<string,string>**
 
 ### Authorization
 

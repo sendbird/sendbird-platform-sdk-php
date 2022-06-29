@@ -4,86 +4,16 @@ All URIs are relative to https://api-APP_ID.sendbird.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ocBanUser()**](OpenChannelApi.md#ocBanUser) | **POST** /v3/open_channels/{channel_url}/ban | Ban a user
 [**ocCancelTheRegistrationOfOperators()**](OpenChannelApi.md#ocCancelTheRegistrationOfOperators) | **DELETE** /v3/open_channels/{channel_url}/operators | Cancel the registration of operators
 [**ocCreateChannel()**](OpenChannelApi.md#ocCreateChannel) | **POST** /v3/open_channels | Create a channel
 [**ocDeleteChannelByUrl()**](OpenChannelApi.md#ocDeleteChannelByUrl) | **DELETE** /v3/open_channels/{channel_url} | Delete a channel
-[**ocFreezeChannel()**](OpenChannelApi.md#ocFreezeChannel) | **PUT** /v3/open_channels/{channel_url}/freeze | Freeze a channel
-[**ocListBannedUsers()**](OpenChannelApi.md#ocListBannedUsers) | **GET** /v3/open_channels/{channel_url}/ban | List banned users
 [**ocListChannels()**](OpenChannelApi.md#ocListChannels) | **GET** /v3/open_channels | List channels
-[**ocListMutedUsers()**](OpenChannelApi.md#ocListMutedUsers) | **GET** /v3/open_channels/{channel_url}/mute | List muted users
 [**ocListOperators()**](OpenChannelApi.md#ocListOperators) | **GET** /v3/open_channels/{channel_url}/operators | List operators
 [**ocListParticipants()**](OpenChannelApi.md#ocListParticipants) | **GET** /v3/open_channels/{channel_url}/participants | List participants
-[**ocMuteUser()**](OpenChannelApi.md#ocMuteUser) | **POST** /v3/open_channels/{channel_url}/mute | Mute a user
 [**ocRegisterOperators()**](OpenChannelApi.md#ocRegisterOperators) | **POST** /v3/open_channels/{channel_url}/operators | Register operators
-[**ocUnbanUserById()**](OpenChannelApi.md#ocUnbanUserById) | **DELETE** /v3/open_channels/{channel_url}/ban/{banned_user_id} | Unban a user
-[**ocUnmuteUserById()**](OpenChannelApi.md#ocUnmuteUserById) | **DELETE** /v3/open_channels/{channel_url}/mute/{muted_user_id} | Unmute a user
-[**ocUpdateBanById()**](OpenChannelApi.md#ocUpdateBanById) | **PUT** /v3/open_channels/{channel_url}/ban/{banned_user_id} | Update a ban
 [**ocUpdateChannelByUrl()**](OpenChannelApi.md#ocUpdateChannelByUrl) | **PUT** /v3/open_channels/{channel_url} | Update a channel
-[**ocViewBanById()**](OpenChannelApi.md#ocViewBanById) | **GET** /v3/open_channels/{channel_url}/ban/{banned_user_id} | View a ban
 [**ocViewChannelByUrl()**](OpenChannelApi.md#ocViewChannelByUrl) | **GET** /v3/open_channels/{channel_url} | View a channel
-[**ocViewMuteById()**](OpenChannelApi.md#ocViewMuteById) | **GET** /v3/open_channels/{channel_url}/mute/{muted_user_id} | View a mute
 
-
-## `ocBanUser()`
-
-```php
-ocBanUser($api_token, $channel_url, $oc_ban_user_data): \Sendbird\Model\OcBanUserResponse
-```
-
-Ban a user
-
-## Ban a user  Bans a user from an open channel. A banned user is immediately expelled from a channel and allowed to participate in the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-ban-a-user ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$oc_ban_user_data = new \Sendbird\Model\OcBanUserData(); // \Sendbird\Model\OcBanUserData
-
-try {
-    $result = $apiInstance->ocBanUser($api_token, $channel_url, $oc_ban_user_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocBanUser: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **oc_ban_user_data** | [**\Sendbird\Model\OcBanUserData**](../Model/OcBanUserData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\OcBanUserResponse**](../Model/OcBanUserResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
 
 ## `ocCancelTheRegistrationOfOperators()`
 
@@ -207,7 +137,7 @@ No authorization required
 ## `ocDeleteChannelByUrl()`
 
 ```php
-ocDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\InlineResponse200
+ocDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\InlineResponse2001
 ```
 
 Delete a channel
@@ -247,129 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocFreezeChannel()`
-
-```php
-ocFreezeChannel($api_token, $channel_url, $oc_freeze_channel_data): \Sendbird\Model\SendBirdOpenChannel
-```
-
-Freeze a channel
-
-## Freeze a channel  Freezes or unfreezes an open channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-freeze-a-channel ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$oc_freeze_channel_data = new \Sendbird\Model\OcFreezeChannelData(); // \Sendbird\Model\OcFreezeChannelData
-
-try {
-    $result = $apiInstance->ocFreezeChannel($api_token, $channel_url, $oc_freeze_channel_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocFreezeChannel: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **oc_freeze_channel_data** | [**\Sendbird\Model\OcFreezeChannelData**](../Model/OcFreezeChannelData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocListBannedUsers()`
-
-```php
-ocListBannedUsers($api_token, $channel_url, $token, $limit): \Sendbird\Model\OcListBannedUsersResponse
-```
-
-List banned users
-
-## List banned users  Retrieves a list of banned users from a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-
-try {
-    $result = $apiInstance->ocListBannedUsers($api_token, $channel_url, $token, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocListBannedUsers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **token** | **string**|  | [optional]
- **limit** | **int**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\OcListBannedUsersResponse**](../Model/OcListBannedUsersResponse.md)
+[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -442,68 +250,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Sendbird\Model\OcListChannelsResponse**](../Model/OcListChannelsResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocListMutedUsers()`
-
-```php
-ocListMutedUsers($api_token, $channel_url, $token, $limit): \Sendbird\Model\OcListMutedUsersResponse
-```
-
-List muted users
-
-## List muted users  Retrieves a list of muted users in the channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-
-try {
-    $result = $apiInstance->ocListMutedUsers($api_token, $channel_url, $token, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocListMutedUsers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **token** | **string**|  | [optional]
- **limit** | **int**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\OcListMutedUsersResponse**](../Model/OcListMutedUsersResponse.md)
 
 ### Authorization
 
@@ -642,70 +388,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `ocMuteUser()`
-
-```php
-ocMuteUser($api_token, $channel_url, $oc_mute_user_data): \Sendbird\Model\SendBirdOpenChannel
-```
-
-Mute a user
-
-## Mute a user  Mutes a user in the channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-mute-a-user
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$oc_mute_user_data = new \Sendbird\Model\OcMuteUserData(); // \Sendbird\Model\OcMuteUserData
-
-try {
-    $result = $apiInstance->ocMuteUser($api_token, $channel_url, $oc_mute_user_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocMuteUser: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **oc_mute_user_data** | [**\Sendbird\Model\OcMuteUserData**](../Model/OcMuteUserData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `ocRegisterOperators()`
 
 ```php
-ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data): \Sendbird\Model\InlineResponse200
+ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data): \Sendbird\Model\InlineResponse2001
 ```
 
 Register operators
@@ -747,189 +433,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocUnbanUserById()`
-
-```php
-ocUnbanUserById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\InlineResponse200
-```
-
-Unban a user
-
-## Unban a user  Unbans a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unban-a-user ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
-
-try {
-    $result = $apiInstance->ocUnbanUserById($api_token, $channel_url, $banned_user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocUnbanUserById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **banned_user_id** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocUnmuteUserById()`
-
-```php
-ocUnmuteUserById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\InlineResponse200
-```
-
-Unmute a user
-
-## Unmute a user  Unmutes a user from an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-unmute-a-user ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$muted_user_id = 'muted_user_id_example'; // string
-
-try {
-    $result = $apiInstance->ocUnmuteUserById($api_token, $channel_url, $muted_user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocUnmuteUserById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **muted_user_id** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocUpdateBanById()`
-
-```php
-ocUpdateBanById($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data): \Sendbird\Model\OcUpdateBanByIdResponse
-```
-
-Update a ban
-
-## Update a ban  Updates details of a ban imposed on a user. You can change the length of a ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-ban ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
-$oc_update_ban_by_id_data = new \Sendbird\Model\OcUpdateBanByIdData(); // \Sendbird\Model\OcUpdateBanByIdData
-
-try {
-    $result = $apiInstance->ocUpdateBanById($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocUpdateBanById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **banned_user_id** | **string**|  |
- **oc_update_ban_by_id_data** | [**\Sendbird\Model\OcUpdateBanByIdData**](../Model/OcUpdateBanByIdData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\OcUpdateBanByIdResponse**](../Model/OcUpdateBanByIdResponse.md)
+[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -1004,66 +508,6 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `ocViewBanById()`
-
-```php
-ocViewBanById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\OcViewBanByIdResponse
-```
-
-View a ban
-
-## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-ban ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
-
-try {
-    $result = $apiInstance->ocViewBanById($api_token, $channel_url, $banned_user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocViewBanById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **banned_user_id** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\OcViewBanByIdResponse**](../Model/OcViewBanByIdResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `ocViewChannelByUrl()`
 
 ```php
@@ -1108,66 +552,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocViewMuteById()`
-
-```php
-ocViewMuteById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\OcViewMuteByIdResponse
-```
-
-View a mute
-
-## View a mute  Checks if a user is muted in an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-mute ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$muted_user_id = 'muted_user_id_example'; // string
-
-try {
-    $result = $apiInstance->ocViewMuteById($api_token, $channel_url, $muted_user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocViewMuteById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **muted_user_id** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\OcViewMuteByIdResponse**](../Model/OcViewMuteByIdResponse.md)
 
 ### Authorization
 

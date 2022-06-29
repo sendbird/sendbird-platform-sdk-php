@@ -5,33 +5,23 @@ All URIs are relative to https://api-APP_ID.sendbird.com.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**gcAcceptInvitation()**](GroupChannelApi.md#gcAcceptInvitation) | **PUT** /v3/group_channels/{channel_url}/accept | Accept an invitation
-[**gcBanUser()**](GroupChannelApi.md#gcBanUser) | **POST** /v3/group_channels/{channel_url}/ban | Ban a user
 [**gcCancelTheRegistrationOfOperators()**](GroupChannelApi.md#gcCancelTheRegistrationOfOperators) | **DELETE** /v3/group_channels/{channel_url}/operators | Cancel the registration of operators
 [**gcCheckIfMemberById()**](GroupChannelApi.md#gcCheckIfMemberById) | **GET** /v3/group_channels/{channel_url}/members/{user_id} | Check if member
 [**gcCreateChannel()**](GroupChannelApi.md#gcCreateChannel) | **POST** /v3/group_channels | Create a channel
 [**gcDeclineInvitation()**](GroupChannelApi.md#gcDeclineInvitation) | **PUT** /v3/group_channels/{channel_url}/decline | Decline an invitation
 [**gcDeleteChannelByUrl()**](GroupChannelApi.md#gcDeleteChannelByUrl) | **DELETE** /v3/group_channels/{channel_url} | Delete a channel
-[**gcFreezeChannel()**](GroupChannelApi.md#gcFreezeChannel) | **PUT** /v3/group_channels/{channel_url}/freeze | Freeze a channel
 [**gcHideOrArchiveChannel()**](GroupChannelApi.md#gcHideOrArchiveChannel) | **PUT** /v3/group_channels/{channel_url}/hide | Hide or archive a channel
 [**gcInviteAsMembers()**](GroupChannelApi.md#gcInviteAsMembers) | **POST** /v3/group_channels/{channel_url}/invite | Invite as members
 [**gcJoinChannel()**](GroupChannelApi.md#gcJoinChannel) | **PUT** /v3/group_channels/{channel_url}/join | Join a channel
 [**gcLeaveChannel()**](GroupChannelApi.md#gcLeaveChannel) | **PUT** /v3/group_channels/{channel_url}/leave | Leave a channel
-[**gcListBannedUsers()**](GroupChannelApi.md#gcListBannedUsers) | **GET** /v3/group_channels/{channel_url}/ban | List banned users
 [**gcListChannels()**](GroupChannelApi.md#gcListChannels) | **GET** /v3/group_channels | List channels
 [**gcListMembers()**](GroupChannelApi.md#gcListMembers) | **GET** /v3/group_channels/{channel_url}/members | List members
-[**gcListMutedUsers()**](GroupChannelApi.md#gcListMutedUsers) | **GET** /v3/group_channels/{channel_url}/mute | List muted users
 [**gcListOperators()**](GroupChannelApi.md#gcListOperators) | **GET** /v3/group_channels/{channel_url}/operators | List operators
-[**gcMuteUser()**](GroupChannelApi.md#gcMuteUser) | **POST** /v3/group_channels/{channel_url}/mute | Mute a user
 [**gcRegisterOperators()**](GroupChannelApi.md#gcRegisterOperators) | **POST** /v3/group_channels/{channel_url}/operators | Register operators
 [**gcResetChatHistory()**](GroupChannelApi.md#gcResetChatHistory) | **PUT** /v3/group_channels/{channel_url}/reset_user_history | Reset chat history
-[**gcUnbanUserById()**](GroupChannelApi.md#gcUnbanUserById) | **DELETE** /v3/group_channels/{channel_url}/ban/{banned_user_id} | Unban a user
 [**gcUnhideOrUnarchiveChannel()**](GroupChannelApi.md#gcUnhideOrUnarchiveChannel) | **DELETE** /v3/group_channels/{channel_url}/hide | Unhide or unarchive a channel
-[**gcUnmuteUserById()**](GroupChannelApi.md#gcUnmuteUserById) | **DELETE** /v3/group_channels/{channel_url}/mute/{muted_user_id} | Unmute a user
-[**gcUpdateBanById()**](GroupChannelApi.md#gcUpdateBanById) | **PUT** /v3/group_channels/{channel_url}/ban/{banned_user_id} | Update a ban
 [**gcUpdateChannelByUrl()**](GroupChannelApi.md#gcUpdateChannelByUrl) | **PUT** /v3/group_channels/{channel_url} | Update a channel
-[**gcViewBanById()**](GroupChannelApi.md#gcViewBanById) | **GET** /v3/group_channels/{channel_url}/ban/{banned_user_id} | View a ban
 [**gcViewChannelByUrl()**](GroupChannelApi.md#gcViewChannelByUrl) | **GET** /v3/group_channels/{channel_url} | View a channel
-[**gcViewMuteById()**](GroupChannelApi.md#gcViewMuteById) | **GET** /v3/group_channels/{channel_url}/mute/{muted_user_id} | View a mute
 
 
 ## `gcAcceptInvitation()`
@@ -94,70 +84,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `gcBanUser()`
-
-```php
-gcBanUser($api_token, $channel_url, $gc_ban_user_data): \Sendbird\Model\GcBanUserResponse
-```
-
-Ban a user
-
-## Ban a user  Bans a user from a group channel. A banned user is immediately expelled from a channel and allowed to join the channel again after a set time period.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-ban-a-user ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\GroupChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_ban_user_data = new \Sendbird\Model\GcBanUserData(); // \Sendbird\Model\GcBanUserData
-
-try {
-    $result = $apiInstance->gcBanUser($api_token, $channel_url, $gc_ban_user_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GroupChannelApi->gcBanUser: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **gc_ban_user_data** | [**\Sendbird\Model\GcBanUserData**](../Model/GcBanUserData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\GcBanUserResponse**](../Model/GcBanUserResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `gcCancelTheRegistrationOfOperators()`
 
 ```php
-gcCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all): \Sendbird\Model\InlineResponse200
+gcCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all): \Sendbird\Model\InlineResponse2001
 ```
 
 Cancel the registration of operators
@@ -201,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -337,7 +267,7 @@ No authorization required
 ## `gcDeclineInvitation()`
 
 ```php
-gcDeclineInvitation($api_token, $channel_url, $gc_decline_invitation_data): \Sendbird\Model\InlineResponse200
+gcDeclineInvitation($api_token, $channel_url, $gc_decline_invitation_data): \Sendbird\Model\InlineResponse2001
 ```
 
 Decline an invitation
@@ -379,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -397,7 +327,7 @@ No authorization required
 ## `gcDeleteChannelByUrl()`
 
 ```php
-gcDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\InlineResponse200
+gcDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\InlineResponse2001
 ```
 
 Delete a channel
@@ -437,7 +367,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -452,70 +382,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `gcFreezeChannel()`
-
-```php
-gcFreezeChannel($api_token, $channel_url, $gc_freeze_channel_data): \Sendbird\Model\SendBirdGroupChannel
-```
-
-Freeze a channel
-
-## Freeze a channel  Freezes or unfreezes a group channel.  > __Note__: Only users designated as channel operators are allowed to talk when a channel is frozen.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-freeze-a-channel ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\GroupChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_freeze_channel_data = new \Sendbird\Model\GcFreezeChannelData(); // \Sendbird\Model\GcFreezeChannelData
-
-try {
-    $result = $apiInstance->gcFreezeChannel($api_token, $channel_url, $gc_freeze_channel_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GroupChannelApi->gcFreezeChannel: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **gc_freeze_channel_data** | [**\Sendbird\Model\GcFreezeChannelData**](../Model/GcFreezeChannelData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `gcHideOrArchiveChannel()`
 
 ```php
-gcHideOrArchiveChannel($api_token, $channel_url, $gc_hide_or_archive_channel_data): \Sendbird\Model\InlineResponse200
+gcHideOrArchiveChannel($api_token, $channel_url, $gc_hide_or_archive_channel_data): \Sendbird\Model\InlineResponse2001
 ```
 
 Hide or archive a channel
@@ -557,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -694,7 +564,7 @@ No authorization required
 ## `gcLeaveChannel()`
 
 ```php
-gcLeaveChannel($api_token, $channel_url, $gc_leave_channel_data): \Sendbird\Model\InlineResponse200
+gcLeaveChannel($api_token, $channel_url, $gc_leave_channel_data): \Sendbird\Model\InlineResponse2001
 ```
 
 Leave a channel
@@ -736,7 +606,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -745,68 +615,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `gcListBannedUsers()`
-
-```php
-gcListBannedUsers($api_token, $channel_url, $token, $limit): \Sendbird\Model\GcListBannedUsersResponse
-```
-
-List banned users
-
-## List banned users  Retrieves a list of the banned users from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-banned-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel where to retrieve a list of banned users.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\GroupChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-
-try {
-    $result = $apiInstance->gcListBannedUsers($api_token, $channel_url, $token, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GroupChannelApi->gcListBannedUsers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **token** | **string**|  | [optional]
- **limit** | **int**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\GcListBannedUsersResponse**](../Model/GcListBannedUsersResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1029,68 +837,6 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `gcListMutedUsers()`
-
-```php
-gcListMutedUsers($api_token, $channel_url, $token, $limit): \Sendbird\Model\GcListMutedUsersResponse
-```
-
-List muted users
-
-## List muted users  Retrieves a list of the muted users in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-list-muted-users ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of muted users.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\GroupChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-
-try {
-    $result = $apiInstance->gcListMutedUsers($api_token, $channel_url, $token, $limit);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GroupChannelApi->gcListMutedUsers: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **token** | **string**|  | [optional]
- **limit** | **int**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\GcListMutedUsersResponse**](../Model/GcListMutedUsersResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `gcListOperators()`
 
 ```php
@@ -1147,66 +893,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `gcMuteUser()`
-
-```php
-gcMuteUser($api_token, $channel_url, $gc_mute_user_data): \Sendbird\Model\SendBirdGroupChannel
-```
-
-Mute a user
-
-## Mute a user  Mutes a user in a group channel. A muted user remains in the channel and is allowed to view the messages, but can't send any messages until unmuted.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-mute-a-user ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\GroupChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_mute_user_data = new \Sendbird\Model\GcMuteUserData(); // \Sendbird\Model\GcMuteUserData
-
-try {
-    $result = $apiInstance->gcMuteUser($api_token, $channel_url, $gc_mute_user_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GroupChannelApi->gcMuteUser: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **gc_mute_user_data** | [**\Sendbird\Model\GcMuteUserData**](../Model/GcMuteUserData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1333,70 +1019,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `gcUnbanUserById()`
-
-```php
-gcUnbanUserById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\InlineResponse200
-```
-
-Unban a user
-
-## Unban a user  Unbans a user from a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unban-a-user ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\GroupChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
-
-try {
-    $result = $apiInstance->gcUnbanUserById($api_token, $channel_url, $banned_user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GroupChannelApi->gcUnbanUserById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **banned_user_id** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `gcUnhideOrUnarchiveChannel()`
 
 ```php
-gcUnhideOrUnarchiveChannel($api_token, $channel_url, $user_id, $should_unhide_all): \Sendbird\Model\InlineResponse200
+gcUnhideOrUnarchiveChannel($api_token, $channel_url, $user_id, $should_unhide_all): \Sendbird\Model\InlineResponse2001
 ```
 
 Unhide or unarchive a channel
@@ -1440,7 +1066,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
 
 ### Authorization
 
@@ -1449,128 +1075,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `gcUnmuteUserById()`
-
-```php
-gcUnmuteUserById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\InlineResponse200
-```
-
-Unmute a user
-
-## Unmute a user  Unmutes a user within a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-unmute-a-user ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\GroupChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$muted_user_id = 'muted_user_id_example'; // string
-
-try {
-    $result = $apiInstance->gcUnmuteUserById($api_token, $channel_url, $muted_user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GroupChannelApi->gcUnmuteUserById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **muted_user_id** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `gcUpdateBanById()`
-
-```php
-gcUpdateBanById($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data): \Sendbird\Model\GcUpdateBanByIdResponse
-```
-
-Update a ban
-
-## Update a ban  Updates details of a ban imposed on a user. You can change the length of the ban with this action, and also provide an updated description.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-update-a-ban ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\GroupChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
-$gc_update_ban_by_id_data = new \Sendbird\Model\GcUpdateBanByIdData(); // \Sendbird\Model\GcUpdateBanByIdData
-
-try {
-    $result = $apiInstance->gcUpdateBanById($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GroupChannelApi->gcUpdateBanById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **banned_user_id** | **string**|  |
- **gc_update_ban_by_id_data** | [**\Sendbird\Model\GcUpdateBanByIdData**](../Model/GcUpdateBanByIdData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\GcUpdateBanByIdResponse**](../Model/GcUpdateBanByIdResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1637,66 +1141,6 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `gcViewBanById()`
-
-```php
-gcViewBanById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\GcViewBanByIdResponse
-```
-
-View a ban
-
-## View a ban  Retrieves details of a ban imposed on a user.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-ban ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\GroupChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
-
-try {
-    $result = $apiInstance->gcViewBanById($api_token, $channel_url, $banned_user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GroupChannelApi->gcViewBanById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **banned_user_id** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\GcViewBanByIdResponse**](../Model/GcViewBanByIdResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `gcViewChannelByUrl()`
 
 ```php
@@ -1751,66 +1195,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Sendbird\Model\SendBirdGroupChannel**](../Model/SendBirdGroupChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `gcViewMuteById()`
-
-```php
-gcViewMuteById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\GcViewMuteByIdResponse
-```
-
-View a mute
-
-## View a mute  Checks if a user is muted in a group channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-view-a-mute ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\GroupChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$muted_user_id = 'muted_user_id_example'; // string
-
-try {
-    $result = $apiInstance->gcViewMuteById($api_token, $channel_url, $muted_user_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling GroupChannelApi->gcViewMuteById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **muted_user_id** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\GcViewMuteByIdResponse**](../Model/GcViewMuteByIdResponse.md)
 
 ### Authorization
 
