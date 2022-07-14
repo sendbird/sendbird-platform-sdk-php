@@ -76,7 +76,7 @@ require_once('/path/to/sendbird-platform-sdk/vendor/autoload.php');
 
 |       | Documentation |
 | ----------- | ----------- |
-| Announcement   | [docs/api/AnnouncementApi.md](docs/api/AnnouncementApi.md)|
+| Announcement   | [docs/Api/AnnouncementApi.md](docs/api/AnnouncementApi.md)|
 | Application | [docs/api/ApplicationApi.md](docs/api/ApplicationApi.md)  |
 | Bot | [docs/api/BotApi.md](docs/api/BotApi.md)  |
 | GroupChannel | [docs/api/GroupChannelApi.md](docs/api/GroupChannelApi.md)  |
