@@ -76,12 +76,12 @@ require_once('/path/to/sendbird-platform-sdk/vendor/autoload.php');
 
 |       | Documentation |
 | ----------- | ----------- |
-| Announcement   | [docs/AnnouncementApi.md](docs/AnnouncementApi.md)|
-| Application | [docs/ApplicationApi.md](docs/ApplicationApi.md)  |
-| Bot | [docs/BotApi.md](docs/BotApi.md)  |
-| GroupChannel | [docs/GroupChannelApi.md](docs/GroupChannelApi.md)  |
-| Message | [docs/MessageApi.md](docs/MessageApi.md)  |
-| OpenChannel | [docs/OpenChannelApi.md ](docs/OpenChannelApi.md)  |
-| User | [docs/UserApi.md](docs/UserApi.md)  |
-| Webhooks | [docs/WebhooksApi.md](docs/WebhooksApi.md)  |
+| Announcement   | [docs/api/AnnouncementApi.md](docs/api/AnnouncementApi.md)|
+| Application | [docs/api/ApplicationApi.md](docs/api/ApplicationApi.md)  |
+| Bot | [docs/api/BotApi.md](docs/api/BotApi.md)  |
+| GroupChannel | [docs/api/GroupChannelApi.md](docs/api/GroupChannelApi.md)  |
+| OpenChannel | [docs/api/OpenChannelApi.md ](docs/api/OpenChannelApi.md)  |
+| Message | [docs/api/MessageApi.md](docs/api/MessageApi.md)  |
+| User | [docs/api/UserApi.md](docs/api/UserApi.md)  |
+| Webhooks | [docs/api/WebhooksApi.md](docs/api/WebhooksApi.md)  |
 
