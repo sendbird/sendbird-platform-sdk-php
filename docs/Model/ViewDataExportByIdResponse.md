@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **channel_urls** | **string[]** |  | [optional]
 **channel_custom_types** | **string[]** |  | [optional]
 **sender_ids** | **string[]** |  | [optional]
-**file** | [**\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponseFile**](ListDataExportsByMessageChannelOrUserResponseFile.md) |  | [optional]
-**user_ids** | **float[]** |  | [optional]
+**file** | [**\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile**](ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile.md) |  | [optional]
+**user_ids** | **string[]** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

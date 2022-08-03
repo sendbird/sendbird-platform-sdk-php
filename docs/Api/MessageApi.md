@@ -1709,7 +1709,7 @@ No authorization required
 ## `translateMessageIntoOtherLanguages()`
 
 ```php
-translateMessageIntoOtherLanguages($api_token, $channel_type, $channel_url, $message_id, $body): \Sendbird\Model\SendBirdMessageResponse
+translateMessageIntoOtherLanguages($api_token, $channel_type, $channel_url, $message_id, $translate_message_into_other_languages_data): \Sendbird\Model\SendBirdMessageResponse
 ```
 
 Translate a message into other languages
@@ -1733,10 +1733,10 @@ $api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
 $message_id = 'message_id_example'; // string
-$body = array('key' => new \stdClass); // object
+$translate_message_into_other_languages_data = new \Sendbird\Model\TranslateMessageIntoOtherLanguagesData(); // \Sendbird\Model\TranslateMessageIntoOtherLanguagesData
 
 try {
-    $result = $apiInstance->translateMessageIntoOtherLanguages($api_token, $channel_type, $channel_url, $message_id, $body);
+    $result = $apiInstance->translateMessageIntoOtherLanguages($api_token, $channel_type, $channel_url, $message_id, $translate_message_into_other_languages_data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->translateMessageIntoOtherLanguages: ', $e->getMessage(), PHP_EOL;
@@ -1751,7 +1751,7 @@ Name | Type | Description  | Notes
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
  **message_id** | **string**|  |
- **body** | **object**|  | [optional]
+ **translate_message_into_other_languages_data** | [**\Sendbird\Model\TranslateMessageIntoOtherLanguagesData**](../Model/TranslateMessageIntoOtherLanguagesData.md)|  | [optional]
 
 ### Return type
 

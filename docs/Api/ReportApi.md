@@ -459,7 +459,7 @@ No authorization required
 ## `viewModeratedMessageById()`
 
 ```php
-viewModeratedMessageById($api_token, $channel_type, $channel_url, $message_id): array<string,string>
+viewModeratedMessageById($api_token, $channel_type, $channel_url, $message_id): object
 ```
 
 View a moderated message
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**array<string,string>**
+**object**
 
 ### Authorization
 

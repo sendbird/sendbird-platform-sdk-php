@@ -566,7 +566,7 @@ No authorization required
 ## `listMutedUsersInChannelsWithCustomChannelType()`
 
 ```php
-listMutedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token, $limit): \Sendbird\Model\InlineResponse200
+listMutedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token, $limit): \Sendbird\Model\ListMutedUsersInChannelsWithCustomChannelType200Response
 ```
 
 List muted users in channels with a custom channel type
@@ -610,7 +610,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\Sendbird\Model\ListMutedUsersInChannelsWithCustomChannelType200Response**](../Model/ListMutedUsersInChannelsWithCustomChannelType200Response.md)
 
 ### Authorization
 

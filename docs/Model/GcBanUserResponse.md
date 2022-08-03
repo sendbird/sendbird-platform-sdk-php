@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **start_at** | **float** |  | [optional]
 **end_at** | **float** |  | [optional]
 **description** | **string** |  | [optional]
-**metadata** | [**\Sendbird\Model\InlineResponse2001**](InlineResponse2001.md) |  | [optional]
+**metadata** | [**\Sendbird\Model\OcDeleteChannelByUrl200Response**](OcDeleteChannelByUrl200Response.md) |  | [optional]
 **next_url** | **string** |  | [optional]
 **nickname** | **string** |  | [optional]
 **profile_url** | **string** |  | [optional]

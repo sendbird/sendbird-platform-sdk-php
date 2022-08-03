@@ -137,7 +137,7 @@ No authorization required
 ## `ocDeleteChannelByUrl()`
 
 ```php
-ocDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\InlineResponse2001
+ocDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Delete a channel
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 
@@ -391,7 +391,7 @@ No authorization required
 ## `ocRegisterOperators()`
 
 ```php
-ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data): \Sendbird\Model\InlineResponse2001
+ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Register operators
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 

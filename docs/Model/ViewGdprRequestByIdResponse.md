@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **action** | **string** |  | [optional]
 **status** | **string** |  | [optional]
 **user_id** | **string** |  | [optional]
-**files** | [**\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponseFile**](ListDataExportsByMessageChannelOrUserResponseFile.md) |  | [optional]
+**files** | [**\Sendbird\Model\ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile**](ListDataExportsByMessageChannelOrUserResponseExportedDataInnerFile.md) |  | [optional]
 **user_ids** | **string[]** |  | [optional]
 **channel_delete_option** | **string** |  | [optional]
 **created_at** | **float** |  | [optional]

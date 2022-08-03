@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **require_auth** | **bool** |  | [optional]
 **message_survival_seconds** | **float** |  | [optional]
 **custom_type** | **string** |  | [optional]
-**mentioned_users** | [**\Sendbird\Model\SendBirdMessageResponseMentionedUsers[]**](SendBirdMessageResponseMentionedUsers.md) |  | [optional]
+**mentioned_users** | [**\Sendbird\Model\SendBirdMessageResponseMentionedUsersInner[]**](SendBirdMessageResponseMentionedUsersInner.md) |  | [optional]
 **translations** | **object** |  | [optional]
 **updated_at** | **float** |  | [optional]
 **is_op_msg** | **bool** |  | [optional]

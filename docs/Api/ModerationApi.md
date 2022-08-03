@@ -460,7 +460,7 @@ No authorization required
 ## `gcUnbanUserById()`
 
 ```php
-gcUnbanUserById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\InlineResponse2001
+gcUnbanUserById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Unban a user
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 
@@ -520,7 +520,7 @@ No authorization required
 ## `gcUnmuteUserById()`
 
 ```php
-gcUnmuteUserById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\InlineResponse2001
+gcUnmuteUserById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Unmute a user
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 
@@ -1318,7 +1318,7 @@ No authorization required
 ## `ocUnbanUserById()`
 
 ```php
-ocUnbanUserById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\InlineResponse2001
+ocUnbanUserById($api_token, $channel_url, $banned_user_id): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Unban a user
@@ -1360,7 +1360,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 
@@ -1378,7 +1378,7 @@ No authorization required
 ## `ocUnmuteUserById()`
 
 ```php
-ocUnmuteUserById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\InlineResponse2001
+ocUnmuteUserById($api_token, $channel_url, $muted_user_id): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Unmute a user
@@ -1420,7 +1420,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 

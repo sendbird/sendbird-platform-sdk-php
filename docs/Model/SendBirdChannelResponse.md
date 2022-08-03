@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **sms_fallback** | [**\Sendbird\Model\SendBirdGroupChannelSmsFallback**](SendBirdGroupChannelSmsFallback.md) |  | [optional]
 **unread_mention_count** | **float** |  | [optional]
 **unread_message_count** | **float** |  | [optional]
+**channel** | [**\Sendbird\Model\SendBirdGroupChannelChannel**](SendBirdGroupChannelChannel.md) |  | [optional]
 **is_dynamic_partitioned** | **bool** |  | [optional]
 **participant_count** | **float** |  | [optional]
 

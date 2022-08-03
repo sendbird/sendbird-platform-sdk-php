@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**banned_list** | [**\Sendbird\Model\OcListBannedUsersResponseBannedList[]**](OcListBannedUsersResponseBannedList.md) |  | [optional]
+**banned_list** | [**\Sendbird\Model\OcListBannedUsersResponseBannedListInner[]**](OcListBannedUsersResponseBannedListInner.md) |  | [optional]
 **total_ban_count** | **float** |  | [optional]
 **next** | **string** |  | [optional]
 

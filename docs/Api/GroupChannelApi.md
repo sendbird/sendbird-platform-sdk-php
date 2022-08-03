@@ -87,7 +87,7 @@ No authorization required
 ## `gcCancelTheRegistrationOfOperators()`
 
 ```php
-gcCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all): \Sendbird\Model\InlineResponse2001
+gcCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Cancel the registration of operators
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ No authorization required
 ## `gcDeclineInvitation()`
 
 ```php
-gcDeclineInvitation($api_token, $channel_url, $gc_decline_invitation_data): \Sendbird\Model\InlineResponse2001
+gcDeclineInvitation($api_token, $channel_url, $gc_decline_invitation_data): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Decline an invitation
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ No authorization required
 ## `gcDeleteChannelByUrl()`
 
 ```php
-gcDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\InlineResponse2001
+gcDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Delete a channel
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 
@@ -385,7 +385,7 @@ No authorization required
 ## `gcHideOrArchiveChannel()`
 
 ```php
-gcHideOrArchiveChannel($api_token, $channel_url, $gc_hide_or_archive_channel_data): \Sendbird\Model\InlineResponse2001
+gcHideOrArchiveChannel($api_token, $channel_url, $gc_hide_or_archive_channel_data): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Hide or archive a channel
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 
@@ -564,7 +564,7 @@ No authorization required
 ## `gcLeaveChannel()`
 
 ```php
-gcLeaveChannel($api_token, $channel_url, $gc_leave_channel_data): \Sendbird\Model\InlineResponse2001
+gcLeaveChannel($api_token, $channel_url, $gc_leave_channel_data): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Leave a channel
@@ -606,7 +606,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 
@@ -1022,7 +1022,7 @@ No authorization required
 ## `gcUnhideOrUnarchiveChannel()`
 
 ```php
-gcUnhideOrUnarchiveChannel($api_token, $channel_url, $user_id, $should_unhide_all): \Sendbird\Model\InlineResponse2001
+gcUnhideOrUnarchiveChannel($api_token, $channel_url, $user_id, $should_unhide_all): \Sendbird\Model\OcDeleteChannelByUrl200Response
 ```
 
 Unhide or unarchive a channel
@@ -1066,7 +1066,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Sendbird\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
 
 ### Authorization
 
