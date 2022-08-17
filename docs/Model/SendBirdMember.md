@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **is_active** | **bool** |  | [optional]
 **is_muted** | **bool** |  | [optional]
 **last_seen_at** | **int** |  | [optional]
-**meta_data** | [**\Sendbird\Model\SBObject**](SBObject.md) |  | [optional]
 **nickname** | **string** |  | [optional]
 **plain_profile_url** | **string** |  | [optional]
 **preferred_languages** | **string[]** |  | [optional]
