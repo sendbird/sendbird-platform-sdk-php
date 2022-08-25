@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **muted_end_at** | **float** |  | [optional]
 **muted_description** | **string** |  | [optional]
 **restriction_info** | [**\Sendbird\Model\SendBirdRestrictionInfo**](SendBirdRestrictionInfo.md) |  | [optional]
-**role** | **string** |  | [optional]
+**role** | [**\Sendbird\Model\SendBirdMemberRole**](SendBirdMemberRole.md) |  | [optional]
 **state** | **string** |  | [optional]
 **user_id** | **string** |  | [optional]
 

@@ -74,7 +74,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
         'muted_end_at' => 'float',
         'muted_description' => 'string',
         'restriction_info' => '\Sendbird\Model\SendBirdRestrictionInfo',
-        'role' => 'string',
+        'role' => '\Sendbird\Model\SendBirdMemberRole',
         'state' => 'string',
         'user_id' => 'string'
     ];
@@ -255,23 +255,8 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const ROLE_NONE = 'none';
-    public const ROLE_OPERATOR = 'operator';
     public const STATE_INVITED = 'invited';
     public const STATE_JOINED = 'joined';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRoleAllowableValues()
-    {
-        return [
-            self::ROLE_NONE,
-            self::ROLE_OPERATOR,
-        ];
-    }
 
     /**
      * Gets allowable values of the enum
@@ -331,15 +316,6 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($this->container['role']) && !in_array($this->container['role'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'role', must be one of '%s'",
-                $this->container['role'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         $allowedValues = $this->getStateAllowableValues();
         if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
@@ -776,7 +752,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets role
      *
-     * @return string|null
+     * @return \Sendbird\Model\SendBirdMemberRole|null
      */
     public function getRole()
     {
@@ -786,22 +762,12 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets role
      *
-     * @param string|null $role role
+     * @param \Sendbird\Model\SendBirdMemberRole|null $role role
      *
      * @return self
      */
     public function setRole($role)
     {
-        $allowedValues = $this->getRoleAllowableValues();
-        if (!is_null($role) && !in_array($role, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'role', must be one of '%s'",
-                    $role,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['role'] = $role;
 
         return $this;
