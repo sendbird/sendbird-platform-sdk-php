@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **is_hide_me_from_friends** | **bool** |  | [optional]
 **is_shadow_blocked** | **bool** |  | [optional]
 **is_created** | **bool** |  | [optional]
-**metadata** | [**\Sendbird\Model\SBObject**](SBObject.md) |  | [optional]
+**metadata** | **object** |  | [optional]
 **description** | **string** |  | [optional]
 **end_at** | **float** |  | [optional]
 **start_at** | **float** |  | [optional]

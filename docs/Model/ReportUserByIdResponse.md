@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **reporting_user** | [**\Sendbird\Model\SendBirdUser**](SendBirdUser.md) |  | [optional]
 **offending_user** | [**\Sendbird\Model\SendBirdUser**](SendBirdUser.md) |  | [optional]
 **reported_message** | [**\Sendbird\Model\SendBirdMessageResponse**](SendBirdMessageResponse.md) |  | [optional]
-**channel** | [**\Sendbird\Model\SendBirdChannelResponse**](SendBirdChannelResponse.md) |  | [optional]
+**channel** | [**\Sendbird\Model\SendBirdChannelResponse**](.md) |  | [optional]
 **report_description** | **string** |  | [optional]
 **created_at** | **float** |  | [optional]
 

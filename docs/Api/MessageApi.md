@@ -1263,7 +1263,7 @@ $apiInstance = new Sendbird\Api\MessageApi(
 $api_token = {{API_TOKEN}}; // string
 $channel_type = 'channel_type_example'; // string
 $channel_url = 'channel_url_example'; // string
-$message_ts = 56; // int
+$message_ts = 'message_ts_example'; // string
 $message_id = 56; // int
 $prev_limit = 56; // int
 $next_limit = 56; // int
@@ -1297,7 +1297,7 @@ Name | Type | Description  | Notes
  **api_token** | **string**|  |
  **channel_type** | **string**|  |
  **channel_url** | **string**|  |
- **message_ts** | **int**|  | [optional]
+ **message_ts** | **string**|  | [optional]
  **message_id** | **int**|  | [optional]
  **prev_limit** | **int**|  | [optional]
  **next_limit** | **int**|  | [optional]
