@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **last_seen_at** | **int** |  | [optional]
 **nickname** | **string** |  | [optional]
 **discovery_keys** | **string[]** |  | [optional]
-**session_tokens** | **string[]** |  | [optional]
+**session_tokens** | **object[]** |  | [optional]
 **preferred_languages** | **string[]** |  | [optional]
 **profile_url** | **string** |  | [optional]
 **created_at** | **int** |  | [optional]

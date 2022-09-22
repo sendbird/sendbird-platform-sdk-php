@@ -1034,6 +1034,312 @@ class UserApi
     }
 
     /**
+     * Operation createUserToken
+     *
+     * Create user token
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $user_id user_id (required)
+     * @param  \Sendbird\Model\CreateUserTokenData $create_user_token_data create_user_token_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\CreateUserTokenResponse
+     */
+    public function createUserToken($api_token, $user_id, $create_user_token_data = null)
+    {
+        list($response) = $this->createUserTokenWithHttpInfo($api_token, $user_id, $create_user_token_data);
+        return $response;
+    }
+
+    /**
+     * Operation createUserTokenWithHttpInfo
+     *
+     * Create user token
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\CreateUserTokenData $create_user_token_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\CreateUserTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createUserTokenWithHttpInfo($api_token, $user_id, $create_user_token_data = null)
+    {
+        $request = $this->createUserTokenRequest($api_token, $user_id, $create_user_token_data);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\CreateUserTokenResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\CreateUserTokenResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateUserTokenResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\CreateUserTokenResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\CreateUserTokenResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createUserTokenAsync
+     *
+     * Create user token
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\CreateUserTokenData $create_user_token_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createUserTokenAsync($api_token, $user_id, $create_user_token_data = null)
+    {
+        return $this->createUserTokenAsyncWithHttpInfo($api_token, $user_id, $create_user_token_data)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createUserTokenAsyncWithHttpInfo
+     *
+     * Create user token
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\CreateUserTokenData $create_user_token_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createUserTokenAsyncWithHttpInfo($api_token, $user_id, $create_user_token_data = null)
+    {
+        $returnType = '\Sendbird\Model\CreateUserTokenResponse';
+        $request = $this->createUserTokenRequest($api_token, $user_id, $create_user_token_data);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createUserToken'
+     *
+     * @param  string $api_token (required)
+     * @param  string $user_id (required)
+     * @param  \Sendbird\Model\CreateUserTokenData $create_user_token_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createUserTokenRequest($api_token, $user_id, $create_user_token_data = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling createUserToken'
+            );
+        }
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling createUserToken'
+            );
+        }
+
+        $resourcePath = '/v3/users/{user_id}/token';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($create_user_token_data)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_user_token_data));
+            } else {
+                $httpBody = $create_user_token_data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation deleteUserById
      *
      * Delete a user

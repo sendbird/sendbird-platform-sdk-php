@@ -69,7 +69,7 @@ class SendBirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
         'last_seen_at' => 'int',
         'nickname' => 'string',
         'discovery_keys' => 'string[]',
-        'session_tokens' => 'string[]',
+        'session_tokens' => 'object[]',
         'preferred_languages' => 'string[]',
         'profile_url' => 'string',
         'created_at' => 'int',
@@ -557,7 +557,7 @@ class SendBirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets session_tokens
      *
-     * @return string[]|null
+     * @return object[]|null
      */
     public function getSessionTokens()
     {
@@ -567,7 +567,7 @@ class SendBirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets session_tokens
      *
-     * @param string[]|null $session_tokens session_tokens
+     * @param object[]|null $session_tokens session_tokens
      *
      * @return self
      */

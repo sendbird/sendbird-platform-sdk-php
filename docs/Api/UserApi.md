@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addRegistrationOrDeviceToken()**](UserApi.md#addRegistrationOrDeviceToken) | **POST** /v3/users/{user_id}/push/{token_type} | Add a registration or device token
 [**choosePushNotificationContentTemplate()**](UserApi.md#choosePushNotificationContentTemplate) | **PUT** /v3/users/{user_id}/push/template | Choose a push notification content template
 [**createUser()**](UserApi.md#createUser) | **POST** /v3/users | Create a user
+[**createUserToken()**](UserApi.md#createUserToken) | **POST** /v3/users/{user_id}/token | Create user token
 [**deleteUserById()**](UserApi.md#deleteUserById) | **DELETE** /v3/users/{user_id} | Delete a user
 [**leaveMyGroupChannels()**](UserApi.md#leaveMyGroupChannels) | **PUT** /v3/users/{user_id}/my_group_channels/leave | Leave my group channels
 [**listMyGroupChannels()**](UserApi.md#listMyGroupChannels) | **GET** /v3/users/{user_id}/my_group_channels | List my group channels
@@ -201,6 +202,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Sendbird\Model\SendBirdUser**](../Model/SendBirdUser.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `createUserToken()`
+
+```php
+createUserToken($api_token, $user_id, $create_user_token_data): \Sendbird\Model\CreateUserTokenResponse
+```
+
+Create user token
+
+## Create user token
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$user_id = 'user_id_example'; // string
+$create_user_token_data = new \Sendbird\Model\CreateUserTokenData(); // \Sendbird\Model\CreateUserTokenData
+
+try {
+    $result = $apiInstance->createUserToken($api_token, $user_id, $create_user_token_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->createUserToken: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **user_id** | **string**|  |
+ **create_user_token_data** | [**\Sendbird\Model\CreateUserTokenData**](../Model/CreateUserTokenData.md)|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\CreateUserTokenResponse**](../Model/CreateUserTokenResponse.md)
 
 ### Authorization
 

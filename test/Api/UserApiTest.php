@@ -108,6 +108,18 @@ class UserApiTest extends TestCase
     }
 
     /**
+     * Test case for createUserToken
+     *
+     * Create user token.
+     *
+     */
+    public function testCreateUserToken()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for deleteUserById
      *
      * Delete a user.
