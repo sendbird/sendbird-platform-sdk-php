@@ -636,7 +636,7 @@ No authorization required
 ## `updateChannelMetacounterByKey()`
 
 ```php
-updateChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key, $body): object
+updateChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key, $body): array<string,string>
 ```
 
 Update a channel metacounter - When updating a specific item of a channel metacounter by its key
@@ -682,7 +682,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**array<string,string>**
 
 ### Authorization
 
@@ -700,7 +700,7 @@ No authorization required
 ## `updateChannelMetadata()`
 
 ```php
-updateChannelMetadata($api_token, $channel_type, $channel_url, $update_channel_metadata_data): object
+updateChannelMetadata($api_token, $channel_type, $channel_url, $update_channel_metadata_data): array<string,string>
 ```
 
 Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
@@ -744,7 +744,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**array<string,string>**
 
 ### Authorization
 
@@ -762,7 +762,7 @@ No authorization required
 ## `updateChannelMetadataByKey()`
 
 ```php
-updateChannelMetadataByKey($api_token, $channel_type, $channel_url, $key, $body): object
+updateChannelMetadataByKey($api_token, $channel_type, $channel_url, $key, $body): array<string,string>
 ```
 
 Update a channel metadata - When updating a specific item of a channel metadata by its key
@@ -808,7 +808,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**array<string,string>**
 
 ### Authorization
 
@@ -886,7 +886,7 @@ No authorization required
 ## `updateUserMetadataByKey()`
 
 ```php
-updateUserMetadataByKey($api_token, $user_id, $key, $body): object
+updateUserMetadataByKey($api_token, $user_id, $key, $body): array<string,string>
 ```
 
 Update a user metadata - When updating a specific item of a user metadata by its key
@@ -930,7 +930,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**array<string,string>**
 
 ### Authorization
 
@@ -948,7 +948,7 @@ No authorization required
 ## `viewChannelMetacounter()`
 
 ```php
-viewChannelMetacounter($api_token, $channel_type, $channel_url, $key, $keys): object
+viewChannelMetacounter($api_token, $channel_type, $channel_url, $key, $keys): array<string,string>
 ```
 
 View a channel metacounter - When retrieving all items of a channel metacounter
@@ -994,7 +994,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**array<string,string>**
 
 ### Authorization
 
@@ -1074,7 +1074,7 @@ No authorization required
 ## `viewChannelMetadata()`
 
 ```php
-viewChannelMetadata($api_token, $channel_type, $channel_url, $key, $keys): object
+viewChannelMetadata($api_token, $channel_type, $channel_url, $key, $keys): array<string,string>
 ```
 
 View a channel metadata - When retrieving all items of a channel metadata
@@ -1120,7 +1120,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**array<string,string>**
 
 ### Authorization
 
@@ -1138,7 +1138,7 @@ No authorization required
 ## `viewChannelMetadataByKey()`
 
 ```php
-viewChannelMetadataByKey($api_token, $channel_type, $channel_url, $key): object
+viewChannelMetadataByKey($api_token, $channel_type, $channel_url, $key): array<string,string>
 ```
 
 View a channel metadata - When retrieving a specific item of a channel metadata by its key
@@ -1182,7 +1182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**array<string,string>**
 
 ### Authorization
 
@@ -1262,7 +1262,7 @@ No authorization required
 ## `viewUserMetadataByKey()`
 
 ```php
-viewUserMetadataByKey($api_token, $user_id, $key): object
+viewUserMetadataByKey($api_token, $user_id, $key): array<string,string>
 ```
 
 View a user metadata - When retrieving a specific item of a user metadata by its key
@@ -1304,7 +1304,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**array<string,string>**
 
 ### Authorization
 

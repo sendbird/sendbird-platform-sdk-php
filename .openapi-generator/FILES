@@ -212,6 +212,8 @@ docs/Model/SendBirdGroupChannelChannel.md
 docs/Model/SendBirdGroupChannelCollection.md
 docs/Model/SendBirdGroupChannelCreatedBy.md
 docs/Model/SendBirdGroupChannelDisappearingMessage.md
+docs/Model/SendBirdGroupChannelInviter.md
+docs/Model/SendBirdGroupChannelLastMessage.md
 docs/Model/SendBirdGroupChannelSmsFallback.md
 docs/Model/SendBirdMember.md
 docs/Model/SendBirdMessageMetaArray.md
@@ -518,6 +520,8 @@ lib/Model/SendBirdGroupChannelChannel.php
 lib/Model/SendBirdGroupChannelCollection.php
 lib/Model/SendBirdGroupChannelCreatedBy.php
 lib/Model/SendBirdGroupChannelDisappearingMessage.php
+lib/Model/SendBirdGroupChannelInviter.php
+lib/Model/SendBirdGroupChannelLastMessage.php
 lib/Model/SendBirdGroupChannelSmsFallback.php
 lib/Model/SendBirdMember.php
 lib/Model/SendBirdMessageMetaArray.php
@@ -820,6 +824,8 @@ test/Model/SendBirdGroupChannelChannelTest.php
 test/Model/SendBirdGroupChannelCollectionTest.php
 test/Model/SendBirdGroupChannelCreatedByTest.php
 test/Model/SendBirdGroupChannelDisappearingMessageTest.php
+test/Model/SendBirdGroupChannelInviterTest.php
+test/Model/SendBirdGroupChannelLastMessageTest.php
 test/Model/SendBirdGroupChannelSmsFallbackTest.php
 test/Model/SendBirdGroupChannelTest.php
 test/Model/SendBirdMemberTest.php
