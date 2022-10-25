@@ -76,7 +76,16 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         'dedup_id' => 'string',
         'apns_bundle_id' => 'string',
         'sound' => 'string',
-        'volume' => 'float'
+        'volume' => 'float',
+        'url' => 'string',
+        'file' => 'string',
+        'file_name' => 'string',
+        'file_size' => 'float',
+        'file_type' => 'string',
+        'thumbnails' => 'string[]',
+        'thumbnail1' => 'string',
+        'thumbnail2' => 'string',
+        'thumbnail3' => 'string'
     ];
 
     /**
@@ -103,7 +112,16 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         'dedup_id' => null,
         'apns_bundle_id' => null,
         'sound' => null,
-        'volume' => null
+        'volume' => null,
+        'url' => null,
+        'file' => null,
+        'file_name' => null,
+        'file_size' => null,
+        'file_type' => null,
+        'thumbnails' => null,
+        'thumbnail1' => null,
+        'thumbnail2' => null,
+        'thumbnail3' => null
     ];
 
     /**
@@ -149,7 +167,16 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         'dedup_id' => 'dedup_id',
         'apns_bundle_id' => 'apns_bundle_id',
         'sound' => 'sound',
-        'volume' => 'volume'
+        'volume' => 'volume',
+        'url' => 'url',
+        'file' => 'file',
+        'file_name' => 'file_name',
+        'file_size' => 'file_size',
+        'file_type' => 'file_type',
+        'thumbnails' => 'thumbnails',
+        'thumbnail1' => 'thumbnail1',
+        'thumbnail2' => 'thumbnail2',
+        'thumbnail3' => 'thumbnail3'
     ];
 
     /**
@@ -174,7 +201,16 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         'dedup_id' => 'setDedupId',
         'apns_bundle_id' => 'setApnsBundleId',
         'sound' => 'setSound',
-        'volume' => 'setVolume'
+        'volume' => 'setVolume',
+        'url' => 'setUrl',
+        'file' => 'setFile',
+        'file_name' => 'setFileName',
+        'file_size' => 'setFileSize',
+        'file_type' => 'setFileType',
+        'thumbnails' => 'setThumbnails',
+        'thumbnail1' => 'setThumbnail1',
+        'thumbnail2' => 'setThumbnail2',
+        'thumbnail3' => 'setThumbnail3'
     ];
 
     /**
@@ -199,7 +235,16 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         'dedup_id' => 'getDedupId',
         'apns_bundle_id' => 'getApnsBundleId',
         'sound' => 'getSound',
-        'volume' => 'getVolume'
+        'volume' => 'getVolume',
+        'url' => 'getUrl',
+        'file' => 'getFile',
+        'file_name' => 'getFileName',
+        'file_size' => 'getFileSize',
+        'file_type' => 'getFileType',
+        'thumbnails' => 'getThumbnails',
+        'thumbnail1' => 'getThumbnail1',
+        'thumbnail2' => 'getThumbnail2',
+        'thumbnail3' => 'getThumbnail3'
     ];
 
     /**
@@ -276,6 +321,15 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['apns_bundle_id'] = $data['apns_bundle_id'] ?? null;
         $this->container['sound'] = $data['sound'] ?? null;
         $this->container['volume'] = $data['volume'] ?? null;
+        $this->container['url'] = $data['url'] ?? null;
+        $this->container['file'] = $data['file'] ?? null;
+        $this->container['file_name'] = $data['file_name'] ?? null;
+        $this->container['file_size'] = $data['file_size'] ?? null;
+        $this->container['file_type'] = $data['file_type'] ?? null;
+        $this->container['thumbnails'] = $data['thumbnails'] ?? null;
+        $this->container['thumbnail1'] = $data['thumbnail1'] ?? null;
+        $this->container['thumbnail2'] = $data['thumbnail2'] ?? null;
+        $this->container['thumbnail3'] = $data['thumbnail3'] ?? null;
     }
 
     /**
@@ -715,6 +769,222 @@ class SendMessageData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setVolume($volume)
     {
         $this->container['volume'] = $volume;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url url
+     *
+     * @return self
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets file
+     *
+     * @return string|null
+     */
+    public function getFile()
+    {
+        return $this->container['file'];
+    }
+
+    /**
+     * Sets file
+     *
+     * @param string|null $file file
+     *
+     * @return self
+     */
+    public function setFile($file)
+    {
+        $this->container['file'] = $file;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_name
+     *
+     * @return string|null
+     */
+    public function getFileName()
+    {
+        return $this->container['file_name'];
+    }
+
+    /**
+     * Sets file_name
+     *
+     * @param string|null $file_name file_name
+     *
+     * @return self
+     */
+    public function setFileName($file_name)
+    {
+        $this->container['file_name'] = $file_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_size
+     *
+     * @return float|null
+     */
+    public function getFileSize()
+    {
+        return $this->container['file_size'];
+    }
+
+    /**
+     * Sets file_size
+     *
+     * @param float|null $file_size file_size
+     *
+     * @return self
+     */
+    public function setFileSize($file_size)
+    {
+        $this->container['file_size'] = $file_size;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_type
+     *
+     * @return string|null
+     */
+    public function getFileType()
+    {
+        return $this->container['file_type'];
+    }
+
+    /**
+     * Sets file_type
+     *
+     * @param string|null $file_type file_type
+     *
+     * @return self
+     */
+    public function setFileType($file_type)
+    {
+        $this->container['file_type'] = $file_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnails
+     *
+     * @return string[]|null
+     */
+    public function getThumbnails()
+    {
+        return $this->container['thumbnails'];
+    }
+
+    /**
+     * Sets thumbnails
+     *
+     * @param string[]|null $thumbnails thumbnails
+     *
+     * @return self
+     */
+    public function setThumbnails($thumbnails)
+    {
+        $this->container['thumbnails'] = $thumbnails;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnail1
+     *
+     * @return string|null
+     */
+    public function getThumbnail1()
+    {
+        return $this->container['thumbnail1'];
+    }
+
+    /**
+     * Sets thumbnail1
+     *
+     * @param string|null $thumbnail1 thumbnail1
+     *
+     * @return self
+     */
+    public function setThumbnail1($thumbnail1)
+    {
+        $this->container['thumbnail1'] = $thumbnail1;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnail2
+     *
+     * @return string|null
+     */
+    public function getThumbnail2()
+    {
+        return $this->container['thumbnail2'];
+    }
+
+    /**
+     * Sets thumbnail2
+     *
+     * @param string|null $thumbnail2 thumbnail2
+     *
+     * @return self
+     */
+    public function setThumbnail2($thumbnail2)
+    {
+        $this->container['thumbnail2'] = $thumbnail2;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnail3
+     *
+     * @return string|null
+     */
+    public function getThumbnail3()
+    {
+        return $this->container['thumbnail3'];
+    }
+
+    /**
+     * Sets thumbnail3
+     *
+     * @param string|null $thumbnail3 thumbnail3
+     *
+     * @return self
+     */
+    public function setThumbnail3($thumbnail3)
+    {
+        $this->container['thumbnail3'] = $thumbnail3;
 
         return $this;
     }

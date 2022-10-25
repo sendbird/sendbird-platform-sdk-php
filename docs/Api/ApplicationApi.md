@@ -9,9 +9,11 @@ Method | HTTP request | Description
 [**addHmsPushConfiguration()**](ApplicationApi.md#addHmsPushConfiguration) | **POST** /v3/applications/push/hms | Add an HMS push configuration
 [**addIpToWhitelist()**](ApplicationApi.md#addIpToWhitelist) | **PUT** /v3/applications/settings/ip_whitelist | Add an IP to a whitelist
 [**banUsersInChannelsWithCustomChannelType()**](ApplicationApi.md#banUsersInChannelsWithCustomChannelType) | **POST** /v3/applications/settings_by_channel_custom_type/{custom_type}/ban | Ban users in channels with a custom channel type
+[**configureAutoEventMessages()**](ApplicationApi.md#configureAutoEventMessages) | **PUT** /v3/applications/settings/auto_event_message | Configure auto event message settings
 [**deleteAllowedIpsFromWhitelist()**](ApplicationApi.md#deleteAllowedIpsFromWhitelist) | **DELETE** /v3/applications/settings/ip_whitelist | Delete allowed IPs from a whitelist
 [**deleteApnsCertificateById()**](ApplicationApi.md#deleteApnsCertificateById) | **DELETE** /v3/applications/push/apns/cert/{provider_id} | Delete an APNs certificate
 [**generateSecondaryApiToken()**](ApplicationApi.md#generateSecondaryApiToken) | **POST** /v3/applications/api_tokens | Generate a secondary API token
+[**listAutoEventMessages()**](ApplicationApi.md#listAutoEventMessages) | **GET** /v3/applications/settings/auto_event_message | List auto event messages
 [**listBannedUsersInChannelsWithCustomChannelType()**](ApplicationApi.md#listBannedUsersInChannelsWithCustomChannelType) | **GET** /v3/applications/settings_by_channel_custom_type/{custom_type}/ban | List banned users in channels with a custom channel type
 [**listMutedUsersInChannelsWithCustomChannelType()**](ApplicationApi.md#listMutedUsersInChannelsWithCustomChannelType) | **GET** /v3/applications/settings_by_channel_custom_type/{custom_type}/mute | List muted users in channels with a custom channel type
 [**listPushConfigurations()**](ApplicationApi.md#listPushConfigurations) | **GET** /v3/applications/push/{push_type} | List push configurations
@@ -327,6 +329,64 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `configureAutoEventMessages()`
+
+```php
+configureAutoEventMessages($api_token, $configure_auto_event_data): \Sendbird\Model\SendBirdAutoEventMessageSettings
+```
+
+Configure auto event message settings
+
+## Configure auto event message settings  Determines whether to automatically send event messages to group channels when events take place in an application. You can choose which auto event message to receive on the Sendbird Dashboard  https://sendbird.com/docs/chat/v3/platform-api/application/managing-auto-event-messages/configure-auto-event-message-settings ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+$configure_auto_event_data = new \Sendbird\Model\ConfigureAutoEventData(); // \Sendbird\Model\ConfigureAutoEventData
+
+try {
+    $result = $apiInstance->configureAutoEventMessages($api_token, $configure_auto_event_data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->configureAutoEventMessages: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+ **configure_auto_event_data** | [**\Sendbird\Model\ConfigureAutoEventData**](../Model/ConfigureAutoEventData.md)|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\SendBirdAutoEventMessageSettings**](../Model/SendBirdAutoEventMessageSettings.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteAllowedIpsFromWhitelist()`
 
 ```php
@@ -495,6 +555,62 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listAutoEventMessages()`
+
+```php
+listAutoEventMessages($api_token): \Sendbird\Model\SendBirdAutoEventMessageSettings
+```
+
+List auto event messages
+
+## List auto event messages  Retrieves a list of auto event messages that are sent in a specified application and indicates which ones are in use. Auto event messages are Admin messages that are automatically generated when a specific event occurs.  https://sendbird.com/docs/chat/v3/platform-api/application/managing-auto-event-messages/list-auto-event-messages ----------------------------
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$api_token = {{API_TOKEN}}; // string
+
+try {
+    $result = $apiInstance->listAutoEventMessages($api_token);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->listAutoEventMessages: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_token** | **string**|  |
+
+### Return type
+
+[**\Sendbird\Model\SendBirdAutoEventMessageSettings**](../Model/SendBirdAutoEventMessageSettings.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

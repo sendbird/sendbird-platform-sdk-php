@@ -1,6 +1,6 @@
 <?php
 /**
- * AddRegistrationOrDeviceTokenResponse
+ * ScheduleAnnouncementDataMessage
  *
  * PHP version 7.4
  *
@@ -33,9 +33,10 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * AddRegistrationOrDeviceTokenResponse Class Doc Comment
+ * ScheduleAnnouncementDataMessage Class Doc Comment
  *
  * @category Class
+ * @description The [message](/docs/chat/v3/platform-api/guides/messages#-3-resource-representation) of a new announcement.
  * @package  Sendbird
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +44,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ScheduleAnnouncementDataMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +53,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'addRegistrationOrDeviceTokenResponse';
+    protected static $openAPIModelName = 'scheduleAnnouncementData_message';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +61,9 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'token' => 'string',
         'type' => 'string',
-        'user' => '\Sendbird\Model\SendBirdUser'
+        'user_id' => 'string',
+        'content' => 'string'
     ];
 
     /**
@@ -73,9 +74,9 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'token' => null,
         'type' => null,
-        'user' => null
+        'user_id' => null,
+        'content' => null
     ];
 
     /**
@@ -105,9 +106,9 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'token' => 'token',
         'type' => 'type',
-        'user' => 'user'
+        'user_id' => 'user_id',
+        'content' => 'content'
     ];
 
     /**
@@ -116,9 +117,9 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'token' => 'setToken',
         'type' => 'setType',
-        'user' => 'setUser'
+        'user_id' => 'setUserId',
+        'content' => 'setContent'
     ];
 
     /**
@@ -127,9 +128,9 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'token' => 'getToken',
         'type' => 'getType',
-        'user' => 'getUser'
+        'user_id' => 'getUserId',
+        'content' => 'getContent'
     ];
 
     /**
@@ -189,9 +190,9 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['token'] = $data['token'] ?? null;
         $this->container['type'] = $data['type'] ?? null;
-        $this->container['user'] = $data['user'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['content'] = $data['content'] ?? null;
     }
 
     /**
@@ -219,30 +220,6 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets token
-     *
-     * @return string|null
-     */
-    public function getToken()
-    {
-        return $this->container['token'];
-    }
-
-    /**
-     * Sets token
-     *
-     * @param string|null $token token
-     *
-     * @return self
-     */
-    public function setToken($token)
-    {
-        $this->container['token'] = $token;
-
-        return $this;
-    }
-
-    /**
      * Gets type
      *
      * @return string|null
@@ -267,25 +244,49 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets user
+     * Gets user_id
      *
-     * @return \Sendbird\Model\SendBirdUser|null
+     * @return string|null
      */
-    public function getUser()
+    public function getUserId()
     {
-        return $this->container['user'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets user
+     * Sets user_id
      *
-     * @param \Sendbird\Model\SendBirdUser|null $user user
+     * @param string|null $user_id user_id
      *
      * @return self
      */
-    public function setUser($user)
+    public function setUserId($user_id)
     {
-        $this->container['user'] = $user;
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets content
+     *
+     * @return string|null
+     */
+    public function getContent()
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     *
+     * @param string|null $content content
+     *
+     * @return self
+     */
+    public function setContent($content)
+    {
+        $this->container['content'] = $content;
 
         return $this;
     }

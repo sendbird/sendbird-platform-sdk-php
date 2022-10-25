@@ -60,10 +60,10 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message' => 'string',
+        'message' => '\Sendbird\Model\ScheduleAnnouncementDataMessage',
         'message_type' => 'string',
-        'message_user_id' => 'string',
-        'message_content' => 'string',
+        'user_id' => 'string',
+        'content' => 'string',
         'target_at' => 'string',
         'target_list' => 'string[]',
         'target_channel_type' => 'string',
@@ -96,8 +96,8 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'message' => null,
         'message_type' => null,
-        'message_user_id' => null,
-        'message_content' => null,
+        'user_id' => null,
+        'content' => null,
         'target_at' => null,
         'target_list' => null,
         'target_channel_type' => null,
@@ -148,9 +148,9 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
      */
     protected static $attributeMap = [
         'message' => 'message',
-        'message_type' => 'message.type',
-        'message_user_id' => 'message.user_id',
-        'message_content' => 'message.content',
+        'message_type' => 'message_type',
+        'user_id' => 'user_id',
+        'content' => 'content',
         'target_at' => 'target_at',
         'target_list' => 'target_list',
         'target_channel_type' => 'target_channel_type',
@@ -181,8 +181,8 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'message' => 'setMessage',
         'message_type' => 'setMessageType',
-        'message_user_id' => 'setMessageUserId',
-        'message_content' => 'setMessageContent',
+        'user_id' => 'setUserId',
+        'content' => 'setContent',
         'target_at' => 'setTargetAt',
         'target_list' => 'setTargetList',
         'target_channel_type' => 'setTargetChannelType',
@@ -213,8 +213,8 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'message' => 'getMessage',
         'message_type' => 'getMessageType',
-        'message_user_id' => 'getMessageUserId',
-        'message_content' => 'getMessageContent',
+        'user_id' => 'getUserId',
+        'content' => 'getContent',
         'target_at' => 'getTargetAt',
         'target_list' => 'getTargetList',
         'target_channel_type' => 'getTargetChannelType',
@@ -296,8 +296,8 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $this->container['message'] = $data['message'] ?? null;
         $this->container['message_type'] = $data['message_type'] ?? null;
-        $this->container['message_user_id'] = $data['message_user_id'] ?? null;
-        $this->container['message_content'] = $data['message_content'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['content'] = $data['content'] ?? null;
         $this->container['target_at'] = $data['target_at'] ?? null;
         $this->container['target_list'] = $data['target_list'] ?? null;
         $this->container['target_channel_type'] = $data['target_channel_type'] ?? null;
@@ -332,15 +332,6 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
         if ($this->container['message'] === null) {
             $invalidProperties[] = "'message' can't be null";
         }
-        if ($this->container['message_type'] === null) {
-            $invalidProperties[] = "'message_type' can't be null";
-        }
-        if ($this->container['message_user_id'] === null) {
-            $invalidProperties[] = "'message_user_id' can't be null";
-        }
-        if ($this->container['message_content'] === null) {
-            $invalidProperties[] = "'message_content' can't be null";
-        }
         if ($this->container['target_at'] === null) {
             $invalidProperties[] = "'target_at' can't be null";
         }
@@ -368,7 +359,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets message
      *
-     * @return string
+     * @return \Sendbird\Model\ScheduleAnnouncementDataMessage
      */
     public function getMessage()
     {
@@ -378,7 +369,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets message
      *
-     * @param string $message The [message](/docs/chat/v3/platform-api/guides/messages#-3-resource-representation) of a new announcement.
+     * @param \Sendbird\Model\ScheduleAnnouncementDataMessage $message message
      *
      * @return self
      */
@@ -392,7 +383,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets message_type
      *
-     * @return string
+     * @return string|null
      */
     public function getMessageType()
     {
@@ -402,7 +393,7 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets message_type
      *
-     * @param string $message_type Specifies the type of the message, which can be either MESG for a text message and ADMM for an admin message.
+     * @param string|null $message_type Specifies the type of the message, which can be either MESG for a text message and ADMM for an admin message.
      *
      * @return self
      */
@@ -414,49 +405,49 @@ class ScheduleAnnouncementData implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
-     * Gets message_user_id
+     * Gets user_id
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessageUserId()
+    public function getUserId()
     {
-        return $this->container['message_user_id'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets message_user_id
+     * Sets user_id
      *
-     * @param string $message_user_id Specifies the unique ID of the sender when the message.type is MESG. When the message.type value is ADMM, this property is not effective.
+     * @param string|null $user_id Specifies the unique ID of the sender when the message.type is MESG. When the message.type value is ADMM, this property is not effective.
      *
      * @return self
      */
-    public function setMessageUserId($message_user_id)
+    public function setUserId($user_id)
     {
-        $this->container['message_user_id'] = $message_user_id;
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }
 
     /**
-     * Gets message_content
+     * Gets content
      *
-     * @return string
+     * @return string|null
      */
-    public function getMessageContent()
+    public function getContent()
     {
-        return $this->container['message_content'];
+        return $this->container['content'];
     }
 
     /**
-     * Sets message_content
+     * Sets content
      *
-     * @param string $message_content Specifies the content of the message.
+     * @param string|null $content Specifies the content of the message.
      *
      * @return self
      */
-    public function setMessageContent($message_content)
+    public function setContent($content)
     {
-        $this->container['message_content'] = $message_content;
+        $this->container['content'] = $content;
 
         return $this;
     }

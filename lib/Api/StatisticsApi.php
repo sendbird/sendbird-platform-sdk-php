@@ -117,6 +117,666 @@ class StatisticsApi
     }
 
     /**
+     * Operation getDetailedOpenRateOfAnnouncementById
+     *
+     * Get detailed open rate of an announcement
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $unique_id unique_id (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse
+     */
+    public function getDetailedOpenRateOfAnnouncementById($api_token, $unique_id)
+    {
+        list($response) = $this->getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($api_token, $unique_id);
+        return $response;
+    }
+
+    /**
+     * Operation getDetailedOpenRateOfAnnouncementByIdWithHttpInfo
+     *
+     * Get detailed open rate of an announcement
+     *
+     * @param  string $api_token (required)
+     * @param  string $unique_id (required)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($api_token, $unique_id)
+    {
+        $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($api_token, $unique_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDetailedOpenRateOfAnnouncementByIdAsync
+     *
+     * Get detailed open rate of an announcement
+     *
+     * @param  string $api_token (required)
+     * @param  string $unique_id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDetailedOpenRateOfAnnouncementByIdAsync($api_token, $unique_id)
+    {
+        return $this->getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo
+     *
+     * Get detailed open rate of an announcement
+     *
+     * @param  string $api_token (required)
+     * @param  string $unique_id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id)
+    {
+        $returnType = '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse';
+        $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($api_token, $unique_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDetailedOpenRateOfAnnouncementById'
+     *
+     * @param  string $api_token (required)
+     * @param  string $unique_id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDetailedOpenRateOfAnnouncementByIdRequest($api_token, $unique_id)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling getDetailedOpenRateOfAnnouncementById'
+            );
+        }
+        // verify the required parameter 'unique_id' is set
+        if ($unique_id === null || (is_array($unique_id) && count($unique_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $unique_id when calling getDetailedOpenRateOfAnnouncementById'
+            );
+        }
+
+        $resourcePath = '/v3/announcement_open_rate/{unique_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($unique_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'unique_id' . '}',
+                ObjectSerializer::toPathValue($unique_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDetailedOpenStatusOfAnnouncementById
+     *
+     * Get detailed open status of an announcement
+     *
+     * @param  string $api_token api_token (required)
+     * @param  string $unique_id unique_id (required)
+     * @param  int $limit limit (optional)
+     * @param  string $next next (optional)
+     * @param  string[] $unique_ids unique_ids (optional)
+     * @param  string[] $channel_urls channel_urls (optional)
+     * @param  bool $has_opened has_opened (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse
+     */
+    public function getDetailedOpenStatusOfAnnouncementById($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    {
+        list($response) = $this->getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+        return $response;
+    }
+
+    /**
+     * Operation getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo
+     *
+     * Get detailed open status of an announcement
+     *
+     * @param  string $api_token (required)
+     * @param  string $unique_id (required)
+     * @param  int $limit (optional)
+     * @param  string $next (optional)
+     * @param  string[] $unique_ids (optional)
+     * @param  string[] $channel_urls (optional)
+     * @param  bool $has_opened (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    {
+        $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDetailedOpenStatusOfAnnouncementByIdAsync
+     *
+     * Get detailed open status of an announcement
+     *
+     * @param  string $api_token (required)
+     * @param  string $unique_id (required)
+     * @param  int $limit (optional)
+     * @param  string $next (optional)
+     * @param  string[] $unique_ids (optional)
+     * @param  string[] $channel_urls (optional)
+     * @param  bool $has_opened (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDetailedOpenStatusOfAnnouncementByIdAsync($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    {
+        return $this->getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo
+     *
+     * Get detailed open status of an announcement
+     *
+     * @param  string $api_token (required)
+     * @param  string $unique_id (required)
+     * @param  int $limit (optional)
+     * @param  string $next (optional)
+     * @param  string[] $unique_ids (optional)
+     * @param  string[] $channel_urls (optional)
+     * @param  bool $has_opened (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    {
+        $returnType = '\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse';
+        $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDetailedOpenStatusOfAnnouncementById'
+     *
+     * @param  string $api_token (required)
+     * @param  string $unique_id (required)
+     * @param  int $limit (optional)
+     * @param  string $next (optional)
+     * @param  string[] $unique_ids (optional)
+     * @param  string[] $channel_urls (optional)
+     * @param  bool $has_opened (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDetailedOpenStatusOfAnnouncementByIdRequest($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    {
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling getDetailedOpenStatusOfAnnouncementById'
+            );
+        }
+        // verify the required parameter 'unique_id' is set
+        if ($unique_id === null || (is_array($unique_id) && count($unique_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $unique_id when calling getDetailedOpenStatusOfAnnouncementById'
+            );
+        }
+
+        $resourcePath = '/v3/announcement_open_status/{unique_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $next,
+            'next', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $unique_ids,
+            'unique_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $channel_urls,
+            'channel_urls', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $has_opened,
+            'has_opened', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($unique_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'unique_id' . '}',
+                ObjectSerializer::toPathValue($unique_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation retrieveAdvancedAnalyticsMetrics
      *
      * Retrieve Advanced analytics metrics

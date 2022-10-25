@@ -1,6 +1,6 @@
 <?php
 /**
- * AddRegistrationOrDeviceTokenResponse
+ * ConfigureAutoEventData
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * AddRegistrationOrDeviceTokenResponse Class Doc Comment
+ * ConfigureAutoEventData Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConfigureAutoEventData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'addRegistrationOrDeviceTokenResponse';
+    protected static $openAPIModelName = 'configureAutoEventData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'token' => 'string',
-        'type' => 'string',
-        'user' => '\Sendbird\Model\SendBirdUser'
+        'auto_event_message' => '\Sendbird\Model\ConfigureAutoEventDataAutoEventMessage'
     ];
 
     /**
@@ -73,9 +71,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'token' => null,
-        'type' => null,
-        'user' => null
+        'auto_event_message' => null
     ];
 
     /**
@@ -105,9 +101,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'token' => 'token',
-        'type' => 'type',
-        'user' => 'user'
+        'auto_event_message' => 'auto_event_message'
     ];
 
     /**
@@ -116,9 +110,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'token' => 'setToken',
-        'type' => 'setType',
-        'user' => 'setUser'
+        'auto_event_message' => 'setAutoEventMessage'
     ];
 
     /**
@@ -127,9 +119,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'token' => 'getToken',
-        'type' => 'getType',
-        'user' => 'getUser'
+        'auto_event_message' => 'getAutoEventMessage'
     ];
 
     /**
@@ -189,9 +179,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['token'] = $data['token'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['user'] = $data['user'] ?? null;
+        $this->container['auto_event_message'] = $data['auto_event_message'] ?? null;
     }
 
     /**
@@ -219,73 +207,25 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets token
+     * Gets auto_event_message
      *
-     * @return string|null
+     * @return \Sendbird\Model\ConfigureAutoEventDataAutoEventMessage|null
      */
-    public function getToken()
+    public function getAutoEventMessage()
     {
-        return $this->container['token'];
+        return $this->container['auto_event_message'];
     }
 
     /**
-     * Sets token
+     * Sets auto_event_message
      *
-     * @param string|null $token token
+     * @param \Sendbird\Model\ConfigureAutoEventDataAutoEventMessage|null $auto_event_message auto_event_message
      *
      * @return self
      */
-    public function setToken($token)
+    public function setAutoEventMessage($auto_event_message)
     {
-        $this->container['token'] = $token;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets user
-     *
-     * @return \Sendbird\Model\SendBirdUser|null
-     */
-    public function getUser()
-    {
-        return $this->container['user'];
-    }
-
-    /**
-     * Sets user
-     *
-     * @param \Sendbird\Model\SendBirdUser|null $user user
-     *
-     * @return self
-     */
-    public function setUser($user)
-    {
-        $this->container['user'] = $user;
+        $this->container['auto_event_message'] = $auto_event_message;
 
         return $this;
     }

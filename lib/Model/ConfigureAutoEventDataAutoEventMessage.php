@@ -1,6 +1,6 @@
 <?php
 /**
- * AddRegistrationOrDeviceTokenResponse
+ * ConfigureAutoEventDataAutoEventMessage
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * AddRegistrationOrDeviceTokenResponse Class Doc Comment
+ * ConfigureAutoEventDataAutoEventMessage Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class ConfigureAutoEventDataAutoEventMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'addRegistrationOrDeviceTokenResponse';
+    protected static $openAPIModelName = 'configureAutoEventData_auto_event_message';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,10 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'token' => 'string',
-        'type' => 'string',
-        'user' => '\Sendbird\Model\SendBirdUser'
+        'user_leave' => 'object',
+        'user_join' => 'object',
+        'channel_create' => 'object',
+        'channel_change' => 'object'
     ];
 
     /**
@@ -73,9 +74,10 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'token' => null,
-        'type' => null,
-        'user' => null
+        'user_leave' => null,
+        'user_join' => null,
+        'channel_create' => null,
+        'channel_change' => null
     ];
 
     /**
@@ -105,9 +107,10 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'token' => 'token',
-        'type' => 'type',
-        'user' => 'user'
+        'user_leave' => 'user_leave',
+        'user_join' => 'user_join',
+        'channel_create' => 'channel_create',
+        'channel_change' => 'channel_change'
     ];
 
     /**
@@ -116,9 +119,10 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'token' => 'setToken',
-        'type' => 'setType',
-        'user' => 'setUser'
+        'user_leave' => 'setUserLeave',
+        'user_join' => 'setUserJoin',
+        'channel_create' => 'setChannelCreate',
+        'channel_change' => 'setChannelChange'
     ];
 
     /**
@@ -127,9 +131,10 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'token' => 'getToken',
-        'type' => 'getType',
-        'user' => 'getUser'
+        'user_leave' => 'getUserLeave',
+        'user_join' => 'getUserJoin',
+        'channel_create' => 'getChannelCreate',
+        'channel_change' => 'getChannelChange'
     ];
 
     /**
@@ -189,9 +194,10 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
      */
     public function __construct(array $data = null)
     {
-        $this->container['token'] = $data['token'] ?? null;
-        $this->container['type'] = $data['type'] ?? null;
-        $this->container['user'] = $data['user'] ?? null;
+        $this->container['user_leave'] = $data['user_leave'] ?? null;
+        $this->container['user_join'] = $data['user_join'] ?? null;
+        $this->container['channel_create'] = $data['channel_create'] ?? null;
+        $this->container['channel_change'] = $data['channel_change'] ?? null;
     }
 
     /**
@@ -219,73 +225,97 @@ class AddRegistrationOrDeviceTokenResponse implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets token
+     * Gets user_leave
      *
-     * @return string|null
+     * @return object|null
      */
-    public function getToken()
+    public function getUserLeave()
     {
-        return $this->container['token'];
+        return $this->container['user_leave'];
     }
 
     /**
-     * Sets token
+     * Sets user_leave
      *
-     * @param string|null $token token
+     * @param object|null $user_leave user_leave
      *
      * @return self
      */
-    public function setToken($token)
+    public function setUserLeave($user_leave)
     {
-        $this->container['token'] = $token;
+        $this->container['user_leave'] = $user_leave;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets user_join
      *
-     * @return string|null
+     * @return object|null
      */
-    public function getType()
+    public function getUserJoin()
     {
-        return $this->container['type'];
+        return $this->container['user_join'];
     }
 
     /**
-     * Sets type
+     * Sets user_join
      *
-     * @param string|null $type type
+     * @param object|null $user_join user_join
      *
      * @return self
      */
-    public function setType($type)
+    public function setUserJoin($user_join)
     {
-        $this->container['type'] = $type;
+        $this->container['user_join'] = $user_join;
 
         return $this;
     }
 
     /**
-     * Gets user
+     * Gets channel_create
      *
-     * @return \Sendbird\Model\SendBirdUser|null
+     * @return object|null
      */
-    public function getUser()
+    public function getChannelCreate()
     {
-        return $this->container['user'];
+        return $this->container['channel_create'];
     }
 
     /**
-     * Sets user
+     * Sets channel_create
      *
-     * @param \Sendbird\Model\SendBirdUser|null $user user
+     * @param object|null $channel_create channel_create
      *
      * @return self
      */
-    public function setUser($user)
+    public function setChannelCreate($channel_create)
     {
-        $this->container['user'] = $user;
+        $this->container['channel_create'] = $channel_create;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_change
+     *
+     * @return object|null
+     */
+    public function getChannelChange()
+    {
+        return $this->container['channel_change'];
+    }
+
+    /**
+     * Sets channel_change
+     *
+     * @param object|null $channel_change channel_change
+     *
+     * @return self
+     */
+    public function setChannelChange($channel_change)
+    {
+        $this->container['channel_change'] = $channel_change;
 
         return $this;
     }
