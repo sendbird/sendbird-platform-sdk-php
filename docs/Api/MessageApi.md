@@ -59,11 +59,11 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$body = array('key' => new \stdClass); // object
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['body'] = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->addEmojiCategories($api_token, $body);
+    $result = $apiInstance->addEmojiCategories($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->addEmojiCategories: ', $e->getMessage(), PHP_EOL;
@@ -71,6 +71,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -117,11 +119,11 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$add_emojis_data = new \Sendbird\Model\AddEmojisData(); // \Sendbird\Model\AddEmojisData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['add_emojis_data'] = new \Sendbird\Model\AddEmojisData(); // \Sendbird\Model\AddEmojisData
 
 try {
-    $result = $apiInstance->addEmojis($api_token, $add_emojis_data);
+    $result = $apiInstance->addEmojis($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->addEmojis: ', $e->getMessage(), PHP_EOL;
@@ -129,6 +131,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -175,14 +179,14 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$add_extra_data_to_message_data = new \Sendbird\Model\AddExtraDataToMessageData(); // \Sendbird\Model\AddExtraDataToMessageData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['add_extra_data_to_message_data'] = new \Sendbird\Model\AddExtraDataToMessageData(); // \Sendbird\Model\AddExtraDataToMessageData
 
 try {
-    $result = $apiInstance->addExtraDataToMessage($api_token, $channel_type, $channel_url, $message_id, $add_extra_data_to_message_data);
+    $result = $apiInstance->addExtraDataToMessage($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->addExtraDataToMessage: ', $e->getMessage(), PHP_EOL;
@@ -190,6 +194,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -239,14 +245,14 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$add_reaction_to_a_message_data = new \Sendbird\Model\AddReactionToAMessageData(); // \Sendbird\Model\AddReactionToAMessageData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['add_reaction_to_a_message_data'] = new \Sendbird\Model\AddReactionToAMessageData(); // \Sendbird\Model\AddReactionToAMessageData
 
 try {
-    $result = $apiInstance->addReactionToAMessage($api_token, $channel_type, $channel_url, $message_id, $add_reaction_to_a_message_data);
+    $result = $apiInstance->addReactionToAMessage($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->addReactionToAMessage: ', $e->getMessage(), PHP_EOL;
@@ -254,6 +260,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -303,17 +311,19 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$emoji_key = 'emoji_key_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['emoji_key'] = 'emoji_key_example'; // string
 
 try {
-    $apiInstance->deleteEmojiByKey($api_token, $emoji_key);
+    $apiInstance->deleteEmojiByKey($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->deleteEmojiByKey: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -360,11 +370,11 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$emoji_category_id = 'emoji_category_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['emoji_category_id'] = 'emoji_category_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteEmojiCategoryById($api_token, $emoji_category_id);
+    $result = $apiInstance->deleteEmojiCategoryById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->deleteEmojiCategoryById: ', $e->getMessage(), PHP_EOL;
@@ -372,6 +382,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -418,13 +430,13 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteMessageById($api_token, $channel_type, $channel_url, $message_id);
+    $result = $apiInstance->deleteMessageById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->deleteMessageById: ', $e->getMessage(), PHP_EOL;
@@ -432,6 +444,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -480,11 +494,11 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$enable_reactions_data = new \Sendbird\Model\EnableReactionsData(); // \Sendbird\Model\EnableReactionsData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['enable_reactions_data'] = new \Sendbird\Model\EnableReactionsData(); // \Sendbird\Model\EnableReactionsData
 
 try {
-    $result = $apiInstance->enableReactions($api_token, $enable_reactions_data);
+    $result = $apiInstance->enableReactions($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->enableReactions: ', $e->getMessage(), PHP_EOL;
@@ -492,6 +506,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -538,12 +554,12 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_mark_all_messages_as_delivered_data = new \Sendbird\Model\GcMarkAllMessagesAsDeliveredData(); // \Sendbird\Model\GcMarkAllMessagesAsDeliveredData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_mark_all_messages_as_delivered_data'] = new \Sendbird\Model\GcMarkAllMessagesAsDeliveredData(); // \Sendbird\Model\GcMarkAllMessagesAsDeliveredData
 
 try {
-    $result = $apiInstance->gcMarkAllMessagesAsDelivered($api_token, $channel_url, $gc_mark_all_messages_as_delivered_data);
+    $result = $apiInstance->gcMarkAllMessagesAsDelivered($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->gcMarkAllMessagesAsDelivered: ', $e->getMessage(), PHP_EOL;
@@ -551,6 +567,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -598,12 +616,12 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_mark_all_messages_as_read_data = new \Sendbird\Model\GcMarkAllMessagesAsReadData(); // \Sendbird\Model\GcMarkAllMessagesAsReadData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_mark_all_messages_as_read_data'] = new \Sendbird\Model\GcMarkAllMessagesAsReadData(); // \Sendbird\Model\GcMarkAllMessagesAsReadData
 
 try {
-    $result = $apiInstance->gcMarkAllMessagesAsRead($api_token, $channel_url, $gc_mark_all_messages_as_read_data);
+    $result = $apiInstance->gcMarkAllMessagesAsRead($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->gcMarkAllMessagesAsRead: ', $e->getMessage(), PHP_EOL;
@@ -611,6 +629,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -658,12 +678,12 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$user_ids = 'user_ids_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['user_ids'] = 'user_ids_example'; // string
 
 try {
-    $result = $apiInstance->gcViewNumberOfEachMembersUnreadMessages($api_token, $channel_url, $user_ids);
+    $result = $apiInstance->gcViewNumberOfEachMembersUnreadMessages($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->gcViewNumberOfEachMembersUnreadMessages: ', $e->getMessage(), PHP_EOL;
@@ -671,6 +691,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -718,11 +740,11 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$emoji_key = 'emoji_key_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['emoji_key'] = 'emoji_key_example'; // string
 
 try {
-    $result = $apiInstance->getEmojiByKey($api_token, $emoji_key);
+    $result = $apiInstance->getEmojiByKey($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->getEmojiByKey: ', $e->getMessage(), PHP_EOL;
@@ -730,6 +752,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -776,11 +800,11 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$emoji_category_id = 'emoji_category_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['emoji_category_id'] = 'emoji_category_id_example'; // string
 
 try {
-    $result = $apiInstance->getEmojiCategoryById($api_token, $emoji_category_id);
+    $result = $apiInstance->getEmojiCategoryById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->getEmojiCategoryById: ', $e->getMessage(), PHP_EOL;
@@ -788,6 +812,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -834,10 +860,10 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->listAllEmojisAndEmojiCategories($api_token);
+    $result = $apiInstance->listAllEmojisAndEmojiCategories($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->listAllEmojisAndEmojiCategories: ', $e->getMessage(), PHP_EOL;
@@ -845,6 +871,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -890,15 +918,15 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-$order = 'order_example'; // string
-$status = 'status_example'; // string
-$announcement_group = 'announcement_group_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
+$associate_array['order'] = 'order_example'; // string
+$associate_array['status'] = 'status_example'; // string
+$associate_array['announcement_group'] = 'announcement_group_example'; // string
 
 try {
-    $result = $apiInstance->listAnnouncements($api_token, $token, $limit, $order, $status, $announcement_group);
+    $result = $apiInstance->listAnnouncements($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->listAnnouncements: ', $e->getMessage(), PHP_EOL;
@@ -906,6 +934,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -956,10 +986,10 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->listEmojis($api_token);
+    $result = $apiInstance->listEmojis($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->listEmojis: ', $e->getMessage(), PHP_EOL;
@@ -967,6 +997,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1012,30 +1044,30 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_ts = 'message_ts_example'; // string
-$message_id = 56; // int
-$prev_limit = 56; // int
-$next_limit = 56; // int
-$include = True; // bool
-$reverse = True; // bool
-$sender_id = 'sender_id_example'; // string
-$sender_ids = 'sender_ids_example'; // string
-$operator_filter = 'operator_filter_example'; // string
-$custom_types = 'custom_types_example'; // string
-$message_type = 'message_type_example'; // string
-$including_removed = True; // bool
-$include_reactions = True; // bool
-$with_sorted_meta_array = True; // bool
-$show_subchannel_messages_only = True; // bool
-$user_id = 'user_id_example'; // string
-$custom_type = 'custom_type_example'; // string
-$with_meta_array = True; // bool
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_ts'] = 'message_ts_example'; // string
+$associate_array['message_id'] = 56; // int
+$associate_array['prev_limit'] = 56; // int
+$associate_array['next_limit'] = 56; // int
+$associate_array['include'] = True; // bool
+$associate_array['reverse'] = True; // bool
+$associate_array['sender_id'] = 'sender_id_example'; // string
+$associate_array['sender_ids'] = 'sender_ids_example'; // string
+$associate_array['operator_filter'] = 'operator_filter_example'; // string
+$associate_array['custom_types'] = 'custom_types_example'; // string
+$associate_array['message_type'] = 'message_type_example'; // string
+$associate_array['including_removed'] = True; // bool
+$associate_array['include_reactions'] = True; // bool
+$associate_array['with_sorted_meta_array'] = True; // bool
+$associate_array['show_subchannel_messages_only'] = True; // bool
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['custom_type'] = 'custom_type_example'; // string
+$associate_array['with_meta_array'] = True; // bool
 
 try {
-    $result = $apiInstance->listMessages($api_token, $channel_type, $channel_url, $message_ts, $message_id, $prev_limit, $next_limit, $include, $reverse, $sender_id, $sender_ids, $operator_filter, $custom_types, $message_type, $including_removed, $include_reactions, $with_sorted_meta_array, $show_subchannel_messages_only, $user_id, $custom_type, $with_meta_array);
+    $result = $apiInstance->listMessages($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->listMessages: ', $e->getMessage(), PHP_EOL;
@@ -1043,6 +1075,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1108,14 +1142,14 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$list_users = True; // bool
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['list_users'] = True; // bool
 
 try {
-    $result = $apiInstance->listReactionsOfMessage($api_token, $channel_type, $channel_url, $message_id, $list_users);
+    $result = $apiInstance->listReactionsOfMessage($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->listReactionsOfMessage: ', $e->getMessage(), PHP_EOL;
@@ -1123,6 +1157,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1172,18 +1208,20 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$target_channel_url = 'target_channel_url_example'; // string
-$body = array('key' => new \stdClass); // object
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['target_channel_url'] = 'target_channel_url_example'; // string
+$associate_array['body'] = array('key' => new \stdClass); // object
 
 try {
-    $apiInstance->migrateMessagesByUrl($api_token, $target_channel_url, $body);
+    $apiInstance->migrateMessagesByUrl($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->migrateMessagesByUrl: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1231,14 +1269,14 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$keys = array('keys_example'); // string[]
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['keys'] = array('keys_example'); // string[]
 
 try {
-    $result = $apiInstance->removeExtraDataFromMessage($api_token, $channel_type, $channel_url, $message_id, $keys);
+    $result = $apiInstance->removeExtraDataFromMessage($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->removeExtraDataFromMessage: ', $e->getMessage(), PHP_EOL;
@@ -1246,6 +1284,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1295,15 +1335,15 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$user_id = 'user_id_example'; // string
-$reaction = 'reaction_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['reaction'] = 'reaction_example'; // string
 
 try {
-    $result = $apiInstance->removeReactionFromAMessage($api_token, $channel_type, $channel_url, $message_id, $user_id, $reaction);
+    $result = $apiInstance->removeReactionFromAMessage($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->removeReactionFromAMessage: ', $e->getMessage(), PHP_EOL;
@@ -1311,6 +1351,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1361,13 +1403,13 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$send_message_data = new \Sendbird\Model\SendMessageData(); // \Sendbird\Model\SendMessageData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['send_message_data'] = new \Sendbird\Model\SendMessageData(); // \Sendbird\Model\SendMessageData
 
 try {
-    $result = $apiInstance->sendMessage($api_token, $channel_type, $channel_url, $send_message_data);
+    $result = $apiInstance->sendMessage($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->sendMessage: ', $e->getMessage(), PHP_EOL;
@@ -1375,6 +1417,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1423,14 +1467,14 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$translate_message_into_other_languages_data = new \Sendbird\Model\TranslateMessageIntoOtherLanguagesData(); // \Sendbird\Model\TranslateMessageIntoOtherLanguagesData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['translate_message_into_other_languages_data'] = new \Sendbird\Model\TranslateMessageIntoOtherLanguagesData(); // \Sendbird\Model\TranslateMessageIntoOtherLanguagesData
 
 try {
-    $result = $apiInstance->translateMessageIntoOtherLanguages($api_token, $channel_type, $channel_url, $message_id, $translate_message_into_other_languages_data);
+    $result = $apiInstance->translateMessageIntoOtherLanguages($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->translateMessageIntoOtherLanguages: ', $e->getMessage(), PHP_EOL;
@@ -1438,6 +1482,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1487,12 +1533,12 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$emoji_category_id = 'emoji_category_id_example'; // string
-$update_emoji_category_url_by_id_data = new \Sendbird\Model\UpdateEmojiCategoryUrlByIdData(); // \Sendbird\Model\UpdateEmojiCategoryUrlByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['emoji_category_id'] = 'emoji_category_id_example'; // string
+$associate_array['update_emoji_category_url_by_id_data'] = new \Sendbird\Model\UpdateEmojiCategoryUrlByIdData(); // \Sendbird\Model\UpdateEmojiCategoryUrlByIdData
 
 try {
-    $result = $apiInstance->updateEmojiCategoryUrlById($api_token, $emoji_category_id, $update_emoji_category_url_by_id_data);
+    $result = $apiInstance->updateEmojiCategoryUrlById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->updateEmojiCategoryUrlById: ', $e->getMessage(), PHP_EOL;
@@ -1500,6 +1546,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1547,12 +1595,12 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$emoji_key = 'emoji_key_example'; // string
-$update_emoji_url_by_key_data = new \Sendbird\Model\UpdateEmojiUrlByKeyData(); // \Sendbird\Model\UpdateEmojiUrlByKeyData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['emoji_key'] = 'emoji_key_example'; // string
+$associate_array['update_emoji_url_by_key_data'] = new \Sendbird\Model\UpdateEmojiUrlByKeyData(); // \Sendbird\Model\UpdateEmojiUrlByKeyData
 
 try {
-    $result = $apiInstance->updateEmojiUrlByKey($api_token, $emoji_key, $update_emoji_url_by_key_data);
+    $result = $apiInstance->updateEmojiUrlByKey($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->updateEmojiUrlByKey: ', $e->getMessage(), PHP_EOL;
@@ -1560,6 +1608,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1607,14 +1657,14 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$update_extra_data_in_message_data = new \Sendbird\Model\UpdateExtraDataInMessageData(); // \Sendbird\Model\UpdateExtraDataInMessageData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['update_extra_data_in_message_data'] = new \Sendbird\Model\UpdateExtraDataInMessageData(); // \Sendbird\Model\UpdateExtraDataInMessageData
 
 try {
-    $result = $apiInstance->updateExtraDataInMessage($api_token, $channel_type, $channel_url, $message_id, $update_extra_data_in_message_data);
+    $result = $apiInstance->updateExtraDataInMessage($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->updateExtraDataInMessage: ', $e->getMessage(), PHP_EOL;
@@ -1622,6 +1672,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1671,14 +1723,14 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$update_message_by_id_data = new \Sendbird\Model\UpdateMessageByIdData(); // \Sendbird\Model\UpdateMessageByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['update_message_by_id_data'] = new \Sendbird\Model\UpdateMessageByIdData(); // \Sendbird\Model\UpdateMessageByIdData
 
 try {
-    $result = $apiInstance->updateMessageById($api_token, $channel_type, $channel_url, $message_id, $update_message_by_id_data);
+    $result = $apiInstance->updateMessageById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->updateMessageById: ', $e->getMessage(), PHP_EOL;
@@ -1686,6 +1738,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1735,11 +1789,11 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$use_default_emojis_data = new \Sendbird\Model\UseDefaultEmojisData(); // \Sendbird\Model\UseDefaultEmojisData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['use_default_emojis_data'] = new \Sendbird\Model\UseDefaultEmojisData(); // \Sendbird\Model\UseDefaultEmojisData
 
 try {
-    $result = $apiInstance->useDefaultEmojis($api_token, $use_default_emojis_data);
+    $result = $apiInstance->useDefaultEmojis($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->useDefaultEmojis: ', $e->getMessage(), PHP_EOL;
@@ -1747,6 +1801,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1793,15 +1849,15 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$with_sorted_meta_array = True; // bool
-$with_meta_array = True; // bool
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['with_sorted_meta_array'] = True; // bool
+$associate_array['with_meta_array'] = True; // bool
 
 try {
-    $result = $apiInstance->viewMessageById($api_token, $channel_type, $channel_url, $message_id, $with_sorted_meta_array, $with_meta_array);
+    $result = $apiInstance->viewMessageById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->viewMessageById: ', $e->getMessage(), PHP_EOL;
@@ -1809,6 +1865,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1859,12 +1917,12 @@ $apiInstance = new Sendbird\Api\MessageApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
 
 try {
-    $result = $apiInstance->viewTotalNumberOfMessagesInChannel($api_token, $channel_type, $channel_url);
+    $result = $apiInstance->viewTotalNumberOfMessagesInChannel($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageApi->viewTotalNumberOfMessagesInChannel: ', $e->getMessage(), PHP_EOL;
@@ -1872,6 +1930,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

@@ -50,13 +50,13 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$create_channel_metacounter_data = new \Sendbird\Model\CreateChannelMetacounterData(); // \Sendbird\Model\CreateChannelMetacounterData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['create_channel_metacounter_data'] = new \Sendbird\Model\CreateChannelMetacounterData(); // \Sendbird\Model\CreateChannelMetacounterData
 
 try {
-    $result = $apiInstance->createChannelMetacounter($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
+    $result = $apiInstance->createChannelMetacounter($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->createChannelMetacounter: ', $e->getMessage(), PHP_EOL;
@@ -64,6 +64,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -112,13 +114,13 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$create_channel_metadata_data = new \Sendbird\Model\CreateChannelMetadataData(); // \Sendbird\Model\CreateChannelMetadataData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['create_channel_metadata_data'] = new \Sendbird\Model\CreateChannelMetadataData(); // \Sendbird\Model\CreateChannelMetadataData
 
 try {
-    $result = $apiInstance->createChannelMetadata($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
+    $result = $apiInstance->createChannelMetadata($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->createChannelMetadata: ', $e->getMessage(), PHP_EOL;
@@ -126,6 +128,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -174,12 +178,12 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$create_user_metadata_data = new \Sendbird\Model\CreateUserMetadataData(); // \Sendbird\Model\CreateUserMetadataData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['create_user_metadata_data'] = new \Sendbird\Model\CreateUserMetadataData(); // \Sendbird\Model\CreateUserMetadataData
 
 try {
-    $result = $apiInstance->createUserMetadata($api_token, $user_id, $create_user_metadata_data);
+    $result = $apiInstance->createUserMetadata($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->createUserMetadata: ', $e->getMessage(), PHP_EOL;
@@ -187,6 +191,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -234,18 +240,20 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
 
 try {
-    $apiInstance->deleteChannelMetacounter($api_token, $channel_type, $channel_url);
+    $apiInstance->deleteChannelMetacounter($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->deleteChannelMetacounter: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -293,19 +301,21 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$key = 'key_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['key'] = 'key_example'; // string
 
 try {
-    $apiInstance->deleteChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key);
+    $apiInstance->deleteChannelMetacounterByKey($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->deleteChannelMetacounterByKey: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -354,19 +364,21 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$key = 'key_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['key'] = 'key_example'; // string
 
 try {
-    $apiInstance->deleteChannelMetadata($api_token, $channel_type, $channel_url, $key);
+    $apiInstance->deleteChannelMetadata($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->deleteChannelMetadata: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -415,19 +427,21 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$key = 'key_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['key'] = 'key_example'; // string
 
 try {
-    $apiInstance->deleteChannelMetadataByKey($api_token, $channel_type, $channel_url, $key);
+    $apiInstance->deleteChannelMetadataByKey($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->deleteChannelMetadataByKey: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -476,18 +490,20 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$key = 'key_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['key'] = 'key_example'; // string
 
 try {
-    $apiInstance->deleteUserMetadata($api_token, $user_id, $key);
+    $apiInstance->deleteUserMetadata($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->deleteUserMetadata: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -535,18 +551,20 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$key = 'key_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['key'] = 'key_example'; // string
 
 try {
-    $apiInstance->deleteUserMetadataByKey($api_token, $user_id, $key);
+    $apiInstance->deleteUserMetadataByKey($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->deleteUserMetadataByKey: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -594,13 +612,13 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$update_channel_metacounter_data = new \Sendbird\Model\UpdateChannelMetacounterData(); // \Sendbird\Model\UpdateChannelMetacounterData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['update_channel_metacounter_data'] = new \Sendbird\Model\UpdateChannelMetacounterData(); // \Sendbird\Model\UpdateChannelMetacounterData
 
 try {
-    $result = $apiInstance->updateChannelMetacounter($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
+    $result = $apiInstance->updateChannelMetacounter($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->updateChannelMetacounter: ', $e->getMessage(), PHP_EOL;
@@ -608,6 +626,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -656,14 +676,14 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$key = 'key_example'; // string
-$body = array('key' => new \stdClass); // object
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['key'] = 'key_example'; // string
+$associate_array['body'] = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->updateChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key, $body);
+    $result = $apiInstance->updateChannelMetacounterByKey($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->updateChannelMetacounterByKey: ', $e->getMessage(), PHP_EOL;
@@ -671,6 +691,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -720,13 +742,13 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$update_channel_metadata_data = new \Sendbird\Model\UpdateChannelMetadataData(); // \Sendbird\Model\UpdateChannelMetadataData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['update_channel_metadata_data'] = new \Sendbird\Model\UpdateChannelMetadataData(); // \Sendbird\Model\UpdateChannelMetadataData
 
 try {
-    $result = $apiInstance->updateChannelMetadata($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
+    $result = $apiInstance->updateChannelMetadata($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->updateChannelMetadata: ', $e->getMessage(), PHP_EOL;
@@ -734,6 +756,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -782,14 +806,14 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$key = 'key_example'; // string
-$body = array('key' => new \stdClass); // object
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['key'] = 'key_example'; // string
+$associate_array['body'] = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->updateChannelMetadataByKey($api_token, $channel_type, $channel_url, $key, $body);
+    $result = $apiInstance->updateChannelMetadataByKey($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->updateChannelMetadataByKey: ', $e->getMessage(), PHP_EOL;
@@ -797,6 +821,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -846,12 +872,12 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$update_user_metadata_data = new \Sendbird\Model\UpdateUserMetadataData(); // \Sendbird\Model\UpdateUserMetadataData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['update_user_metadata_data'] = new \Sendbird\Model\UpdateUserMetadataData(); // \Sendbird\Model\UpdateUserMetadataData
 
 try {
-    $result = $apiInstance->updateUserMetadata($api_token, $user_id, $update_user_metadata_data);
+    $result = $apiInstance->updateUserMetadata($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->updateUserMetadata: ', $e->getMessage(), PHP_EOL;
@@ -859,6 +885,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -906,13 +934,13 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$key = 'key_example'; // string
-$body = array('key' => new \stdClass); // object
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['key'] = 'key_example'; // string
+$associate_array['body'] = array('key' => new \stdClass); // object
 
 try {
-    $result = $apiInstance->updateUserMetadataByKey($api_token, $user_id, $key, $body);
+    $result = $apiInstance->updateUserMetadataByKey($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->updateUserMetadataByKey: ', $e->getMessage(), PHP_EOL;
@@ -920,6 +948,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -968,14 +998,14 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$key = 'key_example'; // string
-$keys = array('keys_example'); // string[]
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['key'] = 'key_example'; // string
+$associate_array['keys'] = array('keys_example'); // string[]
 
 try {
-    $result = $apiInstance->viewChannelMetacounter($api_token, $channel_type, $channel_url, $key, $keys);
+    $result = $apiInstance->viewChannelMetacounter($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->viewChannelMetacounter: ', $e->getMessage(), PHP_EOL;
@@ -983,6 +1013,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1032,13 +1064,13 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$key = 'key_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['key'] = 'key_example'; // string
 
 try {
-    $result = $apiInstance->viewChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key);
+    $result = $apiInstance->viewChannelMetacounterByKey($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->viewChannelMetacounterByKey: ', $e->getMessage(), PHP_EOL;
@@ -1046,6 +1078,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1094,14 +1128,14 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$key = 'key_example'; // string
-$keys = array('keys_example'); // string[]
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['key'] = 'key_example'; // string
+$associate_array['keys'] = array('keys_example'); // string[]
 
 try {
-    $result = $apiInstance->viewChannelMetadata($api_token, $channel_type, $channel_url, $key, $keys);
+    $result = $apiInstance->viewChannelMetadata($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->viewChannelMetadata: ', $e->getMessage(), PHP_EOL;
@@ -1109,6 +1143,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1158,13 +1194,13 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$key = 'key_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['key'] = 'key_example'; // string
 
 try {
-    $result = $apiInstance->viewChannelMetadataByKey($api_token, $channel_type, $channel_url, $key);
+    $result = $apiInstance->viewChannelMetadataByKey($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->viewChannelMetadataByKey: ', $e->getMessage(), PHP_EOL;
@@ -1172,6 +1208,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1220,13 +1258,13 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$key = 'key_example'; // string
-$keys = array('keys_example'); // string[]
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['key'] = 'key_example'; // string
+$associate_array['keys'] = array('keys_example'); // string[]
 
 try {
-    $result = $apiInstance->viewUserMetadata($api_token, $user_id, $key, $keys);
+    $result = $apiInstance->viewUserMetadata($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->viewUserMetadata: ', $e->getMessage(), PHP_EOL;
@@ -1234,6 +1272,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1282,12 +1322,12 @@ $apiInstance = new Sendbird\Api\MetadataApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$key = 'key_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['key'] = 'key_example'; // string
 
 try {
-    $result = $apiInstance->viewUserMetadataByKey($api_token, $user_id, $key);
+    $result = $apiInstance->viewUserMetadataByKey($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MetadataApi->viewUserMetadataByKey: ', $e->getMessage(), PHP_EOL;
@@ -1295,6 +1335,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

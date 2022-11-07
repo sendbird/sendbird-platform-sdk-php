@@ -232,4 +232,85 @@ class SendMessageDataTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "url"
+     */
+    public function testPropertyUrl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "file"
+     */
+    public function testPropertyFile()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "file_name"
+     */
+    public function testPropertyFileName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "file_size"
+     */
+    public function testPropertyFileSize()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "file_type"
+     */
+    public function testPropertyFileType()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "thumbnails"
+     */
+    public function testPropertyThumbnails()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "thumbnail1"
+     */
+    public function testPropertyThumbnail1()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "thumbnail2"
+     */
+    public function testPropertyThumbnail2()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "thumbnail3"
+     */
+    public function testPropertyThumbnail3()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

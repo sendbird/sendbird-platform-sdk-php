@@ -36,11 +36,11 @@ $apiInstance = new Sendbird\Api\StatisticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$unique_id = 'unique_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['unique_id'] = 'unique_id_example'; // string
 
 try {
-    $result = $apiInstance->getDetailedOpenRateOfAnnouncementById($api_token, $unique_id);
+    $result = $apiInstance->getDetailedOpenRateOfAnnouncementById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StatisticsApi->getDetailedOpenRateOfAnnouncementById: ', $e->getMessage(), PHP_EOL;
@@ -48,6 +48,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -94,16 +96,16 @@ $apiInstance = new Sendbird\Api\StatisticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$unique_id = 'unique_id_example'; // string
-$limit = 56; // int
-$next = 'next_example'; // string
-$unique_ids = array('unique_ids_example'); // string[]
-$channel_urls = array('channel_urls_example'); // string[]
-$has_opened = True; // bool
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['unique_id'] = 'unique_id_example'; // string
+$associate_array['limit'] = 56; // int
+$associate_array['next'] = 'next_example'; // string
+$associate_array['unique_ids'] = array('unique_ids_example'); // string[]
+$associate_array['channel_urls'] = array('channel_urls_example'); // string[]
+$associate_array['has_opened'] = True; // bool
 
 try {
-    $result = $apiInstance->getDetailedOpenStatusOfAnnouncementById($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+    $result = $apiInstance->getDetailedOpenStatusOfAnnouncementById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StatisticsApi->getDetailedOpenStatusOfAnnouncementById: ', $e->getMessage(), PHP_EOL;
@@ -111,6 +113,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -162,10 +166,10 @@ $apiInstance = new Sendbird\Api\StatisticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->retrieveAdvancedAnalyticsMetrics($api_token);
+    $result = $apiInstance->retrieveAdvancedAnalyticsMetrics($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StatisticsApi->retrieveAdvancedAnalyticsMetrics: ', $e->getMessage(), PHP_EOL;
@@ -173,6 +177,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -218,10 +224,10 @@ $apiInstance = new Sendbird\Api\StatisticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewNumberOfConcurrentConnections($api_token);
+    $result = $apiInstance->viewNumberOfConcurrentConnections($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StatisticsApi->viewNumberOfConcurrentConnections: ', $e->getMessage(), PHP_EOL;
@@ -229,6 +235,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -274,11 +282,11 @@ $apiInstance = new Sendbird\Api\StatisticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$date = 'date_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['date'] = 'date_example'; // string
 
 try {
-    $result = $apiInstance->viewNumberOfDailyActiveUsers($api_token, $date);
+    $result = $apiInstance->viewNumberOfDailyActiveUsers($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StatisticsApi->viewNumberOfDailyActiveUsers: ', $e->getMessage(), PHP_EOL;
@@ -286,6 +294,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -332,11 +342,11 @@ $apiInstance = new Sendbird\Api\StatisticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$date = 'date_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['date'] = 'date_example'; // string
 
 try {
-    $result = $apiInstance->viewNumberOfMonthlyActiveUsers($api_token, $date);
+    $result = $apiInstance->viewNumberOfMonthlyActiveUsers($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StatisticsApi->viewNumberOfMonthlyActiveUsers: ', $e->getMessage(), PHP_EOL;
@@ -344,6 +354,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -390,17 +402,17 @@ $apiInstance = new Sendbird\Api\StatisticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$time_dimension = 'time_dimension_example'; // string
-$start_year = 56; // int
-$start_month = 56; // int
-$end_year = 56; // int
-$end_month = 56; // int
-$start_day = 56; // int
-$end_day = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['time_dimension'] = 'time_dimension_example'; // string
+$associate_array['start_year'] = 56; // int
+$associate_array['start_month'] = 56; // int
+$associate_array['end_year'] = 56; // int
+$associate_array['end_month'] = 56; // int
+$associate_array['start_day'] = 56; // int
+$associate_array['end_day'] = 56; // int
 
 try {
-    $result = $apiInstance->viewNumberOfPeakConnections($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
+    $result = $apiInstance->viewNumberOfPeakConnections($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling StatisticsApi->viewNumberOfPeakConnections: ', $e->getMessage(), PHP_EOL;
@@ -408,6 +420,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

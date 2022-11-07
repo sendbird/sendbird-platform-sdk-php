@@ -38,11 +38,11 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$create_bot_data = new \Sendbird\Model\CreateBotData(); // \Sendbird\Model\CreateBotData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['create_bot_data'] = new \Sendbird\Model\CreateBotData(); // \Sendbird\Model\CreateBotData
 
 try {
-    $result = $apiInstance->createBot($api_token, $create_bot_data);
+    $result = $apiInstance->createBot($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotApi->createBot: ', $e->getMessage(), PHP_EOL;
@@ -50,6 +50,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -96,11 +98,11 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$bot_userid = 'bot_userid_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['bot_userid'] = 'bot_userid_example'; // string
 
 try {
-    $result = $apiInstance->deleteBotById($api_token, $bot_userid);
+    $result = $apiInstance->deleteBotById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotApi->deleteBotById: ', $e->getMessage(), PHP_EOL;
@@ -108,6 +110,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -154,12 +158,12 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$bot_userid = 'bot_userid_example'; // string
-$join_channels_data = new \Sendbird\Model\JoinChannelsData(); // \Sendbird\Model\JoinChannelsData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['bot_userid'] = 'bot_userid_example'; // string
+$associate_array['join_channels_data'] = new \Sendbird\Model\JoinChannelsData(); // \Sendbird\Model\JoinChannelsData
 
 try {
-    $result = $apiInstance->joinChannels($api_token, $bot_userid, $join_channels_data);
+    $result = $apiInstance->joinChannels($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotApi->joinChannels: ', $e->getMessage(), PHP_EOL;
@@ -167,6 +171,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -214,18 +220,20 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$bot_userid = 'bot_userid_example'; // string
-$channel_url = 'channel_url_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['bot_userid'] = 'bot_userid_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
 
 try {
-    $apiInstance->leaveChannels($api_token, $bot_userid, $channel_url);
+    $apiInstance->leaveChannels($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling BotApi->leaveChannels: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -273,12 +281,12 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$bot_userid = 'bot_userid_example'; // string
-$channel_url = 'channel_url_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['bot_userid'] = 'bot_userid_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
 
 try {
-    $result = $apiInstance->leaveChannelsByUrl($api_token, $bot_userid, $channel_url);
+    $result = $apiInstance->leaveChannelsByUrl($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotApi->leaveChannelsByUrl: ', $e->getMessage(), PHP_EOL;
@@ -286,6 +294,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -333,12 +343,12 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listBots($api_token, $token, $limit);
+    $result = $apiInstance->listBots($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotApi->listBots: ', $e->getMessage(), PHP_EOL;
@@ -346,6 +356,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -393,12 +405,12 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$bot_userid = 'bot_userid_example'; // string
-$send_bot_s_message_data = new \Sendbird\Model\SendBotSMessageData(); // \Sendbird\Model\SendBotSMessageData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['bot_userid'] = 'bot_userid_example'; // string
+$associate_array['send_bot_s_message_data'] = new \Sendbird\Model\SendBotSMessageData(); // \Sendbird\Model\SendBotSMessageData
 
 try {
-    $result = $apiInstance->sendBotsMessage($api_token, $bot_userid, $send_bot_s_message_data);
+    $result = $apiInstance->sendBotsMessage($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotApi->sendBotsMessage: ', $e->getMessage(), PHP_EOL;
@@ -406,6 +418,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -453,12 +467,12 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$bot_userid = 'bot_userid_example'; // string
-$update_bot_by_id_data = new \Sendbird\Model\UpdateBotByIdData(); // \Sendbird\Model\UpdateBotByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['bot_userid'] = 'bot_userid_example'; // string
+$associate_array['update_bot_by_id_data'] = new \Sendbird\Model\UpdateBotByIdData(); // \Sendbird\Model\UpdateBotByIdData
 
 try {
-    $result = $apiInstance->updateBotById($api_token, $bot_userid, $update_bot_by_id_data);
+    $result = $apiInstance->updateBotById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotApi->updateBotById: ', $e->getMessage(), PHP_EOL;
@@ -466,6 +480,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -513,11 +529,11 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$bot_userid = 'bot_userid_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['bot_userid'] = 'bot_userid_example'; // string
 
 try {
-    $result = $apiInstance->viewBotById($api_token, $bot_userid);
+    $result = $apiInstance->viewBotById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BotApi->viewBotById: ', $e->getMessage(), PHP_EOL;
@@ -525,6 +541,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

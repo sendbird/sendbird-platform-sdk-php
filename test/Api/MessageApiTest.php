@@ -229,60 +229,12 @@ class MessageApiTest extends TestCase
     }
 
     /**
-     * Test case for getStatistics
-     *
-     * Get statistics - weekly.
-     *
-     */
-    public function testGetStatistics()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getStatisticsDaily
-     *
-     * Get statistics - daily.
-     *
-     */
-    public function testGetStatisticsDaily()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getStatisticsMonthly
-     *
-     * Get statistics - monthly.
-     *
-     */
-    public function testGetStatisticsMonthly()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for listAllEmojisAndEmojiCategories
      *
      * List all emojis and emoji categories.
      *
      */
     public function testListAllEmojisAndEmojiCategories()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for listAnnouncementGroups
-     *
-     * List announcement groups.
-     *
-     */
-    public function testListAnnouncementGroups()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -373,18 +325,6 @@ class MessageApiTest extends TestCase
     }
 
     /**
-     * Test case for scheduleAnnouncement
-     *
-     * Schedule an announcement.
-     *
-     */
-    public function testScheduleAnnouncement()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for sendMessage
      *
      * Send a message.
@@ -403,18 +343,6 @@ class MessageApiTest extends TestCase
      *
      */
     public function testTranslateMessageIntoOtherLanguages()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateAnnouncementById
-     *
-     * Update an announcement.
-     *
-     */
-    public function testUpdateAnnouncementById()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

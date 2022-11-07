@@ -121,6 +121,8 @@ class AnnouncementApi
      *
      * Get detailed open rate of an announcement group
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $announcement_group announcement_group (required)
      *
@@ -128,9 +130,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse
      */
-    public function getDetailedOpenRateOfAnnouncementGroup($api_token, $announcement_group)
+    public function getDetailedOpenRateOfAnnouncementGroup($associative_array)
     {
-        list($response) = $this->getDetailedOpenRateOfAnnouncementGroupWithHttpInfo($api_token, $announcement_group);
+        list($response) = $this->getDetailedOpenRateOfAnnouncementGroupWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -139,6 +141,8 @@ class AnnouncementApi
      *
      * Get detailed open rate of an announcement group
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $announcement_group (required)
      *
@@ -146,9 +150,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDetailedOpenRateOfAnnouncementGroupWithHttpInfo($api_token, $announcement_group)
+    public function getDetailedOpenRateOfAnnouncementGroupWithHttpInfo($associative_array)
     {
-        $request = $this->getDetailedOpenRateOfAnnouncementGroupRequest($api_token, $announcement_group);
+        $request = $this->getDetailedOpenRateOfAnnouncementGroupRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -239,15 +243,17 @@ class AnnouncementApi
      *
      * Get detailed open rate of an announcement group
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $announcement_group (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenRateOfAnnouncementGroupAsync($api_token, $announcement_group)
+    public function getDetailedOpenRateOfAnnouncementGroupAsync($associative_array)
     {
-        return $this->getDetailedOpenRateOfAnnouncementGroupAsyncWithHttpInfo($api_token, $announcement_group)
+        return $this->getDetailedOpenRateOfAnnouncementGroupAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -260,16 +266,18 @@ class AnnouncementApi
      *
      * Get detailed open rate of an announcement group
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $announcement_group (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenRateOfAnnouncementGroupAsyncWithHttpInfo($api_token, $announcement_group)
+    public function getDetailedOpenRateOfAnnouncementGroupAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementGroupResponse';
-        $request = $this->getDetailedOpenRateOfAnnouncementGroupRequest($api_token, $announcement_group);
+        $request = $this->getDetailedOpenRateOfAnnouncementGroupRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -310,14 +318,20 @@ class AnnouncementApi
     /**
      * Create request for operation 'getDetailedOpenRateOfAnnouncementGroup'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $announcement_group (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDetailedOpenRateOfAnnouncementGroupRequest($api_token, $announcement_group)
+    public function getDetailedOpenRateOfAnnouncementGroupRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $announcement_group = array_key_exists('announcement_group', $associative_array) ? $associative_array['announcement_group'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -416,15 +430,17 @@ class AnnouncementApi
      *
      * Get statistics - weekly
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetStatisticsResponse
      */
-    public function getStatistics($api_token)
+    public function getStatistics($associative_array)
     {
-        list($response) = $this->getStatisticsWithHttpInfo($api_token);
+        list($response) = $this->getStatisticsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -433,15 +449,17 @@ class AnnouncementApi
      *
      * Get statistics - weekly
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetStatisticsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStatisticsWithHttpInfo($api_token)
+    public function getStatisticsWithHttpInfo($associative_array)
     {
-        $request = $this->getStatisticsRequest($api_token);
+        $request = $this->getStatisticsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -532,14 +550,16 @@ class AnnouncementApi
      *
      * Get statistics - weekly
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsAsync($api_token)
+    public function getStatisticsAsync($associative_array)
     {
-        return $this->getStatisticsAsyncWithHttpInfo($api_token)
+        return $this->getStatisticsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -552,15 +572,17 @@ class AnnouncementApi
      *
      * Get statistics - weekly
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsAsyncWithHttpInfo($api_token)
+    public function getStatisticsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GetStatisticsResponse';
-        $request = $this->getStatisticsRequest($api_token);
+        $request = $this->getStatisticsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -601,13 +623,18 @@ class AnnouncementApi
     /**
      * Create request for operation 'getStatistics'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStatisticsRequest($api_token)
+    public function getStatisticsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -692,6 +719,8 @@ class AnnouncementApi
      *
      * Get statistics - daily
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $start_date start_date (required)
      * @param  string $end_date end_date (required)
@@ -705,9 +734,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetStatisticsDailyResponse
      */
-    public function getStatisticsDaily($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group = null)
+    public function getStatisticsDaily($associative_array)
     {
-        list($response) = $this->getStatisticsDailyWithHttpInfo($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group);
+        list($response) = $this->getStatisticsDailyWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -715,6 +744,8 @@ class AnnouncementApi
      * Operation getStatisticsDailyWithHttpInfo
      *
      * Get statistics - daily
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $start_date (required)
@@ -729,9 +760,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetStatisticsDailyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStatisticsDailyWithHttpInfo($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group = null)
+    public function getStatisticsDailyWithHttpInfo($associative_array)
     {
-        $request = $this->getStatisticsDailyRequest($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group);
+        $request = $this->getStatisticsDailyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -822,6 +853,8 @@ class AnnouncementApi
      *
      * Get statistics - daily
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $start_date (required)
      * @param  string $end_date (required)
@@ -834,9 +867,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsDailyAsync($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group = null)
+    public function getStatisticsDailyAsync($associative_array)
     {
-        return $this->getStatisticsDailyAsyncWithHttpInfo($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group)
+        return $this->getStatisticsDailyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -849,6 +882,8 @@ class AnnouncementApi
      *
      * Get statistics - daily
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $start_date (required)
      * @param  string $end_date (required)
@@ -861,10 +896,10 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsDailyAsyncWithHttpInfo($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group = null)
+    public function getStatisticsDailyAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GetStatisticsDailyResponse';
-        $request = $this->getStatisticsDailyRequest($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group);
+        $request = $this->getStatisticsDailyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -905,6 +940,8 @@ class AnnouncementApi
     /**
      * Create request for operation 'getStatisticsDaily'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $start_date (required)
      * @param  string $end_date (required)
@@ -917,8 +954,18 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStatisticsDailyRequest($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group = null)
+    public function getStatisticsDailyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $start_date = array_key_exists('start_date', $associative_array) ? $associative_array['start_date'] : null;
+        $end_date = array_key_exists('end_date', $associative_array) ? $associative_array['end_date'] : null;
+        $start_week = array_key_exists('start_week', $associative_array) ? $associative_array['start_week'] : null;
+        $end_week = array_key_exists('end_week', $associative_array) ? $associative_array['end_week'] : null;
+        $start_month = array_key_exists('start_month', $associative_array) ? $associative_array['start_month'] : null;
+        $end_month = array_key_exists('end_month', $associative_array) ? $associative_array['end_month'] : null;
+        $announcement_group = array_key_exists('announcement_group', $associative_array) ? $associative_array['announcement_group'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1102,15 +1149,17 @@ class AnnouncementApi
      *
      * Get statistics - monthly
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetStatisticsMonthlyResponse
      */
-    public function getStatisticsMonthly($api_token)
+    public function getStatisticsMonthly($associative_array)
     {
-        list($response) = $this->getStatisticsMonthlyWithHttpInfo($api_token);
+        list($response) = $this->getStatisticsMonthlyWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1119,15 +1168,17 @@ class AnnouncementApi
      *
      * Get statistics - monthly
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetStatisticsMonthlyResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getStatisticsMonthlyWithHttpInfo($api_token)
+    public function getStatisticsMonthlyWithHttpInfo($associative_array)
     {
-        $request = $this->getStatisticsMonthlyRequest($api_token);
+        $request = $this->getStatisticsMonthlyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1218,14 +1269,16 @@ class AnnouncementApi
      *
      * Get statistics - monthly
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsMonthlyAsync($api_token)
+    public function getStatisticsMonthlyAsync($associative_array)
     {
-        return $this->getStatisticsMonthlyAsyncWithHttpInfo($api_token)
+        return $this->getStatisticsMonthlyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1238,15 +1291,17 @@ class AnnouncementApi
      *
      * Get statistics - monthly
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getStatisticsMonthlyAsyncWithHttpInfo($api_token)
+    public function getStatisticsMonthlyAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GetStatisticsMonthlyResponse';
-        $request = $this->getStatisticsMonthlyRequest($api_token);
+        $request = $this->getStatisticsMonthlyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1287,13 +1342,18 @@ class AnnouncementApi
     /**
      * Create request for operation 'getStatisticsMonthly'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getStatisticsMonthlyRequest($api_token)
+    public function getStatisticsMonthlyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1378,6 +1438,8 @@ class AnnouncementApi
      *
      * List announcement groups
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
@@ -1386,9 +1448,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListAnnouncementGroupsResponse
      */
-    public function listAnnouncementGroups($api_token, $token = null, $limit = null)
+    public function listAnnouncementGroups($associative_array)
     {
-        list($response) = $this->listAnnouncementGroupsWithHttpInfo($api_token, $token, $limit);
+        list($response) = $this->listAnnouncementGroupsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1396,6 +1458,8 @@ class AnnouncementApi
      * Operation listAnnouncementGroupsWithHttpInfo
      *
      * List announcement groups
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $token (optional)
@@ -1405,9 +1469,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListAnnouncementGroupsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAnnouncementGroupsWithHttpInfo($api_token, $token = null, $limit = null)
+    public function listAnnouncementGroupsWithHttpInfo($associative_array)
     {
-        $request = $this->listAnnouncementGroupsRequest($api_token, $token, $limit);
+        $request = $this->listAnnouncementGroupsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1498,6 +1562,8 @@ class AnnouncementApi
      *
      * List announcement groups
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
@@ -1505,9 +1571,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAnnouncementGroupsAsync($api_token, $token = null, $limit = null)
+    public function listAnnouncementGroupsAsync($associative_array)
     {
-        return $this->listAnnouncementGroupsAsyncWithHttpInfo($api_token, $token, $limit)
+        return $this->listAnnouncementGroupsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1520,6 +1586,8 @@ class AnnouncementApi
      *
      * List announcement groups
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
@@ -1527,10 +1595,10 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAnnouncementGroupsAsyncWithHttpInfo($api_token, $token = null, $limit = null)
+    public function listAnnouncementGroupsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListAnnouncementGroupsResponse';
-        $request = $this->listAnnouncementGroupsRequest($api_token, $token, $limit);
+        $request = $this->listAnnouncementGroupsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1571,6 +1639,8 @@ class AnnouncementApi
     /**
      * Create request for operation 'listAnnouncementGroups'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
@@ -1578,8 +1648,13 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listAnnouncementGroupsRequest($api_token, $token = null, $limit = null)
+    public function listAnnouncementGroupsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1682,6 +1757,8 @@ class AnnouncementApi
      *
      * Schedule an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\ScheduleAnnouncementData $schedule_announcement_data schedule_announcement_data (optional)
      *
@@ -1689,9 +1766,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ScheduleAnnouncementResponse
      */
-    public function scheduleAnnouncement($api_token, $schedule_announcement_data = null)
+    public function scheduleAnnouncement($associative_array)
     {
-        list($response) = $this->scheduleAnnouncementWithHttpInfo($api_token, $schedule_announcement_data);
+        list($response) = $this->scheduleAnnouncementWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1700,6 +1777,8 @@ class AnnouncementApi
      *
      * Schedule an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\ScheduleAnnouncementData $schedule_announcement_data (optional)
      *
@@ -1707,9 +1786,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ScheduleAnnouncementResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function scheduleAnnouncementWithHttpInfo($api_token, $schedule_announcement_data = null)
+    public function scheduleAnnouncementWithHttpInfo($associative_array)
     {
-        $request = $this->scheduleAnnouncementRequest($api_token, $schedule_announcement_data);
+        $request = $this->scheduleAnnouncementRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1800,15 +1879,17 @@ class AnnouncementApi
      *
      * Schedule an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\ScheduleAnnouncementData $schedule_announcement_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scheduleAnnouncementAsync($api_token, $schedule_announcement_data = null)
+    public function scheduleAnnouncementAsync($associative_array)
     {
-        return $this->scheduleAnnouncementAsyncWithHttpInfo($api_token, $schedule_announcement_data)
+        return $this->scheduleAnnouncementAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1821,16 +1902,18 @@ class AnnouncementApi
      *
      * Schedule an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\ScheduleAnnouncementData $schedule_announcement_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function scheduleAnnouncementAsyncWithHttpInfo($api_token, $schedule_announcement_data = null)
+    public function scheduleAnnouncementAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ScheduleAnnouncementResponse';
-        $request = $this->scheduleAnnouncementRequest($api_token, $schedule_announcement_data);
+        $request = $this->scheduleAnnouncementRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1871,14 +1954,20 @@ class AnnouncementApi
     /**
      * Create request for operation 'scheduleAnnouncement'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\ScheduleAnnouncementData $schedule_announcement_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function scheduleAnnouncementRequest($api_token, $schedule_announcement_data = null)
+    public function scheduleAnnouncementRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $schedule_announcement_data = array_key_exists('schedule_announcement_data', $associative_array) ? $associative_array['schedule_announcement_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1969,6 +2058,8 @@ class AnnouncementApi
      *
      * Update an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $unique_id unique_id (required)
      * @param  \Sendbird\Model\UpdateAnnouncementByIdData $update_announcement_by_id_data update_announcement_by_id_data (optional)
@@ -1977,9 +2068,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateAnnouncementByIdResponse
      */
-    public function updateAnnouncementById($api_token, $unique_id, $update_announcement_by_id_data = null)
+    public function updateAnnouncementById($associative_array)
     {
-        list($response) = $this->updateAnnouncementByIdWithHttpInfo($api_token, $unique_id, $update_announcement_by_id_data);
+        list($response) = $this->updateAnnouncementByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1987,6 +2078,8 @@ class AnnouncementApi
      * Operation updateAnnouncementByIdWithHttpInfo
      *
      * Update an announcement
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
@@ -1996,9 +2089,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateAnnouncementByIdWithHttpInfo($api_token, $unique_id, $update_announcement_by_id_data = null)
+    public function updateAnnouncementByIdWithHttpInfo($associative_array)
     {
-        $request = $this->updateAnnouncementByIdRequest($api_token, $unique_id, $update_announcement_by_id_data);
+        $request = $this->updateAnnouncementByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2089,6 +2182,8 @@ class AnnouncementApi
      *
      * Update an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      * @param  \Sendbird\Model\UpdateAnnouncementByIdData $update_announcement_by_id_data (optional)
@@ -2096,9 +2191,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAnnouncementByIdAsync($api_token, $unique_id, $update_announcement_by_id_data = null)
+    public function updateAnnouncementByIdAsync($associative_array)
     {
-        return $this->updateAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id, $update_announcement_by_id_data)
+        return $this->updateAnnouncementByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2111,6 +2206,8 @@ class AnnouncementApi
      *
      * Update an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      * @param  \Sendbird\Model\UpdateAnnouncementByIdData $update_announcement_by_id_data (optional)
@@ -2118,10 +2215,10 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id, $update_announcement_by_id_data = null)
+    public function updateAnnouncementByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\UpdateAnnouncementByIdResponse';
-        $request = $this->updateAnnouncementByIdRequest($api_token, $unique_id, $update_announcement_by_id_data);
+        $request = $this->updateAnnouncementByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2162,6 +2259,8 @@ class AnnouncementApi
     /**
      * Create request for operation 'updateAnnouncementById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      * @param  \Sendbird\Model\UpdateAnnouncementByIdData $update_announcement_by_id_data (optional)
@@ -2169,8 +2268,13 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateAnnouncementByIdRequest($api_token, $unique_id, $update_announcement_by_id_data = null)
+    public function updateAnnouncementByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $unique_id = array_key_exists('unique_id', $associative_array) ? $associative_array['unique_id'] : null;
+        $update_announcement_by_id_data = array_key_exists('update_announcement_by_id_data', $associative_array) ? $associative_array['update_announcement_by_id_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2275,6 +2379,8 @@ class AnnouncementApi
      *
      * View an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $unique_id unique_id (required)
      *
@@ -2282,9 +2388,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewAnnouncementByIdResponse
      */
-    public function viewAnnouncementById($api_token, $unique_id)
+    public function viewAnnouncementById($associative_array)
     {
-        list($response) = $this->viewAnnouncementByIdWithHttpInfo($api_token, $unique_id);
+        list($response) = $this->viewAnnouncementByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2293,6 +2399,8 @@ class AnnouncementApi
      *
      * View an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      *
@@ -2300,9 +2408,9 @@ class AnnouncementApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewAnnouncementByIdWithHttpInfo($api_token, $unique_id)
+    public function viewAnnouncementByIdWithHttpInfo($associative_array)
     {
-        $request = $this->viewAnnouncementByIdRequest($api_token, $unique_id);
+        $request = $this->viewAnnouncementByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2393,15 +2501,17 @@ class AnnouncementApi
      *
      * View an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewAnnouncementByIdAsync($api_token, $unique_id)
+    public function viewAnnouncementByIdAsync($associative_array)
     {
-        return $this->viewAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id)
+        return $this->viewAnnouncementByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2414,16 +2524,18 @@ class AnnouncementApi
      *
      * View an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id)
+    public function viewAnnouncementByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewAnnouncementByIdResponse';
-        $request = $this->viewAnnouncementByIdRequest($api_token, $unique_id);
+        $request = $this->viewAnnouncementByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2464,14 +2576,20 @@ class AnnouncementApi
     /**
      * Create request for operation 'viewAnnouncementById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewAnnouncementByIdRequest($api_token, $unique_id)
+    public function viewAnnouncementByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $unique_id = array_key_exists('unique_id', $associative_array) ? $associative_array['unique_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(

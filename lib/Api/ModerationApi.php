@@ -121,6 +121,8 @@ class ModerationApi
      *
      * Ban from channels with custom channel types
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData $ban_from_channels_with_custom_channel_types_data ban_from_channels_with_custom_channel_types_data (optional)
@@ -129,9 +131,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
+    public function banFromChannelsWithCustomChannelTypes($associative_array)
     {
-        list($response) = $this->banFromChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
+        list($response) = $this->banFromChannelsWithCustomChannelTypesWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -139,6 +141,8 @@ class ModerationApi
      * Operation banFromChannelsWithCustomChannelTypesWithHttpInfo
      *
      * Ban from channels with custom channel types
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -148,9 +152,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function banFromChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
+    public function banFromChannelsWithCustomChannelTypesWithHttpInfo($associative_array)
     {
-        $request = $this->banFromChannelsWithCustomChannelTypesRequest($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
+        $request = $this->banFromChannelsWithCustomChannelTypesRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -241,6 +245,8 @@ class ModerationApi
      *
      * Ban from channels with custom channel types
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData $ban_from_channels_with_custom_channel_types_data (optional)
@@ -248,9 +254,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function banFromChannelsWithCustomChannelTypesAsync($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
+    public function banFromChannelsWithCustomChannelTypesAsync($associative_array)
     {
-        return $this->banFromChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data)
+        return $this->banFromChannelsWithCustomChannelTypesAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -263,6 +269,8 @@ class ModerationApi
      *
      * Ban from channels with custom channel types
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData $ban_from_channels_with_custom_channel_types_data (optional)
@@ -270,10 +278,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function banFromChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
+    public function banFromChannelsWithCustomChannelTypesAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->banFromChannelsWithCustomChannelTypesRequest($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
+        $request = $this->banFromChannelsWithCustomChannelTypesRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -314,6 +322,8 @@ class ModerationApi
     /**
      * Create request for operation 'banFromChannelsWithCustomChannelTypes'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData $ban_from_channels_with_custom_channel_types_data (optional)
@@ -321,8 +331,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function banFromChannelsWithCustomChannelTypesRequest($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data = null)
+    public function banFromChannelsWithCustomChannelTypesRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $ban_from_channels_with_custom_channel_types_data = array_key_exists('ban_from_channels_with_custom_channel_types_data', $associative_array) ? $associative_array['ban_from_channels_with_custom_channel_types_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -427,6 +442,8 @@ class ModerationApi
      *
      * Block a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  \Sendbird\Model\BlockUserData $block_user_data block_user_data (optional)
@@ -435,9 +452,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\BlockUserResponse
      */
-    public function blockUser($api_token, $user_id, $block_user_data = null)
+    public function blockUser($associative_array)
     {
-        list($response) = $this->blockUserWithHttpInfo($api_token, $user_id, $block_user_data);
+        list($response) = $this->blockUserWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -445,6 +462,8 @@ class ModerationApi
      * Operation blockUserWithHttpInfo
      *
      * Block a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -454,9 +473,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\BlockUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function blockUserWithHttpInfo($api_token, $user_id, $block_user_data = null)
+    public function blockUserWithHttpInfo($associative_array)
     {
-        $request = $this->blockUserRequest($api_token, $user_id, $block_user_data);
+        $request = $this->blockUserRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -547,6 +566,8 @@ class ModerationApi
      *
      * Block a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\BlockUserData $block_user_data (optional)
@@ -554,9 +575,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blockUserAsync($api_token, $user_id, $block_user_data = null)
+    public function blockUserAsync($associative_array)
     {
-        return $this->blockUserAsyncWithHttpInfo($api_token, $user_id, $block_user_data)
+        return $this->blockUserAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -569,6 +590,8 @@ class ModerationApi
      *
      * Block a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\BlockUserData $block_user_data (optional)
@@ -576,10 +599,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blockUserAsyncWithHttpInfo($api_token, $user_id, $block_user_data = null)
+    public function blockUserAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\BlockUserResponse';
-        $request = $this->blockUserRequest($api_token, $user_id, $block_user_data);
+        $request = $this->blockUserRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -620,6 +643,8 @@ class ModerationApi
     /**
      * Create request for operation 'blockUser'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\BlockUserData $block_user_data (optional)
@@ -627,8 +652,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function blockUserRequest($api_token, $user_id, $block_user_data = null)
+    public function blockUserRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $block_user_data = array_key_exists('block_user_data', $associative_array) ? $associative_array['block_user_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -733,6 +763,8 @@ class ModerationApi
      *
      * Ban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data gc_ban_user_data (optional)
@@ -741,9 +773,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GcBanUserResponse
      */
-    public function gcBanUser($api_token, $channel_url, $gc_ban_user_data = null)
+    public function gcBanUser($associative_array)
     {
-        list($response) = $this->gcBanUserWithHttpInfo($api_token, $channel_url, $gc_ban_user_data);
+        list($response) = $this->gcBanUserWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -751,6 +783,8 @@ class ModerationApi
      * Operation gcBanUserWithHttpInfo
      *
      * Ban a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -760,9 +794,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GcBanUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcBanUserWithHttpInfo($api_token, $channel_url, $gc_ban_user_data = null)
+    public function gcBanUserWithHttpInfo($associative_array)
     {
-        $request = $this->gcBanUserRequest($api_token, $channel_url, $gc_ban_user_data);
+        $request = $this->gcBanUserRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -853,6 +887,8 @@ class ModerationApi
      *
      * Ban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
@@ -860,9 +896,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcBanUserAsync($api_token, $channel_url, $gc_ban_user_data = null)
+    public function gcBanUserAsync($associative_array)
     {
-        return $this->gcBanUserAsyncWithHttpInfo($api_token, $channel_url, $gc_ban_user_data)
+        return $this->gcBanUserAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -875,6 +911,8 @@ class ModerationApi
      *
      * Ban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
@@ -882,10 +920,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcBanUserAsyncWithHttpInfo($api_token, $channel_url, $gc_ban_user_data = null)
+    public function gcBanUserAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GcBanUserResponse';
-        $request = $this->gcBanUserRequest($api_token, $channel_url, $gc_ban_user_data);
+        $request = $this->gcBanUserRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -926,6 +964,8 @@ class ModerationApi
     /**
      * Create request for operation 'gcBanUser'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\GcBanUserData $gc_ban_user_data (optional)
@@ -933,8 +973,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcBanUserRequest($api_token, $channel_url, $gc_ban_user_data = null)
+    public function gcBanUserRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $gc_ban_user_data = array_key_exists('gc_ban_user_data', $associative_array) ? $associative_array['gc_ban_user_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1039,6 +1084,8 @@ class ModerationApi
      *
      * Freeze a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data gc_freeze_channel_data (optional)
@@ -1047,9 +1094,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdGroupChannel
      */
-    public function gcFreezeChannel($api_token, $channel_url, $gc_freeze_channel_data = null)
+    public function gcFreezeChannel($associative_array)
     {
-        list($response) = $this->gcFreezeChannelWithHttpInfo($api_token, $channel_url, $gc_freeze_channel_data);
+        list($response) = $this->gcFreezeChannelWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1057,6 +1104,8 @@ class ModerationApi
      * Operation gcFreezeChannelWithHttpInfo
      *
      * Freeze a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -1066,9 +1115,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcFreezeChannelWithHttpInfo($api_token, $channel_url, $gc_freeze_channel_data = null)
+    public function gcFreezeChannelWithHttpInfo($associative_array)
     {
-        $request = $this->gcFreezeChannelRequest($api_token, $channel_url, $gc_freeze_channel_data);
+        $request = $this->gcFreezeChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1159,6 +1208,8 @@ class ModerationApi
      *
      * Freeze a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
@@ -1166,9 +1217,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcFreezeChannelAsync($api_token, $channel_url, $gc_freeze_channel_data = null)
+    public function gcFreezeChannelAsync($associative_array)
     {
-        return $this->gcFreezeChannelAsyncWithHttpInfo($api_token, $channel_url, $gc_freeze_channel_data)
+        return $this->gcFreezeChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1181,6 +1232,8 @@ class ModerationApi
      *
      * Freeze a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
@@ -1188,10 +1241,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcFreezeChannelAsyncWithHttpInfo($api_token, $channel_url, $gc_freeze_channel_data = null)
+    public function gcFreezeChannelAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-        $request = $this->gcFreezeChannelRequest($api_token, $channel_url, $gc_freeze_channel_data);
+        $request = $this->gcFreezeChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1232,6 +1285,8 @@ class ModerationApi
     /**
      * Create request for operation 'gcFreezeChannel'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\GcFreezeChannelData $gc_freeze_channel_data (optional)
@@ -1239,8 +1294,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcFreezeChannelRequest($api_token, $channel_url, $gc_freeze_channel_data = null)
+    public function gcFreezeChannelRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $gc_freeze_channel_data = array_key_exists('gc_freeze_channel_data', $associative_array) ? $associative_array['gc_freeze_channel_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1345,6 +1405,8 @@ class ModerationApi
      *
      * List banned users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $token token (optional)
@@ -1354,9 +1416,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GcListBannedUsersResponse
      */
-    public function gcListBannedUsers($api_token, $channel_url, $token = null, $limit = null)
+    public function gcListBannedUsers($associative_array)
     {
-        list($response) = $this->gcListBannedUsersWithHttpInfo($api_token, $channel_url, $token, $limit);
+        list($response) = $this->gcListBannedUsersWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1364,6 +1426,8 @@ class ModerationApi
      * Operation gcListBannedUsersWithHttpInfo
      *
      * List banned users
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -1374,9 +1438,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GcListBannedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcListBannedUsersWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
+    public function gcListBannedUsersWithHttpInfo($associative_array)
     {
-        $request = $this->gcListBannedUsersRequest($api_token, $channel_url, $token, $limit);
+        $request = $this->gcListBannedUsersRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1467,6 +1531,8 @@ class ModerationApi
      *
      * List banned users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -1475,9 +1541,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcListBannedUsersAsync($api_token, $channel_url, $token = null, $limit = null)
+    public function gcListBannedUsersAsync($associative_array)
     {
-        return $this->gcListBannedUsersAsyncWithHttpInfo($api_token, $channel_url, $token, $limit)
+        return $this->gcListBannedUsersAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1490,6 +1556,8 @@ class ModerationApi
      *
      * List banned users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -1498,10 +1566,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcListBannedUsersAsyncWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
+    public function gcListBannedUsersAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GcListBannedUsersResponse';
-        $request = $this->gcListBannedUsersRequest($api_token, $channel_url, $token, $limit);
+        $request = $this->gcListBannedUsersRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1542,6 +1610,8 @@ class ModerationApi
     /**
      * Create request for operation 'gcListBannedUsers'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -1550,8 +1620,14 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcListBannedUsersRequest($api_token, $channel_url, $token = null, $limit = null)
+    public function gcListBannedUsersRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1668,6 +1744,8 @@ class ModerationApi
      *
      * List muted users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $token token (optional)
@@ -1677,9 +1755,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GcListMutedUsersResponse
      */
-    public function gcListMutedUsers($api_token, $channel_url, $token = null, $limit = null)
+    public function gcListMutedUsers($associative_array)
     {
-        list($response) = $this->gcListMutedUsersWithHttpInfo($api_token, $channel_url, $token, $limit);
+        list($response) = $this->gcListMutedUsersWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1687,6 +1765,8 @@ class ModerationApi
      * Operation gcListMutedUsersWithHttpInfo
      *
      * List muted users
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -1697,9 +1777,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GcListMutedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcListMutedUsersWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
+    public function gcListMutedUsersWithHttpInfo($associative_array)
     {
-        $request = $this->gcListMutedUsersRequest($api_token, $channel_url, $token, $limit);
+        $request = $this->gcListMutedUsersRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1790,6 +1870,8 @@ class ModerationApi
      *
      * List muted users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -1798,9 +1880,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcListMutedUsersAsync($api_token, $channel_url, $token = null, $limit = null)
+    public function gcListMutedUsersAsync($associative_array)
     {
-        return $this->gcListMutedUsersAsyncWithHttpInfo($api_token, $channel_url, $token, $limit)
+        return $this->gcListMutedUsersAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1813,6 +1895,8 @@ class ModerationApi
      *
      * List muted users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -1821,10 +1905,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcListMutedUsersAsyncWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
+    public function gcListMutedUsersAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GcListMutedUsersResponse';
-        $request = $this->gcListMutedUsersRequest($api_token, $channel_url, $token, $limit);
+        $request = $this->gcListMutedUsersRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1865,6 +1949,8 @@ class ModerationApi
     /**
      * Create request for operation 'gcListMutedUsers'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -1873,8 +1959,14 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcListMutedUsersRequest($api_token, $channel_url, $token = null, $limit = null)
+    public function gcListMutedUsersRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1991,6 +2083,8 @@ class ModerationApi
      *
      * Mute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data gc_mute_user_data (optional)
@@ -1999,9 +2093,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdGroupChannel
      */
-    public function gcMuteUser($api_token, $channel_url, $gc_mute_user_data = null)
+    public function gcMuteUser($associative_array)
     {
-        list($response) = $this->gcMuteUserWithHttpInfo($api_token, $channel_url, $gc_mute_user_data);
+        list($response) = $this->gcMuteUserWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2009,6 +2103,8 @@ class ModerationApi
      * Operation gcMuteUserWithHttpInfo
      *
      * Mute a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -2018,9 +2114,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcMuteUserWithHttpInfo($api_token, $channel_url, $gc_mute_user_data = null)
+    public function gcMuteUserWithHttpInfo($associative_array)
     {
-        $request = $this->gcMuteUserRequest($api_token, $channel_url, $gc_mute_user_data);
+        $request = $this->gcMuteUserRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2111,6 +2207,8 @@ class ModerationApi
      *
      * Mute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
@@ -2118,9 +2216,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcMuteUserAsync($api_token, $channel_url, $gc_mute_user_data = null)
+    public function gcMuteUserAsync($associative_array)
     {
-        return $this->gcMuteUserAsyncWithHttpInfo($api_token, $channel_url, $gc_mute_user_data)
+        return $this->gcMuteUserAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2133,6 +2231,8 @@ class ModerationApi
      *
      * Mute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
@@ -2140,10 +2240,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcMuteUserAsyncWithHttpInfo($api_token, $channel_url, $gc_mute_user_data = null)
+    public function gcMuteUserAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-        $request = $this->gcMuteUserRequest($api_token, $channel_url, $gc_mute_user_data);
+        $request = $this->gcMuteUserRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2184,6 +2284,8 @@ class ModerationApi
     /**
      * Create request for operation 'gcMuteUser'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\GcMuteUserData $gc_mute_user_data (optional)
@@ -2191,8 +2293,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcMuteUserRequest($api_token, $channel_url, $gc_mute_user_data = null)
+    public function gcMuteUserRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $gc_mute_user_data = array_key_exists('gc_mute_user_data', $associative_array) ? $associative_array['gc_mute_user_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2297,6 +2404,8 @@ class ModerationApi
      *
      * Unban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
@@ -2305,9 +2414,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
      */
-    public function gcUnbanUserById($api_token, $channel_url, $banned_user_id)
+    public function gcUnbanUserById($associative_array)
     {
-        list($response) = $this->gcUnbanUserByIdWithHttpInfo($api_token, $channel_url, $banned_user_id);
+        list($response) = $this->gcUnbanUserByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2315,6 +2424,8 @@ class ModerationApi
      * Operation gcUnbanUserByIdWithHttpInfo
      *
      * Unban a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -2324,9 +2435,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcUnbanUserByIdWithHttpInfo($api_token, $channel_url, $banned_user_id)
+    public function gcUnbanUserByIdWithHttpInfo($associative_array)
     {
-        $request = $this->gcUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id);
+        $request = $this->gcUnbanUserByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2417,6 +2528,8 @@ class ModerationApi
      *
      * Unban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -2424,9 +2537,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcUnbanUserByIdAsync($api_token, $channel_url, $banned_user_id)
+    public function gcUnbanUserByIdAsync($associative_array)
     {
-        return $this->gcUnbanUserByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
+        return $this->gcUnbanUserByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2439,6 +2552,8 @@ class ModerationApi
      *
      * Unban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -2446,10 +2561,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcUnbanUserByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
+    public function gcUnbanUserByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->gcUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id);
+        $request = $this->gcUnbanUserByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2490,6 +2605,8 @@ class ModerationApi
     /**
      * Create request for operation 'gcUnbanUserById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -2497,8 +2614,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id)
+    public function gcUnbanUserByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $banned_user_id = array_key_exists('banned_user_id', $associative_array) ? $associative_array['banned_user_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2611,6 +2733,8 @@ class ModerationApi
      *
      * Unmute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $muted_user_id muted_user_id (required)
@@ -2619,9 +2743,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
      */
-    public function gcUnmuteUserById($api_token, $channel_url, $muted_user_id)
+    public function gcUnmuteUserById($associative_array)
     {
-        list($response) = $this->gcUnmuteUserByIdWithHttpInfo($api_token, $channel_url, $muted_user_id);
+        list($response) = $this->gcUnmuteUserByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2629,6 +2753,8 @@ class ModerationApi
      * Operation gcUnmuteUserByIdWithHttpInfo
      *
      * Unmute a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -2638,9 +2764,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcUnmuteUserByIdWithHttpInfo($api_token, $channel_url, $muted_user_id)
+    public function gcUnmuteUserByIdWithHttpInfo($associative_array)
     {
-        $request = $this->gcUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id);
+        $request = $this->gcUnmuteUserByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2731,6 +2857,8 @@ class ModerationApi
      *
      * Unmute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -2738,9 +2866,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcUnmuteUserByIdAsync($api_token, $channel_url, $muted_user_id)
+    public function gcUnmuteUserByIdAsync($associative_array)
     {
-        return $this->gcUnmuteUserByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
+        return $this->gcUnmuteUserByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2753,6 +2881,8 @@ class ModerationApi
      *
      * Unmute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -2760,10 +2890,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcUnmuteUserByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
+    public function gcUnmuteUserByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->gcUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id);
+        $request = $this->gcUnmuteUserByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2804,6 +2934,8 @@ class ModerationApi
     /**
      * Create request for operation 'gcUnmuteUserById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -2811,8 +2943,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id)
+    public function gcUnmuteUserByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $muted_user_id = array_key_exists('muted_user_id', $associative_array) ? $associative_array['muted_user_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2925,6 +3062,8 @@ class ModerationApi
      *
      * Update a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
@@ -2934,9 +3073,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GcUpdateBanByIdResponse
      */
-    public function gcUpdateBanById($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data = null)
+    public function gcUpdateBanById($associative_array)
     {
-        list($response) = $this->gcUpdateBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data);
+        list($response) = $this->gcUpdateBanByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2944,6 +3083,8 @@ class ModerationApi
      * Operation gcUpdateBanByIdWithHttpInfo
      *
      * Update a ban
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -2954,9 +3095,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GcUpdateBanByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcUpdateBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data = null)
+    public function gcUpdateBanByIdWithHttpInfo($associative_array)
     {
-        $request = $this->gcUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data);
+        $request = $this->gcUpdateBanByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3047,6 +3188,8 @@ class ModerationApi
      *
      * Update a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -3055,9 +3198,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcUpdateBanByIdAsync($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data = null)
+    public function gcUpdateBanByIdAsync($associative_array)
     {
-        return $this->gcUpdateBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data)
+        return $this->gcUpdateBanByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3070,6 +3213,8 @@ class ModerationApi
      *
      * Update a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -3078,10 +3223,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcUpdateBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data = null)
+    public function gcUpdateBanByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GcUpdateBanByIdResponse';
-        $request = $this->gcUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data);
+        $request = $this->gcUpdateBanByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3122,6 +3267,8 @@ class ModerationApi
     /**
      * Create request for operation 'gcUpdateBanById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -3130,8 +3277,14 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data = null)
+    public function gcUpdateBanByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $banned_user_id = array_key_exists('banned_user_id', $associative_array) ? $associative_array['banned_user_id'] : null;
+        $gc_update_ban_by_id_data = array_key_exists('gc_update_ban_by_id_data', $associative_array) ? $associative_array['gc_update_ban_by_id_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -3250,6 +3403,8 @@ class ModerationApi
      *
      * View a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
@@ -3258,9 +3413,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GcViewBanByIdResponse
      */
-    public function gcViewBanById($api_token, $channel_url, $banned_user_id)
+    public function gcViewBanById($associative_array)
     {
-        list($response) = $this->gcViewBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id);
+        list($response) = $this->gcViewBanByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -3268,6 +3423,8 @@ class ModerationApi
      * Operation gcViewBanByIdWithHttpInfo
      *
      * View a ban
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -3277,9 +3434,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GcViewBanByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcViewBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id)
+    public function gcViewBanByIdWithHttpInfo($associative_array)
     {
-        $request = $this->gcViewBanByIdRequest($api_token, $channel_url, $banned_user_id);
+        $request = $this->gcViewBanByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3370,6 +3527,8 @@ class ModerationApi
      *
      * View a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -3377,9 +3536,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcViewBanByIdAsync($api_token, $channel_url, $banned_user_id)
+    public function gcViewBanByIdAsync($associative_array)
     {
-        return $this->gcViewBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
+        return $this->gcViewBanByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3392,6 +3551,8 @@ class ModerationApi
      *
      * View a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -3399,10 +3560,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcViewBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
+    public function gcViewBanByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GcViewBanByIdResponse';
-        $request = $this->gcViewBanByIdRequest($api_token, $channel_url, $banned_user_id);
+        $request = $this->gcViewBanByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3443,6 +3604,8 @@ class ModerationApi
     /**
      * Create request for operation 'gcViewBanById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -3450,8 +3613,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcViewBanByIdRequest($api_token, $channel_url, $banned_user_id)
+    public function gcViewBanByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $banned_user_id = array_key_exists('banned_user_id', $associative_array) ? $associative_array['banned_user_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -3564,6 +3732,8 @@ class ModerationApi
      *
      * View a mute
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $muted_user_id muted_user_id (required)
@@ -3572,9 +3742,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GcViewMuteByIdResponse
      */
-    public function gcViewMuteById($api_token, $channel_url, $muted_user_id)
+    public function gcViewMuteById($associative_array)
     {
-        list($response) = $this->gcViewMuteByIdWithHttpInfo($api_token, $channel_url, $muted_user_id);
+        list($response) = $this->gcViewMuteByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -3582,6 +3752,8 @@ class ModerationApi
      * Operation gcViewMuteByIdWithHttpInfo
      *
      * View a mute
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -3591,9 +3763,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GcViewMuteByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcViewMuteByIdWithHttpInfo($api_token, $channel_url, $muted_user_id)
+    public function gcViewMuteByIdWithHttpInfo($associative_array)
     {
-        $request = $this->gcViewMuteByIdRequest($api_token, $channel_url, $muted_user_id);
+        $request = $this->gcViewMuteByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3684,6 +3856,8 @@ class ModerationApi
      *
      * View a mute
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -3691,9 +3865,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcViewMuteByIdAsync($api_token, $channel_url, $muted_user_id)
+    public function gcViewMuteByIdAsync($associative_array)
     {
-        return $this->gcViewMuteByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
+        return $this->gcViewMuteByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3706,6 +3880,8 @@ class ModerationApi
      *
      * View a mute
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -3713,10 +3889,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcViewMuteByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
+    public function gcViewMuteByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GcViewMuteByIdResponse';
-        $request = $this->gcViewMuteByIdRequest($api_token, $channel_url, $muted_user_id);
+        $request = $this->gcViewMuteByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3757,6 +3933,8 @@ class ModerationApi
     /**
      * Create request for operation 'gcViewMuteById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -3764,8 +3942,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcViewMuteByIdRequest($api_token, $channel_url, $muted_user_id)
+    public function gcViewMuteByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $muted_user_id = array_key_exists('muted_user_id', $associative_array) ? $associative_array['muted_user_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -3878,6 +4061,8 @@ class ModerationApi
      *
      * List banned channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $token token (optional)
@@ -3887,9 +4072,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListBannedChannelsResponse
      */
-    public function listBannedChannels($api_token, $user_id, $token = null, $limit = null)
+    public function listBannedChannels($associative_array)
     {
-        list($response) = $this->listBannedChannelsWithHttpInfo($api_token, $user_id, $token, $limit);
+        list($response) = $this->listBannedChannelsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -3897,6 +4082,8 @@ class ModerationApi
      * Operation listBannedChannelsWithHttpInfo
      *
      * List banned channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -3907,9 +4094,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListBannedChannelsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBannedChannelsWithHttpInfo($api_token, $user_id, $token = null, $limit = null)
+    public function listBannedChannelsWithHttpInfo($associative_array)
     {
-        $request = $this->listBannedChannelsRequest($api_token, $user_id, $token, $limit);
+        $request = $this->listBannedChannelsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4000,6 +4187,8 @@ class ModerationApi
      *
      * List banned channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $token (optional)
@@ -4008,9 +4197,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBannedChannelsAsync($api_token, $user_id, $token = null, $limit = null)
+    public function listBannedChannelsAsync($associative_array)
     {
-        return $this->listBannedChannelsAsyncWithHttpInfo($api_token, $user_id, $token, $limit)
+        return $this->listBannedChannelsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4023,6 +4212,8 @@ class ModerationApi
      *
      * List banned channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $token (optional)
@@ -4031,10 +4222,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBannedChannelsAsyncWithHttpInfo($api_token, $user_id, $token = null, $limit = null)
+    public function listBannedChannelsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListBannedChannelsResponse';
-        $request = $this->listBannedChannelsRequest($api_token, $user_id, $token, $limit);
+        $request = $this->listBannedChannelsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4075,6 +4266,8 @@ class ModerationApi
     /**
      * Create request for operation 'listBannedChannels'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $token (optional)
@@ -4083,8 +4276,14 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listBannedChannelsRequest($api_token, $user_id, $token = null, $limit = null)
+    public function listBannedChannelsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -4201,6 +4400,8 @@ class ModerationApi
      *
      * List blocked users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $token token (optional)
@@ -4213,9 +4414,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListBlockedUsersResponse
      */
-    public function listBlockedUsers($api_token, $user_id, $token = null, $limit = null, $user_ids = null, $metadatakey = null, $metadatavalues_in = null)
+    public function listBlockedUsers($associative_array)
     {
-        list($response) = $this->listBlockedUsersWithHttpInfo($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in);
+        list($response) = $this->listBlockedUsersWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -4223,6 +4424,8 @@ class ModerationApi
      * Operation listBlockedUsersWithHttpInfo
      *
      * List blocked users
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -4236,9 +4439,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListBlockedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBlockedUsersWithHttpInfo($api_token, $user_id, $token = null, $limit = null, $user_ids = null, $metadatakey = null, $metadatavalues_in = null)
+    public function listBlockedUsersWithHttpInfo($associative_array)
     {
-        $request = $this->listBlockedUsersRequest($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in);
+        $request = $this->listBlockedUsersRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4329,6 +4532,8 @@ class ModerationApi
      *
      * List blocked users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $token (optional)
@@ -4340,9 +4545,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBlockedUsersAsync($api_token, $user_id, $token = null, $limit = null, $user_ids = null, $metadatakey = null, $metadatavalues_in = null)
+    public function listBlockedUsersAsync($associative_array)
     {
-        return $this->listBlockedUsersAsyncWithHttpInfo($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in)
+        return $this->listBlockedUsersAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4355,6 +4560,8 @@ class ModerationApi
      *
      * List blocked users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $token (optional)
@@ -4366,10 +4573,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBlockedUsersAsyncWithHttpInfo($api_token, $user_id, $token = null, $limit = null, $user_ids = null, $metadatakey = null, $metadatavalues_in = null)
+    public function listBlockedUsersAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListBlockedUsersResponse';
-        $request = $this->listBlockedUsersRequest($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in);
+        $request = $this->listBlockedUsersRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4410,6 +4617,8 @@ class ModerationApi
     /**
      * Create request for operation 'listBlockedUsers'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $token (optional)
@@ -4421,8 +4630,17 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listBlockedUsersRequest($api_token, $user_id, $token = null, $limit = null, $user_ids = null, $metadatakey = null, $metadatavalues_in = null)
+    public function listBlockedUsersRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+        $user_ids = array_key_exists('user_ids', $associative_array) ? $associative_array['user_ids'] : null;
+        $metadatakey = array_key_exists('metadatakey', $associative_array) ? $associative_array['metadatakey'] : null;
+        $metadatavalues_in = array_key_exists('metadatavalues_in', $associative_array) ? $associative_array['metadatavalues_in'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -4566,6 +4784,8 @@ class ModerationApi
      *
      * List muted channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $token token (optional)
@@ -4575,9 +4795,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListMutedChannelsResponse
      */
-    public function listMutedChannels($api_token, $user_id, $token = null, $limit = null)
+    public function listMutedChannels($associative_array)
     {
-        list($response) = $this->listMutedChannelsWithHttpInfo($api_token, $user_id, $token, $limit);
+        list($response) = $this->listMutedChannelsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -4585,6 +4805,8 @@ class ModerationApi
      * Operation listMutedChannelsWithHttpInfo
      *
      * List muted channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -4595,9 +4817,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListMutedChannelsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listMutedChannelsWithHttpInfo($api_token, $user_id, $token = null, $limit = null)
+    public function listMutedChannelsWithHttpInfo($associative_array)
     {
-        $request = $this->listMutedChannelsRequest($api_token, $user_id, $token, $limit);
+        $request = $this->listMutedChannelsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4688,6 +4910,8 @@ class ModerationApi
      *
      * List muted channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $token (optional)
@@ -4696,9 +4920,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMutedChannelsAsync($api_token, $user_id, $token = null, $limit = null)
+    public function listMutedChannelsAsync($associative_array)
     {
-        return $this->listMutedChannelsAsyncWithHttpInfo($api_token, $user_id, $token, $limit)
+        return $this->listMutedChannelsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4711,6 +4935,8 @@ class ModerationApi
      *
      * List muted channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $token (optional)
@@ -4719,10 +4945,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMutedChannelsAsyncWithHttpInfo($api_token, $user_id, $token = null, $limit = null)
+    public function listMutedChannelsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListMutedChannelsResponse';
-        $request = $this->listMutedChannelsRequest($api_token, $user_id, $token, $limit);
+        $request = $this->listMutedChannelsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4763,6 +4989,8 @@ class ModerationApi
     /**
      * Create request for operation 'listMutedChannels'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $token (optional)
@@ -4771,8 +4999,14 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listMutedChannelsRequest($api_token, $user_id, $token = null, $limit = null)
+    public function listMutedChannelsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -4889,6 +5123,8 @@ class ModerationApi
      *
      * Mute in channels with custom channel types
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData $mute_in_channels_with_custom_channel_types_data mute_in_channels_with_custom_channel_types_data (optional)
@@ -4897,9 +5133,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
+    public function muteInChannelsWithCustomChannelTypes($associative_array)
     {
-        list($response) = $this->muteInChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
+        list($response) = $this->muteInChannelsWithCustomChannelTypesWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -4907,6 +5143,8 @@ class ModerationApi
      * Operation muteInChannelsWithCustomChannelTypesWithHttpInfo
      *
      * Mute in channels with custom channel types
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -4916,9 +5154,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function muteInChannelsWithCustomChannelTypesWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
+    public function muteInChannelsWithCustomChannelTypesWithHttpInfo($associative_array)
     {
-        $request = $this->muteInChannelsWithCustomChannelTypesRequest($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
+        $request = $this->muteInChannelsWithCustomChannelTypesRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5009,6 +5247,8 @@ class ModerationApi
      *
      * Mute in channels with custom channel types
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData $mute_in_channels_with_custom_channel_types_data (optional)
@@ -5016,9 +5256,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteInChannelsWithCustomChannelTypesAsync($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
+    public function muteInChannelsWithCustomChannelTypesAsync($associative_array)
     {
-        return $this->muteInChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data)
+        return $this->muteInChannelsWithCustomChannelTypesAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5031,6 +5271,8 @@ class ModerationApi
      *
      * Mute in channels with custom channel types
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData $mute_in_channels_with_custom_channel_types_data (optional)
@@ -5038,10 +5280,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteInChannelsWithCustomChannelTypesAsyncWithHttpInfo($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
+    public function muteInChannelsWithCustomChannelTypesAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->muteInChannelsWithCustomChannelTypesRequest($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
+        $request = $this->muteInChannelsWithCustomChannelTypesRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5082,6 +5324,8 @@ class ModerationApi
     /**
      * Create request for operation 'muteInChannelsWithCustomChannelTypes'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData $mute_in_channels_with_custom_channel_types_data (optional)
@@ -5089,8 +5333,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function muteInChannelsWithCustomChannelTypesRequest($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data = null)
+    public function muteInChannelsWithCustomChannelTypesRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $mute_in_channels_with_custom_channel_types_data = array_key_exists('mute_in_channels_with_custom_channel_types_data', $associative_array) ? $associative_array['mute_in_channels_with_custom_channel_types_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -5195,6 +5444,8 @@ class ModerationApi
      *
      * Ban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data oc_ban_user_data (optional)
@@ -5203,9 +5454,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcBanUserResponse
      */
-    public function ocBanUser($api_token, $channel_url, $oc_ban_user_data = null)
+    public function ocBanUser($associative_array)
     {
-        list($response) = $this->ocBanUserWithHttpInfo($api_token, $channel_url, $oc_ban_user_data);
+        list($response) = $this->ocBanUserWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -5213,6 +5464,8 @@ class ModerationApi
      * Operation ocBanUserWithHttpInfo
      *
      * Ban a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -5222,9 +5475,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcBanUserResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocBanUserWithHttpInfo($api_token, $channel_url, $oc_ban_user_data = null)
+    public function ocBanUserWithHttpInfo($associative_array)
     {
-        $request = $this->ocBanUserRequest($api_token, $channel_url, $oc_ban_user_data);
+        $request = $this->ocBanUserRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5315,6 +5568,8 @@ class ModerationApi
      *
      * Ban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
@@ -5322,9 +5577,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocBanUserAsync($api_token, $channel_url, $oc_ban_user_data = null)
+    public function ocBanUserAsync($associative_array)
     {
-        return $this->ocBanUserAsyncWithHttpInfo($api_token, $channel_url, $oc_ban_user_data)
+        return $this->ocBanUserAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5337,6 +5592,8 @@ class ModerationApi
      *
      * Ban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
@@ -5344,10 +5601,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocBanUserAsyncWithHttpInfo($api_token, $channel_url, $oc_ban_user_data = null)
+    public function ocBanUserAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\OcBanUserResponse';
-        $request = $this->ocBanUserRequest($api_token, $channel_url, $oc_ban_user_data);
+        $request = $this->ocBanUserRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5388,6 +5645,8 @@ class ModerationApi
     /**
      * Create request for operation 'ocBanUser'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\OcBanUserData $oc_ban_user_data (optional)
@@ -5395,8 +5654,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocBanUserRequest($api_token, $channel_url, $oc_ban_user_data = null)
+    public function ocBanUserRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $oc_ban_user_data = array_key_exists('oc_ban_user_data', $associative_array) ? $associative_array['oc_ban_user_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -5501,6 +5765,8 @@ class ModerationApi
      *
      * Freeze a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data oc_freeze_channel_data (optional)
@@ -5509,9 +5775,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdOpenChannel
      */
-    public function ocFreezeChannel($api_token, $channel_url, $oc_freeze_channel_data = null)
+    public function ocFreezeChannel($associative_array)
     {
-        list($response) = $this->ocFreezeChannelWithHttpInfo($api_token, $channel_url, $oc_freeze_channel_data);
+        list($response) = $this->ocFreezeChannelWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -5519,6 +5785,8 @@ class ModerationApi
      * Operation ocFreezeChannelWithHttpInfo
      *
      * Freeze a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -5528,9 +5796,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocFreezeChannelWithHttpInfo($api_token, $channel_url, $oc_freeze_channel_data = null)
+    public function ocFreezeChannelWithHttpInfo($associative_array)
     {
-        $request = $this->ocFreezeChannelRequest($api_token, $channel_url, $oc_freeze_channel_data);
+        $request = $this->ocFreezeChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5621,6 +5889,8 @@ class ModerationApi
      *
      * Freeze a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
@@ -5628,9 +5898,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocFreezeChannelAsync($api_token, $channel_url, $oc_freeze_channel_data = null)
+    public function ocFreezeChannelAsync($associative_array)
     {
-        return $this->ocFreezeChannelAsyncWithHttpInfo($api_token, $channel_url, $oc_freeze_channel_data)
+        return $this->ocFreezeChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5643,6 +5913,8 @@ class ModerationApi
      *
      * Freeze a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
@@ -5650,10 +5922,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocFreezeChannelAsyncWithHttpInfo($api_token, $channel_url, $oc_freeze_channel_data = null)
+    public function ocFreezeChannelAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\SendBirdOpenChannel';
-        $request = $this->ocFreezeChannelRequest($api_token, $channel_url, $oc_freeze_channel_data);
+        $request = $this->ocFreezeChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5694,6 +5966,8 @@ class ModerationApi
     /**
      * Create request for operation 'ocFreezeChannel'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\OcFreezeChannelData $oc_freeze_channel_data (optional)
@@ -5701,8 +5975,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocFreezeChannelRequest($api_token, $channel_url, $oc_freeze_channel_data = null)
+    public function ocFreezeChannelRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $oc_freeze_channel_data = array_key_exists('oc_freeze_channel_data', $associative_array) ? $associative_array['oc_freeze_channel_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -5807,6 +6086,8 @@ class ModerationApi
      *
      * List banned users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $token token (optional)
@@ -5816,9 +6097,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcListBannedUsersResponse
      */
-    public function ocListBannedUsers($api_token, $channel_url, $token = null, $limit = null)
+    public function ocListBannedUsers($associative_array)
     {
-        list($response) = $this->ocListBannedUsersWithHttpInfo($api_token, $channel_url, $token, $limit);
+        list($response) = $this->ocListBannedUsersWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -5826,6 +6107,8 @@ class ModerationApi
      * Operation ocListBannedUsersWithHttpInfo
      *
      * List banned users
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -5836,9 +6119,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcListBannedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocListBannedUsersWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
+    public function ocListBannedUsersWithHttpInfo($associative_array)
     {
-        $request = $this->ocListBannedUsersRequest($api_token, $channel_url, $token, $limit);
+        $request = $this->ocListBannedUsersRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5929,6 +6212,8 @@ class ModerationApi
      *
      * List banned users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -5937,9 +6222,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListBannedUsersAsync($api_token, $channel_url, $token = null, $limit = null)
+    public function ocListBannedUsersAsync($associative_array)
     {
-        return $this->ocListBannedUsersAsyncWithHttpInfo($api_token, $channel_url, $token, $limit)
+        return $this->ocListBannedUsersAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5952,6 +6237,8 @@ class ModerationApi
      *
      * List banned users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -5960,10 +6247,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListBannedUsersAsyncWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
+    public function ocListBannedUsersAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\OcListBannedUsersResponse';
-        $request = $this->ocListBannedUsersRequest($api_token, $channel_url, $token, $limit);
+        $request = $this->ocListBannedUsersRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6004,6 +6291,8 @@ class ModerationApi
     /**
      * Create request for operation 'ocListBannedUsers'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -6012,8 +6301,14 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocListBannedUsersRequest($api_token, $channel_url, $token = null, $limit = null)
+    public function ocListBannedUsersRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -6130,6 +6425,8 @@ class ModerationApi
      *
      * List muted users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $token token (optional)
@@ -6139,9 +6436,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcListMutedUsersResponse
      */
-    public function ocListMutedUsers($api_token, $channel_url, $token = null, $limit = null)
+    public function ocListMutedUsers($associative_array)
     {
-        list($response) = $this->ocListMutedUsersWithHttpInfo($api_token, $channel_url, $token, $limit);
+        list($response) = $this->ocListMutedUsersWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -6149,6 +6446,8 @@ class ModerationApi
      * Operation ocListMutedUsersWithHttpInfo
      *
      * List muted users
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -6159,9 +6458,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcListMutedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocListMutedUsersWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
+    public function ocListMutedUsersWithHttpInfo($associative_array)
     {
-        $request = $this->ocListMutedUsersRequest($api_token, $channel_url, $token, $limit);
+        $request = $this->ocListMutedUsersRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6252,6 +6551,8 @@ class ModerationApi
      *
      * List muted users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -6260,9 +6561,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListMutedUsersAsync($api_token, $channel_url, $token = null, $limit = null)
+    public function ocListMutedUsersAsync($associative_array)
     {
-        return $this->ocListMutedUsersAsyncWithHttpInfo($api_token, $channel_url, $token, $limit)
+        return $this->ocListMutedUsersAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6275,6 +6576,8 @@ class ModerationApi
      *
      * List muted users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -6283,10 +6586,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListMutedUsersAsyncWithHttpInfo($api_token, $channel_url, $token = null, $limit = null)
+    public function ocListMutedUsersAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\OcListMutedUsersResponse';
-        $request = $this->ocListMutedUsersRequest($api_token, $channel_url, $token, $limit);
+        $request = $this->ocListMutedUsersRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6327,6 +6630,8 @@ class ModerationApi
     /**
      * Create request for operation 'ocListMutedUsers'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $token (optional)
@@ -6335,8 +6640,14 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocListMutedUsersRequest($api_token, $channel_url, $token = null, $limit = null)
+    public function ocListMutedUsersRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -6453,6 +6764,8 @@ class ModerationApi
      *
      * Mute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data oc_mute_user_data (optional)
@@ -6461,9 +6774,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdOpenChannel
      */
-    public function ocMuteUser($api_token, $channel_url, $oc_mute_user_data = null)
+    public function ocMuteUser($associative_array)
     {
-        list($response) = $this->ocMuteUserWithHttpInfo($api_token, $channel_url, $oc_mute_user_data);
+        list($response) = $this->ocMuteUserWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -6471,6 +6784,8 @@ class ModerationApi
      * Operation ocMuteUserWithHttpInfo
      *
      * Mute a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -6480,9 +6795,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocMuteUserWithHttpInfo($api_token, $channel_url, $oc_mute_user_data = null)
+    public function ocMuteUserWithHttpInfo($associative_array)
     {
-        $request = $this->ocMuteUserRequest($api_token, $channel_url, $oc_mute_user_data);
+        $request = $this->ocMuteUserRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6573,6 +6888,8 @@ class ModerationApi
      *
      * Mute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
@@ -6580,9 +6897,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocMuteUserAsync($api_token, $channel_url, $oc_mute_user_data = null)
+    public function ocMuteUserAsync($associative_array)
     {
-        return $this->ocMuteUserAsyncWithHttpInfo($api_token, $channel_url, $oc_mute_user_data)
+        return $this->ocMuteUserAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6595,6 +6912,8 @@ class ModerationApi
      *
      * Mute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
@@ -6602,10 +6921,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocMuteUserAsyncWithHttpInfo($api_token, $channel_url, $oc_mute_user_data = null)
+    public function ocMuteUserAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\SendBirdOpenChannel';
-        $request = $this->ocMuteUserRequest($api_token, $channel_url, $oc_mute_user_data);
+        $request = $this->ocMuteUserRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6646,6 +6965,8 @@ class ModerationApi
     /**
      * Create request for operation 'ocMuteUser'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  \Sendbird\Model\OcMuteUserData $oc_mute_user_data (optional)
@@ -6653,8 +6974,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocMuteUserRequest($api_token, $channel_url, $oc_mute_user_data = null)
+    public function ocMuteUserRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $oc_mute_user_data = array_key_exists('oc_mute_user_data', $associative_array) ? $associative_array['oc_mute_user_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -6759,6 +7085,8 @@ class ModerationApi
      *
      * Unban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
@@ -6767,9 +7095,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
      */
-    public function ocUnbanUserById($api_token, $channel_url, $banned_user_id)
+    public function ocUnbanUserById($associative_array)
     {
-        list($response) = $this->ocUnbanUserByIdWithHttpInfo($api_token, $channel_url, $banned_user_id);
+        list($response) = $this->ocUnbanUserByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -6777,6 +7105,8 @@ class ModerationApi
      * Operation ocUnbanUserByIdWithHttpInfo
      *
      * Unban a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -6786,9 +7116,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocUnbanUserByIdWithHttpInfo($api_token, $channel_url, $banned_user_id)
+    public function ocUnbanUserByIdWithHttpInfo($associative_array)
     {
-        $request = $this->ocUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id);
+        $request = $this->ocUnbanUserByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6879,6 +7209,8 @@ class ModerationApi
      *
      * Unban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -6886,9 +7218,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUnbanUserByIdAsync($api_token, $channel_url, $banned_user_id)
+    public function ocUnbanUserByIdAsync($associative_array)
     {
-        return $this->ocUnbanUserByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
+        return $this->ocUnbanUserByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6901,6 +7233,8 @@ class ModerationApi
      *
      * Unban a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -6908,10 +7242,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUnbanUserByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
+    public function ocUnbanUserByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->ocUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id);
+        $request = $this->ocUnbanUserByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6952,6 +7286,8 @@ class ModerationApi
     /**
      * Create request for operation 'ocUnbanUserById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -6959,8 +7295,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocUnbanUserByIdRequest($api_token, $channel_url, $banned_user_id)
+    public function ocUnbanUserByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $banned_user_id = array_key_exists('banned_user_id', $associative_array) ? $associative_array['banned_user_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -7073,6 +7414,8 @@ class ModerationApi
      *
      * Unmute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $muted_user_id muted_user_id (required)
@@ -7081,9 +7424,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
      */
-    public function ocUnmuteUserById($api_token, $channel_url, $muted_user_id)
+    public function ocUnmuteUserById($associative_array)
     {
-        list($response) = $this->ocUnmuteUserByIdWithHttpInfo($api_token, $channel_url, $muted_user_id);
+        list($response) = $this->ocUnmuteUserByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -7091,6 +7434,8 @@ class ModerationApi
      * Operation ocUnmuteUserByIdWithHttpInfo
      *
      * Unmute a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -7100,9 +7445,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocUnmuteUserByIdWithHttpInfo($api_token, $channel_url, $muted_user_id)
+    public function ocUnmuteUserByIdWithHttpInfo($associative_array)
     {
-        $request = $this->ocUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id);
+        $request = $this->ocUnmuteUserByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7193,6 +7538,8 @@ class ModerationApi
      *
      * Unmute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -7200,9 +7547,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUnmuteUserByIdAsync($api_token, $channel_url, $muted_user_id)
+    public function ocUnmuteUserByIdAsync($associative_array)
     {
-        return $this->ocUnmuteUserByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
+        return $this->ocUnmuteUserByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7215,6 +7562,8 @@ class ModerationApi
      *
      * Unmute a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -7222,10 +7571,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUnmuteUserByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
+    public function ocUnmuteUserByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->ocUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id);
+        $request = $this->ocUnmuteUserByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7266,6 +7615,8 @@ class ModerationApi
     /**
      * Create request for operation 'ocUnmuteUserById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -7273,8 +7624,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocUnmuteUserByIdRequest($api_token, $channel_url, $muted_user_id)
+    public function ocUnmuteUserByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $muted_user_id = array_key_exists('muted_user_id', $associative_array) ? $associative_array['muted_user_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -7387,6 +7743,8 @@ class ModerationApi
      *
      * Update a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
@@ -7396,9 +7754,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcUpdateBanByIdResponse
      */
-    public function ocUpdateBanById($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data = null)
+    public function ocUpdateBanById($associative_array)
     {
-        list($response) = $this->ocUpdateBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data);
+        list($response) = $this->ocUpdateBanByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -7406,6 +7764,8 @@ class ModerationApi
      * Operation ocUpdateBanByIdWithHttpInfo
      *
      * Update a ban
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -7416,9 +7776,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcUpdateBanByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocUpdateBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data = null)
+    public function ocUpdateBanByIdWithHttpInfo($associative_array)
     {
-        $request = $this->ocUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data);
+        $request = $this->ocUpdateBanByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7509,6 +7869,8 @@ class ModerationApi
      *
      * Update a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -7517,9 +7879,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUpdateBanByIdAsync($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data = null)
+    public function ocUpdateBanByIdAsync($associative_array)
     {
-        return $this->ocUpdateBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data)
+        return $this->ocUpdateBanByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7532,6 +7894,8 @@ class ModerationApi
      *
      * Update a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -7540,10 +7904,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUpdateBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data = null)
+    public function ocUpdateBanByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\OcUpdateBanByIdResponse';
-        $request = $this->ocUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data);
+        $request = $this->ocUpdateBanByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7584,6 +7948,8 @@ class ModerationApi
     /**
      * Create request for operation 'ocUpdateBanById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -7592,8 +7958,14 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocUpdateBanByIdRequest($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data = null)
+    public function ocUpdateBanByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $banned_user_id = array_key_exists('banned_user_id', $associative_array) ? $associative_array['banned_user_id'] : null;
+        $oc_update_ban_by_id_data = array_key_exists('oc_update_ban_by_id_data', $associative_array) ? $associative_array['oc_update_ban_by_id_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -7712,6 +8084,8 @@ class ModerationApi
      *
      * View a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $banned_user_id banned_user_id (required)
@@ -7720,9 +8094,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcViewBanByIdResponse
      */
-    public function ocViewBanById($api_token, $channel_url, $banned_user_id)
+    public function ocViewBanById($associative_array)
     {
-        list($response) = $this->ocViewBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id);
+        list($response) = $this->ocViewBanByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -7730,6 +8104,8 @@ class ModerationApi
      * Operation ocViewBanByIdWithHttpInfo
      *
      * View a ban
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -7739,9 +8115,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcViewBanByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocViewBanByIdWithHttpInfo($api_token, $channel_url, $banned_user_id)
+    public function ocViewBanByIdWithHttpInfo($associative_array)
     {
-        $request = $this->ocViewBanByIdRequest($api_token, $channel_url, $banned_user_id);
+        $request = $this->ocViewBanByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7832,6 +8208,8 @@ class ModerationApi
      *
      * View a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -7839,9 +8217,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocViewBanByIdAsync($api_token, $channel_url, $banned_user_id)
+    public function ocViewBanByIdAsync($associative_array)
     {
-        return $this->ocViewBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
+        return $this->ocViewBanByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7854,6 +8232,8 @@ class ModerationApi
      *
      * View a ban
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -7861,10 +8241,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocViewBanByIdAsyncWithHttpInfo($api_token, $channel_url, $banned_user_id)
+    public function ocViewBanByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\OcViewBanByIdResponse';
-        $request = $this->ocViewBanByIdRequest($api_token, $channel_url, $banned_user_id);
+        $request = $this->ocViewBanByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7905,6 +8285,8 @@ class ModerationApi
     /**
      * Create request for operation 'ocViewBanById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $banned_user_id (required)
@@ -7912,8 +8294,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocViewBanByIdRequest($api_token, $channel_url, $banned_user_id)
+    public function ocViewBanByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $banned_user_id = array_key_exists('banned_user_id', $associative_array) ? $associative_array['banned_user_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -8026,6 +8413,8 @@ class ModerationApi
      *
      * View a mute
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
      * @param  string $muted_user_id muted_user_id (required)
@@ -8034,9 +8423,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\OcViewMuteByIdResponse
      */
-    public function ocViewMuteById($api_token, $channel_url, $muted_user_id)
+    public function ocViewMuteById($associative_array)
     {
-        list($response) = $this->ocViewMuteByIdWithHttpInfo($api_token, $channel_url, $muted_user_id);
+        list($response) = $this->ocViewMuteByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -8044,6 +8433,8 @@ class ModerationApi
      * Operation ocViewMuteByIdWithHttpInfo
      *
      * View a mute
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
@@ -8053,9 +8444,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\OcViewMuteByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocViewMuteByIdWithHttpInfo($api_token, $channel_url, $muted_user_id)
+    public function ocViewMuteByIdWithHttpInfo($associative_array)
     {
-        $request = $this->ocViewMuteByIdRequest($api_token, $channel_url, $muted_user_id);
+        $request = $this->ocViewMuteByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8146,6 +8537,8 @@ class ModerationApi
      *
      * View a mute
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -8153,9 +8546,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocViewMuteByIdAsync($api_token, $channel_url, $muted_user_id)
+    public function ocViewMuteByIdAsync($associative_array)
     {
-        return $this->ocViewMuteByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
+        return $this->ocViewMuteByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8168,6 +8561,8 @@ class ModerationApi
      *
      * View a mute
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -8175,10 +8570,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocViewMuteByIdAsyncWithHttpInfo($api_token, $channel_url, $muted_user_id)
+    public function ocViewMuteByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\OcViewMuteByIdResponse';
-        $request = $this->ocViewMuteByIdRequest($api_token, $channel_url, $muted_user_id);
+        $request = $this->ocViewMuteByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8219,6 +8614,8 @@ class ModerationApi
     /**
      * Create request for operation 'ocViewMuteById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_url (required)
      * @param  string $muted_user_id (required)
@@ -8226,8 +8623,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocViewMuteByIdRequest($api_token, $channel_url, $muted_user_id)
+    public function ocViewMuteByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $muted_user_id = array_key_exists('muted_user_id', $associative_array) ? $associative_array['muted_user_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -8340,6 +8742,8 @@ class ModerationApi
      *
      * Unblock a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $target_id target_id (required)
@@ -8348,9 +8752,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function unblockUserById($api_token, $user_id, $target_id)
+    public function unblockUserById($associative_array)
     {
-        list($response) = $this->unblockUserByIdWithHttpInfo($api_token, $user_id, $target_id);
+        list($response) = $this->unblockUserByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -8358,6 +8762,8 @@ class ModerationApi
      * Operation unblockUserByIdWithHttpInfo
      *
      * Unblock a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -8367,9 +8773,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unblockUserByIdWithHttpInfo($api_token, $user_id, $target_id)
+    public function unblockUserByIdWithHttpInfo($associative_array)
     {
-        $request = $this->unblockUserByIdRequest($api_token, $user_id, $target_id);
+        $request = $this->unblockUserByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8460,6 +8866,8 @@ class ModerationApi
      *
      * Unblock a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $target_id (required)
@@ -8467,9 +8875,9 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unblockUserByIdAsync($api_token, $user_id, $target_id)
+    public function unblockUserByIdAsync($associative_array)
     {
-        return $this->unblockUserByIdAsyncWithHttpInfo($api_token, $user_id, $target_id)
+        return $this->unblockUserByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8482,6 +8890,8 @@ class ModerationApi
      *
      * Unblock a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $target_id (required)
@@ -8489,10 +8899,10 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unblockUserByIdAsyncWithHttpInfo($api_token, $user_id, $target_id)
+    public function unblockUserByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->unblockUserByIdRequest($api_token, $user_id, $target_id);
+        $request = $this->unblockUserByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8533,6 +8943,8 @@ class ModerationApi
     /**
      * Create request for operation 'unblockUserById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $target_id (required)
@@ -8540,8 +8952,13 @@ class ModerationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function unblockUserByIdRequest($api_token, $user_id, $target_id)
+    public function unblockUserByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $target_id = array_key_exists('target_id', $associative_array) ? $associative_array['target_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(

@@ -60,11 +60,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$add_apns_push_configuration_data = new \Sendbird\Model\AddApnsPushConfigurationData(); // \Sendbird\Model\AddApnsPushConfigurationData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['add_apns_push_configuration_data'] = new \Sendbird\Model\AddApnsPushConfigurationData(); // \Sendbird\Model\AddApnsPushConfigurationData
 
 try {
-    $result = $apiInstance->addApnsPushConfiguration($api_token, $add_apns_push_configuration_data);
+    $result = $apiInstance->addApnsPushConfiguration($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->addApnsPushConfiguration: ', $e->getMessage(), PHP_EOL;
@@ -72,6 +72,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -118,11 +120,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$add_fcm_push_configuration_data = new \Sendbird\Model\AddFcmPushConfigurationData(); // \Sendbird\Model\AddFcmPushConfigurationData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['add_fcm_push_configuration_data'] = new \Sendbird\Model\AddFcmPushConfigurationData(); // \Sendbird\Model\AddFcmPushConfigurationData
 
 try {
-    $result = $apiInstance->addFcmPushConfiguration($api_token, $add_fcm_push_configuration_data);
+    $result = $apiInstance->addFcmPushConfiguration($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->addFcmPushConfiguration: ', $e->getMessage(), PHP_EOL;
@@ -130,6 +132,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -176,11 +180,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$add_hms_push_configuration_data = new \Sendbird\Model\AddHmsPushConfigurationData(); // \Sendbird\Model\AddHmsPushConfigurationData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['add_hms_push_configuration_data'] = new \Sendbird\Model\AddHmsPushConfigurationData(); // \Sendbird\Model\AddHmsPushConfigurationData
 
 try {
-    $result = $apiInstance->addHmsPushConfiguration($api_token, $add_hms_push_configuration_data);
+    $result = $apiInstance->addHmsPushConfiguration($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->addHmsPushConfiguration: ', $e->getMessage(), PHP_EOL;
@@ -188,6 +192,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -234,11 +240,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$add_ip_to_whitelist_data = new \Sendbird\Model\AddIpToWhitelistData(); // \Sendbird\Model\AddIpToWhitelistData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['add_ip_to_whitelist_data'] = new \Sendbird\Model\AddIpToWhitelistData(); // \Sendbird\Model\AddIpToWhitelistData
 
 try {
-    $result = $apiInstance->addIpToWhitelist($api_token, $add_ip_to_whitelist_data);
+    $result = $apiInstance->addIpToWhitelist($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->addIpToWhitelist: ', $e->getMessage(), PHP_EOL;
@@ -246,6 +252,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -292,12 +300,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$custom_type = 'custom_type_example'; // string
-$ban_users_in_channels_with_custom_channel_type_data = new \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData(); // \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['custom_type'] = 'custom_type_example'; // string
+$associate_array['ban_users_in_channels_with_custom_channel_type_data'] = new \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData(); // \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData
 
 try {
-    $result = $apiInstance->banUsersInChannelsWithCustomChannelType($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data);
+    $result = $apiInstance->banUsersInChannelsWithCustomChannelType($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->banUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
@@ -305,6 +313,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -352,11 +362,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$configure_auto_event_data = new \Sendbird\Model\ConfigureAutoEventData(); // \Sendbird\Model\ConfigureAutoEventData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['configure_auto_event_data'] = new \Sendbird\Model\ConfigureAutoEventData(); // \Sendbird\Model\ConfigureAutoEventData
 
 try {
-    $result = $apiInstance->configureAutoEventMessages($api_token, $configure_auto_event_data);
+    $result = $apiInstance->configureAutoEventMessages($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->configureAutoEventMessages: ', $e->getMessage(), PHP_EOL;
@@ -364,6 +374,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -410,11 +422,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$ip_whitelist_addresses = array('ip_whitelist_addresses_example'); // string[]
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['ip_whitelist_addresses'] = array('ip_whitelist_addresses_example'); // string[]
 
 try {
-    $result = $apiInstance->deleteAllowedIpsFromWhitelist($api_token, $ip_whitelist_addresses);
+    $result = $apiInstance->deleteAllowedIpsFromWhitelist($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->deleteAllowedIpsFromWhitelist: ', $e->getMessage(), PHP_EOL;
@@ -422,6 +434,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -468,11 +482,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$provider_id = 'provider_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['provider_id'] = 'provider_id_example'; // string
 
 try {
-    $result = $apiInstance->deleteApnsCertificateById($api_token, $provider_id);
+    $result = $apiInstance->deleteApnsCertificateById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->deleteApnsCertificateById: ', $e->getMessage(), PHP_EOL;
@@ -480,6 +494,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -526,11 +542,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$generate_secondary_api_token_data = new \Sendbird\Model\GenerateSecondaryApiTokenData(); // \Sendbird\Model\GenerateSecondaryApiTokenData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['generate_secondary_api_token_data'] = new \Sendbird\Model\GenerateSecondaryApiTokenData(); // \Sendbird\Model\GenerateSecondaryApiTokenData
 
 try {
-    $result = $apiInstance->generateSecondaryApiToken($api_token, $generate_secondary_api_token_data);
+    $result = $apiInstance->generateSecondaryApiToken($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->generateSecondaryApiToken: ', $e->getMessage(), PHP_EOL;
@@ -538,6 +554,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -584,10 +602,10 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->listAutoEventMessages($api_token);
+    $result = $apiInstance->listAutoEventMessages($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->listAutoEventMessages: ', $e->getMessage(), PHP_EOL;
@@ -595,6 +613,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -640,13 +660,13 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$custom_type = 'custom_type_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['custom_type'] = 'custom_type_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listBannedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token, $limit);
+    $result = $apiInstance->listBannedUsersInChannelsWithCustomChannelType($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->listBannedUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
@@ -654,6 +674,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -702,13 +724,13 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$custom_type = 'custom_type_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['custom_type'] = 'custom_type_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listMutedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token, $limit);
+    $result = $apiInstance->listMutedUsersInChannelsWithCustomChannelType($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->listMutedUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
@@ -716,6 +738,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -764,11 +788,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$push_type = 'push_type_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['push_type'] = 'push_type_example'; // string
 
 try {
-    $result = $apiInstance->listPushConfigurations($api_token, $push_type);
+    $result = $apiInstance->listPushConfigurations($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->listPushConfigurations: ', $e->getMessage(), PHP_EOL;
@@ -776,6 +800,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -822,10 +848,10 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->listPushNotificationContentTemplates($api_token);
+    $result = $apiInstance->listPushNotificationContentTemplates($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->listPushNotificationContentTemplates: ', $e->getMessage(), PHP_EOL;
@@ -833,6 +859,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -878,10 +906,10 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->listSecondaryApiTokens($api_token);
+    $result = $apiInstance->listSecondaryApiTokens($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->listSecondaryApiTokens: ', $e->getMessage(), PHP_EOL;
@@ -889,6 +917,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -934,12 +964,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$custom_type = 'custom_type_example'; // string
-$mute_users_in_channels_with_custom_channel_type_data = new \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData(); // \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['custom_type'] = 'custom_type_example'; // string
+$associate_array['mute_users_in_channels_with_custom_channel_type_data'] = new \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData(); // \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData
 
 try {
-    $result = $apiInstance->muteUsersInChannelsWithCustomChannelType($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data);
+    $result = $apiInstance->muteUsersInChannelsWithCustomChannelType($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->muteUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
@@ -947,6 +977,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -994,12 +1026,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$push_type = 'push_type_example'; // string
-$provider_id = 'provider_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['push_type'] = 'push_type_example'; // string
+$associate_array['provider_id'] = 'provider_id_example'; // string
 
 try {
-    $result = $apiInstance->removePushConfigurationById($api_token, $push_type, $provider_id);
+    $result = $apiInstance->removePushConfigurationById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->removePushConfigurationById: ', $e->getMessage(), PHP_EOL;
@@ -1007,6 +1039,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1054,10 +1088,10 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->retrieveIpWhitelist($api_token);
+    $result = $apiInstance->retrieveIpWhitelist($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->retrieveIpWhitelist: ', $e->getMessage(), PHP_EOL;
@@ -1065,6 +1099,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1110,11 +1146,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$api_token2 = 'api_token_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['api_token2'] = 'api_token_example'; // string
 
 try {
-    $result = $apiInstance->revokeSecondaryApiTokenByToken($api_token, $api_token2);
+    $result = $apiInstance->revokeSecondaryApiTokenByToken($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->revokeSecondaryApiTokenByToken: ', $e->getMessage(), PHP_EOL;
@@ -1122,6 +1158,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1168,12 +1206,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$custom_type = 'custom_type_example'; // string
-$set_domain_filter_data = new \Sendbird\Model\SetDomainFilterData(); // \Sendbird\Model\SetDomainFilterData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['custom_type'] = 'custom_type_example'; // string
+$associate_array['set_domain_filter_data'] = new \Sendbird\Model\SetDomainFilterData(); // \Sendbird\Model\SetDomainFilterData
 
 try {
-    $result = $apiInstance->setDomainFilter($api_token, $custom_type, $set_domain_filter_data);
+    $result = $apiInstance->setDomainFilter($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->setDomainFilter: ', $e->getMessage(), PHP_EOL;
@@ -1181,6 +1219,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1228,12 +1268,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$custom_type = 'custom_type_example'; // string
-$user_ids = array('user_ids_example'); // string[]
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['custom_type'] = 'custom_type_example'; // string
+$associate_array['user_ids'] = array('user_ids_example'); // string[]
 
 try {
-    $result = $apiInstance->unbanUsersInChannelsWithCustomChannelType($api_token, $custom_type, $user_ids);
+    $result = $apiInstance->unbanUsersInChannelsWithCustomChannelType($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->unbanUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
@@ -1241,6 +1281,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1288,12 +1330,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$custom_type = 'custom_type_example'; // string
-$user_ids = array('user_ids_example'); // string[]
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['custom_type'] = 'custom_type_example'; // string
+$associate_array['user_ids'] = array('user_ids_example'); // string[]
 
 try {
-    $result = $apiInstance->unmuteUsersInChannelsWithCustomChannelType($api_token, $custom_type, $user_ids);
+    $result = $apiInstance->unmuteUsersInChannelsWithCustomChannelType($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->unmuteUsersInChannelsWithCustomChannelType: ', $e->getMessage(), PHP_EOL;
@@ -1301,6 +1343,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1348,12 +1392,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$provider_id = 'provider_id_example'; // string
-$update_apns_push_configuration_by_id_data = new \Sendbird\Model\UpdateApnsPushConfigurationByIdData(); // \Sendbird\Model\UpdateApnsPushConfigurationByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['provider_id'] = 'provider_id_example'; // string
+$associate_array['update_apns_push_configuration_by_id_data'] = new \Sendbird\Model\UpdateApnsPushConfigurationByIdData(); // \Sendbird\Model\UpdateApnsPushConfigurationByIdData
 
 try {
-    $result = $apiInstance->updateApnsPushConfigurationById($api_token, $provider_id, $update_apns_push_configuration_by_id_data);
+    $result = $apiInstance->updateApnsPushConfigurationById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->updateApnsPushConfigurationById: ', $e->getMessage(), PHP_EOL;
@@ -1361,6 +1405,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1408,11 +1454,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$update_default_channel_invitation_preference_data = new \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData(); // \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['update_default_channel_invitation_preference_data'] = new \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData(); // \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData
 
 try {
-    $result = $apiInstance->updateDefaultChannelInvitationPreference($api_token, $update_default_channel_invitation_preference_data);
+    $result = $apiInstance->updateDefaultChannelInvitationPreference($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->updateDefaultChannelInvitationPreference: ', $e->getMessage(), PHP_EOL;
@@ -1420,6 +1466,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1466,12 +1514,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$provider_id = 'provider_id_example'; // string
-$update_fcm_push_configuration_by_id_data = new \Sendbird\Model\UpdateFcmPushConfigurationByIdData(); // \Sendbird\Model\UpdateFcmPushConfigurationByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['provider_id'] = 'provider_id_example'; // string
+$associate_array['update_fcm_push_configuration_by_id_data'] = new \Sendbird\Model\UpdateFcmPushConfigurationByIdData(); // \Sendbird\Model\UpdateFcmPushConfigurationByIdData
 
 try {
-    $result = $apiInstance->updateFcmPushConfigurationById($api_token, $provider_id, $update_fcm_push_configuration_by_id_data);
+    $result = $apiInstance->updateFcmPushConfigurationById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->updateFcmPushConfigurationById: ', $e->getMessage(), PHP_EOL;
@@ -1479,6 +1527,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1526,12 +1576,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$provider_id = 'provider_id_example'; // string
-$update_hms_push_configuration_by_id_data = new \Sendbird\Model\UpdateHmsPushConfigurationByIdData(); // \Sendbird\Model\UpdateHmsPushConfigurationByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['provider_id'] = 'provider_id_example'; // string
+$associate_array['update_hms_push_configuration_by_id_data'] = new \Sendbird\Model\UpdateHmsPushConfigurationByIdData(); // \Sendbird\Model\UpdateHmsPushConfigurationByIdData
 
 try {
-    $result = $apiInstance->updateHmsPushConfigurationById($api_token, $provider_id, $update_hms_push_configuration_by_id_data);
+    $result = $apiInstance->updateHmsPushConfigurationById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->updateHmsPushConfigurationById: ', $e->getMessage(), PHP_EOL;
@@ -1539,6 +1589,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1586,12 +1638,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$template_name = 'template_name_example'; // string
-$update_push_notification_content_template_data = new \Sendbird\Model\UpdatePushNotificationContentTemplateData(); // \Sendbird\Model\UpdatePushNotificationContentTemplateData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['template_name'] = 'template_name_example'; // string
+$associate_array['update_push_notification_content_template_data'] = new \Sendbird\Model\UpdatePushNotificationContentTemplateData(); // \Sendbird\Model\UpdatePushNotificationContentTemplateData
 
 try {
-    $result = $apiInstance->updatePushNotificationContentTemplate($api_token, $template_name, $update_push_notification_content_template_data);
+    $result = $apiInstance->updatePushNotificationContentTemplate($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->updatePushNotificationContentTemplate: ', $e->getMessage(), PHP_EOL;
@@ -1599,6 +1651,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1646,10 +1700,10 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->viewDefaultChannelInvitationPreference($api_token);
+    $result = $apiInstance->viewDefaultChannelInvitationPreference($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->viewDefaultChannelInvitationPreference: ', $e->getMessage(), PHP_EOL;
@@ -1657,6 +1711,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1702,12 +1758,12 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$push_type = 'push_type_example'; // string
-$provider_id = 'provider_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['push_type'] = 'push_type_example'; // string
+$associate_array['provider_id'] = 'provider_id_example'; // string
 
 try {
-    $result = $apiInstance->viewPushConfigurationById($api_token, $push_type, $provider_id);
+    $result = $apiInstance->viewPushConfigurationById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->viewPushConfigurationById: ', $e->getMessage(), PHP_EOL;
@@ -1715,6 +1771,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1762,11 +1820,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$template_name = 'template_name_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['template_name'] = 'template_name_example'; // string
 
 try {
-    $result = $apiInstance->viewPushNotificationContentTemplate($api_token, $template_name);
+    $result = $apiInstance->viewPushNotificationContentTemplate($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->viewPushNotificationContentTemplate: ', $e->getMessage(), PHP_EOL;
@@ -1774,6 +1832,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1820,11 +1880,11 @@ $apiInstance = new Sendbird\Api\ApplicationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$api_token2 = 'api_token_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['api_token2'] = 'api_token_example'; // string
 
 try {
-    $result = $apiInstance->viewSecondaryApiTokenByToken($api_token, $api_token2);
+    $result = $apiInstance->viewSecondaryApiTokenByToken($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->viewSecondaryApiTokenByToken: ', $e->getMessage(), PHP_EOL;
@@ -1832,6 +1892,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

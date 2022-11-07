@@ -99,18 +99,18 @@ class ScheduleAnnouncementDataTest extends TestCase
     }
 
     /**
-     * Test attribute "message_user_id"
+     * Test attribute "user_id"
      */
-    public function testPropertyMessageUserId()
+    public function testPropertyUserId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "message_content"
+     * Test attribute "content"
      */
-    public function testPropertyMessageContent()
+    public function testPropertyContent()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

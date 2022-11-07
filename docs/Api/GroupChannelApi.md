@@ -47,12 +47,12 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_accept_invitation_data = new \Sendbird\Model\GcAcceptInvitationData(); // \Sendbird\Model\GcAcceptInvitationData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_accept_invitation_data'] = new \Sendbird\Model\GcAcceptInvitationData(); // \Sendbird\Model\GcAcceptInvitationData
 
 try {
-    $result = $apiInstance->gcAcceptInvitation($api_token, $channel_url, $gc_accept_invitation_data);
+    $result = $apiInstance->gcAcceptInvitation($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcAcceptInvitation: ', $e->getMessage(), PHP_EOL;
@@ -60,6 +60,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -107,13 +109,13 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$operator_ids = array('operator_ids_example'); // string[]
-$delete_all = True; // bool
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['operator_ids'] = array('operator_ids_example'); // string[]
+$associate_array['delete_all'] = True; // bool
 
 try {
-    $result = $apiInstance->gcCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all);
+    $result = $apiInstance->gcCancelTheRegistrationOfOperators($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcCancelTheRegistrationOfOperators: ', $e->getMessage(), PHP_EOL;
@@ -121,6 +123,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -169,12 +173,12 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$user_id = 'user_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['user_id'] = 'user_id_example'; // string
 
 try {
-    $result = $apiInstance->gcCheckIfMemberById($api_token, $channel_url, $user_id);
+    $result = $apiInstance->gcCheckIfMemberById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcCheckIfMemberById: ', $e->getMessage(), PHP_EOL;
@@ -182,6 +186,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -229,11 +235,11 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$gc_create_channel_data = new \Sendbird\Model\GcCreateChannelData(); // \Sendbird\Model\GcCreateChannelData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['gc_create_channel_data'] = new \Sendbird\Model\GcCreateChannelData(); // \Sendbird\Model\GcCreateChannelData
 
 try {
-    $result = $apiInstance->gcCreateChannel($api_token, $gc_create_channel_data);
+    $result = $apiInstance->gcCreateChannel($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcCreateChannel: ', $e->getMessage(), PHP_EOL;
@@ -241,6 +247,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -287,12 +295,12 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_decline_invitation_data = new \Sendbird\Model\GcDeclineInvitationData(); // \Sendbird\Model\GcDeclineInvitationData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_decline_invitation_data'] = new \Sendbird\Model\GcDeclineInvitationData(); // \Sendbird\Model\GcDeclineInvitationData
 
 try {
-    $result = $apiInstance->gcDeclineInvitation($api_token, $channel_url, $gc_decline_invitation_data);
+    $result = $apiInstance->gcDeclineInvitation($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcDeclineInvitation: ', $e->getMessage(), PHP_EOL;
@@ -300,6 +308,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -347,11 +357,11 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
 
 try {
-    $result = $apiInstance->gcDeleteChannelByUrl($api_token, $channel_url);
+    $result = $apiInstance->gcDeleteChannelByUrl($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcDeleteChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -359,6 +369,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -405,12 +417,12 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_hide_or_archive_channel_data = new \Sendbird\Model\GcHideOrArchiveChannelData(); // \Sendbird\Model\GcHideOrArchiveChannelData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_hide_or_archive_channel_data'] = new \Sendbird\Model\GcHideOrArchiveChannelData(); // \Sendbird\Model\GcHideOrArchiveChannelData
 
 try {
-    $result = $apiInstance->gcHideOrArchiveChannel($api_token, $channel_url, $gc_hide_or_archive_channel_data);
+    $result = $apiInstance->gcHideOrArchiveChannel($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcHideOrArchiveChannel: ', $e->getMessage(), PHP_EOL;
@@ -418,6 +430,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -465,12 +479,12 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_invite_as_members_data = new \Sendbird\Model\GcInviteAsMembersData(); // \Sendbird\Model\GcInviteAsMembersData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_invite_as_members_data'] = new \Sendbird\Model\GcInviteAsMembersData(); // \Sendbird\Model\GcInviteAsMembersData
 
 try {
-    $result = $apiInstance->gcInviteAsMembers($api_token, $channel_url, $gc_invite_as_members_data);
+    $result = $apiInstance->gcInviteAsMembers($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcInviteAsMembers: ', $e->getMessage(), PHP_EOL;
@@ -478,6 +492,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -525,18 +541,20 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_join_channel_data = new \Sendbird\Model\GcJoinChannelData(); // \Sendbird\Model\GcJoinChannelData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_join_channel_data'] = new \Sendbird\Model\GcJoinChannelData(); // \Sendbird\Model\GcJoinChannelData
 
 try {
-    $apiInstance->gcJoinChannel($api_token, $channel_url, $gc_join_channel_data);
+    $apiInstance->gcJoinChannel($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcJoinChannel: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -584,12 +602,12 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_leave_channel_data = new \Sendbird\Model\GcLeaveChannelData(); // \Sendbird\Model\GcLeaveChannelData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_leave_channel_data'] = new \Sendbird\Model\GcLeaveChannelData(); // \Sendbird\Model\GcLeaveChannelData
 
 try {
-    $result = $apiInstance->gcLeaveChannel($api_token, $channel_url, $gc_leave_channel_data);
+    $result = $apiInstance->gcLeaveChannel($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcLeaveChannel: ', $e->getMessage(), PHP_EOL;
@@ -597,6 +615,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -644,52 +664,52 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-$distinct_mode = 'distinct_mode_example'; // string
-$public_mode = 'public_mode_example'; // string
-$super_mode = 'super_mode_example'; // string
-$created_after = 56; // int
-$created_before = 56; // int
-$show_empty = True; // bool
-$show_member = True; // bool
-$show_delivery_receipt = True; // bool
-$show_read_receipt = True; // bool
-$show_metadata = True; // bool
-$show_frozen = True; // bool
-$order = 'order_example'; // string
-$metadata_order_key = 'metadata_order_key_example'; // string
-$custom_types = 'custom_types_example'; // string
-$custom_type_startswith = 'custom_type_startswith_example'; // string
-$channel_urls = 'channel_urls_example'; // string
-$name = 'name_example'; // string
-$name_contains = 'name_contains_example'; // string
-$name_startswith = 'name_startswith_example'; // string
-$members_exactly_in = 'members_exactly_in_example'; // string
-$members_include_in = 'members_include_in_example'; // string
-$query_type = 'query_type_example'; // string
-$members_nickname = 'members_nickname_example'; // string
-$members_nickname_contains = 'members_nickname_contains_example'; // string
-$metadata_key = 'metadata_key_example'; // string
-$metadata_values = 'metadata_values_example'; // string
-$metadata_value_startswith = 'metadata_value_startswith_example'; // string
-$metacounter_key = 'metacounter_key_example'; // string
-$metacounter_values = 'metacounter_values_example'; // string
-$metacounter_value_gt = 'metacounter_value_gt_example'; // string
-$metacounter_value_gte = 'metacounter_value_gte_example'; // string
-$metacounter_value_lt = 'metacounter_value_lt_example'; // string
-$metacounter_value_lte = 'metacounter_value_lte_example'; // string
-$include_sorted_metaarray_in_last_message = True; // bool
-$custom_type = 'custom_type_example'; // string
-$read_receipt = True; // bool
-$member = True; // bool
-$is_distinct = True; // bool
-$members_in = 'members_in_example'; // string
-$user_id = 'user_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
+$associate_array['distinct_mode'] = 'distinct_mode_example'; // string
+$associate_array['public_mode'] = 'public_mode_example'; // string
+$associate_array['super_mode'] = 'super_mode_example'; // string
+$associate_array['created_after'] = 56; // int
+$associate_array['created_before'] = 56; // int
+$associate_array['show_empty'] = True; // bool
+$associate_array['show_member'] = True; // bool
+$associate_array['show_delivery_receipt'] = True; // bool
+$associate_array['show_read_receipt'] = True; // bool
+$associate_array['show_metadata'] = True; // bool
+$associate_array['show_frozen'] = True; // bool
+$associate_array['order'] = 'order_example'; // string
+$associate_array['metadata_order_key'] = 'metadata_order_key_example'; // string
+$associate_array['custom_types'] = 'custom_types_example'; // string
+$associate_array['custom_type_startswith'] = 'custom_type_startswith_example'; // string
+$associate_array['channel_urls'] = 'channel_urls_example'; // string
+$associate_array['name'] = 'name_example'; // string
+$associate_array['name_contains'] = 'name_contains_example'; // string
+$associate_array['name_startswith'] = 'name_startswith_example'; // string
+$associate_array['members_exactly_in'] = 'members_exactly_in_example'; // string
+$associate_array['members_include_in'] = 'members_include_in_example'; // string
+$associate_array['query_type'] = 'query_type_example'; // string
+$associate_array['members_nickname'] = 'members_nickname_example'; // string
+$associate_array['members_nickname_contains'] = 'members_nickname_contains_example'; // string
+$associate_array['metadata_key'] = 'metadata_key_example'; // string
+$associate_array['metadata_values'] = 'metadata_values_example'; // string
+$associate_array['metadata_value_startswith'] = 'metadata_value_startswith_example'; // string
+$associate_array['metacounter_key'] = 'metacounter_key_example'; // string
+$associate_array['metacounter_values'] = 'metacounter_values_example'; // string
+$associate_array['metacounter_value_gt'] = 'metacounter_value_gt_example'; // string
+$associate_array['metacounter_value_gte'] = 'metacounter_value_gte_example'; // string
+$associate_array['metacounter_value_lt'] = 'metacounter_value_lt_example'; // string
+$associate_array['metacounter_value_lte'] = 'metacounter_value_lte_example'; // string
+$associate_array['include_sorted_metaarray_in_last_message'] = True; // bool
+$associate_array['custom_type'] = 'custom_type_example'; // string
+$associate_array['read_receipt'] = True; // bool
+$associate_array['member'] = True; // bool
+$associate_array['is_distinct'] = True; // bool
+$associate_array['members_in'] = 'members_in_example'; // string
+$associate_array['user_id'] = 'user_id_example'; // string
 
 try {
-    $result = $apiInstance->gcListChannels($api_token, $token, $limit, $distinct_mode, $public_mode, $super_mode, $created_after, $created_before, $show_empty, $show_member, $show_delivery_receipt, $show_read_receipt, $show_metadata, $show_frozen, $order, $metadata_order_key, $custom_types, $custom_type_startswith, $channel_urls, $name, $name_contains, $name_startswith, $members_exactly_in, $members_include_in, $query_type, $members_nickname, $members_nickname_contains, $metadata_key, $metadata_values, $metadata_value_startswith, $metacounter_key, $metacounter_values, $metacounter_value_gt, $metacounter_value_gte, $metacounter_value_lt, $metacounter_value_lte, $include_sorted_metaarray_in_last_message, $custom_type, $read_receipt, $member, $is_distinct, $members_in, $user_id);
+    $result = $apiInstance->gcListChannels($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcListChannels: ', $e->getMessage(), PHP_EOL;
@@ -697,6 +717,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -784,20 +806,20 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-$show_delivery_receipt = True; // bool
-$show_read_receipt = True; // bool
-$order = 'order_example'; // string
-$operator_filter = 'operator_filter_example'; // string
-$member_state_filter = 'member_state_filter_example'; // string
-$muted_member_filter = 'muted_member_filter_example'; // string
-$nickname_startswith = 'nickname_startswith_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
+$associate_array['show_delivery_receipt'] = True; // bool
+$associate_array['show_read_receipt'] = True; // bool
+$associate_array['order'] = 'order_example'; // string
+$associate_array['operator_filter'] = 'operator_filter_example'; // string
+$associate_array['member_state_filter'] = 'member_state_filter_example'; // string
+$associate_array['muted_member_filter'] = 'muted_member_filter_example'; // string
+$associate_array['nickname_startswith'] = 'nickname_startswith_example'; // string
 
 try {
-    $result = $apiInstance->gcListMembers($api_token, $channel_url, $token, $limit, $show_delivery_receipt, $show_read_receipt, $order, $operator_filter, $member_state_filter, $muted_member_filter, $nickname_startswith);
+    $result = $apiInstance->gcListMembers($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcListMembers: ', $e->getMessage(), PHP_EOL;
@@ -805,6 +827,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -860,13 +884,13 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->gcListOperators($api_token, $channel_url, $token, $limit);
+    $result = $apiInstance->gcListOperators($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcListOperators: ', $e->getMessage(), PHP_EOL;
@@ -874,6 +898,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -922,12 +948,12 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_register_operators_data = new \Sendbird\Model\GcRegisterOperatorsData(); // \Sendbird\Model\GcRegisterOperatorsData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_register_operators_data'] = new \Sendbird\Model\GcRegisterOperatorsData(); // \Sendbird\Model\GcRegisterOperatorsData
 
 try {
-    $result = $apiInstance->gcRegisterOperators($api_token, $channel_url, $gc_register_operators_data);
+    $result = $apiInstance->gcRegisterOperators($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcRegisterOperators: ', $e->getMessage(), PHP_EOL;
@@ -935,6 +961,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -982,12 +1010,12 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_reset_chat_history_data = new \Sendbird\Model\GcResetChatHistoryData(); // \Sendbird\Model\GcResetChatHistoryData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_reset_chat_history_data'] = new \Sendbird\Model\GcResetChatHistoryData(); // \Sendbird\Model\GcResetChatHistoryData
 
 try {
-    $result = $apiInstance->gcResetChatHistory($api_token, $channel_url, $gc_reset_chat_history_data);
+    $result = $apiInstance->gcResetChatHistory($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcResetChatHistory: ', $e->getMessage(), PHP_EOL;
@@ -995,6 +1023,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1042,13 +1072,13 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$user_id = 'user_id_example'; // string
-$should_unhide_all = True; // bool
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['should_unhide_all'] = True; // bool
 
 try {
-    $result = $apiInstance->gcUnhideOrUnarchiveChannel($api_token, $channel_url, $user_id, $should_unhide_all);
+    $result = $apiInstance->gcUnhideOrUnarchiveChannel($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcUnhideOrUnarchiveChannel: ', $e->getMessage(), PHP_EOL;
@@ -1056,6 +1086,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1104,12 +1136,12 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_update_channel_by_url_data = new \Sendbird\Model\GcUpdateChannelByUrlData(); // \Sendbird\Model\GcUpdateChannelByUrlData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_update_channel_by_url_data'] = new \Sendbird\Model\GcUpdateChannelByUrlData(); // \Sendbird\Model\GcUpdateChannelByUrlData
 
 try {
-    $result = $apiInstance->gcUpdateChannelByUrl($api_token, $channel_url, $gc_update_channel_by_url_data);
+    $result = $apiInstance->gcUpdateChannelByUrl($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcUpdateChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -1117,6 +1149,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1164,16 +1198,16 @@ $apiInstance = new Sendbird\Api\GroupChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$show_delivery_receipt = True; // bool
-$show_read_receipt = True; // bool
-$show_member = True; // bool
-$read_receipt = True; // bool
-$member = True; // bool
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['show_delivery_receipt'] = True; // bool
+$associate_array['show_read_receipt'] = True; // bool
+$associate_array['show_member'] = True; // bool
+$associate_array['read_receipt'] = True; // bool
+$associate_array['member'] = True; // bool
 
 try {
-    $result = $apiInstance->gcViewChannelByUrl($api_token, $channel_url, $show_delivery_receipt, $show_read_receipt, $show_member, $read_receipt, $member);
+    $result = $apiInstance->gcViewChannelByUrl($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GroupChannelApi->gcViewChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -1181,6 +1215,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

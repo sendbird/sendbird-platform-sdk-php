@@ -33,17 +33,19 @@ $apiInstance = new Sendbird\Api\PrivacyApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$request_id = 'request_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['request_id'] = 'request_id_example'; // string
 
 try {
-    $apiInstance->cancelTheRegistrationOfGdprRequestById($api_token, $request_id);
+    $apiInstance->cancelTheRegistrationOfGdprRequestById($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling PrivacyApi->cancelTheRegistrationOfGdprRequestById: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -90,12 +92,12 @@ $apiInstance = new Sendbird\Api\PrivacyApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listGdprRequests($api_token, $token, $limit);
+    $result = $apiInstance->listGdprRequests($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivacyApi->listGdprRequests: ', $e->getMessage(), PHP_EOL;
@@ -103,6 +105,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -150,11 +154,11 @@ $apiInstance = new Sendbird\Api\PrivacyApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$register_gdpr_request_data = new \Sendbird\Model\RegisterGdprRequestData(); // \Sendbird\Model\RegisterGdprRequestData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['register_gdpr_request_data'] = new \Sendbird\Model\RegisterGdprRequestData(); // \Sendbird\Model\RegisterGdprRequestData
 
 try {
-    $result = $apiInstance->registerGdprRequest($api_token, $register_gdpr_request_data);
+    $result = $apiInstance->registerGdprRequest($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivacyApi->registerGdprRequest: ', $e->getMessage(), PHP_EOL;
@@ -162,6 +166,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -208,11 +214,11 @@ $apiInstance = new Sendbird\Api\PrivacyApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$request_id = 'request_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['request_id'] = 'request_id_example'; // string
 
 try {
-    $result = $apiInstance->viewGdprRequestById($api_token, $request_id);
+    $result = $apiInstance->viewGdprRequestById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivacyApi->viewGdprRequestById: ', $e->getMessage(), PHP_EOL;
@@ -220,6 +226,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

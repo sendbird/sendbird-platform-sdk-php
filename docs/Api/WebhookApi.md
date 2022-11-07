@@ -31,11 +31,11 @@ $apiInstance = new Sendbird\Api\WebhookApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$choose_which_events_to_subscribe_to_data = new \Sendbird\Model\ChooseWhichEventsToSubscribeToData(); // \Sendbird\Model\ChooseWhichEventsToSubscribeToData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['choose_which_events_to_subscribe_to_data'] = new \Sendbird\Model\ChooseWhichEventsToSubscribeToData(); // \Sendbird\Model\ChooseWhichEventsToSubscribeToData
 
 try {
-    $result = $apiInstance->chooseWhichEventsToSubscribeTo($api_token, $choose_which_events_to_subscribe_to_data);
+    $result = $apiInstance->chooseWhichEventsToSubscribeTo($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->chooseWhichEventsToSubscribeTo: ', $e->getMessage(), PHP_EOL;
@@ -43,6 +43,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -89,11 +91,11 @@ $apiInstance = new Sendbird\Api\WebhookApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$display_all_webhook_categories = True; // bool
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['display_all_webhook_categories'] = True; // bool
 
 try {
-    $result = $apiInstance->retrieveListOfSubscribedEvents($api_token, $display_all_webhook_categories);
+    $result = $apiInstance->retrieveListOfSubscribedEvents($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookApi->retrieveListOfSubscribedEvents: ', $e->getMessage(), PHP_EOL;
@@ -101,6 +103,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

@@ -73,6 +73,30 @@ class StatisticsApiTest extends TestCase
     }
 
     /**
+     * Test case for getDetailedOpenRateOfAnnouncementById
+     *
+     * Get detailed open rate of an announcement.
+     *
+     */
+    public function testGetDetailedOpenRateOfAnnouncementById()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getDetailedOpenStatusOfAnnouncementById
+     *
+     * Get detailed open status of an announcement.
+     *
+     */
+    public function testGetDetailedOpenStatusOfAnnouncementById()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for retrieveAdvancedAnalyticsMetrics
      *
      * Retrieve Advanced analytics metrics.

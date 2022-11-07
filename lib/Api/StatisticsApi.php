@@ -121,6 +121,8 @@ class StatisticsApi
      *
      * Get detailed open rate of an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $unique_id unique_id (required)
      *
@@ -128,9 +130,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse
      */
-    public function getDetailedOpenRateOfAnnouncementById($api_token, $unique_id)
+    public function getDetailedOpenRateOfAnnouncementById($associative_array)
     {
-        list($response) = $this->getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($api_token, $unique_id);
+        list($response) = $this->getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -139,6 +141,8 @@ class StatisticsApi
      *
      * Get detailed open rate of an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      *
@@ -146,9 +150,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($api_token, $unique_id)
+    public function getDetailedOpenRateOfAnnouncementByIdWithHttpInfo($associative_array)
     {
-        $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($api_token, $unique_id);
+        $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -239,15 +243,17 @@ class StatisticsApi
      *
      * Get detailed open rate of an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenRateOfAnnouncementByIdAsync($api_token, $unique_id)
+    public function getDetailedOpenRateOfAnnouncementByIdAsync($associative_array)
     {
-        return $this->getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id)
+        return $this->getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -260,16 +266,18 @@ class StatisticsApi
      *
      * Get detailed open rate of an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id)
+    public function getDetailedOpenRateOfAnnouncementByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GetDetailedOpenRateOfAnnouncementByIdResponse';
-        $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($api_token, $unique_id);
+        $request = $this->getDetailedOpenRateOfAnnouncementByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -310,14 +318,20 @@ class StatisticsApi
     /**
      * Create request for operation 'getDetailedOpenRateOfAnnouncementById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDetailedOpenRateOfAnnouncementByIdRequest($api_token, $unique_id)
+    public function getDetailedOpenRateOfAnnouncementByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $unique_id = array_key_exists('unique_id', $associative_array) ? $associative_array['unique_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -416,6 +430,8 @@ class StatisticsApi
      *
      * Get detailed open status of an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $unique_id unique_id (required)
      * @param  int $limit limit (optional)
@@ -428,9 +444,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse
      */
-    public function getDetailedOpenStatusOfAnnouncementById($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    public function getDetailedOpenStatusOfAnnouncementById($associative_array)
     {
-        list($response) = $this->getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+        list($response) = $this->getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -438,6 +454,8 @@ class StatisticsApi
      * Operation getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo
      *
      * Get detailed open status of an announcement
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
@@ -451,9 +469,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    public function getDetailedOpenStatusOfAnnouncementByIdWithHttpInfo($associative_array)
     {
-        $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+        $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -544,6 +562,8 @@ class StatisticsApi
      *
      * Get detailed open status of an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      * @param  int $limit (optional)
@@ -555,9 +575,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenStatusOfAnnouncementByIdAsync($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    public function getDetailedOpenStatusOfAnnouncementByIdAsync($associative_array)
     {
-        return $this->getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened)
+        return $this->getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -570,6 +590,8 @@ class StatisticsApi
      *
      * Get detailed open status of an announcement
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      * @param  int $limit (optional)
@@ -581,10 +603,10 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    public function getDetailedOpenStatusOfAnnouncementByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GetDetailedOpenStatusOfAnnouncementByIdResponse';
-        $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($api_token, $unique_id, $limit, $next, $unique_ids, $channel_urls, $has_opened);
+        $request = $this->getDetailedOpenStatusOfAnnouncementByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -625,6 +647,8 @@ class StatisticsApi
     /**
      * Create request for operation 'getDetailedOpenStatusOfAnnouncementById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $unique_id (required)
      * @param  int $limit (optional)
@@ -636,8 +660,17 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getDetailedOpenStatusOfAnnouncementByIdRequest($api_token, $unique_id, $limit = null, $next = null, $unique_ids = null, $channel_urls = null, $has_opened = null)
+    public function getDetailedOpenStatusOfAnnouncementByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $unique_id = array_key_exists('unique_id', $associative_array) ? $associative_array['unique_id'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+        $next = array_key_exists('next', $associative_array) ? $associative_array['next'] : null;
+        $unique_ids = array_key_exists('unique_ids', $associative_array) ? $associative_array['unique_ids'] : null;
+        $channel_urls = array_key_exists('channel_urls', $associative_array) ? $associative_array['channel_urls'] : null;
+        $has_opened = array_key_exists('has_opened', $associative_array) ? $associative_array['has_opened'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -781,15 +814,17 @@ class StatisticsApi
      *
      * Retrieve Advanced analytics metrics
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse
      */
-    public function retrieveAdvancedAnalyticsMetrics($api_token)
+    public function retrieveAdvancedAnalyticsMetrics($associative_array)
     {
-        list($response) = $this->retrieveAdvancedAnalyticsMetricsWithHttpInfo($api_token);
+        list($response) = $this->retrieveAdvancedAnalyticsMetricsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -798,15 +833,17 @@ class StatisticsApi
      *
      * Retrieve Advanced analytics metrics
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveAdvancedAnalyticsMetricsWithHttpInfo($api_token)
+    public function retrieveAdvancedAnalyticsMetricsWithHttpInfo($associative_array)
     {
-        $request = $this->retrieveAdvancedAnalyticsMetricsRequest($api_token);
+        $request = $this->retrieveAdvancedAnalyticsMetricsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -897,14 +934,16 @@ class StatisticsApi
      *
      * Retrieve Advanced analytics metrics
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveAdvancedAnalyticsMetricsAsync($api_token)
+    public function retrieveAdvancedAnalyticsMetricsAsync($associative_array)
     {
-        return $this->retrieveAdvancedAnalyticsMetricsAsyncWithHttpInfo($api_token)
+        return $this->retrieveAdvancedAnalyticsMetricsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -917,15 +956,17 @@ class StatisticsApi
      *
      * Retrieve Advanced analytics metrics
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveAdvancedAnalyticsMetricsAsyncWithHttpInfo($api_token)
+    public function retrieveAdvancedAnalyticsMetricsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\RetrieveAdvancedAnalyticsMetricsResponse';
-        $request = $this->retrieveAdvancedAnalyticsMetricsRequest($api_token);
+        $request = $this->retrieveAdvancedAnalyticsMetricsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -966,13 +1007,18 @@ class StatisticsApi
     /**
      * Create request for operation 'retrieveAdvancedAnalyticsMetrics'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function retrieveAdvancedAnalyticsMetricsRequest($api_token)
+    public function retrieveAdvancedAnalyticsMetricsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1057,15 +1103,17 @@ class StatisticsApi
      *
      * View number of concurrent connections
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse
      */
-    public function viewNumberOfConcurrentConnections($api_token)
+    public function viewNumberOfConcurrentConnections($associative_array)
     {
-        list($response) = $this->viewNumberOfConcurrentConnectionsWithHttpInfo($api_token);
+        list($response) = $this->viewNumberOfConcurrentConnectionsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1074,15 +1122,17 @@ class StatisticsApi
      *
      * View number of concurrent connections
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewNumberOfConcurrentConnectionsWithHttpInfo($api_token)
+    public function viewNumberOfConcurrentConnectionsWithHttpInfo($associative_array)
     {
-        $request = $this->viewNumberOfConcurrentConnectionsRequest($api_token);
+        $request = $this->viewNumberOfConcurrentConnectionsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1173,14 +1223,16 @@ class StatisticsApi
      *
      * View number of concurrent connections
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfConcurrentConnectionsAsync($api_token)
+    public function viewNumberOfConcurrentConnectionsAsync($associative_array)
     {
-        return $this->viewNumberOfConcurrentConnectionsAsyncWithHttpInfo($api_token)
+        return $this->viewNumberOfConcurrentConnectionsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1193,15 +1245,17 @@ class StatisticsApi
      *
      * View number of concurrent connections
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfConcurrentConnectionsAsyncWithHttpInfo($api_token)
+    public function viewNumberOfConcurrentConnectionsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewNumberOfConcurrentConnectionsResponse';
-        $request = $this->viewNumberOfConcurrentConnectionsRequest($api_token);
+        $request = $this->viewNumberOfConcurrentConnectionsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1242,13 +1296,18 @@ class StatisticsApi
     /**
      * Create request for operation 'viewNumberOfConcurrentConnections'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewNumberOfConcurrentConnectionsRequest($api_token)
+    public function viewNumberOfConcurrentConnectionsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1333,6 +1392,8 @@ class StatisticsApi
      *
      * View number of daily active users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $date date (optional)
      *
@@ -1340,9 +1401,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewNumberOfDailyActiveUsersResponse
      */
-    public function viewNumberOfDailyActiveUsers($api_token, $date = null)
+    public function viewNumberOfDailyActiveUsers($associative_array)
     {
-        list($response) = $this->viewNumberOfDailyActiveUsersWithHttpInfo($api_token, $date);
+        list($response) = $this->viewNumberOfDailyActiveUsersWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1351,6 +1412,8 @@ class StatisticsApi
      *
      * View number of daily active users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $date (optional)
      *
@@ -1358,9 +1421,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewNumberOfDailyActiveUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewNumberOfDailyActiveUsersWithHttpInfo($api_token, $date = null)
+    public function viewNumberOfDailyActiveUsersWithHttpInfo($associative_array)
     {
-        $request = $this->viewNumberOfDailyActiveUsersRequest($api_token, $date);
+        $request = $this->viewNumberOfDailyActiveUsersRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1451,15 +1514,17 @@ class StatisticsApi
      *
      * View number of daily active users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfDailyActiveUsersAsync($api_token, $date = null)
+    public function viewNumberOfDailyActiveUsersAsync($associative_array)
     {
-        return $this->viewNumberOfDailyActiveUsersAsyncWithHttpInfo($api_token, $date)
+        return $this->viewNumberOfDailyActiveUsersAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1472,16 +1537,18 @@ class StatisticsApi
      *
      * View number of daily active users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfDailyActiveUsersAsyncWithHttpInfo($api_token, $date = null)
+    public function viewNumberOfDailyActiveUsersAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewNumberOfDailyActiveUsersResponse';
-        $request = $this->viewNumberOfDailyActiveUsersRequest($api_token, $date);
+        $request = $this->viewNumberOfDailyActiveUsersRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1522,14 +1589,20 @@ class StatisticsApi
     /**
      * Create request for operation 'viewNumberOfDailyActiveUsers'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewNumberOfDailyActiveUsersRequest($api_token, $date = null)
+    public function viewNumberOfDailyActiveUsersRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $date = array_key_exists('date', $associative_array) ? $associative_array['date'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1623,6 +1696,8 @@ class StatisticsApi
      *
      * View number of monthly active users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $date date (optional)
      *
@@ -1630,9 +1705,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse
      */
-    public function viewNumberOfMonthlyActiveUsers($api_token, $date = null)
+    public function viewNumberOfMonthlyActiveUsers($associative_array)
     {
-        list($response) = $this->viewNumberOfMonthlyActiveUsersWithHttpInfo($api_token, $date);
+        list($response) = $this->viewNumberOfMonthlyActiveUsersWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1641,6 +1716,8 @@ class StatisticsApi
      *
      * View number of monthly active users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $date (optional)
      *
@@ -1648,9 +1725,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewNumberOfMonthlyActiveUsersWithHttpInfo($api_token, $date = null)
+    public function viewNumberOfMonthlyActiveUsersWithHttpInfo($associative_array)
     {
-        $request = $this->viewNumberOfMonthlyActiveUsersRequest($api_token, $date);
+        $request = $this->viewNumberOfMonthlyActiveUsersRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1741,15 +1818,17 @@ class StatisticsApi
      *
      * View number of monthly active users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfMonthlyActiveUsersAsync($api_token, $date = null)
+    public function viewNumberOfMonthlyActiveUsersAsync($associative_array)
     {
-        return $this->viewNumberOfMonthlyActiveUsersAsyncWithHttpInfo($api_token, $date)
+        return $this->viewNumberOfMonthlyActiveUsersAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1762,16 +1841,18 @@ class StatisticsApi
      *
      * View number of monthly active users
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfMonthlyActiveUsersAsyncWithHttpInfo($api_token, $date = null)
+    public function viewNumberOfMonthlyActiveUsersAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewNumberOfMonthlyActiveUsersResponse';
-        $request = $this->viewNumberOfMonthlyActiveUsersRequest($api_token, $date);
+        $request = $this->viewNumberOfMonthlyActiveUsersRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1812,14 +1893,20 @@ class StatisticsApi
     /**
      * Create request for operation 'viewNumberOfMonthlyActiveUsers'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewNumberOfMonthlyActiveUsersRequest($api_token, $date = null)
+    public function viewNumberOfMonthlyActiveUsersRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $date = array_key_exists('date', $associative_array) ? $associative_array['date'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1913,6 +2000,8 @@ class StatisticsApi
      *
      * View number of peak connections
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $time_dimension time_dimension (required)
      * @param  int $start_year start_year (required)
@@ -1926,9 +2015,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewNumberOfPeakConnectionsResponse
      */
-    public function viewNumberOfPeakConnections($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
+    public function viewNumberOfPeakConnections($associative_array)
     {
-        list($response) = $this->viewNumberOfPeakConnectionsWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
+        list($response) = $this->viewNumberOfPeakConnectionsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1936,6 +2025,8 @@ class StatisticsApi
      * Operation viewNumberOfPeakConnectionsWithHttpInfo
      *
      * View number of peak connections
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $time_dimension (required)
@@ -1950,9 +2041,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewNumberOfPeakConnectionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewNumberOfPeakConnectionsWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
+    public function viewNumberOfPeakConnectionsWithHttpInfo($associative_array)
     {
-        $request = $this->viewNumberOfPeakConnectionsRequest($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
+        $request = $this->viewNumberOfPeakConnectionsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2043,6 +2134,8 @@ class StatisticsApi
      *
      * View number of peak connections
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $time_dimension (required)
      * @param  int $start_year (required)
@@ -2055,9 +2148,9 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfPeakConnectionsAsync($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
+    public function viewNumberOfPeakConnectionsAsync($associative_array)
     {
-        return $this->viewNumberOfPeakConnectionsAsyncWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day)
+        return $this->viewNumberOfPeakConnectionsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2070,6 +2163,8 @@ class StatisticsApi
      *
      * View number of peak connections
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $time_dimension (required)
      * @param  int $start_year (required)
@@ -2082,10 +2177,10 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewNumberOfPeakConnectionsAsyncWithHttpInfo($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
+    public function viewNumberOfPeakConnectionsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewNumberOfPeakConnectionsResponse';
-        $request = $this->viewNumberOfPeakConnectionsRequest($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day, $end_day);
+        $request = $this->viewNumberOfPeakConnectionsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2126,6 +2221,8 @@ class StatisticsApi
     /**
      * Create request for operation 'viewNumberOfPeakConnections'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $time_dimension (required)
      * @param  int $start_year (required)
@@ -2138,8 +2235,18 @@ class StatisticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewNumberOfPeakConnectionsRequest($api_token, $time_dimension, $start_year, $start_month, $end_year, $end_month, $start_day = null, $end_day = null)
+    public function viewNumberOfPeakConnectionsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $time_dimension = array_key_exists('time_dimension', $associative_array) ? $associative_array['time_dimension'] : null;
+        $start_year = array_key_exists('start_year', $associative_array) ? $associative_array['start_year'] : null;
+        $start_month = array_key_exists('start_month', $associative_array) ? $associative_array['start_month'] : null;
+        $end_year = array_key_exists('end_year', $associative_array) ? $associative_array['end_year'] : null;
+        $end_month = array_key_exists('end_month', $associative_array) ? $associative_array['end_month'] : null;
+        $start_day = array_key_exists('start_day', $associative_array) ? $associative_array['start_day'] : null;
+        $end_day = array_key_exists('end_day', $associative_array) ? $associative_array['end_day'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(

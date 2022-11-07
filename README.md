@@ -21,12 +21,15 @@ $apiInstance = new Sendbird\Api\UserApi(
     $config
 );
 
+$list_users_params['api_token'] = $api_token;
+
 try {
-    $result = $apiInstance->listUsers($api_token);
+    $result = $apiInstance->listUsers($list_users_params);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling listUsers: ', $e->getMessage(), PHP_EOL;
 }
+
 ```
 
 # ⚠️ Warnings

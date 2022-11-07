@@ -32,13 +32,13 @@ $apiInstance = new Sendbird\Api\DataExportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$data_type = 'data_type_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['data_type'] = 'data_type_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listDataExportsByMessageChannelOrUser($api_token, $data_type, $token, $limit);
+    $result = $apiInstance->listDataExportsByMessageChannelOrUser($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataExportApi->listDataExportsByMessageChannelOrUser: ', $e->getMessage(), PHP_EOL;
@@ -46,6 +46,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -94,12 +96,12 @@ $apiInstance = new Sendbird\Api\DataExportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$data_type = 'data_type_example'; // string
-$register_and_schedule_data_export_data = new \Sendbird\Model\RegisterAndScheduleDataExportData(); // \Sendbird\Model\RegisterAndScheduleDataExportData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['data_type'] = 'data_type_example'; // string
+$associate_array['register_and_schedule_data_export_data'] = new \Sendbird\Model\RegisterAndScheduleDataExportData(); // \Sendbird\Model\RegisterAndScheduleDataExportData
 
 try {
-    $result = $apiInstance->registerAndScheduleDataExport($api_token, $data_type, $register_and_schedule_data_export_data);
+    $result = $apiInstance->registerAndScheduleDataExport($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataExportApi->registerAndScheduleDataExport: ', $e->getMessage(), PHP_EOL;
@@ -107,6 +109,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -154,12 +158,12 @@ $apiInstance = new Sendbird\Api\DataExportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$data_type = 'data_type_example'; // string
-$request_id = 'request_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['data_type'] = 'data_type_example'; // string
+$associate_array['request_id'] = 'request_id_example'; // string
 
 try {
-    $result = $apiInstance->viewDataExportById($api_token, $data_type, $request_id);
+    $result = $apiInstance->viewDataExportById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataExportApi->viewDataExportById: ', $e->getMessage(), PHP_EOL;
@@ -167,6 +171,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

@@ -81,15 +81,6 @@ class AddRegistrationOrDeviceTokenResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "tokens"
-     */
-    public function testPropertyTokens()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "token"
      */
     public function testPropertyToken()

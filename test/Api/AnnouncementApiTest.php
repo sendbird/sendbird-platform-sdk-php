@@ -73,18 +73,6 @@ class AnnouncementApiTest extends TestCase
     }
 
     /**
-     * Test case for getDetailedOpenRateOfAnnouncementById
-     *
-     * Get detailed open rate of an announcement.
-     *
-     */
-    public function testGetDetailedOpenRateOfAnnouncementById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for getDetailedOpenRateOfAnnouncementGroup
      *
      * Get detailed open rate of an announcement group.
@@ -97,12 +85,72 @@ class AnnouncementApiTest extends TestCase
     }
 
     /**
-     * Test case for getDetailedOpenStatusOfAnnouncementById
+     * Test case for getStatistics
      *
-     * Get detailed open status of an announcement.
+     * Get statistics - weekly.
      *
      */
-    public function testGetDetailedOpenStatusOfAnnouncementById()
+    public function testGetStatistics()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getStatisticsDaily
+     *
+     * Get statistics - daily.
+     *
+     */
+    public function testGetStatisticsDaily()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getStatisticsMonthly
+     *
+     * Get statistics - monthly.
+     *
+     */
+    public function testGetStatisticsMonthly()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for listAnnouncementGroups
+     *
+     * List announcement groups.
+     *
+     */
+    public function testListAnnouncementGroups()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for scheduleAnnouncement
+     *
+     * Schedule an announcement.
+     *
+     */
+    public function testScheduleAnnouncement()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateAnnouncementById
+     *
+     * Update an announcement.
+     *
+     */
+    public function testUpdateAnnouncementById()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

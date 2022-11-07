@@ -121,6 +121,8 @@ class ApplicationApi
      *
      * Add an APNs push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\AddApnsPushConfigurationData $add_apns_push_configuration_data add_apns_push_configuration_data (optional)
      *
@@ -128,9 +130,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddApnsPushConfigurationResponse
      */
-    public function addApnsPushConfiguration($api_token, $add_apns_push_configuration_data = null)
+    public function addApnsPushConfiguration($associative_array)
     {
-        list($response) = $this->addApnsPushConfigurationWithHttpInfo($api_token, $add_apns_push_configuration_data);
+        list($response) = $this->addApnsPushConfigurationWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -139,6 +141,8 @@ class ApplicationApi
      *
      * Add an APNs push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddApnsPushConfigurationData $add_apns_push_configuration_data (optional)
      *
@@ -146,9 +150,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddApnsPushConfigurationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addApnsPushConfigurationWithHttpInfo($api_token, $add_apns_push_configuration_data = null)
+    public function addApnsPushConfigurationWithHttpInfo($associative_array)
     {
-        $request = $this->addApnsPushConfigurationRequest($api_token, $add_apns_push_configuration_data);
+        $request = $this->addApnsPushConfigurationRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -239,15 +243,17 @@ class ApplicationApi
      *
      * Add an APNs push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddApnsPushConfigurationData $add_apns_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addApnsPushConfigurationAsync($api_token, $add_apns_push_configuration_data = null)
+    public function addApnsPushConfigurationAsync($associative_array)
     {
-        return $this->addApnsPushConfigurationAsyncWithHttpInfo($api_token, $add_apns_push_configuration_data)
+        return $this->addApnsPushConfigurationAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -260,16 +266,18 @@ class ApplicationApi
      *
      * Add an APNs push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddApnsPushConfigurationData $add_apns_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addApnsPushConfigurationAsyncWithHttpInfo($api_token, $add_apns_push_configuration_data = null)
+    public function addApnsPushConfigurationAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\AddApnsPushConfigurationResponse';
-        $request = $this->addApnsPushConfigurationRequest($api_token, $add_apns_push_configuration_data);
+        $request = $this->addApnsPushConfigurationRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -310,14 +318,20 @@ class ApplicationApi
     /**
      * Create request for operation 'addApnsPushConfiguration'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddApnsPushConfigurationData $add_apns_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addApnsPushConfigurationRequest($api_token, $add_apns_push_configuration_data = null)
+    public function addApnsPushConfigurationRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $add_apns_push_configuration_data = array_key_exists('add_apns_push_configuration_data', $associative_array) ? $associative_array['add_apns_push_configuration_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -408,6 +422,8 @@ class ApplicationApi
      *
      * Add a FCM push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\AddFcmPushConfigurationData $add_fcm_push_configuration_data add_fcm_push_configuration_data (optional)
      *
@@ -415,9 +431,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddFcmPushConfigurationResponse
      */
-    public function addFcmPushConfiguration($api_token, $add_fcm_push_configuration_data = null)
+    public function addFcmPushConfiguration($associative_array)
     {
-        list($response) = $this->addFcmPushConfigurationWithHttpInfo($api_token, $add_fcm_push_configuration_data);
+        list($response) = $this->addFcmPushConfigurationWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -426,6 +442,8 @@ class ApplicationApi
      *
      * Add a FCM push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddFcmPushConfigurationData $add_fcm_push_configuration_data (optional)
      *
@@ -433,9 +451,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddFcmPushConfigurationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addFcmPushConfigurationWithHttpInfo($api_token, $add_fcm_push_configuration_data = null)
+    public function addFcmPushConfigurationWithHttpInfo($associative_array)
     {
-        $request = $this->addFcmPushConfigurationRequest($api_token, $add_fcm_push_configuration_data);
+        $request = $this->addFcmPushConfigurationRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -526,15 +544,17 @@ class ApplicationApi
      *
      * Add a FCM push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddFcmPushConfigurationData $add_fcm_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addFcmPushConfigurationAsync($api_token, $add_fcm_push_configuration_data = null)
+    public function addFcmPushConfigurationAsync($associative_array)
     {
-        return $this->addFcmPushConfigurationAsyncWithHttpInfo($api_token, $add_fcm_push_configuration_data)
+        return $this->addFcmPushConfigurationAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -547,16 +567,18 @@ class ApplicationApi
      *
      * Add a FCM push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddFcmPushConfigurationData $add_fcm_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addFcmPushConfigurationAsyncWithHttpInfo($api_token, $add_fcm_push_configuration_data = null)
+    public function addFcmPushConfigurationAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\AddFcmPushConfigurationResponse';
-        $request = $this->addFcmPushConfigurationRequest($api_token, $add_fcm_push_configuration_data);
+        $request = $this->addFcmPushConfigurationRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -597,14 +619,20 @@ class ApplicationApi
     /**
      * Create request for operation 'addFcmPushConfiguration'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddFcmPushConfigurationData $add_fcm_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addFcmPushConfigurationRequest($api_token, $add_fcm_push_configuration_data = null)
+    public function addFcmPushConfigurationRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $add_fcm_push_configuration_data = array_key_exists('add_fcm_push_configuration_data', $associative_array) ? $associative_array['add_fcm_push_configuration_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -695,6 +723,8 @@ class ApplicationApi
      *
      * Add an HMS push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\AddHmsPushConfigurationData $add_hms_push_configuration_data add_hms_push_configuration_data (optional)
      *
@@ -702,9 +732,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddHmsPushConfigurationResponse
      */
-    public function addHmsPushConfiguration($api_token, $add_hms_push_configuration_data = null)
+    public function addHmsPushConfiguration($associative_array)
     {
-        list($response) = $this->addHmsPushConfigurationWithHttpInfo($api_token, $add_hms_push_configuration_data);
+        list($response) = $this->addHmsPushConfigurationWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -713,6 +743,8 @@ class ApplicationApi
      *
      * Add an HMS push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddHmsPushConfigurationData $add_hms_push_configuration_data (optional)
      *
@@ -720,9 +752,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddHmsPushConfigurationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addHmsPushConfigurationWithHttpInfo($api_token, $add_hms_push_configuration_data = null)
+    public function addHmsPushConfigurationWithHttpInfo($associative_array)
     {
-        $request = $this->addHmsPushConfigurationRequest($api_token, $add_hms_push_configuration_data);
+        $request = $this->addHmsPushConfigurationRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -813,15 +845,17 @@ class ApplicationApi
      *
      * Add an HMS push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddHmsPushConfigurationData $add_hms_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addHmsPushConfigurationAsync($api_token, $add_hms_push_configuration_data = null)
+    public function addHmsPushConfigurationAsync($associative_array)
     {
-        return $this->addHmsPushConfigurationAsyncWithHttpInfo($api_token, $add_hms_push_configuration_data)
+        return $this->addHmsPushConfigurationAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -834,16 +868,18 @@ class ApplicationApi
      *
      * Add an HMS push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddHmsPushConfigurationData $add_hms_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addHmsPushConfigurationAsyncWithHttpInfo($api_token, $add_hms_push_configuration_data = null)
+    public function addHmsPushConfigurationAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\AddHmsPushConfigurationResponse';
-        $request = $this->addHmsPushConfigurationRequest($api_token, $add_hms_push_configuration_data);
+        $request = $this->addHmsPushConfigurationRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -884,14 +920,20 @@ class ApplicationApi
     /**
      * Create request for operation 'addHmsPushConfiguration'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddHmsPushConfigurationData $add_hms_push_configuration_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addHmsPushConfigurationRequest($api_token, $add_hms_push_configuration_data = null)
+    public function addHmsPushConfigurationRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $add_hms_push_configuration_data = array_key_exists('add_hms_push_configuration_data', $associative_array) ? $associative_array['add_hms_push_configuration_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -982,6 +1024,8 @@ class ApplicationApi
      *
      * Add an IP to a whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\AddIpToWhitelistData $add_ip_to_whitelist_data add_ip_to_whitelist_data (optional)
      *
@@ -989,9 +1033,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\AddIpToWhitelistResponse
      */
-    public function addIpToWhitelist($api_token, $add_ip_to_whitelist_data = null)
+    public function addIpToWhitelist($associative_array)
     {
-        list($response) = $this->addIpToWhitelistWithHttpInfo($api_token, $add_ip_to_whitelist_data);
+        list($response) = $this->addIpToWhitelistWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1000,6 +1044,8 @@ class ApplicationApi
      *
      * Add an IP to a whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddIpToWhitelistData $add_ip_to_whitelist_data (optional)
      *
@@ -1007,9 +1053,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\AddIpToWhitelistResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addIpToWhitelistWithHttpInfo($api_token, $add_ip_to_whitelist_data = null)
+    public function addIpToWhitelistWithHttpInfo($associative_array)
     {
-        $request = $this->addIpToWhitelistRequest($api_token, $add_ip_to_whitelist_data);
+        $request = $this->addIpToWhitelistRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1100,15 +1146,17 @@ class ApplicationApi
      *
      * Add an IP to a whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddIpToWhitelistData $add_ip_to_whitelist_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addIpToWhitelistAsync($api_token, $add_ip_to_whitelist_data = null)
+    public function addIpToWhitelistAsync($associative_array)
     {
-        return $this->addIpToWhitelistAsyncWithHttpInfo($api_token, $add_ip_to_whitelist_data)
+        return $this->addIpToWhitelistAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1121,16 +1169,18 @@ class ApplicationApi
      *
      * Add an IP to a whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddIpToWhitelistData $add_ip_to_whitelist_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addIpToWhitelistAsyncWithHttpInfo($api_token, $add_ip_to_whitelist_data = null)
+    public function addIpToWhitelistAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\AddIpToWhitelistResponse';
-        $request = $this->addIpToWhitelistRequest($api_token, $add_ip_to_whitelist_data);
+        $request = $this->addIpToWhitelistRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1171,14 +1221,20 @@ class ApplicationApi
     /**
      * Create request for operation 'addIpToWhitelist'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\AddIpToWhitelistData $add_ip_to_whitelist_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addIpToWhitelistRequest($api_token, $add_ip_to_whitelist_data = null)
+    public function addIpToWhitelistRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $add_ip_to_whitelist_data = array_key_exists('add_ip_to_whitelist_data', $associative_array) ? $associative_array['add_ip_to_whitelist_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1269,6 +1325,8 @@ class ApplicationApi
      *
      * Ban users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $custom_type custom_type (required)
      * @param  \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData $ban_users_in_channels_with_custom_channel_type_data ban_users_in_channels_with_custom_channel_type_data (optional)
@@ -1277,9 +1335,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function banUsersInChannelsWithCustomChannelType($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data = null)
+    public function banUsersInChannelsWithCustomChannelType($associative_array)
     {
-        list($response) = $this->banUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data);
+        list($response) = $this->banUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1287,6 +1345,8 @@ class ApplicationApi
      * Operation banUsersInChannelsWithCustomChannelTypeWithHttpInfo
      *
      * Ban users in channels with a custom channel type
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
@@ -1296,9 +1356,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function banUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data = null)
+    public function banUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array)
     {
-        $request = $this->banUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data);
+        $request = $this->banUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1389,6 +1449,8 @@ class ApplicationApi
      *
      * Ban users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData $ban_users_in_channels_with_custom_channel_type_data (optional)
@@ -1396,9 +1458,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function banUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data = null)
+    public function banUsersInChannelsWithCustomChannelTypeAsync($associative_array)
     {
-        return $this->banUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data)
+        return $this->banUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1411,6 +1473,8 @@ class ApplicationApi
      *
      * Ban users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData $ban_users_in_channels_with_custom_channel_type_data (optional)
@@ -1418,10 +1482,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function banUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data = null)
+    public function banUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->banUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data);
+        $request = $this->banUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1462,6 +1526,8 @@ class ApplicationApi
     /**
      * Create request for operation 'banUsersInChannelsWithCustomChannelType'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  \Sendbird\Model\BanUsersInChannelsWithCustomChannelTypeData $ban_users_in_channels_with_custom_channel_type_data (optional)
@@ -1469,8 +1535,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function banUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $ban_users_in_channels_with_custom_channel_type_data = null)
+    public function banUsersInChannelsWithCustomChannelTypeRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
+        $ban_users_in_channels_with_custom_channel_type_data = array_key_exists('ban_users_in_channels_with_custom_channel_type_data', $associative_array) ? $associative_array['ban_users_in_channels_with_custom_channel_type_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1575,6 +1646,8 @@ class ApplicationApi
      *
      * Configure auto event message settings
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\ConfigureAutoEventData $configure_auto_event_data configure_auto_event_data (optional)
      *
@@ -1582,9 +1655,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdAutoEventMessageSettings
      */
-    public function configureAutoEventMessages($api_token, $configure_auto_event_data = null)
+    public function configureAutoEventMessages($associative_array)
     {
-        list($response) = $this->configureAutoEventMessagesWithHttpInfo($api_token, $configure_auto_event_data);
+        list($response) = $this->configureAutoEventMessagesWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1593,6 +1666,8 @@ class ApplicationApi
      *
      * Configure auto event message settings
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\ConfigureAutoEventData $configure_auto_event_data (optional)
      *
@@ -1600,9 +1675,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdAutoEventMessageSettings, HTTP status code, HTTP response headers (array of strings)
      */
-    public function configureAutoEventMessagesWithHttpInfo($api_token, $configure_auto_event_data = null)
+    public function configureAutoEventMessagesWithHttpInfo($associative_array)
     {
-        $request = $this->configureAutoEventMessagesRequest($api_token, $configure_auto_event_data);
+        $request = $this->configureAutoEventMessagesRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1693,15 +1768,17 @@ class ApplicationApi
      *
      * Configure auto event message settings
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\ConfigureAutoEventData $configure_auto_event_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function configureAutoEventMessagesAsync($api_token, $configure_auto_event_data = null)
+    public function configureAutoEventMessagesAsync($associative_array)
     {
-        return $this->configureAutoEventMessagesAsyncWithHttpInfo($api_token, $configure_auto_event_data)
+        return $this->configureAutoEventMessagesAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1714,16 +1791,18 @@ class ApplicationApi
      *
      * Configure auto event message settings
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\ConfigureAutoEventData $configure_auto_event_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function configureAutoEventMessagesAsyncWithHttpInfo($api_token, $configure_auto_event_data = null)
+    public function configureAutoEventMessagesAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\SendBirdAutoEventMessageSettings';
-        $request = $this->configureAutoEventMessagesRequest($api_token, $configure_auto_event_data);
+        $request = $this->configureAutoEventMessagesRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1764,14 +1843,20 @@ class ApplicationApi
     /**
      * Create request for operation 'configureAutoEventMessages'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\ConfigureAutoEventData $configure_auto_event_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function configureAutoEventMessagesRequest($api_token, $configure_auto_event_data = null)
+    public function configureAutoEventMessagesRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $configure_auto_event_data = array_key_exists('configure_auto_event_data', $associative_array) ? $associative_array['configure_auto_event_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1862,6 +1947,8 @@ class ApplicationApi
      *
      * Delete allowed IPs from a whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string[] $ip_whitelist_addresses ip_whitelist_addresses (required)
      *
@@ -1869,9 +1956,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\DeleteAllowedIpsFromWhitelistResponse
      */
-    public function deleteAllowedIpsFromWhitelist($api_token, $ip_whitelist_addresses)
+    public function deleteAllowedIpsFromWhitelist($associative_array)
     {
-        list($response) = $this->deleteAllowedIpsFromWhitelistWithHttpInfo($api_token, $ip_whitelist_addresses);
+        list($response) = $this->deleteAllowedIpsFromWhitelistWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1880,6 +1967,8 @@ class ApplicationApi
      *
      * Delete allowed IPs from a whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string[] $ip_whitelist_addresses (required)
      *
@@ -1887,9 +1976,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\DeleteAllowedIpsFromWhitelistResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteAllowedIpsFromWhitelistWithHttpInfo($api_token, $ip_whitelist_addresses)
+    public function deleteAllowedIpsFromWhitelistWithHttpInfo($associative_array)
     {
-        $request = $this->deleteAllowedIpsFromWhitelistRequest($api_token, $ip_whitelist_addresses);
+        $request = $this->deleteAllowedIpsFromWhitelistRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1980,15 +2069,17 @@ class ApplicationApi
      *
      * Delete allowed IPs from a whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string[] $ip_whitelist_addresses (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAllowedIpsFromWhitelistAsync($api_token, $ip_whitelist_addresses)
+    public function deleteAllowedIpsFromWhitelistAsync($associative_array)
     {
-        return $this->deleteAllowedIpsFromWhitelistAsyncWithHttpInfo($api_token, $ip_whitelist_addresses)
+        return $this->deleteAllowedIpsFromWhitelistAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2001,16 +2092,18 @@ class ApplicationApi
      *
      * Delete allowed IPs from a whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string[] $ip_whitelist_addresses (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAllowedIpsFromWhitelistAsyncWithHttpInfo($api_token, $ip_whitelist_addresses)
+    public function deleteAllowedIpsFromWhitelistAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\DeleteAllowedIpsFromWhitelistResponse';
-        $request = $this->deleteAllowedIpsFromWhitelistRequest($api_token, $ip_whitelist_addresses);
+        $request = $this->deleteAllowedIpsFromWhitelistRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2051,14 +2144,20 @@ class ApplicationApi
     /**
      * Create request for operation 'deleteAllowedIpsFromWhitelist'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string[] $ip_whitelist_addresses (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteAllowedIpsFromWhitelistRequest($api_token, $ip_whitelist_addresses)
+    public function deleteAllowedIpsFromWhitelistRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $ip_whitelist_addresses = array_key_exists('ip_whitelist_addresses', $associative_array) ? $associative_array['ip_whitelist_addresses'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2158,6 +2257,8 @@ class ApplicationApi
      *
      * Delete an APNs certificate
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $provider_id provider_id (required)
      *
@@ -2165,9 +2266,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\DeleteApnsCertificateByIdResponse
      */
-    public function deleteApnsCertificateById($api_token, $provider_id)
+    public function deleteApnsCertificateById($associative_array)
     {
-        list($response) = $this->deleteApnsCertificateByIdWithHttpInfo($api_token, $provider_id);
+        list($response) = $this->deleteApnsCertificateByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2176,6 +2277,8 @@ class ApplicationApi
      *
      * Delete an APNs certificate
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      *
@@ -2183,9 +2286,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\DeleteApnsCertificateByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteApnsCertificateByIdWithHttpInfo($api_token, $provider_id)
+    public function deleteApnsCertificateByIdWithHttpInfo($associative_array)
     {
-        $request = $this->deleteApnsCertificateByIdRequest($api_token, $provider_id);
+        $request = $this->deleteApnsCertificateByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2276,15 +2379,17 @@ class ApplicationApi
      *
      * Delete an APNs certificate
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteApnsCertificateByIdAsync($api_token, $provider_id)
+    public function deleteApnsCertificateByIdAsync($associative_array)
     {
-        return $this->deleteApnsCertificateByIdAsyncWithHttpInfo($api_token, $provider_id)
+        return $this->deleteApnsCertificateByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2297,16 +2402,18 @@ class ApplicationApi
      *
      * Delete an APNs certificate
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteApnsCertificateByIdAsyncWithHttpInfo($api_token, $provider_id)
+    public function deleteApnsCertificateByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\DeleteApnsCertificateByIdResponse';
-        $request = $this->deleteApnsCertificateByIdRequest($api_token, $provider_id);
+        $request = $this->deleteApnsCertificateByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2347,14 +2454,20 @@ class ApplicationApi
     /**
      * Create request for operation 'deleteApnsCertificateById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteApnsCertificateByIdRequest($api_token, $provider_id)
+    public function deleteApnsCertificateByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $provider_id = array_key_exists('provider_id', $associative_array) ? $associative_array['provider_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2453,6 +2566,8 @@ class ApplicationApi
      *
      * Generate a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\GenerateSecondaryApiTokenData $generate_secondary_api_token_data generate_secondary_api_token_data (optional)
      *
@@ -2460,9 +2575,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\GenerateSecondaryApiTokenResponse
      */
-    public function generateSecondaryApiToken($api_token, $generate_secondary_api_token_data = null)
+    public function generateSecondaryApiToken($associative_array)
     {
-        list($response) = $this->generateSecondaryApiTokenWithHttpInfo($api_token, $generate_secondary_api_token_data);
+        list($response) = $this->generateSecondaryApiTokenWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2471,6 +2586,8 @@ class ApplicationApi
      *
      * Generate a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\GenerateSecondaryApiTokenData $generate_secondary_api_token_data (optional)
      *
@@ -2478,9 +2595,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\GenerateSecondaryApiTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function generateSecondaryApiTokenWithHttpInfo($api_token, $generate_secondary_api_token_data = null)
+    public function generateSecondaryApiTokenWithHttpInfo($associative_array)
     {
-        $request = $this->generateSecondaryApiTokenRequest($api_token, $generate_secondary_api_token_data);
+        $request = $this->generateSecondaryApiTokenRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2571,15 +2688,17 @@ class ApplicationApi
      *
      * Generate a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\GenerateSecondaryApiTokenData $generate_secondary_api_token_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateSecondaryApiTokenAsync($api_token, $generate_secondary_api_token_data = null)
+    public function generateSecondaryApiTokenAsync($associative_array)
     {
-        return $this->generateSecondaryApiTokenAsyncWithHttpInfo($api_token, $generate_secondary_api_token_data)
+        return $this->generateSecondaryApiTokenAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2592,16 +2711,18 @@ class ApplicationApi
      *
      * Generate a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\GenerateSecondaryApiTokenData $generate_secondary_api_token_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function generateSecondaryApiTokenAsyncWithHttpInfo($api_token, $generate_secondary_api_token_data = null)
+    public function generateSecondaryApiTokenAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\GenerateSecondaryApiTokenResponse';
-        $request = $this->generateSecondaryApiTokenRequest($api_token, $generate_secondary_api_token_data);
+        $request = $this->generateSecondaryApiTokenRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2642,14 +2763,20 @@ class ApplicationApi
     /**
      * Create request for operation 'generateSecondaryApiToken'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\GenerateSecondaryApiTokenData $generate_secondary_api_token_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function generateSecondaryApiTokenRequest($api_token, $generate_secondary_api_token_data = null)
+    public function generateSecondaryApiTokenRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $generate_secondary_api_token_data = array_key_exists('generate_secondary_api_token_data', $associative_array) ? $associative_array['generate_secondary_api_token_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2740,15 +2867,17 @@ class ApplicationApi
      *
      * List auto event messages
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdAutoEventMessageSettings
      */
-    public function listAutoEventMessages($api_token)
+    public function listAutoEventMessages($associative_array)
     {
-        list($response) = $this->listAutoEventMessagesWithHttpInfo($api_token);
+        list($response) = $this->listAutoEventMessagesWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2757,15 +2886,17 @@ class ApplicationApi
      *
      * List auto event messages
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdAutoEventMessageSettings, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAutoEventMessagesWithHttpInfo($api_token)
+    public function listAutoEventMessagesWithHttpInfo($associative_array)
     {
-        $request = $this->listAutoEventMessagesRequest($api_token);
+        $request = $this->listAutoEventMessagesRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2856,14 +2987,16 @@ class ApplicationApi
      *
      * List auto event messages
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAutoEventMessagesAsync($api_token)
+    public function listAutoEventMessagesAsync($associative_array)
     {
-        return $this->listAutoEventMessagesAsyncWithHttpInfo($api_token)
+        return $this->listAutoEventMessagesAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2876,15 +3009,17 @@ class ApplicationApi
      *
      * List auto event messages
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAutoEventMessagesAsyncWithHttpInfo($api_token)
+    public function listAutoEventMessagesAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\SendBirdAutoEventMessageSettings';
-        $request = $this->listAutoEventMessagesRequest($api_token);
+        $request = $this->listAutoEventMessagesRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2925,13 +3060,18 @@ class ApplicationApi
     /**
      * Create request for operation 'listAutoEventMessages'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listAutoEventMessagesRequest($api_token)
+    public function listAutoEventMessagesRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -3016,6 +3156,8 @@ class ApplicationApi
      *
      * List banned users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $custom_type custom_type (required)
      * @param  string $token token (optional)
@@ -3025,9 +3167,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\CustomTypeListBannedUsersResponse
      */
-    public function listBannedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token = null, $limit = null)
+    public function listBannedUsersInChannelsWithCustomChannelType($associative_array)
     {
-        list($response) = $this->listBannedUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $token, $limit);
+        list($response) = $this->listBannedUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -3035,6 +3177,8 @@ class ApplicationApi
      * Operation listBannedUsersInChannelsWithCustomChannelTypeWithHttpInfo
      *
      * List banned users in channels with a custom channel type
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
@@ -3045,9 +3189,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\CustomTypeListBannedUsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBannedUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $token = null, $limit = null)
+    public function listBannedUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array)
     {
-        $request = $this->listBannedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token, $limit);
+        $request = $this->listBannedUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3138,6 +3282,8 @@ class ApplicationApi
      *
      * List banned users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string $token (optional)
@@ -3146,9 +3292,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBannedUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $token = null, $limit = null)
+    public function listBannedUsersInChannelsWithCustomChannelTypeAsync($associative_array)
     {
-        return $this->listBannedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $token, $limit)
+        return $this->listBannedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3161,6 +3307,8 @@ class ApplicationApi
      *
      * List banned users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string $token (optional)
@@ -3169,10 +3317,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBannedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $token = null, $limit = null)
+    public function listBannedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\CustomTypeListBannedUsersResponse';
-        $request = $this->listBannedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token, $limit);
+        $request = $this->listBannedUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3213,6 +3361,8 @@ class ApplicationApi
     /**
      * Create request for operation 'listBannedUsersInChannelsWithCustomChannelType'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string $token (optional)
@@ -3221,8 +3371,14 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listBannedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token = null, $limit = null)
+    public function listBannedUsersInChannelsWithCustomChannelTypeRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -3339,6 +3495,8 @@ class ApplicationApi
      *
      * List muted users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $custom_type custom_type (required)
      * @param  string $token token (optional)
@@ -3348,9 +3506,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListMutedUsersInChannelsWithCustomChannelType200Response
      */
-    public function listMutedUsersInChannelsWithCustomChannelType($api_token, $custom_type, $token = null, $limit = null)
+    public function listMutedUsersInChannelsWithCustomChannelType($associative_array)
     {
-        list($response) = $this->listMutedUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $token, $limit);
+        list($response) = $this->listMutedUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -3358,6 +3516,8 @@ class ApplicationApi
      * Operation listMutedUsersInChannelsWithCustomChannelTypeWithHttpInfo
      *
      * List muted users in channels with a custom channel type
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
@@ -3368,9 +3528,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListMutedUsersInChannelsWithCustomChannelType200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listMutedUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $token = null, $limit = null)
+    public function listMutedUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array)
     {
-        $request = $this->listMutedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token, $limit);
+        $request = $this->listMutedUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3461,6 +3621,8 @@ class ApplicationApi
      *
      * List muted users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string $token (optional)
@@ -3469,9 +3631,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMutedUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $token = null, $limit = null)
+    public function listMutedUsersInChannelsWithCustomChannelTypeAsync($associative_array)
     {
-        return $this->listMutedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $token, $limit)
+        return $this->listMutedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3484,6 +3646,8 @@ class ApplicationApi
      *
      * List muted users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string $token (optional)
@@ -3492,10 +3656,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMutedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $token = null, $limit = null)
+    public function listMutedUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListMutedUsersInChannelsWithCustomChannelType200Response';
-        $request = $this->listMutedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token, $limit);
+        $request = $this->listMutedUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3536,6 +3700,8 @@ class ApplicationApi
     /**
      * Create request for operation 'listMutedUsersInChannelsWithCustomChannelType'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string $token (optional)
@@ -3544,8 +3710,14 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listMutedUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $token = null, $limit = null)
+    public function listMutedUsersInChannelsWithCustomChannelTypeRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -3662,6 +3834,8 @@ class ApplicationApi
      *
      * List push configurations
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $push_type push_type (required)
      *
@@ -3669,9 +3843,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListPushConfigurationsResponse
      */
-    public function listPushConfigurations($api_token, $push_type)
+    public function listPushConfigurations($associative_array)
     {
-        list($response) = $this->listPushConfigurationsWithHttpInfo($api_token, $push_type);
+        list($response) = $this->listPushConfigurationsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -3680,6 +3854,8 @@ class ApplicationApi
      *
      * List push configurations
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
      *
@@ -3687,9 +3863,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListPushConfigurationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listPushConfigurationsWithHttpInfo($api_token, $push_type)
+    public function listPushConfigurationsWithHttpInfo($associative_array)
     {
-        $request = $this->listPushConfigurationsRequest($api_token, $push_type);
+        $request = $this->listPushConfigurationsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3780,15 +3956,17 @@ class ApplicationApi
      *
      * List push configurations
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPushConfigurationsAsync($api_token, $push_type)
+    public function listPushConfigurationsAsync($associative_array)
     {
-        return $this->listPushConfigurationsAsyncWithHttpInfo($api_token, $push_type)
+        return $this->listPushConfigurationsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3801,16 +3979,18 @@ class ApplicationApi
      *
      * List push configurations
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPushConfigurationsAsyncWithHttpInfo($api_token, $push_type)
+    public function listPushConfigurationsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListPushConfigurationsResponse';
-        $request = $this->listPushConfigurationsRequest($api_token, $push_type);
+        $request = $this->listPushConfigurationsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3851,14 +4031,20 @@ class ApplicationApi
     /**
      * Create request for operation 'listPushConfigurations'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listPushConfigurationsRequest($api_token, $push_type)
+    public function listPushConfigurationsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $push_type = array_key_exists('push_type', $associative_array) ? $associative_array['push_type'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -3957,15 +4143,17 @@ class ApplicationApi
      *
      * List push notification content templates
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListPushNotificationContentTemplatesResponse
      */
-    public function listPushNotificationContentTemplates($api_token)
+    public function listPushNotificationContentTemplates($associative_array)
     {
-        list($response) = $this->listPushNotificationContentTemplatesWithHttpInfo($api_token);
+        list($response) = $this->listPushNotificationContentTemplatesWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -3974,15 +4162,17 @@ class ApplicationApi
      *
      * List push notification content templates
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListPushNotificationContentTemplatesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listPushNotificationContentTemplatesWithHttpInfo($api_token)
+    public function listPushNotificationContentTemplatesWithHttpInfo($associative_array)
     {
-        $request = $this->listPushNotificationContentTemplatesRequest($api_token);
+        $request = $this->listPushNotificationContentTemplatesRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4073,14 +4263,16 @@ class ApplicationApi
      *
      * List push notification content templates
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPushNotificationContentTemplatesAsync($api_token)
+    public function listPushNotificationContentTemplatesAsync($associative_array)
     {
-        return $this->listPushNotificationContentTemplatesAsyncWithHttpInfo($api_token)
+        return $this->listPushNotificationContentTemplatesAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4093,15 +4285,17 @@ class ApplicationApi
      *
      * List push notification content templates
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listPushNotificationContentTemplatesAsyncWithHttpInfo($api_token)
+    public function listPushNotificationContentTemplatesAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListPushNotificationContentTemplatesResponse';
-        $request = $this->listPushNotificationContentTemplatesRequest($api_token);
+        $request = $this->listPushNotificationContentTemplatesRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4142,13 +4336,18 @@ class ApplicationApi
     /**
      * Create request for operation 'listPushNotificationContentTemplates'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listPushNotificationContentTemplatesRequest($api_token)
+    public function listPushNotificationContentTemplatesRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -4233,15 +4432,17 @@ class ApplicationApi
      *
      * List secondary API tokens
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListSecondaryApiTokensResponse
      */
-    public function listSecondaryApiTokens($api_token)
+    public function listSecondaryApiTokens($associative_array)
     {
-        list($response) = $this->listSecondaryApiTokensWithHttpInfo($api_token);
+        list($response) = $this->listSecondaryApiTokensWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -4250,15 +4451,17 @@ class ApplicationApi
      *
      * List secondary API tokens
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListSecondaryApiTokensResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSecondaryApiTokensWithHttpInfo($api_token)
+    public function listSecondaryApiTokensWithHttpInfo($associative_array)
     {
-        $request = $this->listSecondaryApiTokensRequest($api_token);
+        $request = $this->listSecondaryApiTokensRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4349,14 +4552,16 @@ class ApplicationApi
      *
      * List secondary API tokens
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSecondaryApiTokensAsync($api_token)
+    public function listSecondaryApiTokensAsync($associative_array)
     {
-        return $this->listSecondaryApiTokensAsyncWithHttpInfo($api_token)
+        return $this->listSecondaryApiTokensAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4369,15 +4574,17 @@ class ApplicationApi
      *
      * List secondary API tokens
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSecondaryApiTokensAsyncWithHttpInfo($api_token)
+    public function listSecondaryApiTokensAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListSecondaryApiTokensResponse';
-        $request = $this->listSecondaryApiTokensRequest($api_token);
+        $request = $this->listSecondaryApiTokensRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4418,13 +4625,18 @@ class ApplicationApi
     /**
      * Create request for operation 'listSecondaryApiTokens'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listSecondaryApiTokensRequest($api_token)
+    public function listSecondaryApiTokensRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -4509,6 +4721,8 @@ class ApplicationApi
      *
      * Mute users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $custom_type custom_type (required)
      * @param  \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData $mute_users_in_channels_with_custom_channel_type_data mute_users_in_channels_with_custom_channel_type_data (optional)
@@ -4517,9 +4731,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function muteUsersInChannelsWithCustomChannelType($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data = null)
+    public function muteUsersInChannelsWithCustomChannelType($associative_array)
     {
-        list($response) = $this->muteUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data);
+        list($response) = $this->muteUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -4527,6 +4741,8 @@ class ApplicationApi
      * Operation muteUsersInChannelsWithCustomChannelTypeWithHttpInfo
      *
      * Mute users in channels with a custom channel type
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
@@ -4536,9 +4752,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function muteUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data = null)
+    public function muteUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array)
     {
-        $request = $this->muteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data);
+        $request = $this->muteUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4629,6 +4845,8 @@ class ApplicationApi
      *
      * Mute users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData $mute_users_in_channels_with_custom_channel_type_data (optional)
@@ -4636,9 +4854,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data = null)
+    public function muteUsersInChannelsWithCustomChannelTypeAsync($associative_array)
     {
-        return $this->muteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data)
+        return $this->muteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4651,6 +4869,8 @@ class ApplicationApi
      *
      * Mute users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData $mute_users_in_channels_with_custom_channel_type_data (optional)
@@ -4658,10 +4878,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function muteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data = null)
+    public function muteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->muteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data);
+        $request = $this->muteUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4702,6 +4922,8 @@ class ApplicationApi
     /**
      * Create request for operation 'muteUsersInChannelsWithCustomChannelType'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  \Sendbird\Model\MuteUsersInChannelsWithCustomChannelTypeData $mute_users_in_channels_with_custom_channel_type_data (optional)
@@ -4709,8 +4931,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function muteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $mute_users_in_channels_with_custom_channel_type_data = null)
+    public function muteUsersInChannelsWithCustomChannelTypeRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
+        $mute_users_in_channels_with_custom_channel_type_data = array_key_exists('mute_users_in_channels_with_custom_channel_type_data', $associative_array) ? $associative_array['mute_users_in_channels_with_custom_channel_type_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -4815,6 +5042,8 @@ class ApplicationApi
      *
      * Remove a push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $push_type push_type (required)
      * @param  string $provider_id provider_id (required)
@@ -4823,9 +5052,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RemovePushConfigurationByIdResponse
      */
-    public function removePushConfigurationById($api_token, $push_type, $provider_id)
+    public function removePushConfigurationById($associative_array)
     {
-        list($response) = $this->removePushConfigurationByIdWithHttpInfo($api_token, $push_type, $provider_id);
+        list($response) = $this->removePushConfigurationByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -4833,6 +5062,8 @@ class ApplicationApi
      * Operation removePushConfigurationByIdWithHttpInfo
      *
      * Remove a push configuration
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
@@ -4842,9 +5073,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RemovePushConfigurationByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function removePushConfigurationByIdWithHttpInfo($api_token, $push_type, $provider_id)
+    public function removePushConfigurationByIdWithHttpInfo($associative_array)
     {
-        $request = $this->removePushConfigurationByIdRequest($api_token, $push_type, $provider_id);
+        $request = $this->removePushConfigurationByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4935,6 +5166,8 @@ class ApplicationApi
      *
      * Remove a push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
@@ -4942,9 +5175,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removePushConfigurationByIdAsync($api_token, $push_type, $provider_id)
+    public function removePushConfigurationByIdAsync($associative_array)
     {
-        return $this->removePushConfigurationByIdAsyncWithHttpInfo($api_token, $push_type, $provider_id)
+        return $this->removePushConfigurationByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4957,6 +5190,8 @@ class ApplicationApi
      *
      * Remove a push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
@@ -4964,10 +5199,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function removePushConfigurationByIdAsyncWithHttpInfo($api_token, $push_type, $provider_id)
+    public function removePushConfigurationByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\RemovePushConfigurationByIdResponse';
-        $request = $this->removePushConfigurationByIdRequest($api_token, $push_type, $provider_id);
+        $request = $this->removePushConfigurationByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5008,6 +5243,8 @@ class ApplicationApi
     /**
      * Create request for operation 'removePushConfigurationById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
@@ -5015,8 +5252,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function removePushConfigurationByIdRequest($api_token, $push_type, $provider_id)
+    public function removePushConfigurationByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $push_type = array_key_exists('push_type', $associative_array) ? $associative_array['push_type'] : null;
+        $provider_id = array_key_exists('provider_id', $associative_array) ? $associative_array['provider_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -5129,15 +5371,17 @@ class ApplicationApi
      *
      * Retrieve an IP whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RetrieveIpWhitelistResponse
      */
-    public function retrieveIpWhitelist($api_token)
+    public function retrieveIpWhitelist($associative_array)
     {
-        list($response) = $this->retrieveIpWhitelistWithHttpInfo($api_token);
+        list($response) = $this->retrieveIpWhitelistWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -5146,15 +5390,17 @@ class ApplicationApi
      *
      * Retrieve an IP whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RetrieveIpWhitelistResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function retrieveIpWhitelistWithHttpInfo($api_token)
+    public function retrieveIpWhitelistWithHttpInfo($associative_array)
     {
-        $request = $this->retrieveIpWhitelistRequest($api_token);
+        $request = $this->retrieveIpWhitelistRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5245,14 +5491,16 @@ class ApplicationApi
      *
      * Retrieve an IP whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveIpWhitelistAsync($api_token)
+    public function retrieveIpWhitelistAsync($associative_array)
     {
-        return $this->retrieveIpWhitelistAsyncWithHttpInfo($api_token)
+        return $this->retrieveIpWhitelistAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5265,15 +5513,17 @@ class ApplicationApi
      *
      * Retrieve an IP whitelist
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function retrieveIpWhitelistAsyncWithHttpInfo($api_token)
+    public function retrieveIpWhitelistAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\RetrieveIpWhitelistResponse';
-        $request = $this->retrieveIpWhitelistRequest($api_token);
+        $request = $this->retrieveIpWhitelistRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5314,13 +5564,18 @@ class ApplicationApi
     /**
      * Create request for operation 'retrieveIpWhitelist'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function retrieveIpWhitelistRequest($api_token)
+    public function retrieveIpWhitelistRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -5405,6 +5660,8 @@ class ApplicationApi
      *
      * Revoke a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $api_token2 api_token2 (required)
      *
@@ -5412,9 +5669,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse
      */
-    public function revokeSecondaryApiTokenByToken($api_token, $api_token2)
+    public function revokeSecondaryApiTokenByToken($associative_array)
     {
-        list($response) = $this->revokeSecondaryApiTokenByTokenWithHttpInfo($api_token, $api_token2);
+        list($response) = $this->revokeSecondaryApiTokenByTokenWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -5423,6 +5680,8 @@ class ApplicationApi
      *
      * Revoke a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $api_token2 (required)
      *
@@ -5430,9 +5689,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function revokeSecondaryApiTokenByTokenWithHttpInfo($api_token, $api_token2)
+    public function revokeSecondaryApiTokenByTokenWithHttpInfo($associative_array)
     {
-        $request = $this->revokeSecondaryApiTokenByTokenRequest($api_token, $api_token2);
+        $request = $this->revokeSecondaryApiTokenByTokenRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5523,15 +5782,17 @@ class ApplicationApi
      *
      * Revoke a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $api_token2 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function revokeSecondaryApiTokenByTokenAsync($api_token, $api_token2)
+    public function revokeSecondaryApiTokenByTokenAsync($associative_array)
     {
-        return $this->revokeSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token, $api_token2)
+        return $this->revokeSecondaryApiTokenByTokenAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5544,16 +5805,18 @@ class ApplicationApi
      *
      * Revoke a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $api_token2 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function revokeSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token, $api_token2)
+    public function revokeSecondaryApiTokenByTokenAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\RevokeSecondaryApiTokenByTokenResponse';
-        $request = $this->revokeSecondaryApiTokenByTokenRequest($api_token, $api_token2);
+        $request = $this->revokeSecondaryApiTokenByTokenRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5594,14 +5857,20 @@ class ApplicationApi
     /**
      * Create request for operation 'revokeSecondaryApiTokenByToken'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $api_token2 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function revokeSecondaryApiTokenByTokenRequest($api_token, $api_token2)
+    public function revokeSecondaryApiTokenByTokenRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $api_token2 = array_key_exists('api_token2', $associative_array) ? $associative_array['api_token2'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -5700,6 +5969,8 @@ class ApplicationApi
      *
      * Message moderation
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $custom_type custom_type (required)
      * @param  \Sendbird\Model\SetDomainFilterData $set_domain_filter_data set_domain_filter_data (optional)
@@ -5708,9 +5979,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdChannelResponse
      */
-    public function setDomainFilter($api_token, $custom_type, $set_domain_filter_data = null)
+    public function setDomainFilter($associative_array)
     {
-        list($response) = $this->setDomainFilterWithHttpInfo($api_token, $custom_type, $set_domain_filter_data);
+        list($response) = $this->setDomainFilterWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -5718,6 +5989,8 @@ class ApplicationApi
      * Operation setDomainFilterWithHttpInfo
      *
      * Message moderation
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
@@ -5727,9 +6000,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdChannelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function setDomainFilterWithHttpInfo($api_token, $custom_type, $set_domain_filter_data = null)
+    public function setDomainFilterWithHttpInfo($associative_array)
     {
-        $request = $this->setDomainFilterRequest($api_token, $custom_type, $set_domain_filter_data);
+        $request = $this->setDomainFilterRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5820,6 +6093,8 @@ class ApplicationApi
      *
      * Message moderation
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  \Sendbird\Model\SetDomainFilterData $set_domain_filter_data (optional)
@@ -5827,9 +6102,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setDomainFilterAsync($api_token, $custom_type, $set_domain_filter_data = null)
+    public function setDomainFilterAsync($associative_array)
     {
-        return $this->setDomainFilterAsyncWithHttpInfo($api_token, $custom_type, $set_domain_filter_data)
+        return $this->setDomainFilterAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5842,6 +6117,8 @@ class ApplicationApi
      *
      * Message moderation
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  \Sendbird\Model\SetDomainFilterData $set_domain_filter_data (optional)
@@ -5849,10 +6126,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function setDomainFilterAsyncWithHttpInfo($api_token, $custom_type, $set_domain_filter_data = null)
+    public function setDomainFilterAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\SendBirdChannelResponse';
-        $request = $this->setDomainFilterRequest($api_token, $custom_type, $set_domain_filter_data);
+        $request = $this->setDomainFilterRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5893,6 +6170,8 @@ class ApplicationApi
     /**
      * Create request for operation 'setDomainFilter'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  \Sendbird\Model\SetDomainFilterData $set_domain_filter_data (optional)
@@ -5900,8 +6179,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function setDomainFilterRequest($api_token, $custom_type, $set_domain_filter_data = null)
+    public function setDomainFilterRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
+        $set_domain_filter_data = array_key_exists('set_domain_filter_data', $associative_array) ? $associative_array['set_domain_filter_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -6006,6 +6290,8 @@ class ApplicationApi
      *
      * Unban users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $custom_type custom_type (required)
      * @param  string[] $user_ids user_ids (required)
@@ -6014,9 +6300,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function unbanUsersInChannelsWithCustomChannelType($api_token, $custom_type, $user_ids)
+    public function unbanUsersInChannelsWithCustomChannelType($associative_array)
     {
-        list($response) = $this->unbanUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $user_ids);
+        list($response) = $this->unbanUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -6024,6 +6310,8 @@ class ApplicationApi
      * Operation unbanUsersInChannelsWithCustomChannelTypeWithHttpInfo
      *
      * Unban users in channels with a custom channel type
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
@@ -6033,9 +6321,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unbanUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $user_ids)
+    public function unbanUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array)
     {
-        $request = $this->unbanUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids);
+        $request = $this->unbanUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6126,6 +6414,8 @@ class ApplicationApi
      *
      * Unban users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string[] $user_ids (required)
@@ -6133,9 +6423,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unbanUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $user_ids)
+    public function unbanUsersInChannelsWithCustomChannelTypeAsync($associative_array)
     {
-        return $this->unbanUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $user_ids)
+        return $this->unbanUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6148,6 +6438,8 @@ class ApplicationApi
      *
      * Unban users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string[] $user_ids (required)
@@ -6155,10 +6447,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unbanUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $user_ids)
+    public function unbanUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->unbanUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids);
+        $request = $this->unbanUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6199,6 +6491,8 @@ class ApplicationApi
     /**
      * Create request for operation 'unbanUsersInChannelsWithCustomChannelType'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string[] $user_ids (required)
@@ -6206,8 +6500,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function unbanUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids)
+    public function unbanUsersInChannelsWithCustomChannelTypeRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
+        $user_ids = array_key_exists('user_ids', $associative_array) ? $associative_array['user_ids'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -6321,6 +6620,8 @@ class ApplicationApi
      *
      * Unmute users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $custom_type custom_type (required)
      * @param  string[] $user_ids user_ids (required)
@@ -6329,9 +6630,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function unmuteUsersInChannelsWithCustomChannelType($api_token, $custom_type, $user_ids)
+    public function unmuteUsersInChannelsWithCustomChannelType($associative_array)
     {
-        list($response) = $this->unmuteUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $user_ids);
+        list($response) = $this->unmuteUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -6339,6 +6640,8 @@ class ApplicationApi
      * Operation unmuteUsersInChannelsWithCustomChannelTypeWithHttpInfo
      *
      * Unmute users in channels with a custom channel type
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
@@ -6348,9 +6651,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function unmuteUsersInChannelsWithCustomChannelTypeWithHttpInfo($api_token, $custom_type, $user_ids)
+    public function unmuteUsersInChannelsWithCustomChannelTypeWithHttpInfo($associative_array)
     {
-        $request = $this->unmuteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids);
+        $request = $this->unmuteUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6441,6 +6744,8 @@ class ApplicationApi
      *
      * Unmute users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string[] $user_ids (required)
@@ -6448,9 +6753,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unmuteUsersInChannelsWithCustomChannelTypeAsync($api_token, $custom_type, $user_ids)
+    public function unmuteUsersInChannelsWithCustomChannelTypeAsync($associative_array)
     {
-        return $this->unmuteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $user_ids)
+        return $this->unmuteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6463,6 +6768,8 @@ class ApplicationApi
      *
      * Unmute users in channels with a custom channel type
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string[] $user_ids (required)
@@ -6470,10 +6777,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function unmuteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($api_token, $custom_type, $user_ids)
+    public function unmuteUsersInChannelsWithCustomChannelTypeAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->unmuteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids);
+        $request = $this->unmuteUsersInChannelsWithCustomChannelTypeRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6514,6 +6821,8 @@ class ApplicationApi
     /**
      * Create request for operation 'unmuteUsersInChannelsWithCustomChannelType'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $custom_type (required)
      * @param  string[] $user_ids (required)
@@ -6521,8 +6830,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function unmuteUsersInChannelsWithCustomChannelTypeRequest($api_token, $custom_type, $user_ids)
+    public function unmuteUsersInChannelsWithCustomChannelTypeRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
+        $user_ids = array_key_exists('user_ids', $associative_array) ? $associative_array['user_ids'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -6636,6 +6950,8 @@ class ApplicationApi
      *
      * Update an APNs push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $provider_id provider_id (required)
      * @param  \Sendbird\Model\UpdateApnsPushConfigurationByIdData $update_apns_push_configuration_by_id_data update_apns_push_configuration_by_id_data (optional)
@@ -6644,9 +6960,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateApnsPushConfigurationByIdResponse
      */
-    public function updateApnsPushConfigurationById($api_token, $provider_id, $update_apns_push_configuration_by_id_data = null)
+    public function updateApnsPushConfigurationById($associative_array)
     {
-        list($response) = $this->updateApnsPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_apns_push_configuration_by_id_data);
+        list($response) = $this->updateApnsPushConfigurationByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -6654,6 +6970,8 @@ class ApplicationApi
      * Operation updateApnsPushConfigurationByIdWithHttpInfo
      *
      * Update an APNs push configuration
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
@@ -6663,9 +6981,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateApnsPushConfigurationByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateApnsPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_apns_push_configuration_by_id_data = null)
+    public function updateApnsPushConfigurationByIdWithHttpInfo($associative_array)
     {
-        $request = $this->updateApnsPushConfigurationByIdRequest($api_token, $provider_id, $update_apns_push_configuration_by_id_data);
+        $request = $this->updateApnsPushConfigurationByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6756,6 +7074,8 @@ class ApplicationApi
      *
      * Update an APNs push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      * @param  \Sendbird\Model\UpdateApnsPushConfigurationByIdData $update_apns_push_configuration_by_id_data (optional)
@@ -6763,9 +7083,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApnsPushConfigurationByIdAsync($api_token, $provider_id, $update_apns_push_configuration_by_id_data = null)
+    public function updateApnsPushConfigurationByIdAsync($associative_array)
     {
-        return $this->updateApnsPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_apns_push_configuration_by_id_data)
+        return $this->updateApnsPushConfigurationByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6778,6 +7098,8 @@ class ApplicationApi
      *
      * Update an APNs push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      * @param  \Sendbird\Model\UpdateApnsPushConfigurationByIdData $update_apns_push_configuration_by_id_data (optional)
@@ -6785,10 +7107,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateApnsPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_apns_push_configuration_by_id_data = null)
+    public function updateApnsPushConfigurationByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\UpdateApnsPushConfigurationByIdResponse';
-        $request = $this->updateApnsPushConfigurationByIdRequest($api_token, $provider_id, $update_apns_push_configuration_by_id_data);
+        $request = $this->updateApnsPushConfigurationByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6829,6 +7151,8 @@ class ApplicationApi
     /**
      * Create request for operation 'updateApnsPushConfigurationById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      * @param  \Sendbird\Model\UpdateApnsPushConfigurationByIdData $update_apns_push_configuration_by_id_data (optional)
@@ -6836,8 +7160,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateApnsPushConfigurationByIdRequest($api_token, $provider_id, $update_apns_push_configuration_by_id_data = null)
+    public function updateApnsPushConfigurationByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $provider_id = array_key_exists('provider_id', $associative_array) ? $associative_array['provider_id'] : null;
+        $update_apns_push_configuration_by_id_data = array_key_exists('update_apns_push_configuration_by_id_data', $associative_array) ? $associative_array['update_apns_push_configuration_by_id_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -6942,6 +7271,8 @@ class ApplicationApi
      *
      * Update default channel invitation preference
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData $update_default_channel_invitation_preference_data update_default_channel_invitation_preference_data (optional)
      *
@@ -6949,9 +7280,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceResponse
      */
-    public function updateDefaultChannelInvitationPreference($api_token, $update_default_channel_invitation_preference_data = null)
+    public function updateDefaultChannelInvitationPreference($associative_array)
     {
-        list($response) = $this->updateDefaultChannelInvitationPreferenceWithHttpInfo($api_token, $update_default_channel_invitation_preference_data);
+        list($response) = $this->updateDefaultChannelInvitationPreferenceWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -6960,6 +7291,8 @@ class ApplicationApi
      *
      * Update default channel invitation preference
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData $update_default_channel_invitation_preference_data (optional)
      *
@@ -6967,9 +7300,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateDefaultChannelInvitationPreferenceWithHttpInfo($api_token, $update_default_channel_invitation_preference_data = null)
+    public function updateDefaultChannelInvitationPreferenceWithHttpInfo($associative_array)
     {
-        $request = $this->updateDefaultChannelInvitationPreferenceRequest($api_token, $update_default_channel_invitation_preference_data);
+        $request = $this->updateDefaultChannelInvitationPreferenceRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7060,15 +7393,17 @@ class ApplicationApi
      *
      * Update default channel invitation preference
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData $update_default_channel_invitation_preference_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDefaultChannelInvitationPreferenceAsync($api_token, $update_default_channel_invitation_preference_data = null)
+    public function updateDefaultChannelInvitationPreferenceAsync($associative_array)
     {
-        return $this->updateDefaultChannelInvitationPreferenceAsyncWithHttpInfo($api_token, $update_default_channel_invitation_preference_data)
+        return $this->updateDefaultChannelInvitationPreferenceAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7081,16 +7416,18 @@ class ApplicationApi
      *
      * Update default channel invitation preference
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData $update_default_channel_invitation_preference_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateDefaultChannelInvitationPreferenceAsyncWithHttpInfo($api_token, $update_default_channel_invitation_preference_data = null)
+    public function updateDefaultChannelInvitationPreferenceAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\UpdateDefaultChannelInvitationPreferenceResponse';
-        $request = $this->updateDefaultChannelInvitationPreferenceRequest($api_token, $update_default_channel_invitation_preference_data);
+        $request = $this->updateDefaultChannelInvitationPreferenceRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7131,14 +7468,20 @@ class ApplicationApi
     /**
      * Create request for operation 'updateDefaultChannelInvitationPreference'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\UpdateDefaultChannelInvitationPreferenceData $update_default_channel_invitation_preference_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateDefaultChannelInvitationPreferenceRequest($api_token, $update_default_channel_invitation_preference_data = null)
+    public function updateDefaultChannelInvitationPreferenceRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $update_default_channel_invitation_preference_data = array_key_exists('update_default_channel_invitation_preference_data', $associative_array) ? $associative_array['update_default_channel_invitation_preference_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -7229,6 +7572,8 @@ class ApplicationApi
      *
      * Update a FCM push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $provider_id provider_id (required)
      * @param  \Sendbird\Model\UpdateFcmPushConfigurationByIdData $update_fcm_push_configuration_by_id_data update_fcm_push_configuration_by_id_data (optional)
@@ -7237,9 +7582,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateFcmPushConfigurationByIdResponse
      */
-    public function updateFcmPushConfigurationById($api_token, $provider_id, $update_fcm_push_configuration_by_id_data = null)
+    public function updateFcmPushConfigurationById($associative_array)
     {
-        list($response) = $this->updateFcmPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_fcm_push_configuration_by_id_data);
+        list($response) = $this->updateFcmPushConfigurationByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -7247,6 +7592,8 @@ class ApplicationApi
      * Operation updateFcmPushConfigurationByIdWithHttpInfo
      *
      * Update a FCM push configuration
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
@@ -7256,9 +7603,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateFcmPushConfigurationByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateFcmPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_fcm_push_configuration_by_id_data = null)
+    public function updateFcmPushConfigurationByIdWithHttpInfo($associative_array)
     {
-        $request = $this->updateFcmPushConfigurationByIdRequest($api_token, $provider_id, $update_fcm_push_configuration_by_id_data);
+        $request = $this->updateFcmPushConfigurationByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7349,6 +7696,8 @@ class ApplicationApi
      *
      * Update a FCM push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      * @param  \Sendbird\Model\UpdateFcmPushConfigurationByIdData $update_fcm_push_configuration_by_id_data (optional)
@@ -7356,9 +7705,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFcmPushConfigurationByIdAsync($api_token, $provider_id, $update_fcm_push_configuration_by_id_data = null)
+    public function updateFcmPushConfigurationByIdAsync($associative_array)
     {
-        return $this->updateFcmPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_fcm_push_configuration_by_id_data)
+        return $this->updateFcmPushConfigurationByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7371,6 +7720,8 @@ class ApplicationApi
      *
      * Update a FCM push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      * @param  \Sendbird\Model\UpdateFcmPushConfigurationByIdData $update_fcm_push_configuration_by_id_data (optional)
@@ -7378,10 +7729,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateFcmPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_fcm_push_configuration_by_id_data = null)
+    public function updateFcmPushConfigurationByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\UpdateFcmPushConfigurationByIdResponse';
-        $request = $this->updateFcmPushConfigurationByIdRequest($api_token, $provider_id, $update_fcm_push_configuration_by_id_data);
+        $request = $this->updateFcmPushConfigurationByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7422,6 +7773,8 @@ class ApplicationApi
     /**
      * Create request for operation 'updateFcmPushConfigurationById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      * @param  \Sendbird\Model\UpdateFcmPushConfigurationByIdData $update_fcm_push_configuration_by_id_data (optional)
@@ -7429,8 +7782,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateFcmPushConfigurationByIdRequest($api_token, $provider_id, $update_fcm_push_configuration_by_id_data = null)
+    public function updateFcmPushConfigurationByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $provider_id = array_key_exists('provider_id', $associative_array) ? $associative_array['provider_id'] : null;
+        $update_fcm_push_configuration_by_id_data = array_key_exists('update_fcm_push_configuration_by_id_data', $associative_array) ? $associative_array['update_fcm_push_configuration_by_id_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -7535,6 +7893,8 @@ class ApplicationApi
      *
      * Update an HMS push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $provider_id provider_id (required)
      * @param  \Sendbird\Model\UpdateHmsPushConfigurationByIdData $update_hms_push_configuration_by_id_data update_hms_push_configuration_by_id_data (optional)
@@ -7543,9 +7903,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateHmsPushConfigurationByIdResponse
      */
-    public function updateHmsPushConfigurationById($api_token, $provider_id, $update_hms_push_configuration_by_id_data = null)
+    public function updateHmsPushConfigurationById($associative_array)
     {
-        list($response) = $this->updateHmsPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_hms_push_configuration_by_id_data);
+        list($response) = $this->updateHmsPushConfigurationByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -7553,6 +7913,8 @@ class ApplicationApi
      * Operation updateHmsPushConfigurationByIdWithHttpInfo
      *
      * Update an HMS push configuration
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
@@ -7562,9 +7924,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateHmsPushConfigurationByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateHmsPushConfigurationByIdWithHttpInfo($api_token, $provider_id, $update_hms_push_configuration_by_id_data = null)
+    public function updateHmsPushConfigurationByIdWithHttpInfo($associative_array)
     {
-        $request = $this->updateHmsPushConfigurationByIdRequest($api_token, $provider_id, $update_hms_push_configuration_by_id_data);
+        $request = $this->updateHmsPushConfigurationByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7655,6 +8017,8 @@ class ApplicationApi
      *
      * Update an HMS push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      * @param  \Sendbird\Model\UpdateHmsPushConfigurationByIdData $update_hms_push_configuration_by_id_data (optional)
@@ -7662,9 +8026,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateHmsPushConfigurationByIdAsync($api_token, $provider_id, $update_hms_push_configuration_by_id_data = null)
+    public function updateHmsPushConfigurationByIdAsync($associative_array)
     {
-        return $this->updateHmsPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_hms_push_configuration_by_id_data)
+        return $this->updateHmsPushConfigurationByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7677,6 +8041,8 @@ class ApplicationApi
      *
      * Update an HMS push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      * @param  \Sendbird\Model\UpdateHmsPushConfigurationByIdData $update_hms_push_configuration_by_id_data (optional)
@@ -7684,10 +8050,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateHmsPushConfigurationByIdAsyncWithHttpInfo($api_token, $provider_id, $update_hms_push_configuration_by_id_data = null)
+    public function updateHmsPushConfigurationByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\UpdateHmsPushConfigurationByIdResponse';
-        $request = $this->updateHmsPushConfigurationByIdRequest($api_token, $provider_id, $update_hms_push_configuration_by_id_data);
+        $request = $this->updateHmsPushConfigurationByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7728,6 +8094,8 @@ class ApplicationApi
     /**
      * Create request for operation 'updateHmsPushConfigurationById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $provider_id (required)
      * @param  \Sendbird\Model\UpdateHmsPushConfigurationByIdData $update_hms_push_configuration_by_id_data (optional)
@@ -7735,8 +8103,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateHmsPushConfigurationByIdRequest($api_token, $provider_id, $update_hms_push_configuration_by_id_data = null)
+    public function updateHmsPushConfigurationByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $provider_id = array_key_exists('provider_id', $associative_array) ? $associative_array['provider_id'] : null;
+        $update_hms_push_configuration_by_id_data = array_key_exists('update_hms_push_configuration_by_id_data', $associative_array) ? $associative_array['update_hms_push_configuration_by_id_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -7841,6 +8214,8 @@ class ApplicationApi
      *
      * Update a push notification content template
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $template_name template_name (required)
      * @param  \Sendbird\Model\UpdatePushNotificationContentTemplateData $update_push_notification_content_template_data update_push_notification_content_template_data (optional)
@@ -7849,9 +8224,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdatePushNotificationContentTemplateResponse
      */
-    public function updatePushNotificationContentTemplate($api_token, $template_name, $update_push_notification_content_template_data = null)
+    public function updatePushNotificationContentTemplate($associative_array)
     {
-        list($response) = $this->updatePushNotificationContentTemplateWithHttpInfo($api_token, $template_name, $update_push_notification_content_template_data);
+        list($response) = $this->updatePushNotificationContentTemplateWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -7859,6 +8234,8 @@ class ApplicationApi
      * Operation updatePushNotificationContentTemplateWithHttpInfo
      *
      * Update a push notification content template
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $template_name (required)
@@ -7868,9 +8245,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdatePushNotificationContentTemplateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePushNotificationContentTemplateWithHttpInfo($api_token, $template_name, $update_push_notification_content_template_data = null)
+    public function updatePushNotificationContentTemplateWithHttpInfo($associative_array)
     {
-        $request = $this->updatePushNotificationContentTemplateRequest($api_token, $template_name, $update_push_notification_content_template_data);
+        $request = $this->updatePushNotificationContentTemplateRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7961,6 +8338,8 @@ class ApplicationApi
      *
      * Update a push notification content template
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $template_name (required)
      * @param  \Sendbird\Model\UpdatePushNotificationContentTemplateData $update_push_notification_content_template_data (optional)
@@ -7968,9 +8347,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePushNotificationContentTemplateAsync($api_token, $template_name, $update_push_notification_content_template_data = null)
+    public function updatePushNotificationContentTemplateAsync($associative_array)
     {
-        return $this->updatePushNotificationContentTemplateAsyncWithHttpInfo($api_token, $template_name, $update_push_notification_content_template_data)
+        return $this->updatePushNotificationContentTemplateAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7983,6 +8362,8 @@ class ApplicationApi
      *
      * Update a push notification content template
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $template_name (required)
      * @param  \Sendbird\Model\UpdatePushNotificationContentTemplateData $update_push_notification_content_template_data (optional)
@@ -7990,10 +8371,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePushNotificationContentTemplateAsyncWithHttpInfo($api_token, $template_name, $update_push_notification_content_template_data = null)
+    public function updatePushNotificationContentTemplateAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\UpdatePushNotificationContentTemplateResponse';
-        $request = $this->updatePushNotificationContentTemplateRequest($api_token, $template_name, $update_push_notification_content_template_data);
+        $request = $this->updatePushNotificationContentTemplateRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8034,6 +8415,8 @@ class ApplicationApi
     /**
      * Create request for operation 'updatePushNotificationContentTemplate'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $template_name (required)
      * @param  \Sendbird\Model\UpdatePushNotificationContentTemplateData $update_push_notification_content_template_data (optional)
@@ -8041,8 +8424,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePushNotificationContentTemplateRequest($api_token, $template_name, $update_push_notification_content_template_data = null)
+    public function updatePushNotificationContentTemplateRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $template_name = array_key_exists('template_name', $associative_array) ? $associative_array['template_name'] : null;
+        $update_push_notification_content_template_data = array_key_exists('update_push_notification_content_template_data', $associative_array) ? $associative_array['update_push_notification_content_template_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -8147,15 +8535,17 @@ class ApplicationApi
      *
      * View default channel invitation preference
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewDefaultChannelInvitationPreferenceResponse
      */
-    public function viewDefaultChannelInvitationPreference($api_token)
+    public function viewDefaultChannelInvitationPreference($associative_array)
     {
-        list($response) = $this->viewDefaultChannelInvitationPreferenceWithHttpInfo($api_token);
+        list($response) = $this->viewDefaultChannelInvitationPreferenceWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -8164,15 +8554,17 @@ class ApplicationApi
      *
      * View default channel invitation preference
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewDefaultChannelInvitationPreferenceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewDefaultChannelInvitationPreferenceWithHttpInfo($api_token)
+    public function viewDefaultChannelInvitationPreferenceWithHttpInfo($associative_array)
     {
-        $request = $this->viewDefaultChannelInvitationPreferenceRequest($api_token);
+        $request = $this->viewDefaultChannelInvitationPreferenceRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8263,14 +8655,16 @@ class ApplicationApi
      *
      * View default channel invitation preference
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewDefaultChannelInvitationPreferenceAsync($api_token)
+    public function viewDefaultChannelInvitationPreferenceAsync($associative_array)
     {
-        return $this->viewDefaultChannelInvitationPreferenceAsyncWithHttpInfo($api_token)
+        return $this->viewDefaultChannelInvitationPreferenceAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8283,15 +8677,17 @@ class ApplicationApi
      *
      * View default channel invitation preference
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewDefaultChannelInvitationPreferenceAsyncWithHttpInfo($api_token)
+    public function viewDefaultChannelInvitationPreferenceAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewDefaultChannelInvitationPreferenceResponse';
-        $request = $this->viewDefaultChannelInvitationPreferenceRequest($api_token);
+        $request = $this->viewDefaultChannelInvitationPreferenceRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8332,13 +8728,18 @@ class ApplicationApi
     /**
      * Create request for operation 'viewDefaultChannelInvitationPreference'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewDefaultChannelInvitationPreferenceRequest($api_token)
+    public function viewDefaultChannelInvitationPreferenceRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -8423,6 +8824,8 @@ class ApplicationApi
      *
      * View a push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $push_type push_type (required)
      * @param  string $provider_id provider_id (required)
@@ -8431,9 +8834,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewPushConfigurationByIdResponse
      */
-    public function viewPushConfigurationById($api_token, $push_type, $provider_id)
+    public function viewPushConfigurationById($associative_array)
     {
-        list($response) = $this->viewPushConfigurationByIdWithHttpInfo($api_token, $push_type, $provider_id);
+        list($response) = $this->viewPushConfigurationByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -8441,6 +8844,8 @@ class ApplicationApi
      * Operation viewPushConfigurationByIdWithHttpInfo
      *
      * View a push configuration
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
@@ -8450,9 +8855,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewPushConfigurationByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewPushConfigurationByIdWithHttpInfo($api_token, $push_type, $provider_id)
+    public function viewPushConfigurationByIdWithHttpInfo($associative_array)
     {
-        $request = $this->viewPushConfigurationByIdRequest($api_token, $push_type, $provider_id);
+        $request = $this->viewPushConfigurationByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8543,6 +8948,8 @@ class ApplicationApi
      *
      * View a push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
@@ -8550,9 +8957,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewPushConfigurationByIdAsync($api_token, $push_type, $provider_id)
+    public function viewPushConfigurationByIdAsync($associative_array)
     {
-        return $this->viewPushConfigurationByIdAsyncWithHttpInfo($api_token, $push_type, $provider_id)
+        return $this->viewPushConfigurationByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8565,6 +8972,8 @@ class ApplicationApi
      *
      * View a push configuration
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
@@ -8572,10 +8981,10 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewPushConfigurationByIdAsyncWithHttpInfo($api_token, $push_type, $provider_id)
+    public function viewPushConfigurationByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewPushConfigurationByIdResponse';
-        $request = $this->viewPushConfigurationByIdRequest($api_token, $push_type, $provider_id);
+        $request = $this->viewPushConfigurationByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8616,6 +9025,8 @@ class ApplicationApi
     /**
      * Create request for operation 'viewPushConfigurationById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $push_type (required)
      * @param  string $provider_id (required)
@@ -8623,8 +9034,13 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewPushConfigurationByIdRequest($api_token, $push_type, $provider_id)
+    public function viewPushConfigurationByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $push_type = array_key_exists('push_type', $associative_array) ? $associative_array['push_type'] : null;
+        $provider_id = array_key_exists('provider_id', $associative_array) ? $associative_array['provider_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -8737,6 +9153,8 @@ class ApplicationApi
      *
      * View a push notification content template
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $template_name template_name (required)
      *
@@ -8744,9 +9162,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewPushNotificationContentTemplateResponse
      */
-    public function viewPushNotificationContentTemplate($api_token, $template_name)
+    public function viewPushNotificationContentTemplate($associative_array)
     {
-        list($response) = $this->viewPushNotificationContentTemplateWithHttpInfo($api_token, $template_name);
+        list($response) = $this->viewPushNotificationContentTemplateWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -8755,6 +9173,8 @@ class ApplicationApi
      *
      * View a push notification content template
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $template_name (required)
      *
@@ -8762,9 +9182,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewPushNotificationContentTemplateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewPushNotificationContentTemplateWithHttpInfo($api_token, $template_name)
+    public function viewPushNotificationContentTemplateWithHttpInfo($associative_array)
     {
-        $request = $this->viewPushNotificationContentTemplateRequest($api_token, $template_name);
+        $request = $this->viewPushNotificationContentTemplateRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8855,15 +9275,17 @@ class ApplicationApi
      *
      * View a push notification content template
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $template_name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewPushNotificationContentTemplateAsync($api_token, $template_name)
+    public function viewPushNotificationContentTemplateAsync($associative_array)
     {
-        return $this->viewPushNotificationContentTemplateAsyncWithHttpInfo($api_token, $template_name)
+        return $this->viewPushNotificationContentTemplateAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8876,16 +9298,18 @@ class ApplicationApi
      *
      * View a push notification content template
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $template_name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewPushNotificationContentTemplateAsyncWithHttpInfo($api_token, $template_name)
+    public function viewPushNotificationContentTemplateAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewPushNotificationContentTemplateResponse';
-        $request = $this->viewPushNotificationContentTemplateRequest($api_token, $template_name);
+        $request = $this->viewPushNotificationContentTemplateRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8926,14 +9350,20 @@ class ApplicationApi
     /**
      * Create request for operation 'viewPushNotificationContentTemplate'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $template_name (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewPushNotificationContentTemplateRequest($api_token, $template_name)
+    public function viewPushNotificationContentTemplateRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $template_name = array_key_exists('template_name', $associative_array) ? $associative_array['template_name'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -9032,6 +9462,8 @@ class ApplicationApi
      *
      * View a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $api_token2 api_token2 (required)
      *
@@ -9039,9 +9471,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewSecondaryApiTokenByTokenResponse
      */
-    public function viewSecondaryApiTokenByToken($api_token, $api_token2)
+    public function viewSecondaryApiTokenByToken($associative_array)
     {
-        list($response) = $this->viewSecondaryApiTokenByTokenWithHttpInfo($api_token, $api_token2);
+        list($response) = $this->viewSecondaryApiTokenByTokenWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -9050,6 +9482,8 @@ class ApplicationApi
      *
      * View a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $api_token2 (required)
      *
@@ -9057,9 +9491,9 @@ class ApplicationApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewSecondaryApiTokenByTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewSecondaryApiTokenByTokenWithHttpInfo($api_token, $api_token2)
+    public function viewSecondaryApiTokenByTokenWithHttpInfo($associative_array)
     {
-        $request = $this->viewSecondaryApiTokenByTokenRequest($api_token, $api_token2);
+        $request = $this->viewSecondaryApiTokenByTokenRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9150,15 +9584,17 @@ class ApplicationApi
      *
      * View a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $api_token2 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewSecondaryApiTokenByTokenAsync($api_token, $api_token2)
+    public function viewSecondaryApiTokenByTokenAsync($associative_array)
     {
-        return $this->viewSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token, $api_token2)
+        return $this->viewSecondaryApiTokenByTokenAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9171,16 +9607,18 @@ class ApplicationApi
      *
      * View a secondary API token
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $api_token2 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewSecondaryApiTokenByTokenAsyncWithHttpInfo($api_token, $api_token2)
+    public function viewSecondaryApiTokenByTokenAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewSecondaryApiTokenByTokenResponse';
-        $request = $this->viewSecondaryApiTokenByTokenRequest($api_token, $api_token2);
+        $request = $this->viewSecondaryApiTokenByTokenRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9221,14 +9659,20 @@ class ApplicationApi
     /**
      * Create request for operation 'viewSecondaryApiTokenByToken'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $api_token2 (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewSecondaryApiTokenByTokenRequest($api_token, $api_token2)
+    public function viewSecondaryApiTokenByTokenRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $api_token2 = array_key_exists('api_token2', $associative_array) ? $associative_array['api_token2'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(

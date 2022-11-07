@@ -38,19 +38,21 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$operator_ids = array('operator_ids_example'); // string[]
-$delete_all = True; // bool
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['operator_ids'] = array('operator_ids_example'); // string[]
+$associate_array['delete_all'] = True; // bool
 
 try {
-    $apiInstance->ocCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all);
+    $apiInstance->ocCancelTheRegistrationOfOperators($associate_array);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocCancelTheRegistrationOfOperators: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -99,11 +101,11 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$oc_create_channel_data = new \Sendbird\Model\OcCreateChannelData(); // \Sendbird\Model\OcCreateChannelData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['oc_create_channel_data'] = new \Sendbird\Model\OcCreateChannelData(); // \Sendbird\Model\OcCreateChannelData
 
 try {
-    $result = $apiInstance->ocCreateChannel($api_token, $oc_create_channel_data);
+    $result = $apiInstance->ocCreateChannel($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocCreateChannel: ', $e->getMessage(), PHP_EOL;
@@ -111,6 +113,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -157,11 +161,11 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
 
 try {
-    $result = $apiInstance->ocDeleteChannelByUrl($api_token, $channel_url);
+    $result = $apiInstance->ocDeleteChannelByUrl($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocDeleteChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -169,6 +173,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -215,18 +221,18 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-$custom_types = 'custom_types_example'; // string
-$name_contains = 'name_contains_example'; // string
-$url_contains = 'url_contains_example'; // string
-$show_frozen = True; // bool
-$show_metadata = True; // bool
-$custom_type = 'custom_type_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
+$associate_array['custom_types'] = 'custom_types_example'; // string
+$associate_array['name_contains'] = 'name_contains_example'; // string
+$associate_array['url_contains'] = 'url_contains_example'; // string
+$associate_array['show_frozen'] = True; // bool
+$associate_array['show_metadata'] = True; // bool
+$associate_array['custom_type'] = 'custom_type_example'; // string
 
 try {
-    $result = $apiInstance->ocListChannels($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type);
+    $result = $apiInstance->ocListChannels($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocListChannels: ', $e->getMessage(), PHP_EOL;
@@ -234,6 +240,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -287,13 +295,13 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->ocListOperators($api_token, $channel_url, $token, $limit);
+    $result = $apiInstance->ocListOperators($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocListOperators: ', $e->getMessage(), PHP_EOL;
@@ -301,6 +309,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -349,13 +359,13 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->ocListParticipants($api_token, $channel_url, $token, $limit);
+    $result = $apiInstance->ocListParticipants($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocListParticipants: ', $e->getMessage(), PHP_EOL;
@@ -363,6 +373,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -411,12 +423,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$oc_register_operators_data = new \Sendbird\Model\OcRegisterOperatorsData(); // \Sendbird\Model\OcRegisterOperatorsData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['oc_register_operators_data'] = new \Sendbird\Model\OcRegisterOperatorsData(); // \Sendbird\Model\OcRegisterOperatorsData
 
 try {
-    $result = $apiInstance->ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data);
+    $result = $apiInstance->ocRegisterOperators($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocRegisterOperators: ', $e->getMessage(), PHP_EOL;
@@ -424,6 +436,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -471,12 +485,12 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$oc_update_channel_by_url_data = new \Sendbird\Model\OcUpdateChannelByUrlData(); // \Sendbird\Model\OcUpdateChannelByUrlData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['oc_update_channel_by_url_data'] = new \Sendbird\Model\OcUpdateChannelByUrlData(); // \Sendbird\Model\OcUpdateChannelByUrlData
 
 try {
-    $result = $apiInstance->ocUpdateChannelByUrl($api_token, $channel_url, $oc_update_channel_by_url_data);
+    $result = $apiInstance->ocUpdateChannelByUrl($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocUpdateChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -484,6 +498,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -531,11 +547,11 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
 
 try {
-    $result = $apiInstance->ocViewChannelByUrl($api_token, $channel_url);
+    $result = $apiInstance->ocViewChannelByUrl($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OpenChannelApi->ocViewChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -543,6 +559,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

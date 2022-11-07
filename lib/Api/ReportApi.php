@@ -121,6 +121,8 @@ class ReportApi
      *
      * List reports
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
@@ -131,9 +133,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListReportsResponse
      */
-    public function listReports($api_token, $token = null, $limit = null, $start_ts = null, $end_ts = null)
+    public function listReports($associative_array)
     {
-        list($response) = $this->listReportsWithHttpInfo($api_token, $token, $limit, $start_ts, $end_ts);
+        list($response) = $this->listReportsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -141,6 +143,8 @@ class ReportApi
      * Operation listReportsWithHttpInfo
      *
      * List reports
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $token (optional)
@@ -152,9 +156,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListReportsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReportsWithHttpInfo($api_token, $token = null, $limit = null, $start_ts = null, $end_ts = null)
+    public function listReportsWithHttpInfo($associative_array)
     {
-        $request = $this->listReportsRequest($api_token, $token, $limit, $start_ts, $end_ts);
+        $request = $this->listReportsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -245,6 +249,8 @@ class ReportApi
      *
      * List reports
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
@@ -254,9 +260,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsAsync($api_token, $token = null, $limit = null, $start_ts = null, $end_ts = null)
+    public function listReportsAsync($associative_array)
     {
-        return $this->listReportsAsyncWithHttpInfo($api_token, $token, $limit, $start_ts, $end_ts)
+        return $this->listReportsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -269,6 +275,8 @@ class ReportApi
      *
      * List reports
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
@@ -278,10 +286,10 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsAsyncWithHttpInfo($api_token, $token = null, $limit = null, $start_ts = null, $end_ts = null)
+    public function listReportsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListReportsResponse';
-        $request = $this->listReportsRequest($api_token, $token, $limit, $start_ts, $end_ts);
+        $request = $this->listReportsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -322,6 +330,8 @@ class ReportApi
     /**
      * Create request for operation 'listReports'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
@@ -331,8 +341,15 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReportsRequest($api_token, $token = null, $limit = null, $start_ts = null, $end_ts = null)
+    public function listReportsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+        $start_ts = array_key_exists('start_ts', $associative_array) ? $associative_array['start_ts'] : null;
+        $end_ts = array_key_exists('end_ts', $associative_array) ? $associative_array['end_ts'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -453,6 +470,8 @@ class ReportApi
      *
      * List reports on a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -463,9 +482,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListReportsOnChannelByUrlResponse
      */
-    public function listReportsOnChannelByUrl($api_token, $channel_type, $channel_url, $token = null, $limit = null)
+    public function listReportsOnChannelByUrl($associative_array)
     {
-        list($response) = $this->listReportsOnChannelByUrlWithHttpInfo($api_token, $channel_type, $channel_url, $token, $limit);
+        list($response) = $this->listReportsOnChannelByUrlWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -473,6 +492,8 @@ class ReportApi
      * Operation listReportsOnChannelByUrlWithHttpInfo
      *
      * List reports on a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -484,9 +505,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListReportsOnChannelByUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReportsOnChannelByUrlWithHttpInfo($api_token, $channel_type, $channel_url, $token = null, $limit = null)
+    public function listReportsOnChannelByUrlWithHttpInfo($associative_array)
     {
-        $request = $this->listReportsOnChannelByUrlRequest($api_token, $channel_type, $channel_url, $token, $limit);
+        $request = $this->listReportsOnChannelByUrlRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -577,6 +598,8 @@ class ReportApi
      *
      * List reports on a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -586,9 +609,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnChannelByUrlAsync($api_token, $channel_type, $channel_url, $token = null, $limit = null)
+    public function listReportsOnChannelByUrlAsync($associative_array)
     {
-        return $this->listReportsOnChannelByUrlAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $token, $limit)
+        return $this->listReportsOnChannelByUrlAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -601,6 +624,8 @@ class ReportApi
      *
      * List reports on a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -610,10 +635,10 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnChannelByUrlAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $token = null, $limit = null)
+    public function listReportsOnChannelByUrlAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListReportsOnChannelByUrlResponse';
-        $request = $this->listReportsOnChannelByUrlRequest($api_token, $channel_type, $channel_url, $token, $limit);
+        $request = $this->listReportsOnChannelByUrlRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -654,6 +679,8 @@ class ReportApi
     /**
      * Create request for operation 'listReportsOnChannelByUrl'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -663,8 +690,15 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReportsOnChannelByUrlRequest($api_token, $channel_type, $channel_url, $token = null, $limit = null)
+    public function listReportsOnChannelByUrlRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -795,6 +829,8 @@ class ReportApi
      *
      * List reports on a message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -806,9 +842,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListReportsOnMessageByIdResponse
      */
-    public function listReportsOnMessageById($api_token, $channel_type, $channel_url, $message_id, $token = null, $limit = null)
+    public function listReportsOnMessageById($associative_array)
     {
-        list($response) = $this->listReportsOnMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $token, $limit);
+        list($response) = $this->listReportsOnMessageByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -816,6 +852,8 @@ class ReportApi
      * Operation listReportsOnMessageByIdWithHttpInfo
      *
      * List reports on a message
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -828,9 +866,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListReportsOnMessageByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReportsOnMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $token = null, $limit = null)
+    public function listReportsOnMessageByIdWithHttpInfo($associative_array)
     {
-        $request = $this->listReportsOnMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $token, $limit);
+        $request = $this->listReportsOnMessageByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -921,6 +959,8 @@ class ReportApi
      *
      * List reports on a message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -931,9 +971,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnMessageByIdAsync($api_token, $channel_type, $channel_url, $message_id, $token = null, $limit = null)
+    public function listReportsOnMessageByIdAsync($associative_array)
     {
-        return $this->listReportsOnMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $token, $limit)
+        return $this->listReportsOnMessageByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -946,6 +986,8 @@ class ReportApi
      *
      * List reports on a message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -956,10 +998,10 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $token = null, $limit = null)
+    public function listReportsOnMessageByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListReportsOnMessageByIdResponse';
-        $request = $this->listReportsOnMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $token, $limit);
+        $request = $this->listReportsOnMessageByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1000,6 +1042,8 @@ class ReportApi
     /**
      * Create request for operation 'listReportsOnMessageById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1010,8 +1054,16 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReportsOnMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $token = null, $limit = null)
+    public function listReportsOnMessageByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $message_id = array_key_exists('message_id', $associative_array) ? $associative_array['message_id'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1156,6 +1208,8 @@ class ReportApi
      *
      * List reports on a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $offending_user_id offending_user_id (required)
      * @param  string $token token (optional)
@@ -1165,9 +1219,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListReportsOnUserByIdResponse
      */
-    public function listReportsOnUserById($api_token, $offending_user_id, $token = null, $limit = null)
+    public function listReportsOnUserById($associative_array)
     {
-        list($response) = $this->listReportsOnUserByIdWithHttpInfo($api_token, $offending_user_id, $token, $limit);
+        list($response) = $this->listReportsOnUserByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1175,6 +1229,8 @@ class ReportApi
      * Operation listReportsOnUserByIdWithHttpInfo
      *
      * List reports on a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
@@ -1185,9 +1241,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListReportsOnUserByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listReportsOnUserByIdWithHttpInfo($api_token, $offending_user_id, $token = null, $limit = null)
+    public function listReportsOnUserByIdWithHttpInfo($associative_array)
     {
-        $request = $this->listReportsOnUserByIdRequest($api_token, $offending_user_id, $token, $limit);
+        $request = $this->listReportsOnUserByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1278,6 +1334,8 @@ class ReportApi
      *
      * List reports on a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
      * @param  string $token (optional)
@@ -1286,9 +1344,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnUserByIdAsync($api_token, $offending_user_id, $token = null, $limit = null)
+    public function listReportsOnUserByIdAsync($associative_array)
     {
-        return $this->listReportsOnUserByIdAsyncWithHttpInfo($api_token, $offending_user_id, $token, $limit)
+        return $this->listReportsOnUserByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1301,6 +1359,8 @@ class ReportApi
      *
      * List reports on a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
      * @param  string $token (optional)
@@ -1309,10 +1369,10 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listReportsOnUserByIdAsyncWithHttpInfo($api_token, $offending_user_id, $token = null, $limit = null)
+    public function listReportsOnUserByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListReportsOnUserByIdResponse';
-        $request = $this->listReportsOnUserByIdRequest($api_token, $offending_user_id, $token, $limit);
+        $request = $this->listReportsOnUserByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1353,6 +1413,8 @@ class ReportApi
     /**
      * Create request for operation 'listReportsOnUserById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
      * @param  string $token (optional)
@@ -1361,8 +1423,14 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listReportsOnUserByIdRequest($api_token, $offending_user_id, $token = null, $limit = null)
+    public function listReportsOnUserByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $offending_user_id = array_key_exists('offending_user_id', $associative_array) ? $associative_array['offending_user_id'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1479,6 +1547,8 @@ class ReportApi
      *
      * Report a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -1488,9 +1558,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ReportChannelByUrlResponse
      */
-    public function reportChannelByUrl($api_token, $channel_type, $channel_url, $report_channel_by_url_data = null)
+    public function reportChannelByUrl($associative_array)
     {
-        list($response) = $this->reportChannelByUrlWithHttpInfo($api_token, $channel_type, $channel_url, $report_channel_by_url_data);
+        list($response) = $this->reportChannelByUrlWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1498,6 +1568,8 @@ class ReportApi
      * Operation reportChannelByUrlWithHttpInfo
      *
      * Report a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -1508,9 +1580,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ReportChannelByUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reportChannelByUrlWithHttpInfo($api_token, $channel_type, $channel_url, $report_channel_by_url_data = null)
+    public function reportChannelByUrlWithHttpInfo($associative_array)
     {
-        $request = $this->reportChannelByUrlRequest($api_token, $channel_type, $channel_url, $report_channel_by_url_data);
+        $request = $this->reportChannelByUrlRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1601,6 +1673,8 @@ class ReportApi
      *
      * Report a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1609,9 +1683,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportChannelByUrlAsync($api_token, $channel_type, $channel_url, $report_channel_by_url_data = null)
+    public function reportChannelByUrlAsync($associative_array)
     {
-        return $this->reportChannelByUrlAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $report_channel_by_url_data)
+        return $this->reportChannelByUrlAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1624,6 +1698,8 @@ class ReportApi
      *
      * Report a channel
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1632,10 +1708,10 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportChannelByUrlAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $report_channel_by_url_data = null)
+    public function reportChannelByUrlAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ReportChannelByUrlResponse';
-        $request = $this->reportChannelByUrlRequest($api_token, $channel_type, $channel_url, $report_channel_by_url_data);
+        $request = $this->reportChannelByUrlRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1676,6 +1752,8 @@ class ReportApi
     /**
      * Create request for operation 'reportChannelByUrl'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1684,8 +1762,14 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reportChannelByUrlRequest($api_token, $channel_type, $channel_url, $report_channel_by_url_data = null)
+    public function reportChannelByUrlRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $report_channel_by_url_data = array_key_exists('report_channel_by_url_data', $associative_array) ? $associative_array['report_channel_by_url_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1804,6 +1888,8 @@ class ReportApi
      *
      * Report a message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -1814,9 +1900,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ReportMessageByIdResponse
      */
-    public function reportMessageById($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data = null)
+    public function reportMessageById($associative_array)
     {
-        list($response) = $this->reportMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data);
+        list($response) = $this->reportMessageByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1824,6 +1910,8 @@ class ReportApi
      * Operation reportMessageByIdWithHttpInfo
      *
      * Report a message
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -1835,9 +1923,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ReportMessageByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reportMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data = null)
+    public function reportMessageByIdWithHttpInfo($associative_array)
     {
-        $request = $this->reportMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data);
+        $request = $this->reportMessageByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1928,6 +2016,8 @@ class ReportApi
      *
      * Report a message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1937,9 +2027,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportMessageByIdAsync($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data = null)
+    public function reportMessageByIdAsync($associative_array)
     {
-        return $this->reportMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data)
+        return $this->reportMessageByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1952,6 +2042,8 @@ class ReportApi
      *
      * Report a message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1961,10 +2053,10 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data = null)
+    public function reportMessageByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ReportMessageByIdResponse';
-        $request = $this->reportMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data);
+        $request = $this->reportMessageByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2005,6 +2097,8 @@ class ReportApi
     /**
      * Create request for operation 'reportMessageById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -2014,8 +2108,15 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reportMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data = null)
+    public function reportMessageByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $message_id = array_key_exists('message_id', $associative_array) ? $associative_array['message_id'] : null;
+        $report_message_by_id_data = array_key_exists('report_message_by_id_data', $associative_array) ? $associative_array['report_message_by_id_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2148,6 +2249,8 @@ class ReportApi
      *
      * Report a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $offending_user_id offending_user_id (required)
      * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data report_user_by_id_data (optional)
@@ -2156,9 +2259,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ReportUserByIdResponse
      */
-    public function reportUserById($api_token, $offending_user_id, $report_user_by_id_data = null)
+    public function reportUserById($associative_array)
     {
-        list($response) = $this->reportUserByIdWithHttpInfo($api_token, $offending_user_id, $report_user_by_id_data);
+        list($response) = $this->reportUserByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2166,6 +2269,8 @@ class ReportApi
      * Operation reportUserByIdWithHttpInfo
      *
      * Report a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
@@ -2175,9 +2280,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ReportUserByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reportUserByIdWithHttpInfo($api_token, $offending_user_id, $report_user_by_id_data = null)
+    public function reportUserByIdWithHttpInfo($associative_array)
     {
-        $request = $this->reportUserByIdRequest($api_token, $offending_user_id, $report_user_by_id_data);
+        $request = $this->reportUserByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2268,6 +2373,8 @@ class ReportApi
      *
      * Report a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
      * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
@@ -2275,9 +2382,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportUserByIdAsync($api_token, $offending_user_id, $report_user_by_id_data = null)
+    public function reportUserByIdAsync($associative_array)
     {
-        return $this->reportUserByIdAsyncWithHttpInfo($api_token, $offending_user_id, $report_user_by_id_data)
+        return $this->reportUserByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2290,6 +2397,8 @@ class ReportApi
      *
      * Report a user
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
      * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
@@ -2297,10 +2406,10 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportUserByIdAsyncWithHttpInfo($api_token, $offending_user_id, $report_user_by_id_data = null)
+    public function reportUserByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ReportUserByIdResponse';
-        $request = $this->reportUserByIdRequest($api_token, $offending_user_id, $report_user_by_id_data);
+        $request = $this->reportUserByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2341,6 +2450,8 @@ class ReportApi
     /**
      * Create request for operation 'reportUserById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $offending_user_id (required)
      * @param  \Sendbird\Model\ReportUserByIdData $report_user_by_id_data (optional)
@@ -2348,8 +2459,13 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reportUserByIdRequest($api_token, $offending_user_id, $report_user_by_id_data = null)
+    public function reportUserByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $offending_user_id = array_key_exists('offending_user_id', $associative_array) ? $associative_array['offending_user_id'] : null;
+        $report_user_by_id_data = array_key_exists('report_user_by_id_data', $associative_array) ? $associative_array['report_user_by_id_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2454,6 +2570,8 @@ class ReportApi
      *
      * View a moderated message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -2463,9 +2581,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function viewModeratedMessageById($api_token, $channel_type, $channel_url, $message_id)
+    public function viewModeratedMessageById($associative_array)
     {
-        list($response) = $this->viewModeratedMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id);
+        list($response) = $this->viewModeratedMessageByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2473,6 +2591,8 @@ class ReportApi
      * Operation viewModeratedMessageByIdWithHttpInfo
      *
      * View a moderated message
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -2483,9 +2603,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewModeratedMessageByIdWithHttpInfo($api_token, $channel_type, $channel_url, $message_id)
+    public function viewModeratedMessageByIdWithHttpInfo($associative_array)
     {
-        $request = $this->viewModeratedMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id);
+        $request = $this->viewModeratedMessageByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2576,6 +2696,8 @@ class ReportApi
      *
      * View a moderated message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -2584,9 +2706,9 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewModeratedMessageByIdAsync($api_token, $channel_type, $channel_url, $message_id)
+    public function viewModeratedMessageByIdAsync($associative_array)
     {
-        return $this->viewModeratedMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id)
+        return $this->viewModeratedMessageByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2599,6 +2721,8 @@ class ReportApi
      *
      * View a moderated message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -2607,10 +2731,10 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewModeratedMessageByIdAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $message_id)
+    public function viewModeratedMessageByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->viewModeratedMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id);
+        $request = $this->viewModeratedMessageByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2651,6 +2775,8 @@ class ReportApi
     /**
      * Create request for operation 'viewModeratedMessageById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -2659,8 +2785,14 @@ class ReportApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewModeratedMessageByIdRequest($api_token, $channel_type, $channel_url, $message_id)
+    public function viewModeratedMessageByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $message_id = array_key_exists('message_id', $associative_array) ? $associative_array['message_id'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(

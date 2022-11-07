@@ -121,6 +121,8 @@ class BotApi
      *
      * Create a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  \Sendbird\Model\CreateBotData $create_bot_data create_bot_data (optional)
      *
@@ -128,9 +130,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\CreateBotResponse
      */
-    public function createBot($api_token, $create_bot_data = null)
+    public function createBot($associative_array)
     {
-        list($response) = $this->createBotWithHttpInfo($api_token, $create_bot_data);
+        list($response) = $this->createBotWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -139,6 +141,8 @@ class BotApi
      *
      * Create a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
@@ -146,9 +150,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\CreateBotResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBotWithHttpInfo($api_token, $create_bot_data = null)
+    public function createBotWithHttpInfo($associative_array)
     {
-        $request = $this->createBotRequest($api_token, $create_bot_data);
+        $request = $this->createBotRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -239,15 +243,17 @@ class BotApi
      *
      * Create a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBotAsync($api_token, $create_bot_data = null)
+    public function createBotAsync($associative_array)
     {
-        return $this->createBotAsyncWithHttpInfo($api_token, $create_bot_data)
+        return $this->createBotAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -260,16 +266,18 @@ class BotApi
      *
      * Create a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBotAsyncWithHttpInfo($api_token, $create_bot_data = null)
+    public function createBotAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\CreateBotResponse';
-        $request = $this->createBotRequest($api_token, $create_bot_data);
+        $request = $this->createBotRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -310,14 +318,20 @@ class BotApi
     /**
      * Create request for operation 'createBot'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createBotRequest($api_token, $create_bot_data = null)
+    public function createBotRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $create_bot_data = array_key_exists('create_bot_data', $associative_array) ? $associative_array['create_bot_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -408,6 +422,8 @@ class BotApi
      *
      * Delete a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
      *
@@ -415,9 +431,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function deleteBotById($api_token, $bot_userid)
+    public function deleteBotById($associative_array)
     {
-        list($response) = $this->deleteBotByIdWithHttpInfo($api_token, $bot_userid);
+        list($response) = $this->deleteBotByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -426,6 +442,8 @@ class BotApi
      *
      * Delete a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      *
@@ -433,9 +451,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBotByIdWithHttpInfo($api_token, $bot_userid)
+    public function deleteBotByIdWithHttpInfo($associative_array)
     {
-        $request = $this->deleteBotByIdRequest($api_token, $bot_userid);
+        $request = $this->deleteBotByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -526,15 +544,17 @@ class BotApi
      *
      * Delete a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBotByIdAsync($api_token, $bot_userid)
+    public function deleteBotByIdAsync($associative_array)
     {
-        return $this->deleteBotByIdAsyncWithHttpInfo($api_token, $bot_userid)
+        return $this->deleteBotByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -547,16 +567,18 @@ class BotApi
      *
      * Delete a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBotByIdAsyncWithHttpInfo($api_token, $bot_userid)
+    public function deleteBotByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->deleteBotByIdRequest($api_token, $bot_userid);
+        $request = $this->deleteBotByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -597,14 +619,20 @@ class BotApi
     /**
      * Create request for operation 'deleteBotById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteBotByIdRequest($api_token, $bot_userid)
+    public function deleteBotByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -703,6 +731,8 @@ class BotApi
      *
      * Join channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
      * @param  \Sendbird\Model\JoinChannelsData $join_channels_data join_channels_data (optional)
@@ -711,9 +741,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\JoinChannelsResponse
      */
-    public function joinChannels($api_token, $bot_userid, $join_channels_data = null)
+    public function joinChannels($associative_array)
     {
-        list($response) = $this->joinChannelsWithHttpInfo($api_token, $bot_userid, $join_channels_data);
+        list($response) = $this->joinChannelsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -721,6 +751,8 @@ class BotApi
      * Operation joinChannelsWithHttpInfo
      *
      * Join channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
@@ -730,9 +762,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\JoinChannelsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function joinChannelsWithHttpInfo($api_token, $bot_userid, $join_channels_data = null)
+    public function joinChannelsWithHttpInfo($associative_array)
     {
-        $request = $this->joinChannelsRequest($api_token, $bot_userid, $join_channels_data);
+        $request = $this->joinChannelsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -823,6 +855,8 @@ class BotApi
      *
      * Join channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
@@ -830,9 +864,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function joinChannelsAsync($api_token, $bot_userid, $join_channels_data = null)
+    public function joinChannelsAsync($associative_array)
     {
-        return $this->joinChannelsAsyncWithHttpInfo($api_token, $bot_userid, $join_channels_data)
+        return $this->joinChannelsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -845,6 +879,8 @@ class BotApi
      *
      * Join channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
@@ -852,10 +888,10 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function joinChannelsAsyncWithHttpInfo($api_token, $bot_userid, $join_channels_data = null)
+    public function joinChannelsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\JoinChannelsResponse';
-        $request = $this->joinChannelsRequest($api_token, $bot_userid, $join_channels_data);
+        $request = $this->joinChannelsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -896,6 +932,8 @@ class BotApi
     /**
      * Create request for operation 'joinChannels'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
@@ -903,8 +941,13 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function joinChannelsRequest($api_token, $bot_userid, $join_channels_data = null)
+    public function joinChannelsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $join_channels_data = array_key_exists('join_channels_data', $associative_array) ? $associative_array['join_channels_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1009,6 +1052,8 @@ class BotApi
      *
      * Leave channels - When leaving all channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
      * @param  string $channel_url channel_url (optional)
@@ -1017,15 +1062,17 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function leaveChannels($api_token, $bot_userid, $channel_url = null)
+    public function leaveChannels($associative_array)
     {
-        $this->leaveChannelsWithHttpInfo($api_token, $bot_userid, $channel_url);
+        $this->leaveChannelsWithHttpInfo($associative_array);
     }
 
     /**
      * Operation leaveChannelsWithHttpInfo
      *
      * Leave channels - When leaving all channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
@@ -1035,9 +1082,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaveChannelsWithHttpInfo($api_token, $bot_userid, $channel_url = null)
+    public function leaveChannelsWithHttpInfo($associative_array)
     {
-        $request = $this->leaveChannelsRequest($api_token, $bot_userid, $channel_url);
+        $request = $this->leaveChannelsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1088,6 +1135,8 @@ class BotApi
      *
      * Leave channels - When leaving all channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  string $channel_url (optional)
@@ -1095,9 +1144,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveChannelsAsync($api_token, $bot_userid, $channel_url = null)
+    public function leaveChannelsAsync($associative_array)
     {
-        return $this->leaveChannelsAsyncWithHttpInfo($api_token, $bot_userid, $channel_url)
+        return $this->leaveChannelsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1110,6 +1159,8 @@ class BotApi
      *
      * Leave channels - When leaving all channels
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  string $channel_url (optional)
@@ -1117,10 +1168,10 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveChannelsAsyncWithHttpInfo($api_token, $bot_userid, $channel_url = null)
+    public function leaveChannelsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '';
-        $request = $this->leaveChannelsRequest($api_token, $bot_userid, $channel_url);
+        $request = $this->leaveChannelsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1148,6 +1199,8 @@ class BotApi
     /**
      * Create request for operation 'leaveChannels'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  string $channel_url (optional)
@@ -1155,8 +1208,13 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaveChannelsRequest($api_token, $bot_userid, $channel_url = null)
+    public function leaveChannelsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1264,6 +1322,8 @@ class BotApi
      *
      * Leave channels - When leaving a channel by its channel URL
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
      * @param  string $channel_url channel_url (required)
@@ -1272,9 +1332,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function leaveChannelsByUrl($api_token, $bot_userid, $channel_url)
+    public function leaveChannelsByUrl($associative_array)
     {
-        list($response) = $this->leaveChannelsByUrlWithHttpInfo($api_token, $bot_userid, $channel_url);
+        list($response) = $this->leaveChannelsByUrlWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1282,6 +1342,8 @@ class BotApi
      * Operation leaveChannelsByUrlWithHttpInfo
      *
      * Leave channels - When leaving a channel by its channel URL
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
@@ -1291,9 +1353,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaveChannelsByUrlWithHttpInfo($api_token, $bot_userid, $channel_url)
+    public function leaveChannelsByUrlWithHttpInfo($associative_array)
     {
-        $request = $this->leaveChannelsByUrlRequest($api_token, $bot_userid, $channel_url);
+        $request = $this->leaveChannelsByUrlRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1384,6 +1446,8 @@ class BotApi
      *
      * Leave channels - When leaving a channel by its channel URL
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
@@ -1391,9 +1455,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveChannelsByUrlAsync($api_token, $bot_userid, $channel_url)
+    public function leaveChannelsByUrlAsync($associative_array)
     {
-        return $this->leaveChannelsByUrlAsyncWithHttpInfo($api_token, $bot_userid, $channel_url)
+        return $this->leaveChannelsByUrlAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1406,6 +1470,8 @@ class BotApi
      *
      * Leave channels - When leaving a channel by its channel URL
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
@@ -1413,10 +1479,10 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveChannelsByUrlAsyncWithHttpInfo($api_token, $bot_userid, $channel_url)
+    public function leaveChannelsByUrlAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->leaveChannelsByUrlRequest($api_token, $bot_userid, $channel_url);
+        $request = $this->leaveChannelsByUrlRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1457,6 +1523,8 @@ class BotApi
     /**
      * Create request for operation 'leaveChannelsByUrl'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
@@ -1464,8 +1532,13 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaveChannelsByUrlRequest($api_token, $bot_userid, $channel_url)
+    public function leaveChannelsByUrlRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1578,6 +1651,8 @@ class BotApi
      *
      * List bots
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
@@ -1586,9 +1661,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ListBotsResponse
      */
-    public function listBots($api_token, $token = null, $limit = null)
+    public function listBots($associative_array)
     {
-        list($response) = $this->listBotsWithHttpInfo($api_token, $token, $limit);
+        list($response) = $this->listBotsWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1596,6 +1671,8 @@ class BotApi
      * Operation listBotsWithHttpInfo
      *
      * List bots
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $token (optional)
@@ -1605,9 +1682,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ListBotsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listBotsWithHttpInfo($api_token, $token = null, $limit = null)
+    public function listBotsWithHttpInfo($associative_array)
     {
-        $request = $this->listBotsRequest($api_token, $token, $limit);
+        $request = $this->listBotsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1698,6 +1775,8 @@ class BotApi
      *
      * List bots
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
@@ -1705,9 +1784,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBotsAsync($api_token, $token = null, $limit = null)
+    public function listBotsAsync($associative_array)
     {
-        return $this->listBotsAsyncWithHttpInfo($api_token, $token, $limit)
+        return $this->listBotsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1720,6 +1799,8 @@ class BotApi
      *
      * List bots
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
@@ -1727,10 +1808,10 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listBotsAsyncWithHttpInfo($api_token, $token = null, $limit = null)
+    public function listBotsAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ListBotsResponse';
-        $request = $this->listBotsRequest($api_token, $token, $limit);
+        $request = $this->listBotsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1771,6 +1852,8 @@ class BotApi
     /**
      * Create request for operation 'listBots'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
@@ -1778,8 +1861,13 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listBotsRequest($api_token, $token = null, $limit = null)
+    public function listBotsRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1882,6 +1970,8 @@ class BotApi
      *
      * Send a bot&#39;s message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
      * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data send_bot_s_message_data (optional)
@@ -1890,9 +1980,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\SendBirdMessageResponse
      */
-    public function sendBotsMessage($api_token, $bot_userid, $send_bot_s_message_data = null)
+    public function sendBotsMessage($associative_array)
     {
-        list($response) = $this->sendBotsMessageWithHttpInfo($api_token, $bot_userid, $send_bot_s_message_data);
+        list($response) = $this->sendBotsMessageWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -1900,6 +1990,8 @@ class BotApi
      * Operation sendBotsMessageWithHttpInfo
      *
      * Send a bot&#39;s message
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
@@ -1909,9 +2001,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\SendBirdMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendBotsMessageWithHttpInfo($api_token, $bot_userid, $send_bot_s_message_data = null)
+    public function sendBotsMessageWithHttpInfo($associative_array)
     {
-        $request = $this->sendBotsMessageRequest($api_token, $bot_userid, $send_bot_s_message_data);
+        $request = $this->sendBotsMessageRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2002,6 +2094,8 @@ class BotApi
      *
      * Send a bot&#39;s message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
@@ -2009,9 +2103,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendBotsMessageAsync($api_token, $bot_userid, $send_bot_s_message_data = null)
+    public function sendBotsMessageAsync($associative_array)
     {
-        return $this->sendBotsMessageAsyncWithHttpInfo($api_token, $bot_userid, $send_bot_s_message_data)
+        return $this->sendBotsMessageAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2024,6 +2118,8 @@ class BotApi
      *
      * Send a bot&#39;s message
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
@@ -2031,10 +2127,10 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendBotsMessageAsyncWithHttpInfo($api_token, $bot_userid, $send_bot_s_message_data = null)
+    public function sendBotsMessageAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\SendBirdMessageResponse';
-        $request = $this->sendBotsMessageRequest($api_token, $bot_userid, $send_bot_s_message_data);
+        $request = $this->sendBotsMessageRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2075,6 +2171,8 @@ class BotApi
     /**
      * Create request for operation 'sendBotsMessage'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
@@ -2082,8 +2180,13 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendBotsMessageRequest($api_token, $bot_userid, $send_bot_s_message_data = null)
+    public function sendBotsMessageRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $send_bot_s_message_data = array_key_exists('send_bot_s_message_data', $associative_array) ? $associative_array['send_bot_s_message_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2188,6 +2291,8 @@ class BotApi
      *
      * Update a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
      * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data update_bot_by_id_data (optional)
@@ -2196,9 +2301,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateBotByIdResponse
      */
-    public function updateBotById($api_token, $bot_userid, $update_bot_by_id_data = null)
+    public function updateBotById($associative_array)
     {
-        list($response) = $this->updateBotByIdWithHttpInfo($api_token, $bot_userid, $update_bot_by_id_data);
+        list($response) = $this->updateBotByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2206,6 +2311,8 @@ class BotApi
      * Operation updateBotByIdWithHttpInfo
      *
      * Update a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
@@ -2215,9 +2322,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateBotByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateBotByIdWithHttpInfo($api_token, $bot_userid, $update_bot_by_id_data = null)
+    public function updateBotByIdWithHttpInfo($associative_array)
     {
-        $request = $this->updateBotByIdRequest($api_token, $bot_userid, $update_bot_by_id_data);
+        $request = $this->updateBotByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2308,6 +2415,8 @@ class BotApi
      *
      * Update a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
@@ -2315,9 +2424,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBotByIdAsync($api_token, $bot_userid, $update_bot_by_id_data = null)
+    public function updateBotByIdAsync($associative_array)
     {
-        return $this->updateBotByIdAsyncWithHttpInfo($api_token, $bot_userid, $update_bot_by_id_data)
+        return $this->updateBotByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2330,6 +2439,8 @@ class BotApi
      *
      * Update a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
@@ -2337,10 +2448,10 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBotByIdAsyncWithHttpInfo($api_token, $bot_userid, $update_bot_by_id_data = null)
+    public function updateBotByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\UpdateBotByIdResponse';
-        $request = $this->updateBotByIdRequest($api_token, $bot_userid, $update_bot_by_id_data);
+        $request = $this->updateBotByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2381,6 +2492,8 @@ class BotApi
     /**
      * Create request for operation 'updateBotById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
@@ -2388,8 +2501,13 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateBotByIdRequest($api_token, $bot_userid, $update_bot_by_id_data = null)
+    public function updateBotByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $update_bot_by_id_data = array_key_exists('update_bot_by_id_data', $associative_array) ? $associative_array['update_bot_by_id_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2494,6 +2612,8 @@ class BotApi
      *
      * View a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $bot_userid bot_userid (required)
      *
@@ -2501,9 +2621,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewBotByIdResponse
      */
-    public function viewBotById($api_token, $bot_userid)
+    public function viewBotById($associative_array)
     {
-        list($response) = $this->viewBotByIdWithHttpInfo($api_token, $bot_userid);
+        list($response) = $this->viewBotByIdWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2512,6 +2632,8 @@ class BotApi
      *
      * View a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      *
@@ -2519,9 +2641,9 @@ class BotApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewBotByIdResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewBotByIdWithHttpInfo($api_token, $bot_userid)
+    public function viewBotByIdWithHttpInfo($associative_array)
     {
-        $request = $this->viewBotByIdRequest($api_token, $bot_userid);
+        $request = $this->viewBotByIdRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2612,15 +2734,17 @@ class BotApi
      *
      * View a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewBotByIdAsync($api_token, $bot_userid)
+    public function viewBotByIdAsync($associative_array)
     {
-        return $this->viewBotByIdAsyncWithHttpInfo($api_token, $bot_userid)
+        return $this->viewBotByIdAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2633,16 +2757,18 @@ class BotApi
      *
      * View a bot
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewBotByIdAsyncWithHttpInfo($api_token, $bot_userid)
+    public function viewBotByIdAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewBotByIdResponse';
-        $request = $this->viewBotByIdRequest($api_token, $bot_userid);
+        $request = $this->viewBotByIdRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2683,14 +2809,20 @@ class BotApi
     /**
      * Create request for operation 'viewBotById'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $bot_userid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewBotByIdRequest($api_token, $bot_userid)
+    public function viewBotByIdRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(

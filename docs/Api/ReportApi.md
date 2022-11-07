@@ -37,14 +37,14 @@ $apiInstance = new Sendbird\Api\ReportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-$start_ts = 56; // int
-$end_ts = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
+$associate_array['start_ts'] = 56; // int
+$associate_array['end_ts'] = 56; // int
 
 try {
-    $result = $apiInstance->listReports($api_token, $token, $limit, $start_ts, $end_ts);
+    $result = $apiInstance->listReports($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportApi->listReports: ', $e->getMessage(), PHP_EOL;
@@ -52,6 +52,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -101,14 +103,14 @@ $apiInstance = new Sendbird\Api\ReportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listReportsOnChannelByUrl($api_token, $channel_type, $channel_url, $token, $limit);
+    $result = $apiInstance->listReportsOnChannelByUrl($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportApi->listReportsOnChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -116,6 +118,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -165,15 +169,15 @@ $apiInstance = new Sendbird\Api\ReportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listReportsOnMessageById($api_token, $channel_type, $channel_url, $message_id, $token, $limit);
+    $result = $apiInstance->listReportsOnMessageById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportApi->listReportsOnMessageById: ', $e->getMessage(), PHP_EOL;
@@ -181,6 +185,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -231,13 +237,13 @@ $apiInstance = new Sendbird\Api\ReportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$offending_user_id = 'offending_user_id_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['offending_user_id'] = 'offending_user_id_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listReportsOnUserById($api_token, $offending_user_id, $token, $limit);
+    $result = $apiInstance->listReportsOnUserById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportApi->listReportsOnUserById: ', $e->getMessage(), PHP_EOL;
@@ -245,6 +251,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -293,13 +301,13 @@ $apiInstance = new Sendbird\Api\ReportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$report_channel_by_url_data = new \Sendbird\Model\ReportChannelByUrlData(); // \Sendbird\Model\ReportChannelByUrlData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['report_channel_by_url_data'] = new \Sendbird\Model\ReportChannelByUrlData(); // \Sendbird\Model\ReportChannelByUrlData
 
 try {
-    $result = $apiInstance->reportChannelByUrl($api_token, $channel_type, $channel_url, $report_channel_by_url_data);
+    $result = $apiInstance->reportChannelByUrl($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportApi->reportChannelByUrl: ', $e->getMessage(), PHP_EOL;
@@ -307,6 +315,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -355,14 +365,14 @@ $apiInstance = new Sendbird\Api\ReportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
-$report_message_by_id_data = new \Sendbird\Model\ReportMessageByIdData(); // \Sendbird\Model\ReportMessageByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
+$associate_array['report_message_by_id_data'] = new \Sendbird\Model\ReportMessageByIdData(); // \Sendbird\Model\ReportMessageByIdData
 
 try {
-    $result = $apiInstance->reportMessageById($api_token, $channel_type, $channel_url, $message_id, $report_message_by_id_data);
+    $result = $apiInstance->reportMessageById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportApi->reportMessageById: ', $e->getMessage(), PHP_EOL;
@@ -370,6 +380,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -419,12 +431,12 @@ $apiInstance = new Sendbird\Api\ReportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$offending_user_id = 'offending_user_id_example'; // string
-$report_user_by_id_data = new \Sendbird\Model\ReportUserByIdData(); // \Sendbird\Model\ReportUserByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['offending_user_id'] = 'offending_user_id_example'; // string
+$associate_array['report_user_by_id_data'] = new \Sendbird\Model\ReportUserByIdData(); // \Sendbird\Model\ReportUserByIdData
 
 try {
-    $result = $apiInstance->reportUserById($api_token, $offending_user_id, $report_user_by_id_data);
+    $result = $apiInstance->reportUserById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportApi->reportUserById: ', $e->getMessage(), PHP_EOL;
@@ -432,6 +444,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -479,13 +493,13 @@ $apiInstance = new Sendbird\Api\ReportApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_type = 'channel_type_example'; // string
-$channel_url = 'channel_url_example'; // string
-$message_id = 'message_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_type'] = 'channel_type_example'; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['message_id'] = 'message_id_example'; // string
 
 try {
-    $result = $apiInstance->viewModeratedMessageById($api_token, $channel_type, $channel_url, $message_id);
+    $result = $apiInstance->viewModeratedMessageById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportApi->viewModeratedMessageById: ', $e->getMessage(), PHP_EOL;
@@ -493,6 +507,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

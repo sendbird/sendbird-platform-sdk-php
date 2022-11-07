@@ -133,6 +133,18 @@ class ApplicationApiTest extends TestCase
     }
 
     /**
+     * Test case for configureAutoEventMessages
+     *
+     * Configure auto event message settings.
+     *
+     */
+    public function testConfigureAutoEventMessages()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for deleteAllowedIpsFromWhitelist
      *
      * Delete allowed IPs from a whitelist.
@@ -163,6 +175,18 @@ class ApplicationApiTest extends TestCase
      *
      */
     public function testGenerateSecondaryApiToken()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for listAutoEventMessages
+     *
+     * List auto event messages.
+     *
+     */
+    public function testListAutoEventMessages()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -121,6 +121,8 @@ class MetadataApi
      *
      * Create a channel metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -130,9 +132,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function createChannelMetacounter($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
+    public function createChannelMetacounter($associative_array)
     {
-        list($response) = $this->createChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
+        list($response) = $this->createChannelMetacounterWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -140,6 +142,8 @@ class MetadataApi
      * Operation createChannelMetacounterWithHttpInfo
      *
      * Create a channel metacounter
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -150,9 +154,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
+    public function createChannelMetacounterWithHttpInfo($associative_array)
     {
-        $request = $this->createChannelMetacounterRequest($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
+        $request = $this->createChannelMetacounterRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -243,6 +247,8 @@ class MetadataApi
      *
      * Create a channel metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -251,9 +257,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createChannelMetacounterAsync($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
+    public function createChannelMetacounterAsync($associative_array)
     {
-        return $this->createChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data)
+        return $this->createChannelMetacounterAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -266,6 +272,8 @@ class MetadataApi
      *
      * Create a channel metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -274,10 +282,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
+    public function createChannelMetacounterAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->createChannelMetacounterRequest($api_token, $channel_type, $channel_url, $create_channel_metacounter_data);
+        $request = $this->createChannelMetacounterRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -318,6 +326,8 @@ class MetadataApi
     /**
      * Create request for operation 'createChannelMetacounter'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -326,8 +336,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createChannelMetacounterRequest($api_token, $channel_type, $channel_url, $create_channel_metacounter_data = null)
+    public function createChannelMetacounterRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $create_channel_metacounter_data = array_key_exists('create_channel_metacounter_data', $associative_array) ? $associative_array['create_channel_metacounter_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -446,6 +462,8 @@ class MetadataApi
      *
      * Create a channel metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -455,9 +473,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\CreateChannelMetadataResponse
      */
-    public function createChannelMetadata($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
+    public function createChannelMetadata($associative_array)
     {
-        list($response) = $this->createChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
+        list($response) = $this->createChannelMetadataWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -465,6 +483,8 @@ class MetadataApi
      * Operation createChannelMetadataWithHttpInfo
      *
      * Create a channel metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -475,9 +495,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\CreateChannelMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
+    public function createChannelMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->createChannelMetadataRequest($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
+        $request = $this->createChannelMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -568,6 +588,8 @@ class MetadataApi
      *
      * Create a channel metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -576,9 +598,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createChannelMetadataAsync($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
+    public function createChannelMetadataAsync($associative_array)
     {
-        return $this->createChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data)
+        return $this->createChannelMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -591,6 +613,8 @@ class MetadataApi
      *
      * Create a channel metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -599,10 +623,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
+    public function createChannelMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\CreateChannelMetadataResponse';
-        $request = $this->createChannelMetadataRequest($api_token, $channel_type, $channel_url, $create_channel_metadata_data);
+        $request = $this->createChannelMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -643,6 +667,8 @@ class MetadataApi
     /**
      * Create request for operation 'createChannelMetadata'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -651,8 +677,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createChannelMetadataRequest($api_token, $channel_type, $channel_url, $create_channel_metadata_data = null)
+    public function createChannelMetadataRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $create_channel_metadata_data = array_key_exists('create_channel_metadata_data', $associative_array) ? $associative_array['create_channel_metadata_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -771,6 +803,8 @@ class MetadataApi
      *
      * Create a user metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data create_user_metadata_data (optional)
@@ -779,9 +813,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\CreateUserMetadataResponse
      */
-    public function createUserMetadata($api_token, $user_id, $create_user_metadata_data = null)
+    public function createUserMetadata($associative_array)
     {
-        list($response) = $this->createUserMetadataWithHttpInfo($api_token, $user_id, $create_user_metadata_data);
+        list($response) = $this->createUserMetadataWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -789,6 +823,8 @@ class MetadataApi
      * Operation createUserMetadataWithHttpInfo
      *
      * Create a user metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -798,9 +834,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\CreateUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createUserMetadataWithHttpInfo($api_token, $user_id, $create_user_metadata_data = null)
+    public function createUserMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->createUserMetadataRequest($api_token, $user_id, $create_user_metadata_data);
+        $request = $this->createUserMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -891,6 +927,8 @@ class MetadataApi
      *
      * Create a user metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
@@ -898,9 +936,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createUserMetadataAsync($api_token, $user_id, $create_user_metadata_data = null)
+    public function createUserMetadataAsync($associative_array)
     {
-        return $this->createUserMetadataAsyncWithHttpInfo($api_token, $user_id, $create_user_metadata_data)
+        return $this->createUserMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -913,6 +951,8 @@ class MetadataApi
      *
      * Create a user metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
@@ -920,10 +960,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createUserMetadataAsyncWithHttpInfo($api_token, $user_id, $create_user_metadata_data = null)
+    public function createUserMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\CreateUserMetadataResponse';
-        $request = $this->createUserMetadataRequest($api_token, $user_id, $create_user_metadata_data);
+        $request = $this->createUserMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -964,6 +1004,8 @@ class MetadataApi
     /**
      * Create request for operation 'createUserMetadata'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
@@ -971,8 +1013,13 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createUserMetadataRequest($api_token, $user_id, $create_user_metadata_data = null)
+    public function createUserMetadataRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $create_user_metadata_data = array_key_exists('create_user_metadata_data', $associative_array) ? $associative_array['create_user_metadata_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1077,6 +1124,8 @@ class MetadataApi
      *
      * Delete a channel metacounter - When deleting all items of a channel metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -1085,15 +1134,17 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChannelMetacounter($api_token, $channel_type, $channel_url)
+    public function deleteChannelMetacounter($associative_array)
     {
-        $this->deleteChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url);
+        $this->deleteChannelMetacounterWithHttpInfo($associative_array);
     }
 
     /**
      * Operation deleteChannelMetacounterWithHttpInfo
      *
      * Delete a channel metacounter - When deleting all items of a channel metacounter
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -1103,9 +1154,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url)
+    public function deleteChannelMetacounterWithHttpInfo($associative_array)
     {
-        $request = $this->deleteChannelMetacounterRequest($api_token, $channel_type, $channel_url);
+        $request = $this->deleteChannelMetacounterRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1156,6 +1207,8 @@ class MetadataApi
      *
      * Delete a channel metacounter - When deleting all items of a channel metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1163,9 +1216,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetacounterAsync($api_token, $channel_type, $channel_url)
+    public function deleteChannelMetacounterAsync($associative_array)
     {
-        return $this->deleteChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url)
+        return $this->deleteChannelMetacounterAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1178,6 +1231,8 @@ class MetadataApi
      *
      * Delete a channel metacounter - When deleting all items of a channel metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1185,10 +1240,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url)
+    public function deleteChannelMetacounterAsyncWithHttpInfo($associative_array)
     {
         $returnType = '';
-        $request = $this->deleteChannelMetacounterRequest($api_token, $channel_type, $channel_url);
+        $request = $this->deleteChannelMetacounterRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1216,6 +1271,8 @@ class MetadataApi
     /**
      * Create request for operation 'deleteChannelMetacounter'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1223,8 +1280,13 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteChannelMetacounterRequest($api_token, $channel_type, $channel_url)
+    public function deleteChannelMetacounterRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1337,6 +1399,8 @@ class MetadataApi
      *
      * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -1346,15 +1410,17 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key)
+    public function deleteChannelMetacounterByKey($associative_array)
     {
-        $this->deleteChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key);
+        $this->deleteChannelMetacounterByKeyWithHttpInfo($associative_array);
     }
 
     /**
      * Operation deleteChannelMetacounterByKeyWithHttpInfo
      *
      * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -1365,9 +1431,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    public function deleteChannelMetacounterByKeyWithHttpInfo($associative_array)
     {
-        $request = $this->deleteChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key);
+        $request = $this->deleteChannelMetacounterByKeyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1418,6 +1484,8 @@ class MetadataApi
      *
      * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1426,9 +1494,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetacounterByKeyAsync($api_token, $channel_type, $channel_url, $key)
+    public function deleteChannelMetacounterByKeyAsync($associative_array)
     {
-        return $this->deleteChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+        return $this->deleteChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1441,6 +1509,8 @@ class MetadataApi
      *
      * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1449,10 +1519,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    public function deleteChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
     {
         $returnType = '';
-        $request = $this->deleteChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key);
+        $request = $this->deleteChannelMetacounterByKeyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1480,6 +1550,8 @@ class MetadataApi
     /**
      * Create request for operation 'deleteChannelMetacounterByKey'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1488,8 +1560,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key)
+    public function deleteChannelMetacounterByKeyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1616,6 +1694,8 @@ class MetadataApi
      *
      * Delete a channel metadata - When deleting all items of a channel metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -1625,15 +1705,17 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChannelMetadata($api_token, $channel_type, $channel_url, $key = null)
+    public function deleteChannelMetadata($associative_array)
     {
-        $this->deleteChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $key);
+        $this->deleteChannelMetadataWithHttpInfo($associative_array);
     }
 
     /**
      * Operation deleteChannelMetadataWithHttpInfo
      *
      * Delete a channel metadata - When deleting all items of a channel metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -1644,9 +1726,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $key = null)
+    public function deleteChannelMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->deleteChannelMetadataRequest($api_token, $channel_type, $channel_url, $key);
+        $request = $this->deleteChannelMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1697,6 +1779,8 @@ class MetadataApi
      *
      * Delete a channel metadata - When deleting all items of a channel metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1705,9 +1789,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetadataAsync($api_token, $channel_type, $channel_url, $key = null)
+    public function deleteChannelMetadataAsync($associative_array)
     {
-        return $this->deleteChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+        return $this->deleteChannelMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1720,6 +1804,8 @@ class MetadataApi
      *
      * Delete a channel metadata - When deleting all items of a channel metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1728,10 +1814,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key = null)
+    public function deleteChannelMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = '';
-        $request = $this->deleteChannelMetadataRequest($api_token, $channel_type, $channel_url, $key);
+        $request = $this->deleteChannelMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1759,6 +1845,8 @@ class MetadataApi
     /**
      * Create request for operation 'deleteChannelMetadata'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1767,8 +1855,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteChannelMetadataRequest($api_token, $channel_type, $channel_url, $key = null)
+    public function deleteChannelMetadataRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -1890,6 +1984,8 @@ class MetadataApi
      *
      * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -1899,15 +1995,17 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteChannelMetadataByKey($api_token, $channel_type, $channel_url, $key)
+    public function deleteChannelMetadataByKey($associative_array)
     {
-        $this->deleteChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key);
+        $this->deleteChannelMetadataByKeyWithHttpInfo($associative_array);
     }
 
     /**
      * Operation deleteChannelMetadataByKeyWithHttpInfo
      *
      * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -1918,9 +2016,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    public function deleteChannelMetadataByKeyWithHttpInfo($associative_array)
     {
-        $request = $this->deleteChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key);
+        $request = $this->deleteChannelMetadataByKeyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1971,6 +2069,8 @@ class MetadataApi
      *
      * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -1979,9 +2079,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetadataByKeyAsync($api_token, $channel_type, $channel_url, $key)
+    public function deleteChannelMetadataByKeyAsync($associative_array)
     {
-        return $this->deleteChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+        return $this->deleteChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1994,6 +2094,8 @@ class MetadataApi
      *
      * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -2002,10 +2104,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    public function deleteChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
     {
         $returnType = '';
-        $request = $this->deleteChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key);
+        $request = $this->deleteChannelMetadataByKeyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2033,6 +2135,8 @@ class MetadataApi
     /**
      * Create request for operation 'deleteChannelMetadataByKey'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -2041,8 +2145,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key)
+    public function deleteChannelMetadataByKeyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2169,6 +2279,8 @@ class MetadataApi
      *
      * Delete a user metadata - When deleting all items of a user metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $key key (optional)
@@ -2177,15 +2289,17 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteUserMetadata($api_token, $user_id, $key = null)
+    public function deleteUserMetadata($associative_array)
     {
-        $this->deleteUserMetadataWithHttpInfo($api_token, $user_id, $key);
+        $this->deleteUserMetadataWithHttpInfo($associative_array);
     }
 
     /**
      * Operation deleteUserMetadataWithHttpInfo
      *
      * Delete a user metadata - When deleting all items of a user metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -2195,9 +2309,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteUserMetadataWithHttpInfo($api_token, $user_id, $key = null)
+    public function deleteUserMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->deleteUserMetadataRequest($api_token, $user_id, $key);
+        $request = $this->deleteUserMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2248,6 +2362,8 @@ class MetadataApi
      *
      * Delete a user metadata - When deleting all items of a user metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (optional)
@@ -2255,9 +2371,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserMetadataAsync($api_token, $user_id, $key = null)
+    public function deleteUserMetadataAsync($associative_array)
     {
-        return $this->deleteUserMetadataAsyncWithHttpInfo($api_token, $user_id, $key)
+        return $this->deleteUserMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2270,6 +2386,8 @@ class MetadataApi
      *
      * Delete a user metadata - When deleting all items of a user metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (optional)
@@ -2277,10 +2395,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserMetadataAsyncWithHttpInfo($api_token, $user_id, $key = null)
+    public function deleteUserMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = '';
-        $request = $this->deleteUserMetadataRequest($api_token, $user_id, $key);
+        $request = $this->deleteUserMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2308,6 +2426,8 @@ class MetadataApi
     /**
      * Create request for operation 'deleteUserMetadata'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (optional)
@@ -2315,8 +2435,13 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteUserMetadataRequest($api_token, $user_id, $key = null)
+    public function deleteUserMetadataRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2424,6 +2549,8 @@ class MetadataApi
      *
      * Delete a user metadata - When deleting a specific item of a user metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $key key (required)
@@ -2432,15 +2559,17 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteUserMetadataByKey($api_token, $user_id, $key)
+    public function deleteUserMetadataByKey($associative_array)
     {
-        $this->deleteUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key);
+        $this->deleteUserMetadataByKeyWithHttpInfo($associative_array);
     }
 
     /**
      * Operation deleteUserMetadataByKeyWithHttpInfo
      *
      * Delete a user metadata - When deleting a specific item of a user metadata by its key
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -2450,9 +2579,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key)
+    public function deleteUserMetadataByKeyWithHttpInfo($associative_array)
     {
-        $request = $this->deleteUserMetadataByKeyRequest($api_token, $user_id, $key);
+        $request = $this->deleteUserMetadataByKeyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2503,6 +2632,8 @@ class MetadataApi
      *
      * Delete a user metadata - When deleting a specific item of a user metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
@@ -2510,9 +2641,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserMetadataByKeyAsync($api_token, $user_id, $key)
+    public function deleteUserMetadataByKeyAsync($associative_array)
     {
-        return $this->deleteUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key)
+        return $this->deleteUserMetadataByKeyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2525,6 +2656,8 @@ class MetadataApi
      *
      * Delete a user metadata - When deleting a specific item of a user metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
@@ -2532,10 +2665,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key)
+    public function deleteUserMetadataByKeyAsyncWithHttpInfo($associative_array)
     {
         $returnType = '';
-        $request = $this->deleteUserMetadataByKeyRequest($api_token, $user_id, $key);
+        $request = $this->deleteUserMetadataByKeyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2563,6 +2696,8 @@ class MetadataApi
     /**
      * Create request for operation 'deleteUserMetadataByKey'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
@@ -2570,8 +2705,13 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteUserMetadataByKeyRequest($api_token, $user_id, $key)
+    public function deleteUserMetadataByKeyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -2684,6 +2824,8 @@ class MetadataApi
      *
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -2693,9 +2835,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function updateChannelMetacounter($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
+    public function updateChannelMetacounter($associative_array)
     {
-        list($response) = $this->updateChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
+        list($response) = $this->updateChannelMetacounterWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -2703,6 +2845,8 @@ class MetadataApi
      * Operation updateChannelMetacounterWithHttpInfo
      *
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -2713,9 +2857,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
+    public function updateChannelMetacounterWithHttpInfo($associative_array)
     {
-        $request = $this->updateChannelMetacounterRequest($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
+        $request = $this->updateChannelMetacounterRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2806,6 +2950,8 @@ class MetadataApi
      *
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -2814,9 +2960,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetacounterAsync($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
+    public function updateChannelMetacounterAsync($associative_array)
     {
-        return $this->updateChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data)
+        return $this->updateChannelMetacounterAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2829,6 +2975,8 @@ class MetadataApi
      *
      * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -2837,10 +2985,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
+    public function updateChannelMetacounterAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->updateChannelMetacounterRequest($api_token, $channel_type, $channel_url, $update_channel_metacounter_data);
+        $request = $this->updateChannelMetacounterRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2881,6 +3029,8 @@ class MetadataApi
     /**
      * Create request for operation 'updateChannelMetacounter'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -2889,8 +3039,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateChannelMetacounterRequest($api_token, $channel_type, $channel_url, $update_channel_metacounter_data = null)
+    public function updateChannelMetacounterRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $update_channel_metacounter_data = array_key_exists('update_channel_metacounter_data', $associative_array) ? $associative_array['update_channel_metacounter_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -3009,6 +3165,8 @@ class MetadataApi
      *
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -3019,9 +3177,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function updateChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key, $body = null)
+    public function updateChannelMetacounterByKey($associative_array)
     {
-        list($response) = $this->updateChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body);
+        list($response) = $this->updateChannelMetacounterByKeyWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -3029,6 +3187,8 @@ class MetadataApi
      * Operation updateChannelMetacounterByKeyWithHttpInfo
      *
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -3040,9 +3200,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
+    public function updateChannelMetacounterByKeyWithHttpInfo($associative_array)
     {
-        $request = $this->updateChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
+        $request = $this->updateChannelMetacounterByKeyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3133,6 +3293,8 @@ class MetadataApi
      *
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -3142,9 +3304,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetacounterByKeyAsync($api_token, $channel_type, $channel_url, $key, $body = null)
+    public function updateChannelMetacounterByKeyAsync($associative_array)
     {
-        return $this->updateChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body)
+        return $this->updateChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3157,6 +3319,8 @@ class MetadataApi
      *
      * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -3166,10 +3330,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
+    public function updateChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'array<string,string>';
-        $request = $this->updateChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
+        $request = $this->updateChannelMetacounterByKeyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3210,6 +3374,8 @@ class MetadataApi
     /**
      * Create request for operation 'updateChannelMetacounterByKey'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -3219,8 +3385,15 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key, $body = null)
+    public function updateChannelMetacounterByKeyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+        $body = array_key_exists('body', $associative_array) ? $associative_array['body'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -3353,6 +3526,8 @@ class MetadataApi
      *
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -3362,9 +3537,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function updateChannelMetadata($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
+    public function updateChannelMetadata($associative_array)
     {
-        list($response) = $this->updateChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
+        list($response) = $this->updateChannelMetadataWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -3372,6 +3547,8 @@ class MetadataApi
      * Operation updateChannelMetadataWithHttpInfo
      *
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -3382,9 +3559,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
+    public function updateChannelMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->updateChannelMetadataRequest($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
+        $request = $this->updateChannelMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3475,6 +3652,8 @@ class MetadataApi
      *
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -3483,9 +3662,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetadataAsync($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
+    public function updateChannelMetadataAsync($associative_array)
     {
-        return $this->updateChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data)
+        return $this->updateChannelMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3498,6 +3677,8 @@ class MetadataApi
      *
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -3506,10 +3687,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
+    public function updateChannelMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'array<string,string>';
-        $request = $this->updateChannelMetadataRequest($api_token, $channel_type, $channel_url, $update_channel_metadata_data);
+        $request = $this->updateChannelMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3550,6 +3731,8 @@ class MetadataApi
     /**
      * Create request for operation 'updateChannelMetadata'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -3558,8 +3741,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateChannelMetadataRequest($api_token, $channel_type, $channel_url, $update_channel_metadata_data = null)
+    public function updateChannelMetadataRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $update_channel_metadata_data = array_key_exists('update_channel_metadata_data', $associative_array) ? $associative_array['update_channel_metadata_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -3678,6 +3867,8 @@ class MetadataApi
      *
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -3688,9 +3879,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function updateChannelMetadataByKey($api_token, $channel_type, $channel_url, $key, $body = null)
+    public function updateChannelMetadataByKey($associative_array)
     {
-        list($response) = $this->updateChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body);
+        list($response) = $this->updateChannelMetadataByKeyWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -3698,6 +3889,8 @@ class MetadataApi
      * Operation updateChannelMetadataByKeyWithHttpInfo
      *
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -3709,9 +3902,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
+    public function updateChannelMetadataByKeyWithHttpInfo($associative_array)
     {
-        $request = $this->updateChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
+        $request = $this->updateChannelMetadataByKeyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3802,6 +3995,8 @@ class MetadataApi
      *
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -3811,9 +4006,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetadataByKeyAsync($api_token, $channel_type, $channel_url, $key, $body = null)
+    public function updateChannelMetadataByKeyAsync($associative_array)
     {
-        return $this->updateChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body)
+        return $this->updateChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3826,6 +4021,8 @@ class MetadataApi
      *
      * Update a channel metadata - When updating a specific item of a channel metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -3835,10 +4032,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $body = null)
+    public function updateChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'array<string,string>';
-        $request = $this->updateChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key, $body);
+        $request = $this->updateChannelMetadataByKeyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3879,6 +4076,8 @@ class MetadataApi
     /**
      * Create request for operation 'updateChannelMetadataByKey'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -3888,8 +4087,15 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key, $body = null)
+    public function updateChannelMetadataByKeyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+        $body = array_key_exists('body', $associative_array) ? $associative_array['body'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -4022,6 +4228,8 @@ class MetadataApi
      *
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data update_user_metadata_data (optional)
@@ -4030,9 +4238,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateUserMetadataResponse
      */
-    public function updateUserMetadata($api_token, $user_id, $update_user_metadata_data = null)
+    public function updateUserMetadata($associative_array)
     {
-        list($response) = $this->updateUserMetadataWithHttpInfo($api_token, $user_id, $update_user_metadata_data);
+        list($response) = $this->updateUserMetadataWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -4040,6 +4248,8 @@ class MetadataApi
      * Operation updateUserMetadataWithHttpInfo
      *
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -4049,9 +4259,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserMetadataWithHttpInfo($api_token, $user_id, $update_user_metadata_data = null)
+    public function updateUserMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->updateUserMetadataRequest($api_token, $user_id, $update_user_metadata_data);
+        $request = $this->updateUserMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4142,6 +4352,8 @@ class MetadataApi
      *
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
@@ -4149,9 +4361,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserMetadataAsync($api_token, $user_id, $update_user_metadata_data = null)
+    public function updateUserMetadataAsync($associative_array)
     {
-        return $this->updateUserMetadataAsyncWithHttpInfo($api_token, $user_id, $update_user_metadata_data)
+        return $this->updateUserMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4164,6 +4376,8 @@ class MetadataApi
      *
      * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
@@ -4171,10 +4385,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserMetadataAsyncWithHttpInfo($api_token, $user_id, $update_user_metadata_data = null)
+    public function updateUserMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\UpdateUserMetadataResponse';
-        $request = $this->updateUserMetadataRequest($api_token, $user_id, $update_user_metadata_data);
+        $request = $this->updateUserMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4215,6 +4429,8 @@ class MetadataApi
     /**
      * Create request for operation 'updateUserMetadata'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
@@ -4222,8 +4438,13 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateUserMetadataRequest($api_token, $user_id, $update_user_metadata_data = null)
+    public function updateUserMetadataRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $update_user_metadata_data = array_key_exists('update_user_metadata_data', $associative_array) ? $associative_array['update_user_metadata_data'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -4328,6 +4549,8 @@ class MetadataApi
      *
      * Update a user metadata - When updating a specific item of a user metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $key key (required)
@@ -4337,9 +4560,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function updateUserMetadataByKey($api_token, $user_id, $key, $body = null)
+    public function updateUserMetadataByKey($associative_array)
     {
-        list($response) = $this->updateUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key, $body);
+        list($response) = $this->updateUserMetadataByKeyWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -4347,6 +4570,8 @@ class MetadataApi
      * Operation updateUserMetadataByKeyWithHttpInfo
      *
      * Update a user metadata - When updating a specific item of a user metadata by its key
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -4357,9 +4582,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key, $body = null)
+    public function updateUserMetadataByKeyWithHttpInfo($associative_array)
     {
-        $request = $this->updateUserMetadataByKeyRequest($api_token, $user_id, $key, $body);
+        $request = $this->updateUserMetadataByKeyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4450,6 +4675,8 @@ class MetadataApi
      *
      * Update a user metadata - When updating a specific item of a user metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
@@ -4458,9 +4685,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserMetadataByKeyAsync($api_token, $user_id, $key, $body = null)
+    public function updateUserMetadataByKeyAsync($associative_array)
     {
-        return $this->updateUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key, $body)
+        return $this->updateUserMetadataByKeyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4473,6 +4700,8 @@ class MetadataApi
      *
      * Update a user metadata - When updating a specific item of a user metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
@@ -4481,10 +4710,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key, $body = null)
+    public function updateUserMetadataByKeyAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'array<string,string>';
-        $request = $this->updateUserMetadataByKeyRequest($api_token, $user_id, $key, $body);
+        $request = $this->updateUserMetadataByKeyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4525,6 +4754,8 @@ class MetadataApi
     /**
      * Create request for operation 'updateUserMetadataByKey'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
@@ -4533,8 +4764,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateUserMetadataByKeyRequest($api_token, $user_id, $key, $body = null)
+    public function updateUserMetadataByKeyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+        $body = array_key_exists('body', $associative_array) ? $associative_array['body'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -4653,6 +4890,8 @@ class MetadataApi
      *
      * View a channel metacounter - When retrieving all items of a channel metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -4663,9 +4902,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function viewChannelMetacounter($api_token, $channel_type, $channel_url, $key = null, $keys = null)
+    public function viewChannelMetacounter($associative_array)
     {
-        list($response) = $this->viewChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $key, $keys);
+        list($response) = $this->viewChannelMetacounterWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -4673,6 +4912,8 @@ class MetadataApi
      * Operation viewChannelMetacounterWithHttpInfo
      *
      * View a channel metacounter - When retrieving all items of a channel metacounter
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -4684,9 +4925,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewChannelMetacounterWithHttpInfo($api_token, $channel_type, $channel_url, $key = null, $keys = null)
+    public function viewChannelMetacounterWithHttpInfo($associative_array)
     {
-        $request = $this->viewChannelMetacounterRequest($api_token, $channel_type, $channel_url, $key, $keys);
+        $request = $this->viewChannelMetacounterRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4777,6 +5018,8 @@ class MetadataApi
      *
      * View a channel metacounter - When retrieving all items of a channel metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -4786,9 +5029,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetacounterAsync($api_token, $channel_type, $channel_url, $key = null, $keys = null)
+    public function viewChannelMetacounterAsync($associative_array)
     {
-        return $this->viewChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $keys)
+        return $this->viewChannelMetacounterAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4801,6 +5044,8 @@ class MetadataApi
      *
      * View a channel metacounter - When retrieving all items of a channel metacounter
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -4810,10 +5055,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetacounterAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key = null, $keys = null)
+    public function viewChannelMetacounterAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'array<string,string>';
-        $request = $this->viewChannelMetacounterRequest($api_token, $channel_type, $channel_url, $key, $keys);
+        $request = $this->viewChannelMetacounterRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4854,6 +5099,8 @@ class MetadataApi
     /**
      * Create request for operation 'viewChannelMetacounter'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -4863,8 +5110,15 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewChannelMetacounterRequest($api_token, $channel_type, $channel_url, $key = null, $keys = null)
+    public function viewChannelMetacounterRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+        $keys = array_key_exists('keys', $associative_array) ? $associative_array['keys'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -4995,6 +5249,8 @@ class MetadataApi
      *
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -5004,9 +5260,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function viewChannelMetacounterByKey($api_token, $channel_type, $channel_url, $key)
+    public function viewChannelMetacounterByKey($associative_array)
     {
-        list($response) = $this->viewChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key);
+        list($response) = $this->viewChannelMetacounterByKeyWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -5014,6 +5270,8 @@ class MetadataApi
      * Operation viewChannelMetacounterByKeyWithHttpInfo
      *
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -5024,9 +5282,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewChannelMetacounterByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    public function viewChannelMetacounterByKeyWithHttpInfo($associative_array)
     {
-        $request = $this->viewChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key);
+        $request = $this->viewChannelMetacounterByKeyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5117,6 +5375,8 @@ class MetadataApi
      *
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -5125,9 +5385,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetacounterByKeyAsync($api_token, $channel_type, $channel_url, $key)
+    public function viewChannelMetacounterByKeyAsync($associative_array)
     {
-        return $this->viewChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+        return $this->viewChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5140,6 +5400,8 @@ class MetadataApi
      *
      * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -5148,10 +5410,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetacounterByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    public function viewChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->viewChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key);
+        $request = $this->viewChannelMetacounterByKeyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5192,6 +5454,8 @@ class MetadataApi
     /**
      * Create request for operation 'viewChannelMetacounterByKey'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -5200,8 +5464,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewChannelMetacounterByKeyRequest($api_token, $channel_type, $channel_url, $key)
+    public function viewChannelMetacounterByKeyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -5328,6 +5598,8 @@ class MetadataApi
      *
      * View a channel metadata - When retrieving all items of a channel metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -5338,9 +5610,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function viewChannelMetadata($api_token, $channel_type, $channel_url, $key = null, $keys = null)
+    public function viewChannelMetadata($associative_array)
     {
-        list($response) = $this->viewChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $key, $keys);
+        list($response) = $this->viewChannelMetadataWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -5348,6 +5620,8 @@ class MetadataApi
      * Operation viewChannelMetadataWithHttpInfo
      *
      * View a channel metadata - When retrieving all items of a channel metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -5359,9 +5633,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewChannelMetadataWithHttpInfo($api_token, $channel_type, $channel_url, $key = null, $keys = null)
+    public function viewChannelMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->viewChannelMetadataRequest($api_token, $channel_type, $channel_url, $key, $keys);
+        $request = $this->viewChannelMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5452,6 +5726,8 @@ class MetadataApi
      *
      * View a channel metadata - When retrieving all items of a channel metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -5461,9 +5737,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetadataAsync($api_token, $channel_type, $channel_url, $key = null, $keys = null)
+    public function viewChannelMetadataAsync($associative_array)
     {
-        return $this->viewChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key, $keys)
+        return $this->viewChannelMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5476,6 +5752,8 @@ class MetadataApi
      *
      * View a channel metadata - When retrieving all items of a channel metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -5485,10 +5763,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetadataAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key = null, $keys = null)
+    public function viewChannelMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'array<string,string>';
-        $request = $this->viewChannelMetadataRequest($api_token, $channel_type, $channel_url, $key, $keys);
+        $request = $this->viewChannelMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5529,6 +5807,8 @@ class MetadataApi
     /**
      * Create request for operation 'viewChannelMetadata'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -5538,8 +5818,15 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewChannelMetadataRequest($api_token, $channel_type, $channel_url, $key = null, $keys = null)
+    public function viewChannelMetadataRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+        $keys = array_key_exists('keys', $associative_array) ? $associative_array['keys'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -5670,6 +5957,8 @@ class MetadataApi
      *
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $channel_type channel_type (required)
      * @param  string $channel_url channel_url (required)
@@ -5679,9 +5968,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function viewChannelMetadataByKey($api_token, $channel_type, $channel_url, $key)
+    public function viewChannelMetadataByKey($associative_array)
     {
-        list($response) = $this->viewChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key);
+        list($response) = $this->viewChannelMetadataByKeyWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -5689,6 +5978,8 @@ class MetadataApi
      * Operation viewChannelMetadataByKeyWithHttpInfo
      *
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
@@ -5699,9 +5990,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewChannelMetadataByKeyWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    public function viewChannelMetadataByKeyWithHttpInfo($associative_array)
     {
-        $request = $this->viewChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key);
+        $request = $this->viewChannelMetadataByKeyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5792,6 +6083,8 @@ class MetadataApi
      *
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -5800,9 +6093,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetadataByKeyAsync($api_token, $channel_type, $channel_url, $key)
+    public function viewChannelMetadataByKeyAsync($associative_array)
     {
-        return $this->viewChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+        return $this->viewChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5815,6 +6108,8 @@ class MetadataApi
      *
      * View a channel metadata - When retrieving a specific item of a channel metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -5823,10 +6118,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetadataByKeyAsyncWithHttpInfo($api_token, $channel_type, $channel_url, $key)
+    public function viewChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'array<string,string>';
-        $request = $this->viewChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key);
+        $request = $this->viewChannelMetadataByKeyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5867,6 +6162,8 @@ class MetadataApi
     /**
      * Create request for operation 'viewChannelMetadataByKey'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $channel_type (required)
      * @param  string $channel_url (required)
@@ -5875,8 +6172,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewChannelMetadataByKeyRequest($api_token, $channel_type, $channel_url, $key)
+    public function viewChannelMetadataByKeyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -6003,6 +6306,8 @@ class MetadataApi
      *
      * View a user metadata - When retrieving all items of a user metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $key key (optional)
@@ -6012,9 +6317,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\ViewUserMetadataResponse
      */
-    public function viewUserMetadata($api_token, $user_id, $key = null, $keys = null)
+    public function viewUserMetadata($associative_array)
     {
-        list($response) = $this->viewUserMetadataWithHttpInfo($api_token, $user_id, $key, $keys);
+        list($response) = $this->viewUserMetadataWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -6022,6 +6327,8 @@ class MetadataApi
      * Operation viewUserMetadataWithHttpInfo
      *
      * View a user metadata - When retrieving all items of a user metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -6032,9 +6339,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\ViewUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewUserMetadataWithHttpInfo($api_token, $user_id, $key = null, $keys = null)
+    public function viewUserMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->viewUserMetadataRequest($api_token, $user_id, $key, $keys);
+        $request = $this->viewUserMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6125,6 +6432,8 @@ class MetadataApi
      *
      * View a user metadata - When retrieving all items of a user metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (optional)
@@ -6133,9 +6442,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewUserMetadataAsync($api_token, $user_id, $key = null, $keys = null)
+    public function viewUserMetadataAsync($associative_array)
     {
-        return $this->viewUserMetadataAsyncWithHttpInfo($api_token, $user_id, $key, $keys)
+        return $this->viewUserMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6148,6 +6457,8 @@ class MetadataApi
      *
      * View a user metadata - When retrieving all items of a user metadata
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (optional)
@@ -6156,10 +6467,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewUserMetadataAsyncWithHttpInfo($api_token, $user_id, $key = null, $keys = null)
+    public function viewUserMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\ViewUserMetadataResponse';
-        $request = $this->viewUserMetadataRequest($api_token, $user_id, $key, $keys);
+        $request = $this->viewUserMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6200,6 +6511,8 @@ class MetadataApi
     /**
      * Create request for operation 'viewUserMetadata'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (optional)
@@ -6208,8 +6521,14 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewUserMetadataRequest($api_token, $user_id, $key = null, $keys = null)
+    public function viewUserMetadataRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+        $keys = array_key_exists('keys', $associative_array) ? $associative_array['keys'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
@@ -6326,6 +6645,8 @@ class MetadataApi
      *
      * View a user metadata - When retrieving a specific item of a user metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token api_token (required)
      * @param  string $user_id user_id (required)
      * @param  string $key key (required)
@@ -6334,9 +6655,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array<string,string>
      */
-    public function viewUserMetadataByKey($api_token, $user_id, $key)
+    public function viewUserMetadataByKey($associative_array)
     {
-        list($response) = $this->viewUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key);
+        list($response) = $this->viewUserMetadataByKeyWithHttpInfo($associative_array);
         return $response;
     }
 
@@ -6344,6 +6665,8 @@ class MetadataApi
      * Operation viewUserMetadataByKeyWithHttpInfo
      *
      * View a user metadata - When retrieving a specific item of a user metadata by its key
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
@@ -6353,9 +6676,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewUserMetadataByKeyWithHttpInfo($api_token, $user_id, $key)
+    public function viewUserMetadataByKeyWithHttpInfo($associative_array)
     {
-        $request = $this->viewUserMetadataByKeyRequest($api_token, $user_id, $key);
+        $request = $this->viewUserMetadataByKeyRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6446,6 +6769,8 @@ class MetadataApi
      *
      * View a user metadata - When retrieving a specific item of a user metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
@@ -6453,9 +6778,9 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewUserMetadataByKeyAsync($api_token, $user_id, $key)
+    public function viewUserMetadataByKeyAsync($associative_array)
     {
-        return $this->viewUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key)
+        return $this->viewUserMetadataByKeyAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6468,6 +6793,8 @@ class MetadataApi
      *
      * View a user metadata - When retrieving a specific item of a user metadata by its key
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
@@ -6475,10 +6802,10 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewUserMetadataByKeyAsyncWithHttpInfo($api_token, $user_id, $key)
+    public function viewUserMetadataByKeyAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'array<string,string>';
-        $request = $this->viewUserMetadataByKeyRequest($api_token, $user_id, $key);
+        $request = $this->viewUserMetadataByKeyRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6519,6 +6846,8 @@ class MetadataApi
     /**
      * Create request for operation 'viewUserMetadataByKey'
      *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
      * @param  string $api_token (required)
      * @param  string $user_id (required)
      * @param  string $key (required)
@@ -6526,8 +6855,13 @@ class MetadataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewUserMetadataByKeyRequest($api_token, $user_id, $key)
+    public function viewUserMetadataByKeyRequest($associative_array)
     {
+        // unbox the parameters from the associative array
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(

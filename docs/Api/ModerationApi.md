@@ -56,12 +56,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$ban_from_channels_with_custom_channel_types_data = new \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData(); // \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['ban_from_channels_with_custom_channel_types_data'] = new \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData(); // \Sendbird\Model\BanFromChannelsWithCustomChannelTypesData
 
 try {
-    $result = $apiInstance->banFromChannelsWithCustomChannelTypes($api_token, $user_id, $ban_from_channels_with_custom_channel_types_data);
+    $result = $apiInstance->banFromChannelsWithCustomChannelTypes($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->banFromChannelsWithCustomChannelTypes: ', $e->getMessage(), PHP_EOL;
@@ -69,6 +69,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -116,12 +118,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$block_user_data = new \Sendbird\Model\BlockUserData(); // \Sendbird\Model\BlockUserData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['block_user_data'] = new \Sendbird\Model\BlockUserData(); // \Sendbird\Model\BlockUserData
 
 try {
-    $result = $apiInstance->blockUser($api_token, $user_id, $block_user_data);
+    $result = $apiInstance->blockUser($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->blockUser: ', $e->getMessage(), PHP_EOL;
@@ -129,6 +131,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -176,12 +180,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_ban_user_data = new \Sendbird\Model\GcBanUserData(); // \Sendbird\Model\GcBanUserData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_ban_user_data'] = new \Sendbird\Model\GcBanUserData(); // \Sendbird\Model\GcBanUserData
 
 try {
-    $result = $apiInstance->gcBanUser($api_token, $channel_url, $gc_ban_user_data);
+    $result = $apiInstance->gcBanUser($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->gcBanUser: ', $e->getMessage(), PHP_EOL;
@@ -189,6 +193,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -236,12 +242,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_freeze_channel_data = new \Sendbird\Model\GcFreezeChannelData(); // \Sendbird\Model\GcFreezeChannelData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_freeze_channel_data'] = new \Sendbird\Model\GcFreezeChannelData(); // \Sendbird\Model\GcFreezeChannelData
 
 try {
-    $result = $apiInstance->gcFreezeChannel($api_token, $channel_url, $gc_freeze_channel_data);
+    $result = $apiInstance->gcFreezeChannel($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->gcFreezeChannel: ', $e->getMessage(), PHP_EOL;
@@ -249,6 +255,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -296,13 +304,13 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->gcListBannedUsers($api_token, $channel_url, $token, $limit);
+    $result = $apiInstance->gcListBannedUsers($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->gcListBannedUsers: ', $e->getMessage(), PHP_EOL;
@@ -310,6 +318,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -358,13 +368,13 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->gcListMutedUsers($api_token, $channel_url, $token, $limit);
+    $result = $apiInstance->gcListMutedUsers($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->gcListMutedUsers: ', $e->getMessage(), PHP_EOL;
@@ -372,6 +382,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -420,12 +432,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$gc_mute_user_data = new \Sendbird\Model\GcMuteUserData(); // \Sendbird\Model\GcMuteUserData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['gc_mute_user_data'] = new \Sendbird\Model\GcMuteUserData(); // \Sendbird\Model\GcMuteUserData
 
 try {
-    $result = $apiInstance->gcMuteUser($api_token, $channel_url, $gc_mute_user_data);
+    $result = $apiInstance->gcMuteUser($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->gcMuteUser: ', $e->getMessage(), PHP_EOL;
@@ -433,6 +445,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -480,12 +494,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['banned_user_id'] = 'banned_user_id_example'; // string
 
 try {
-    $result = $apiInstance->gcUnbanUserById($api_token, $channel_url, $banned_user_id);
+    $result = $apiInstance->gcUnbanUserById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->gcUnbanUserById: ', $e->getMessage(), PHP_EOL;
@@ -493,6 +507,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -540,12 +556,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$muted_user_id = 'muted_user_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['muted_user_id'] = 'muted_user_id_example'; // string
 
 try {
-    $result = $apiInstance->gcUnmuteUserById($api_token, $channel_url, $muted_user_id);
+    $result = $apiInstance->gcUnmuteUserById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->gcUnmuteUserById: ', $e->getMessage(), PHP_EOL;
@@ -553,6 +569,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -600,13 +618,13 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
-$gc_update_ban_by_id_data = new \Sendbird\Model\GcUpdateBanByIdData(); // \Sendbird\Model\GcUpdateBanByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['banned_user_id'] = 'banned_user_id_example'; // string
+$associate_array['gc_update_ban_by_id_data'] = new \Sendbird\Model\GcUpdateBanByIdData(); // \Sendbird\Model\GcUpdateBanByIdData
 
 try {
-    $result = $apiInstance->gcUpdateBanById($api_token, $channel_url, $banned_user_id, $gc_update_ban_by_id_data);
+    $result = $apiInstance->gcUpdateBanById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->gcUpdateBanById: ', $e->getMessage(), PHP_EOL;
@@ -614,6 +632,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -662,12 +682,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['banned_user_id'] = 'banned_user_id_example'; // string
 
 try {
-    $result = $apiInstance->gcViewBanById($api_token, $channel_url, $banned_user_id);
+    $result = $apiInstance->gcViewBanById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->gcViewBanById: ', $e->getMessage(), PHP_EOL;
@@ -675,6 +695,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -722,12 +744,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$muted_user_id = 'muted_user_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['muted_user_id'] = 'muted_user_id_example'; // string
 
 try {
-    $result = $apiInstance->gcViewMuteById($api_token, $channel_url, $muted_user_id);
+    $result = $apiInstance->gcViewMuteById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->gcViewMuteById: ', $e->getMessage(), PHP_EOL;
@@ -735,6 +757,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -782,13 +806,13 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listBannedChannels($api_token, $user_id, $token, $limit);
+    $result = $apiInstance->listBannedChannels($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->listBannedChannels: ', $e->getMessage(), PHP_EOL;
@@ -796,6 +820,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -844,16 +870,16 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
-$user_ids = 'user_ids_example'; // string
-$metadatakey = 'metadatakey_example'; // string
-$metadatavalues_in = 'metadatavalues_in_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
+$associate_array['user_ids'] = 'user_ids_example'; // string
+$associate_array['metadatakey'] = 'metadatakey_example'; // string
+$associate_array['metadatavalues_in'] = 'metadatavalues_in_example'; // string
 
 try {
-    $result = $apiInstance->listBlockedUsers($api_token, $user_id, $token, $limit, $user_ids, $metadatakey, $metadatavalues_in);
+    $result = $apiInstance->listBlockedUsers($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->listBlockedUsers: ', $e->getMessage(), PHP_EOL;
@@ -861,6 +887,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -912,13 +940,13 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listMutedChannels($api_token, $user_id, $token, $limit);
+    $result = $apiInstance->listMutedChannels($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->listMutedChannels: ', $e->getMessage(), PHP_EOL;
@@ -926,6 +954,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -974,12 +1004,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$mute_in_channels_with_custom_channel_types_data = new \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData(); // \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['mute_in_channels_with_custom_channel_types_data'] = new \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData(); // \Sendbird\Model\MuteInChannelsWithCustomChannelTypesData
 
 try {
-    $result = $apiInstance->muteInChannelsWithCustomChannelTypes($api_token, $user_id, $mute_in_channels_with_custom_channel_types_data);
+    $result = $apiInstance->muteInChannelsWithCustomChannelTypes($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->muteInChannelsWithCustomChannelTypes: ', $e->getMessage(), PHP_EOL;
@@ -987,6 +1017,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1034,12 +1066,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$oc_ban_user_data = new \Sendbird\Model\OcBanUserData(); // \Sendbird\Model\OcBanUserData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['oc_ban_user_data'] = new \Sendbird\Model\OcBanUserData(); // \Sendbird\Model\OcBanUserData
 
 try {
-    $result = $apiInstance->ocBanUser($api_token, $channel_url, $oc_ban_user_data);
+    $result = $apiInstance->ocBanUser($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->ocBanUser: ', $e->getMessage(), PHP_EOL;
@@ -1047,6 +1079,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1094,12 +1128,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$oc_freeze_channel_data = new \Sendbird\Model\OcFreezeChannelData(); // \Sendbird\Model\OcFreezeChannelData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['oc_freeze_channel_data'] = new \Sendbird\Model\OcFreezeChannelData(); // \Sendbird\Model\OcFreezeChannelData
 
 try {
-    $result = $apiInstance->ocFreezeChannel($api_token, $channel_url, $oc_freeze_channel_data);
+    $result = $apiInstance->ocFreezeChannel($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->ocFreezeChannel: ', $e->getMessage(), PHP_EOL;
@@ -1107,6 +1141,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1154,13 +1190,13 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->ocListBannedUsers($api_token, $channel_url, $token, $limit);
+    $result = $apiInstance->ocListBannedUsers($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->ocListBannedUsers: ', $e->getMessage(), PHP_EOL;
@@ -1168,6 +1204,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1216,13 +1254,13 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->ocListMutedUsers($api_token, $channel_url, $token, $limit);
+    $result = $apiInstance->ocListMutedUsers($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->ocListMutedUsers: ', $e->getMessage(), PHP_EOL;
@@ -1230,6 +1268,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1278,12 +1318,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$oc_mute_user_data = new \Sendbird\Model\OcMuteUserData(); // \Sendbird\Model\OcMuteUserData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['oc_mute_user_data'] = new \Sendbird\Model\OcMuteUserData(); // \Sendbird\Model\OcMuteUserData
 
 try {
-    $result = $apiInstance->ocMuteUser($api_token, $channel_url, $oc_mute_user_data);
+    $result = $apiInstance->ocMuteUser($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->ocMuteUser: ', $e->getMessage(), PHP_EOL;
@@ -1291,6 +1331,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1338,12 +1380,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['banned_user_id'] = 'banned_user_id_example'; // string
 
 try {
-    $result = $apiInstance->ocUnbanUserById($api_token, $channel_url, $banned_user_id);
+    $result = $apiInstance->ocUnbanUserById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->ocUnbanUserById: ', $e->getMessage(), PHP_EOL;
@@ -1351,6 +1393,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1398,12 +1442,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$muted_user_id = 'muted_user_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['muted_user_id'] = 'muted_user_id_example'; // string
 
 try {
-    $result = $apiInstance->ocUnmuteUserById($api_token, $channel_url, $muted_user_id);
+    $result = $apiInstance->ocUnmuteUserById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->ocUnmuteUserById: ', $e->getMessage(), PHP_EOL;
@@ -1411,6 +1455,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1458,13 +1504,13 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
-$oc_update_ban_by_id_data = new \Sendbird\Model\OcUpdateBanByIdData(); // \Sendbird\Model\OcUpdateBanByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['banned_user_id'] = 'banned_user_id_example'; // string
+$associate_array['oc_update_ban_by_id_data'] = new \Sendbird\Model\OcUpdateBanByIdData(); // \Sendbird\Model\OcUpdateBanByIdData
 
 try {
-    $result = $apiInstance->ocUpdateBanById($api_token, $channel_url, $banned_user_id, $oc_update_ban_by_id_data);
+    $result = $apiInstance->ocUpdateBanById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->ocUpdateBanById: ', $e->getMessage(), PHP_EOL;
@@ -1472,6 +1518,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1520,12 +1568,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$banned_user_id = 'banned_user_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['banned_user_id'] = 'banned_user_id_example'; // string
 
 try {
-    $result = $apiInstance->ocViewBanById($api_token, $channel_url, $banned_user_id);
+    $result = $apiInstance->ocViewBanById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->ocViewBanById: ', $e->getMessage(), PHP_EOL;
@@ -1533,6 +1581,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1580,12 +1630,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$channel_url = 'channel_url_example'; // string
-$muted_user_id = 'muted_user_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['muted_user_id'] = 'muted_user_id_example'; // string
 
 try {
-    $result = $apiInstance->ocViewMuteById($api_token, $channel_url, $muted_user_id);
+    $result = $apiInstance->ocViewMuteById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->ocViewMuteById: ', $e->getMessage(), PHP_EOL;
@@ -1593,6 +1643,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1640,12 +1692,12 @@ $apiInstance = new Sendbird\Api\ModerationApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$user_id = 'user_id_example'; // string
-$target_id = 'target_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['user_id'] = 'user_id_example'; // string
+$associate_array['target_id'] = 'target_id_example'; // string
 
 try {
-    $result = $apiInstance->unblockUserById($api_token, $user_id, $target_id);
+    $result = $apiInstance->unblockUserById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ModerationApi->unblockUserById: ', $e->getMessage(), PHP_EOL;
@@ -1653,6 +1705,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------

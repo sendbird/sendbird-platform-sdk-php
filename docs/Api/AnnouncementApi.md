@@ -37,11 +37,11 @@ $apiInstance = new Sendbird\Api\AnnouncementApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$announcement_group = 'announcement_group_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['announcement_group'] = 'announcement_group_example'; // string
 
 try {
-    $result = $apiInstance->getDetailedOpenRateOfAnnouncementGroup($api_token, $announcement_group);
+    $result = $apiInstance->getDetailedOpenRateOfAnnouncementGroup($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementApi->getDetailedOpenRateOfAnnouncementGroup: ', $e->getMessage(), PHP_EOL;
@@ -49,6 +49,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -95,10 +97,10 @@ $apiInstance = new Sendbird\Api\AnnouncementApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->getStatistics($api_token);
+    $result = $apiInstance->getStatistics($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementApi->getStatistics: ', $e->getMessage(), PHP_EOL;
@@ -106,6 +108,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -151,17 +155,17 @@ $apiInstance = new Sendbird\Api\AnnouncementApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$start_date = 'start_date_example'; // string
-$end_date = 'end_date_example'; // string
-$start_week = 'start_week_example'; // string
-$end_week = 'end_week_example'; // string
-$start_month = 'start_month_example'; // string
-$end_month = 'end_month_example'; // string
-$announcement_group = 'announcement_group_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['start_date'] = 'start_date_example'; // string
+$associate_array['end_date'] = 'end_date_example'; // string
+$associate_array['start_week'] = 'start_week_example'; // string
+$associate_array['end_week'] = 'end_week_example'; // string
+$associate_array['start_month'] = 'start_month_example'; // string
+$associate_array['end_month'] = 'end_month_example'; // string
+$associate_array['announcement_group'] = 'announcement_group_example'; // string
 
 try {
-    $result = $apiInstance->getStatisticsDaily($api_token, $start_date, $end_date, $start_week, $end_week, $start_month, $end_month, $announcement_group);
+    $result = $apiInstance->getStatisticsDaily($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementApi->getStatisticsDaily: ', $e->getMessage(), PHP_EOL;
@@ -169,6 +173,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -221,10 +227,10 @@ $apiInstance = new Sendbird\Api\AnnouncementApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->getStatisticsMonthly($api_token);
+    $result = $apiInstance->getStatisticsMonthly($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementApi->getStatisticsMonthly: ', $e->getMessage(), PHP_EOL;
@@ -232,6 +238,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -277,12 +285,12 @@ $apiInstance = new Sendbird\Api\AnnouncementApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$token = 'token_example'; // string
-$limit = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['token'] = 'token_example'; // string
+$associate_array['limit'] = 56; // int
 
 try {
-    $result = $apiInstance->listAnnouncementGroups($api_token, $token, $limit);
+    $result = $apiInstance->listAnnouncementGroups($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementApi->listAnnouncementGroups: ', $e->getMessage(), PHP_EOL;
@@ -290,6 +298,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -337,11 +347,11 @@ $apiInstance = new Sendbird\Api\AnnouncementApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$schedule_announcement_data = new \Sendbird\Model\ScheduleAnnouncementData(); // \Sendbird\Model\ScheduleAnnouncementData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['schedule_announcement_data'] = new \Sendbird\Model\ScheduleAnnouncementData(); // \Sendbird\Model\ScheduleAnnouncementData
 
 try {
-    $result = $apiInstance->scheduleAnnouncement($api_token, $schedule_announcement_data);
+    $result = $apiInstance->scheduleAnnouncement($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementApi->scheduleAnnouncement: ', $e->getMessage(), PHP_EOL;
@@ -349,6 +359,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -395,12 +407,12 @@ $apiInstance = new Sendbird\Api\AnnouncementApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$unique_id = 'unique_id_example'; // string
-$update_announcement_by_id_data = new \Sendbird\Model\UpdateAnnouncementByIdData(); // \Sendbird\Model\UpdateAnnouncementByIdData
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['unique_id'] = 'unique_id_example'; // string
+$associate_array['update_announcement_by_id_data'] = new \Sendbird\Model\UpdateAnnouncementByIdData(); // \Sendbird\Model\UpdateAnnouncementByIdData
 
 try {
-    $result = $apiInstance->updateAnnouncementById($api_token, $unique_id, $update_announcement_by_id_data);
+    $result = $apiInstance->updateAnnouncementById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementApi->updateAnnouncementById: ', $e->getMessage(), PHP_EOL;
@@ -408,6 +420,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -455,11 +469,11 @@ $apiInstance = new Sendbird\Api\AnnouncementApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$api_token = {{API_TOKEN}}; // string
-$unique_id = 'unique_id_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['unique_id'] = 'unique_id_example'; // string
 
 try {
-    $result = $apiInstance->viewAnnouncementById($api_token, $unique_id);
+    $result = $apiInstance->viewAnnouncementById($associate_array);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnnouncementApi->viewAnnouncementById: ', $e->getMessage(), PHP_EOL;
@@ -467,6 +481,8 @@ try {
 ```
 
 ### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
