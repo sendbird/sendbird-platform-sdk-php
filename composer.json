@@ -2,20 +2,21 @@
     "name": "sendbird/sendbird-platform-sdk-php",
     "description": "Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api",
     "keywords": [
-        "openapitools",
-        "openapi-generator",
-        "openapi",
+        "chat",
+        "sendbird",
+        "realtime",
         "php",
         "sdk",
         "rest",
         "api"
     ],
-    "homepage": "https://openapi-generator.tech",
-    "license": "unlicense",
+    "type": "library",
+    "homepage": "https://github.com/sendbird/sendbird-platform-sdk-php",
+    "license": "MIT",
     "authors": [
         {
-            "name": "OpenAPI-Generator contributors",
-            "homepage": "https://openapi-generator.tech"
+            "name": "Sendbird",
+            "homepage": "https://www.sendbird.com/docs/"
         }
     ],
     "require": {
