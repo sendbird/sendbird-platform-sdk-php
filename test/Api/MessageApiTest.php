@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -73,192 +73,48 @@ class MessageApiTest extends TestCase
     }
 
     /**
-     * Test case for addEmojiCategories
-     *
-     * Add emoji categories.
-     *
-     */
-    public function testAddEmojiCategories()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for addEmojis
-     *
-     * Add emojis.
-     *
-     */
-    public function testAddEmojis()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for addExtraDataToMessage
+     * Test case for addExtraDataToAMessage
      *
      * Add extra data to a message.
      *
      */
-    public function testAddExtraDataToMessage()
+    public function testAddExtraDataToAMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for addReactionToAMessage
-     *
-     * Add a reaction to a message.
-     *
-     */
-    public function testAddReactionToAMessage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteEmojiByKey
-     *
-     * Delete an emoji.
-     *
-     */
-    public function testDeleteEmojiByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteEmojiCategoryById
-     *
-     * Delete an emoji category.
-     *
-     */
-    public function testDeleteEmojiCategoryById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteMessageById
+     * Test case for deleteAMessage
      *
      * Delete a message.
      *
      */
-    public function testDeleteMessageById()
+    public function testDeleteAMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for enableReactions
+     * Test case for getAMessage
      *
-     * Enable reactions.
+     * Get a message.
      *
      */
-    public function testEnableReactions()
+    public function testGetAMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcMarkAllMessagesAsDelivered
+     * Test case for getTotalNumberOfMessagesInAChannel
      *
-     * Mark all messages as delivered.
-     *
-     */
-    public function testGcMarkAllMessagesAsDelivered()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for gcMarkAllMessagesAsRead
-     *
-     * Mark all messages as read.
+     * Get total number of messages in a channel.
      *
      */
-    public function testGcMarkAllMessagesAsRead()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for gcViewNumberOfEachMembersUnreadMessages
-     *
-     * View number of each member's unread messages.
-     *
-     */
-    public function testGcViewNumberOfEachMembersUnreadMessages()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getEmojiByKey
-     *
-     * Get an emoji.
-     *
-     */
-    public function testGetEmojiByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getEmojiCategoryById
-     *
-     * Get an emoji category.
-     *
-     */
-    public function testGetEmojiCategoryById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for listAllEmojisAndEmojiCategories
-     *
-     * List all emojis and emoji categories.
-     *
-     */
-    public function testListAllEmojisAndEmojiCategories()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for listAnnouncements
-     *
-     * List announcements.
-     *
-     */
-    public function testListAnnouncements()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for listEmojis
-     *
-     * List emojis.
-     *
-     */
-    public function testListEmojis()
+    public function testGetTotalNumberOfMessagesInAChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -277,156 +133,72 @@ class MessageApiTest extends TestCase
     }
 
     /**
-     * Test case for listReactionsOfMessage
+     * Test case for markChannelMessagesAsRead
      *
-     * List reactions of a message.
+     * Mark all messages as read.
      *
      */
-    public function testListReactionsOfMessage()
+    public function testMarkChannelMessagesAsRead()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for migrateMessagesByUrl
+     * Test case for migrateMessages
      *
      * Migrate messages.
      *
      */
-    public function testMigrateMessagesByUrl()
+    public function testMigrateMessages()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for removeExtraDataFromMessage
+     * Test case for removeExtraDataFromAMessage
      *
      * Remove extra data from a message.
      *
      */
-    public function testRemoveExtraDataFromMessage()
+    public function testRemoveExtraDataFromAMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for removeReactionFromAMessage
-     *
-     * Remove a reaction from a message.
-     *
-     */
-    public function testRemoveReactionFromAMessage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for sendMessage
+     * Test case for sendAMessage
      *
      * Send a message.
      *
      */
-    public function testSendMessage()
+    public function testSendAMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for translateMessageIntoOtherLanguages
-     *
-     * Translate a message into other languages.
-     *
-     */
-    public function testTranslateMessageIntoOtherLanguages()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateEmojiCategoryUrlById
-     *
-     * Update an emoji category URL.
-     *
-     */
-    public function testUpdateEmojiCategoryUrlById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateEmojiUrlByKey
-     *
-     * Update an emoji URL.
-     *
-     */
-    public function testUpdateEmojiUrlByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateExtraDataInMessage
-     *
-     * Update extra data in a message.
-     *
-     */
-    public function testUpdateExtraDataInMessage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateMessageById
+     * Test case for updateAMessage
      *
      * Update a message.
      *
      */
-    public function testUpdateMessageById()
+    public function testUpdateAMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for useDefaultEmojis
+     * Test case for updateExtraDataInAMessage
      *
-     * Use default emojis.
-     *
-     */
-    public function testUseDefaultEmojis()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewMessageById
-     *
-     * View a message.
+     * Update extra data in a message.
      *
      */
-    public function testViewMessageById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewTotalNumberOfMessagesInChannel
-     *
-     * View total number of messages in a channel.
-     *
-     */
-    public function testViewTotalNumberOfMessagesInChannel()
+    public function testUpdateExtraDataInAMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

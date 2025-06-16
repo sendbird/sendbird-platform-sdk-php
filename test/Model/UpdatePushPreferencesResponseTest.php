@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -90,33 +90,6 @@ class UpdatePushPreferencesResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "enable_push_for_replies"
-     */
-    public function testPropertyEnablePushForReplies()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "push_blocked_bot_ids"
-     */
-    public function testPropertyPushBlockedBotIds()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "push_trigger_option"
-     */
-    public function testPropertyPushTriggerOption()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "do_not_disturb"
      */
     public function testPropertyDoNotDisturb()
@@ -126,18 +99,9 @@ class UpdatePushPreferencesResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "start_hour"
+     * Test attribute "enable_push_for_replies"
      */
-    public function testPropertyStartHour()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "start_min"
-     */
-    public function testPropertyStartMin()
+    public function testPropertyEnablePushForReplies()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -162,18 +126,36 @@ class UpdatePushPreferencesResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "snooze_enabled"
+     * Test attribute "push_blocked_bot_ids"
      */
-    public function testPropertySnoozeEnabled()
+    public function testPropertyPushBlockedBotIds()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "snooze_start_ts"
+     * Test attribute "push_sound"
      */
-    public function testPropertySnoozeStartTs()
+    public function testPropertyPushSound()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "push_trigger_option"
+     */
+    public function testPropertyPushTriggerOption()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "snooze_enabled"
+     */
+    public function testPropertySnoozeEnabled()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -189,18 +171,36 @@ class UpdatePushPreferencesResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "timezone"
+     * Test attribute "snooze_start_ts"
      */
-    public function testPropertyTimezone()
+    public function testPropertySnoozeStartTs()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "push_sound"
+     * Test attribute "start_hour"
      */
-    public function testPropertyPushSound()
+    public function testPropertyStartHour()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "start_min"
+     */
+    public function testPropertyStartMin()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "timezone"
+     */
+    public function testPropertyTimezone()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

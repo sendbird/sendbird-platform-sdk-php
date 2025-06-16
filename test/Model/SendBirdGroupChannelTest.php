@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdGroupChannelTest
+ * SendbirdGroupChannelTest
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -32,15 +32,15 @@ namespace Sendbird\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SendBirdGroupChannelTest Class Doc Comment
+ * SendbirdGroupChannelTest Class Doc Comment
  *
  * @category    Class
- * @description SendBirdGroupChannel
+ * @description SendbirdGroupChannel
  * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SendBirdGroupChannelTest extends TestCase
+class SendbirdGroupChannelTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class SendBirdGroupChannelTest extends TestCase
     }
 
     /**
-     * Test "SendBirdGroupChannel"
+     * Test "SendbirdGroupChannel"
      */
-    public function testSendBirdGroupChannel()
+    public function testSendbirdGroupChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -84,6 +84,15 @@ class SendBirdGroupChannelTest extends TestCase
      * Test attribute "channel_url"
      */
     public function testPropertyChannelUrl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "count_preference"
+     */
+    public function testPropertyCountPreference()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -117,15 +126,6 @@ class SendBirdGroupChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "creator"
-     */
-    public function testPropertyCreator()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "custom_type"
      */
     public function testPropertyCustomType()
@@ -138,6 +138,15 @@ class SendBirdGroupChannelTest extends TestCase
      * Test attribute "data"
      */
     public function testPropertyData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "delivery_receipt"
+     */
+    public function testPropertyDeliveryReceipt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -162,9 +171,18 @@ class SendBirdGroupChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "ignore_profanity_filter"
+     * Test attribute "has_ai_bot"
      */
-    public function testPropertyIgnoreProfanityFilter()
+    public function testPropertyHasAiBot()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "has_bot"
+     */
+    public function testPropertyHasBot()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -174,6 +192,15 @@ class SendBirdGroupChannelTest extends TestCase
      * Test attribute "hidden_state"
      */
     public function testPropertyHiddenState()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ignore_profanity_filter"
+     */
+    public function testPropertyIgnoreProfanityFilter()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -216,15 +243,6 @@ class SendBirdGroupChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "is_created"
-     */
-    public function testPropertyIsCreated()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "is_discoverable"
      */
     public function testPropertyIsDiscoverable()
@@ -252,9 +270,9 @@ class SendBirdGroupChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "is_frozen"
+     * Test attribute "is_exclusive"
      */
-    public function testPropertyIsFrozen()
+    public function testPropertyIsExclusive()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -264,6 +282,15 @@ class SendBirdGroupChannelTest extends TestCase
      * Test attribute "is_hidden"
      */
     public function testPropertyIsHidden()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_muted"
+     */
+    public function testPropertyIsMuted()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -297,18 +324,18 @@ class SendBirdGroupChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "joined_at"
+     * Test attribute "joined_member_count"
      */
-    public function testPropertyJoinedAt()
+    public function testPropertyJoinedMemberCount()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "joined_member_count"
+     * Test attribute "joined_ts"
      */
-    public function testPropertyJoinedMemberCount()
+    public function testPropertyJoinedTs()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -342,18 +369,18 @@ class SendBirdGroupChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "members"
+     * Test attribute "member_state"
      */
-    public function testPropertyMembers()
+    public function testPropertyMemberState()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "message_offset_timestamp"
+     * Test attribute "members"
      */
-    public function testPropertyMessageOffsetTimestamp()
+    public function testPropertyMembers()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -369,45 +396,9 @@ class SendBirdGroupChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "my_count_preference"
+     * Test attribute "metadata"
      */
-    public function testPropertyMyCountPreference()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "my_last_read"
-     */
-    public function testPropertyMyLastRead()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "my_member_state"
-     */
-    public function testPropertyMyMemberState()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "my_muted_state"
-     */
-    public function testPropertyMyMutedState()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "my_push_trigger_option"
-     */
-    public function testPropertyMyPushTriggerOption()
+    public function testPropertyMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -432,9 +423,18 @@ class SendBirdGroupChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "operators"
+     * Test attribute "push_trigger_option"
      */
-    public function testPropertyOperators()
+    public function testPropertyPushTriggerOption()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "read_receipt"
+     */
+    public function testPropertyReadReceipt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -444,6 +444,15 @@ class SendBirdGroupChannelTest extends TestCase
      * Test attribute "sms_fallback"
      */
     public function testPropertySmsFallback()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ts_message_offset"
+     */
+    public function testPropertyTsMessageOffset()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -468,9 +477,9 @@ class SendBirdGroupChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "channel"
+     * Test attribute "user_last_read"
      */
-    public function testPropertyChannel()
+    public function testPropertyUserLastRead()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

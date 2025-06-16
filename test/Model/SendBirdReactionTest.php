@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdReactionTest
+ * SendbirdReactionTest
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -32,15 +32,15 @@ namespace Sendbird\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SendBirdReactionTest Class Doc Comment
+ * SendbirdReactionTest Class Doc Comment
  *
  * @category    Class
- * @description SendBirdReaction
+ * @description SendbirdReaction
  * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SendBirdReactionTest extends TestCase
+class SendbirdReactionTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class SendBirdReactionTest extends TestCase
     }
 
     /**
-     * Test "SendBirdReaction"
+     * Test "SendbirdReaction"
      */
-    public function testSendBirdReaction()
+    public function testSendbirdReaction()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

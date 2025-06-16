@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdMemberTest
+ * SendbirdMemberTest
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -32,15 +32,15 @@ namespace Sendbird\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SendBirdMemberTest Class Doc Comment
+ * SendbirdMemberTest Class Doc Comment
  *
  * @category    Class
- * @description SendBirdMember
+ * @description SendbirdMember
  * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SendBirdMemberTest extends TestCase
+class SendbirdMemberTest extends TestCase
 {
 
     /**
@@ -72,18 +72,27 @@ class SendBirdMemberTest extends TestCase
     }
 
     /**
-     * Test "SendBirdMember"
+     * Test "SendbirdMember"
      */
-    public function testSendBirdMember()
+    public function testSendbirdMember()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "connection_status"
+     * Test attribute "delivered_ts"
      */
-    public function testPropertyConnectionStatus()
+    public function testPropertyDeliveredTs()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "do_not_disturb"
+     */
+    public function testPropertyDoNotDisturb()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -117,81 +126,27 @@ class SendBirdMemberTest extends TestCase
     }
 
     /**
+     * Test attribute "is_blocked_by_me"
+     */
+    public function testPropertyIsBlockedByMe()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_blocking_me"
+     */
+    public function testPropertyIsBlockingMe()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "is_muted"
      */
     public function testPropertyIsMuted()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "last_seen_at"
-     */
-    public function testPropertyLastSeenAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "nickname"
-     */
-    public function testPropertyNickname()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "plain_profile_url"
-     */
-    public function testPropertyPlainProfileUrl()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "preferred_languages"
-     */
-    public function testPropertyPreferredLanguages()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "profile_url"
-     */
-    public function testPropertyProfileUrl()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "require_auth"
-     */
-    public function testPropertyRequireAuth()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "require_auth_for_profile_image"
-     */
-    public function testPropertyRequireAuthForProfileImage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "metadata"
-     */
-    public function testPropertyMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -207,9 +162,18 @@ class SendBirdMemberTest extends TestCase
     }
 
     /**
-     * Test attribute "muted_end_at"
+     * Test attribute "last_seen_at"
      */
-    public function testPropertyMutedEndAt()
+    public function testPropertyLastSeenAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "metadata"
+     */
+    public function testPropertyMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -225,9 +189,63 @@ class SendBirdMemberTest extends TestCase
     }
 
     /**
-     * Test attribute "restriction_info"
+     * Test attribute "muted_end_at"
      */
-    public function testPropertyRestrictionInfo()
+    public function testPropertyMutedEndAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "nickname"
+     */
+    public function testPropertyNickname()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "push_enabled"
+     */
+    public function testPropertyPushEnabled()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "push_trigger_option"
+     */
+    public function testPropertyPushTriggerOption()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "profile_url"
+     */
+    public function testPropertyProfileUrl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "require_auth_for_profile_image"
+     */
+    public function testPropertyRequireAuthForProfileImage()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "read_ts"
+     */
+    public function testPropertyReadTs()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

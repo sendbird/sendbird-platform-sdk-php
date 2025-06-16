@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -117,44 +117,44 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcAcceptInvitation
+     * Operation acceptAnInvitation
      *
      * Accept an invitation
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcAcceptInvitationData $gc_accept_invitation_data gc_accept_invitation_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\AcceptAnInvitationRequest $accept_an_invitation_request accept_an_invitation_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\SendbirdGroupChannelDetail
      */
-    public function gcAcceptInvitation($associative_array)
+    public function acceptAnInvitation($associative_array)
     {
-        list($response) = $this->gcAcceptInvitationWithHttpInfo($associative_array);
+        list($response) = $this->acceptAnInvitationWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcAcceptInvitationWithHttpInfo
+     * Operation acceptAnInvitationWithHttpInfo
      *
      * Accept an invitation
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\AcceptAnInvitationRequest $accept_an_invitation_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendbirdGroupChannelDetail, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcAcceptInvitationWithHttpInfo($associative_array)
+    public function acceptAnInvitationWithHttpInfo($associative_array)
     {
-        $request = $this->gcAcceptInvitationRequest($associative_array);
+        $request = $this->acceptAnInvitationRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -193,23 +193,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendbirdGroupChannelDetail' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdGroupChannel' !== 'string') {
+                        if ('\Sendbird\Model\SendbirdGroupChannelDetail' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdGroupChannelDetail', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\SendbirdGroupChannelDetail';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -230,7 +230,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\SendbirdGroupChannelDetail',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -241,22 +241,22 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcAcceptInvitationAsync
+     * Operation acceptAnInvitationAsync
      *
      * Accept an invitation
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\AcceptAnInvitationRequest $accept_an_invitation_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcAcceptInvitationAsync($associative_array)
+    public function acceptAnInvitationAsync($associative_array)
     {
-        return $this->gcAcceptInvitationAsyncWithHttpInfo($associative_array)
+        return $this->acceptAnInvitationAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -265,23 +265,23 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcAcceptInvitationAsyncWithHttpInfo
+     * Operation acceptAnInvitationAsyncWithHttpInfo
      *
      * Accept an invitation
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\AcceptAnInvitationRequest $accept_an_invitation_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcAcceptInvitationAsyncWithHttpInfo($associative_array)
+    public function acceptAnInvitationAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-        $request = $this->gcAcceptInvitationRequest($associative_array);
+        $returnType = '\Sendbird\Model\SendbirdGroupChannelDetail';
+        $request = $this->acceptAnInvitationRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -320,34 +320,28 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcAcceptInvitation'
+     * Create request for operation 'acceptAnInvitation'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcAcceptInvitationData $gc_accept_invitation_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\AcceptAnInvitationRequest $accept_an_invitation_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcAcceptInvitationRequest($associative_array)
+    public function acceptAnInvitationRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $gc_accept_invitation_data = array_key_exists('gc_accept_invitation_data', $associative_array) ? $associative_array['gc_accept_invitation_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $accept_an_invitation_request = array_key_exists('accept_an_invitation_request', $associative_array) ? $associative_array['accept_an_invitation_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcAcceptInvitation'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcAcceptInvitation'
+                'Missing the required parameter $channel_url when calling acceptAnInvitation'
             );
         }
 
@@ -361,7 +355,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -386,11 +380,11 @@ class GroupChannelApi
         }
 
         // for model (json/xml)
-        if (isset($gc_accept_invitation_data)) {
+        if (isset($accept_an_invitation_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_accept_invitation_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($accept_an_invitation_request));
             } else {
-                $httpBody = $gc_accept_invitation_data;
+                $httpBody = $accept_an_invitation_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -438,46 +432,46 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcCancelTheRegistrationOfOperators
+     * Operation cancelTheRegistrationOfOperators
      *
      * Cancel the registration of operators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string[] $operator_ids operator_ids (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $operator_ids Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. (required)
      * @param  bool $delete_all delete_all (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
+     * @return object
      */
-    public function gcCancelTheRegistrationOfOperators($associative_array)
+    public function cancelTheRegistrationOfOperators($associative_array)
     {
-        list($response) = $this->gcCancelTheRegistrationOfOperatorsWithHttpInfo($associative_array);
+        list($response) = $this->cancelTheRegistrationOfOperatorsWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcCancelTheRegistrationOfOperatorsWithHttpInfo
+     * Operation cancelTheRegistrationOfOperatorsWithHttpInfo
      *
      * Cancel the registration of operators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string[] $operator_ids (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $operator_ids Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. (required)
      * @param  bool $delete_all (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcCancelTheRegistrationOfOperatorsWithHttpInfo($associative_array)
+    public function cancelTheRegistrationOfOperatorsWithHttpInfo($associative_array)
     {
-        $request = $this->gcCancelTheRegistrationOfOperatorsRequest($associative_array);
+        $request = $this->cancelTheRegistrationOfOperatorsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -516,23 +510,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' !== 'string') {
+                        if ('object' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcDeleteChannelByUrl200Response', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -553,7 +547,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\OcDeleteChannelByUrl200Response',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -564,23 +558,23 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcCancelTheRegistrationOfOperatorsAsync
+     * Operation cancelTheRegistrationOfOperatorsAsync
      *
      * Cancel the registration of operators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string[] $operator_ids (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $operator_ids Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. (required)
      * @param  bool $delete_all (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcCancelTheRegistrationOfOperatorsAsync($associative_array)
+    public function cancelTheRegistrationOfOperatorsAsync($associative_array)
     {
-        return $this->gcCancelTheRegistrationOfOperatorsAsyncWithHttpInfo($associative_array)
+        return $this->cancelTheRegistrationOfOperatorsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -589,24 +583,24 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcCancelTheRegistrationOfOperatorsAsyncWithHttpInfo
+     * Operation cancelTheRegistrationOfOperatorsAsyncWithHttpInfo
      *
      * Cancel the registration of operators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string[] $operator_ids (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $operator_ids Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. (required)
      * @param  bool $delete_all (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcCancelTheRegistrationOfOperatorsAsyncWithHttpInfo($associative_array)
+    public function cancelTheRegistrationOfOperatorsAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->gcCancelTheRegistrationOfOperatorsRequest($associative_array);
+        $returnType = 'object';
+        $request = $this->cancelTheRegistrationOfOperatorsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -645,42 +639,36 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcCancelTheRegistrationOfOperators'
+     * Create request for operation 'cancelTheRegistrationOfOperators'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string[] $operator_ids (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $operator_ids Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. (required)
      * @param  bool $delete_all (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcCancelTheRegistrationOfOperatorsRequest($associative_array)
+    public function cancelTheRegistrationOfOperatorsRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
         $operator_ids = array_key_exists('operator_ids', $associative_array) ? $associative_array['operator_ids'] : null;
         $delete_all = array_key_exists('delete_all', $associative_array) ? $associative_array['delete_all'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcCancelTheRegistrationOfOperators'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcCancelTheRegistrationOfOperators'
+                'Missing the required parameter $channel_url when calling cancelTheRegistrationOfOperators'
             );
         }
         // verify the required parameter 'operator_ids' is set
         if ($operator_ids === null || (is_array($operator_ids) && count($operator_ids) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $operator_ids when calling gcCancelTheRegistrationOfOperators'
+                'Missing the required parameter $operator_ids when calling cancelTheRegistrationOfOperators'
             );
         }
 
@@ -695,7 +683,7 @@ class GroupChannelApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $operator_ids,
             'operator_ids', // param base name
-            'array', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             true // required
@@ -712,7 +700,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -783,44 +771,44 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcCheckIfMemberById
+     * Operation checkIfMember
      *
      * Check if member
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $user_id user_id (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcCheckIfMemberByIdResponse
+     * @return \Sendbird\Model\CheckIfMemberResponse
      */
-    public function gcCheckIfMemberById($associative_array)
+    public function checkIfMember($associative_array)
     {
-        list($response) = $this->gcCheckIfMemberByIdWithHttpInfo($associative_array);
+        list($response) = $this->checkIfMemberWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcCheckIfMemberByIdWithHttpInfo
+     * Operation checkIfMemberWithHttpInfo
      *
      * Check if member
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $user_id (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcCheckIfMemberByIdResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\CheckIfMemberResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcCheckIfMemberByIdWithHttpInfo($associative_array)
+    public function checkIfMemberWithHttpInfo($associative_array)
     {
-        $request = $this->gcCheckIfMemberByIdRequest($associative_array);
+        $request = $this->checkIfMemberRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -859,23 +847,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\GcCheckIfMemberByIdResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\CheckIfMemberResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\GcCheckIfMemberByIdResponse' !== 'string') {
+                        if ('\Sendbird\Model\CheckIfMemberResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcCheckIfMemberByIdResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CheckIfMemberResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\GcCheckIfMemberByIdResponse';
+            $returnType = '\Sendbird\Model\CheckIfMemberResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -896,7 +884,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\GcCheckIfMemberByIdResponse',
+                        '\Sendbird\Model\CheckIfMemberResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -907,22 +895,22 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcCheckIfMemberByIdAsync
+     * Operation checkIfMemberAsync
      *
      * Check if member
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $user_id (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcCheckIfMemberByIdAsync($associative_array)
+    public function checkIfMemberAsync($associative_array)
     {
-        return $this->gcCheckIfMemberByIdAsyncWithHttpInfo($associative_array)
+        return $this->checkIfMemberAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -931,23 +919,23 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcCheckIfMemberByIdAsyncWithHttpInfo
+     * Operation checkIfMemberAsyncWithHttpInfo
      *
      * Check if member
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $user_id (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcCheckIfMemberByIdAsyncWithHttpInfo($associative_array)
+    public function checkIfMemberAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\GcCheckIfMemberByIdResponse';
-        $request = $this->gcCheckIfMemberByIdRequest($associative_array);
+        $returnType = '\Sendbird\Model\CheckIfMemberResponse';
+        $request = $this->checkIfMemberRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -986,40 +974,34 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcCheckIfMemberById'
+     * Create request for operation 'checkIfMember'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $user_id (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcCheckIfMemberByIdRequest($associative_array)
+    public function checkIfMemberRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcCheckIfMemberById'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcCheckIfMemberById'
+                'Missing the required parameter $channel_url when calling checkIfMember'
             );
         }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling gcCheckIfMemberById'
+                'Missing the required parameter $user_id when calling checkIfMember'
             );
         }
 
@@ -1033,7 +1015,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -1112,42 +1094,42 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcCreateChannel
+     * Operation createAGroupChannel
      *
-     * Create a channel
+     * Create a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  \Sendbird\Model\GcCreateChannelData $gc_create_channel_data gc_create_channel_data (optional)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\CreateAGroupChannelRequest $create_a_group_channel_request create_a_group_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\SendbirdGroupChannelDetail
      */
-    public function gcCreateChannel($associative_array)
+    public function createAGroupChannel($associative_array)
     {
-        list($response) = $this->gcCreateChannelWithHttpInfo($associative_array);
+        list($response) = $this->createAGroupChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcCreateChannelWithHttpInfo
+     * Operation createAGroupChannelWithHttpInfo
      *
-     * Create a channel
+     * Create a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\GcCreateChannelData $gc_create_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAGroupChannelRequest $create_a_group_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendbirdGroupChannelDetail, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcCreateChannelWithHttpInfo($associative_array)
+    public function createAGroupChannelWithHttpInfo($associative_array)
     {
-        $request = $this->gcCreateChannelRequest($associative_array);
+        $request = $this->createAGroupChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1186,23 +1168,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendbirdGroupChannelDetail' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdGroupChannel' !== 'string') {
+                        if ('\Sendbird\Model\SendbirdGroupChannelDetail' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdGroupChannelDetail', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\SendbirdGroupChannelDetail';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1223,7 +1205,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\SendbirdGroupChannelDetail',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1234,21 +1216,21 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcCreateChannelAsync
+     * Operation createAGroupChannelAsync
      *
-     * Create a channel
+     * Create a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\GcCreateChannelData $gc_create_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAGroupChannelRequest $create_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcCreateChannelAsync($associative_array)
+    public function createAGroupChannelAsync($associative_array)
     {
-        return $this->gcCreateChannelAsyncWithHttpInfo($associative_array)
+        return $this->createAGroupChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1257,22 +1239,22 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcCreateChannelAsyncWithHttpInfo
+     * Operation createAGroupChannelAsyncWithHttpInfo
      *
-     * Create a channel
+     * Create a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\GcCreateChannelData $gc_create_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAGroupChannelRequest $create_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcCreateChannelAsyncWithHttpInfo($associative_array)
+    public function createAGroupChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-        $request = $this->gcCreateChannelRequest($associative_array);
+        $returnType = '\Sendbird\Model\SendbirdGroupChannelDetail';
+        $request = $this->createAGroupChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1311,28 +1293,22 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcCreateChannel'
+     * Create request for operation 'createAGroupChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\GcCreateChannelData $gc_create_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAGroupChannelRequest $create_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcCreateChannelRequest($associative_array)
+    public function createAGroupChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
         $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $gc_create_channel_data = array_key_exists('gc_create_channel_data', $associative_array) ? $associative_array['gc_create_channel_data'] : null;
+        $create_a_group_channel_request = array_key_exists('create_a_group_channel_request', $associative_array) ? $associative_array['create_a_group_channel_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcCreateChannel'
-            );
-        }
 
         $resourcePath = '/v3/group_channels';
         $formParams = [];
@@ -1344,7 +1320,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
 
@@ -1361,11 +1337,11 @@ class GroupChannelApi
         }
 
         // for model (json/xml)
-        if (isset($gc_create_channel_data)) {
+        if (isset($create_a_group_channel_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_create_channel_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_a_group_channel_request));
             } else {
-                $httpBody = $gc_create_channel_data;
+                $httpBody = $create_a_group_channel_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1413,44 +1389,42 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcDeclineInvitation
+     * Operation deleteAGroupChannel
      *
-     * Decline an invitation
+     * Delete a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcDeclineInvitationData $gc_decline_invitation_data gc_decline_invitation_data (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
+     * @return object
      */
-    public function gcDeclineInvitation($associative_array)
+    public function deleteAGroupChannel($associative_array)
     {
-        list($response) = $this->gcDeclineInvitationWithHttpInfo($associative_array);
+        list($response) = $this->deleteAGroupChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcDeclineInvitationWithHttpInfo
+     * Operation deleteAGroupChannelWithHttpInfo
      *
-     * Decline an invitation
+     * Delete a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcDeclineInvitationWithHttpInfo($associative_array)
+    public function deleteAGroupChannelWithHttpInfo($associative_array)
     {
-        $request = $this->gcDeclineInvitationRequest($associative_array);
+        $request = $this->deleteAGroupChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1489,23 +1463,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' !== 'string') {
+                        if ('object' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcDeleteChannelByUrl200Response', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1526,7 +1500,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\OcDeleteChannelByUrl200Response',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1537,22 +1511,21 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcDeclineInvitationAsync
+     * Operation deleteAGroupChannelAsync
      *
-     * Decline an invitation
+     * Delete a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcDeclineInvitationAsync($associative_array)
+    public function deleteAGroupChannelAsync($associative_array)
     {
-        return $this->gcDeclineInvitationAsyncWithHttpInfo($associative_array)
+        return $this->deleteAGroupChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1561,23 +1534,22 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcDeclineInvitationAsyncWithHttpInfo
+     * Operation deleteAGroupChannelAsyncWithHttpInfo
      *
-     * Decline an invitation
+     * Delete a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcDeclineInvitationAsyncWithHttpInfo($associative_array)
+    public function deleteAGroupChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->gcDeclineInvitationRequest($associative_array);
+        $returnType = 'object';
+        $request = $this->deleteAGroupChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1616,349 +1588,26 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcDeclineInvitation'
+     * Create request for operation 'deleteAGroupChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcDeclineInvitationData $gc_decline_invitation_data (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcDeclineInvitationRequest($associative_array)
+    public function deleteAGroupChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $gc_decline_invitation_data = array_key_exists('gc_decline_invitation_data', $associative_array) ? $associative_array['gc_decline_invitation_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcDeclineInvitation'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcDeclineInvitation'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}/decline';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($gc_decline_invitation_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_decline_invitation_data));
-            } else {
-                $httpBody = $gc_decline_invitation_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation gcDeleteChannelByUrl
-     *
-     * Delete a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
-     */
-    public function gcDeleteChannelByUrl($associative_array)
-    {
-        list($response) = $this->gcDeleteChannelByUrlWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation gcDeleteChannelByUrlWithHttpInfo
-     *
-     * Delete a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcDeleteChannelByUrlWithHttpInfo($associative_array)
-    {
-        $request = $this->gcDeleteChannelByUrlRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcDeleteChannelByUrl200Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\OcDeleteChannelByUrl200Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcDeleteChannelByUrlAsync
-     *
-     * Delete a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcDeleteChannelByUrlAsync($associative_array)
-    {
-        return $this->gcDeleteChannelByUrlAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcDeleteChannelByUrlAsyncWithHttpInfo
-     *
-     * Delete a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcDeleteChannelByUrlAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->gcDeleteChannelByUrlRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcDeleteChannelByUrl'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcDeleteChannelByUrlRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcDeleteChannelByUrl'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcDeleteChannelByUrl'
+                'Missing the required parameter $channel_url when calling deleteAGroupChannel'
             );
         }
 
@@ -1972,7 +1621,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -2043,44 +1692,52 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcHideOrArchiveChannel
+     * Operation getAGroupChannel
      *
-     * Hide or archive a channel
+     * Get a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data gc_hide_or_archive_channel_data (optional)
+     * @param  bool $show_delivery_receipt show_delivery_receipt (optional)
+     * @param  bool $show_read_receipt show_read_receipt (optional)
+     * @param  bool $show_member show_member (optional)
+     * @param  string $member_active_mode Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all) (optional)
+     * @param  string $user_id user_id (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
+     * @return \Sendbird\Model\GetAGroupChannelResponse
      */
-    public function gcHideOrArchiveChannel($associative_array)
+    public function getAGroupChannel($associative_array)
     {
-        list($response) = $this->gcHideOrArchiveChannelWithHttpInfo($associative_array);
+        list($response) = $this->getAGroupChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcHideOrArchiveChannelWithHttpInfo
+     * Operation getAGroupChannelWithHttpInfo
      *
-     * Hide or archive a channel
+     * Get a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
+     * @param  bool $show_delivery_receipt (optional)
+     * @param  bool $show_read_receipt (optional)
+     * @param  bool $show_member (optional)
+     * @param  string $member_active_mode Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all) (optional)
+     * @param  string $user_id (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GetAGroupChannelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcHideOrArchiveChannelWithHttpInfo($associative_array)
+    public function getAGroupChannelWithHttpInfo($associative_array)
     {
-        $request = $this->gcHideOrArchiveChannelRequest($associative_array);
+        $request = $this->getAGroupChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2119,23 +1776,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GetAGroupChannelResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' !== 'string') {
+                        if ('\Sendbird\Model\GetAGroupChannelResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcDeleteChannelByUrl200Response', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GetAGroupChannelResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
+            $returnType = '\Sendbird\Model\GetAGroupChannelResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2156,7 +1813,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\OcDeleteChannelByUrl200Response',
+                        '\Sendbird\Model\GetAGroupChannelResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2167,22 +1824,26 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcHideOrArchiveChannelAsync
+     * Operation getAGroupChannelAsync
      *
-     * Hide or archive a channel
+     * Get a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
+     * @param  bool $show_delivery_receipt (optional)
+     * @param  bool $show_read_receipt (optional)
+     * @param  bool $show_member (optional)
+     * @param  string $member_active_mode Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all) (optional)
+     * @param  string $user_id (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcHideOrArchiveChannelAsync($associative_array)
+    public function getAGroupChannelAsync($associative_array)
     {
-        return $this->gcHideOrArchiveChannelAsyncWithHttpInfo($associative_array)
+        return $this->getAGroupChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2191,23 +1852,27 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcHideOrArchiveChannelAsyncWithHttpInfo
+     * Operation getAGroupChannelAsyncWithHttpInfo
      *
-     * Hide or archive a channel
+     * Get a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
+     * @param  bool $show_delivery_receipt (optional)
+     * @param  bool $show_read_receipt (optional)
+     * @param  bool $show_member (optional)
+     * @param  string $member_active_mode Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all) (optional)
+     * @param  string $user_id (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcHideOrArchiveChannelAsyncWithHttpInfo($associative_array)
+    public function getAGroupChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->gcHideOrArchiveChannelRequest($associative_array);
+        $returnType = '\Sendbird\Model\GetAGroupChannelResponse';
+        $request = $this->getAGroupChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2246,34 +1911,390 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcHideOrArchiveChannel'
+     * Create request for operation 'getAGroupChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcHideOrArchiveChannelData $gc_hide_or_archive_channel_data (optional)
+     * @param  bool $show_delivery_receipt (optional)
+     * @param  bool $show_read_receipt (optional)
+     * @param  bool $show_member (optional)
+     * @param  string $member_active_mode Restricts the member list to members who are activated or deactivated in the channel. This parameter is only effective if the parameter show_member is true. Acceptable values are all, activated, and deactivated. (default: all) (optional)
+     * @param  string $user_id (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcHideOrArchiveChannelRequest($associative_array)
+    public function getAGroupChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $gc_hide_or_archive_channel_data = array_key_exists('gc_hide_or_archive_channel_data', $associative_array) ? $associative_array['gc_hide_or_archive_channel_data'] : null;
+        $show_delivery_receipt = array_key_exists('show_delivery_receipt', $associative_array) ? $associative_array['show_delivery_receipt'] : null;
+        $show_read_receipt = array_key_exists('show_read_receipt', $associative_array) ? $associative_array['show_read_receipt'] : null;
+        $show_member = array_key_exists('show_member', $associative_array) ? $associative_array['show_member'] : null;
+        $member_active_mode = array_key_exists('member_active_mode', $associative_array) ? $associative_array['member_active_mode'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcHideOrArchiveChannel'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcHideOrArchiveChannel'
+                'Missing the required parameter $channel_url when calling getAGroupChannel'
+            );
+        }
+
+        $resourcePath = '/v3/group_channels/{channel_url}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_delivery_receipt,
+            'show_delivery_receipt', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_read_receipt,
+            'show_read_receipt', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_member,
+            'show_member', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $member_active_mode,
+            'member_active_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $user_id,
+            'user_id', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation hideAChannel
+     *
+     * Hide a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\HideAChannelRequest $hide_a_channel_request hide_a_channel_request (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function hideAChannel($associative_array)
+    {
+        list($response) = $this->hideAChannelWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation hideAChannelWithHttpInfo
+     *
+     * Hide a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\HideAChannelRequest $hide_a_channel_request (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function hideAChannelWithHttpInfo($associative_array)
+    {
+        $request = $this->hideAChannelRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation hideAChannelAsync
+     *
+     * Hide a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\HideAChannelRequest $hide_a_channel_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function hideAChannelAsync($associative_array)
+    {
+        return $this->hideAChannelAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation hideAChannelAsyncWithHttpInfo
+     *
+     * Hide a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\HideAChannelRequest $hide_a_channel_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function hideAChannelAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = 'object';
+        $request = $this->hideAChannelRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'hideAChannel'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\HideAChannelRequest $hide_a_channel_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function hideAChannelRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $hide_a_channel_request = array_key_exists('hide_a_channel_request', $associative_array) ? $associative_array['hide_a_channel_request'] : null;
+
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling hideAChannel'
             );
         }
 
@@ -2287,7 +2308,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -2312,11 +2333,11 @@ class GroupChannelApi
         }
 
         // for model (json/xml)
-        if (isset($gc_hide_or_archive_channel_data)) {
+        if (isset($hide_a_channel_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_hide_or_archive_channel_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($hide_a_channel_request));
             } else {
-                $httpBody = $gc_hide_or_archive_channel_data;
+                $httpBody = $hide_a_channel_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2364,44 +2385,44 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcInviteAsMembers
+     * Operation inviteAsMembers
      *
      * Invite as members
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcInviteAsMembersData $gc_invite_as_members_data gc_invite_as_members_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\InviteAsMembersRequest $invite_as_members_request invite_as_members_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\InviteAsMembersResponse
      */
-    public function gcInviteAsMembers($associative_array)
+    public function inviteAsMembers($associative_array)
     {
-        list($response) = $this->gcInviteAsMembersWithHttpInfo($associative_array);
+        list($response) = $this->inviteAsMembersWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcInviteAsMembersWithHttpInfo
+     * Operation inviteAsMembersWithHttpInfo
      *
      * Invite as members
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\InviteAsMembersRequest $invite_as_members_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\InviteAsMembersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcInviteAsMembersWithHttpInfo($associative_array)
+    public function inviteAsMembersWithHttpInfo($associative_array)
     {
-        $request = $this->gcInviteAsMembersRequest($associative_array);
+        $request = $this->inviteAsMembersRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2440,23 +2461,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\InviteAsMembersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdGroupChannel' !== 'string') {
+                        if ('\Sendbird\Model\InviteAsMembersResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\InviteAsMembersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\InviteAsMembersResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2477,7 +2498,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\InviteAsMembersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2488,22 +2509,22 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcInviteAsMembersAsync
+     * Operation inviteAsMembersAsync
      *
      * Invite as members
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\InviteAsMembersRequest $invite_as_members_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcInviteAsMembersAsync($associative_array)
+    public function inviteAsMembersAsync($associative_array)
     {
-        return $this->gcInviteAsMembersAsyncWithHttpInfo($associative_array)
+        return $this->inviteAsMembersAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2512,23 +2533,23 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcInviteAsMembersAsyncWithHttpInfo
+     * Operation inviteAsMembersAsyncWithHttpInfo
      *
      * Invite as members
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\InviteAsMembersRequest $invite_as_members_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcInviteAsMembersAsyncWithHttpInfo($associative_array)
+    public function inviteAsMembersAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-        $request = $this->gcInviteAsMembersRequest($associative_array);
+        $returnType = '\Sendbird\Model\InviteAsMembersResponse';
+        $request = $this->inviteAsMembersRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2567,34 +2588,28 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcInviteAsMembers'
+     * Create request for operation 'inviteAsMembers'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcInviteAsMembersData $gc_invite_as_members_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\InviteAsMembersRequest $invite_as_members_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcInviteAsMembersRequest($associative_array)
+    public function inviteAsMembersRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $gc_invite_as_members_data = array_key_exists('gc_invite_as_members_data', $associative_array) ? $associative_array['gc_invite_as_members_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $invite_as_members_request = array_key_exists('invite_as_members_request', $associative_array) ? $associative_array['invite_as_members_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcInviteAsMembers'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcInviteAsMembers'
+                'Missing the required parameter $channel_url when calling inviteAsMembers'
             );
         }
 
@@ -2608,7 +2623,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -2633,11 +2648,11 @@ class GroupChannelApi
         }
 
         // for model (json/xml)
-        if (isset($gc_invite_as_members_data)) {
+        if (isset($invite_as_members_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_invite_as_members_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($invite_as_members_request));
             } else {
-                $httpBody = $gc_invite_as_members_data;
+                $httpBody = $invite_as_members_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2685,43 +2700,44 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcJoinChannel
+     * Operation joinAChannel
      *
      * Join a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcJoinChannelData $gc_join_channel_data gc_join_channel_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\JoinAChannelRequest $join_a_channel_request join_a_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Sendbird\Model\SendbirdGroupChannelDetail
      */
-    public function gcJoinChannel($associative_array)
+    public function joinAChannel($associative_array)
     {
-        $this->gcJoinChannelWithHttpInfo($associative_array);
+        list($response) = $this->joinAChannelWithHttpInfo($associative_array);
+        return $response;
     }
 
     /**
-     * Operation gcJoinChannelWithHttpInfo
+     * Operation joinAChannelWithHttpInfo
      *
      * Join a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcJoinChannelData $gc_join_channel_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\JoinAChannelRequest $join_a_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendbirdGroupChannelDetail, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcJoinChannelWithHttpInfo($associative_array)
+    public function joinAChannelWithHttpInfo($associative_array)
     {
-        $request = $this->gcJoinChannelRequest($associative_array);
+        $request = $this->joinAChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2758,32 +2774,72 @@ class GroupChannelApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\SendbirdGroupChannelDetail' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\SendbirdGroupChannelDetail' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdGroupChannelDetail', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\SendbirdGroupChannelDetail';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\SendbirdGroupChannelDetail',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
     }
 
     /**
-     * Operation gcJoinChannelAsync
+     * Operation joinAChannelAsync
      *
      * Join a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcJoinChannelData $gc_join_channel_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\JoinAChannelRequest $join_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcJoinChannelAsync($associative_array)
+    public function joinAChannelAsync($associative_array)
     {
-        return $this->gcJoinChannelAsyncWithHttpInfo($associative_array)
+        return $this->joinAChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2792,29 +2848,42 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcJoinChannelAsyncWithHttpInfo
+     * Operation joinAChannelAsyncWithHttpInfo
      *
      * Join a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcJoinChannelData $gc_join_channel_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\JoinAChannelRequest $join_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcJoinChannelAsyncWithHttpInfo($associative_array)
+    public function joinAChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '';
-        $request = $this->gcJoinChannelRequest($associative_array);
+        $returnType = '\Sendbird\Model\SendbirdGroupChannelDetail';
+        $request = $this->joinAChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -2834,34 +2903,28 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcJoinChannel'
+     * Create request for operation 'joinAChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcJoinChannelData $gc_join_channel_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\JoinAChannelRequest $join_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcJoinChannelRequest($associative_array)
+    public function joinAChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $gc_join_channel_data = array_key_exists('gc_join_channel_data', $associative_array) ? $associative_array['gc_join_channel_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $join_a_channel_request = array_key_exists('join_a_channel_request', $associative_array) ? $associative_array['join_a_channel_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcJoinChannel'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcJoinChannel'
+                'Missing the required parameter $channel_url when calling joinAChannel'
             );
         }
 
@@ -2875,7 +2938,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -2890,21 +2953,21 @@ class GroupChannelApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
 
         // for model (json/xml)
-        if (isset($gc_join_channel_data)) {
+        if (isset($join_a_channel_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_join_channel_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($join_a_channel_request));
             } else {
-                $httpBody = $gc_join_channel_data;
+                $httpBody = $join_a_channel_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2952,44 +3015,44 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcLeaveChannel
+     * Operation leaveAChannel
      *
      * Leave a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcLeaveChannelData $gc_leave_channel_data gc_leave_channel_data (optional)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\LeaveAChannelRequest $leave_a_channel_request leave_a_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
+     * @return object
      */
-    public function gcLeaveChannel($associative_array)
+    public function leaveAChannel($associative_array)
     {
-        list($response) = $this->gcLeaveChannelWithHttpInfo($associative_array);
+        list($response) = $this->leaveAChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcLeaveChannelWithHttpInfo
+     * Operation leaveAChannelWithHttpInfo
      *
      * Leave a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\LeaveAChannelRequest $leave_a_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcLeaveChannelWithHttpInfo($associative_array)
+    public function leaveAChannelWithHttpInfo($associative_array)
     {
-        $request = $this->gcLeaveChannelRequest($associative_array);
+        $request = $this->leaveAChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3028,23 +3091,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' !== 'string') {
+                        if ('object' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcDeleteChannelByUrl200Response', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3065,7 +3128,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\OcDeleteChannelByUrl200Response',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3076,22 +3139,22 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcLeaveChannelAsync
+     * Operation leaveAChannelAsync
      *
      * Leave a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\LeaveAChannelRequest $leave_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcLeaveChannelAsync($associative_array)
+    public function leaveAChannelAsync($associative_array)
     {
-        return $this->gcLeaveChannelAsyncWithHttpInfo($associative_array)
+        return $this->leaveAChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3100,23 +3163,23 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcLeaveChannelAsyncWithHttpInfo
+     * Operation leaveAChannelAsyncWithHttpInfo
      *
      * Leave a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\LeaveAChannelRequest $leave_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcLeaveChannelAsyncWithHttpInfo($associative_array)
+    public function leaveAChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->gcLeaveChannelRequest($associative_array);
+        $returnType = 'object';
+        $request = $this->leaveAChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3155,34 +3218,28 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcLeaveChannel'
+     * Create request for operation 'leaveAChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcLeaveChannelData $gc_leave_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\LeaveAChannelRequest $leave_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcLeaveChannelRequest($associative_array)
+    public function leaveAChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $gc_leave_channel_data = array_key_exists('gc_leave_channel_data', $associative_array) ? $associative_array['gc_leave_channel_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $leave_a_channel_request = array_key_exists('leave_a_channel_request', $associative_array) ? $associative_array['leave_a_channel_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcLeaveChannel'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcLeaveChannel'
+                'Missing the required parameter $channel_url when calling leaveAChannel'
             );
         }
 
@@ -3221,11 +3278,11 @@ class GroupChannelApi
         }
 
         // for model (json/xml)
-        if (isset($gc_leave_channel_data)) {
+        if (isset($leave_a_channel_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_leave_channel_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($leave_a_channel_request));
             } else {
-                $httpBody = $gc_leave_channel_data;
+                $httpBody = $leave_a_channel_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3273,20 +3330,20 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcListChannels
+     * Operation listChannels
      *
      * List channels
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token api_token (required)
-     * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
+     * @param  string $token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
      * @param  string $distinct_mode distinct_mode (optional)
      * @param  string $public_mode public_mode (optional)
      * @param  string $super_mode super_mode (optional)
-     * @param  int $created_after created_after (optional)
-     * @param  int $created_before created_before (optional)
+     * @param  int $created_after Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format. (optional)
+     * @param  int $created_before Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format. (optional)
      * @param  bool $show_empty show_empty (optional)
      * @param  bool $show_member show_member (optional)
      * @param  bool $show_delivery_receipt show_delivery_receipt (optional)
@@ -3294,60 +3351,54 @@ class GroupChannelApi
      * @param  bool $show_metadata show_metadata (optional)
      * @param  bool $show_frozen show_frozen (optional)
      * @param  string $order order (optional)
-     * @param  string $metadata_order_key metadata_order_key (optional)
-     * @param  string $custom_types custom_types (optional)
-     * @param  string $custom_type_startswith custom_type_startswith (optional)
-     * @param  string $channel_urls channel_urls (optional)
-     * @param  string $name name (optional)
-     * @param  string $name_contains name_contains (optional)
-     * @param  string $name_startswith name_startswith (optional)
-     * @param  string $members_exactly_in members_exactly_in (optional)
-     * @param  string $members_include_in members_include_in (optional)
-     * @param  string $query_type query_type (optional)
-     * @param  string $members_nickname members_nickname (optional)
-     * @param  string $members_nickname_contains members_nickname_contains (optional)
-     * @param  string $metadata_key metadata_key (optional)
-     * @param  string $metadata_values metadata_values (optional)
-     * @param  string $metadata_value_startswith metadata_value_startswith (optional)
-     * @param  string $metacounter_key metacounter_key (optional)
-     * @param  string $metacounter_values metacounter_values (optional)
-     * @param  string $metacounter_value_gt metacounter_value_gt (optional)
-     * @param  string $metacounter_value_gte metacounter_value_gte (optional)
-     * @param  string $metacounter_value_lt metacounter_value_lt (optional)
-     * @param  string $metacounter_value_lte metacounter_value_lte (optional)
-     * @param  bool $include_sorted_metaarray_in_last_message include_sorted_metaarray_in_last_message (optional)
-     * @param  string $custom_type custom_type (optional)
-     * @param  bool $read_receipt read_receipt (optional)
-     * @param  bool $member member (optional)
-     * @param  bool $is_distinct is_distinct (optional)
-     * @param  string $members_in members_in (optional)
-     * @param  string $user_id user_id (optional)
+     * @param  string $metadata_order_key Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key. (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $custom_type_startswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  string $name Specifies one or more group channel names. (optional)
+     * @param  string $name_contains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $name_startswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $members_exactly_in Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $members_include_in Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $query_type Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) (optional)
+     * @param  string $members_nickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $members_nickname_contains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
+     * @param  string $metadata_key Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
+     * @param  string $metadata_values Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metadata_value_startswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metacounter_key Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified. (optional)
+     * @param  string $metacounter_values Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  bool $include_sorted_metaarray_in_last_message Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcListChannelsResponse
+     * @return \Sendbird\Model\GroupChatListChannelsResponse
      */
-    public function gcListChannels($associative_array)
+    public function listChannels($associative_array)
     {
-        list($response) = $this->gcListChannelsWithHttpInfo($associative_array);
+        list($response) = $this->listChannelsWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcListChannelsWithHttpInfo
+     * Operation listChannelsWithHttpInfo
      *
      * List channels
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
      * @param  string $distinct_mode (optional)
      * @param  string $public_mode (optional)
      * @param  string $super_mode (optional)
-     * @param  int $created_after (optional)
-     * @param  int $created_before (optional)
+     * @param  int $created_after Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format. (optional)
+     * @param  int $created_before Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format. (optional)
      * @param  bool $show_empty (optional)
      * @param  bool $show_member (optional)
      * @param  bool $show_delivery_receipt (optional)
@@ -3355,42 +3406,36 @@ class GroupChannelApi
      * @param  bool $show_metadata (optional)
      * @param  bool $show_frozen (optional)
      * @param  string $order (optional)
-     * @param  string $metadata_order_key (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $custom_type_startswith (optional)
-     * @param  string $channel_urls (optional)
-     * @param  string $name (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $name_startswith (optional)
-     * @param  string $members_exactly_in (optional)
-     * @param  string $members_include_in (optional)
-     * @param  string $query_type (optional)
-     * @param  string $members_nickname (optional)
-     * @param  string $members_nickname_contains (optional)
-     * @param  string $metadata_key (optional)
-     * @param  string $metadata_values (optional)
-     * @param  string $metadata_value_startswith (optional)
-     * @param  string $metacounter_key (optional)
-     * @param  string $metacounter_values (optional)
-     * @param  string $metacounter_value_gt (optional)
-     * @param  string $metacounter_value_gte (optional)
-     * @param  string $metacounter_value_lt (optional)
-     * @param  string $metacounter_value_lte (optional)
-     * @param  bool $include_sorted_metaarray_in_last_message (optional)
-     * @param  string $custom_type (optional)
-     * @param  bool $read_receipt (optional)
-     * @param  bool $member (optional)
-     * @param  bool $is_distinct (optional)
-     * @param  string $members_in (optional)
-     * @param  string $user_id (optional)
+     * @param  string $metadata_order_key Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key. (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $custom_type_startswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  string $name Specifies one or more group channel names. (optional)
+     * @param  string $name_contains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $name_startswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $members_exactly_in Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $members_include_in Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $query_type Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) (optional)
+     * @param  string $members_nickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $members_nickname_contains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
+     * @param  string $metadata_key Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
+     * @param  string $metadata_values Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metadata_value_startswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metacounter_key Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified. (optional)
+     * @param  string $metacounter_values Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  bool $include_sorted_metaarray_in_last_message Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcListChannelsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GroupChatListChannelsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcListChannelsWithHttpInfo($associative_array)
+    public function listChannelsWithHttpInfo($associative_array)
     {
-        $request = $this->gcListChannelsRequest($associative_array);
+        $request = $this->listChannelsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3429,23 +3474,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\GcListChannelsResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GroupChatListChannelsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\GcListChannelsResponse' !== 'string') {
+                        if ('\Sendbird\Model\GroupChatListChannelsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcListChannelsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GroupChatListChannelsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\GcListChannelsResponse';
+            $returnType = '\Sendbird\Model\GroupChatListChannelsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3466,7 +3511,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\GcListChannelsResponse',
+                        '\Sendbird\Model\GroupChatListChannelsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3477,20 +3522,20 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcListChannelsAsync
+     * Operation listChannelsAsync
      *
      * List channels
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
      * @param  string $distinct_mode (optional)
      * @param  string $public_mode (optional)
      * @param  string $super_mode (optional)
-     * @param  int $created_after (optional)
-     * @param  int $created_before (optional)
+     * @param  int $created_after Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format. (optional)
+     * @param  int $created_before Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format. (optional)
      * @param  bool $show_empty (optional)
      * @param  bool $show_member (optional)
      * @param  bool $show_delivery_receipt (optional)
@@ -3498,41 +3543,35 @@ class GroupChannelApi
      * @param  bool $show_metadata (optional)
      * @param  bool $show_frozen (optional)
      * @param  string $order (optional)
-     * @param  string $metadata_order_key (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $custom_type_startswith (optional)
-     * @param  string $channel_urls (optional)
-     * @param  string $name (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $name_startswith (optional)
-     * @param  string $members_exactly_in (optional)
-     * @param  string $members_include_in (optional)
-     * @param  string $query_type (optional)
-     * @param  string $members_nickname (optional)
-     * @param  string $members_nickname_contains (optional)
-     * @param  string $metadata_key (optional)
-     * @param  string $metadata_values (optional)
-     * @param  string $metadata_value_startswith (optional)
-     * @param  string $metacounter_key (optional)
-     * @param  string $metacounter_values (optional)
-     * @param  string $metacounter_value_gt (optional)
-     * @param  string $metacounter_value_gte (optional)
-     * @param  string $metacounter_value_lt (optional)
-     * @param  string $metacounter_value_lte (optional)
-     * @param  bool $include_sorted_metaarray_in_last_message (optional)
-     * @param  string $custom_type (optional)
-     * @param  bool $read_receipt (optional)
-     * @param  bool $member (optional)
-     * @param  bool $is_distinct (optional)
-     * @param  string $members_in (optional)
-     * @param  string $user_id (optional)
+     * @param  string $metadata_order_key Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key. (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $custom_type_startswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  string $name Specifies one or more group channel names. (optional)
+     * @param  string $name_contains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $name_startswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $members_exactly_in Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $members_include_in Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $query_type Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) (optional)
+     * @param  string $members_nickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $members_nickname_contains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
+     * @param  string $metadata_key Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
+     * @param  string $metadata_values Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metadata_value_startswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metacounter_key Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified. (optional)
+     * @param  string $metacounter_values Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  bool $include_sorted_metaarray_in_last_message Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcListChannelsAsync($associative_array)
+    public function listChannelsAsync($associative_array)
     {
-        return $this->gcListChannelsAsyncWithHttpInfo($associative_array)
+        return $this->listChannelsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3541,20 +3580,20 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcListChannelsAsyncWithHttpInfo
+     * Operation listChannelsAsyncWithHttpInfo
      *
      * List channels
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
      * @param  string $distinct_mode (optional)
      * @param  string $public_mode (optional)
      * @param  string $super_mode (optional)
-     * @param  int $created_after (optional)
-     * @param  int $created_before (optional)
+     * @param  int $created_after Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format. (optional)
+     * @param  int $created_before Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format. (optional)
      * @param  bool $show_empty (optional)
      * @param  bool $show_member (optional)
      * @param  bool $show_delivery_receipt (optional)
@@ -3562,42 +3601,36 @@ class GroupChannelApi
      * @param  bool $show_metadata (optional)
      * @param  bool $show_frozen (optional)
      * @param  string $order (optional)
-     * @param  string $metadata_order_key (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $custom_type_startswith (optional)
-     * @param  string $channel_urls (optional)
-     * @param  string $name (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $name_startswith (optional)
-     * @param  string $members_exactly_in (optional)
-     * @param  string $members_include_in (optional)
-     * @param  string $query_type (optional)
-     * @param  string $members_nickname (optional)
-     * @param  string $members_nickname_contains (optional)
-     * @param  string $metadata_key (optional)
-     * @param  string $metadata_values (optional)
-     * @param  string $metadata_value_startswith (optional)
-     * @param  string $metacounter_key (optional)
-     * @param  string $metacounter_values (optional)
-     * @param  string $metacounter_value_gt (optional)
-     * @param  string $metacounter_value_gte (optional)
-     * @param  string $metacounter_value_lt (optional)
-     * @param  string $metacounter_value_lte (optional)
-     * @param  bool $include_sorted_metaarray_in_last_message (optional)
-     * @param  string $custom_type (optional)
-     * @param  bool $read_receipt (optional)
-     * @param  bool $member (optional)
-     * @param  bool $is_distinct (optional)
-     * @param  string $members_in (optional)
-     * @param  string $user_id (optional)
+     * @param  string $metadata_order_key Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key. (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $custom_type_startswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  string $name Specifies one or more group channel names. (optional)
+     * @param  string $name_contains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $name_startswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $members_exactly_in Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $members_include_in Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $query_type Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) (optional)
+     * @param  string $members_nickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $members_nickname_contains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
+     * @param  string $metadata_key Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
+     * @param  string $metadata_values Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metadata_value_startswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metacounter_key Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified. (optional)
+     * @param  string $metacounter_values Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  bool $include_sorted_metaarray_in_last_message Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcListChannelsAsyncWithHttpInfo($associative_array)
+    public function listChannelsAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\GcListChannelsResponse';
-        $request = $this->gcListChannelsRequest($associative_array);
+        $returnType = '\Sendbird\Model\GroupChatListChannelsResponse';
+        $request = $this->listChannelsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3636,18 +3669,18 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcListChannels'
+     * Create request for operation 'listChannels'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $api_token (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
      * @param  string $distinct_mode (optional)
      * @param  string $public_mode (optional)
      * @param  string $super_mode (optional)
-     * @param  int $created_after (optional)
-     * @param  int $created_before (optional)
+     * @param  int $created_after Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format. (optional)
+     * @param  int $created_before Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format. (optional)
      * @param  bool $show_empty (optional)
      * @param  bool $show_member (optional)
      * @param  bool $show_delivery_receipt (optional)
@@ -3655,39 +3688,33 @@ class GroupChannelApi
      * @param  bool $show_metadata (optional)
      * @param  bool $show_frozen (optional)
      * @param  string $order (optional)
-     * @param  string $metadata_order_key (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $custom_type_startswith (optional)
-     * @param  string $channel_urls (optional)
-     * @param  string $name (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $name_startswith (optional)
-     * @param  string $members_exactly_in (optional)
-     * @param  string $members_include_in (optional)
-     * @param  string $query_type (optional)
-     * @param  string $members_nickname (optional)
-     * @param  string $members_nickname_contains (optional)
-     * @param  string $metadata_key (optional)
-     * @param  string $metadata_values (optional)
-     * @param  string $metadata_value_startswith (optional)
-     * @param  string $metacounter_key (optional)
-     * @param  string $metacounter_values (optional)
-     * @param  string $metacounter_value_gt (optional)
-     * @param  string $metacounter_value_gte (optional)
-     * @param  string $metacounter_value_lt (optional)
-     * @param  string $metacounter_value_lte (optional)
-     * @param  bool $include_sorted_metaarray_in_last_message (optional)
-     * @param  string $custom_type (optional)
-     * @param  bool $read_receipt (optional)
-     * @param  bool $member (optional)
-     * @param  bool $is_distinct (optional)
-     * @param  string $members_in (optional)
-     * @param  string $user_id (optional)
+     * @param  string $metadata_order_key Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key. (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $custom_type_startswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  string $name Specifies one or more group channel names. (optional)
+     * @param  string $name_contains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $name_startswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $members_exactly_in Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $members_include_in Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $query_type Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) (optional)
+     * @param  string $members_nickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $members_nickname_contains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
+     * @param  string $metadata_key Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
+     * @param  string $metadata_values Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metadata_value_startswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metacounter_key Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified. (optional)
+     * @param  string $metacounter_values Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  bool $include_sorted_metaarray_in_last_message Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcListChannelsRequest($associative_array)
+    public function listChannelsRequest($associative_array)
     {
         // unbox the parameters from the associative array
         $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
@@ -3727,17 +3754,11 @@ class GroupChannelApi
         $metacounter_value_lt = array_key_exists('metacounter_value_lt', $associative_array) ? $associative_array['metacounter_value_lt'] : null;
         $metacounter_value_lte = array_key_exists('metacounter_value_lte', $associative_array) ? $associative_array['metacounter_value_lte'] : null;
         $include_sorted_metaarray_in_last_message = array_key_exists('include_sorted_metaarray_in_last_message', $associative_array) ? $associative_array['include_sorted_metaarray_in_last_message'] : null;
-        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
-        $read_receipt = array_key_exists('read_receipt', $associative_array) ? $associative_array['read_receipt'] : null;
-        $member = array_key_exists('member', $associative_array) ? $associative_array['member'] : null;
-        $is_distinct = array_key_exists('is_distinct', $associative_array) ? $associative_array['is_distinct'] : null;
-        $members_in = array_key_exists('members_in', $associative_array) ? $associative_array['members_in'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
 
         // verify the required parameter 'api_token' is set
         if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcListChannels'
+                'Missing the required parameter $api_token when calling listChannels'
             );
         }
 
@@ -4072,64 +4093,10 @@ class GroupChannelApi
             true, // explode
             false // required
         ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $custom_type,
-            'custom_type', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $read_receipt,
-            'read_receipt', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $member,
-            'member', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $is_distinct,
-            'is_distinct', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $members_in,
-            'members_in', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $user_id,
-            'user_id', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
 
@@ -4192,60 +4159,68 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcListMembers
+     * Operation listMembers
      *
      * List members
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+     * @param  string $user_id Specifies the unique ID of a user. If &#x60;user_id&#x60; is provided, the response will include two additional boolean properties about each user in the members list. - &#x60;is_blocking_me&#x60;: Indicates whether the listed user is blocking the user specified in the user_id parameter. - &#x60;is_blocked_by_me&#x60;: Indicates whether the listed user is blocked by the user specified in the user_id parameter. (optional)
      * @param  bool $show_delivery_receipt show_delivery_receipt (optional)
      * @param  bool $show_read_receipt show_read_receipt (optional)
-     * @param  string $order order (optional)
-     * @param  string $operator_filter operator_filter (optional)
-     * @param  string $member_state_filter member_state_filter (optional)
-     * @param  string $muted_member_filter muted_member_filter (optional)
-     * @param  string $nickname_startswith nickname_startswith (optional)
+     * @param  bool $show_member_is_muted show_member_is_muted (optional)
+     * @param  string $order Specifies the method to sort a list of results. Acceptable values are the following: - &#x60;member_nickname_alphabetical&#x60; (default): sorts by the member nicknames in alphabetical order. - &#x60;operator_then_member_alphabetical&#x60;: sorts by the operational role and member nickname in alphabetical order where channel operators are listed before channel members. (optional)
+     * @param  string $operator_filter Restricts the search scope to only retrieve operators or non-operator members of the channel. Acceptable values are the following: - &#x60;all&#x60; (default): no filter is applied to the list. - &#x60;operator&#x60;: only channel operators are retrieved. - &#x60;nonoperator&#x60;: all channel members, except channel operators, are retrieved. (optional)
+     * @param  string $member_state_filter Restricts the search scope to retrieve members based on if they have accepted an invitation or if they were invited by a friend. Acceptable values are &#x60;invited_only&#x60;, &#x60;joined_only&#x60;, &#x60;invited_by_friend&#x60;, &#x60;invited_by_non_friend&#x60;, and &#x60;all&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $muted_member_filter Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are &#x60;all&#x60;, &#x60;muted&#x60;, and &#x60;unmuted&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $member_active_mode_filter Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are &#x60;all&#x60;, &#x60;activated&#x60;, and &#x60;deactivated&#x60;. (default: &#x60;activated&#x60;) (optional)
+     * @param  string $nickname_startswith Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended. (optional)
+     * @param  bool $include_push_preference Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;) (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcListMembersResponse
+     * @return \Sendbird\Model\GroupChannelListMembersResponse
      */
-    public function gcListMembers($associative_array)
+    public function listMembers($associative_array)
     {
-        list($response) = $this->gcListMembersWithHttpInfo($associative_array);
+        list($response) = $this->listMembersWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcListMembersWithHttpInfo
+     * Operation listMembersWithHttpInfo
      *
      * List members
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+     * @param  string $user_id Specifies the unique ID of a user. If &#x60;user_id&#x60; is provided, the response will include two additional boolean properties about each user in the members list. - &#x60;is_blocking_me&#x60;: Indicates whether the listed user is blocking the user specified in the user_id parameter. - &#x60;is_blocked_by_me&#x60;: Indicates whether the listed user is blocked by the user specified in the user_id parameter. (optional)
      * @param  bool $show_delivery_receipt (optional)
      * @param  bool $show_read_receipt (optional)
-     * @param  string $order (optional)
-     * @param  string $operator_filter (optional)
-     * @param  string $member_state_filter (optional)
-     * @param  string $muted_member_filter (optional)
-     * @param  string $nickname_startswith (optional)
+     * @param  bool $show_member_is_muted (optional)
+     * @param  string $order Specifies the method to sort a list of results. Acceptable values are the following: - &#x60;member_nickname_alphabetical&#x60; (default): sorts by the member nicknames in alphabetical order. - &#x60;operator_then_member_alphabetical&#x60;: sorts by the operational role and member nickname in alphabetical order where channel operators are listed before channel members. (optional)
+     * @param  string $operator_filter Restricts the search scope to only retrieve operators or non-operator members of the channel. Acceptable values are the following: - &#x60;all&#x60; (default): no filter is applied to the list. - &#x60;operator&#x60;: only channel operators are retrieved. - &#x60;nonoperator&#x60;: all channel members, except channel operators, are retrieved. (optional)
+     * @param  string $member_state_filter Restricts the search scope to retrieve members based on if they have accepted an invitation or if they were invited by a friend. Acceptable values are &#x60;invited_only&#x60;, &#x60;joined_only&#x60;, &#x60;invited_by_friend&#x60;, &#x60;invited_by_non_friend&#x60;, and &#x60;all&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $muted_member_filter Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are &#x60;all&#x60;, &#x60;muted&#x60;, and &#x60;unmuted&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $member_active_mode_filter Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are &#x60;all&#x60;, &#x60;activated&#x60;, and &#x60;deactivated&#x60;. (default: &#x60;activated&#x60;) (optional)
+     * @param  string $nickname_startswith Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended. (optional)
+     * @param  bool $include_push_preference Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcListMembersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\GroupChannelListMembersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcListMembersWithHttpInfo($associative_array)
+    public function listMembersWithHttpInfo($associative_array)
     {
-        $request = $this->gcListMembersRequest($associative_array);
+        $request = $this->listMembersRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4284,23 +4259,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\GcListMembersResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\GroupChannelListMembersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\GcListMembersResponse' !== 'string') {
+                        if ('\Sendbird\Model\GroupChannelListMembersResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcListMembersResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GroupChannelListMembersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\GcListMembersResponse';
+            $returnType = '\Sendbird\Model\GroupChannelListMembersResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4321,7 +4296,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\GcListMembersResponse',
+                        '\Sendbird\Model\GroupChannelListMembersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4332,30 +4307,34 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcListMembersAsync
+     * Operation listMembersAsync
      *
      * List members
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+     * @param  string $user_id Specifies the unique ID of a user. If &#x60;user_id&#x60; is provided, the response will include two additional boolean properties about each user in the members list. - &#x60;is_blocking_me&#x60;: Indicates whether the listed user is blocking the user specified in the user_id parameter. - &#x60;is_blocked_by_me&#x60;: Indicates whether the listed user is blocked by the user specified in the user_id parameter. (optional)
      * @param  bool $show_delivery_receipt (optional)
      * @param  bool $show_read_receipt (optional)
-     * @param  string $order (optional)
-     * @param  string $operator_filter (optional)
-     * @param  string $member_state_filter (optional)
-     * @param  string $muted_member_filter (optional)
-     * @param  string $nickname_startswith (optional)
+     * @param  bool $show_member_is_muted (optional)
+     * @param  string $order Specifies the method to sort a list of results. Acceptable values are the following: - &#x60;member_nickname_alphabetical&#x60; (default): sorts by the member nicknames in alphabetical order. - &#x60;operator_then_member_alphabetical&#x60;: sorts by the operational role and member nickname in alphabetical order where channel operators are listed before channel members. (optional)
+     * @param  string $operator_filter Restricts the search scope to only retrieve operators or non-operator members of the channel. Acceptable values are the following: - &#x60;all&#x60; (default): no filter is applied to the list. - &#x60;operator&#x60;: only channel operators are retrieved. - &#x60;nonoperator&#x60;: all channel members, except channel operators, are retrieved. (optional)
+     * @param  string $member_state_filter Restricts the search scope to retrieve members based on if they have accepted an invitation or if they were invited by a friend. Acceptable values are &#x60;invited_only&#x60;, &#x60;joined_only&#x60;, &#x60;invited_by_friend&#x60;, &#x60;invited_by_non_friend&#x60;, and &#x60;all&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $muted_member_filter Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are &#x60;all&#x60;, &#x60;muted&#x60;, and &#x60;unmuted&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $member_active_mode_filter Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are &#x60;all&#x60;, &#x60;activated&#x60;, and &#x60;deactivated&#x60;. (default: &#x60;activated&#x60;) (optional)
+     * @param  string $nickname_startswith Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended. (optional)
+     * @param  bool $include_push_preference Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcListMembersAsync($associative_array)
+    public function listMembersAsync($associative_array)
     {
-        return $this->gcListMembersAsyncWithHttpInfo($associative_array)
+        return $this->listMembersAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4364,31 +4343,35 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcListMembersAsyncWithHttpInfo
+     * Operation listMembersAsyncWithHttpInfo
      *
      * List members
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+     * @param  string $user_id Specifies the unique ID of a user. If &#x60;user_id&#x60; is provided, the response will include two additional boolean properties about each user in the members list. - &#x60;is_blocking_me&#x60;: Indicates whether the listed user is blocking the user specified in the user_id parameter. - &#x60;is_blocked_by_me&#x60;: Indicates whether the listed user is blocked by the user specified in the user_id parameter. (optional)
      * @param  bool $show_delivery_receipt (optional)
      * @param  bool $show_read_receipt (optional)
-     * @param  string $order (optional)
-     * @param  string $operator_filter (optional)
-     * @param  string $member_state_filter (optional)
-     * @param  string $muted_member_filter (optional)
-     * @param  string $nickname_startswith (optional)
+     * @param  bool $show_member_is_muted (optional)
+     * @param  string $order Specifies the method to sort a list of results. Acceptable values are the following: - &#x60;member_nickname_alphabetical&#x60; (default): sorts by the member nicknames in alphabetical order. - &#x60;operator_then_member_alphabetical&#x60;: sorts by the operational role and member nickname in alphabetical order where channel operators are listed before channel members. (optional)
+     * @param  string $operator_filter Restricts the search scope to only retrieve operators or non-operator members of the channel. Acceptable values are the following: - &#x60;all&#x60; (default): no filter is applied to the list. - &#x60;operator&#x60;: only channel operators are retrieved. - &#x60;nonoperator&#x60;: all channel members, except channel operators, are retrieved. (optional)
+     * @param  string $member_state_filter Restricts the search scope to retrieve members based on if they have accepted an invitation or if they were invited by a friend. Acceptable values are &#x60;invited_only&#x60;, &#x60;joined_only&#x60;, &#x60;invited_by_friend&#x60;, &#x60;invited_by_non_friend&#x60;, and &#x60;all&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $muted_member_filter Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are &#x60;all&#x60;, &#x60;muted&#x60;, and &#x60;unmuted&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $member_active_mode_filter Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are &#x60;all&#x60;, &#x60;activated&#x60;, and &#x60;deactivated&#x60;. (default: &#x60;activated&#x60;) (optional)
+     * @param  string $nickname_startswith Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended. (optional)
+     * @param  bool $include_push_preference Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcListMembersAsyncWithHttpInfo($associative_array)
+    public function listMembersAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\GcListMembersResponse';
-        $request = $this->gcListMembersRequest($associative_array);
+        $returnType = '\Sendbird\Model\GroupChannelListMembersResponse';
+        $request = $this->listMembersRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4427,50 +4410,52 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcListMembers'
+     * Create request for operation 'listMembers'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+     * @param  string $user_id Specifies the unique ID of a user. If &#x60;user_id&#x60; is provided, the response will include two additional boolean properties about each user in the members list. - &#x60;is_blocking_me&#x60;: Indicates whether the listed user is blocking the user specified in the user_id parameter. - &#x60;is_blocked_by_me&#x60;: Indicates whether the listed user is blocked by the user specified in the user_id parameter. (optional)
      * @param  bool $show_delivery_receipt (optional)
      * @param  bool $show_read_receipt (optional)
-     * @param  string $order (optional)
-     * @param  string $operator_filter (optional)
-     * @param  string $member_state_filter (optional)
-     * @param  string $muted_member_filter (optional)
-     * @param  string $nickname_startswith (optional)
+     * @param  bool $show_member_is_muted (optional)
+     * @param  string $order Specifies the method to sort a list of results. Acceptable values are the following: - &#x60;member_nickname_alphabetical&#x60; (default): sorts by the member nicknames in alphabetical order. - &#x60;operator_then_member_alphabetical&#x60;: sorts by the operational role and member nickname in alphabetical order where channel operators are listed before channel members. (optional)
+     * @param  string $operator_filter Restricts the search scope to only retrieve operators or non-operator members of the channel. Acceptable values are the following: - &#x60;all&#x60; (default): no filter is applied to the list. - &#x60;operator&#x60;: only channel operators are retrieved. - &#x60;nonoperator&#x60;: all channel members, except channel operators, are retrieved. (optional)
+     * @param  string $member_state_filter Restricts the search scope to retrieve members based on if they have accepted an invitation or if they were invited by a friend. Acceptable values are &#x60;invited_only&#x60;, &#x60;joined_only&#x60;, &#x60;invited_by_friend&#x60;, &#x60;invited_by_non_friend&#x60;, and &#x60;all&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $muted_member_filter Restricts the search scope to retrieve members who are muted or unmuted in the channel. Acceptable values are &#x60;all&#x60;, &#x60;muted&#x60;, and &#x60;unmuted&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $member_active_mode_filter Restricts the search scope to retrieve members who are activated or deactivated in the channel. Acceptable values are &#x60;all&#x60;, &#x60;activated&#x60;, and &#x60;deactivated&#x60;. (default: &#x60;activated&#x60;) (optional)
+     * @param  string $nickname_startswith Searches for members whose nicknames start with the specified value. Urlencoding the value is recommended. (optional)
+     * @param  bool $include_push_preference Determines whether to include information about the push preference of each member, such as &#x60;push_enabled&#x60;, &#x60;push_trigger_option&#x60;, and &#x60;do_not_disturb&#x60;. (Default: &#x60;false&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcListMembersRequest($associative_array)
+    public function listMembersRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
         $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
         $show_delivery_receipt = array_key_exists('show_delivery_receipt', $associative_array) ? $associative_array['show_delivery_receipt'] : null;
         $show_read_receipt = array_key_exists('show_read_receipt', $associative_array) ? $associative_array['show_read_receipt'] : null;
+        $show_member_is_muted = array_key_exists('show_member_is_muted', $associative_array) ? $associative_array['show_member_is_muted'] : null;
         $order = array_key_exists('order', $associative_array) ? $associative_array['order'] : null;
         $operator_filter = array_key_exists('operator_filter', $associative_array) ? $associative_array['operator_filter'] : null;
         $member_state_filter = array_key_exists('member_state_filter', $associative_array) ? $associative_array['member_state_filter'] : null;
         $muted_member_filter = array_key_exists('muted_member_filter', $associative_array) ? $associative_array['muted_member_filter'] : null;
+        $member_active_mode_filter = array_key_exists('member_active_mode_filter', $associative_array) ? $associative_array['member_active_mode_filter'] : null;
         $nickname_startswith = array_key_exists('nickname_startswith', $associative_array) ? $associative_array['nickname_startswith'] : null;
+        $include_push_preference = array_key_exists('include_push_preference', $associative_array) ? $associative_array['include_push_preference'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcListMembers'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcListMembers'
+                'Missing the required parameter $channel_url when calling listMembers'
             );
         }
 
@@ -4501,6 +4486,15 @@ class GroupChannelApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $user_id,
+            'user_id', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $show_delivery_receipt,
             'show_delivery_receipt', // param base name
             'boolean', // openApiType
@@ -4512,6 +4506,15 @@ class GroupChannelApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $show_read_receipt,
             'show_read_receipt', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_member_is_muted,
+            'show_member_is_muted', // param base name
             'boolean', // openApiType
             'form', // style
             true, // explode
@@ -4555,6 +4558,15 @@ class GroupChannelApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $member_active_mode_filter,
+            'member_active_mode_filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $nickname_startswith,
             'nickname_startswith', // param base name
             'string', // openApiType
@@ -4562,10 +4574,19 @@ class GroupChannelApi
             true, // explode
             false // required
         ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_push_preference,
+            'include_push_preference', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -4636,46 +4657,46 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcListOperators
+     * Operation listOperators
      *
      * List operators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcListOperatorsResponse
+     * @return \Sendbird\Model\ListOperatorsResponse
      */
-    public function gcListOperators($associative_array)
+    public function listOperators($associative_array)
     {
-        list($response) = $this->gcListOperatorsWithHttpInfo($associative_array);
+        list($response) = $this->listOperatorsWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcListOperatorsWithHttpInfo
+     * Operation listOperatorsWithHttpInfo
      *
      * List operators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcListOperatorsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ListOperatorsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcListOperatorsWithHttpInfo($associative_array)
+    public function listOperatorsWithHttpInfo($associative_array)
     {
-        $request = $this->gcListOperatorsRequest($associative_array);
+        $request = $this->listOperatorsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4714,23 +4735,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\GcListOperatorsResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ListOperatorsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\GcListOperatorsResponse' !== 'string') {
+                        if ('\Sendbird\Model\ListOperatorsResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcListOperatorsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListOperatorsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\GcListOperatorsResponse';
+            $returnType = '\Sendbird\Model\ListOperatorsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4751,7 +4772,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\GcListOperatorsResponse',
+                        '\Sendbird\Model\ListOperatorsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4762,23 +4783,23 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcListOperatorsAsync
+     * Operation listOperatorsAsync
      *
      * List operators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcListOperatorsAsync($associative_array)
+    public function listOperatorsAsync($associative_array)
     {
-        return $this->gcListOperatorsAsyncWithHttpInfo($associative_array)
+        return $this->listOperatorsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4787,24 +4808,24 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcListOperatorsAsyncWithHttpInfo
+     * Operation listOperatorsAsyncWithHttpInfo
      *
      * List operators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcListOperatorsAsyncWithHttpInfo($associative_array)
+    public function listOperatorsAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\GcListOperatorsResponse';
-        $request = $this->gcListOperatorsRequest($associative_array);
+        $returnType = '\Sendbird\Model\ListOperatorsResponse';
+        $request = $this->listOperatorsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4843,36 +4864,30 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcListOperators'
+     * Create request for operation 'listOperators'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcListOperatorsRequest($associative_array)
+    public function listOperatorsRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
         $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcListOperators'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcListOperators'
+                'Missing the required parameter $channel_url when calling listOperators'
             );
         }
 
@@ -4904,7 +4919,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -4975,44 +4990,44 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcRegisterOperators
+     * Operation registerOperatorsToAGroupChannel
      *
-     * Register operators
+     * Register operators to a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcRegisterOperatorsData $gc_register_operators_data gc_register_operators_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest $register_operators_to_a_group_channel_request register_operators_to_a_group_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcRegisterOperatorsResponse
+     * @return object
      */
-    public function gcRegisterOperators($associative_array)
+    public function registerOperatorsToAGroupChannel($associative_array)
     {
-        list($response) = $this->gcRegisterOperatorsWithHttpInfo($associative_array);
+        list($response) = $this->registerOperatorsToAGroupChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcRegisterOperatorsWithHttpInfo
+     * Operation registerOperatorsToAGroupChannelWithHttpInfo
      *
-     * Register operators
+     * Register operators to a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest $register_operators_to_a_group_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcRegisterOperatorsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcRegisterOperatorsWithHttpInfo($associative_array)
+    public function registerOperatorsToAGroupChannelWithHttpInfo($associative_array)
     {
-        $request = $this->gcRegisterOperatorsRequest($associative_array);
+        $request = $this->registerOperatorsToAGroupChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5051,23 +5066,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\GcRegisterOperatorsResponse' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\GcRegisterOperatorsResponse' !== 'string') {
+                        if ('object' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcRegisterOperatorsResponse', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\GcRegisterOperatorsResponse';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5088,7 +5103,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\GcRegisterOperatorsResponse',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5099,22 +5114,22 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcRegisterOperatorsAsync
+     * Operation registerOperatorsToAGroupChannelAsync
      *
-     * Register operators
+     * Register operators to a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest $register_operators_to_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcRegisterOperatorsAsync($associative_array)
+    public function registerOperatorsToAGroupChannelAsync($associative_array)
     {
-        return $this->gcRegisterOperatorsAsyncWithHttpInfo($associative_array)
+        return $this->registerOperatorsToAGroupChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5123,23 +5138,23 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcRegisterOperatorsAsyncWithHttpInfo
+     * Operation registerOperatorsToAGroupChannelAsyncWithHttpInfo
      *
-     * Register operators
+     * Register operators to a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest $register_operators_to_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcRegisterOperatorsAsyncWithHttpInfo($associative_array)
+    public function registerOperatorsToAGroupChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\GcRegisterOperatorsResponse';
-        $request = $this->gcRegisterOperatorsRequest($associative_array);
+        $returnType = 'object';
+        $request = $this->registerOperatorsToAGroupChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5178,34 +5193,28 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcRegisterOperators'
+     * Create request for operation 'registerOperatorsToAGroupChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcRegisterOperatorsData $gc_register_operators_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest $register_operators_to_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcRegisterOperatorsRequest($associative_array)
+    public function registerOperatorsToAGroupChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $gc_register_operators_data = array_key_exists('gc_register_operators_data', $associative_array) ? $associative_array['gc_register_operators_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $register_operators_to_a_group_channel_request = array_key_exists('register_operators_to_a_group_channel_request', $associative_array) ? $associative_array['register_operators_to_a_group_channel_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcRegisterOperators'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcRegisterOperators'
+                'Missing the required parameter $channel_url when calling registerOperatorsToAGroupChannel'
             );
         }
 
@@ -5219,7 +5228,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -5244,11 +5253,11 @@ class GroupChannelApi
         }
 
         // for model (json/xml)
-        if (isset($gc_register_operators_data)) {
+        if (isset($register_operators_to_a_group_channel_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_register_operators_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($register_operators_to_a_group_channel_request));
             } else {
-                $httpBody = $gc_register_operators_data;
+                $httpBody = $register_operators_to_a_group_channel_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5296,44 +5305,44 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcResetChatHistory
+     * Operation resetChatHistory
      *
      * Reset chat history
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcResetChatHistoryData $gc_reset_chat_history_data gc_reset_chat_history_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\ResetChatHistoryRequest $reset_chat_history_request reset_chat_history_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\GcResetChatHistoryResponse
+     * @return \Sendbird\Model\ResetChatHistoryResponse
      */
-    public function gcResetChatHistory($associative_array)
+    public function resetChatHistory($associative_array)
     {
-        list($response) = $this->gcResetChatHistoryWithHttpInfo($associative_array);
+        list($response) = $this->resetChatHistoryWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcResetChatHistoryWithHttpInfo
+     * Operation resetChatHistoryWithHttpInfo
      *
      * Reset chat history
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\ResetChatHistoryRequest $reset_chat_history_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\GcResetChatHistoryResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ResetChatHistoryResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcResetChatHistoryWithHttpInfo($associative_array)
+    public function resetChatHistoryWithHttpInfo($associative_array)
     {
-        $request = $this->gcResetChatHistoryRequest($associative_array);
+        $request = $this->resetChatHistoryRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5372,23 +5381,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\GcResetChatHistoryResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ResetChatHistoryResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\GcResetChatHistoryResponse' !== 'string') {
+                        if ('\Sendbird\Model\ResetChatHistoryResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GcResetChatHistoryResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ResetChatHistoryResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\GcResetChatHistoryResponse';
+            $returnType = '\Sendbird\Model\ResetChatHistoryResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5409,7 +5418,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\GcResetChatHistoryResponse',
+                        '\Sendbird\Model\ResetChatHistoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5420,22 +5429,22 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcResetChatHistoryAsync
+     * Operation resetChatHistoryAsync
      *
      * Reset chat history
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\ResetChatHistoryRequest $reset_chat_history_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcResetChatHistoryAsync($associative_array)
+    public function resetChatHistoryAsync($associative_array)
     {
-        return $this->gcResetChatHistoryAsyncWithHttpInfo($associative_array)
+        return $this->resetChatHistoryAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5444,23 +5453,23 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcResetChatHistoryAsyncWithHttpInfo
+     * Operation resetChatHistoryAsyncWithHttpInfo
      *
      * Reset chat history
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\ResetChatHistoryRequest $reset_chat_history_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcResetChatHistoryAsyncWithHttpInfo($associative_array)
+    public function resetChatHistoryAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\GcResetChatHistoryResponse';
-        $request = $this->gcResetChatHistoryRequest($associative_array);
+        $returnType = '\Sendbird\Model\ResetChatHistoryResponse';
+        $request = $this->resetChatHistoryRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5499,34 +5508,28 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcResetChatHistory'
+     * Create request for operation 'resetChatHistory'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcResetChatHistoryData $gc_reset_chat_history_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\ResetChatHistoryRequest $reset_chat_history_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcResetChatHistoryRequest($associative_array)
+    public function resetChatHistoryRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $gc_reset_chat_history_data = array_key_exists('gc_reset_chat_history_data', $associative_array) ? $associative_array['gc_reset_chat_history_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $reset_chat_history_request = array_key_exists('reset_chat_history_request', $associative_array) ? $associative_array['reset_chat_history_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcResetChatHistory'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcResetChatHistory'
+                'Missing the required parameter $channel_url when calling resetChatHistory'
             );
         }
 
@@ -5540,7 +5543,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -5565,11 +5568,11 @@ class GroupChannelApi
         }
 
         // for model (json/xml)
-        if (isset($gc_reset_chat_history_data)) {
+        if (isset($reset_chat_history_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_reset_chat_history_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($reset_chat_history_request));
             } else {
-                $httpBody = $gc_reset_chat_history_data;
+                $httpBody = $reset_chat_history_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5617,46 +5620,44 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcUnhideOrUnarchiveChannel
+     * Operation startTypingIndicators
      *
-     * Unhide or unarchive a channel
+     * Start typing indicators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $user_id user_id (required)
-     * @param  bool $should_unhide_all should_unhide_all (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\StartTypingIndicatorsRequest $start_typing_indicators_request start_typing_indicators_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
+     * @return object
      */
-    public function gcUnhideOrUnarchiveChannel($associative_array)
+    public function startTypingIndicators($associative_array)
     {
-        list($response) = $this->gcUnhideOrUnarchiveChannelWithHttpInfo($associative_array);
+        list($response) = $this->startTypingIndicatorsWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcUnhideOrUnarchiveChannelWithHttpInfo
+     * Operation startTypingIndicatorsWithHttpInfo
      *
-     * Unhide or unarchive a channel
+     * Start typing indicators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $user_id (required)
-     * @param  bool $should_unhide_all (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\StartTypingIndicatorsRequest $start_typing_indicators_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcUnhideOrUnarchiveChannelWithHttpInfo($associative_array)
+    public function startTypingIndicatorsWithHttpInfo($associative_array)
     {
-        $request = $this->gcUnhideOrUnarchiveChannelRequest($associative_array);
+        $request = $this->startTypingIndicatorsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5695,23 +5696,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' !== 'string') {
+                        if ('object' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcDeleteChannelByUrl200Response', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5732,7 +5733,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\OcDeleteChannelByUrl200Response',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5743,23 +5744,22 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcUnhideOrUnarchiveChannelAsync
+     * Operation startTypingIndicatorsAsync
      *
-     * Unhide or unarchive a channel
+     * Start typing indicators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $user_id (required)
-     * @param  bool $should_unhide_all (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\StartTypingIndicatorsRequest $start_typing_indicators_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcUnhideOrUnarchiveChannelAsync($associative_array)
+    public function startTypingIndicatorsAsync($associative_array)
     {
-        return $this->gcUnhideOrUnarchiveChannelAsyncWithHttpInfo($associative_array)
+        return $this->startTypingIndicatorsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5768,24 +5768,23 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcUnhideOrUnarchiveChannelAsyncWithHttpInfo
+     * Operation startTypingIndicatorsAsyncWithHttpInfo
      *
-     * Unhide or unarchive a channel
+     * Start typing indicators
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $user_id (required)
-     * @param  bool $should_unhide_all (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\StartTypingIndicatorsRequest $start_typing_indicators_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcUnhideOrUnarchiveChannelAsyncWithHttpInfo($associative_array)
+    public function startTypingIndicatorsAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->gcUnhideOrUnarchiveChannelRequest($associative_array);
+        $returnType = 'object';
+        $request = $this->startTypingIndicatorsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5824,42 +5823,670 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcUnhideOrUnarchiveChannel'
+     * Create request for operation 'startTypingIndicators'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $user_id (required)
-     * @param  bool $should_unhide_all (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\StartTypingIndicatorsRequest $start_typing_indicators_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcUnhideOrUnarchiveChannelRequest($associative_array)
+    public function startTypingIndicatorsRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $should_unhide_all = array_key_exists('should_unhide_all', $associative_array) ? $associative_array['should_unhide_all'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $start_typing_indicators_request = array_key_exists('start_typing_indicators_request', $associative_array) ? $associative_array['start_typing_indicators_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcUnhideOrUnarchiveChannel'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcUnhideOrUnarchiveChannel'
+                'Missing the required parameter $channel_url when calling startTypingIndicators'
+            );
+        }
+
+        $resourcePath = '/v3/group_channels/{channel_url}/typing';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($start_typing_indicators_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($start_typing_indicators_request));
+            } else {
+                $httpBody = $start_typing_indicators_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation stopTypingIndicators
+     *
+     * Stop typing indicators
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\StartTypingIndicatorsRequest $start_typing_indicators_request start_typing_indicators_request (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function stopTypingIndicators($associative_array)
+    {
+        list($response) = $this->stopTypingIndicatorsWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation stopTypingIndicatorsWithHttpInfo
+     *
+     * Stop typing indicators
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\StartTypingIndicatorsRequest $start_typing_indicators_request (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function stopTypingIndicatorsWithHttpInfo($associative_array)
+    {
+        $request = $this->stopTypingIndicatorsRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation stopTypingIndicatorsAsync
+     *
+     * Stop typing indicators
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\StartTypingIndicatorsRequest $start_typing_indicators_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function stopTypingIndicatorsAsync($associative_array)
+    {
+        return $this->stopTypingIndicatorsAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation stopTypingIndicatorsAsyncWithHttpInfo
+     *
+     * Stop typing indicators
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\StartTypingIndicatorsRequest $start_typing_indicators_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function stopTypingIndicatorsAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = 'object';
+        $request = $this->stopTypingIndicatorsRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'stopTypingIndicators'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\StartTypingIndicatorsRequest $start_typing_indicators_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function stopTypingIndicatorsRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $start_typing_indicators_request = array_key_exists('start_typing_indicators_request', $associative_array) ? $associative_array['start_typing_indicators_request'] : null;
+
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling stopTypingIndicators'
+            );
+        }
+
+        $resourcePath = '/v3/group_channels/{channel_url}/typing';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($start_typing_indicators_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($start_typing_indicators_request));
+            } else {
+                $httpBody = $start_typing_indicators_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation unhideAChannel
+     *
+     * Unhide a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $user_id (Required) (required)
+     * @param  bool $should_unhide_all should_unhide_all (optional)
+     * @param  string $api_token api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function unhideAChannel($associative_array)
+    {
+        list($response) = $this->unhideAChannelWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation unhideAChannelWithHttpInfo
+     *
+     * Unhide a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $user_id (Required) (required)
+     * @param  bool $should_unhide_all (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function unhideAChannelWithHttpInfo($associative_array)
+    {
+        $request = $this->unhideAChannelRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation unhideAChannelAsync
+     *
+     * Unhide a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $user_id (Required) (required)
+     * @param  bool $should_unhide_all (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function unhideAChannelAsync($associative_array)
+    {
+        return $this->unhideAChannelAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation unhideAChannelAsyncWithHttpInfo
+     *
+     * Unhide a channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $user_id (Required) (required)
+     * @param  bool $should_unhide_all (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function unhideAChannelAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = 'object';
+        $request = $this->unhideAChannelRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'unhideAChannel'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $user_id (Required) (required)
+     * @param  bool $should_unhide_all (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function unhideAChannelRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $should_unhide_all = array_key_exists('should_unhide_all', $associative_array) ? $associative_array['should_unhide_all'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling unhideAChannel'
             );
         }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling gcUnhideOrUnarchiveChannel'
+                'Missing the required parameter $user_id when calling unhideAChannel'
             );
         }
 
@@ -5891,7 +6518,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -5962,44 +6589,44 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcUpdateChannelByUrl
+     * Operation updateAGroupChannel
      *
-     * Update a channel
+     * Update a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
      * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data gc_update_channel_by_url_data (optional)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\UpdateAGroupChannelRequest $update_a_group_channel_request update_a_group_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdGroupChannel
+     * @return \Sendbird\Model\SendbirdGroupChannelDetail
      */
-    public function gcUpdateChannelByUrl($associative_array)
+    public function updateAGroupChannel($associative_array)
     {
-        list($response) = $this->gcUpdateChannelByUrlWithHttpInfo($associative_array);
+        list($response) = $this->updateAGroupChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation gcUpdateChannelByUrlWithHttpInfo
+     * Operation updateAGroupChannelWithHttpInfo
      *
-     * Update a channel
+     * Update a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAGroupChannelRequest $update_a_group_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendbirdGroupChannelDetail, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gcUpdateChannelByUrlWithHttpInfo($associative_array)
+    public function updateAGroupChannelWithHttpInfo($associative_array)
     {
-        $request = $this->gcUpdateChannelByUrlRequest($associative_array);
+        $request = $this->updateAGroupChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6038,23 +6665,23 @@ class GroupChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendbirdGroupChannelDetail' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdGroupChannel' !== 'string') {
+                        if ('\Sendbird\Model\SendbirdGroupChannelDetail' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdGroupChannelDetail', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
+            $returnType = '\Sendbird\Model\SendbirdGroupChannelDetail';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6075,7 +6702,7 @@ class GroupChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdGroupChannel',
+                        '\Sendbird\Model\SendbirdGroupChannelDetail',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6086,22 +6713,22 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcUpdateChannelByUrlAsync
+     * Operation updateAGroupChannelAsync
      *
-     * Update a channel
+     * Update a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAGroupChannelRequest $update_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcUpdateChannelByUrlAsync($associative_array)
+    public function updateAGroupChannelAsync($associative_array)
     {
-        return $this->gcUpdateChannelByUrlAsyncWithHttpInfo($associative_array)
+        return $this->updateAGroupChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6110,23 +6737,23 @@ class GroupChannelApi
     }
 
     /**
-     * Operation gcUpdateChannelByUrlAsyncWithHttpInfo
+     * Operation updateAGroupChannelAsyncWithHttpInfo
      *
-     * Update a channel
+     * Update a group channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAGroupChannelRequest $update_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function gcUpdateChannelByUrlAsyncWithHttpInfo($associative_array)
+    public function updateAGroupChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-        $request = $this->gcUpdateChannelByUrlRequest($associative_array);
+        $returnType = '\Sendbird\Model\SendbirdGroupChannelDetail';
+        $request = $this->updateAGroupChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6165,34 +6792,28 @@ class GroupChannelApi
     }
 
     /**
-     * Create request for operation 'gcUpdateChannelByUrl'
+     * Create request for operation 'updateAGroupChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\GcUpdateChannelByUrlData $gc_update_channel_by_url_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAGroupChannelRequest $update_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function gcUpdateChannelByUrlRequest($associative_array)
+    public function updateAGroupChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $gc_update_channel_by_url_data = array_key_exists('gc_update_channel_by_url_data', $associative_array) ? $associative_array['gc_update_channel_by_url_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $update_a_group_channel_request = array_key_exists('update_a_group_channel_request', $associative_array) ? $associative_array['update_a_group_channel_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcUpdateChannelByUrl'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcUpdateChannelByUrl'
+                'Missing the required parameter $channel_url when calling updateAGroupChannel'
             );
         }
 
@@ -6206,7 +6827,7 @@ class GroupChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -6231,11 +6852,11 @@ class GroupChannelApi
         }
 
         // for model (json/xml)
-        if (isset($gc_update_channel_by_url_data)) {
+        if (isset($update_a_group_channel_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($gc_update_channel_by_url_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_a_group_channel_request));
             } else {
-                $httpBody = $gc_update_channel_by_url_data;
+                $httpBody = $update_a_group_channel_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6276,390 +6897,6 @@ class GroupChannelApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation gcViewChannelByUrl
-     *
-     * View a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  bool $show_delivery_receipt show_delivery_receipt (optional)
-     * @param  bool $show_read_receipt show_read_receipt (optional)
-     * @param  bool $show_member show_member (optional)
-     * @param  bool $read_receipt read_receipt (optional)
-     * @param  bool $member member (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdGroupChannel
-     */
-    public function gcViewChannelByUrl($associative_array)
-    {
-        list($response) = $this->gcViewChannelByUrlWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation gcViewChannelByUrlWithHttpInfo
-     *
-     * View a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  bool $show_delivery_receipt (optional)
-     * @param  bool $show_read_receipt (optional)
-     * @param  bool $show_member (optional)
-     * @param  bool $read_receipt (optional)
-     * @param  bool $member (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdGroupChannel, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function gcViewChannelByUrlWithHttpInfo($associative_array)
-    {
-        $request = $this->gcViewChannelByUrlRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\SendBirdGroupChannel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdGroupChannel' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdGroupChannel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdGroupChannel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation gcViewChannelByUrlAsync
-     *
-     * View a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  bool $show_delivery_receipt (optional)
-     * @param  bool $show_read_receipt (optional)
-     * @param  bool $show_member (optional)
-     * @param  bool $read_receipt (optional)
-     * @param  bool $member (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcViewChannelByUrlAsync($associative_array)
-    {
-        return $this->gcViewChannelByUrlAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation gcViewChannelByUrlAsyncWithHttpInfo
-     *
-     * View a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  bool $show_delivery_receipt (optional)
-     * @param  bool $show_read_receipt (optional)
-     * @param  bool $show_member (optional)
-     * @param  bool $read_receipt (optional)
-     * @param  bool $member (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function gcViewChannelByUrlAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\SendBirdGroupChannel';
-        $request = $this->gcViewChannelByUrlRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'gcViewChannelByUrl'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  bool $show_delivery_receipt (optional)
-     * @param  bool $show_read_receipt (optional)
-     * @param  bool $show_member (optional)
-     * @param  bool $read_receipt (optional)
-     * @param  bool $member (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function gcViewChannelByUrlRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $show_delivery_receipt = array_key_exists('show_delivery_receipt', $associative_array) ? $associative_array['show_delivery_receipt'] : null;
-        $show_read_receipt = array_key_exists('show_read_receipt', $associative_array) ? $associative_array['show_read_receipt'] : null;
-        $show_member = array_key_exists('show_member', $associative_array) ? $associative_array['show_member'] : null;
-        $read_receipt = array_key_exists('read_receipt', $associative_array) ? $associative_array['read_receipt'] : null;
-        $member = array_key_exists('member', $associative_array) ? $associative_array['member'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling gcViewChannelByUrl'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling gcViewChannelByUrl'
-            );
-        }
-
-        $resourcePath = '/v3/group_channels/{channel_url}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $show_delivery_receipt,
-            'show_delivery_receipt', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $show_read_receipt,
-            'show_read_receipt', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $show_member,
-            'show_member', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $read_receipt,
-            'read_receipt', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $member,
-            'member', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -63,7 +63,7 @@ class ListRegistrationOrDeviceTokensResponse implements ModelInterface, ArrayAcc
         'token' => 'string[]',
         'tokens' => 'string[]',
         'type' => 'string',
-        'user' => '\Sendbird\Model\SendBirdUser'
+        'user' => '\Sendbird\Model\SendbirdBasicUserInfo'
     ];
 
     /**
@@ -299,7 +299,7 @@ class ListRegistrationOrDeviceTokensResponse implements ModelInterface, ArrayAcc
     /**
      * Gets user
      *
-     * @return \Sendbird\Model\SendBirdUser|null
+     * @return \Sendbird\Model\SendbirdBasicUserInfo|null
      */
     public function getUser()
     {
@@ -309,7 +309,7 @@ class ListRegistrationOrDeviceTokensResponse implements ModelInterface, ArrayAcc
     /**
      * Sets user
      *
-     * @param \Sendbird\Model\SendBirdUser|null $user user
+     * @param \Sendbird\Model\SendbirdBasicUserInfo|null $user user
      *
      * @return self
      */

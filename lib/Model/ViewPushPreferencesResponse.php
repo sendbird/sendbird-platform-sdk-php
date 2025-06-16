@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -60,20 +60,20 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'snooze_start_ts' => 'string',
-        'start_hour' => 'float',
-        'snooze_enabled' => 'bool',
-        'end_min' => 'float',
-        'timezone' => 'string',
         'block_push_from_bots' => 'bool',
-        'push_blocked_bot_ids' => 'string[]',
-        'start_min' => 'float',
-        'snooze_end_ts' => 'string',
         'do_not_disturb' => 'bool',
-        'end_hour' => 'float',
         'enable_push_for_replies' => 'bool',
+        'end_hour' => 'int',
+        'end_min' => 'int',
+        'push_blocked_bot_ids' => 'string[]',
         'push_sound' => 'string',
-        'push_trigger_option' => 'string'
+        'push_trigger_option' => '\Sendbird\Model\SendbirdPushTriggerOption',
+        'snooze_enabled' => 'bool',
+        'snooze_end_ts' => 'int',
+        'snooze_start_ts' => 'int',
+        'start_hour' => 'int',
+        'start_min' => 'int',
+        'timezone' => 'string'
     ];
 
     /**
@@ -84,20 +84,20 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'snooze_start_ts' => null,
-        'start_hour' => null,
-        'snooze_enabled' => null,
-        'end_min' => null,
-        'timezone' => null,
         'block_push_from_bots' => null,
-        'push_blocked_bot_ids' => null,
-        'start_min' => null,
-        'snooze_end_ts' => null,
         'do_not_disturb' => null,
-        'end_hour' => null,
         'enable_push_for_replies' => null,
+        'end_hour' => null,
+        'end_min' => null,
+        'push_blocked_bot_ids' => null,
         'push_sound' => null,
-        'push_trigger_option' => null
+        'push_trigger_option' => null,
+        'snooze_enabled' => null,
+        'snooze_end_ts' => 'int64',
+        'snooze_start_ts' => 'int64',
+        'start_hour' => null,
+        'start_min' => null,
+        'timezone' => null
     ];
 
     /**
@@ -127,20 +127,20 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
+        'block_push_from_bots' => 'block_push_from_bots',
+        'do_not_disturb' => 'do_not_disturb',
+        'enable_push_for_replies' => 'enable_push_for_replies',
+        'end_hour' => 'end_hour',
+        'end_min' => 'end_min',
+        'push_blocked_bot_ids' => 'push_blocked_bot_ids',
+        'push_sound' => 'push_sound',
+        'push_trigger_option' => 'push_trigger_option',
+        'snooze_enabled' => 'snooze_enabled',
+        'snooze_end_ts' => 'snooze_end_ts',
         'snooze_start_ts' => 'snooze_start_ts',
         'start_hour' => 'start_hour',
-        'snooze_enabled' => 'snooze_enabled',
-        'end_min' => 'end_min',
-        'timezone' => 'timezone',
-        'block_push_from_bots' => 'block_push_from_bots',
-        'push_blocked_bot_ids' => 'push_blocked_bot_ids',
         'start_min' => 'start_min',
-        'snooze_end_ts' => 'snooze_end_ts',
-        'do_not_disturb' => 'do_not_disturb',
-        'end_hour' => 'end_hour',
-        'enable_push_for_replies' => 'enable_push_for_replies',
-        'push_sound' => 'push_sound',
-        'push_trigger_option' => 'push_trigger_option'
+        'timezone' => 'timezone'
     ];
 
     /**
@@ -149,20 +149,20 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
+        'block_push_from_bots' => 'setBlockPushFromBots',
+        'do_not_disturb' => 'setDoNotDisturb',
+        'enable_push_for_replies' => 'setEnablePushForReplies',
+        'end_hour' => 'setEndHour',
+        'end_min' => 'setEndMin',
+        'push_blocked_bot_ids' => 'setPushBlockedBotIds',
+        'push_sound' => 'setPushSound',
+        'push_trigger_option' => 'setPushTriggerOption',
+        'snooze_enabled' => 'setSnoozeEnabled',
+        'snooze_end_ts' => 'setSnoozeEndTs',
         'snooze_start_ts' => 'setSnoozeStartTs',
         'start_hour' => 'setStartHour',
-        'snooze_enabled' => 'setSnoozeEnabled',
-        'end_min' => 'setEndMin',
-        'timezone' => 'setTimezone',
-        'block_push_from_bots' => 'setBlockPushFromBots',
-        'push_blocked_bot_ids' => 'setPushBlockedBotIds',
         'start_min' => 'setStartMin',
-        'snooze_end_ts' => 'setSnoozeEndTs',
-        'do_not_disturb' => 'setDoNotDisturb',
-        'end_hour' => 'setEndHour',
-        'enable_push_for_replies' => 'setEnablePushForReplies',
-        'push_sound' => 'setPushSound',
-        'push_trigger_option' => 'setPushTriggerOption'
+        'timezone' => 'setTimezone'
     ];
 
     /**
@@ -171,20 +171,20 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
+        'block_push_from_bots' => 'getBlockPushFromBots',
+        'do_not_disturb' => 'getDoNotDisturb',
+        'enable_push_for_replies' => 'getEnablePushForReplies',
+        'end_hour' => 'getEndHour',
+        'end_min' => 'getEndMin',
+        'push_blocked_bot_ids' => 'getPushBlockedBotIds',
+        'push_sound' => 'getPushSound',
+        'push_trigger_option' => 'getPushTriggerOption',
+        'snooze_enabled' => 'getSnoozeEnabled',
+        'snooze_end_ts' => 'getSnoozeEndTs',
         'snooze_start_ts' => 'getSnoozeStartTs',
         'start_hour' => 'getStartHour',
-        'snooze_enabled' => 'getSnoozeEnabled',
-        'end_min' => 'getEndMin',
-        'timezone' => 'getTimezone',
-        'block_push_from_bots' => 'getBlockPushFromBots',
-        'push_blocked_bot_ids' => 'getPushBlockedBotIds',
         'start_min' => 'getStartMin',
-        'snooze_end_ts' => 'getSnoozeEndTs',
-        'do_not_disturb' => 'getDoNotDisturb',
-        'end_hour' => 'getEndHour',
-        'enable_push_for_replies' => 'getEnablePushForReplies',
-        'push_sound' => 'getPushSound',
-        'push_trigger_option' => 'getPushTriggerOption'
+        'timezone' => 'getTimezone'
     ];
 
     /**
@@ -244,20 +244,20 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->container['snooze_start_ts'] = $data['snooze_start_ts'] ?? null;
-        $this->container['start_hour'] = $data['start_hour'] ?? null;
-        $this->container['snooze_enabled'] = $data['snooze_enabled'] ?? null;
-        $this->container['end_min'] = $data['end_min'] ?? null;
-        $this->container['timezone'] = $data['timezone'] ?? null;
         $this->container['block_push_from_bots'] = $data['block_push_from_bots'] ?? null;
-        $this->container['push_blocked_bot_ids'] = $data['push_blocked_bot_ids'] ?? null;
-        $this->container['start_min'] = $data['start_min'] ?? null;
-        $this->container['snooze_end_ts'] = $data['snooze_end_ts'] ?? null;
         $this->container['do_not_disturb'] = $data['do_not_disturb'] ?? null;
-        $this->container['end_hour'] = $data['end_hour'] ?? null;
         $this->container['enable_push_for_replies'] = $data['enable_push_for_replies'] ?? null;
+        $this->container['end_hour'] = $data['end_hour'] ?? null;
+        $this->container['end_min'] = $data['end_min'] ?? null;
+        $this->container['push_blocked_bot_ids'] = $data['push_blocked_bot_ids'] ?? null;
         $this->container['push_sound'] = $data['push_sound'] ?? null;
         $this->container['push_trigger_option'] = $data['push_trigger_option'] ?? null;
+        $this->container['snooze_enabled'] = $data['snooze_enabled'] ?? null;
+        $this->container['snooze_end_ts'] = $data['snooze_end_ts'] ?? null;
+        $this->container['snooze_start_ts'] = $data['snooze_start_ts'] ?? null;
+        $this->container['start_hour'] = $data['start_hour'] ?? null;
+        $this->container['start_min'] = $data['start_min'] ?? null;
+        $this->container['timezone'] = $data['timezone'] ?? null;
     }
 
     /**
@@ -285,126 +285,6 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets snooze_start_ts
-     *
-     * @return string|null
-     */
-    public function getSnoozeStartTs()
-    {
-        return $this->container['snooze_start_ts'];
-    }
-
-    /**
-     * Sets snooze_start_ts
-     *
-     * @param string|null $snooze_start_ts snooze_start_ts
-     *
-     * @return self
-     */
-    public function setSnoozeStartTs($snooze_start_ts)
-    {
-        $this->container['snooze_start_ts'] = $snooze_start_ts;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_hour
-     *
-     * @return float|null
-     */
-    public function getStartHour()
-    {
-        return $this->container['start_hour'];
-    }
-
-    /**
-     * Sets start_hour
-     *
-     * @param float|null $start_hour start_hour
-     *
-     * @return self
-     */
-    public function setStartHour($start_hour)
-    {
-        $this->container['start_hour'] = $start_hour;
-
-        return $this;
-    }
-
-    /**
-     * Gets snooze_enabled
-     *
-     * @return bool|null
-     */
-    public function getSnoozeEnabled()
-    {
-        return $this->container['snooze_enabled'];
-    }
-
-    /**
-     * Sets snooze_enabled
-     *
-     * @param bool|null $snooze_enabled snooze_enabled
-     *
-     * @return self
-     */
-    public function setSnoozeEnabled($snooze_enabled)
-    {
-        $this->container['snooze_enabled'] = $snooze_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_min
-     *
-     * @return float|null
-     */
-    public function getEndMin()
-    {
-        return $this->container['end_min'];
-    }
-
-    /**
-     * Sets end_min
-     *
-     * @param float|null $end_min end_min
-     *
-     * @return self
-     */
-    public function setEndMin($end_min)
-    {
-        $this->container['end_min'] = $end_min;
-
-        return $this;
-    }
-
-    /**
-     * Gets timezone
-     *
-     * @return string|null
-     */
-    public function getTimezone()
-    {
-        return $this->container['timezone'];
-    }
-
-    /**
-     * Sets timezone
-     *
-     * @param string|null $timezone timezone
-     *
-     * @return self
-     */
-    public function setTimezone($timezone)
-    {
-        $this->container['timezone'] = $timezone;
-
-        return $this;
-    }
-
-    /**
      * Gets block_push_from_bots
      *
      * @return bool|null
@@ -424,78 +304,6 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
     public function setBlockPushFromBots($block_push_from_bots)
     {
         $this->container['block_push_from_bots'] = $block_push_from_bots;
-
-        return $this;
-    }
-
-    /**
-     * Gets push_blocked_bot_ids
-     *
-     * @return string[]|null
-     */
-    public function getPushBlockedBotIds()
-    {
-        return $this->container['push_blocked_bot_ids'];
-    }
-
-    /**
-     * Sets push_blocked_bot_ids
-     *
-     * @param string[]|null $push_blocked_bot_ids push_blocked_bot_ids
-     *
-     * @return self
-     */
-    public function setPushBlockedBotIds($push_blocked_bot_ids)
-    {
-        $this->container['push_blocked_bot_ids'] = $push_blocked_bot_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_min
-     *
-     * @return float|null
-     */
-    public function getStartMin()
-    {
-        return $this->container['start_min'];
-    }
-
-    /**
-     * Sets start_min
-     *
-     * @param float|null $start_min start_min
-     *
-     * @return self
-     */
-    public function setStartMin($start_min)
-    {
-        $this->container['start_min'] = $start_min;
-
-        return $this;
-    }
-
-    /**
-     * Gets snooze_end_ts
-     *
-     * @return string|null
-     */
-    public function getSnoozeEndTs()
-    {
-        return $this->container['snooze_end_ts'];
-    }
-
-    /**
-     * Sets snooze_end_ts
-     *
-     * @param string|null $snooze_end_ts snooze_end_ts
-     *
-     * @return self
-     */
-    public function setSnoozeEndTs($snooze_end_ts)
-    {
-        $this->container['snooze_end_ts'] = $snooze_end_ts;
 
         return $this;
     }
@@ -525,30 +333,6 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
-     * Gets end_hour
-     *
-     * @return float|null
-     */
-    public function getEndHour()
-    {
-        return $this->container['end_hour'];
-    }
-
-    /**
-     * Sets end_hour
-     *
-     * @param float|null $end_hour end_hour
-     *
-     * @return self
-     */
-    public function setEndHour($end_hour)
-    {
-        $this->container['end_hour'] = $end_hour;
-
-        return $this;
-    }
-
-    /**
      * Gets enable_push_for_replies
      *
      * @return bool|null
@@ -568,6 +352,78 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
     public function setEnablePushForReplies($enable_push_for_replies)
     {
         $this->container['enable_push_for_replies'] = $enable_push_for_replies;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_hour
+     *
+     * @return int|null
+     */
+    public function getEndHour()
+    {
+        return $this->container['end_hour'];
+    }
+
+    /**
+     * Sets end_hour
+     *
+     * @param int|null $end_hour end_hour
+     *
+     * @return self
+     */
+    public function setEndHour($end_hour)
+    {
+        $this->container['end_hour'] = $end_hour;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_min
+     *
+     * @return int|null
+     */
+    public function getEndMin()
+    {
+        return $this->container['end_min'];
+    }
+
+    /**
+     * Sets end_min
+     *
+     * @param int|null $end_min end_min
+     *
+     * @return self
+     */
+    public function setEndMin($end_min)
+    {
+        $this->container['end_min'] = $end_min;
+
+        return $this;
+    }
+
+    /**
+     * Gets push_blocked_bot_ids
+     *
+     * @return string[]|null
+     */
+    public function getPushBlockedBotIds()
+    {
+        return $this->container['push_blocked_bot_ids'];
+    }
+
+    /**
+     * Sets push_blocked_bot_ids
+     *
+     * @param string[]|null $push_blocked_bot_ids push_blocked_bot_ids
+     *
+     * @return self
+     */
+    public function setPushBlockedBotIds($push_blocked_bot_ids)
+    {
+        $this->container['push_blocked_bot_ids'] = $push_blocked_bot_ids;
 
         return $this;
     }
@@ -599,7 +455,7 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets push_trigger_option
      *
-     * @return string|null
+     * @return \Sendbird\Model\SendbirdPushTriggerOption|null
      */
     public function getPushTriggerOption()
     {
@@ -609,13 +465,157 @@ class ViewPushPreferencesResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets push_trigger_option
      *
-     * @param string|null $push_trigger_option push_trigger_option
+     * @param \Sendbird\Model\SendbirdPushTriggerOption|null $push_trigger_option push_trigger_option
      *
      * @return self
      */
     public function setPushTriggerOption($push_trigger_option)
     {
         $this->container['push_trigger_option'] = $push_trigger_option;
+
+        return $this;
+    }
+
+    /**
+     * Gets snooze_enabled
+     *
+     * @return bool|null
+     */
+    public function getSnoozeEnabled()
+    {
+        return $this->container['snooze_enabled'];
+    }
+
+    /**
+     * Sets snooze_enabled
+     *
+     * @param bool|null $snooze_enabled snooze_enabled
+     *
+     * @return self
+     */
+    public function setSnoozeEnabled($snooze_enabled)
+    {
+        $this->container['snooze_enabled'] = $snooze_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets snooze_end_ts
+     *
+     * @return int|null
+     */
+    public function getSnoozeEndTs()
+    {
+        return $this->container['snooze_end_ts'];
+    }
+
+    /**
+     * Sets snooze_end_ts
+     *
+     * @param int|null $snooze_end_ts snooze_end_ts
+     *
+     * @return self
+     */
+    public function setSnoozeEndTs($snooze_end_ts)
+    {
+        $this->container['snooze_end_ts'] = $snooze_end_ts;
+
+        return $this;
+    }
+
+    /**
+     * Gets snooze_start_ts
+     *
+     * @return int|null
+     */
+    public function getSnoozeStartTs()
+    {
+        return $this->container['snooze_start_ts'];
+    }
+
+    /**
+     * Sets snooze_start_ts
+     *
+     * @param int|null $snooze_start_ts snooze_start_ts
+     *
+     * @return self
+     */
+    public function setSnoozeStartTs($snooze_start_ts)
+    {
+        $this->container['snooze_start_ts'] = $snooze_start_ts;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_hour
+     *
+     * @return int|null
+     */
+    public function getStartHour()
+    {
+        return $this->container['start_hour'];
+    }
+
+    /**
+     * Sets start_hour
+     *
+     * @param int|null $start_hour start_hour
+     *
+     * @return self
+     */
+    public function setStartHour($start_hour)
+    {
+        $this->container['start_hour'] = $start_hour;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_min
+     *
+     * @return int|null
+     */
+    public function getStartMin()
+    {
+        return $this->container['start_min'];
+    }
+
+    /**
+     * Sets start_min
+     *
+     * @param int|null $start_min start_min
+     *
+     * @return self
+     */
+    public function setStartMin($start_min)
+    {
+        $this->container['start_min'] = $start_min;
+
+        return $this;
+    }
+
+    /**
+     * Gets timezone
+     *
+     * @return string|null
+     */
+    public function getTimezone()
+    {
+        return $this->container['timezone'];
+    }
+
+    /**
+     * Sets timezone
+     *
+     * @param string|null $timezone timezone
+     *
+     * @return self
+     */
+    public function setTimezone($timezone)
+    {
+        $this->container['timezone'] = $timezone;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdReaction
+ * SendbirdReaction
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * SendBirdReaction Class Doc Comment
+ * SendbirdReaction Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SendBirdReaction implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendbirdReaction implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class SendBirdReaction implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SendBird.Reaction';
+    protected static $openAPIModelName = 'Sendbird.Reaction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,7 +61,7 @@ class SendBirdReaction implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'key' => 'string',
-        'updated_at' => 'float',
+        'updated_at' => 'int',
         'user_ids' => 'string[]'
     ];
 
@@ -74,7 +74,7 @@ class SendBirdReaction implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'key' => null,
-        'updated_at' => null,
+        'updated_at' => 'int64',
         'user_ids' => null
     ];
 
@@ -245,7 +245,7 @@ class SendBirdReaction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets updated_at
      *
-     * @return float|null
+     * @return int|null
      */
     public function getUpdatedAt()
     {
@@ -255,7 +255,7 @@ class SendBirdReaction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets updated_at
      *
-     * @param float|null $updated_at updated_at
+     * @param int|null $updated_at updated_at
      *
      * @return self
      */

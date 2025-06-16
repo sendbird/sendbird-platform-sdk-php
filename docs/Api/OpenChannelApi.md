@@ -4,26 +4,25 @@ All URIs are relative to https://api-APP_ID.sendbird.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ocCancelTheRegistrationOfOperators()**](OpenChannelApi.md#ocCancelTheRegistrationOfOperators) | **DELETE** /v3/open_channels/{channel_url}/operators | Cancel the registration of operators
-[**ocCreateChannel()**](OpenChannelApi.md#ocCreateChannel) | **POST** /v3/open_channels | Create a channel
-[**ocDeleteChannelByUrl()**](OpenChannelApi.md#ocDeleteChannelByUrl) | **DELETE** /v3/open_channels/{channel_url} | Delete a channel
-[**ocListChannels()**](OpenChannelApi.md#ocListChannels) | **GET** /v3/open_channels | List channels
-[**ocListOperators()**](OpenChannelApi.md#ocListOperators) | **GET** /v3/open_channels/{channel_url}/operators | List operators
-[**ocListParticipants()**](OpenChannelApi.md#ocListParticipants) | **GET** /v3/open_channels/{channel_url}/participants | List participants
-[**ocRegisterOperators()**](OpenChannelApi.md#ocRegisterOperators) | **POST** /v3/open_channels/{channel_url}/operators | Register operators
-[**ocUpdateChannelByUrl()**](OpenChannelApi.md#ocUpdateChannelByUrl) | **PUT** /v3/open_channels/{channel_url} | Update a channel
-[**ocViewChannelByUrl()**](OpenChannelApi.md#ocViewChannelByUrl) | **GET** /v3/open_channels/{channel_url} | View a channel
+[**createAnOpenChannel()**](OpenChannelApi.md#createAnOpenChannel) | **POST** /v3/open_channels | Create an open channel
+[**deleteAnOpenChannel()**](OpenChannelApi.md#deleteAnOpenChannel) | **DELETE** /v3/open_channels/{channel_url} | Delete an open channel
+[**getAnOpenChannel()**](OpenChannelApi.md#getAnOpenChannel) | **GET** /v3/open_channels/{channel_url} | Get an open channel
+[**listChannelOperators()**](OpenChannelApi.md#listChannelOperators) | **GET** /v3/open_channels/{channel_url}/operators | List operators of an open channel
+[**listOpenChannels()**](OpenChannelApi.md#listOpenChannels) | **GET** /v3/open_channels | List open channels
+[**registerOperators()**](OpenChannelApi.md#registerOperators) | **POST** /v3/open_channels/{channel_url}/operators | Register operators to an open channel
+[**unregisterOperators()**](OpenChannelApi.md#unregisterOperators) | **DELETE** /v3/open_channels/{channel_url}/operators | Unregister operators from an open channel
+[**updateAnOpenChannel()**](OpenChannelApi.md#updateAnOpenChannel) | **PUT** /v3/open_channels/{channel_url} | Update an open channel
 
 
-## `ocCancelTheRegistrationOfOperators()`
+## `createAnOpenChannel()`
 
 ```php
-ocCancelTheRegistrationOfOperators($api_token, $channel_url, $operator_ids, $delete_all)
+createAnOpenChannel($api_token, $create_an_open_channel_request): \Sendbird\Model\SendbirdOpenChannel
 ```
 
-Cancel the registration of operators
+Create an open channel
 
-## Cancel the registration of operators  Cancels the registration of operators from an open channel but leave them as participants.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-cancel-the-registration-of-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to cancel the registration of operators.
+## Create an open channel  You can create an [open channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel) that facilitates conversations for millions of users. Open channels allow a seamless chat experience possible for all participants by using [dynamic partitioning](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#4-how-dynamic-partitioning-works) which creates subchannels that each handle up to tens of thousands of participants.  Because users don't need invitations to join open channels, short-lived live events like concerts or live streams that don't require a sustained membership are good use cases for open channels.  [https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel](https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel)
 
 ### Example
 
@@ -39,76 +38,13 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     new GuzzleHttp\Client()
 );
 $associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['channel_url'] = 'channel_url_example'; // string
-$associate_array['operator_ids'] = array('operator_ids_example'); // string[]
-$associate_array['delete_all'] = True; // bool
+$associate_array['create_an_open_channel_request'] = new \Sendbird\Model\CreateAnOpenChannelRequest(); // \Sendbird\Model\CreateAnOpenChannelRequest
 
 try {
-    $apiInstance->ocCancelTheRegistrationOfOperators($associate_array);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocCancelTheRegistrationOfOperators: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Note: the input parameter is an associative array with the keys listed as the parameter name below.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **operator_ids** | [**string[]**](../Model/string.md)|  |
- **delete_all** | **bool**|  | [optional]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocCreateChannel()`
-
-```php
-ocCreateChannel($api_token, $oc_create_channel_data): \Sendbird\Model\SendBirdOpenChannel
-```
-
-Create a channel
-
-## Create a channel  Creates an open channel.  >__Note__: Classic open channels created before the deprecation date of March 2021 will maintain their original form and functions. However, new applications created after December 15, 2020, will be able to create dynamic partitioning open channels only.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-create-a-channel
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['oc_create_channel_data'] = new \Sendbird\Model\OcCreateChannelData(); // \Sendbird\Model\OcCreateChannelData
-
-try {
-    $result = $apiInstance->ocCreateChannel($associate_array);
+    $result = $apiInstance->createAnOpenChannel($associate_array);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocCreateChannel: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OpenChannelApi->createAnOpenChannel: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -118,12 +54,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **oc_create_channel_data** | [**\Sendbird\Model\OcCreateChannelData**](../Model/OcCreateChannelData.md)|  | [optional]
+ **api_token** | **string**|  | [optional]
+ **create_an_open_channel_request** | [**\Sendbird\Model\CreateAnOpenChannelRequest**](../Model/CreateAnOpenChannelRequest.md)|  | [optional]
 
 ### Return type
 
-[**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
+[**\Sendbird\Model\SendbirdOpenChannel**](../Model/SendbirdOpenChannel.md)
 
 ### Authorization
 
@@ -138,15 +74,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `ocDeleteChannelByUrl()`
+## `deleteAnOpenChannel()`
 
 ```php
-ocDeleteChannelByUrl($api_token, $channel_url): \Sendbird\Model\OcDeleteChannelByUrl200Response
+deleteAnOpenChannel($channel_url, $api_token): object
 ```
 
-Delete a channel
+Delete an open channel
 
-## Delete a channel  Deletes an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-delete-a-channel ----------------------------
+## Delete an open channel  You can delete an open channel using this API. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/delete-an-open-channel#1-delete-an-open-channel
 
 ### Example
 
@@ -161,14 +97,14 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['channel_url'] = 'channel_url_example'; // string
 
 try {
-    $result = $apiInstance->ocDeleteChannelByUrl($associate_array);
+    $result = $apiInstance->deleteAnOpenChannel($associate_array);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocDeleteChannelByUrl: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OpenChannelApi->deleteAnOpenChannel: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -178,12 +114,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
+ **channel_url** | **string**| (Required) |
+ **api_token** | **string**|  | [optional]
 
 ### Return type
 
-[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
+**object**
 
 ### Authorization
 
@@ -198,15 +134,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `ocListChannels()`
+## `getAnOpenChannel()`
 
 ```php
-ocListChannels($api_token, $token, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $custom_type): \Sendbird\Model\OcListChannelsResponse
+getAnOpenChannel($channel_url, $api_token, $include_operators): \Sendbird\Model\SendbirdOpenChannel
 ```
 
-List channels
+Get an open channel
 
-## List channels  Retrieves a list of open channels. You can query the list using various parameters.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-channels ----------------------------
+## Get an open channel  This action retrieves information about a specific [open channel](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel).  [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/get-an-open-channel#1-get-an-open-channel](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/get-an-open-channel#1-get-an-open-channel)
 
 ### Example
 
@@ -221,21 +157,147 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['include_operators'] = True; // bool | Determines whether to include a list of operators in the response. (Default: false)
+
+try {
+    $result = $apiInstance->getAnOpenChannel($associate_array);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OpenChannelApi->getAnOpenChannel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**| (Required) |
+ **api_token** | **string**|  | [optional]
+ **include_operators** | **bool**| Determines whether to include a list of operators in the response. (Default: false) | [optional]
+
+### Return type
+
+[**\Sendbird\Model\SendbirdOpenChannel**](../Model/SendbirdOpenChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listChannelOperators()`
+
+```php
+listChannelOperators($channel_url, $token, $limit, $api_token): \Sendbird\Model\ListOperatorsResponse
+```
+
+List operators of an open channel
+
+## List operators of an open channel  You can retrieve a list of operators of an open channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/list-operators-of-an-open-channel#1-list-operators-of-an-open-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to retrieve a list of operators.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\OpenChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
 $associate_array['token'] = 'token_example'; // string
 $associate_array['limit'] = 56; // int
-$associate_array['custom_types'] = 'custom_types_example'; // string
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+
+try {
+    $result = $apiInstance->listChannelOperators($associate_array);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OpenChannelApi->listChannelOperators: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**| (Required) |
+ **token** | **string**|  | [optional]
+ **limit** | **int**|  | [optional]
+ **api_token** | **string**|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\ListOperatorsResponse**](../Model/ListOperatorsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `listOpenChannels()`
+
+```php
+listOpenChannels($token, $channel_urls, $limit, $custom_types, $name_contains, $url_contains, $show_frozen, $show_metadata, $api_token): \Sendbird\Model\ListOpenChannelsResponse
+```
+
+List open channels
+
+## List open channels  This action retrieves a list of [open channels](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel). You can use various query parameters to determine the search scope and select what kind of information you want to receive about the queried channels.  [https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-open-channels#1-list-open-channels](https://sendbird.com/docs/chat/platform-api/v3/channel/listing-channels-in-an-application/list-open-channels#1-list-open-channels)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\OpenChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$associate_array['token'] = 'token_example'; // string
+$associate_array['channel_urls'] = 'channel_urls_example'; // string | Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended.
+$associate_array['limit'] = 56; // int
+$associate_array['custom_types'] = 'custom_types_example'; // string | Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types=urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type.
 $associate_array['name_contains'] = 'name_contains_example'; // string
 $associate_array['url_contains'] = 'url_contains_example'; // string
-$associate_array['show_frozen'] = True; // bool
-$associate_array['show_metadata'] = True; // bool
-$associate_array['custom_type'] = 'custom_type_example'; // string
+$associate_array['show_frozen'] = True; // bool | Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true)
+$associate_array['show_metadata'] = True; // bool | Determines whether to include channel metadata in the response. (Default: false)
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
-    $result = $apiInstance->ocListChannels($associate_array);
+    $result = $apiInstance->listOpenChannels($associate_array);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocListChannels: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OpenChannelApi->listOpenChannels: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -245,19 +307,19 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
  **token** | **string**|  | [optional]
+ **channel_urls** | **string**| Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended. | [optional]
  **limit** | **int**|  | [optional]
- **custom_types** | **string**|  | [optional]
+ **custom_types** | **string**| Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type. | [optional]
  **name_contains** | **string**|  | [optional]
  **url_contains** | **string**|  | [optional]
- **show_frozen** | **bool**|  | [optional]
- **show_metadata** | **bool**|  | [optional]
- **custom_type** | **string**|  | [optional]
+ **show_frozen** | **bool**| Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true) | [optional]
+ **show_metadata** | **bool**| Determines whether to include channel metadata in the response. (Default: false) | [optional]
+ **api_token** | **string**|  | [optional]
 
 ### Return type
 
-[**\Sendbird\Model\OcListChannelsResponse**](../Model/OcListChannelsResponse.md)
+[**\Sendbird\Model\ListOpenChannelsResponse**](../Model/ListOpenChannelsResponse.md)
 
 ### Authorization
 
@@ -272,15 +334,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `ocListOperators()`
+## `registerOperators()`
 
 ```php
-ocListOperators($api_token, $channel_url, $token, $limit): \Sendbird\Model\OcListOperatorsResponse
+registerOperators($channel_url, $api_token, $register_operators_to_a_group_channel_request): object
 ```
 
-List operators
+Register operators to an open channel
 
-## List operators  Retrieves a list of operators of an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-operators ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of operators.
+## Register operators to an open channel  You can register one or more operators to an open channel using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/register-operators-to-an-open-channel#1-register-operators-to-an-open-channel
 
 ### Example
 
@@ -295,16 +357,15 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['channel_url'] = 'channel_url_example'; // string
-$associate_array['token'] = 'token_example'; // string
-$associate_array['limit'] = 56; // int
+$associate_array['register_operators_to_a_group_channel_request'] = new \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest(); // \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest
 
 try {
-    $result = $apiInstance->ocListOperators($associate_array);
+    $result = $apiInstance->registerOperators($associate_array);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocListOperators: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OpenChannelApi->registerOperators: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -314,140 +375,13 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **token** | **string**|  | [optional]
- **limit** | **int**|  | [optional]
+ **channel_url** | **string**| (Required) |
+ **api_token** | **string**|  | [optional]
+ **register_operators_to_a_group_channel_request** | [**\Sendbird\Model\RegisterOperatorsToAGroupChannelRequest**](../Model/RegisterOperatorsToAGroupChannelRequest.md)|  | [optional]
 
 ### Return type
 
-[**\Sendbird\Model\OcListOperatorsResponse**](../Model/OcListOperatorsResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocListParticipants()`
-
-```php
-ocListParticipants($api_token, $channel_url, $token, $limit): \Sendbird\Model\OcListParticipantsResponse
-```
-
-List participants
-
-## List participants  Retrieves a list of the participants of an open channel. A participant refers to a user who has entered the open channel and is currently online.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-list-participants ----------------------------   `channel_url`      Type: string      Description: Specifies the URL of the channel to retrieve a list of participants in.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['channel_url'] = 'channel_url_example'; // string
-$associate_array['token'] = 'token_example'; // string
-$associate_array['limit'] = 56; // int
-
-try {
-    $result = $apiInstance->ocListParticipants($associate_array);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocListParticipants: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Note: the input parameter is an associative array with the keys listed as the parameter name below.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **token** | **string**|  | [optional]
- **limit** | **int**|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\OcListParticipantsResponse**](../Model/OcListParticipantsResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocRegisterOperators()`
-
-```php
-ocRegisterOperators($api_token, $channel_url, $oc_register_operators_data): \Sendbird\Model\OcDeleteChannelByUrl200Response
-```
-
-Register operators
-
-## Register operators  Registers one or more operators to an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-register-operators ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['channel_url'] = 'channel_url_example'; // string
-$associate_array['oc_register_operators_data'] = new \Sendbird\Model\OcRegisterOperatorsData(); // \Sendbird\Model\OcRegisterOperatorsData
-
-try {
-    $result = $apiInstance->ocRegisterOperators($associate_array);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocRegisterOperators: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Note: the input parameter is an associative array with the keys listed as the parameter name below.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **oc_register_operators_data** | [**\Sendbird\Model\OcRegisterOperatorsData**](../Model/OcRegisterOperatorsData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\OcDeleteChannelByUrl200Response**](../Model/OcDeleteChannelByUrl200Response.md)
+**object**
 
 ### Authorization
 
@@ -462,15 +396,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `ocUpdateChannelByUrl()`
+## `unregisterOperators()`
 
 ```php
-ocUpdateChannelByUrl($api_token, $channel_url, $oc_update_channel_by_url_data): \Sendbird\Model\SendBirdOpenChannel
+unregisterOperators($channel_url, $operator_ids, $delete_all, $api_token): object
 ```
 
-Update a channel
+Unregister operators from an open channel
 
-## Update a channel  Updates information on an open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-update-a-channel ----------------------------
+## Unregister operators from an open channel  You can unregister operators in an open channel but keep them in the channel as participants using this API.  https://sendbird.com/docs/chat/platform-api/v3/user/assigning-a-user-role/unregister-operators-from-an-open-channel#1-unregister-operators-from-an-open-channel  `channel_url`   Type: string   Description: Specifies the URL of the channel to cancel the registration of operators.
 
 ### Example
 
@@ -485,15 +419,16 @@ $apiInstance = new Sendbird\Api\OpenChannelApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
+$associate_array['operator_ids'] = 'operator_ids_example'; // string | Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids=urlencoded_id_1,urlencoded_id_2.
+$associate_array['delete_all'] = True; // bool | Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn't effective and doesn't need to be specified in the request. (Default: false)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['channel_url'] = 'channel_url_example'; // string
-$associate_array['oc_update_channel_by_url_data'] = new \Sendbird\Model\OcUpdateChannelByUrlData(); // \Sendbird\Model\OcUpdateChannelByUrlData
 
 try {
-    $result = $apiInstance->ocUpdateChannelByUrl($associate_array);
+    $result = $apiInstance->unregisterOperators($associate_array);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocUpdateChannelByUrl: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OpenChannelApi->unregisterOperators: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -503,73 +438,14 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
- **oc_update_channel_by_url_data** | [**\Sendbird\Model\OcUpdateChannelByUrlData**](../Model/OcUpdateChannelByUrlData.md)|  | [optional]
+ **channel_url** | **string**| (Required) |
+ **operator_ids** | **string**| Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. |
+ **delete_all** | **bool**| Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false) | [optional]
+ **api_token** | **string**|  | [optional]
 
 ### Return type
 
-[**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `ocViewChannelByUrl()`
-
-```php
-ocViewChannelByUrl($api_token, $channel_url): \Sendbird\Model\SendBirdOpenChannel
-```
-
-View a channel
-
-## View a channel  Retrieves information on a specific open channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/open-channel#2-view-a-channel ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\OpenChannelApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['channel_url'] = 'channel_url_example'; // string
-
-try {
-    $result = $apiInstance->ocViewChannelByUrl($associate_array);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OpenChannelApi->ocViewChannelByUrl: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Note: the input parameter is an associative array with the keys listed as the parameter name below.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **channel_url** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\SendBirdOpenChannel**](../Model/SendBirdOpenChannel.md)
+**object**
 
 ### Authorization
 
@@ -578,6 +454,68 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateAnOpenChannel()`
+
+```php
+updateAnOpenChannel($channel_url, $api_token, $update_an_open_channel_request): \Sendbird\Model\SendbirdOpenChannel
+```
+
+Update an open channel
+
+## Update an open channel  You can update information about an open channel using this API. You can add a cover image to a channel to better identify the channel or specify a custom channel type for grouping channels by custom type. See [this page](https://sendbird.com/docs/chat/platform-api/v3/channel/channel-overview#2-channel-types-3-open-channel-vs-group-channel-vs-supergroup-channel) to learn more about channel types.  https://sendbird.com/docs/chat/platform-api/v3/channel/managing-a-channel/update-an-open-channel#1-update-an-open-channel
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\OpenChannelApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+$associate_array['update_an_open_channel_request'] = new \Sendbird\Model\UpdateAnOpenChannelRequest(); // \Sendbird\Model\UpdateAnOpenChannelRequest
+
+try {
+    $result = $apiInstance->updateAnOpenChannel($associate_array);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OpenChannelApi->updateAnOpenChannel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**| (Required) |
+ **api_token** | **string**|  | [optional]
+ **update_an_open_channel_request** | [**\Sendbird\Model\UpdateAnOpenChannelRequest**](../Model/UpdateAnOpenChannelRequest.md)|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\SendbirdOpenChannel**](../Model/SendbirdOpenChannel.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

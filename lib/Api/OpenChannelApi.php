@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -117,333 +117,42 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocCancelTheRegistrationOfOperators
+     * Operation createAnOpenChannel
      *
-     * Cancel the registration of operators
+     * Create an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string[] $operator_ids operator_ids (required)
-     * @param  bool $delete_all delete_all (optional)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\CreateAnOpenChannelRequest $create_an_open_channel_request create_an_open_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Sendbird\Model\SendbirdOpenChannel
      */
-    public function ocCancelTheRegistrationOfOperators($associative_array)
+    public function createAnOpenChannel($associative_array)
     {
-        $this->ocCancelTheRegistrationOfOperatorsWithHttpInfo($associative_array);
-    }
-
-    /**
-     * Operation ocCancelTheRegistrationOfOperatorsWithHttpInfo
-     *
-     * Cancel the registration of operators
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string[] $operator_ids (required)
-     * @param  bool $delete_all (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function ocCancelTheRegistrationOfOperatorsWithHttpInfo($associative_array)
-    {
-        $request = $this->ocCancelTheRegistrationOfOperatorsRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation ocCancelTheRegistrationOfOperatorsAsync
-     *
-     * Cancel the registration of operators
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string[] $operator_ids (required)
-     * @param  bool $delete_all (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ocCancelTheRegistrationOfOperatorsAsync($associative_array)
-    {
-        return $this->ocCancelTheRegistrationOfOperatorsAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation ocCancelTheRegistrationOfOperatorsAsyncWithHttpInfo
-     *
-     * Cancel the registration of operators
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string[] $operator_ids (required)
-     * @param  bool $delete_all (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ocCancelTheRegistrationOfOperatorsAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '';
-        $request = $this->ocCancelTheRegistrationOfOperatorsRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'ocCancelTheRegistrationOfOperators'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string[] $operator_ids (required)
-     * @param  bool $delete_all (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function ocCancelTheRegistrationOfOperatorsRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $operator_ids = array_key_exists('operator_ids', $associative_array) ? $associative_array['operator_ids'] : null;
-        $delete_all = array_key_exists('delete_all', $associative_array) ? $associative_array['delete_all'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling ocCancelTheRegistrationOfOperators'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling ocCancelTheRegistrationOfOperators'
-            );
-        }
-        // verify the required parameter 'operator_ids' is set
-        if ($operator_ids === null || (is_array($operator_ids) && count($operator_ids) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $operator_ids when calling ocCancelTheRegistrationOfOperators'
-            );
-        }
-
-        $resourcePath = '/v3/open_channels/{channel_url}/operators';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $operator_ids,
-            'operator_ids', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            true // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $delete_all,
-            'delete_all', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation ocCreateChannel
-     *
-     * Create a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data oc_create_channel_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdOpenChannel
-     */
-    public function ocCreateChannel($associative_array)
-    {
-        list($response) = $this->ocCreateChannelWithHttpInfo($associative_array);
+        list($response) = $this->createAnOpenChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation ocCreateChannelWithHttpInfo
+     * Operation createAnOpenChannelWithHttpInfo
      *
-     * Create a channel
+     * Create an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAnOpenChannelRequest $create_an_open_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendbirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocCreateChannelWithHttpInfo($associative_array)
+    public function createAnOpenChannelWithHttpInfo($associative_array)
     {
-        $request = $this->ocCreateChannelRequest($associative_array);
+        $request = $this->createAnOpenChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -482,23 +191,23 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdOpenChannel' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendbirdOpenChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdOpenChannel' !== 'string') {
+                        if ('\Sendbird\Model\SendbirdOpenChannel' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdOpenChannel', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdOpenChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdOpenChannel';
+            $returnType = '\Sendbird\Model\SendbirdOpenChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -519,7 +228,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdOpenChannel',
+                        '\Sendbird\Model\SendbirdOpenChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -530,21 +239,21 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocCreateChannelAsync
+     * Operation createAnOpenChannelAsync
      *
-     * Create a channel
+     * Create an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAnOpenChannelRequest $create_an_open_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocCreateChannelAsync($associative_array)
+    public function createAnOpenChannelAsync($associative_array)
     {
-        return $this->ocCreateChannelAsyncWithHttpInfo($associative_array)
+        return $this->createAnOpenChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -553,22 +262,22 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocCreateChannelAsyncWithHttpInfo
+     * Operation createAnOpenChannelAsyncWithHttpInfo
      *
-     * Create a channel
+     * Create an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAnOpenChannelRequest $create_an_open_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocCreateChannelAsyncWithHttpInfo($associative_array)
+    public function createAnOpenChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendBirdOpenChannel';
-        $request = $this->ocCreateChannelRequest($associative_array);
+        $returnType = '\Sendbird\Model\SendbirdOpenChannel';
+        $request = $this->createAnOpenChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -607,28 +316,22 @@ class OpenChannelApi
     }
 
     /**
-     * Create request for operation 'ocCreateChannel'
+     * Create request for operation 'createAnOpenChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\OcCreateChannelData $oc_create_channel_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAnOpenChannelRequest $create_an_open_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocCreateChannelRequest($associative_array)
+    public function createAnOpenChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
         $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $oc_create_channel_data = array_key_exists('oc_create_channel_data', $associative_array) ? $associative_array['oc_create_channel_data'] : null;
+        $create_an_open_channel_request = array_key_exists('create_an_open_channel_request', $associative_array) ? $associative_array['create_an_open_channel_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling ocCreateChannel'
-            );
-        }
 
         $resourcePath = '/v3/open_channels';
         $formParams = [];
@@ -640,7 +343,7 @@ class OpenChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
 
@@ -657,11 +360,11 @@ class OpenChannelApi
         }
 
         // for model (json/xml)
-        if (isset($oc_create_channel_data)) {
+        if (isset($create_an_open_channel_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($oc_create_channel_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_an_open_channel_request));
             } else {
-                $httpBody = $oc_create_channel_data;
+                $httpBody = $create_an_open_channel_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -709,42 +412,42 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocDeleteChannelByUrl
+     * Operation deleteAnOpenChannel
      *
-     * Delete a channel
+     * Delete an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
+     * @return object
      */
-    public function ocDeleteChannelByUrl($associative_array)
+    public function deleteAnOpenChannel($associative_array)
     {
-        list($response) = $this->ocDeleteChannelByUrlWithHttpInfo($associative_array);
+        list($response) = $this->deleteAnOpenChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation ocDeleteChannelByUrlWithHttpInfo
+     * Operation deleteAnOpenChannelWithHttpInfo
      *
-     * Delete a channel
+     * Delete an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocDeleteChannelByUrlWithHttpInfo($associative_array)
+    public function deleteAnOpenChannelWithHttpInfo($associative_array)
     {
-        $request = $this->ocDeleteChannelByUrlRequest($associative_array);
+        $request = $this->deleteAnOpenChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -783,23 +486,23 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' !== 'string') {
+                        if ('object' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcDeleteChannelByUrl200Response', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -820,7 +523,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\OcDeleteChannelByUrl200Response',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -831,21 +534,21 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocDeleteChannelByUrlAsync
+     * Operation deleteAnOpenChannelAsync
      *
-     * Delete a channel
+     * Delete an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocDeleteChannelByUrlAsync($associative_array)
+    public function deleteAnOpenChannelAsync($associative_array)
     {
-        return $this->ocDeleteChannelByUrlAsyncWithHttpInfo($associative_array)
+        return $this->deleteAnOpenChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -854,22 +557,22 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocDeleteChannelByUrlAsyncWithHttpInfo
+     * Operation deleteAnOpenChannelAsyncWithHttpInfo
      *
-     * Delete a channel
+     * Delete an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocDeleteChannelByUrlAsyncWithHttpInfo($associative_array)
+    public function deleteAnOpenChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->ocDeleteChannelByUrlRequest($associative_array);
+        $returnType = 'object';
+        $request = $this->deleteAnOpenChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -908,32 +611,26 @@ class OpenChannelApi
     }
 
     /**
-     * Create request for operation 'ocDeleteChannelByUrl'
+     * Create request for operation 'deleteAnOpenChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocDeleteChannelByUrlRequest($associative_array)
+    public function deleteAnOpenChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling ocDeleteChannelByUrl'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling ocDeleteChannelByUrl'
+                'Missing the required parameter $channel_url when calling deleteAnOpenChannel'
             );
         }
 
@@ -947,7 +644,7 @@ class OpenChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -1018,56 +715,44 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocListChannels
+     * Operation getAnOpenChannel
      *
-     * List channels
+     * Get an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
-     * @param  string $custom_types custom_types (optional)
-     * @param  string $name_contains name_contains (optional)
-     * @param  string $url_contains url_contains (optional)
-     * @param  bool $show_frozen show_frozen (optional)
-     * @param  bool $show_metadata show_metadata (optional)
-     * @param  string $custom_type custom_type (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  bool $include_operators Determines whether to include a list of operators in the response. (Default: false) (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcListChannelsResponse
+     * @return \Sendbird\Model\SendbirdOpenChannel
      */
-    public function ocListChannels($associative_array)
+    public function getAnOpenChannel($associative_array)
     {
-        list($response) = $this->ocListChannelsWithHttpInfo($associative_array);
+        list($response) = $this->getAnOpenChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation ocListChannelsWithHttpInfo
+     * Operation getAnOpenChannelWithHttpInfo
      *
-     * List channels
+     * Get an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $url_contains (optional)
-     * @param  bool $show_frozen (optional)
-     * @param  bool $show_metadata (optional)
-     * @param  string $custom_type (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  bool $include_operators Determines whether to include a list of operators in the response. (Default: false) (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcListChannelsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendbirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocListChannelsWithHttpInfo($associative_array)
+    public function getAnOpenChannelWithHttpInfo($associative_array)
     {
-        $request = $this->ocListChannelsRequest($associative_array);
+        $request = $this->getAnOpenChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1106,23 +791,23 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\OcListChannelsResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendbirdOpenChannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcListChannelsResponse' !== 'string') {
+                        if ('\Sendbird\Model\SendbirdOpenChannel' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcListChannelsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdOpenChannel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\OcListChannelsResponse';
+            $returnType = '\Sendbird\Model\SendbirdOpenChannel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1143,7 +828,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\OcListChannelsResponse',
+                        '\Sendbird\Model\SendbirdOpenChannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1154,28 +839,22 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocListChannelsAsync
+     * Operation getAnOpenChannelAsync
      *
-     * List channels
+     * Get an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $url_contains (optional)
-     * @param  bool $show_frozen (optional)
-     * @param  bool $show_metadata (optional)
-     * @param  string $custom_type (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  bool $include_operators Determines whether to include a list of operators in the response. (Default: false) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListChannelsAsync($associative_array)
+    public function getAnOpenChannelAsync($associative_array)
     {
-        return $this->ocListChannelsAsyncWithHttpInfo($associative_array)
+        return $this->getAnOpenChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1184,29 +863,23 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocListChannelsAsyncWithHttpInfo
+     * Operation getAnOpenChannelAsyncWithHttpInfo
      *
-     * List channels
+     * Get an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $url_contains (optional)
-     * @param  bool $show_frozen (optional)
-     * @param  bool $show_metadata (optional)
-     * @param  string $custom_type (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  bool $include_operators Determines whether to include a list of operators in the response. (Default: false) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListChannelsAsyncWithHttpInfo($associative_array)
+    public function getAnOpenChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\OcListChannelsResponse';
-        $request = $this->ocListChannelsRequest($associative_array);
+        $returnType = '\Sendbird\Model\SendbirdOpenChannel';
+        $request = $this->getAnOpenChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1245,42 +918,711 @@ class OpenChannelApi
     }
 
     /**
-     * Create request for operation 'ocListChannels'
+     * Create request for operation 'getAnOpenChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $url_contains (optional)
-     * @param  bool $show_frozen (optional)
-     * @param  bool $show_metadata (optional)
-     * @param  string $custom_type (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  bool $include_operators Determines whether to include a list of operators in the response. (Default: false) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocListChannelsRequest($associative_array)
+    public function getAnOpenChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
         $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $include_operators = array_key_exists('include_operators', $associative_array) ? $associative_array['include_operators'] : null;
+
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling getAnOpenChannel'
+            );
+        }
+
+        $resourcePath = '/v3/open_channels/{channel_url}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_operators,
+            'include_operators', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listChannelOperators
+     *
+     * List operators of an open channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $token token (optional)
+     * @param  int $limit limit (optional)
+     * @param  string $api_token api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\ListOperatorsResponse
+     */
+    public function listChannelOperators($associative_array)
+    {
+        list($response) = $this->listChannelOperatorsWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listChannelOperatorsWithHttpInfo
+     *
+     * List operators of an open channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\ListOperatorsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listChannelOperatorsWithHttpInfo($associative_array)
+    {
+        $request = $this->listChannelOperatorsRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\ListOperatorsResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\ListOperatorsResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListOperatorsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\ListOperatorsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\ListOperatorsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listChannelOperatorsAsync
+     *
+     * List operators of an open channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listChannelOperatorsAsync($associative_array)
+    {
+        return $this->listChannelOperatorsAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listChannelOperatorsAsyncWithHttpInfo
+     *
+     * List operators of an open channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listChannelOperatorsAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\ListOperatorsResponse';
+        $request = $this->listChannelOperatorsRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listChannelOperators'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $token (optional)
+     * @param  int $limit (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function listChannelOperatorsRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
         $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling listChannelOperators'
+            );
+        }
+
+        $resourcePath = '/v3/open_channels/{channel_url}/operators';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $token,
+            'token', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation listOpenChannels
+     *
+     * List open channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $token token (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  int $limit limit (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $name_contains name_contains (optional)
+     * @param  string $url_contains url_contains (optional)
+     * @param  bool $show_frozen Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true) (optional)
+     * @param  bool $show_metadata Determines whether to include channel metadata in the response. (Default: false) (optional)
+     * @param  string $api_token api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\ListOpenChannelsResponse
+     */
+    public function listOpenChannels($associative_array)
+    {
+        list($response) = $this->listOpenChannelsWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation listOpenChannelsWithHttpInfo
+     *
+     * List open channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $token (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  int $limit (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $name_contains (optional)
+     * @param  string $url_contains (optional)
+     * @param  bool $show_frozen Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true) (optional)
+     * @param  bool $show_metadata Determines whether to include channel metadata in the response. (Default: false) (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\ListOpenChannelsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function listOpenChannelsWithHttpInfo($associative_array)
+    {
+        $request = $this->listOpenChannelsRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\ListOpenChannelsResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\ListOpenChannelsResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ListOpenChannelsResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\ListOpenChannelsResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\ListOpenChannelsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation listOpenChannelsAsync
+     *
+     * List open channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $token (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  int $limit (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $name_contains (optional)
+     * @param  string $url_contains (optional)
+     * @param  bool $show_frozen Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true) (optional)
+     * @param  bool $show_metadata Determines whether to include channel metadata in the response. (Default: false) (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listOpenChannelsAsync($associative_array)
+    {
+        return $this->listOpenChannelsAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation listOpenChannelsAsyncWithHttpInfo
+     *
+     * List open channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $token (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  int $limit (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $name_contains (optional)
+     * @param  string $url_contains (optional)
+     * @param  bool $show_frozen Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true) (optional)
+     * @param  bool $show_metadata Determines whether to include channel metadata in the response. (Default: false) (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function listOpenChannelsAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\ListOpenChannelsResponse';
+        $request = $this->listOpenChannelsRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'listOpenChannels'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $token (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more open channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  int $limit (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter open channels. Urlencoding each type is recommended (for example, ?custom_types&#x3D;urlencoded_type_1,urlencoded_type_2). If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $name_contains (optional)
+     * @param  string $url_contains (optional)
+     * @param  bool $show_frozen Determines whether to include frozen channels in the response. Frozen channels are channels where only channel operators are allowed to send messages. (Default: true) (optional)
+     * @param  bool $show_metadata Determines whether to include channel metadata in the response. (Default: false) (optional)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function listOpenChannelsRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $channel_urls = array_key_exists('channel_urls', $associative_array) ? $associative_array['channel_urls'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
         $custom_types = array_key_exists('custom_types', $associative_array) ? $associative_array['custom_types'] : null;
         $name_contains = array_key_exists('name_contains', $associative_array) ? $associative_array['name_contains'] : null;
         $url_contains = array_key_exists('url_contains', $associative_array) ? $associative_array['url_contains'] : null;
         $show_frozen = array_key_exists('show_frozen', $associative_array) ? $associative_array['show_frozen'] : null;
         $show_metadata = array_key_exists('show_metadata', $associative_array) ? $associative_array['show_metadata'] : null;
-        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling ocListChannels'
-            );
-        }
 
         $resourcePath = '/v3/open_channels';
         $formParams = [];
@@ -1293,6 +1635,15 @@ class OpenChannelApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $token,
             'token', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $channel_urls,
+            'channel_urls', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -1352,19 +1703,10 @@ class OpenChannelApi
             true, // explode
             false // required
         ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $custom_type,
-            'custom_type', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
 
@@ -1427,46 +1769,44 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocListOperators
+     * Operation registerOperators
      *
-     * List operators
+     * Register operators to an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest $register_operators_to_a_group_channel_request register_operators_to_a_group_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcListOperatorsResponse
+     * @return object
      */
-    public function ocListOperators($associative_array)
+    public function registerOperators($associative_array)
     {
-        list($response) = $this->ocListOperatorsWithHttpInfo($associative_array);
+        list($response) = $this->registerOperatorsWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation ocListOperatorsWithHttpInfo
+     * Operation registerOperatorsWithHttpInfo
      *
-     * List operators
+     * Register operators to an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest $register_operators_to_a_group_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcListOperatorsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocListOperatorsWithHttpInfo($associative_array)
+    public function registerOperatorsWithHttpInfo($associative_array)
     {
-        $request = $this->ocListOperatorsRequest($associative_array);
+        $request = $this->registerOperatorsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1505,23 +1845,23 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\OcListOperatorsResponse' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcListOperatorsResponse' !== 'string') {
+                        if ('object' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcListOperatorsResponse', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\OcListOperatorsResponse';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1542,7 +1882,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\OcListOperatorsResponse',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1553,23 +1893,22 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocListOperatorsAsync
+     * Operation registerOperatorsAsync
      *
-     * List operators
+     * Register operators to an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest $register_operators_to_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListOperatorsAsync($associative_array)
+    public function registerOperatorsAsync($associative_array)
     {
-        return $this->ocListOperatorsAsyncWithHttpInfo($associative_array)
+        return $this->registerOperatorsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1578,24 +1917,23 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocListOperatorsAsyncWithHttpInfo
+     * Operation registerOperatorsAsyncWithHttpInfo
      *
-     * List operators
+     * Register operators to an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest $register_operators_to_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocListOperatorsAsyncWithHttpInfo($associative_array)
+    public function registerOperatorsAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\OcListOperatorsResponse';
-        $request = $this->ocListOperatorsRequest($associative_array);
+        $returnType = 'object';
+        $request = $this->registerOperatorsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1634,708 +1972,28 @@ class OpenChannelApi
     }
 
     /**
-     * Create request for operation 'ocListOperators'
+     * Create request for operation 'registerOperators'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\RegisterOperatorsToAGroupChannelRequest $register_operators_to_a_group_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocListOperatorsRequest($associative_array)
+    public function registerOperatorsRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
-        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $register_operators_to_a_group_channel_request = array_key_exists('register_operators_to_a_group_channel_request', $associative_array) ? $associative_array['register_operators_to_a_group_channel_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling ocListOperators'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling ocListOperators'
-            );
-        }
-
-        $resourcePath = '/v3/open_channels/{channel_url}/operators';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $token,
-            'token', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $limit,
-            'limit', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation ocListParticipants
-     *
-     * List participants
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcListParticipantsResponse
-     */
-    public function ocListParticipants($associative_array)
-    {
-        list($response) = $this->ocListParticipantsWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation ocListParticipantsWithHttpInfo
-     *
-     * List participants
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcListParticipantsResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function ocListParticipantsWithHttpInfo($associative_array)
-    {
-        $request = $this->ocListParticipantsRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\OcListParticipantsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcListParticipantsResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcListParticipantsResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\OcListParticipantsResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\OcListParticipantsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation ocListParticipantsAsync
-     *
-     * List participants
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ocListParticipantsAsync($associative_array)
-    {
-        return $this->ocListParticipantsAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation ocListParticipantsAsyncWithHttpInfo
-     *
-     * List participants
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ocListParticipantsAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\OcListParticipantsResponse';
-        $request = $this->ocListParticipantsRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'ocListParticipants'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function ocListParticipantsRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
-        $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling ocListParticipants'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling ocListParticipants'
-            );
-        }
-
-        $resourcePath = '/v3/open_channels/{channel_url}/participants';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $token,
-            'token', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $limit,
-            'limit', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation ocRegisterOperators
-     *
-     * Register operators
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data oc_register_operators_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\OcDeleteChannelByUrl200Response
-     */
-    public function ocRegisterOperators($associative_array)
-    {
-        list($response) = $this->ocRegisterOperatorsWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation ocRegisterOperatorsWithHttpInfo
-     *
-     * Register operators
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\OcDeleteChannelByUrl200Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function ocRegisterOperatorsWithHttpInfo($associative_array)
-    {
-        $request = $this->ocRegisterOperatorsRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\OcDeleteChannelByUrl200Response' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\OcDeleteChannelByUrl200Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\OcDeleteChannelByUrl200Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation ocRegisterOperatorsAsync
-     *
-     * Register operators
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ocRegisterOperatorsAsync($associative_array)
-    {
-        return $this->ocRegisterOperatorsAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation ocRegisterOperatorsAsyncWithHttpInfo
-     *
-     * Register operators
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ocRegisterOperatorsAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\OcDeleteChannelByUrl200Response';
-        $request = $this->ocRegisterOperatorsRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'ocRegisterOperators'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\OcRegisterOperatorsData $oc_register_operators_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function ocRegisterOperatorsRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $oc_register_operators_data = array_key_exists('oc_register_operators_data', $associative_array) ? $associative_array['oc_register_operators_data'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling ocRegisterOperators'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling ocRegisterOperators'
+                'Missing the required parameter $channel_url when calling registerOperators'
             );
         }
 
@@ -2349,7 +2007,7 @@ class OpenChannelApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -2374,11 +2032,11 @@ class OpenChannelApi
         }
 
         // for model (json/xml)
-        if (isset($oc_register_operators_data)) {
+        if (isset($register_operators_to_a_group_channel_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($oc_register_operators_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($register_operators_to_a_group_channel_request));
             } else {
-                $httpBody = $oc_register_operators_data;
+                $httpBody = $register_operators_to_a_group_channel_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2426,44 +2084,46 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocUpdateChannelByUrl
+     * Operation unregisterOperators
      *
-     * Update a channel
+     * Unregister operators from an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data oc_update_channel_by_url_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $operator_ids Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. (required)
+     * @param  bool $delete_all Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false) (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdOpenChannel
+     * @return object
      */
-    public function ocUpdateChannelByUrl($associative_array)
+    public function unregisterOperators($associative_array)
     {
-        list($response) = $this->ocUpdateChannelByUrlWithHttpInfo($associative_array);
+        list($response) = $this->unregisterOperatorsWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation ocUpdateChannelByUrlWithHttpInfo
+     * Operation unregisterOperatorsWithHttpInfo
      *
-     * Update a channel
+     * Unregister operators from an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $operator_ids Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. (required)
+     * @param  bool $delete_all Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function ocUpdateChannelByUrlWithHttpInfo($associative_array)
+    public function unregisterOperatorsWithHttpInfo($associative_array)
     {
-        $request = $this->ocUpdateChannelByUrlRequest($associative_array);
+        $request = $this->unregisterOperatorsRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2502,23 +2162,23 @@ class OpenChannelApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdOpenChannel' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdOpenChannel' !== 'string') {
+                        if ('object' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdOpenChannel', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdOpenChannel';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2539,7 +2199,7 @@ class OpenChannelApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdOpenChannel',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2550,22 +2210,23 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocUpdateChannelByUrlAsync
+     * Operation unregisterOperatorsAsync
      *
-     * Update a channel
+     * Unregister operators from an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $operator_ids Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. (required)
+     * @param  bool $delete_all Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUpdateChannelByUrlAsync($associative_array)
+    public function unregisterOperatorsAsync($associative_array)
     {
-        return $this->ocUpdateChannelByUrlAsyncWithHttpInfo($associative_array)
+        return $this->unregisterOperatorsAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2574,23 +2235,24 @@ class OpenChannelApi
     }
 
     /**
-     * Operation ocUpdateChannelByUrlAsyncWithHttpInfo
+     * Operation unregisterOperatorsAsyncWithHttpInfo
      *
-     * Update a channel
+     * Unregister operators from an open channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $operator_ids Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. (required)
+     * @param  bool $delete_all Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ocUpdateChannelByUrlAsyncWithHttpInfo($associative_array)
+    public function unregisterOperatorsAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendBirdOpenChannel';
-        $request = $this->ocUpdateChannelByUrlRequest($associative_array);
+        $returnType = 'object';
+        $request = $this->unregisterOperatorsRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2629,363 +2291,68 @@ class OpenChannelApi
     }
 
     /**
-     * Create request for operation 'ocUpdateChannelByUrl'
+     * Create request for operation 'unregisterOperators'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\OcUpdateChannelByUrlData $oc_update_channel_by_url_data (optional)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $operator_ids Specifies an array of one or more operator IDs to unregister from the channel. The operators in this array remain as participants of the channel after losing their operational roles. Urlencoding each operator ID is recommended. An example of a Urlencoded array would be ?operator_ids&#x3D;urlencoded_id_1,urlencoded_id_2. (required)
+     * @param  bool $delete_all Determines whether to unregister all operators and leave them as the participants of the channel. When this is set to true, the operator_ids property isn&#39;t effective and doesn&#39;t need to be specified in the request. (Default: false) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function ocUpdateChannelByUrlRequest($associative_array)
+    public function unregisterOperatorsRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $oc_update_channel_by_url_data = array_key_exists('oc_update_channel_by_url_data', $associative_array) ? $associative_array['oc_update_channel_by_url_data'] : null;
+        $operator_ids = array_key_exists('operator_ids', $associative_array) ? $associative_array['operator_ids'] : null;
+        $delete_all = array_key_exists('delete_all', $associative_array) ? $associative_array['delete_all'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling ocUpdateChannelByUrl'
-            );
-        }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling ocUpdateChannelByUrl'
+                'Missing the required parameter $channel_url when calling unregisterOperators'
+            );
+        }
+        // verify the required parameter 'operator_ids' is set
+        if ($operator_ids === null || (is_array($operator_ids) && count($operator_ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $operator_ids when calling unregisterOperators'
             );
         }
 
-        $resourcePath = '/v3/open_channels/{channel_url}';
+        $resourcePath = '/v3/open_channels/{channel_url}/operators';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $operator_ids,
+            'operator_ids', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $delete_all,
+            'delete_all', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($oc_update_channel_by_url_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($oc_update_channel_by_url_data));
-            } else {
-                $httpBody = $oc_update_channel_by_url_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation ocViewChannelByUrl
-     *
-     * View a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_url channel_url (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdOpenChannel
-     */
-    public function ocViewChannelByUrl($associative_array)
-    {
-        list($response) = $this->ocViewChannelByUrlWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation ocViewChannelByUrlWithHttpInfo
-     *
-     * View a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function ocViewChannelByUrlWithHttpInfo($associative_array)
-    {
-        $request = $this->ocViewChannelByUrlRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\SendBirdOpenChannel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdOpenChannel' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdOpenChannel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\SendBirdOpenChannel';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdOpenChannel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation ocViewChannelByUrlAsync
-     *
-     * View a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ocViewChannelByUrlAsync($associative_array)
-    {
-        return $this->ocViewChannelByUrlAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation ocViewChannelByUrlAsyncWithHttpInfo
-     *
-     * View a channel
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function ocViewChannelByUrlAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\SendBirdOpenChannel';
-        $request = $this->ocViewChannelByUrlRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'ocViewChannelByUrl'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function ocViewChannelByUrlRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling ocViewChannelByUrl'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling ocViewChannelByUrl'
-            );
-        }
-
-        $resourcePath = '/v3/open_channels/{channel_url}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -3048,7 +2415,322 @@ class OpenChannelApi
 
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'GET',
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateAnOpenChannel
+     *
+     * Update an open channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\UpdateAnOpenChannelRequest $update_an_open_channel_request update_an_open_channel_request (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\SendbirdOpenChannel
+     */
+    public function updateAnOpenChannel($associative_array)
+    {
+        list($response) = $this->updateAnOpenChannelWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation updateAnOpenChannelWithHttpInfo
+     *
+     * Update an open channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAnOpenChannelRequest $update_an_open_channel_request (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\SendbirdOpenChannel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAnOpenChannelWithHttpInfo($associative_array)
+    {
+        $request = $this->updateAnOpenChannelRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\SendbirdOpenChannel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\SendbirdOpenChannel' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdOpenChannel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\SendbirdOpenChannel';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\SendbirdOpenChannel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateAnOpenChannelAsync
+     *
+     * Update an open channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAnOpenChannelRequest $update_an_open_channel_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAnOpenChannelAsync($associative_array)
+    {
+        return $this->updateAnOpenChannelAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateAnOpenChannelAsyncWithHttpInfo
+     *
+     * Update an open channel
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAnOpenChannelRequest $update_an_open_channel_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAnOpenChannelAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\SendbirdOpenChannel';
+        $request = $this->updateAnOpenChannelRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateAnOpenChannel'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAnOpenChannelRequest $update_an_open_channel_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateAnOpenChannelRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $update_an_open_channel_request = array_key_exists('update_an_open_channel_request', $associative_array) ? $associative_array['update_an_open_channel_request'] : null;
+
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling updateAnOpenChannel'
+            );
+        }
+
+        $resourcePath = '/v3/open_channels/{channel_url}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($update_an_open_channel_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_an_open_channel_request));
+            } else {
+                $httpBody = $update_an_open_channel_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

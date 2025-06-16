@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -60,8 +60,8 @@ class CreateUserTokenResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'token' => 'string',
-        'expires_at' => 'float'
+        'expires_at' => 'int',
+        'token' => 'string'
     ];
 
     /**
@@ -72,8 +72,8 @@ class CreateUserTokenResponse implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'token' => null,
-        'expires_at' => null
+        'expires_at' => 'int64',
+        'token' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class CreateUserTokenResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'token' => 'token',
-        'expires_at' => 'expires_at'
+        'expires_at' => 'expires_at',
+        'token' => 'token'
     ];
 
     /**
@@ -113,8 +113,8 @@ class CreateUserTokenResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'token' => 'setToken',
-        'expires_at' => 'setExpiresAt'
+        'expires_at' => 'setExpiresAt',
+        'token' => 'setToken'
     ];
 
     /**
@@ -123,8 +123,8 @@ class CreateUserTokenResponse implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'token' => 'getToken',
-        'expires_at' => 'getExpiresAt'
+        'expires_at' => 'getExpiresAt',
+        'token' => 'getToken'
     ];
 
     /**
@@ -184,8 +184,8 @@ class CreateUserTokenResponse implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->container['token'] = $data['token'] ?? null;
         $this->container['expires_at'] = $data['expires_at'] ?? null;
+        $this->container['token'] = $data['token'] ?? null;
     }
 
     /**
@@ -213,6 +213,30 @@ class CreateUserTokenResponse implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
+     * Gets expires_at
+     *
+     * @return int|null
+     */
+    public function getExpiresAt()
+    {
+        return $this->container['expires_at'];
+    }
+
+    /**
+     * Sets expires_at
+     *
+     * @param int|null $expires_at expires_at
+     *
+     * @return self
+     */
+    public function setExpiresAt($expires_at)
+    {
+        $this->container['expires_at'] = $expires_at;
+
+        return $this;
+    }
+
+    /**
      * Gets token
      *
      * @return string|null
@@ -232,30 +256,6 @@ class CreateUserTokenResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public function setToken($token)
     {
         $this->container['token'] = $token;
-
-        return $this;
-    }
-
-    /**
-     * Gets expires_at
-     *
-     * @return float|null
-     */
-    public function getExpiresAt()
-    {
-        return $this->container['expires_at'];
-    }
-
-    /**
-     * Sets expires_at
-     *
-     * @param float|null $expires_at expires_at
-     *
-     * @return self
-     */
-    public function setExpiresAt($expires_at)
-    {
-        $this->container['expires_at'] = $expires_at;
 
         return $this;
     }

@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -60,7 +60,7 @@ class ListMessagesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'messages' => '\Sendbird\Model\ListMessagesResponseMessagesInner[]'
+        'messages' => '\Sendbird\Model\SendbirdMessageResponse[]'
     ];
 
     /**
@@ -209,7 +209,7 @@ class ListMessagesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets messages
      *
-     * @return \Sendbird\Model\ListMessagesResponseMessagesInner[]|null
+     * @return \Sendbird\Model\SendbirdMessageResponse[]|null
      */
     public function getMessages()
     {
@@ -219,7 +219,7 @@ class ListMessagesResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets messages
      *
-     * @param \Sendbird\Model\ListMessagesResponseMessagesInner[]|null $messages messages
+     * @param \Sendbird\Model\SendbirdMessageResponse[]|null $messages messages
      *
      * @return self
      */

@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -117,46 +117,381 @@ class MetadataApi
     }
 
     /**
-     * Operation createChannelMetacounter
+     * Operation createAChannelMetadata
      *
-     * Create a channel metacounter
+     * Create a channel metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data create_channel_metacounter_data (optional)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\CreateAChannelMetadataRequest $create_a_channel_metadata_request create_a_channel_metadata_request (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\CreateAChannelMetadataResponse
+     */
+    public function createAChannelMetadata($associative_array)
+    {
+        list($response) = $this->createAChannelMetadataWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation createAChannelMetadataWithHttpInfo
+     *
+     * Create a channel metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAChannelMetadataRequest $create_a_channel_metadata_request (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\CreateAChannelMetadataResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createAChannelMetadataWithHttpInfo($associative_array)
+    {
+        $request = $this->createAChannelMetadataRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\CreateAChannelMetadataResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\CreateAChannelMetadataResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateAChannelMetadataResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\CreateAChannelMetadataResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\CreateAChannelMetadataResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createAChannelMetadataAsync
+     *
+     * Create a channel metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAChannelMetadataRequest $create_a_channel_metadata_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createAChannelMetadataAsync($associative_array)
+    {
+        return $this->createAChannelMetadataAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createAChannelMetadataAsyncWithHttpInfo
+     *
+     * Create a channel metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAChannelMetadataRequest $create_a_channel_metadata_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createAChannelMetadataAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\CreateAChannelMetadataResponse';
+        $request = $this->createAChannelMetadataRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createAChannelMetadata'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAChannelMetadataRequest $create_a_channel_metadata_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createAChannelMetadataRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $create_a_channel_metadata_request = array_key_exists('create_a_channel_metadata_request', $associative_array) ? $associative_array['create_a_channel_metadata_request'] : null;
+
+        // verify the required parameter 'channel_type' is set
+        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_type when calling createAChannelMetadata'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling createAChannelMetadata'
+            );
+        }
+
+        $resourcePath = '/v3/{channel_type}/{channel_url}/metadata';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($channel_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($create_a_channel_metadata_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_a_channel_metadata_request));
+            } else {
+                $httpBody = $create_a_channel_metadata_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadata
+     *
+     * Delete a channel metadata - When deleting all items of a channel metadata
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $key key (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function createChannelMetacounter($associative_array)
+    public function deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadata($associative_array)
     {
-        list($response) = $this->createChannelMetacounterWithHttpInfo($associative_array);
+        list($response) = $this->deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation createChannelMetacounterWithHttpInfo
+     * Operation deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataWithHttpInfo
      *
-     * Create a channel metacounter
+     * Delete a channel metadata - When deleting all items of a channel metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $key (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createChannelMetacounterWithHttpInfo($associative_array)
+    public function deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->createChannelMetacounterRequest($associative_array);
+        $request = $this->deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -243,23 +578,23 @@ class MetadataApi
     }
 
     /**
-     * Operation createChannelMetacounterAsync
+     * Operation deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataAsync
      *
-     * Create a channel metacounter
+     * Delete a channel metadata - When deleting all items of a channel metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $key (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createChannelMetacounterAsync($associative_array)
+    public function deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataAsync($associative_array)
     {
-        return $this->createChannelMetacounterAsyncWithHttpInfo($associative_array)
+        return $this->deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -268,24 +603,24 @@ class MetadataApi
     }
 
     /**
-     * Operation createChannelMetacounterAsyncWithHttpInfo
+     * Operation deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataAsyncWithHttpInfo
      *
-     * Create a channel metacounter
+     * Delete a channel metadata - When deleting all items of a channel metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $key (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createChannelMetacounterAsyncWithHttpInfo($associative_array)
+    public function deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->createChannelMetacounterRequest($associative_array);
+        $request = $this->deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -324,383 +659,36 @@ class MetadataApi
     }
 
     /**
-     * Create request for operation 'createChannelMetacounter'
+     * Create request for operation 'deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadata'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\CreateChannelMetacounterData $create_channel_metacounter_data (optional)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $key (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createChannelMetacounterRequest($associative_array)
+    public function deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadataRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $create_channel_metacounter_data = array_key_exists('create_channel_metacounter_data', $associative_array) ? $associative_array['create_channel_metacounter_data'] : null;
+        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling createChannelMetacounter'
-            );
-        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling createChannelMetacounter'
+                'Missing the required parameter $channel_type when calling deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadata'
             );
         }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling createChannelMetacounter'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($create_channel_metacounter_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_channel_metacounter_data));
-            } else {
-                $httpBody = $create_channel_metacounter_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation createChannelMetadata
-     *
-     * Create a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data create_channel_metadata_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\CreateChannelMetadataResponse
-     */
-    public function createChannelMetadata($associative_array)
-    {
-        list($response) = $this->createChannelMetadataWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation createChannelMetadataWithHttpInfo
-     *
-     * Create a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\CreateChannelMetadataResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createChannelMetadataWithHttpInfo($associative_array)
-    {
-        $request = $this->createChannelMetadataRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\CreateChannelMetadataResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\CreateChannelMetadataResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateChannelMetadataResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\CreateChannelMetadataResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\CreateChannelMetadataResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createChannelMetadataAsync
-     *
-     * Create a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createChannelMetadataAsync($associative_array)
-    {
-        return $this->createChannelMetadataAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createChannelMetadataAsyncWithHttpInfo
-     *
-     * Create a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createChannelMetadataAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\CreateChannelMetadataResponse';
-        $request = $this->createChannelMetadataRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createChannelMetadata'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\CreateChannelMetadataData $create_channel_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function createChannelMetadataRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $create_channel_metadata_data = array_key_exists('create_channel_metadata_data', $associative_array) ? $associative_array['create_channel_metadata_data'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling createChannelMetadata'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling createChannelMetadata'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling createChannelMetadata'
+                'Missing the required parameter $channel_url when calling deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadata'
             );
         }
 
@@ -714,7 +702,7 @@ class MetadataApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -730,6 +718,14 @@ class MetadataApi
             $resourcePath = str_replace(
                 '{' . 'channel_url' . '}',
                 ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key' . '}',
+                ObjectSerializer::toPathValue($key),
                 $resourcePath
             );
         }
@@ -742,608 +738,6 @@ class MetadataApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($create_channel_metadata_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_channel_metadata_data));
-            } else {
-                $httpBody = $create_channel_metadata_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation createUserMetadata
-     *
-     * Create a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data create_user_metadata_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\CreateUserMetadataResponse
-     */
-    public function createUserMetadata($associative_array)
-    {
-        list($response) = $this->createUserMetadataWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation createUserMetadataWithHttpInfo
-     *
-     * Create a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\CreateUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function createUserMetadataWithHttpInfo($associative_array)
-    {
-        $request = $this->createUserMetadataRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\CreateUserMetadataResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\CreateUserMetadataResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateUserMetadataResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\CreateUserMetadataResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\CreateUserMetadataResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation createUserMetadataAsync
-     *
-     * Create a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createUserMetadataAsync($associative_array)
-    {
-        return $this->createUserMetadataAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation createUserMetadataAsyncWithHttpInfo
-     *
-     * Create a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function createUserMetadataAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\CreateUserMetadataResponse';
-        $request = $this->createUserMetadataRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'createUserMetadata'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\CreateUserMetadataData $create_user_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function createUserMetadataRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $create_user_metadata_data = array_key_exists('create_user_metadata_data', $associative_array) ? $associative_array['create_user_metadata_data'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling createUserMetadata'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling createUserMetadata'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/metadata';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($create_user_metadata_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_user_metadata_data));
-            } else {
-                $httpBody = $create_user_metadata_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation deleteChannelMetacounter
-     *
-     * Delete a channel metacounter - When deleting all items of a channel metacounter
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function deleteChannelMetacounter($associative_array)
-    {
-        $this->deleteChannelMetacounterWithHttpInfo($associative_array);
-    }
-
-    /**
-     * Operation deleteChannelMetacounterWithHttpInfo
-     *
-     * Delete a channel metacounter - When deleting all items of a channel metacounter
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteChannelMetacounterWithHttpInfo($associative_array)
-    {
-        $request = $this->deleteChannelMetacounterRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteChannelMetacounterAsync
-     *
-     * Delete a channel metacounter - When deleting all items of a channel metacounter
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteChannelMetacounterAsync($associative_array)
-    {
-        return $this->deleteChannelMetacounterAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteChannelMetacounterAsyncWithHttpInfo
-     *
-     * Delete a channel metacounter - When deleting all items of a channel metacounter
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteChannelMetacounterAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '';
-        $request = $this->deleteChannelMetacounterRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteChannelMetacounter'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function deleteChannelMetacounterRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling deleteChannelMetacounter'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling deleteChannelMetacounter'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling deleteChannelMetacounter'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
                 []
             );
         }
@@ -1395,1471 +789,46 @@ class MetadataApi
     }
 
     /**
-     * Operation deleteChannelMetacounterByKey
+     * Operation updateAChannelMetadata
      *
-     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $key key (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function deleteChannelMetacounterByKey($associative_array)
-    {
-        $this->deleteChannelMetacounterByKeyWithHttpInfo($associative_array);
-    }
-
-    /**
-     * Operation deleteChannelMetacounterByKeyWithHttpInfo
-     *
-     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteChannelMetacounterByKeyWithHttpInfo($associative_array)
-    {
-        $request = $this->deleteChannelMetacounterByKeyRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteChannelMetacounterByKeyAsync
-     *
-     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteChannelMetacounterByKeyAsync($associative_array)
-    {
-        return $this->deleteChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteChannelMetacounterByKeyAsyncWithHttpInfo
-     *
-     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '';
-        $request = $this->deleteChannelMetacounterByKeyRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteChannelMetacounterByKey'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function deleteChannelMetacounterByKeyRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling deleteChannelMetacounterByKey'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling deleteChannelMetacounterByKey'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling deleteChannelMetacounterByKey'
-            );
-        }
-        // verify the required parameter 'key' is set
-        if ($key === null || (is_array($key) && count($key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key when calling deleteChannelMetacounterByKey'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter/{key}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key' . '}',
-                ObjectSerializer::toPathValue($key),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation deleteChannelMetadata
-     *
-     * Delete a channel metadata - When deleting all items of a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $key key (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function deleteChannelMetadata($associative_array)
-    {
-        $this->deleteChannelMetadataWithHttpInfo($associative_array);
-    }
-
-    /**
-     * Operation deleteChannelMetadataWithHttpInfo
-     *
-     * Delete a channel metadata - When deleting all items of a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteChannelMetadataWithHttpInfo($associative_array)
-    {
-        $request = $this->deleteChannelMetadataRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteChannelMetadataAsync
-     *
-     * Delete a channel metadata - When deleting all items of a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteChannelMetadataAsync($associative_array)
-    {
-        return $this->deleteChannelMetadataAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteChannelMetadataAsyncWithHttpInfo
-     *
-     * Delete a channel metadata - When deleting all items of a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteChannelMetadataAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '';
-        $request = $this->deleteChannelMetadataRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteChannelMetadata'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function deleteChannelMetadataRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling deleteChannelMetadata'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling deleteChannelMetadata'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling deleteChannelMetadata'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metadata';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $key,
-            'key', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation deleteChannelMetadataByKey
-     *
-     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $key key (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function deleteChannelMetadataByKey($associative_array)
-    {
-        $this->deleteChannelMetadataByKeyWithHttpInfo($associative_array);
-    }
-
-    /**
-     * Operation deleteChannelMetadataByKeyWithHttpInfo
-     *
-     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteChannelMetadataByKeyWithHttpInfo($associative_array)
-    {
-        $request = $this->deleteChannelMetadataByKeyRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteChannelMetadataByKeyAsync
-     *
-     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteChannelMetadataByKeyAsync($associative_array)
-    {
-        return $this->deleteChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteChannelMetadataByKeyAsyncWithHttpInfo
-     *
-     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '';
-        $request = $this->deleteChannelMetadataByKeyRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteChannelMetadataByKey'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function deleteChannelMetadataByKeyRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling deleteChannelMetadataByKey'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling deleteChannelMetadataByKey'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling deleteChannelMetadataByKey'
-            );
-        }
-        // verify the required parameter 'key' is set
-        if ($key === null || (is_array($key) && count($key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key when calling deleteChannelMetadataByKey'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metadata/{key}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key' . '}',
-                ObjectSerializer::toPathValue($key),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation deleteUserMetadata
-     *
-     * Delete a user metadata - When deleting all items of a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $key key (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function deleteUserMetadata($associative_array)
-    {
-        $this->deleteUserMetadataWithHttpInfo($associative_array);
-    }
-
-    /**
-     * Operation deleteUserMetadataWithHttpInfo
-     *
-     * Delete a user metadata - When deleting all items of a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteUserMetadataWithHttpInfo($associative_array)
-    {
-        $request = $this->deleteUserMetadataRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteUserMetadataAsync
-     *
-     * Delete a user metadata - When deleting all items of a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteUserMetadataAsync($associative_array)
-    {
-        return $this->deleteUserMetadataAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteUserMetadataAsyncWithHttpInfo
-     *
-     * Delete a user metadata - When deleting all items of a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteUserMetadataAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '';
-        $request = $this->deleteUserMetadataRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteUserMetadata'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function deleteUserMetadataRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling deleteUserMetadata'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling deleteUserMetadata'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/metadata';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $key,
-            'key', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation deleteUserMetadataByKey
-     *
-     * Delete a user metadata - When deleting a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $key key (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function deleteUserMetadataByKey($associative_array)
-    {
-        $this->deleteUserMetadataByKeyWithHttpInfo($associative_array);
-    }
-
-    /**
-     * Operation deleteUserMetadataByKeyWithHttpInfo
-     *
-     * Delete a user metadata - When deleting a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteUserMetadataByKeyWithHttpInfo($associative_array)
-    {
-        $request = $this->deleteUserMetadataByKeyRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteUserMetadataByKeyAsync
-     *
-     * Delete a user metadata - When deleting a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteUserMetadataByKeyAsync($associative_array)
-    {
-        return $this->deleteUserMetadataByKeyAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteUserMetadataByKeyAsyncWithHttpInfo
-     *
-     * Delete a user metadata - When deleting a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteUserMetadataByKeyAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '';
-        $request = $this->deleteUserMetadataByKeyRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteUserMetadataByKey'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function deleteUserMetadataByKeyRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling deleteUserMetadataByKey'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling deleteUserMetadataByKey'
-            );
-        }
-        // verify the required parameter 'key' is set
-        if ($key === null || (is_array($key) && count($key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key when calling deleteUserMetadataByKey'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/metadata/{key}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key' . '}',
-                ObjectSerializer::toPathValue($key),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateChannelMetacounter
-     *
-     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data update_channel_metacounter_data (optional)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\UpdateAChannelMetadataRequest $update_a_channel_metadata_request update_a_channel_metadata_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function updateChannelMetacounter($associative_array)
+    public function updateAChannelMetadata($associative_array)
     {
-        list($response) = $this->updateChannelMetacounterWithHttpInfo($associative_array);
+        list($response) = $this->updateAChannelMetadataWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation updateChannelMetacounterWithHttpInfo
+     * Operation updateAChannelMetadataWithHttpInfo
      *
-     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAChannelMetadataRequest $update_a_channel_metadata_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateChannelMetacounterWithHttpInfo($associative_array)
+    public function updateAChannelMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->updateChannelMetacounterRequest($associative_array);
+        $request = $this->updateAChannelMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2946,23 +915,23 @@ class MetadataApi
     }
 
     /**
-     * Operation updateChannelMetacounterAsync
+     * Operation updateAChannelMetadataAsync
      *
-     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAChannelMetadataRequest $update_a_channel_metadata_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetacounterAsync($associative_array)
+    public function updateAChannelMetadataAsync($associative_array)
     {
-        return $this->updateChannelMetacounterAsyncWithHttpInfo($associative_array)
+        return $this->updateAChannelMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2971,24 +940,24 @@ class MetadataApi
     }
 
     /**
-     * Operation updateChannelMetacounterAsyncWithHttpInfo
+     * Operation updateAChannelMetadataAsyncWithHttpInfo
      *
-     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter
+     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAChannelMetadataRequest $update_a_channel_metadata_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateChannelMetacounterAsyncWithHttpInfo($associative_array)
+    public function updateAChannelMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->updateChannelMetacounterRequest($associative_array);
+        $request = $this->updateAChannelMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3027,744 +996,36 @@ class MetadataApi
     }
 
     /**
-     * Create request for operation 'updateChannelMetacounter'
+     * Create request for operation 'updateAChannelMetadata'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateChannelMetacounterData $update_channel_metacounter_data (optional)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAChannelMetadataRequest $update_a_channel_metadata_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateChannelMetacounterRequest($associative_array)
+    public function updateAChannelMetadataRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $update_channel_metacounter_data = array_key_exists('update_channel_metacounter_data', $associative_array) ? $associative_array['update_channel_metacounter_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $update_a_channel_metadata_request = array_key_exists('update_a_channel_metadata_request', $associative_array) ? $associative_array['update_a_channel_metadata_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updateChannelMetacounter'
-            );
-        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling updateChannelMetacounter'
+                'Missing the required parameter $channel_type when calling updateAChannelMetadata'
             );
         }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling updateChannelMetacounter'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($update_channel_metacounter_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_channel_metacounter_data));
-            } else {
-                $httpBody = $update_channel_metacounter_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateChannelMetacounterByKey
-     *
-     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $key key (required)
-     * @param  object $body body (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,string>
-     */
-    public function updateChannelMetacounterByKey($associative_array)
-    {
-        list($response) = $this->updateChannelMetacounterByKeyWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation updateChannelMetacounterByKeyWithHttpInfo
-     *
-     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateChannelMetacounterByKeyWithHttpInfo($associative_array)
-    {
-        $request = $this->updateChannelMetacounterByKeyRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,string>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,string&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,string>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,string>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateChannelMetacounterByKeyAsync
-     *
-     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateChannelMetacounterByKeyAsync($associative_array)
-    {
-        return $this->updateChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateChannelMetacounterByKeyAsyncWithHttpInfo
-     *
-     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = 'array<string,string>';
-        $request = $this->updateChannelMetacounterByKeyRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateChannelMetacounterByKey'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function updateChannelMetacounterByKeyRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-        $body = array_key_exists('body', $associative_array) ? $associative_array['body'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updateChannelMetacounterByKey'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling updateChannelMetacounterByKey'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling updateChannelMetacounterByKey'
-            );
-        }
-        // verify the required parameter 'key' is set
-        if ($key === null || (is_array($key) && count($key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key when calling updateChannelMetacounterByKey'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter/{key}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key' . '}',
-                ObjectSerializer::toPathValue($key),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($body)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($body));
-            } else {
-                $httpBody = $body;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateChannelMetadata
-     *
-     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data update_channel_metadata_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,string>
-     */
-    public function updateChannelMetadata($associative_array)
-    {
-        list($response) = $this->updateChannelMetadataWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation updateChannelMetadataWithHttpInfo
-     *
-     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateChannelMetadataWithHttpInfo($associative_array)
-    {
-        $request = $this->updateChannelMetadataRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,string>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,string&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,string>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,string>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateChannelMetadataAsync
-     *
-     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateChannelMetadataAsync($associative_array)
-    {
-        return $this->updateChannelMetadataAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateChannelMetadataAsyncWithHttpInfo
-     *
-     * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateChannelMetadataAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = 'array<string,string>';
-        $request = $this->updateChannelMetadataRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateChannelMetadata'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateChannelMetadataData $update_channel_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function updateChannelMetadataRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $update_channel_metadata_data = array_key_exists('update_channel_metadata_data', $associative_array) ? $associative_array['update_channel_metadata_data'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updateChannelMetadata'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling updateChannelMetadata'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling updateChannelMetadata'
+                'Missing the required parameter $channel_url when calling updateAChannelMetadata'
             );
         }
 
@@ -3778,7 +1039,7 @@ class MetadataApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -3811,11 +1072,11 @@ class MetadataApi
         }
 
         // for model (json/xml)
-        if (isset($update_channel_metadata_data)) {
+        if (isset($update_a_channel_metadata_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_channel_metadata_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_a_channel_metadata_request));
             } else {
-                $httpBody = $update_channel_metadata_data;
+                $httpBody = $update_a_channel_metadata_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3863,1428 +1124,48 @@ class MetadataApi
     }
 
     /**
-     * Operation updateChannelMetadataByKey
+     * Operation viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadata
      *
-     * Update a channel metadata - When updating a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $key key (required)
-     * @param  object $body body (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,string>
-     */
-    public function updateChannelMetadataByKey($associative_array)
-    {
-        list($response) = $this->updateChannelMetadataByKeyWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation updateChannelMetadataByKeyWithHttpInfo
-     *
-     * Update a channel metadata - When updating a specific item of a channel metadata by its key
+     * View a channel metadata - When retrieving all items of a channel metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateChannelMetadataByKeyWithHttpInfo($associative_array)
-    {
-        $request = $this->updateChannelMetadataByKeyRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,string>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,string&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,string>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,string>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateChannelMetadataByKeyAsync
-     *
-     * Update a channel metadata - When updating a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateChannelMetadataByKeyAsync($associative_array)
-    {
-        return $this->updateChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateChannelMetadataByKeyAsyncWithHttpInfo
-     *
-     * Update a channel metadata - When updating a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = 'array<string,string>';
-        $request = $this->updateChannelMetadataByKeyRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateChannelMetadataByKey'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function updateChannelMetadataByKeyRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-        $body = array_key_exists('body', $associative_array) ? $associative_array['body'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updateChannelMetadataByKey'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling updateChannelMetadataByKey'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling updateChannelMetadataByKey'
-            );
-        }
-        // verify the required parameter 'key' is set
-        if ($key === null || (is_array($key) && count($key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key when calling updateChannelMetadataByKey'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metadata/{key}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key' . '}',
-                ObjectSerializer::toPathValue($key),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($body)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($body));
-            } else {
-                $httpBody = $body;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateUserMetadata
-     *
-     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data update_user_metadata_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\UpdateUserMetadataResponse
-     */
-    public function updateUserMetadata($associative_array)
-    {
-        list($response) = $this->updateUserMetadataWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation updateUserMetadataWithHttpInfo
-     *
-     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\UpdateUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateUserMetadataWithHttpInfo($associative_array)
-    {
-        $request = $this->updateUserMetadataRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\UpdateUserMetadataResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\UpdateUserMetadataResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UpdateUserMetadataResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\UpdateUserMetadataResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\UpdateUserMetadataResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateUserMetadataAsync
-     *
-     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateUserMetadataAsync($associative_array)
-    {
-        return $this->updateUserMetadataAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateUserMetadataAsyncWithHttpInfo
-     *
-     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateUserMetadataAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\UpdateUserMetadataResponse';
-        $request = $this->updateUserMetadataRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateUserMetadata'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateUserMetadataData $update_user_metadata_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function updateUserMetadataRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $update_user_metadata_data = array_key_exists('update_user_metadata_data', $associative_array) ? $associative_array['update_user_metadata_data'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updateUserMetadata'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling updateUserMetadata'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/metadata';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($update_user_metadata_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_user_metadata_data));
-            } else {
-                $httpBody = $update_user_metadata_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateUserMetadataByKey
-     *
-     * Update a user metadata - When updating a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $key key (required)
-     * @param  object $body body (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,string>
-     */
-    public function updateUserMetadataByKey($associative_array)
-    {
-        list($response) = $this->updateUserMetadataByKeyWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation updateUserMetadataByKeyWithHttpInfo
-     *
-     * Update a user metadata - When updating a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateUserMetadataByKeyWithHttpInfo($associative_array)
-    {
-        $request = $this->updateUserMetadataByKeyRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,string>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,string&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,string>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,string>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateUserMetadataByKeyAsync
-     *
-     * Update a user metadata - When updating a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateUserMetadataByKeyAsync($associative_array)
-    {
-        return $this->updateUserMetadataByKeyAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateUserMetadataByKeyAsyncWithHttpInfo
-     *
-     * Update a user metadata - When updating a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateUserMetadataByKeyAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = 'array<string,string>';
-        $request = $this->updateUserMetadataByKeyRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateUserMetadataByKey'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     * @param  object $body (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function updateUserMetadataByKeyRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-        $body = array_key_exists('body', $associative_array) ? $associative_array['body'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updateUserMetadataByKey'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling updateUserMetadataByKey'
-            );
-        }
-        // verify the required parameter 'key' is set
-        if ($key === null || (is_array($key) && count($key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key when calling updateUserMetadataByKey'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/metadata/{key}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key' . '}',
-                ObjectSerializer::toPathValue($key),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($body)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($body));
-            } else {
-                $httpBody = $body;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewChannelMetacounter
-     *
-     * View a channel metacounter - When retrieving all items of a channel metacounter
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
      * @param  string $key key (optional)
-     * @param  string[] $keys keys (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,string>
-     */
-    public function viewChannelMetacounter($associative_array)
-    {
-        list($response) = $this->viewChannelMetacounterWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation viewChannelMetacounterWithHttpInfo
-     *
-     * View a channel metacounter - When retrieving all items of a channel metacounter
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewChannelMetacounterWithHttpInfo($associative_array)
-    {
-        $request = $this->viewChannelMetacounterRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,string>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,string&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,string>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,string>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewChannelMetacounterAsync
-     *
-     * View a channel metacounter - When retrieving all items of a channel metacounter
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewChannelMetacounterAsync($associative_array)
-    {
-        return $this->viewChannelMetacounterAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewChannelMetacounterAsyncWithHttpInfo
-     *
-     * View a channel metacounter - When retrieving all items of a channel metacounter
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewChannelMetacounterAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = 'array<string,string>';
-        $request = $this->viewChannelMetacounterRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewChannelMetacounter'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewChannelMetacounterRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-        $keys = array_key_exists('keys', $associative_array) ? $associative_array['keys'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewChannelMetacounter'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling viewChannelMetacounter'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling viewChannelMetacounter'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $key,
-            'key', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $keys,
-            'keys', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewChannelMetacounterByKey
-     *
-     * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $key key (required)
+     * @param  string $keys In a query string, specifies an array of one or more keys of the metadata items. If not specified, all items of the metadata are returned. If specified, only the items that match the parameter values are returned. URL encoding each key is recommended. (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function viewChannelMetacounterByKey($associative_array)
+    public function viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadata($associative_array)
     {
-        list($response) = $this->viewChannelMetacounterByKeyWithHttpInfo($associative_array);
+        list($response) = $this->viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation viewChannelMetacounterByKeyWithHttpInfo
+     * Operation viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataWithHttpInfo
      *
-     * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
+     * View a channel metadata - When retrieving all items of a channel metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $key (optional)
+     * @param  string $keys In a query string, specifies an array of one or more keys of the metadata items. If not specified, all items of the metadata are returned. If specified, only the items that match the parameter values are returned. URL encoding each key is recommended. (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewChannelMetacounterByKeyWithHttpInfo($associative_array)
+    public function viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataWithHttpInfo($associative_array)
     {
-        $request = $this->viewChannelMetacounterByKeyRequest($associative_array);
+        $request = $this->viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5371,23 +1252,24 @@ class MetadataApi
     }
 
     /**
-     * Operation viewChannelMetacounterByKeyAsync
+     * Operation viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataAsync
      *
-     * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
+     * View a channel metadata - When retrieving all items of a channel metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $key (optional)
+     * @param  string $keys In a query string, specifies an array of one or more keys of the metadata items. If not specified, all items of the metadata are returned. If specified, only the items that match the parameter values are returned. URL encoding each key is recommended. (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetacounterByKeyAsync($associative_array)
+    public function viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataAsync($associative_array)
     {
-        return $this->viewChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
+        return $this->viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5396,24 +1278,25 @@ class MetadataApi
     }
 
     /**
-     * Operation viewChannelMetacounterByKeyAsyncWithHttpInfo
+     * Operation viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataAsyncWithHttpInfo
      *
-     * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key
+     * View a channel metadata - When retrieving all items of a channel metadata
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $key (optional)
+     * @param  string $keys In a query string, specifies an array of one or more keys of the metadata items. If not specified, all items of the metadata are returned. If specified, only the items that match the parameter values are returned. URL encoding each key is recommended. (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewChannelMetacounterByKeyAsyncWithHttpInfo($associative_array)
+    public function viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->viewChannelMetacounterByKeyRequest($associative_array);
+        $request = $this->viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5452,397 +1335,38 @@ class MetadataApi
     }
 
     /**
-     * Create request for operation 'viewChannelMetacounterByKey'
+     * Create request for operation 'viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadata'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
+     * @param  string $channel_type (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $key (optional)
+     * @param  string $keys In a query string, specifies an array of one or more keys of the metadata items. If not specified, all items of the metadata are returned. If specified, only the items that match the parameter values are returned. URL encoding each key is recommended. (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewChannelMetacounterByKeyRequest($associative_array)
+    public function viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadataRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewChannelMetacounterByKey'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling viewChannelMetacounterByKey'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling viewChannelMetacounterByKey'
-            );
-        }
-        // verify the required parameter 'key' is set
-        if ($key === null || (is_array($key) && count($key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key when calling viewChannelMetacounterByKey'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metacounter/{key}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key' . '}',
-                ObjectSerializer::toPathValue($key),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewChannelMetadata
-     *
-     * View a channel metadata - When retrieving all items of a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $key key (optional)
-     * @param  string[] $keys keys (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,string>
-     */
-    public function viewChannelMetadata($associative_array)
-    {
-        list($response) = $this->viewChannelMetadataWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation viewChannelMetadataWithHttpInfo
-     *
-     * View a channel metadata - When retrieving all items of a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewChannelMetadataWithHttpInfo($associative_array)
-    {
-        $request = $this->viewChannelMetadataRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,string>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,string&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,string>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,string>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewChannelMetadataAsync
-     *
-     * View a channel metadata - When retrieving all items of a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewChannelMetadataAsync($associative_array)
-    {
-        return $this->viewChannelMetadataAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewChannelMetadataAsyncWithHttpInfo
-     *
-     * View a channel metadata - When retrieving all items of a channel metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewChannelMetadataAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = 'array<string,string>';
-        $request = $this->viewChannelMetadataRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewChannelMetadata'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewChannelMetadataRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
         $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
         $keys = array_key_exists('keys', $associative_array) ? $associative_array['keys'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewChannelMetadata'
-            );
-        }
         // verify the required parameter 'channel_type' is set
         if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling viewChannelMetadata'
+                'Missing the required parameter $channel_type when calling viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadata'
             );
         }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling viewChannelMetadata'
+                'Missing the required parameter $channel_url when calling viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadata'
             );
         }
 
@@ -5866,1047 +1390,30 @@ class MetadataApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $keys,
             'keys', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewChannelMetadataByKey
-     *
-     * View a channel metadata - When retrieving a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $channel_type channel_type (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  string $key key (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,string>
-     */
-    public function viewChannelMetadataByKey($associative_array)
-    {
-        list($response) = $this->viewChannelMetadataByKeyWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation viewChannelMetadataByKeyWithHttpInfo
-     *
-     * View a channel metadata - When retrieving a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewChannelMetadataByKeyWithHttpInfo($associative_array)
-    {
-        $request = $this->viewChannelMetadataByKeyRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,string>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,string&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,string>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,string>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewChannelMetadataByKeyAsync
-     *
-     * View a channel metadata - When retrieving a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewChannelMetadataByKeyAsync($associative_array)
-    {
-        return $this->viewChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewChannelMetadataByKeyAsyncWithHttpInfo
-     *
-     * View a channel metadata - When retrieving a specific item of a channel metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewChannelMetadataByKeyAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = 'array<string,string>';
-        $request = $this->viewChannelMetadataByKeyRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewChannelMetadataByKey'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $channel_type (required)
-     * @param  string $channel_url (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewChannelMetadataByKeyRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $channel_type = array_key_exists('channel_type', $associative_array) ? $associative_array['channel_type'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewChannelMetadataByKey'
-            );
-        }
-        // verify the required parameter 'channel_type' is set
-        if ($channel_type === null || (is_array($channel_type) && count($channel_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_type when calling viewChannelMetadataByKey'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling viewChannelMetadataByKey'
-            );
-        }
-        // verify the required parameter 'key' is set
-        if ($key === null || (is_array($key) && count($key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key when calling viewChannelMetadataByKey'
-            );
-        }
-
-        $resourcePath = '/v3/{channel_type}/{channel_url}/metadata/{key}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($channel_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_type' . '}',
-                ObjectSerializer::toPathValue($channel_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($channel_url !== null) {
-            $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key' . '}',
-                ObjectSerializer::toPathValue($key),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewUserMetadata
-     *
-     * View a user metadata - When retrieving all items of a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $key key (optional)
-     * @param  string[] $keys keys (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewUserMetadataResponse
-     */
-    public function viewUserMetadata($associative_array)
-    {
-        list($response) = $this->viewUserMetadataWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation viewUserMetadataWithHttpInfo
-     *
-     * View a user metadata - When retrieving all items of a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewUserMetadataResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewUserMetadataWithHttpInfo($associative_array)
-    {
-        $request = $this->viewUserMetadataRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ViewUserMetadataResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\ViewUserMetadataResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewUserMetadataResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ViewUserMetadataResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ViewUserMetadataResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewUserMetadataAsync
-     *
-     * View a user metadata - When retrieving all items of a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewUserMetadataAsync($associative_array)
-    {
-        return $this->viewUserMetadataAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewUserMetadataAsyncWithHttpInfo
-     *
-     * View a user metadata - When retrieving all items of a user metadata
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewUserMetadataAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\ViewUserMetadataResponse';
-        $request = $this->viewUserMetadataRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewUserMetadata'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (optional)
-     * @param  string[] $keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewUserMetadataRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-        $keys = array_key_exists('keys', $associative_array) ? $associative_array['keys'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewUserMetadata'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling viewUserMetadata'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/metadata';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $key,
-            'key', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
             false // required
         ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $keys,
-            'keys', // param base name
-            'array', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
-        if ($user_id !== null) {
+        if ($channel_type !== null) {
             $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewUserMetadataByKey
-     *
-     * View a user metadata - When retrieving a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $key key (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array<string,string>
-     */
-    public function viewUserMetadataByKey($associative_array)
-    {
-        list($response) = $this->viewUserMetadataByKeyWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation viewUserMetadataByKeyWithHttpInfo
-     *
-     * View a user metadata - When retrieving a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of array<string,string>, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewUserMetadataByKeyWithHttpInfo($associative_array)
-    {
-        $request = $this->viewUserMetadataByKeyRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('array<string,string>' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('array&lt;string,string&gt;' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'array<string,string>', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'array<string,string>';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'array<string,string>',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewUserMetadataByKeyAsync
-     *
-     * View a user metadata - When retrieving a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewUserMetadataByKeyAsync($associative_array)
-    {
-        return $this->viewUserMetadataByKeyAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewUserMetadataByKeyAsyncWithHttpInfo
-     *
-     * View a user metadata - When retrieving a specific item of a user metadata by its key
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewUserMetadataByKeyAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = 'array<string,string>';
-        $request = $this->viewUserMetadataByKeyRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewUserMetadataByKey'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $key (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewUserMetadataByKeyRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $key = array_key_exists('key', $associative_array) ? $associative_array['key'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewUserMetadataByKey'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling viewUserMetadataByKey'
-            );
-        }
-        // verify the required parameter 'key' is set
-        if ($key === null || (is_array($key) && count($key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key when calling viewUserMetadataByKey'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/metadata/{key}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
+                '{' . 'channel_type' . '}',
+                ObjectSerializer::toPathValue($channel_type),
                 $resourcePath
             );
         }
         // path params
-        if ($key !== null) {
+        if ($channel_url !== null) {
             $resourcePath = str_replace(
-                '{' . 'key' . '}',
-                ObjectSerializer::toPathValue($key),
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
                 $resourcePath
             );
         }
