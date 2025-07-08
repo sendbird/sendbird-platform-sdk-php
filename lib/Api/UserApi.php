@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -117,46 +117,46 @@ class UserApi
     }
 
     /**
-     * Operation addRegistrationOrDeviceToken
+     * Operation addARegistrationOrDeviceToken
      *
      * Add a registration or device token
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $token_type token_type (required)
-     * @param  \Sendbird\Model\AddRegistrationOrDeviceTokenData $add_registration_or_device_token_data add_registration_or_device_token_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\AddARegistrationOrDeviceTokenRequest $add_a_registration_or_device_token_request add_a_registration_or_device_token_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\AddRegistrationOrDeviceTokenResponse
+     * @return \Sendbird\Model\AddARegistrationOrDeviceTokenResponse
      */
-    public function addRegistrationOrDeviceToken($associative_array)
+    public function addARegistrationOrDeviceToken($associative_array)
     {
-        list($response) = $this->addRegistrationOrDeviceTokenWithHttpInfo($associative_array);
+        list($response) = $this->addARegistrationOrDeviceTokenWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation addRegistrationOrDeviceTokenWithHttpInfo
+     * Operation addARegistrationOrDeviceTokenWithHttpInfo
      *
      * Add a registration or device token
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
-     * @param  \Sendbird\Model\AddRegistrationOrDeviceTokenData $add_registration_or_device_token_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\AddARegistrationOrDeviceTokenRequest $add_a_registration_or_device_token_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\AddRegistrationOrDeviceTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\AddARegistrationOrDeviceTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addRegistrationOrDeviceTokenWithHttpInfo($associative_array)
+    public function addARegistrationOrDeviceTokenWithHttpInfo($associative_array)
     {
-        $request = $this->addRegistrationOrDeviceTokenRequest($associative_array);
+        $request = $this->addARegistrationOrDeviceTokenRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -195,23 +195,23 @@ class UserApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\AddRegistrationOrDeviceTokenResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\AddARegistrationOrDeviceTokenResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\AddRegistrationOrDeviceTokenResponse' !== 'string') {
+                        if ('\Sendbird\Model\AddARegistrationOrDeviceTokenResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\AddRegistrationOrDeviceTokenResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\AddARegistrationOrDeviceTokenResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\AddRegistrationOrDeviceTokenResponse';
+            $returnType = '\Sendbird\Model\AddARegistrationOrDeviceTokenResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -232,7 +232,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\AddRegistrationOrDeviceTokenResponse',
+                        '\Sendbird\Model\AddARegistrationOrDeviceTokenResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -243,23 +243,23 @@ class UserApi
     }
 
     /**
-     * Operation addRegistrationOrDeviceTokenAsync
+     * Operation addARegistrationOrDeviceTokenAsync
      *
      * Add a registration or device token
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
-     * @param  \Sendbird\Model\AddRegistrationOrDeviceTokenData $add_registration_or_device_token_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\AddARegistrationOrDeviceTokenRequest $add_a_registration_or_device_token_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addRegistrationOrDeviceTokenAsync($associative_array)
+    public function addARegistrationOrDeviceTokenAsync($associative_array)
     {
-        return $this->addRegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
+        return $this->addARegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -268,24 +268,24 @@ class UserApi
     }
 
     /**
-     * Operation addRegistrationOrDeviceTokenAsyncWithHttpInfo
+     * Operation addARegistrationOrDeviceTokenAsyncWithHttpInfo
      *
      * Add a registration or device token
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
-     * @param  \Sendbird\Model\AddRegistrationOrDeviceTokenData $add_registration_or_device_token_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\AddARegistrationOrDeviceTokenRequest $add_a_registration_or_device_token_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addRegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
+    public function addARegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\AddRegistrationOrDeviceTokenResponse';
-        $request = $this->addRegistrationOrDeviceTokenRequest($associative_array);
+        $returnType = '\Sendbird\Model\AddARegistrationOrDeviceTokenResponse';
+        $request = $this->addARegistrationOrDeviceTokenRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -324,42 +324,36 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'addRegistrationOrDeviceToken'
+     * Create request for operation 'addARegistrationOrDeviceToken'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
-     * @param  \Sendbird\Model\AddRegistrationOrDeviceTokenData $add_registration_or_device_token_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\AddARegistrationOrDeviceTokenRequest $add_a_registration_or_device_token_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function addRegistrationOrDeviceTokenRequest($associative_array)
+    public function addARegistrationOrDeviceTokenRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
         $token_type = array_key_exists('token_type', $associative_array) ? $associative_array['token_type'] : null;
-        $add_registration_or_device_token_data = array_key_exists('add_registration_or_device_token_data', $associative_array) ? $associative_array['add_registration_or_device_token_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $add_a_registration_or_device_token_request = array_key_exists('add_a_registration_or_device_token_request', $associative_array) ? $associative_array['add_a_registration_or_device_token_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling addRegistrationOrDeviceToken'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling addRegistrationOrDeviceToken'
+                'Missing the required parameter $user_id when calling addARegistrationOrDeviceToken'
             );
         }
         // verify the required parameter 'token_type' is set
         if ($token_type === null || (is_array($token_type) && count($token_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $token_type when calling addRegistrationOrDeviceToken'
+                'Missing the required parameter $token_type when calling addARegistrationOrDeviceToken'
             );
         }
 
@@ -373,7 +367,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -406,11 +400,11 @@ class UserApi
         }
 
         // for model (json/xml)
-        if (isset($add_registration_or_device_token_data)) {
+        if (isset($add_a_registration_or_device_token_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($add_registration_or_device_token_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($add_a_registration_or_device_token_request));
             } else {
-                $httpBody = $add_registration_or_device_token_data;
+                $httpBody = $add_a_registration_or_device_token_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -458,44 +452,44 @@ class UserApi
     }
 
     /**
-     * Operation choosePushNotificationContentTemplate
+     * Operation chooseAPushNotificationContentTemplate
      *
      * Choose a push notification content template
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  object $body body (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\ChooseAPushNotificationContentTemplateRequest $choose_a_push_notification_content_template_request choose_a_push_notification_content_template_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ChoosePushNotificationContentTemplateResponse
+     * @return \Sendbird\Model\ChooseAPushNotificationContentTemplateResponse
      */
-    public function choosePushNotificationContentTemplate($associative_array)
+    public function chooseAPushNotificationContentTemplate($associative_array)
     {
-        list($response) = $this->choosePushNotificationContentTemplateWithHttpInfo($associative_array);
+        list($response) = $this->chooseAPushNotificationContentTemplateWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation choosePushNotificationContentTemplateWithHttpInfo
+     * Operation chooseAPushNotificationContentTemplateWithHttpInfo
      *
      * Choose a push notification content template
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  object $body (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\ChooseAPushNotificationContentTemplateRequest $choose_a_push_notification_content_template_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ChoosePushNotificationContentTemplateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ChooseAPushNotificationContentTemplateResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function choosePushNotificationContentTemplateWithHttpInfo($associative_array)
+    public function chooseAPushNotificationContentTemplateWithHttpInfo($associative_array)
     {
-        $request = $this->choosePushNotificationContentTemplateRequest($associative_array);
+        $request = $this->chooseAPushNotificationContentTemplateRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -534,23 +528,23 @@ class UserApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\ChoosePushNotificationContentTemplateResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ChooseAPushNotificationContentTemplateResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\ChoosePushNotificationContentTemplateResponse' !== 'string') {
+                        if ('\Sendbird\Model\ChooseAPushNotificationContentTemplateResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ChoosePushNotificationContentTemplateResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ChooseAPushNotificationContentTemplateResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\ChoosePushNotificationContentTemplateResponse';
+            $returnType = '\Sendbird\Model\ChooseAPushNotificationContentTemplateResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -571,7 +565,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\ChoosePushNotificationContentTemplateResponse',
+                        '\Sendbird\Model\ChooseAPushNotificationContentTemplateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -582,22 +576,22 @@ class UserApi
     }
 
     /**
-     * Operation choosePushNotificationContentTemplateAsync
+     * Operation chooseAPushNotificationContentTemplateAsync
      *
      * Choose a push notification content template
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  object $body (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\ChooseAPushNotificationContentTemplateRequest $choose_a_push_notification_content_template_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function choosePushNotificationContentTemplateAsync($associative_array)
+    public function chooseAPushNotificationContentTemplateAsync($associative_array)
     {
-        return $this->choosePushNotificationContentTemplateAsyncWithHttpInfo($associative_array)
+        return $this->chooseAPushNotificationContentTemplateAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -606,23 +600,23 @@ class UserApi
     }
 
     /**
-     * Operation choosePushNotificationContentTemplateAsyncWithHttpInfo
+     * Operation chooseAPushNotificationContentTemplateAsyncWithHttpInfo
      *
      * Choose a push notification content template
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  object $body (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\ChooseAPushNotificationContentTemplateRequest $choose_a_push_notification_content_template_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function choosePushNotificationContentTemplateAsyncWithHttpInfo($associative_array)
+    public function chooseAPushNotificationContentTemplateAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\ChoosePushNotificationContentTemplateResponse';
-        $request = $this->choosePushNotificationContentTemplateRequest($associative_array);
+        $returnType = '\Sendbird\Model\ChooseAPushNotificationContentTemplateResponse';
+        $request = $this->chooseAPushNotificationContentTemplateRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -661,34 +655,28 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'choosePushNotificationContentTemplate'
+     * Create request for operation 'chooseAPushNotificationContentTemplate'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  object $body (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\ChooseAPushNotificationContentTemplateRequest $choose_a_push_notification_content_template_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function choosePushNotificationContentTemplateRequest($associative_array)
+    public function chooseAPushNotificationContentTemplateRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $body = array_key_exists('body', $associative_array) ? $associative_array['body'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $choose_a_push_notification_content_template_request = array_key_exists('choose_a_push_notification_content_template_request', $associative_array) ? $associative_array['choose_a_push_notification_content_template_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling choosePushNotificationContentTemplate'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling choosePushNotificationContentTemplate'
+                'Missing the required parameter $user_id when calling chooseAPushNotificationContentTemplate'
             );
         }
 
@@ -702,7 +690,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -727,11 +715,11 @@ class UserApi
         }
 
         // for model (json/xml)
-        if (isset($body)) {
+        if (isset($choose_a_push_notification_content_template_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($body));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($choose_a_push_notification_content_template_request));
             } else {
-                $httpBody = $body;
+                $httpBody = $choose_a_push_notification_content_template_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -779,42 +767,42 @@ class UserApi
     }
 
     /**
-     * Operation createUser
+     * Operation createAUser
      *
      * Create a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  \Sendbird\Model\CreateUserData $create_user_data create_user_data (optional)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\CreateAUserRequest $create_a_user_request create_a_user_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdUser
+     * @return \Sendbird\Model\SendbirdUser
      */
-    public function createUser($associative_array)
+    public function createAUser($associative_array)
     {
-        list($response) = $this->createUserWithHttpInfo($associative_array);
+        list($response) = $this->createAUserWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation createUserWithHttpInfo
+     * Operation createAUserWithHttpInfo
      *
      * Create a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\CreateUserData $create_user_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAUserRequest $create_a_user_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendbirdUser, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createUserWithHttpInfo($associative_array)
+    public function createAUserWithHttpInfo($associative_array)
     {
-        $request = $this->createUserRequest($associative_array);
+        $request = $this->createAUserRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -853,23 +841,23 @@ class UserApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdUser' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendbirdUser' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdUser' !== 'string') {
+                        if ('\Sendbird\Model\SendbirdUser' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdUser', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdUser', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdUser';
+            $returnType = '\Sendbird\Model\SendbirdUser';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -890,7 +878,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdUser',
+                        '\Sendbird\Model\SendbirdUser',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -901,21 +889,21 @@ class UserApi
     }
 
     /**
-     * Operation createUserAsync
+     * Operation createAUserAsync
      *
      * Create a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\CreateUserData $create_user_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAUserRequest $create_a_user_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createUserAsync($associative_array)
+    public function createAUserAsync($associative_array)
     {
-        return $this->createUserAsyncWithHttpInfo($associative_array)
+        return $this->createAUserAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -924,22 +912,22 @@ class UserApi
     }
 
     /**
-     * Operation createUserAsyncWithHttpInfo
+     * Operation createAUserAsyncWithHttpInfo
      *
      * Create a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\CreateUserData $create_user_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAUserRequest $create_a_user_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createUserAsyncWithHttpInfo($associative_array)
+    public function createAUserAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendBirdUser';
-        $request = $this->createUserRequest($associative_array);
+        $returnType = '\Sendbird\Model\SendbirdUser';
+        $request = $this->createAUserRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -978,28 +966,22 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'createUser'
+     * Create request for operation 'createAUser'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\CreateUserData $create_user_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateAUserRequest $create_a_user_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createUserRequest($associative_array)
+    public function createAUserRequest($associative_array)
     {
         // unbox the parameters from the associative array
         $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $create_user_data = array_key_exists('create_user_data', $associative_array) ? $associative_array['create_user_data'] : null;
+        $create_a_user_request = array_key_exists('create_a_user_request', $associative_array) ? $associative_array['create_a_user_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling createUser'
-            );
-        }
 
         $resourcePath = '/v3/users';
         $formParams = [];
@@ -1011,7 +993,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
 
@@ -1028,11 +1010,11 @@ class UserApi
         }
 
         // for model (json/xml)
-        if (isset($create_user_data)) {
+        if (isset($create_a_user_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_user_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_a_user_request));
             } else {
-                $httpBody = $create_user_data;
+                $httpBody = $create_a_user_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1086,9 +1068,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\CreateUserTokenData $create_user_token_data create_user_token_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\CreateUserTokenRequest $create_user_token_request create_user_token_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1107,9 +1089,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\CreateUserTokenData $create_user_token_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateUserTokenRequest $create_user_token_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1210,9 +1192,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\CreateUserTokenData $create_user_token_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateUserTokenRequest $create_user_token_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1234,9 +1216,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\CreateUserTokenData $create_user_token_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateUserTokenRequest $create_user_token_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1287,9 +1269,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\CreateUserTokenData $create_user_token_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateUserTokenRequest $create_user_token_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1297,16 +1279,10 @@ class UserApi
     public function createUserTokenRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $create_user_token_data = array_key_exists('create_user_token_data', $associative_array) ? $associative_array['create_user_token_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $create_user_token_request = array_key_exists('create_user_token_request', $associative_array) ? $associative_array['create_user_token_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling createUserToken'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1324,7 +1300,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -1349,11 +1325,11 @@ class UserApi
         }
 
         // for model (json/xml)
-        if (isset($create_user_token_data)) {
+        if (isset($create_user_token_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_user_token_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_user_token_request));
             } else {
-                $httpBody = $create_user_token_data;
+                $httpBody = $create_user_token_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1401,42 +1377,42 @@ class UserApi
     }
 
     /**
-     * Operation deleteUserById
+     * Operation deleteAUser
      *
      * Delete a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function deleteUserById($associative_array)
+    public function deleteAUser($associative_array)
     {
-        list($response) = $this->deleteUserByIdWithHttpInfo($associative_array);
+        list($response) = $this->deleteAUserWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation deleteUserByIdWithHttpInfo
+     * Operation deleteAUserWithHttpInfo
      *
      * Delete a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteUserByIdWithHttpInfo($associative_array)
+    public function deleteAUserWithHttpInfo($associative_array)
     {
-        $request = $this->deleteUserByIdRequest($associative_array);
+        $request = $this->deleteAUserRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1523,21 +1499,21 @@ class UserApi
     }
 
     /**
-     * Operation deleteUserByIdAsync
+     * Operation deleteAUserAsync
      *
      * Delete a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserByIdAsync($associative_array)
+    public function deleteAUserAsync($associative_array)
     {
-        return $this->deleteUserByIdAsyncWithHttpInfo($associative_array)
+        return $this->deleteAUserAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1546,22 +1522,22 @@ class UserApi
     }
 
     /**
-     * Operation deleteUserByIdAsyncWithHttpInfo
+     * Operation deleteAUserAsyncWithHttpInfo
      *
      * Delete a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteUserByIdAsyncWithHttpInfo($associative_array)
+    public function deleteAUserAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->deleteUserByIdRequest($associative_array);
+        $request = $this->deleteAUserRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1600,32 +1576,26 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'deleteUserById'
+     * Create request for operation 'deleteAUser'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteUserByIdRequest($associative_array)
+    public function deleteAUserRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling deleteUserById'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling deleteUserById'
+                'Missing the required parameter $user_id when calling deleteAUser'
             );
         }
 
@@ -1639,7 +1609,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -1710,15 +1680,318 @@ class UserApi
     }
 
     /**
+     * Operation getChannelInvitationPreference
+     *
+     * Get channel invitation preference
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\GetChannelInvitationPreferenceResponse
+     */
+    public function getChannelInvitationPreference($associative_array)
+    {
+        list($response) = $this->getChannelInvitationPreferenceWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation getChannelInvitationPreferenceWithHttpInfo
+     *
+     * Get channel invitation preference
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\GetChannelInvitationPreferenceResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getChannelInvitationPreferenceWithHttpInfo($associative_array)
+    {
+        $request = $this->getChannelInvitationPreferenceRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\GetChannelInvitationPreferenceResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\GetChannelInvitationPreferenceResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\GetChannelInvitationPreferenceResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\GetChannelInvitationPreferenceResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\GetChannelInvitationPreferenceResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getChannelInvitationPreferenceAsync
+     *
+     * Get channel invitation preference
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getChannelInvitationPreferenceAsync($associative_array)
+    {
+        return $this->getChannelInvitationPreferenceAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getChannelInvitationPreferenceAsyncWithHttpInfo
+     *
+     * Get channel invitation preference
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getChannelInvitationPreferenceAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\GetChannelInvitationPreferenceResponse';
+        $request = $this->getChannelInvitationPreferenceRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getChannelInvitationPreference'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getChannelInvitationPreferenceRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling getChannelInvitationPreference'
+            );
+        }
+
+        $resourcePath = '/v3/users/{user_id}/channel_invitation_preference';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation leaveMyGroupChannels
      *
      * Leave my group channels
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\LeaveMyGroupChannelsData $leave_my_group_channels_data leave_my_group_channels_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\LeaveMyGroupChannelsRequest $leave_my_group_channels_request leave_my_group_channels_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1737,9 +2010,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\LeaveMyGroupChannelsData $leave_my_group_channels_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\LeaveMyGroupChannelsRequest $leave_my_group_channels_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1840,9 +2113,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\LeaveMyGroupChannelsData $leave_my_group_channels_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\LeaveMyGroupChannelsRequest $leave_my_group_channels_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1864,9 +2137,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\LeaveMyGroupChannelsData $leave_my_group_channels_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\LeaveMyGroupChannelsRequest $leave_my_group_channels_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1917,9 +2190,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\LeaveMyGroupChannelsData $leave_my_group_channels_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\LeaveMyGroupChannelsRequest $leave_my_group_channels_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1927,16 +2200,10 @@ class UserApi
     public function leaveMyGroupChannelsRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $leave_my_group_channels_data = array_key_exists('leave_my_group_channels_data', $associative_array) ? $associative_array['leave_my_group_channels_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $leave_my_group_channels_request = array_key_exists('leave_my_group_channels_request', $associative_array) ? $associative_array['leave_my_group_channels_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling leaveMyGroupChannels'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -1954,7 +2221,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -1979,11 +2246,11 @@ class UserApi
         }
 
         // for model (json/xml)
-        if (isset($leave_my_group_channels_data)) {
+        if (isset($leave_my_group_channels_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($leave_my_group_channels_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($leave_my_group_channels_request));
             } else {
-                $httpBody = $leave_my_group_channels_data;
+                $httpBody = $leave_my_group_channels_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2037,48 +2304,50 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
+     * @param  string $user_id (Required) (required)
      * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $token token (optional)
-     * @param  int $limit limit (optional)
+     * @param  string $token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
      * @param  string $distinct_mode distinct_mode (optional)
      * @param  string $public_mode public_mode (optional)
      * @param  string $super_mode super_mode (optional)
-     * @param  string $hidden_mode hidden_mode (optional)
-     * @param  string $member_state_filter member_state_filter (optional)
-     * @param  string $unread_filter unread_filter (optional)
-     * @param  int $created_after created_after (optional)
-     * @param  int $created_before created_before (optional)
+     * @param  int $created_after Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format. (optional)
+     * @param  int $created_before Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format. (optional)
      * @param  bool $show_empty show_empty (optional)
-     * @param  bool $show_frozen show_frozen (optional)
      * @param  bool $show_member show_member (optional)
      * @param  bool $show_delivery_receipt show_delivery_receipt (optional)
      * @param  bool $show_read_receipt show_read_receipt (optional)
+     * @param  bool $show_metadata show_metadata (optional)
+     * @param  bool $show_frozen show_frozen (optional)
      * @param  string $order order (optional)
-     * @param  string $metadata_order_key metadata_order_key (optional)
-     * @param  string $custom_types custom_types (optional)
-     * @param  string $custom_type_startswith custom_type_startswith (optional)
-     * @param  string $channel_urls channel_urls (optional)
-     * @param  string $name name (optional)
-     * @param  string $name_contains name_contains (optional)
-     * @param  string $name_startswith name_startswith (optional)
-     * @param  string $members_exactly_in members_exactly_in (optional)
-     * @param  string $members_include_in members_include_in (optional)
-     * @param  string $query_type query_type (optional)
-     * @param  string $members_nickname members_nickname (optional)
-     * @param  string $members_nickname_contains members_nickname_contains (optional)
-     * @param  string $search_query search_query (optional)
-     * @param  string $search_fields search_fields (optional)
-     * @param  string $metadata_key metadata_key (optional)
-     * @param  string $metadata_values metadata_values (optional)
-     * @param  string $metadata_value_startswith metadata_value_startswith (optional)
-     * @param  string $metacounter_key metacounter_key (optional)
-     * @param  string $metacounter_values metacounter_values (optional)
-     * @param  string $metacounter_value_gt metacounter_value_gt (optional)
-     * @param  string $metacounter_value_gte metacounter_value_gte (optional)
-     * @param  string $metacounter_value_lt metacounter_value_lt (optional)
-     * @param  string $metacounter_value_lte metacounter_value_lte (optional)
-     * @param  string $custom_type custom_type (optional)
+     * @param  string $metadata_order_key Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key. (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $custom_type_startswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  string $name Specifies one or more group channel names. (optional)
+     * @param  string $name_contains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $name_startswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $members_exactly_in Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $members_include_in Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $query_type Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) (optional)
+     * @param  string $members_nickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $members_nickname_contains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
+     * @param  string $members_nickname_startswith Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended. (optional)
+     * @param  string $search_query Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended. (optional)
+     * @param  string $search_fields Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together) (optional)
+     * @param  string $metadata_key Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
+     * @param  string $metadata_values Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metadata_value_startswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metacounter_key Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified. (optional)
+     * @param  string $metacounter_values Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  bool $include_sorted_metaarray_in_last_message Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
+     * @param  string $hidden_mode Restricts the search scope to group channels that match a specific hidden_status and operating behavior (optional)
+     * @param  string $unread_filter Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all) (optional)
+     * @param  string $member_state_filter member_state_filter (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2097,48 +2366,50 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
+     * @param  string $user_id (Required) (required)
      * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
      * @param  string $distinct_mode (optional)
      * @param  string $public_mode (optional)
      * @param  string $super_mode (optional)
-     * @param  string $hidden_mode (optional)
-     * @param  string $member_state_filter (optional)
-     * @param  string $unread_filter (optional)
-     * @param  int $created_after (optional)
-     * @param  int $created_before (optional)
+     * @param  int $created_after Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format. (optional)
+     * @param  int $created_before Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format. (optional)
      * @param  bool $show_empty (optional)
-     * @param  bool $show_frozen (optional)
      * @param  bool $show_member (optional)
      * @param  bool $show_delivery_receipt (optional)
      * @param  bool $show_read_receipt (optional)
+     * @param  bool $show_metadata (optional)
+     * @param  bool $show_frozen (optional)
      * @param  string $order (optional)
-     * @param  string $metadata_order_key (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $custom_type_startswith (optional)
-     * @param  string $channel_urls (optional)
-     * @param  string $name (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $name_startswith (optional)
-     * @param  string $members_exactly_in (optional)
-     * @param  string $members_include_in (optional)
-     * @param  string $query_type (optional)
-     * @param  string $members_nickname (optional)
-     * @param  string $members_nickname_contains (optional)
-     * @param  string $search_query (optional)
-     * @param  string $search_fields (optional)
-     * @param  string $metadata_key (optional)
-     * @param  string $metadata_values (optional)
-     * @param  string $metadata_value_startswith (optional)
-     * @param  string $metacounter_key (optional)
-     * @param  string $metacounter_values (optional)
-     * @param  string $metacounter_value_gt (optional)
-     * @param  string $metacounter_value_gte (optional)
-     * @param  string $metacounter_value_lt (optional)
-     * @param  string $metacounter_value_lte (optional)
-     * @param  string $custom_type (optional)
+     * @param  string $metadata_order_key Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key. (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $custom_type_startswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  string $name Specifies one or more group channel names. (optional)
+     * @param  string $name_contains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $name_startswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $members_exactly_in Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $members_include_in Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $query_type Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) (optional)
+     * @param  string $members_nickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $members_nickname_contains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
+     * @param  string $members_nickname_startswith Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended. (optional)
+     * @param  string $search_query Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended. (optional)
+     * @param  string $search_fields Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together) (optional)
+     * @param  string $metadata_key Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
+     * @param  string $metadata_values Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metadata_value_startswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metacounter_key Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified. (optional)
+     * @param  string $metacounter_values Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  bool $include_sorted_metaarray_in_last_message Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
+     * @param  string $hidden_mode Restricts the search scope to group channels that match a specific hidden_status and operating behavior (optional)
+     * @param  string $unread_filter Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all) (optional)
+     * @param  string $member_state_filter (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2239,48 +2510,50 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
+     * @param  string $user_id (Required) (required)
      * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
      * @param  string $distinct_mode (optional)
      * @param  string $public_mode (optional)
      * @param  string $super_mode (optional)
-     * @param  string $hidden_mode (optional)
-     * @param  string $member_state_filter (optional)
-     * @param  string $unread_filter (optional)
-     * @param  int $created_after (optional)
-     * @param  int $created_before (optional)
+     * @param  int $created_after Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format. (optional)
+     * @param  int $created_before Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format. (optional)
      * @param  bool $show_empty (optional)
-     * @param  bool $show_frozen (optional)
      * @param  bool $show_member (optional)
      * @param  bool $show_delivery_receipt (optional)
      * @param  bool $show_read_receipt (optional)
+     * @param  bool $show_metadata (optional)
+     * @param  bool $show_frozen (optional)
      * @param  string $order (optional)
-     * @param  string $metadata_order_key (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $custom_type_startswith (optional)
-     * @param  string $channel_urls (optional)
-     * @param  string $name (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $name_startswith (optional)
-     * @param  string $members_exactly_in (optional)
-     * @param  string $members_include_in (optional)
-     * @param  string $query_type (optional)
-     * @param  string $members_nickname (optional)
-     * @param  string $members_nickname_contains (optional)
-     * @param  string $search_query (optional)
-     * @param  string $search_fields (optional)
-     * @param  string $metadata_key (optional)
-     * @param  string $metadata_values (optional)
-     * @param  string $metadata_value_startswith (optional)
-     * @param  string $metacounter_key (optional)
-     * @param  string $metacounter_values (optional)
-     * @param  string $metacounter_value_gt (optional)
-     * @param  string $metacounter_value_gte (optional)
-     * @param  string $metacounter_value_lt (optional)
-     * @param  string $metacounter_value_lte (optional)
-     * @param  string $custom_type (optional)
+     * @param  string $metadata_order_key Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key. (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $custom_type_startswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  string $name Specifies one or more group channel names. (optional)
+     * @param  string $name_contains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $name_startswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $members_exactly_in Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $members_include_in Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $query_type Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) (optional)
+     * @param  string $members_nickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $members_nickname_contains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
+     * @param  string $members_nickname_startswith Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended. (optional)
+     * @param  string $search_query Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended. (optional)
+     * @param  string $search_fields Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together) (optional)
+     * @param  string $metadata_key Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
+     * @param  string $metadata_values Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metadata_value_startswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metacounter_key Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified. (optional)
+     * @param  string $metacounter_values Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  bool $include_sorted_metaarray_in_last_message Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
+     * @param  string $hidden_mode Restricts the search scope to group channels that match a specific hidden_status and operating behavior (optional)
+     * @param  string $unread_filter Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all) (optional)
+     * @param  string $member_state_filter (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2302,48 +2575,50 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
+     * @param  string $user_id (Required) (required)
      * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
      * @param  string $distinct_mode (optional)
      * @param  string $public_mode (optional)
      * @param  string $super_mode (optional)
-     * @param  string $hidden_mode (optional)
-     * @param  string $member_state_filter (optional)
-     * @param  string $unread_filter (optional)
-     * @param  int $created_after (optional)
-     * @param  int $created_before (optional)
+     * @param  int $created_after Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format. (optional)
+     * @param  int $created_before Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format. (optional)
      * @param  bool $show_empty (optional)
-     * @param  bool $show_frozen (optional)
      * @param  bool $show_member (optional)
      * @param  bool $show_delivery_receipt (optional)
      * @param  bool $show_read_receipt (optional)
+     * @param  bool $show_metadata (optional)
+     * @param  bool $show_frozen (optional)
      * @param  string $order (optional)
-     * @param  string $metadata_order_key (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $custom_type_startswith (optional)
-     * @param  string $channel_urls (optional)
-     * @param  string $name (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $name_startswith (optional)
-     * @param  string $members_exactly_in (optional)
-     * @param  string $members_include_in (optional)
-     * @param  string $query_type (optional)
-     * @param  string $members_nickname (optional)
-     * @param  string $members_nickname_contains (optional)
-     * @param  string $search_query (optional)
-     * @param  string $search_fields (optional)
-     * @param  string $metadata_key (optional)
-     * @param  string $metadata_values (optional)
-     * @param  string $metadata_value_startswith (optional)
-     * @param  string $metacounter_key (optional)
-     * @param  string $metacounter_values (optional)
-     * @param  string $metacounter_value_gt (optional)
-     * @param  string $metacounter_value_gte (optional)
-     * @param  string $metacounter_value_lt (optional)
-     * @param  string $metacounter_value_lte (optional)
-     * @param  string $custom_type (optional)
+     * @param  string $metadata_order_key Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key. (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $custom_type_startswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  string $name Specifies one or more group channel names. (optional)
+     * @param  string $name_contains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $name_startswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $members_exactly_in Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $members_include_in Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $query_type Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) (optional)
+     * @param  string $members_nickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $members_nickname_contains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
+     * @param  string $members_nickname_startswith Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended. (optional)
+     * @param  string $search_query Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended. (optional)
+     * @param  string $search_fields Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together) (optional)
+     * @param  string $metadata_key Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
+     * @param  string $metadata_values Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metadata_value_startswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metacounter_key Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified. (optional)
+     * @param  string $metacounter_values Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  bool $include_sorted_metaarray_in_last_message Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
+     * @param  string $hidden_mode Restricts the search scope to group channels that match a specific hidden_status and operating behavior (optional)
+     * @param  string $unread_filter Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all) (optional)
+     * @param  string $member_state_filter (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2394,48 +2669,50 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
+     * @param  string $user_id (Required) (required)
      * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token (optional)
-     * @param  int $limit (optional)
+     * @param  string $token Specifies a page token that indicates the starting index of a chunk of results. If not specified, the index is set as 0. (optional)
+     * @param  int $limit Specifies the number of results to return per page. Acceptable values are 1 to 100, inclusive. (Default: 10) (optional)
      * @param  string $distinct_mode (optional)
      * @param  string $public_mode (optional)
      * @param  string $super_mode (optional)
-     * @param  string $hidden_mode (optional)
-     * @param  string $member_state_filter (optional)
-     * @param  string $unread_filter (optional)
-     * @param  int $created_after (optional)
-     * @param  int $created_before (optional)
+     * @param  int $created_after Restricts the search scope to only retrieve group channels which have been created after the specified time, in Unix milliseconds format. (optional)
+     * @param  int $created_before Restricts the search scope to only retrieve group channels which have been created before the specified time, in Unix milliseconds format. (optional)
      * @param  bool $show_empty (optional)
-     * @param  bool $show_frozen (optional)
      * @param  bool $show_member (optional)
      * @param  bool $show_delivery_receipt (optional)
      * @param  bool $show_read_receipt (optional)
+     * @param  bool $show_metadata (optional)
+     * @param  bool $show_frozen (optional)
      * @param  string $order (optional)
-     * @param  string $metadata_order_key (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $custom_type_startswith (optional)
-     * @param  string $channel_urls (optional)
-     * @param  string $name (optional)
-     * @param  string $name_contains (optional)
-     * @param  string $name_startswith (optional)
-     * @param  string $members_exactly_in (optional)
-     * @param  string $members_include_in (optional)
-     * @param  string $query_type (optional)
-     * @param  string $members_nickname (optional)
-     * @param  string $members_nickname_contains (optional)
-     * @param  string $search_query (optional)
-     * @param  string $search_fields (optional)
-     * @param  string $metadata_key (optional)
-     * @param  string $metadata_values (optional)
-     * @param  string $metadata_value_startswith (optional)
-     * @param  string $metacounter_key (optional)
-     * @param  string $metacounter_values (optional)
-     * @param  string $metacounter_value_gt (optional)
-     * @param  string $metacounter_value_gte (optional)
-     * @param  string $metacounter_value_lt (optional)
-     * @param  string $metacounter_value_lte (optional)
-     * @param  string $custom_type (optional)
+     * @param  string $metadata_order_key Specifies the key of an item in metadata. When a value of the order parameter is set to metadata_value_alphabetical, the results are alphabetically sorted by the value of the item specified by the key. (optional)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $custom_type_startswith Searches for group channels with the custom type which starts with the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $channel_urls Specifies a comma-separated string of one or more group channel URLs to restrict the search scope. URL encoding each channel URL is recommended. (optional)
+     * @param  string $name Specifies one or more group channel names. (optional)
+     * @param  string $name_contains Searches for group channels whose names contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $name_startswith Searches for group channels whose names start with the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended. (optional)
+     * @param  string $members_exactly_in Searches for group channels with all the specified users as members. The parameter value should consist of user IDs separated by commas.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $members_include_in Searches for group channels that include one or more users as members among the specified users. The value should consist of user IDs separated by commas or %2C. You can specify up to 60 user IDs.  Only user IDs that match those of existing users are used for channel search. URL encoding each ID is recommended. (optional)
+     * @param  string $query_type Specifies a logical condition applied to the members_include_in parameter. Acceptable values are either AND or OR. For example, if you specify three members, A, B, and C, in members_include_in, the value of AND returns all channels that include every one of {A. B, C} as members. The value of OR returns channels that include {A}, plus those that include {B}, plus those that include {C}. (Default: AND) (optional)
+     * @param  string $members_nickname Searches for group channels with members whose nicknames match the specified value. URL encoding the value is recommended. (optional)
+     * @param  string $members_nickname_contains Searches for group channels with members whose nicknames contain the specified value. Note that this parameter is case-insensitive. URL encoding the value is recommended.  * We recommend using at least three characters for the parameter value for better search efficiency when you design and implement related features. If you would like to allow one or two characters for searching, use members_nickname instead to prevent performance issues. (optional)
+     * @param  string $members_nickname_startswith Searches for group channels with members whose nicknames begin with the specified value. This parameter isn&#39;t case-sensitive. URL encoding the value is recommended. (optional)
+     * @param  string $search_query Searches for group channels where the specified query string matches the channel name or the nickname of the member. This parameter isn&#39;t case-sensitive and should be specified in conjunction with the search_fields parameter below. URL encoding the value is recommended. (optional)
+     * @param  string $search_fields Specifies a comma-separated string of one or more search fields to apply to the query, which restricts the results within the specified fields (OR search condition). Acceptable values are channel_name and member_nickname. This is effective only when the search_query parameter above is specified. (Default: channel_name, member_nickname together) (optional)
+     * @param  string $metadata_key Searches for group channels with metadata containing an item with the specified value as its key. To use this parameter, either the metadata_values parameter or the metadata_value_startswith parameter should be specified. (optional)
+     * @param  string $metadata_values Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple values separated by commas. URL encoding each value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metadata_value_startswith Searches for group channels with metadata containing an item with the key specified by the metadata_key parameter, and the values of that item that start with the specified value of this parameter. URL encoding the value is recommended. To use this parameter, the metadata_key parameter should be specified. (optional)
+     * @param  string $metacounter_key Searches for group channels with metacounter containing an item with the specified value as its key. To use this parameter, either the metacounter_values parameter or one of the metacounter_value_gt, metacounter_value_gte, metacounter_value_lt, and metacounter_value_lte parameters should be specified. (optional)
+     * @param  string $metacounter_values Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is equal to one or more values specified by this parameter. The string should be specified with multiple values separated by commas. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_gte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is greater than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lt Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  string $metacounter_value_lte Searches for group channels with metacounter containing an item with the key specified by the metadata_key parameter, where the value of that item is lower than or equal to the value specified by this parameter. To use this parameter, the metacounter_key parameter should be specified. (optional)
+     * @param  bool $include_sorted_metaarray_in_last_message Determines whether to include the sorted_metaarray as one of the last_message’s properties in the response. (optional)
+     * @param  string $hidden_mode Restricts the search scope to group channels that match a specific hidden_status and operating behavior (optional)
+     * @param  string $unread_filter Restricts the search scope to only retrieve group channels with one or more unread messages. This filter doesn&#39;t support Supergroup channels. Acceptable values are all and unread_message. (Default: all) (optional)
+     * @param  string $member_state_filter (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2443,23 +2720,21 @@ class UserApi
     public function listMyGroupChannelsRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
         $distinct_mode = array_key_exists('distinct_mode', $associative_array) ? $associative_array['distinct_mode'] : null;
         $public_mode = array_key_exists('public_mode', $associative_array) ? $associative_array['public_mode'] : null;
         $super_mode = array_key_exists('super_mode', $associative_array) ? $associative_array['super_mode'] : null;
-        $hidden_mode = array_key_exists('hidden_mode', $associative_array) ? $associative_array['hidden_mode'] : null;
-        $member_state_filter = array_key_exists('member_state_filter', $associative_array) ? $associative_array['member_state_filter'] : null;
-        $unread_filter = array_key_exists('unread_filter', $associative_array) ? $associative_array['unread_filter'] : null;
         $created_after = array_key_exists('created_after', $associative_array) ? $associative_array['created_after'] : null;
         $created_before = array_key_exists('created_before', $associative_array) ? $associative_array['created_before'] : null;
         $show_empty = array_key_exists('show_empty', $associative_array) ? $associative_array['show_empty'] : null;
-        $show_frozen = array_key_exists('show_frozen', $associative_array) ? $associative_array['show_frozen'] : null;
         $show_member = array_key_exists('show_member', $associative_array) ? $associative_array['show_member'] : null;
         $show_delivery_receipt = array_key_exists('show_delivery_receipt', $associative_array) ? $associative_array['show_delivery_receipt'] : null;
         $show_read_receipt = array_key_exists('show_read_receipt', $associative_array) ? $associative_array['show_read_receipt'] : null;
+        $show_metadata = array_key_exists('show_metadata', $associative_array) ? $associative_array['show_metadata'] : null;
+        $show_frozen = array_key_exists('show_frozen', $associative_array) ? $associative_array['show_frozen'] : null;
         $order = array_key_exists('order', $associative_array) ? $associative_array['order'] : null;
         $metadata_order_key = array_key_exists('metadata_order_key', $associative_array) ? $associative_array['metadata_order_key'] : null;
         $custom_types = array_key_exists('custom_types', $associative_array) ? $associative_array['custom_types'] : null;
@@ -2473,6 +2748,7 @@ class UserApi
         $query_type = array_key_exists('query_type', $associative_array) ? $associative_array['query_type'] : null;
         $members_nickname = array_key_exists('members_nickname', $associative_array) ? $associative_array['members_nickname'] : null;
         $members_nickname_contains = array_key_exists('members_nickname_contains', $associative_array) ? $associative_array['members_nickname_contains'] : null;
+        $members_nickname_startswith = array_key_exists('members_nickname_startswith', $associative_array) ? $associative_array['members_nickname_startswith'] : null;
         $search_query = array_key_exists('search_query', $associative_array) ? $associative_array['search_query'] : null;
         $search_fields = array_key_exists('search_fields', $associative_array) ? $associative_array['search_fields'] : null;
         $metadata_key = array_key_exists('metadata_key', $associative_array) ? $associative_array['metadata_key'] : null;
@@ -2484,18 +2760,21 @@ class UserApi
         $metacounter_value_gte = array_key_exists('metacounter_value_gte', $associative_array) ? $associative_array['metacounter_value_gte'] : null;
         $metacounter_value_lt = array_key_exists('metacounter_value_lt', $associative_array) ? $associative_array['metacounter_value_lt'] : null;
         $metacounter_value_lte = array_key_exists('metacounter_value_lte', $associative_array) ? $associative_array['metacounter_value_lte'] : null;
-        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
+        $include_sorted_metaarray_in_last_message = array_key_exists('include_sorted_metaarray_in_last_message', $associative_array) ? $associative_array['include_sorted_metaarray_in_last_message'] : null;
+        $hidden_mode = array_key_exists('hidden_mode', $associative_array) ? $associative_array['hidden_mode'] : null;
+        $unread_filter = array_key_exists('unread_filter', $associative_array) ? $associative_array['unread_filter'] : null;
+        $member_state_filter = array_key_exists('member_state_filter', $associative_array) ? $associative_array['member_state_filter'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling listMyGroupChannels'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $user_id when calling listMyGroupChannels'
+            );
+        }
+        // verify the required parameter 'api_token' is set
+        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $api_token when calling listMyGroupChannels'
             );
         }
 
@@ -2553,33 +2832,6 @@ class UserApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $hidden_mode,
-            'hidden_mode', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $member_state_filter,
-            'member_state_filter', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $unread_filter,
-            'unread_filter', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $created_after,
             'created_after', // param base name
             'integer', // openApiType
@@ -2607,15 +2859,6 @@ class UserApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $show_frozen,
-            'show_frozen', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $show_member,
             'show_member', // param base name
             'boolean', // openApiType
@@ -2636,6 +2879,24 @@ class UserApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $show_read_receipt,
             'show_read_receipt', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_metadata,
+            'show_metadata', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $show_frozen,
+            'show_frozen', // param base name
             'boolean', // openApiType
             'form', // style
             true, // explode
@@ -2760,6 +3021,15 @@ class UserApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $members_nickname_startswith,
+            'members_nickname_startswith', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $search_query,
             'search_query', // param base name
             'string', // openApiType
@@ -2859,8 +3129,35 @@ class UserApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $custom_type,
-            'custom_type', // param base name
+            $include_sorted_metaarray_in_last_message,
+            'include_sorted_metaarray_in_last_message', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hidden_mode,
+            'hidden_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $unread_filter,
+            'unread_filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $member_state_filter,
+            'member_state_filter', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -2869,7 +3166,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -2946,9 +3243,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $token_type token_type (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2967,9 +3264,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3070,9 +3367,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3094,9 +3391,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3147,9 +3444,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3157,16 +3454,10 @@ class UserApi
     public function listRegistrationOrDeviceTokensRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
         $token_type = array_key_exists('token_type', $associative_array) ? $associative_array['token_type'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling listRegistrationOrDeviceTokens'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3190,7 +3481,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -3275,16 +3566,16 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
-     * @param  string $active_mode active_mode (optional)
-     * @param  bool $show_bot show_bot (optional)
-     * @param  string $user_ids user_ids (optional)
+     * @param  string $active_mode Specifies the activation status of the users in the list. Acceptable values are &#x60;activated&#x60;, &#x60;deactivated&#x60;, and &#x60;all&#x60;. (Default: &#x60;activated&#x60;) (optional)
+     * @param  bool $show_bot Determines whether to include bots in the list. (Default: true) (optional)
+     * @param  string $user_ids Specifies the user IDs. The value should be a comma-separated string that consists of multiple urlencoded user IDs. An example of a urlencoded string is ?user_ids&#x3D;urlencoded_id_1,urlencoded_id_2. * The maximum number of user IDs in this parameter is 250. If you exceed the maximum number, your request may receive an HTTP 414 error indicating that the request URL is longer than what Sendbird server can interpret. (optional)
      * @param  string $nickname nickname (optional)
      * @param  string $nickname_startswith nickname_startswith (optional)
      * @param  string $metadatakey metadatakey (optional)
-     * @param  string $metadatavalues_in metadatavalues_in (optional)
+     * @param  string $metadatavalues_in Searches for blocked users with metadata containing an item with the key specified by the metadatakey parameter above, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple urlencoded metadata values separated by commas (for example, &#x60;?metadatavalues_in&#x3D;urlencoded_value_1, urlencoded_value_2&#x60;). This parameter should be specified in conjunction with the &#x60;metadatakey&#x60; above. (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3303,16 +3594,16 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
-     * @param  string $active_mode (optional)
-     * @param  bool $show_bot (optional)
-     * @param  string $user_ids (optional)
+     * @param  string $active_mode Specifies the activation status of the users in the list. Acceptable values are &#x60;activated&#x60;, &#x60;deactivated&#x60;, and &#x60;all&#x60;. (Default: &#x60;activated&#x60;) (optional)
+     * @param  bool $show_bot Determines whether to include bots in the list. (Default: true) (optional)
+     * @param  string $user_ids Specifies the user IDs. The value should be a comma-separated string that consists of multiple urlencoded user IDs. An example of a urlencoded string is ?user_ids&#x3D;urlencoded_id_1,urlencoded_id_2. * The maximum number of user IDs in this parameter is 250. If you exceed the maximum number, your request may receive an HTTP 414 error indicating that the request URL is longer than what Sendbird server can interpret. (optional)
      * @param  string $nickname (optional)
      * @param  string $nickname_startswith (optional)
      * @param  string $metadatakey (optional)
-     * @param  string $metadatavalues_in (optional)
+     * @param  string $metadatavalues_in Searches for blocked users with metadata containing an item with the key specified by the metadatakey parameter above, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple urlencoded metadata values separated by commas (for example, &#x60;?metadatavalues_in&#x3D;urlencoded_value_1, urlencoded_value_2&#x60;). This parameter should be specified in conjunction with the &#x60;metadatakey&#x60; above. (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3413,16 +3704,16 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
-     * @param  string $active_mode (optional)
-     * @param  bool $show_bot (optional)
-     * @param  string $user_ids (optional)
+     * @param  string $active_mode Specifies the activation status of the users in the list. Acceptable values are &#x60;activated&#x60;, &#x60;deactivated&#x60;, and &#x60;all&#x60;. (Default: &#x60;activated&#x60;) (optional)
+     * @param  bool $show_bot Determines whether to include bots in the list. (Default: true) (optional)
+     * @param  string $user_ids Specifies the user IDs. The value should be a comma-separated string that consists of multiple urlencoded user IDs. An example of a urlencoded string is ?user_ids&#x3D;urlencoded_id_1,urlencoded_id_2. * The maximum number of user IDs in this parameter is 250. If you exceed the maximum number, your request may receive an HTTP 414 error indicating that the request URL is longer than what Sendbird server can interpret. (optional)
      * @param  string $nickname (optional)
      * @param  string $nickname_startswith (optional)
      * @param  string $metadatakey (optional)
-     * @param  string $metadatavalues_in (optional)
+     * @param  string $metadatavalues_in Searches for blocked users with metadata containing an item with the key specified by the metadatakey parameter above, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple urlencoded metadata values separated by commas (for example, &#x60;?metadatavalues_in&#x3D;urlencoded_value_1, urlencoded_value_2&#x60;). This parameter should be specified in conjunction with the &#x60;metadatakey&#x60; above. (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3444,16 +3735,16 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
-     * @param  string $active_mode (optional)
-     * @param  bool $show_bot (optional)
-     * @param  string $user_ids (optional)
+     * @param  string $active_mode Specifies the activation status of the users in the list. Acceptable values are &#x60;activated&#x60;, &#x60;deactivated&#x60;, and &#x60;all&#x60;. (Default: &#x60;activated&#x60;) (optional)
+     * @param  bool $show_bot Determines whether to include bots in the list. (Default: true) (optional)
+     * @param  string $user_ids Specifies the user IDs. The value should be a comma-separated string that consists of multiple urlencoded user IDs. An example of a urlencoded string is ?user_ids&#x3D;urlencoded_id_1,urlencoded_id_2. * The maximum number of user IDs in this parameter is 250. If you exceed the maximum number, your request may receive an HTTP 414 error indicating that the request URL is longer than what Sendbird server can interpret. (optional)
      * @param  string $nickname (optional)
      * @param  string $nickname_startswith (optional)
      * @param  string $metadatakey (optional)
-     * @param  string $metadatavalues_in (optional)
+     * @param  string $metadatavalues_in Searches for blocked users with metadata containing an item with the key specified by the metadatakey parameter above, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple urlencoded metadata values separated by commas (for example, &#x60;?metadatavalues_in&#x3D;urlencoded_value_1, urlencoded_value_2&#x60;). This parameter should be specified in conjunction with the &#x60;metadatakey&#x60; above. (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3504,16 +3795,16 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
-     * @param  string $active_mode (optional)
-     * @param  bool $show_bot (optional)
-     * @param  string $user_ids (optional)
+     * @param  string $active_mode Specifies the activation status of the users in the list. Acceptable values are &#x60;activated&#x60;, &#x60;deactivated&#x60;, and &#x60;all&#x60;. (Default: &#x60;activated&#x60;) (optional)
+     * @param  bool $show_bot Determines whether to include bots in the list. (Default: true) (optional)
+     * @param  string $user_ids Specifies the user IDs. The value should be a comma-separated string that consists of multiple urlencoded user IDs. An example of a urlencoded string is ?user_ids&#x3D;urlencoded_id_1,urlencoded_id_2. * The maximum number of user IDs in this parameter is 250. If you exceed the maximum number, your request may receive an HTTP 414 error indicating that the request URL is longer than what Sendbird server can interpret. (optional)
      * @param  string $nickname (optional)
      * @param  string $nickname_startswith (optional)
      * @param  string $metadatakey (optional)
-     * @param  string $metadatavalues_in (optional)
+     * @param  string $metadatavalues_in Searches for blocked users with metadata containing an item with the key specified by the metadatakey parameter above, and the value of that item matches one or more values specified by this parameter. The string should be specified with multiple urlencoded metadata values separated by commas (for example, &#x60;?metadatavalues_in&#x3D;urlencoded_value_1, urlencoded_value_2&#x60;). This parameter should be specified in conjunction with the &#x60;metadatakey&#x60; above. (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3521,7 +3812,6 @@ class UserApi
     public function listUsersRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
         $active_mode = array_key_exists('active_mode', $associative_array) ? $associative_array['active_mode'] : null;
@@ -3531,13 +3821,8 @@ class UserApi
         $nickname_startswith = array_key_exists('nickname_startswith', $associative_array) ? $associative_array['nickname_startswith'] : null;
         $metadatakey = array_key_exists('metadatakey', $associative_array) ? $associative_array['metadatakey'] : null;
         $metadatavalues_in = array_key_exists('metadatavalues_in', $associative_array) ? $associative_array['metadatavalues_in'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling listUsers'
-            );
-        }
 
         $resourcePath = '/v3/users';
         $formParams = [];
@@ -3630,7 +3915,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
 
@@ -3699,9 +3984,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\MarkAllMessagesAsReadData $mark_all_messages_as_read_data mark_all_messages_as_read_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\MarkAllMessagesAsReadRequest $mark_all_messages_as_read_request mark_all_messages_as_read_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3720,9 +4005,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\MarkAllMessagesAsReadData $mark_all_messages_as_read_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\MarkAllMessagesAsReadRequest $mark_all_messages_as_read_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3823,9 +4108,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\MarkAllMessagesAsReadData $mark_all_messages_as_read_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\MarkAllMessagesAsReadRequest $mark_all_messages_as_read_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3847,9 +4132,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\MarkAllMessagesAsReadData $mark_all_messages_as_read_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\MarkAllMessagesAsReadRequest $mark_all_messages_as_read_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3900,9 +4185,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\MarkAllMessagesAsReadData $mark_all_messages_as_read_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\MarkAllMessagesAsReadRequest $mark_all_messages_as_read_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3910,16 +4195,10 @@ class UserApi
     public function markAllMessagesAsReadRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $mark_all_messages_as_read_data = array_key_exists('mark_all_messages_as_read_data', $associative_array) ? $associative_array['mark_all_messages_as_read_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $mark_all_messages_as_read_request = array_key_exists('mark_all_messages_as_read_request', $associative_array) ? $associative_array['mark_all_messages_as_read_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling markAllMessagesAsRead'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -3937,7 +4216,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -3962,11 +4241,11 @@ class UserApi
         }
 
         // for model (json/xml)
-        if (isset($mark_all_messages_as_read_data)) {
+        if (isset($mark_all_messages_as_read_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($mark_all_messages_as_read_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($mark_all_messages_as_read_request));
             } else {
-                $httpBody = $mark_all_messages_as_read_data;
+                $httpBody = $mark_all_messages_as_read_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4014,44 +4293,1011 @@ class UserApi
     }
 
     /**
-     * Operation registerAsOperatorToChannelsWithCustomChannelTypes
+     * Operation removeARegistrationOrDeviceToken
      *
-     * Register as an operator to channels with custom channel types
+     * Remove a registration or device token - When unregistering a specific token
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\RegisterAsOperatorToChannelsWithCustomChannelTypesData $register_as_operator_to_channels_with_custom_channel_types_data register_as_operator_to_channels_with_custom_channel_types_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\RemoveARegistrationOrDeviceTokenResponse
+     */
+    public function removeARegistrationOrDeviceToken($associative_array)
+    {
+        list($response) = $this->removeARegistrationOrDeviceTokenWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation removeARegistrationOrDeviceTokenWithHttpInfo
+     *
+     * Remove a registration or device token - When unregistering a specific token
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\RemoveARegistrationOrDeviceTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function removeARegistrationOrDeviceTokenWithHttpInfo($associative_array)
+    {
+        $request = $this->removeARegistrationOrDeviceTokenRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\RemoveARegistrationOrDeviceTokenResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\RemoveARegistrationOrDeviceTokenResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\RemoveARegistrationOrDeviceTokenResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\RemoveARegistrationOrDeviceTokenResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\RemoveARegistrationOrDeviceTokenResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation removeARegistrationOrDeviceTokenAsync
+     *
+     * Remove a registration or device token - When unregistering a specific token
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removeARegistrationOrDeviceTokenAsync($associative_array)
+    {
+        return $this->removeARegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation removeARegistrationOrDeviceTokenAsyncWithHttpInfo
+     *
+     * Remove a registration or device token - When unregistering a specific token
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removeARegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\RemoveARegistrationOrDeviceTokenResponse';
+        $request = $this->removeARegistrationOrDeviceTokenRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'removeARegistrationOrDeviceToken'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function removeARegistrationOrDeviceTokenRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $token_type = array_key_exists('token_type', $associative_array) ? $associative_array['token_type'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling removeARegistrationOrDeviceToken'
+            );
+        }
+        // verify the required parameter 'token_type' is set
+        if ($token_type === null || (is_array($token_type) && count($token_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $token_type when calling removeARegistrationOrDeviceToken'
+            );
+        }
+        // verify the required parameter 'token' is set
+        if ($token === null || (is_array($token) && count($token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $token when calling removeARegistrationOrDeviceToken'
+            );
+        }
+
+        $resourcePath = '/v3/users/{user_id}/push/{token_type}/{token}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($token_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'token_type' . '}',
+                ObjectSerializer::toPathValue($token_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($token !== null) {
+            $resourcePath = str_replace(
+                '{' . 'token' . '}',
+                ObjectSerializer::toPathValue($token),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation removeARegistrationOrDeviceTokenFromAnOwner
+     *
+     * Remove a registration or device token from an owner
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\MarkChannelMessagesAsReadRequest[]
+     */
+    public function removeARegistrationOrDeviceTokenFromAnOwner($associative_array)
+    {
+        list($response) = $this->removeARegistrationOrDeviceTokenFromAnOwnerWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation removeARegistrationOrDeviceTokenFromAnOwnerWithHttpInfo
+     *
+     * Remove a registration or device token from an owner
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\MarkChannelMessagesAsReadRequest[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function removeARegistrationOrDeviceTokenFromAnOwnerWithHttpInfo($associative_array)
+    {
+        $request = $this->removeARegistrationOrDeviceTokenFromAnOwnerRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\MarkChannelMessagesAsReadRequest[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\MarkChannelMessagesAsReadRequest[]' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\MarkChannelMessagesAsReadRequest[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\MarkChannelMessagesAsReadRequest[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\MarkChannelMessagesAsReadRequest[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation removeARegistrationOrDeviceTokenFromAnOwnerAsync
+     *
+     * Remove a registration or device token from an owner
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removeARegistrationOrDeviceTokenFromAnOwnerAsync($associative_array)
+    {
+        return $this->removeARegistrationOrDeviceTokenFromAnOwnerAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation removeARegistrationOrDeviceTokenFromAnOwnerAsyncWithHttpInfo
+     *
+     * Remove a registration or device token from an owner
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removeARegistrationOrDeviceTokenFromAnOwnerAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\MarkChannelMessagesAsReadRequest[]';
+        $request = $this->removeARegistrationOrDeviceTokenFromAnOwnerRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'removeARegistrationOrDeviceTokenFromAnOwner'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function removeARegistrationOrDeviceTokenFromAnOwnerRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $token_type = array_key_exists('token_type', $associative_array) ? $associative_array['token_type'] : null;
+        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
+        // verify the required parameter 'token_type' is set
+        if ($token_type === null || (is_array($token_type) && count($token_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $token_type when calling removeARegistrationOrDeviceTokenFromAnOwner'
+            );
+        }
+        // verify the required parameter 'token' is set
+        if ($token === null || (is_array($token) && count($token) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $token when calling removeARegistrationOrDeviceTokenFromAnOwner'
+            );
+        }
+
+        $resourcePath = '/v3/push/device_tokens/{token_type}/{token}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($token_type !== null) {
+            $resourcePath = str_replace(
+                '{' . 'token_type' . '}',
+                ObjectSerializer::toPathValue($token_type),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($token !== null) {
+            $resourcePath = str_replace(
+                '{' . 'token' . '}',
+                ObjectSerializer::toPathValue($token),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation removeAllRegistrationOrDeviceToken
+     *
+     * Remove a registration or device token - When unregistering all device tokens
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\RemoveAllRegistrationOrDeviceTokenResponse
+     */
+    public function removeAllRegistrationOrDeviceToken($associative_array)
+    {
+        list($response) = $this->removeAllRegistrationOrDeviceTokenWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation removeAllRegistrationOrDeviceTokenWithHttpInfo
+     *
+     * Remove a registration or device token - When unregistering all device tokens
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\RemoveAllRegistrationOrDeviceTokenResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function removeAllRegistrationOrDeviceTokenWithHttpInfo($associative_array)
+    {
+        $request = $this->removeAllRegistrationOrDeviceTokenRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\RemoveAllRegistrationOrDeviceTokenResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\RemoveAllRegistrationOrDeviceTokenResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\RemoveAllRegistrationOrDeviceTokenResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\RemoveAllRegistrationOrDeviceTokenResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\RemoveAllRegistrationOrDeviceTokenResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation removeAllRegistrationOrDeviceTokenAsync
+     *
+     * Remove a registration or device token - When unregistering all device tokens
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removeAllRegistrationOrDeviceTokenAsync($associative_array)
+    {
+        return $this->removeAllRegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation removeAllRegistrationOrDeviceTokenAsyncWithHttpInfo
+     *
+     * Remove a registration or device token - When unregistering all device tokens
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removeAllRegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\RemoveAllRegistrationOrDeviceTokenResponse';
+        $request = $this->removeAllRegistrationOrDeviceTokenRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'removeAllRegistrationOrDeviceToken'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function removeAllRegistrationOrDeviceTokenRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling removeAllRegistrationOrDeviceToken'
+            );
+        }
+
+        $resourcePath = '/v3/users/{user_id}/push';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation resetPushPreferences
+     *
+     * Reset push preferences
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function registerAsOperatorToChannelsWithCustomChannelTypes($associative_array)
+    public function resetPushPreferences($associative_array)
     {
-        list($response) = $this->registerAsOperatorToChannelsWithCustomChannelTypesWithHttpInfo($associative_array);
+        list($response) = $this->resetPushPreferencesWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation registerAsOperatorToChannelsWithCustomChannelTypesWithHttpInfo
+     * Operation resetPushPreferencesWithHttpInfo
      *
-     * Register as an operator to channels with custom channel types
+     * Reset push preferences
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\RegisterAsOperatorToChannelsWithCustomChannelTypesData $register_as_operator_to_channels_with_custom_channel_types_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function registerAsOperatorToChannelsWithCustomChannelTypesWithHttpInfo($associative_array)
+    public function resetPushPreferencesWithHttpInfo($associative_array)
     {
-        $request = $this->registerAsOperatorToChannelsWithCustomChannelTypesRequest($associative_array);
+        $request = $this->resetPushPreferencesRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4138,1320 +5384,14 @@ class UserApi
     }
 
     /**
-     * Operation registerAsOperatorToChannelsWithCustomChannelTypesAsync
-     *
-     * Register as an operator to channels with custom channel types
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\RegisterAsOperatorToChannelsWithCustomChannelTypesData $register_as_operator_to_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function registerAsOperatorToChannelsWithCustomChannelTypesAsync($associative_array)
-    {
-        return $this->registerAsOperatorToChannelsWithCustomChannelTypesAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation registerAsOperatorToChannelsWithCustomChannelTypesAsyncWithHttpInfo
-     *
-     * Register as an operator to channels with custom channel types
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\RegisterAsOperatorToChannelsWithCustomChannelTypesData $register_as_operator_to_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function registerAsOperatorToChannelsWithCustomChannelTypesAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = 'object';
-        $request = $this->registerAsOperatorToChannelsWithCustomChannelTypesRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'registerAsOperatorToChannelsWithCustomChannelTypes'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\RegisterAsOperatorToChannelsWithCustomChannelTypesData $register_as_operator_to_channels_with_custom_channel_types_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function registerAsOperatorToChannelsWithCustomChannelTypesRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $register_as_operator_to_channels_with_custom_channel_types_data = array_key_exists('register_as_operator_to_channels_with_custom_channel_types_data', $associative_array) ? $associative_array['register_as_operator_to_channels_with_custom_channel_types_data'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling registerAsOperatorToChannelsWithCustomChannelTypes'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling registerAsOperatorToChannelsWithCustomChannelTypes'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/operating_channel_custom_types';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($register_as_operator_to_channels_with_custom_channel_types_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($register_as_operator_to_channels_with_custom_channel_types_data));
-            } else {
-                $httpBody = $register_as_operator_to_channels_with_custom_channel_types_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceToken
-     *
-     * Remove a registration or device token - When unregistering all device tokens
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse
-     */
-    public function removeRegistrationOrDeviceToken($associative_array)
-    {
-        list($response) = $this->removeRegistrationOrDeviceTokenWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenWithHttpInfo
-     *
-     * Remove a registration or device token - When unregistering all device tokens
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function removeRegistrationOrDeviceTokenWithHttpInfo($associative_array)
-    {
-        $request = $this->removeRegistrationOrDeviceTokenRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenAsync
-     *
-     * Remove a registration or device token - When unregistering all device tokens
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function removeRegistrationOrDeviceTokenAsync($associative_array)
-    {
-        return $this->removeRegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenAsyncWithHttpInfo
-     *
-     * Remove a registration or device token - When unregistering all device tokens
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function removeRegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\RemoveRegistrationOrDeviceTokenResponse';
-        $request = $this->removeRegistrationOrDeviceTokenRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'removeRegistrationOrDeviceToken'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function removeRegistrationOrDeviceTokenRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling removeRegistrationOrDeviceToken'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling removeRegistrationOrDeviceToken'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/push';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenByToken
-     *
-     * Remove a registration or device token - When unregistering a specific token
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $token_type token_type (required)
-     * @param  string $token token (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse
-     */
-    public function removeRegistrationOrDeviceTokenByToken($associative_array)
-    {
-        list($response) = $this->removeRegistrationOrDeviceTokenByTokenWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenByTokenWithHttpInfo
-     *
-     * Remove a registration or device token - When unregistering a specific token
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function removeRegistrationOrDeviceTokenByTokenWithHttpInfo($associative_array)
-    {
-        $request = $this->removeRegistrationOrDeviceTokenByTokenRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenByTokenAsync
-     *
-     * Remove a registration or device token - When unregistering a specific token
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function removeRegistrationOrDeviceTokenByTokenAsync($associative_array)
-    {
-        return $this->removeRegistrationOrDeviceTokenByTokenAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenByTokenAsyncWithHttpInfo
-     *
-     * Remove a registration or device token - When unregistering a specific token
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function removeRegistrationOrDeviceTokenByTokenAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\RemoveRegistrationOrDeviceTokenByTokenResponse';
-        $request = $this->removeRegistrationOrDeviceTokenByTokenRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'removeRegistrationOrDeviceTokenByToken'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function removeRegistrationOrDeviceTokenByTokenRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $token_type = array_key_exists('token_type', $associative_array) ? $associative_array['token_type'] : null;
-        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling removeRegistrationOrDeviceTokenByToken'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling removeRegistrationOrDeviceTokenByToken'
-            );
-        }
-        // verify the required parameter 'token_type' is set
-        if ($token_type === null || (is_array($token_type) && count($token_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $token_type when calling removeRegistrationOrDeviceTokenByToken'
-            );
-        }
-        // verify the required parameter 'token' is set
-        if ($token === null || (is_array($token) && count($token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $token when calling removeRegistrationOrDeviceTokenByToken'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/push/{token_type}/{token}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($token_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'token_type' . '}',
-                ObjectSerializer::toPathValue($token_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($token !== null) {
-            $resourcePath = str_replace(
-                '{' . 'token' . '}',
-                ObjectSerializer::toPathValue($token),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenFromOwnerByToken
-     *
-     * Remove a registration or device token from an owner
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $token_type token_type (required)
-     * @param  string $token token (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse
-     */
-    public function removeRegistrationOrDeviceTokenFromOwnerByToken($associative_array)
-    {
-        list($response) = $this->removeRegistrationOrDeviceTokenFromOwnerByTokenWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenFromOwnerByTokenWithHttpInfo
-     *
-     * Remove a registration or device token from an owner
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function removeRegistrationOrDeviceTokenFromOwnerByTokenWithHttpInfo($associative_array)
-    {
-        $request = $this->removeRegistrationOrDeviceTokenFromOwnerByTokenRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenFromOwnerByTokenAsync
-     *
-     * Remove a registration or device token from an owner
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function removeRegistrationOrDeviceTokenFromOwnerByTokenAsync($associative_array)
-    {
-        return $this->removeRegistrationOrDeviceTokenFromOwnerByTokenAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation removeRegistrationOrDeviceTokenFromOwnerByTokenAsyncWithHttpInfo
-     *
-     * Remove a registration or device token from an owner
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function removeRegistrationOrDeviceTokenFromOwnerByTokenAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\RemoveRegistrationOrDeviceTokenFromOwnerByTokenResponse';
-        $request = $this->removeRegistrationOrDeviceTokenFromOwnerByTokenRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'removeRegistrationOrDeviceTokenFromOwnerByToken'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function removeRegistrationOrDeviceTokenFromOwnerByTokenRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $token_type = array_key_exists('token_type', $associative_array) ? $associative_array['token_type'] : null;
-        $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling removeRegistrationOrDeviceTokenFromOwnerByToken'
-            );
-        }
-        // verify the required parameter 'token_type' is set
-        if ($token_type === null || (is_array($token_type) && count($token_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $token_type when calling removeRegistrationOrDeviceTokenFromOwnerByToken'
-            );
-        }
-        // verify the required parameter 'token' is set
-        if ($token === null || (is_array($token) && count($token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $token when calling removeRegistrationOrDeviceTokenFromOwnerByToken'
-            );
-        }
-
-        $resourcePath = '/v3/push/device_tokens/{token_type}/{token}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($token_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'token_type' . '}',
-                ObjectSerializer::toPathValue($token_type),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($token !== null) {
-            $resourcePath = str_replace(
-                '{' . 'token' . '}',
-                ObjectSerializer::toPathValue($token),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation resetPushPreferences
-     *
-     * Reset push preferences
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ResetPushPreferencesResponse
-     */
-    public function resetPushPreferences($associative_array)
-    {
-        list($response) = $this->resetPushPreferencesWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation resetPushPreferencesWithHttpInfo
-     *
-     * Reset push preferences
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ResetPushPreferencesResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function resetPushPreferencesWithHttpInfo($associative_array)
-    {
-        $request = $this->resetPushPreferencesRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ResetPushPreferencesResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\ResetPushPreferencesResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ResetPushPreferencesResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ResetPushPreferencesResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ResetPushPreferencesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
      * Operation resetPushPreferencesAsync
      *
      * Reset push preferences
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5473,15 +5413,15 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function resetPushPreferencesAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\ResetPushPreferencesResponse';
+        $returnType = 'object';
         $request = $this->resetPushPreferencesRequest($associative_array);
 
         return $this->client
@@ -5525,8 +5465,8 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5534,15 +5474,9 @@ class UserApi
     public function resetPushPreferencesRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling resetPushPreferences'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -5560,7 +5494,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -5631,15 +5565,330 @@ class UserApi
     }
 
     /**
+     * Operation updateAUser
+     *
+     * Update a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\UpdateAUserRequest $update_a_user_request update_a_user_request (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\SendbirdUser
+     */
+    public function updateAUser($associative_array)
+    {
+        list($response) = $this->updateAUserWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation updateAUserWithHttpInfo
+     *
+     * Update a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAUserRequest $update_a_user_request (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\SendbirdUser, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateAUserWithHttpInfo($associative_array)
+    {
+        $request = $this->updateAUserRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\SendbirdUser' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\SendbirdUser' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdUser', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\SendbirdUser';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\SendbirdUser',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateAUserAsync
+     *
+     * Update a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAUserRequest $update_a_user_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAUserAsync($associative_array)
+    {
+        return $this->updateAUserAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateAUserAsyncWithHttpInfo
+     *
+     * Update a user
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAUserRequest $update_a_user_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateAUserAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\SendbirdUser';
+        $request = $this->updateAUserRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateAUser'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateAUserRequest $update_a_user_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateAUserRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $update_a_user_request = array_key_exists('update_a_user_request', $associative_array) ? $associative_array['update_a_user_request'] : null;
+
+        // verify the required parameter 'user_id' is set
+        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $user_id when calling updateAUser'
+            );
+        }
+
+        $resourcePath = '/v3/users/{user_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($user_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'user_id' . '}',
+                ObjectSerializer::toPathValue($user_id),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($update_a_user_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_a_user_request));
+            } else {
+                $httpBody = $update_a_user_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateChannelInvitationPreference
      *
      * Update channel invitation preference
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\UpdateChannelInvitationPreferenceData $update_channel_invitation_preference_data update_channel_invitation_preference_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\UpdateChannelInvitationPreferenceRequest $update_channel_invitation_preference_request update_channel_invitation_preference_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5658,9 +5907,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateChannelInvitationPreferenceData $update_channel_invitation_preference_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateChannelInvitationPreferenceRequest $update_channel_invitation_preference_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5761,9 +6010,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateChannelInvitationPreferenceData $update_channel_invitation_preference_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateChannelInvitationPreferenceRequest $update_channel_invitation_preference_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5785,9 +6034,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateChannelInvitationPreferenceData $update_channel_invitation_preference_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateChannelInvitationPreferenceRequest $update_channel_invitation_preference_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5838,9 +6087,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateChannelInvitationPreferenceData $update_channel_invitation_preference_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateChannelInvitationPreferenceRequest $update_channel_invitation_preference_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5848,16 +6097,10 @@ class UserApi
     public function updateChannelInvitationPreferenceRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $update_channel_invitation_preference_data = array_key_exists('update_channel_invitation_preference_data', $associative_array) ? $associative_array['update_channel_invitation_preference_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $update_channel_invitation_preference_request = array_key_exists('update_channel_invitation_preference_request', $associative_array) ? $associative_array['update_channel_invitation_preference_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updateChannelInvitationPreference'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -5875,7 +6118,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -5900,11 +6143,11 @@ class UserApi
         }
 
         // for model (json/xml)
-        if (isset($update_channel_invitation_preference_data)) {
+        if (isset($update_channel_invitation_preference_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_channel_invitation_preference_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_channel_invitation_preference_request));
             } else {
-                $httpBody = $update_channel_invitation_preference_data;
+                $httpBody = $update_channel_invitation_preference_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5952,46 +6195,46 @@ class UserApi
     }
 
     /**
-     * Operation updateCountPreferenceOfChannelByUrl
+     * Operation updateCountPreferenceOfAChannel
      *
      * Update count preference of a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlData $update_count_preference_of_channel_by_url_data update_count_preference_of_channel_by_url_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\UpdateCountPreferenceOfAChannelRequest $update_count_preference_of_a_channel_request update_count_preference_of_a_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlResponse
      */
-    public function updateCountPreferenceOfChannelByUrl($associative_array)
+    public function updateCountPreferenceOfAChannel($associative_array)
     {
-        list($response) = $this->updateCountPreferenceOfChannelByUrlWithHttpInfo($associative_array);
+        list($response) = $this->updateCountPreferenceOfAChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation updateCountPreferenceOfChannelByUrlWithHttpInfo
+     * Operation updateCountPreferenceOfAChannelWithHttpInfo
      *
      * Update count preference of a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlData $update_count_preference_of_channel_by_url_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateCountPreferenceOfAChannelRequest $update_count_preference_of_a_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCountPreferenceOfChannelByUrlWithHttpInfo($associative_array)
+    public function updateCountPreferenceOfAChannelWithHttpInfo($associative_array)
     {
-        $request = $this->updateCountPreferenceOfChannelByUrlRequest($associative_array);
+        $request = $this->updateCountPreferenceOfAChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6078,23 +6321,23 @@ class UserApi
     }
 
     /**
-     * Operation updateCountPreferenceOfChannelByUrlAsync
+     * Operation updateCountPreferenceOfAChannelAsync
      *
      * Update count preference of a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlData $update_count_preference_of_channel_by_url_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateCountPreferenceOfAChannelRequest $update_count_preference_of_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCountPreferenceOfChannelByUrlAsync($associative_array)
+    public function updateCountPreferenceOfAChannelAsync($associative_array)
     {
-        return $this->updateCountPreferenceOfChannelByUrlAsyncWithHttpInfo($associative_array)
+        return $this->updateCountPreferenceOfAChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6103,24 +6346,24 @@ class UserApi
     }
 
     /**
-     * Operation updateCountPreferenceOfChannelByUrlAsyncWithHttpInfo
+     * Operation updateCountPreferenceOfAChannelAsyncWithHttpInfo
      *
      * Update count preference of a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlData $update_count_preference_of_channel_by_url_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateCountPreferenceOfAChannelRequest $update_count_preference_of_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCountPreferenceOfChannelByUrlAsyncWithHttpInfo($associative_array)
+    public function updateCountPreferenceOfAChannelAsyncWithHttpInfo($associative_array)
     {
         $returnType = '\Sendbird\Model\UpdateCountPreferenceOfChannelByUrlResponse';
-        $request = $this->updateCountPreferenceOfChannelByUrlRequest($associative_array);
+        $request = $this->updateCountPreferenceOfAChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6159,42 +6402,36 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'updateCountPreferenceOfChannelByUrl'
+     * Create request for operation 'updateCountPreferenceOfAChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdateCountPreferenceOfChannelByUrlData $update_count_preference_of_channel_by_url_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateCountPreferenceOfAChannelRequest $update_count_preference_of_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateCountPreferenceOfChannelByUrlRequest($associative_array)
+    public function updateCountPreferenceOfAChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $update_count_preference_of_channel_by_url_data = array_key_exists('update_count_preference_of_channel_by_url_data', $associative_array) ? $associative_array['update_count_preference_of_channel_by_url_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $update_count_preference_of_a_channel_request = array_key_exists('update_count_preference_of_a_channel_request', $associative_array) ? $associative_array['update_count_preference_of_a_channel_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updateCountPreferenceOfChannelByUrl'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling updateCountPreferenceOfChannelByUrl'
+                'Missing the required parameter $user_id when calling updateCountPreferenceOfAChannel'
             );
         }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling updateCountPreferenceOfChannelByUrl'
+                'Missing the required parameter $channel_url when calling updateCountPreferenceOfAChannel'
             );
         }
 
@@ -6208,7 +6445,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -6241,11 +6478,11 @@ class UserApi
         }
 
         // for model (json/xml)
-        if (isset($update_count_preference_of_channel_by_url_data)) {
+        if (isset($update_count_preference_of_a_channel_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_count_preference_of_channel_by_url_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_count_preference_of_a_channel_request));
             } else {
-                $httpBody = $update_count_preference_of_channel_by_url_data;
+                $httpBody = $update_count_preference_of_a_channel_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6299,9 +6536,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\UpdatePushPreferencesData $update_push_preferences_data update_push_preferences_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\UpdatePushPreferencesRequest $update_push_preferences_request update_push_preferences_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6320,9 +6557,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdatePushPreferencesData $update_push_preferences_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdatePushPreferencesRequest $update_push_preferences_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6423,9 +6660,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdatePushPreferencesData $update_push_preferences_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdatePushPreferencesRequest $update_push_preferences_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6447,9 +6684,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdatePushPreferencesData $update_push_preferences_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdatePushPreferencesRequest $update_push_preferences_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6500,9 +6737,9 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdatePushPreferencesData $update_push_preferences_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdatePushPreferencesRequest $update_push_preferences_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6510,16 +6747,10 @@ class UserApi
     public function updatePushPreferencesRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $update_push_preferences_data = array_key_exists('update_push_preferences_data', $associative_array) ? $associative_array['update_push_preferences_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $update_push_preferences_request = array_key_exists('update_push_preferences_request', $associative_array) ? $associative_array['update_push_preferences_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updatePushPreferences'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -6537,7 +6768,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -6562,11 +6793,11 @@ class UserApi
         }
 
         // for model (json/xml)
-        if (isset($update_push_preferences_data)) {
+        if (isset($update_push_preferences_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_push_preferences_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_push_preferences_request));
             } else {
-                $httpBody = $update_push_preferences_data;
+                $httpBody = $update_push_preferences_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6614,46 +6845,46 @@ class UserApi
     }
 
     /**
-     * Operation updatePushPreferencesForChannelByUrl
+     * Operation updatePushPreferencesForAChannel
      *
      * Update push preferences for a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $channel_url channel_url (required)
-     * @param  \Sendbird\Model\UpdatePushPreferencesForChannelByUrlData $update_push_preferences_for_channel_by_url_data update_push_preferences_for_channel_by_url_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\UpdatePushPreferencesForAChannelRequest $update_push_preferences_for_a_channel_request update_push_preferences_for_a_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse
+     * @return \Sendbird\Model\UpdatePushPreferencesForAChannelResponse
      */
-    public function updatePushPreferencesForChannelByUrl($associative_array)
+    public function updatePushPreferencesForAChannel($associative_array)
     {
-        list($response) = $this->updatePushPreferencesForChannelByUrlWithHttpInfo($associative_array);
+        list($response) = $this->updatePushPreferencesForAChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation updatePushPreferencesForChannelByUrlWithHttpInfo
+     * Operation updatePushPreferencesForAChannelWithHttpInfo
      *
      * Update push preferences for a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdatePushPreferencesForChannelByUrlData $update_push_preferences_for_channel_by_url_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdatePushPreferencesForAChannelRequest $update_push_preferences_for_a_channel_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\UpdatePushPreferencesForAChannelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updatePushPreferencesForChannelByUrlWithHttpInfo($associative_array)
+    public function updatePushPreferencesForAChannelWithHttpInfo($associative_array)
     {
-        $request = $this->updatePushPreferencesForChannelByUrlRequest($associative_array);
+        $request = $this->updatePushPreferencesForAChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6692,23 +6923,23 @@ class UserApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\UpdatePushPreferencesForAChannelResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse' !== 'string') {
+                        if ('\Sendbird\Model\UpdatePushPreferencesForAChannelResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UpdatePushPreferencesForAChannelResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse';
+            $returnType = '\Sendbird\Model\UpdatePushPreferencesForAChannelResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6729,7 +6960,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse',
+                        '\Sendbird\Model\UpdatePushPreferencesForAChannelResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6740,23 +6971,23 @@ class UserApi
     }
 
     /**
-     * Operation updatePushPreferencesForChannelByUrlAsync
+     * Operation updatePushPreferencesForAChannelAsync
      *
      * Update push preferences for a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdatePushPreferencesForChannelByUrlData $update_push_preferences_for_channel_by_url_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdatePushPreferencesForAChannelRequest $update_push_preferences_for_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePushPreferencesForChannelByUrlAsync($associative_array)
+    public function updatePushPreferencesForAChannelAsync($associative_array)
     {
-        return $this->updatePushPreferencesForChannelByUrlAsyncWithHttpInfo($associative_array)
+        return $this->updatePushPreferencesForAChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6765,24 +6996,24 @@ class UserApi
     }
 
     /**
-     * Operation updatePushPreferencesForChannelByUrlAsyncWithHttpInfo
+     * Operation updatePushPreferencesForAChannelAsyncWithHttpInfo
      *
      * Update push preferences for a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdatePushPreferencesForChannelByUrlData $update_push_preferences_for_channel_by_url_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdatePushPreferencesForAChannelRequest $update_push_preferences_for_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updatePushPreferencesForChannelByUrlAsyncWithHttpInfo($associative_array)
+    public function updatePushPreferencesForAChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\UpdatePushPreferencesForChannelByUrlResponse';
-        $request = $this->updatePushPreferencesForChannelByUrlRequest($associative_array);
+        $returnType = '\Sendbird\Model\UpdatePushPreferencesForAChannelResponse';
+        $request = $this->updatePushPreferencesForAChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6821,42 +7052,36 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'updatePushPreferencesForChannelByUrl'
+     * Create request for operation 'updatePushPreferencesForAChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
-     * @param  \Sendbird\Model\UpdatePushPreferencesForChannelByUrlData $update_push_preferences_for_channel_by_url_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdatePushPreferencesForAChannelRequest $update_push_preferences_for_a_channel_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updatePushPreferencesForChannelByUrlRequest($associative_array)
+    public function updatePushPreferencesForAChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-        $update_push_preferences_for_channel_by_url_data = array_key_exists('update_push_preferences_for_channel_by_url_data', $associative_array) ? $associative_array['update_push_preferences_for_channel_by_url_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $update_push_preferences_for_a_channel_request = array_key_exists('update_push_preferences_for_a_channel_request', $associative_array) ? $associative_array['update_push_preferences_for_a_channel_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updatePushPreferencesForChannelByUrl'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling updatePushPreferencesForChannelByUrl'
+                'Missing the required parameter $user_id when calling updatePushPreferencesForAChannel'
             );
         }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling updatePushPreferencesForChannelByUrl'
+                'Missing the required parameter $channel_url when calling updatePushPreferencesForAChannel'
             );
         }
 
@@ -6870,7 +7095,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -6903,11 +7128,11 @@ class UserApi
         }
 
         // for model (json/xml)
-        if (isset($update_push_preferences_for_channel_by_url_data)) {
+        if (isset($update_push_preferences_for_a_channel_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_push_preferences_for_channel_by_url_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_push_preferences_for_a_channel_request));
             } else {
-                $httpBody = $update_push_preferences_for_channel_by_url_data;
+                $httpBody = $update_push_preferences_for_a_channel_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6955,44 +7180,48 @@ class UserApi
     }
 
     /**
-     * Operation updateUserById
+     * Operation viewAUser
      *
-     * Update a user
+     * View a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  \Sendbird\Model\UpdateUserByIdData $update_user_by_id_data update_user_by_id_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  bool $include_unread_count include_unread_count (optional)
+     * @param  string $custom_types custom_types (optional)
+     * @param  string $super_mode Restricts the search scope to retrieve only Supergroup or non-Supergroup channels. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. This parameter should be specified in conjunction with &#x60;include_unread_count&#x60; above. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdUser
+     * @return \Sendbird\Model\SendbirdUser
      */
-    public function updateUserById($associative_array)
+    public function viewAUser($associative_array)
     {
-        list($response) = $this->updateUserByIdWithHttpInfo($associative_array);
+        list($response) = $this->viewAUserWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation updateUserByIdWithHttpInfo
+     * Operation viewAUserWithHttpInfo
      *
-     * Update a user
+     * View a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateUserByIdData $update_user_by_id_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  bool $include_unread_count (optional)
+     * @param  string $custom_types (optional)
+     * @param  string $super_mode Restricts the search scope to retrieve only Supergroup or non-Supergroup channels. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. This parameter should be specified in conjunction with &#x60;include_unread_count&#x60; above. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendbirdUser, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateUserByIdWithHttpInfo($associative_array)
+    public function viewAUserWithHttpInfo($associative_array)
     {
-        $request = $this->updateUserByIdRequest($associative_array);
+        $request = $this->viewAUserRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7031,23 +7260,23 @@ class UserApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdUser' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendbirdUser' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdUser' !== 'string') {
+                        if ('\Sendbird\Model\SendbirdUser' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdUser', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdUser', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdUser';
+            $returnType = '\Sendbird\Model\SendbirdUser';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7068,7 +7297,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdUser',
+                        '\Sendbird\Model\SendbirdUser',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7079,22 +7308,24 @@ class UserApi
     }
 
     /**
-     * Operation updateUserByIdAsync
+     * Operation viewAUserAsync
      *
-     * Update a user
+     * View a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateUserByIdData $update_user_by_id_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  bool $include_unread_count (optional)
+     * @param  string $custom_types (optional)
+     * @param  string $super_mode Restricts the search scope to retrieve only Supergroup or non-Supergroup channels. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. This parameter should be specified in conjunction with &#x60;include_unread_count&#x60; above. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserByIdAsync($associative_array)
+    public function viewAUserAsync($associative_array)
     {
-        return $this->updateUserByIdAsyncWithHttpInfo($associative_array)
+        return $this->viewAUserAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7103,23 +7334,25 @@ class UserApi
     }
 
     /**
-     * Operation updateUserByIdAsyncWithHttpInfo
+     * Operation viewAUserAsyncWithHttpInfo
      *
-     * Update a user
+     * View a user
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateUserByIdData $update_user_by_id_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  bool $include_unread_count (optional)
+     * @param  string $custom_types (optional)
+     * @param  string $super_mode Restricts the search scope to retrieve only Supergroup or non-Supergroup channels. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. This parameter should be specified in conjunction with &#x60;include_unread_count&#x60; above. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateUserByIdAsyncWithHttpInfo($associative_array)
+    public function viewAUserAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendBirdUser';
-        $request = $this->updateUserByIdRequest($associative_array);
+        $returnType = '\Sendbird\Model\SendbirdUser';
+        $request = $this->viewAUserRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7158,34 +7391,32 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'updateUserById'
+     * Create request for operation 'viewAUser'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  \Sendbird\Model\UpdateUserByIdData $update_user_by_id_data (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  bool $include_unread_count (optional)
+     * @param  string $custom_types (optional)
+     * @param  string $super_mode Restricts the search scope to retrieve only Supergroup or non-Supergroup channels. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. This parameter should be specified in conjunction with &#x60;include_unread_count&#x60; above. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateUserByIdRequest($associative_array)
+    public function viewAUserRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $update_user_by_id_data = array_key_exists('update_user_by_id_data', $associative_array) ? $associative_array['update_user_by_id_data'] : null;
+        $include_unread_count = array_key_exists('include_unread_count', $associative_array) ? $associative_array['include_unread_count'] : null;
+        $custom_types = array_key_exists('custom_types', $associative_array) ? $associative_array['custom_types'] : null;
+        $super_mode = array_key_exists('super_mode', $associative_array) ? $associative_array['super_mode'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updateUserById'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling updateUserById'
+                'Missing the required parameter $user_id when calling viewAUser'
             );
         }
 
@@ -7196,325 +7427,37 @@ class UserApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_unread_count,
+            'include_unread_count', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $custom_types,
+            'custom_types', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $super_mode,
+            'super_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($update_user_by_id_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_user_by_id_data));
-            } else {
-                $httpBody = $update_user_by_id_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewChannelInvitationPreference
-     *
-     * View channel invitation preference
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewChannelInvitationPreferenceResponse
-     */
-    public function viewChannelInvitationPreference($associative_array)
-    {
-        list($response) = $this->viewChannelInvitationPreferenceWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation viewChannelInvitationPreferenceWithHttpInfo
-     *
-     * View channel invitation preference
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewChannelInvitationPreferenceResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewChannelInvitationPreferenceWithHttpInfo($associative_array)
-    {
-        $request = $this->viewChannelInvitationPreferenceRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ViewChannelInvitationPreferenceResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\ViewChannelInvitationPreferenceResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewChannelInvitationPreferenceResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ViewChannelInvitationPreferenceResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ViewChannelInvitationPreferenceResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewChannelInvitationPreferenceAsync
-     *
-     * View channel invitation preference
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewChannelInvitationPreferenceAsync($associative_array)
-    {
-        return $this->viewChannelInvitationPreferenceAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewChannelInvitationPreferenceAsyncWithHttpInfo
-     *
-     * View channel invitation preference
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewChannelInvitationPreferenceAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\ViewChannelInvitationPreferenceResponse';
-        $request = $this->viewChannelInvitationPreferenceRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewChannelInvitationPreference'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewChannelInvitationPreferenceRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewChannelInvitationPreference'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling viewChannelInvitationPreference'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/channel_invitation_preference';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -7585,44 +7528,44 @@ class UserApi
     }
 
     /**
-     * Operation viewCountPreferenceOfChannelByUrl
+     * Operation viewCountPreferenceOfAChannel
      *
      * View count preference of a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $channel_url channel_url (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse
+     * @return \Sendbird\Model\ViewCountPreferenceOfAChannelResponse
      */
-    public function viewCountPreferenceOfChannelByUrl($associative_array)
+    public function viewCountPreferenceOfAChannel($associative_array)
     {
-        list($response) = $this->viewCountPreferenceOfChannelByUrlWithHttpInfo($associative_array);
+        list($response) = $this->viewCountPreferenceOfAChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation viewCountPreferenceOfChannelByUrlWithHttpInfo
+     * Operation viewCountPreferenceOfAChannelWithHttpInfo
      *
      * View count preference of a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ViewCountPreferenceOfAChannelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewCountPreferenceOfChannelByUrlWithHttpInfo($associative_array)
+    public function viewCountPreferenceOfAChannelWithHttpInfo($associative_array)
     {
-        $request = $this->viewCountPreferenceOfChannelByUrlRequest($associative_array);
+        $request = $this->viewCountPreferenceOfAChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7661,23 +7604,23 @@ class UserApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ViewCountPreferenceOfAChannelResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse' !== 'string') {
+                        if ('\Sendbird\Model\ViewCountPreferenceOfAChannelResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewCountPreferenceOfAChannelResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse';
+            $returnType = '\Sendbird\Model\ViewCountPreferenceOfAChannelResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7698,7 +7641,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse',
+                        '\Sendbird\Model\ViewCountPreferenceOfAChannelResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7709,22 +7652,22 @@ class UserApi
     }
 
     /**
-     * Operation viewCountPreferenceOfChannelByUrlAsync
+     * Operation viewCountPreferenceOfAChannelAsync
      *
      * View count preference of a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewCountPreferenceOfChannelByUrlAsync($associative_array)
+    public function viewCountPreferenceOfAChannelAsync($associative_array)
     {
-        return $this->viewCountPreferenceOfChannelByUrlAsyncWithHttpInfo($associative_array)
+        return $this->viewCountPreferenceOfAChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7733,23 +7676,23 @@ class UserApi
     }
 
     /**
-     * Operation viewCountPreferenceOfChannelByUrlAsyncWithHttpInfo
+     * Operation viewCountPreferenceOfAChannelAsyncWithHttpInfo
      *
      * View count preference of a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewCountPreferenceOfChannelByUrlAsyncWithHttpInfo($associative_array)
+    public function viewCountPreferenceOfAChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\ViewCountPreferenceOfChannelByUrlResponse';
-        $request = $this->viewCountPreferenceOfChannelByUrlRequest($associative_array);
+        $returnType = '\Sendbird\Model\ViewCountPreferenceOfAChannelResponse';
+        $request = $this->viewCountPreferenceOfAChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7788,40 +7731,34 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'viewCountPreferenceOfChannelByUrl'
+     * Create request for operation 'viewCountPreferenceOfAChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewCountPreferenceOfChannelByUrlRequest($associative_array)
+    public function viewCountPreferenceOfAChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewCountPreferenceOfChannelByUrl'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling viewCountPreferenceOfChannelByUrl'
+                'Missing the required parameter $user_id when calling viewCountPreferenceOfAChannel'
             );
         }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling viewCountPreferenceOfChannelByUrl'
+                'Missing the required parameter $channel_url when calling viewCountPreferenceOfAChannel'
             );
         }
 
@@ -7835,7 +7772,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -7851,330 +7788,6 @@ class UserApi
             $resourcePath = str_replace(
                 '{' . 'channel_url' . '}',
                 ObjectSerializer::toPathValue($channel_url),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewNumberOfChannelsByJoinStatus
-     *
-     * View number of channels by join status
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $state state (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse
-     */
-    public function viewNumberOfChannelsByJoinStatus($associative_array)
-    {
-        list($response) = $this->viewNumberOfChannelsByJoinStatusWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation viewNumberOfChannelsByJoinStatusWithHttpInfo
-     *
-     * View number of channels by join status
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $state (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewNumberOfChannelsByJoinStatusWithHttpInfo($associative_array)
-    {
-        $request = $this->viewNumberOfChannelsByJoinStatusRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewNumberOfChannelsByJoinStatusAsync
-     *
-     * View number of channels by join status
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $state (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfChannelsByJoinStatusAsync($associative_array)
-    {
-        return $this->viewNumberOfChannelsByJoinStatusAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewNumberOfChannelsByJoinStatusAsyncWithHttpInfo
-     *
-     * View number of channels by join status
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $state (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfChannelsByJoinStatusAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\ViewNumberOfChannelsByJoinStatusResponse';
-        $request = $this->viewNumberOfChannelsByJoinStatusRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewNumberOfChannelsByJoinStatus'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $state (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewNumberOfChannelsByJoinStatusRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $state = array_key_exists('state', $associative_array) ? $associative_array['state'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewNumberOfChannelsByJoinStatus'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling viewNumberOfChannelsByJoinStatus'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/group_channel_count';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $state,
-            'state', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
                 $resourcePath
             );
         }
@@ -8244,10 +7857,10 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string[] $custom_types custom_types (optional)
-     * @param  string $super_mode super_mode (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $custom_types custom_types (optional)
+     * @param  string $super_mode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are all, super, and nonsuper. (Default: all) (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8266,10 +7879,10 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string[] $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $custom_types (optional)
+     * @param  string $super_mode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are all, super, and nonsuper. (Default: all) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8370,10 +7983,10 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string[] $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $custom_types (optional)
+     * @param  string $super_mode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are all, super, and nonsuper. (Default: all) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8395,10 +8008,10 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string[] $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $custom_types (optional)
+     * @param  string $super_mode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are all, super, and nonsuper. (Default: all) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8449,10 +8062,10 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string[] $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $custom_types (optional)
+     * @param  string $super_mode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are all, super, and nonsuper. (Default: all) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8460,17 +8073,11 @@ class UserApi
     public function viewNumberOfChannelsWithUnreadMessagesRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
         $custom_types = array_key_exists('custom_types', $associative_array) ? $associative_array['custom_types'] : null;
         $super_mode = array_key_exists('super_mode', $associative_array) ? $associative_array['super_mode'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewNumberOfChannelsWithUnreadMessages'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -8489,7 +8096,7 @@ class UserApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $custom_types,
             'custom_types', // param base name
-            'array', // openApiType
+            'string', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -8506,346 +8113,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewNumberOfUnreadItems
-     *
-     * View number of unread items
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $custom_type custom_type (optional)
-     * @param  string $item_keys item_keys (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewNumberOfUnreadItemsResponse
-     */
-    public function viewNumberOfUnreadItems($associative_array)
-    {
-        list($response) = $this->viewNumberOfUnreadItemsWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation viewNumberOfUnreadItemsWithHttpInfo
-     *
-     * View number of unread items
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $custom_type (optional)
-     * @param  string $item_keys (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewNumberOfUnreadItemsResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewNumberOfUnreadItemsWithHttpInfo($associative_array)
-    {
-        $request = $this->viewNumberOfUnreadItemsRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ViewNumberOfUnreadItemsResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\ViewNumberOfUnreadItemsResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewNumberOfUnreadItemsResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ViewNumberOfUnreadItemsResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ViewNumberOfUnreadItemsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewNumberOfUnreadItemsAsync
-     *
-     * View number of unread items
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $custom_type (optional)
-     * @param  string $item_keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfUnreadItemsAsync($associative_array)
-    {
-        return $this->viewNumberOfUnreadItemsAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewNumberOfUnreadItemsAsyncWithHttpInfo
-     *
-     * View number of unread items
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $custom_type (optional)
-     * @param  string $item_keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewNumberOfUnreadItemsAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\ViewNumberOfUnreadItemsResponse';
-        $request = $this->viewNumberOfUnreadItemsRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewNumberOfUnreadItems'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $custom_type (optional)
-     * @param  string $item_keys (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewNumberOfUnreadItemsRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
-        $item_keys = array_key_exists('item_keys', $associative_array) ? $associative_array['item_keys'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewNumberOfUnreadItems'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling viewNumberOfUnreadItems'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}/unread_item_count';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $custom_type,
-            'custom_type', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $item_keys,
-            'item_keys', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -8922,10 +8190,10 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $custom_types custom_types (optional)
-     * @param  string $super_mode super_mode (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $super_mode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8944,10 +8212,10 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $super_mode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9048,10 +8316,10 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $super_mode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9073,10 +8341,10 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $super_mode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9127,10 +8395,10 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $user_id (Required) (required)
+     * @param  string $custom_types Specifies a comma-separated string of one or more custom types to filter group channels. URL encoding each type is recommended. If not specified, all channels are returned, regardless of their custom type. (optional)
+     * @param  string $super_mode Restricts the search scope to either Supergroup channels or non-Supergroup channels or both. Acceptable values are &#x60;all&#x60;, &#x60;super&#x60;, and &#x60;nonsuper&#x60;. (Default: &#x60;all&#x60;) (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9138,17 +8406,11 @@ class UserApi
     public function viewNumberOfUnreadMessagesRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
         $custom_types = array_key_exists('custom_types', $associative_array) ? $associative_array['custom_types'] : null;
         $super_mode = array_key_exists('super_mode', $associative_array) ? $associative_array['super_mode'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewNumberOfUnreadMessages'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -9184,7 +8446,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -9261,8 +8523,8 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9281,8 +8543,8 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9383,8 +8645,8 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9406,8 +8668,8 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9458,8 +8720,8 @@ class UserApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9467,15 +8729,9 @@ class UserApi
     public function viewPushPreferencesRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewPushPreferences'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -9493,7 +8749,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -9564,44 +8820,44 @@ class UserApi
     }
 
     /**
-     * Operation viewPushPreferencesForChannelByUrl
+     * Operation viewPushPreferencesForAChannel
      *
      * View push preferences for a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  string $channel_url channel_url (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse
+     * @return \Sendbird\Model\ViewPushPreferencesForAChannelResponse
      */
-    public function viewPushPreferencesForChannelByUrl($associative_array)
+    public function viewPushPreferencesForAChannel($associative_array)
     {
-        list($response) = $this->viewPushPreferencesForChannelByUrlWithHttpInfo($associative_array);
+        list($response) = $this->viewPushPreferencesForAChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation viewPushPreferencesForChannelByUrlWithHttpInfo
+     * Operation viewPushPreferencesForAChannelWithHttpInfo
      *
      * View push preferences for a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\ViewPushPreferencesForAChannelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewPushPreferencesForChannelByUrlWithHttpInfo($associative_array)
+    public function viewPushPreferencesForAChannelWithHttpInfo($associative_array)
     {
-        $request = $this->viewPushPreferencesForChannelByUrlRequest($associative_array);
+        $request = $this->viewPushPreferencesForAChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9640,23 +8896,23 @@ class UserApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\ViewPushPreferencesForAChannelResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse' !== 'string') {
+                        if ('\Sendbird\Model\ViewPushPreferencesForAChannelResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewPushPreferencesForAChannelResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse';
+            $returnType = '\Sendbird\Model\ViewPushPreferencesForAChannelResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -9677,7 +8933,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse',
+                        '\Sendbird\Model\ViewPushPreferencesForAChannelResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9688,22 +8944,22 @@ class UserApi
     }
 
     /**
-     * Operation viewPushPreferencesForChannelByUrlAsync
+     * Operation viewPushPreferencesForAChannelAsync
      *
      * View push preferences for a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewPushPreferencesForChannelByUrlAsync($associative_array)
+    public function viewPushPreferencesForAChannelAsync($associative_array)
     {
-        return $this->viewPushPreferencesForChannelByUrlAsyncWithHttpInfo($associative_array)
+        return $this->viewPushPreferencesForAChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9712,23 +8968,23 @@ class UserApi
     }
 
     /**
-     * Operation viewPushPreferencesForChannelByUrlAsyncWithHttpInfo
+     * Operation viewPushPreferencesForAChannelAsyncWithHttpInfo
      *
      * View push preferences for a channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewPushPreferencesForChannelByUrlAsyncWithHttpInfo($associative_array)
+    public function viewPushPreferencesForAChannelAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\ViewPushPreferencesForChannelByUrlResponse';
-        $request = $this->viewPushPreferencesForChannelByUrlRequest($associative_array);
+        $returnType = '\Sendbird\Model\ViewPushPreferencesForAChannelResponse';
+        $request = $this->viewPushPreferencesForAChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9767,40 +9023,34 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'viewPushPreferencesForChannelByUrl'
+     * Create request for operation 'viewPushPreferencesForAChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  string $channel_url (required)
+     * @param  string $user_id (Required) (required)
+     * @param  string $channel_url (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewPushPreferencesForChannelByUrlRequest($associative_array)
+    public function viewPushPreferencesForAChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewPushPreferencesForChannelByUrl'
-            );
-        }
         // verify the required parameter 'user_id' is set
         if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling viewPushPreferencesForChannelByUrl'
+                'Missing the required parameter $user_id when calling viewPushPreferencesForAChannel'
             );
         }
         // verify the required parameter 'channel_url' is set
         if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling viewPushPreferencesForChannelByUrl'
+                'Missing the required parameter $channel_url when calling viewPushPreferencesForAChannel'
             );
         }
 
@@ -9814,7 +9064,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -9893,48 +9143,44 @@ class UserApi
     }
 
     /**
-     * Operation viewUserById
+     * Operation viewWhoOwnsARegistrationOrDeviceToken
      *
-     * View a user
+     * View who owns a registration or device token
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $user_id user_id (required)
-     * @param  bool $include_unread_count include_unread_count (optional)
-     * @param  string $custom_types custom_types (optional)
-     * @param  string $super_mode super_mode (optional)
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdUser
+     * @return \Sendbird\Model\MarkChannelMessagesAsReadRequest[]
      */
-    public function viewUserById($associative_array)
+    public function viewWhoOwnsARegistrationOrDeviceToken($associative_array)
     {
-        list($response) = $this->viewUserByIdWithHttpInfo($associative_array);
+        list($response) = $this->viewWhoOwnsARegistrationOrDeviceTokenWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation viewUserByIdWithHttpInfo
+     * Operation viewWhoOwnsARegistrationOrDeviceTokenWithHttpInfo
      *
-     * View a user
+     * View who owns a registration or device token
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  bool $include_unread_count (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdUser, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\MarkChannelMessagesAsReadRequest[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function viewUserByIdWithHttpInfo($associative_array)
+    public function viewWhoOwnsARegistrationOrDeviceTokenWithHttpInfo($associative_array)
     {
-        $request = $this->viewUserByIdRequest($associative_array);
+        $request = $this->viewWhoOwnsARegistrationOrDeviceTokenRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9973,23 +9219,23 @@ class UserApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdUser' === '\SplFileObject') {
+                    if ('\Sendbird\Model\MarkChannelMessagesAsReadRequest[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdUser' !== 'string') {
+                        if ('\Sendbird\Model\MarkChannelMessagesAsReadRequest[]' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdUser', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\MarkChannelMessagesAsReadRequest[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdUser';
+            $returnType = '\Sendbird\Model\MarkChannelMessagesAsReadRequest[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -10010,7 +9256,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdUser',
+                        '\Sendbird\Model\MarkChannelMessagesAsReadRequest[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10021,24 +9267,22 @@ class UserApi
     }
 
     /**
-     * Operation viewUserByIdAsync
+     * Operation viewWhoOwnsARegistrationOrDeviceTokenAsync
      *
-     * View a user
+     * View who owns a registration or device token
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  bool $include_unread_count (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewUserByIdAsync($associative_array)
+    public function viewWhoOwnsARegistrationOrDeviceTokenAsync($associative_array)
     {
-        return $this->viewUserByIdAsyncWithHttpInfo($associative_array)
+        return $this->viewWhoOwnsARegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10047,25 +9291,23 @@ class UserApi
     }
 
     /**
-     * Operation viewUserByIdAsyncWithHttpInfo
+     * Operation viewWhoOwnsARegistrationOrDeviceTokenAsyncWithHttpInfo
      *
-     * View a user
+     * View who owns a registration or device token
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  bool $include_unread_count (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function viewUserByIdAsyncWithHttpInfo($associative_array)
+    public function viewWhoOwnsARegistrationOrDeviceTokenAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendBirdUser';
-        $request = $this->viewUserByIdRequest($associative_array);
+        $returnType = '\Sendbird\Model\MarkChannelMessagesAsReadRequest[]';
+        $request = $this->viewWhoOwnsARegistrationOrDeviceTokenRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10104,386 +9346,34 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'viewUserById'
+     * Create request for operation 'viewWhoOwnsARegistrationOrDeviceToken'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $user_id (required)
-     * @param  bool $include_unread_count (optional)
-     * @param  string $custom_types (optional)
-     * @param  string $super_mode (optional)
+     * @param  string $token_type (Required) (required)
+     * @param  string $token (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function viewUserByIdRequest($associative_array)
+    public function viewWhoOwnsARegistrationOrDeviceTokenRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $user_id = array_key_exists('user_id', $associative_array) ? $associative_array['user_id'] : null;
-        $include_unread_count = array_key_exists('include_unread_count', $associative_array) ? $associative_array['include_unread_count'] : null;
-        $custom_types = array_key_exists('custom_types', $associative_array) ? $associative_array['custom_types'] : null;
-        $super_mode = array_key_exists('super_mode', $associative_array) ? $associative_array['super_mode'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewUserById'
-            );
-        }
-        // verify the required parameter 'user_id' is set
-        if ($user_id === null || (is_array($user_id) && count($user_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $user_id when calling viewUserById'
-            );
-        }
-
-        $resourcePath = '/v3/users/{user_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $include_unread_count,
-            'include_unread_count', // param base name
-            'boolean', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $custom_types,
-            'custom_types', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $super_mode,
-            'super_mode', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($user_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'user_id' . '}',
-                ObjectSerializer::toPathValue($user_id),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewWhoOwnsRegistrationOrDeviceTokenByToken
-     *
-     * View who owns a registration or device token
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $token_type token_type (required)
-     * @param  string $token token (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner[]
-     */
-    public function viewWhoOwnsRegistrationOrDeviceTokenByToken($associative_array)
-    {
-        list($response) = $this->viewWhoOwnsRegistrationOrDeviceTokenByTokenWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation viewWhoOwnsRegistrationOrDeviceTokenByTokenWithHttpInfo
-     *
-     * View who owns a registration or device token
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewWhoOwnsRegistrationOrDeviceTokenByTokenWithHttpInfo($associative_array)
-    {
-        $request = $this->viewWhoOwnsRegistrationOrDeviceTokenByTokenRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner[]' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner[]' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner[]';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewWhoOwnsRegistrationOrDeviceTokenByTokenAsync
-     *
-     * View who owns a registration or device token
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewWhoOwnsRegistrationOrDeviceTokenByTokenAsync($associative_array)
-    {
-        return $this->viewWhoOwnsRegistrationOrDeviceTokenByTokenAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewWhoOwnsRegistrationOrDeviceTokenByTokenAsyncWithHttpInfo
-     *
-     * View who owns a registration or device token
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewWhoOwnsRegistrationOrDeviceTokenByTokenAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\ViewWhoOwnsRegistrationOrDeviceTokenByTokenResponseInner[]';
-        $request = $this->viewWhoOwnsRegistrationOrDeviceTokenByTokenRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewWhoOwnsRegistrationOrDeviceTokenByToken'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $token_type (required)
-     * @param  string $token (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewWhoOwnsRegistrationOrDeviceTokenByTokenRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $token_type = array_key_exists('token_type', $associative_array) ? $associative_array['token_type'] : null;
         $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewWhoOwnsRegistrationOrDeviceTokenByToken'
-            );
-        }
         // verify the required parameter 'token_type' is set
         if ($token_type === null || (is_array($token_type) && count($token_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $token_type when calling viewWhoOwnsRegistrationOrDeviceTokenByToken'
+                'Missing the required parameter $token_type when calling viewWhoOwnsARegistrationOrDeviceToken'
             );
         }
         // verify the required parameter 'token' is set
         if ($token === null || (is_array($token) && count($token) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $token when calling viewWhoOwnsRegistrationOrDeviceTokenByToken'
+                'Missing the required parameter $token when calling viewWhoOwnsARegistrationOrDeviceToken'
             );
         }
 
@@ -10497,7 +9387,7 @@ class UserApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params

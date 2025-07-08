@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -73,54 +73,6 @@ class StatisticsApiTest extends TestCase
     }
 
     /**
-     * Test case for getDetailedOpenRateOfAnnouncementById
-     *
-     * Get detailed open rate of an announcement.
-     *
-     */
-    public function testGetDetailedOpenRateOfAnnouncementById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getDetailedOpenStatusOfAnnouncementById
-     *
-     * Get detailed open status of an announcement.
-     *
-     */
-    public function testGetDetailedOpenStatusOfAnnouncementById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for retrieveAdvancedAnalyticsMetrics
-     *
-     * Retrieve Advanced analytics metrics.
-     *
-     */
-    public function testRetrieveAdvancedAnalyticsMetrics()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewNumberOfConcurrentConnections
-     *
-     * View number of concurrent connections.
-     *
-     */
-    public function testViewNumberOfConcurrentConnections()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for viewNumberOfDailyActiveUsers
      *
      * View number of daily active users.
@@ -139,18 +91,6 @@ class StatisticsApiTest extends TestCase
      *
      */
     public function testViewNumberOfMonthlyActiveUsers()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewNumberOfPeakConnections
-     *
-     * View number of peak connections.
-     *
-     */
-    public function testViewNumberOfPeakConnections()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

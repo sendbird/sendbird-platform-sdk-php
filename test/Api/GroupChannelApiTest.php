@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -73,216 +73,228 @@ class GroupChannelApiTest extends TestCase
     }
 
     /**
-     * Test case for gcAcceptInvitation
+     * Test case for acceptAnInvitation
      *
      * Accept an invitation.
      *
      */
-    public function testGcAcceptInvitation()
+    public function testAcceptAnInvitation()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcCancelTheRegistrationOfOperators
+     * Test case for cancelTheRegistrationOfOperators
      *
      * Cancel the registration of operators.
      *
      */
-    public function testGcCancelTheRegistrationOfOperators()
+    public function testCancelTheRegistrationOfOperators()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcCheckIfMemberById
+     * Test case for checkIfMember
      *
      * Check if member.
      *
      */
-    public function testGcCheckIfMemberById()
+    public function testCheckIfMember()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcCreateChannel
+     * Test case for createAGroupChannel
      *
-     * Create a channel.
+     * Create a group channel.
      *
      */
-    public function testGcCreateChannel()
+    public function testCreateAGroupChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcDeclineInvitation
+     * Test case for deleteAGroupChannel
      *
-     * Decline an invitation.
+     * Delete a group channel.
      *
      */
-    public function testGcDeclineInvitation()
+    public function testDeleteAGroupChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcDeleteChannelByUrl
+     * Test case for getAGroupChannel
      *
-     * Delete a channel.
+     * Get a group channel.
      *
      */
-    public function testGcDeleteChannelByUrl()
+    public function testGetAGroupChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcHideOrArchiveChannel
+     * Test case for hideAChannel
      *
-     * Hide or archive a channel.
+     * Hide a channel.
      *
      */
-    public function testGcHideOrArchiveChannel()
+    public function testHideAChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcInviteAsMembers
+     * Test case for inviteAsMembers
      *
      * Invite as members.
      *
      */
-    public function testGcInviteAsMembers()
+    public function testInviteAsMembers()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcJoinChannel
+     * Test case for joinAChannel
      *
      * Join a channel.
      *
      */
-    public function testGcJoinChannel()
+    public function testJoinAChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcLeaveChannel
+     * Test case for leaveAChannel
      *
      * Leave a channel.
      *
      */
-    public function testGcLeaveChannel()
+    public function testLeaveAChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcListChannels
+     * Test case for listChannels
      *
      * List channels.
      *
      */
-    public function testGcListChannels()
+    public function testListChannels()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcListMembers
+     * Test case for listMembers
      *
      * List members.
      *
      */
-    public function testGcListMembers()
+    public function testListMembers()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcListOperators
+     * Test case for listOperators
      *
      * List operators.
      *
      */
-    public function testGcListOperators()
+    public function testListOperators()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcRegisterOperators
+     * Test case for registerOperatorsToAGroupChannel
      *
-     * Register operators.
+     * Register operators to a group channel.
      *
      */
-    public function testGcRegisterOperators()
+    public function testRegisterOperatorsToAGroupChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcResetChatHistory
+     * Test case for resetChatHistory
      *
      * Reset chat history.
      *
      */
-    public function testGcResetChatHistory()
+    public function testResetChatHistory()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcUnhideOrUnarchiveChannel
+     * Test case for startTypingIndicators
      *
-     * Unhide or unarchive a channel.
+     * Start typing indicators.
      *
      */
-    public function testGcUnhideOrUnarchiveChannel()
+    public function testStartTypingIndicators()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcUpdateChannelByUrl
+     * Test case for stopTypingIndicators
      *
-     * Update a channel.
+     * Stop typing indicators.
      *
      */
-    public function testGcUpdateChannelByUrl()
+    public function testStopTypingIndicators()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcViewChannelByUrl
+     * Test case for unhideAChannel
      *
-     * View a channel.
+     * Unhide a channel.
      *
      */
-    public function testGcViewChannelByUrl()
+    public function testUnhideAChannel()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for updateAGroupChannel
+     *
+     * Update a group channel.
+     *
+     */
+    public function testUpdateAGroupChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdOpenChannel
+ * SendbirdOpenChannel
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * SendBirdOpenChannel Class Doc Comment
+ * SendbirdOpenChannel Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendbirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SendBird.OpenChannel';
+    protected static $openAPIModelName = 'Sendbird.OpenChannel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,20 +60,19 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'custom_type' => 'string',
         'channel_url' => 'string',
-        'created_at' => 'float',
         'cover_url' => 'string',
-        'creator' => '\Sendbird\Model\SendBirdUser',
+        'created_at' => 'int',
+        'custom_type' => 'string',
         'data' => 'string',
+        'freeze' => 'bool',
         'is_dynamic_partitioned' => 'bool',
         'is_ephemeral' => 'bool',
-        'is_frozen' => 'bool',
-        'max_length_message' => 'float',
-        'operators' => '\Sendbird\Model\SendBirdUser[]',
-        'participant_count' => 'float',
-        'freeze' => 'bool'
+        'max_length_message' => 'int',
+        'name' => 'string',
+        'operators' => '\Sendbird\Model\SendbirdBasicUserInfo[]',
+        'participant_count' => 'int',
+        'metadata' => 'object'
     ];
 
     /**
@@ -84,20 +83,19 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'custom_type' => null,
         'channel_url' => null,
-        'created_at' => null,
         'cover_url' => null,
-        'creator' => null,
+        'created_at' => 'int64',
+        'custom_type' => null,
         'data' => null,
+        'freeze' => null,
         'is_dynamic_partitioned' => null,
         'is_ephemeral' => null,
-        'is_frozen' => null,
         'max_length_message' => null,
+        'name' => null,
         'operators' => null,
         'participant_count' => null,
-        'freeze' => null
+        'metadata' => null
     ];
 
     /**
@@ -127,20 +125,19 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'custom_type' => 'custom_type',
         'channel_url' => 'channel_url',
-        'created_at' => 'created_at',
         'cover_url' => 'cover_url',
-        'creator' => 'creator',
+        'created_at' => 'created_at',
+        'custom_type' => 'custom_type',
         'data' => 'data',
+        'freeze' => 'freeze',
         'is_dynamic_partitioned' => 'is_dynamic_partitioned',
         'is_ephemeral' => 'is_ephemeral',
-        'is_frozen' => 'is_frozen',
         'max_length_message' => 'max_length_message',
+        'name' => 'name',
         'operators' => 'operators',
         'participant_count' => 'participant_count',
-        'freeze' => 'freeze'
+        'metadata' => 'metadata'
     ];
 
     /**
@@ -149,20 +146,19 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'custom_type' => 'setCustomType',
         'channel_url' => 'setChannelUrl',
-        'created_at' => 'setCreatedAt',
         'cover_url' => 'setCoverUrl',
-        'creator' => 'setCreator',
+        'created_at' => 'setCreatedAt',
+        'custom_type' => 'setCustomType',
         'data' => 'setData',
+        'freeze' => 'setFreeze',
         'is_dynamic_partitioned' => 'setIsDynamicPartitioned',
         'is_ephemeral' => 'setIsEphemeral',
-        'is_frozen' => 'setIsFrozen',
         'max_length_message' => 'setMaxLengthMessage',
+        'name' => 'setName',
         'operators' => 'setOperators',
         'participant_count' => 'setParticipantCount',
-        'freeze' => 'setFreeze'
+        'metadata' => 'setMetadata'
     ];
 
     /**
@@ -171,20 +167,19 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'custom_type' => 'getCustomType',
         'channel_url' => 'getChannelUrl',
-        'created_at' => 'getCreatedAt',
         'cover_url' => 'getCoverUrl',
-        'creator' => 'getCreator',
+        'created_at' => 'getCreatedAt',
+        'custom_type' => 'getCustomType',
         'data' => 'getData',
+        'freeze' => 'getFreeze',
         'is_dynamic_partitioned' => 'getIsDynamicPartitioned',
         'is_ephemeral' => 'getIsEphemeral',
-        'is_frozen' => 'getIsFrozen',
         'max_length_message' => 'getMaxLengthMessage',
+        'name' => 'getName',
         'operators' => 'getOperators',
         'participant_count' => 'getParticipantCount',
-        'freeze' => 'getFreeze'
+        'metadata' => 'getMetadata'
     ];
 
     /**
@@ -244,20 +239,19 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = $data['name'] ?? null;
-        $this->container['custom_type'] = $data['custom_type'] ?? null;
         $this->container['channel_url'] = $data['channel_url'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['cover_url'] = $data['cover_url'] ?? null;
-        $this->container['creator'] = $data['creator'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['custom_type'] = $data['custom_type'] ?? null;
         $this->container['data'] = $data['data'] ?? null;
+        $this->container['freeze'] = $data['freeze'] ?? null;
         $this->container['is_dynamic_partitioned'] = $data['is_dynamic_partitioned'] ?? null;
         $this->container['is_ephemeral'] = $data['is_ephemeral'] ?? null;
-        $this->container['is_frozen'] = $data['is_frozen'] ?? null;
         $this->container['max_length_message'] = $data['max_length_message'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
         $this->container['operators'] = $data['operators'] ?? null;
         $this->container['participant_count'] = $data['participant_count'] ?? null;
-        $this->container['freeze'] = $data['freeze'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
     }
 
     /**
@@ -269,6 +263,9 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['channel_url'] === null) {
+            $invalidProperties[] = "'channel_url' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -285,57 +282,9 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom_type
-     *
-     * @return string|null
-     */
-    public function getCustomType()
-    {
-        return $this->container['custom_type'];
-    }
-
-    /**
-     * Sets custom_type
-     *
-     * @param string|null $custom_type custom_type
-     *
-     * @return self
-     */
-    public function setCustomType($custom_type)
-    {
-        $this->container['custom_type'] = $custom_type;
-
-        return $this;
-    }
-
-    /**
      * Gets channel_url
      *
-     * @return string|null
+     * @return string
      */
     public function getChannelUrl()
     {
@@ -345,37 +294,13 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets channel_url
      *
-     * @param string|null $channel_url channel_url
+     * @param string $channel_url channel_url
      *
      * @return self
      */
     public function setChannelUrl($channel_url)
     {
         $this->container['channel_url'] = $channel_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return float|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param float|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
 
         return $this;
     }
@@ -405,25 +330,49 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets creator
+     * Gets created_at
      *
-     * @return \Sendbird\Model\SendBirdUser|null
+     * @return int|null
      */
-    public function getCreator()
+    public function getCreatedAt()
     {
-        return $this->container['creator'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets creator
+     * Sets created_at
      *
-     * @param \Sendbird\Model\SendBirdUser|null $creator creator
+     * @param int|null $created_at created_at
      *
      * @return self
      */
-    public function setCreator($creator)
+    public function setCreatedAt($created_at)
     {
-        $this->container['creator'] = $creator;
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_type
+     *
+     * @return string|null
+     */
+    public function getCustomType()
+    {
+        return $this->container['custom_type'];
+    }
+
+    /**
+     * Sets custom_type
+     *
+     * @param string|null $custom_type custom_type
+     *
+     * @return self
+     */
+    public function setCustomType($custom_type)
+    {
+        $this->container['custom_type'] = $custom_type;
 
         return $this;
     }
@@ -448,6 +397,30 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setData($data)
     {
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets freeze
+     *
+     * @return bool|null
+     */
+    public function getFreeze()
+    {
+        return $this->container['freeze'];
+    }
+
+    /**
+     * Sets freeze
+     *
+     * @param bool|null $freeze freeze
+     *
+     * @return self
+     */
+    public function setFreeze($freeze)
+    {
+        $this->container['freeze'] = $freeze;
 
         return $this;
     }
@@ -501,33 +474,9 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets is_frozen
-     *
-     * @return bool|null
-     */
-    public function getIsFrozen()
-    {
-        return $this->container['is_frozen'];
-    }
-
-    /**
-     * Sets is_frozen
-     *
-     * @param bool|null $is_frozen is_frozen
-     *
-     * @return self
-     */
-    public function setIsFrozen($is_frozen)
-    {
-        $this->container['is_frozen'] = $is_frozen;
-
-        return $this;
-    }
-
-    /**
      * Gets max_length_message
      *
-     * @return float|null
+     * @return int|null
      */
     public function getMaxLengthMessage()
     {
@@ -537,7 +486,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets max_length_message
      *
-     * @param float|null $max_length_message max_length_message
+     * @param int|null $max_length_message max_length_message
      *
      * @return self
      */
@@ -549,9 +498,33 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets operators
      *
-     * @return \Sendbird\Model\SendBirdUser[]|null
+     * @return \Sendbird\Model\SendbirdBasicUserInfo[]|null
      */
     public function getOperators()
     {
@@ -561,7 +534,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets operators
      *
-     * @param \Sendbird\Model\SendBirdUser[]|null $operators operators
+     * @param \Sendbird\Model\SendbirdBasicUserInfo[]|null $operators operators
      *
      * @return self
      */
@@ -575,7 +548,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets participant_count
      *
-     * @return float|null
+     * @return int|null
      */
     public function getParticipantCount()
     {
@@ -585,7 +558,7 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets participant_count
      *
-     * @param float|null $participant_count participant_count
+     * @param int|null $participant_count participant_count
      *
      * @return self
      */
@@ -597,25 +570,25 @@ class SendBirdOpenChannel implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets freeze
+     * Gets metadata
      *
-     * @return bool|null
+     * @return object|null
      */
-    public function getFreeze()
+    public function getMetadata()
     {
-        return $this->container['freeze'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets freeze
+     * Sets metadata
      *
-     * @param bool|null $freeze freeze
+     * @param object|null $metadata metadata
      *
      * @return self
      */
-    public function setFreeze($freeze)
+    public function setMetadata($metadata)
     {
-        $this->container['freeze'] = $freeze;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }

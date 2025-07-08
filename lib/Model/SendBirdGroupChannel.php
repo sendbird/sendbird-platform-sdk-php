@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdGroupChannel
+ * SendbirdGroupChannel
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * SendBirdGroupChannel Class Doc Comment
+ * SendbirdGroupChannel Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendbirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SendBird.GroupChannel';
+    protected static $openAPIModelName = 'Sendbird.GroupChannel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,49 +61,50 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPITypes = [
         'channel_url' => 'string',
+        'count_preference' => 'string',
         'cover_url' => 'string',
-        'created_at' => 'float',
-        'created_by' => '\Sendbird\Model\SendBirdGroupChannelCreatedBy',
-        'creator' => '\Sendbird\Model\SendBirdUser',
+        'created_at' => 'int',
+        'created_by' => '\Sendbird\Model\SendbirdBasicUserInfo',
         'custom_type' => 'string',
         'data' => 'string',
-        'disappearing_message' => '\Sendbird\Model\SendBirdGroupChannelDisappearingMessage',
+        'delivery_receipt' => 'object',
+        'disappearing_message' => '\Sendbird\Model\SendbirdDisappearingMessage',
         'freeze' => 'bool',
-        'ignore_profanity_filter' => 'bool',
+        'has_ai_bot' => 'bool',
+        'has_bot' => 'bool',
         'hidden_state' => 'string',
-        'invited_at' => 'float',
-        'inviter' => '\Sendbird\Model\SendBirdGroupChannelInviter',
+        'ignore_profanity_filter' => 'bool',
+        'invited_at' => 'int',
+        'inviter' => '\Sendbird\Model\SendbirdBasicUserInfo',
         'is_access_code_required' => 'bool',
         'is_broadcast' => 'bool',
-        'is_created' => 'bool',
         'is_discoverable' => 'bool',
         'is_distinct' => 'bool',
         'is_ephemeral' => 'bool',
-        'is_frozen' => 'bool',
+        'is_exclusive' => 'bool',
         'is_hidden' => 'bool',
+        'is_muted' => 'bool',
         'is_public' => 'bool',
         'is_push_enabled' => 'bool',
         'is_super' => 'bool',
-        'joined_at' => 'float',
-        'joined_member_count' => 'float',
-        'last_message' => '\Sendbird\Model\SendBirdGroupChannelLastMessage',
-        'max_length_message' => 'float',
-        'member_count' => 'float',
-        'members' => '\Sendbird\Model\SendBirdMember[]',
-        'message_offset_timestamp' => 'float',
-        'message_survival_seconds' => 'float',
-        'my_count_preference' => 'string',
-        'my_last_read' => 'float',
-        'my_member_state' => 'string',
-        'my_muted_state' => 'string',
-        'my_push_trigger_option' => 'string',
+        'joined_member_count' => 'int',
+        'joined_ts' => 'int',
+        'last_message' => '\Sendbird\Model\SendbirdMessageResponse',
+        'max_length_message' => 'int',
+        'member_count' => 'int',
+        'member_state' => 'string',
+        'members' => '\Sendbird\Model\SendbirdMember[]',
+        'message_survival_seconds' => 'int',
+        'metadata' => 'object',
         'my_role' => 'string',
         'name' => 'string',
-        'operators' => 'object[]',
-        'sms_fallback' => '\Sendbird\Model\SendBirdGroupChannelSmsFallback',
-        'unread_mention_count' => 'float',
-        'unread_message_count' => 'float',
-        'channel' => '\Sendbird\Model\SendBirdGroupChannelChannel'
+        'push_trigger_option' => '\Sendbird\Model\SendbirdPushTriggerOption',
+        'read_receipt' => 'array<string,int>',
+        'sms_fallback' => '\Sendbird\Model\SendbirdSmsFallback',
+        'ts_message_offset' => 'int',
+        'unread_mention_count' => 'int',
+        'unread_message_count' => 'int',
+        'user_last_read' => 'int'
     ];
 
     /**
@@ -115,49 +116,50 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
       */
     protected static $openAPIFormats = [
         'channel_url' => null,
+        'count_preference' => null,
         'cover_url' => null,
-        'created_at' => null,
+        'created_at' => 'int64',
         'created_by' => null,
-        'creator' => null,
         'custom_type' => null,
         'data' => null,
+        'delivery_receipt' => null,
         'disappearing_message' => null,
         'freeze' => null,
-        'ignore_profanity_filter' => null,
+        'has_ai_bot' => null,
+        'has_bot' => null,
         'hidden_state' => null,
-        'invited_at' => null,
+        'ignore_profanity_filter' => null,
+        'invited_at' => 'int64',
         'inviter' => null,
         'is_access_code_required' => null,
         'is_broadcast' => null,
-        'is_created' => null,
         'is_discoverable' => null,
         'is_distinct' => null,
         'is_ephemeral' => null,
-        'is_frozen' => null,
+        'is_exclusive' => null,
         'is_hidden' => null,
+        'is_muted' => null,
         'is_public' => null,
         'is_push_enabled' => null,
         'is_super' => null,
-        'joined_at' => null,
         'joined_member_count' => null,
+        'joined_ts' => 'int64',
         'last_message' => null,
         'max_length_message' => null,
         'member_count' => null,
+        'member_state' => null,
         'members' => null,
-        'message_offset_timestamp' => null,
         'message_survival_seconds' => null,
-        'my_count_preference' => null,
-        'my_last_read' => null,
-        'my_member_state' => null,
-        'my_muted_state' => null,
-        'my_push_trigger_option' => null,
+        'metadata' => null,
         'my_role' => null,
         'name' => null,
-        'operators' => null,
+        'push_trigger_option' => null,
+        'read_receipt' => 'int64',
         'sms_fallback' => null,
+        'ts_message_offset' => 'int64',
         'unread_mention_count' => null,
         'unread_message_count' => null,
-        'channel' => null
+        'user_last_read' => 'int64'
     ];
 
     /**
@@ -188,49 +190,50 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'channel_url' => 'channel_url',
+        'count_preference' => 'count_preference',
         'cover_url' => 'cover_url',
         'created_at' => 'created_at',
         'created_by' => 'created_by',
-        'creator' => 'creator',
         'custom_type' => 'custom_type',
         'data' => 'data',
+        'delivery_receipt' => 'delivery_receipt',
         'disappearing_message' => 'disappearing_message',
         'freeze' => 'freeze',
-        'ignore_profanity_filter' => 'ignore_profanity_filter',
+        'has_ai_bot' => 'has_ai_bot',
+        'has_bot' => 'has_bot',
         'hidden_state' => 'hidden_state',
+        'ignore_profanity_filter' => 'ignore_profanity_filter',
         'invited_at' => 'invited_at',
         'inviter' => 'inviter',
         'is_access_code_required' => 'is_access_code_required',
         'is_broadcast' => 'is_broadcast',
-        'is_created' => 'is_created',
         'is_discoverable' => 'is_discoverable',
         'is_distinct' => 'is_distinct',
         'is_ephemeral' => 'is_ephemeral',
-        'is_frozen' => 'is_frozen',
+        'is_exclusive' => 'is_exclusive',
         'is_hidden' => 'is_hidden',
+        'is_muted' => 'is_muted',
         'is_public' => 'is_public',
         'is_push_enabled' => 'is_push_enabled',
         'is_super' => 'is_super',
-        'joined_at' => 'joined_at',
         'joined_member_count' => 'joined_member_count',
+        'joined_ts' => 'joined_ts',
         'last_message' => 'last_message',
         'max_length_message' => 'max_length_message',
         'member_count' => 'member_count',
+        'member_state' => 'member_state',
         'members' => 'members',
-        'message_offset_timestamp' => 'message_offset_timestamp',
         'message_survival_seconds' => 'message_survival_seconds',
-        'my_count_preference' => 'my_count_preference',
-        'my_last_read' => 'my_last_read',
-        'my_member_state' => 'my_member_state',
-        'my_muted_state' => 'my_muted_state',
-        'my_push_trigger_option' => 'my_push_trigger_option',
+        'metadata' => 'metadata',
         'my_role' => 'my_role',
         'name' => 'name',
-        'operators' => 'operators',
+        'push_trigger_option' => 'push_trigger_option',
+        'read_receipt' => 'read_receipt',
         'sms_fallback' => 'sms_fallback',
+        'ts_message_offset' => 'ts_message_offset',
         'unread_mention_count' => 'unread_mention_count',
         'unread_message_count' => 'unread_message_count',
-        'channel' => 'channel'
+        'user_last_read' => 'user_last_read'
     ];
 
     /**
@@ -240,49 +243,50 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'channel_url' => 'setChannelUrl',
+        'count_preference' => 'setCountPreference',
         'cover_url' => 'setCoverUrl',
         'created_at' => 'setCreatedAt',
         'created_by' => 'setCreatedBy',
-        'creator' => 'setCreator',
         'custom_type' => 'setCustomType',
         'data' => 'setData',
+        'delivery_receipt' => 'setDeliveryReceipt',
         'disappearing_message' => 'setDisappearingMessage',
         'freeze' => 'setFreeze',
-        'ignore_profanity_filter' => 'setIgnoreProfanityFilter',
+        'has_ai_bot' => 'setHasAiBot',
+        'has_bot' => 'setHasBot',
         'hidden_state' => 'setHiddenState',
+        'ignore_profanity_filter' => 'setIgnoreProfanityFilter',
         'invited_at' => 'setInvitedAt',
         'inviter' => 'setInviter',
         'is_access_code_required' => 'setIsAccessCodeRequired',
         'is_broadcast' => 'setIsBroadcast',
-        'is_created' => 'setIsCreated',
         'is_discoverable' => 'setIsDiscoverable',
         'is_distinct' => 'setIsDistinct',
         'is_ephemeral' => 'setIsEphemeral',
-        'is_frozen' => 'setIsFrozen',
+        'is_exclusive' => 'setIsExclusive',
         'is_hidden' => 'setIsHidden',
+        'is_muted' => 'setIsMuted',
         'is_public' => 'setIsPublic',
         'is_push_enabled' => 'setIsPushEnabled',
         'is_super' => 'setIsSuper',
-        'joined_at' => 'setJoinedAt',
         'joined_member_count' => 'setJoinedMemberCount',
+        'joined_ts' => 'setJoinedTs',
         'last_message' => 'setLastMessage',
         'max_length_message' => 'setMaxLengthMessage',
         'member_count' => 'setMemberCount',
+        'member_state' => 'setMemberState',
         'members' => 'setMembers',
-        'message_offset_timestamp' => 'setMessageOffsetTimestamp',
         'message_survival_seconds' => 'setMessageSurvivalSeconds',
-        'my_count_preference' => 'setMyCountPreference',
-        'my_last_read' => 'setMyLastRead',
-        'my_member_state' => 'setMyMemberState',
-        'my_muted_state' => 'setMyMutedState',
-        'my_push_trigger_option' => 'setMyPushTriggerOption',
+        'metadata' => 'setMetadata',
         'my_role' => 'setMyRole',
         'name' => 'setName',
-        'operators' => 'setOperators',
+        'push_trigger_option' => 'setPushTriggerOption',
+        'read_receipt' => 'setReadReceipt',
         'sms_fallback' => 'setSmsFallback',
+        'ts_message_offset' => 'setTsMessageOffset',
         'unread_mention_count' => 'setUnreadMentionCount',
         'unread_message_count' => 'setUnreadMessageCount',
-        'channel' => 'setChannel'
+        'user_last_read' => 'setUserLastRead'
     ];
 
     /**
@@ -292,49 +296,50 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'channel_url' => 'getChannelUrl',
+        'count_preference' => 'getCountPreference',
         'cover_url' => 'getCoverUrl',
         'created_at' => 'getCreatedAt',
         'created_by' => 'getCreatedBy',
-        'creator' => 'getCreator',
         'custom_type' => 'getCustomType',
         'data' => 'getData',
+        'delivery_receipt' => 'getDeliveryReceipt',
         'disappearing_message' => 'getDisappearingMessage',
         'freeze' => 'getFreeze',
-        'ignore_profanity_filter' => 'getIgnoreProfanityFilter',
+        'has_ai_bot' => 'getHasAiBot',
+        'has_bot' => 'getHasBot',
         'hidden_state' => 'getHiddenState',
+        'ignore_profanity_filter' => 'getIgnoreProfanityFilter',
         'invited_at' => 'getInvitedAt',
         'inviter' => 'getInviter',
         'is_access_code_required' => 'getIsAccessCodeRequired',
         'is_broadcast' => 'getIsBroadcast',
-        'is_created' => 'getIsCreated',
         'is_discoverable' => 'getIsDiscoverable',
         'is_distinct' => 'getIsDistinct',
         'is_ephemeral' => 'getIsEphemeral',
-        'is_frozen' => 'getIsFrozen',
+        'is_exclusive' => 'getIsExclusive',
         'is_hidden' => 'getIsHidden',
+        'is_muted' => 'getIsMuted',
         'is_public' => 'getIsPublic',
         'is_push_enabled' => 'getIsPushEnabled',
         'is_super' => 'getIsSuper',
-        'joined_at' => 'getJoinedAt',
         'joined_member_count' => 'getJoinedMemberCount',
+        'joined_ts' => 'getJoinedTs',
         'last_message' => 'getLastMessage',
         'max_length_message' => 'getMaxLengthMessage',
         'member_count' => 'getMemberCount',
+        'member_state' => 'getMemberState',
         'members' => 'getMembers',
-        'message_offset_timestamp' => 'getMessageOffsetTimestamp',
         'message_survival_seconds' => 'getMessageSurvivalSeconds',
-        'my_count_preference' => 'getMyCountPreference',
-        'my_last_read' => 'getMyLastRead',
-        'my_member_state' => 'getMyMemberState',
-        'my_muted_state' => 'getMyMutedState',
-        'my_push_trigger_option' => 'getMyPushTriggerOption',
+        'metadata' => 'getMetadata',
         'my_role' => 'getMyRole',
         'name' => 'getName',
-        'operators' => 'getOperators',
+        'push_trigger_option' => 'getPushTriggerOption',
+        'read_receipt' => 'getReadReceipt',
         'sms_fallback' => 'getSmsFallback',
+        'ts_message_offset' => 'getTsMessageOffset',
         'unread_mention_count' => 'getUnreadMentionCount',
         'unread_message_count' => 'getUnreadMessageCount',
-        'channel' => 'getChannel'
+        'user_last_read' => 'getUserLastRead'
     ];
 
     /**
@@ -378,21 +383,34 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const COUNT_PREFERENCE_FALSE = 'false';
+    public const COUNT_PREFERENCE_ALL = 'all';
+    public const COUNT_PREFERENCE_UNREAD_MESSAGE_COUNT_ONLY = 'unread_message_count_only';
+    public const COUNT_PREFERENCE_UNREAD_MENTIONED_COUNT_ONLY = 'unread_mentioned_count_only';
     public const HIDDEN_STATE_HIDDEN_ALLOW_AUTO_UNHIDE = 'hidden_allow_auto_unhide';
     public const HIDDEN_STATE_HIDDEN_PREVENT_AUTO_UNHIDE = 'hidden_prevent_auto_unhide';
     public const HIDDEN_STATE_UNHIDDEN = 'unhidden';
-    public const MY_MEMBER_STATE_INVITED = 'invited';
-    public const MY_MEMBER_STATE_JOINED = 'joined';
-    public const MY_MEMBER_STATE_NONE = 'none';
-    public const MY_MUTED_STATE_MUTED = 'muted';
-    public const MY_MUTED_STATE_UNMUTED = 'unmuted';
-    public const MY_PUSH_TRIGGER_OPTION_ALL = 'all';
-    public const MY_PUSH_TRIGGER_OPTION__DEFAULT = 'default';
-    public const MY_PUSH_TRIGGER_OPTION_MENTION_ONLY = 'mention_only';
-    public const MY_PUSH_TRIGGER_OPTION_FALSE = 'false';
+    public const MEMBER_STATE_INVITED = 'invited';
+    public const MEMBER_STATE_JOINED = 'joined';
+    public const MEMBER_STATE_NONE = 'none';
     public const MY_ROLE_EMPTY = '';
     public const MY_ROLE_NONE = 'none';
     public const MY_ROLE_OPERATOR = 'operator';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCountPreferenceAllowableValues()
+    {
+        return [
+            self::COUNT_PREFERENCE_FALSE,
+            self::COUNT_PREFERENCE_ALL,
+            self::COUNT_PREFERENCE_UNREAD_MESSAGE_COUNT_ONLY,
+            self::COUNT_PREFERENCE_UNREAD_MENTIONED_COUNT_ONLY,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -413,40 +431,12 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @return string[]
      */
-    public function getMyMemberStateAllowableValues()
+    public function getMemberStateAllowableValues()
     {
         return [
-            self::MY_MEMBER_STATE_INVITED,
-            self::MY_MEMBER_STATE_JOINED,
-            self::MY_MEMBER_STATE_NONE,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMyMutedStateAllowableValues()
-    {
-        return [
-            self::MY_MUTED_STATE_MUTED,
-            self::MY_MUTED_STATE_UNMUTED,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMyPushTriggerOptionAllowableValues()
-    {
-        return [
-            self::MY_PUSH_TRIGGER_OPTION_ALL,
-            self::MY_PUSH_TRIGGER_OPTION__DEFAULT,
-            self::MY_PUSH_TRIGGER_OPTION_MENTION_ONLY,
-            self::MY_PUSH_TRIGGER_OPTION_FALSE,
+            self::MEMBER_STATE_INVITED,
+            self::MEMBER_STATE_JOINED,
+            self::MEMBER_STATE_NONE,
         ];
     }
 
@@ -480,49 +470,50 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(array $data = null)
     {
         $this->container['channel_url'] = $data['channel_url'] ?? null;
+        $this->container['count_preference'] = $data['count_preference'] ?? null;
         $this->container['cover_url'] = $data['cover_url'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
         $this->container['created_by'] = $data['created_by'] ?? null;
-        $this->container['creator'] = $data['creator'] ?? null;
         $this->container['custom_type'] = $data['custom_type'] ?? null;
         $this->container['data'] = $data['data'] ?? null;
+        $this->container['delivery_receipt'] = $data['delivery_receipt'] ?? null;
         $this->container['disappearing_message'] = $data['disappearing_message'] ?? null;
         $this->container['freeze'] = $data['freeze'] ?? null;
-        $this->container['ignore_profanity_filter'] = $data['ignore_profanity_filter'] ?? null;
+        $this->container['has_ai_bot'] = $data['has_ai_bot'] ?? null;
+        $this->container['has_bot'] = $data['has_bot'] ?? null;
         $this->container['hidden_state'] = $data['hidden_state'] ?? null;
+        $this->container['ignore_profanity_filter'] = $data['ignore_profanity_filter'] ?? null;
         $this->container['invited_at'] = $data['invited_at'] ?? null;
         $this->container['inviter'] = $data['inviter'] ?? null;
         $this->container['is_access_code_required'] = $data['is_access_code_required'] ?? null;
         $this->container['is_broadcast'] = $data['is_broadcast'] ?? null;
-        $this->container['is_created'] = $data['is_created'] ?? null;
         $this->container['is_discoverable'] = $data['is_discoverable'] ?? null;
         $this->container['is_distinct'] = $data['is_distinct'] ?? null;
         $this->container['is_ephemeral'] = $data['is_ephemeral'] ?? null;
-        $this->container['is_frozen'] = $data['is_frozen'] ?? null;
+        $this->container['is_exclusive'] = $data['is_exclusive'] ?? null;
         $this->container['is_hidden'] = $data['is_hidden'] ?? null;
+        $this->container['is_muted'] = $data['is_muted'] ?? null;
         $this->container['is_public'] = $data['is_public'] ?? null;
         $this->container['is_push_enabled'] = $data['is_push_enabled'] ?? null;
         $this->container['is_super'] = $data['is_super'] ?? null;
-        $this->container['joined_at'] = $data['joined_at'] ?? null;
         $this->container['joined_member_count'] = $data['joined_member_count'] ?? null;
+        $this->container['joined_ts'] = $data['joined_ts'] ?? null;
         $this->container['last_message'] = $data['last_message'] ?? null;
         $this->container['max_length_message'] = $data['max_length_message'] ?? null;
         $this->container['member_count'] = $data['member_count'] ?? null;
+        $this->container['member_state'] = $data['member_state'] ?? null;
         $this->container['members'] = $data['members'] ?? null;
-        $this->container['message_offset_timestamp'] = $data['message_offset_timestamp'] ?? null;
         $this->container['message_survival_seconds'] = $data['message_survival_seconds'] ?? null;
-        $this->container['my_count_preference'] = $data['my_count_preference'] ?? null;
-        $this->container['my_last_read'] = $data['my_last_read'] ?? null;
-        $this->container['my_member_state'] = $data['my_member_state'] ?? null;
-        $this->container['my_muted_state'] = $data['my_muted_state'] ?? null;
-        $this->container['my_push_trigger_option'] = $data['my_push_trigger_option'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
         $this->container['my_role'] = $data['my_role'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
-        $this->container['operators'] = $data['operators'] ?? null;
+        $this->container['push_trigger_option'] = $data['push_trigger_option'] ?? null;
+        $this->container['read_receipt'] = $data['read_receipt'] ?? null;
         $this->container['sms_fallback'] = $data['sms_fallback'] ?? null;
+        $this->container['ts_message_offset'] = $data['ts_message_offset'] ?? null;
         $this->container['unread_mention_count'] = $data['unread_mention_count'] ?? null;
         $this->container['unread_message_count'] = $data['unread_message_count'] ?? null;
-        $this->container['channel'] = $data['channel'] ?? null;
+        $this->container['user_last_read'] = $data['user_last_read'] ?? null;
     }
 
     /**
@@ -534,6 +525,18 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['channel_url'] === null) {
+            $invalidProperties[] = "'channel_url' can't be null";
+        }
+        $allowedValues = $this->getCountPreferenceAllowableValues();
+        if (!is_null($this->container['count_preference']) && !in_array($this->container['count_preference'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'count_preference', must be one of '%s'",
+                $this->container['count_preference'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         $allowedValues = $this->getHiddenStateAllowableValues();
         if (!is_null($this->container['hidden_state']) && !in_array($this->container['hidden_state'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -543,29 +546,11 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
             );
         }
 
-        $allowedValues = $this->getMyMemberStateAllowableValues();
-        if (!is_null($this->container['my_member_state']) && !in_array($this->container['my_member_state'], $allowedValues, true)) {
+        $allowedValues = $this->getMemberStateAllowableValues();
+        if (!is_null($this->container['member_state']) && !in_array($this->container['member_state'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'my_member_state', must be one of '%s'",
-                $this->container['my_member_state'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getMyMutedStateAllowableValues();
-        if (!is_null($this->container['my_muted_state']) && !in_array($this->container['my_muted_state'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'my_muted_state', must be one of '%s'",
-                $this->container['my_muted_state'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getMyPushTriggerOptionAllowableValues();
-        if (!is_null($this->container['my_push_trigger_option']) && !in_array($this->container['my_push_trigger_option'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'my_push_trigger_option', must be one of '%s'",
-                $this->container['my_push_trigger_option'],
+                "invalid value '%s' for 'member_state', must be one of '%s'",
+                $this->container['member_state'],
                 implode("', '", $allowedValues)
             );
         }
@@ -597,7 +582,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets channel_url
      *
-     * @return string|null
+     * @return string
      */
     public function getChannelUrl()
     {
@@ -607,13 +592,47 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets channel_url
      *
-     * @param string|null $channel_url channel_url
+     * @param string $channel_url channel_url
      *
      * @return self
      */
     public function setChannelUrl($channel_url)
     {
         $this->container['channel_url'] = $channel_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets count_preference
+     *
+     * @return string|null
+     */
+    public function getCountPreference()
+    {
+        return $this->container['count_preference'];
+    }
+
+    /**
+     * Sets count_preference
+     *
+     * @param string|null $count_preference count_preference
+     *
+     * @return self
+     */
+    public function setCountPreference($count_preference)
+    {
+        $allowedValues = $this->getCountPreferenceAllowableValues();
+        if (!is_null($count_preference) && !in_array($count_preference, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'count_preference', must be one of '%s'",
+                    $count_preference,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['count_preference'] = $count_preference;
 
         return $this;
     }
@@ -645,7 +664,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets created_at
      *
-     * @return float|null
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -655,7 +674,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets created_at
      *
-     * @param float|null $created_at created_at
+     * @param int|null $created_at created_at
      *
      * @return self
      */
@@ -669,7 +688,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets created_by
      *
-     * @return \Sendbird\Model\SendBirdGroupChannelCreatedBy|null
+     * @return \Sendbird\Model\SendbirdBasicUserInfo|null
      */
     public function getCreatedBy()
     {
@@ -679,37 +698,13 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets created_by
      *
-     * @param \Sendbird\Model\SendBirdGroupChannelCreatedBy|null $created_by created_by
+     * @param \Sendbird\Model\SendbirdBasicUserInfo|null $created_by created_by
      *
      * @return self
      */
     public function setCreatedBy($created_by)
     {
         $this->container['created_by'] = $created_by;
-
-        return $this;
-    }
-
-    /**
-     * Gets creator
-     *
-     * @return \Sendbird\Model\SendBirdUser|null
-     */
-    public function getCreator()
-    {
-        return $this->container['creator'];
-    }
-
-    /**
-     * Sets creator
-     *
-     * @param \Sendbird\Model\SendBirdUser|null $creator creator
-     *
-     * @return self
-     */
-    public function setCreator($creator)
-    {
-        $this->container['creator'] = $creator;
 
         return $this;
     }
@@ -763,9 +758,33 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets delivery_receipt
+     *
+     * @return object|null
+     */
+    public function getDeliveryReceipt()
+    {
+        return $this->container['delivery_receipt'];
+    }
+
+    /**
+     * Sets delivery_receipt
+     *
+     * @param object|null $delivery_receipt delivery_receipt
+     *
+     * @return self
+     */
+    public function setDeliveryReceipt($delivery_receipt)
+    {
+        $this->container['delivery_receipt'] = $delivery_receipt;
+
+        return $this;
+    }
+
+    /**
      * Gets disappearing_message
      *
-     * @return \Sendbird\Model\SendBirdGroupChannelDisappearingMessage|null
+     * @return \Sendbird\Model\SendbirdDisappearingMessage|null
      */
     public function getDisappearingMessage()
     {
@@ -775,7 +794,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets disappearing_message
      *
-     * @param \Sendbird\Model\SendBirdGroupChannelDisappearingMessage|null $disappearing_message disappearing_message
+     * @param \Sendbird\Model\SendbirdDisappearingMessage|null $disappearing_message disappearing_message
      *
      * @return self
      */
@@ -811,25 +830,49 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets ignore_profanity_filter
+     * Gets has_ai_bot
      *
      * @return bool|null
      */
-    public function getIgnoreProfanityFilter()
+    public function getHasAiBot()
     {
-        return $this->container['ignore_profanity_filter'];
+        return $this->container['has_ai_bot'];
     }
 
     /**
-     * Sets ignore_profanity_filter
+     * Sets has_ai_bot
      *
-     * @param bool|null $ignore_profanity_filter ignore_profanity_filter
+     * @param bool|null $has_ai_bot has_ai_bot
      *
      * @return self
      */
-    public function setIgnoreProfanityFilter($ignore_profanity_filter)
+    public function setHasAiBot($has_ai_bot)
     {
-        $this->container['ignore_profanity_filter'] = $ignore_profanity_filter;
+        $this->container['has_ai_bot'] = $has_ai_bot;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_bot
+     *
+     * @return bool|null
+     */
+    public function getHasBot()
+    {
+        return $this->container['has_bot'];
+    }
+
+    /**
+     * Sets has_bot
+     *
+     * @param bool|null $has_bot has_bot
+     *
+     * @return self
+     */
+    public function setHasBot($has_bot)
+    {
+        $this->container['has_bot'] = $has_bot;
 
         return $this;
     }
@@ -869,9 +912,33 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets ignore_profanity_filter
+     *
+     * @return bool|null
+     */
+    public function getIgnoreProfanityFilter()
+    {
+        return $this->container['ignore_profanity_filter'];
+    }
+
+    /**
+     * Sets ignore_profanity_filter
+     *
+     * @param bool|null $ignore_profanity_filter ignore_profanity_filter
+     *
+     * @return self
+     */
+    public function setIgnoreProfanityFilter($ignore_profanity_filter)
+    {
+        $this->container['ignore_profanity_filter'] = $ignore_profanity_filter;
+
+        return $this;
+    }
+
+    /**
      * Gets invited_at
      *
-     * @return float|null
+     * @return int|null
      */
     public function getInvitedAt()
     {
@@ -881,7 +948,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets invited_at
      *
-     * @param float|null $invited_at invited_at
+     * @param int|null $invited_at invited_at
      *
      * @return self
      */
@@ -895,7 +962,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets inviter
      *
-     * @return \Sendbird\Model\SendBirdGroupChannelInviter|null
+     * @return \Sendbird\Model\SendbirdBasicUserInfo|null
      */
     public function getInviter()
     {
@@ -905,7 +972,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets inviter
      *
-     * @param \Sendbird\Model\SendBirdGroupChannelInviter|null $inviter inviter
+     * @param \Sendbird\Model\SendbirdBasicUserInfo|null $inviter inviter
      *
      * @return self
      */
@@ -960,30 +1027,6 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setIsBroadcast($is_broadcast)
     {
         $this->container['is_broadcast'] = $is_broadcast;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_created
-     *
-     * @return bool|null
-     */
-    public function getIsCreated()
-    {
-        return $this->container['is_created'];
-    }
-
-    /**
-     * Sets is_created
-     *
-     * @param bool|null $is_created is_created
-     *
-     * @return self
-     */
-    public function setIsCreated($is_created)
-    {
-        $this->container['is_created'] = $is_created;
 
         return $this;
     }
@@ -1061,25 +1104,25 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets is_frozen
+     * Gets is_exclusive
      *
      * @return bool|null
      */
-    public function getIsFrozen()
+    public function getIsExclusive()
     {
-        return $this->container['is_frozen'];
+        return $this->container['is_exclusive'];
     }
 
     /**
-     * Sets is_frozen
+     * Sets is_exclusive
      *
-     * @param bool|null $is_frozen is_frozen
+     * @param bool|null $is_exclusive is_exclusive
      *
      * @return self
      */
-    public function setIsFrozen($is_frozen)
+    public function setIsExclusive($is_exclusive)
     {
-        $this->container['is_frozen'] = $is_frozen;
+        $this->container['is_exclusive'] = $is_exclusive;
 
         return $this;
     }
@@ -1104,6 +1147,30 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setIsHidden($is_hidden)
     {
         $this->container['is_hidden'] = $is_hidden;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_muted
+     *
+     * @return bool|null
+     */
+    public function getIsMuted()
+    {
+        return $this->container['is_muted'];
+    }
+
+    /**
+     * Sets is_muted
+     *
+     * @param bool|null $is_muted is_muted
+     *
+     * @return self
+     */
+    public function setIsMuted($is_muted)
+    {
+        $this->container['is_muted'] = $is_muted;
 
         return $this;
     }
@@ -1181,33 +1248,9 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets joined_at
-     *
-     * @return float|null
-     */
-    public function getJoinedAt()
-    {
-        return $this->container['joined_at'];
-    }
-
-    /**
-     * Sets joined_at
-     *
-     * @param float|null $joined_at joined_at
-     *
-     * @return self
-     */
-    public function setJoinedAt($joined_at)
-    {
-        $this->container['joined_at'] = $joined_at;
-
-        return $this;
-    }
-
-    /**
      * Gets joined_member_count
      *
-     * @return float|null
+     * @return int|null
      */
     public function getJoinedMemberCount()
     {
@@ -1217,7 +1260,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets joined_member_count
      *
-     * @param float|null $joined_member_count joined_member_count
+     * @param int|null $joined_member_count joined_member_count
      *
      * @return self
      */
@@ -1229,9 +1272,33 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets joined_ts
+     *
+     * @return int|null
+     */
+    public function getJoinedTs()
+    {
+        return $this->container['joined_ts'];
+    }
+
+    /**
+     * Sets joined_ts
+     *
+     * @param int|null $joined_ts joined_ts
+     *
+     * @return self
+     */
+    public function setJoinedTs($joined_ts)
+    {
+        $this->container['joined_ts'] = $joined_ts;
+
+        return $this;
+    }
+
+    /**
      * Gets last_message
      *
-     * @return \Sendbird\Model\SendBirdGroupChannelLastMessage|null
+     * @return \Sendbird\Model\SendbirdMessageResponse|null
      */
     public function getLastMessage()
     {
@@ -1241,7 +1308,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets last_message
      *
-     * @param \Sendbird\Model\SendBirdGroupChannelLastMessage|null $last_message last_message
+     * @param \Sendbird\Model\SendbirdMessageResponse|null $last_message last_message
      *
      * @return self
      */
@@ -1255,7 +1322,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets max_length_message
      *
-     * @return float|null
+     * @return int|null
      */
     public function getMaxLengthMessage()
     {
@@ -1265,7 +1332,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets max_length_message
      *
-     * @param float|null $max_length_message max_length_message
+     * @param int|null $max_length_message max_length_message
      *
      * @return self
      */
@@ -1279,7 +1346,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets member_count
      *
-     * @return float|null
+     * @return int|null
      */
     public function getMemberCount()
     {
@@ -1289,7 +1356,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets member_count
      *
-     * @param float|null $member_count member_count
+     * @param int|null $member_count member_count
      *
      * @return self
      */
@@ -1301,9 +1368,43 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets member_state
+     *
+     * @return string|null
+     */
+    public function getMemberState()
+    {
+        return $this->container['member_state'];
+    }
+
+    /**
+     * Sets member_state
+     *
+     * @param string|null $member_state member_state
+     *
+     * @return self
+     */
+    public function setMemberState($member_state)
+    {
+        $allowedValues = $this->getMemberStateAllowableValues();
+        if (!is_null($member_state) && !in_array($member_state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'member_state', must be one of '%s'",
+                    $member_state,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['member_state'] = $member_state;
+
+        return $this;
+    }
+
+    /**
      * Gets members
      *
-     * @return \Sendbird\Model\SendBirdMember[]|null
+     * @return \Sendbird\Model\SendbirdMember[]|null
      */
     public function getMembers()
     {
@@ -1313,7 +1414,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets members
      *
-     * @param \Sendbird\Model\SendBirdMember[]|null $members members
+     * @param \Sendbird\Model\SendbirdMember[]|null $members members
      *
      * @return self
      */
@@ -1325,33 +1426,9 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets message_offset_timestamp
-     *
-     * @return float|null
-     */
-    public function getMessageOffsetTimestamp()
-    {
-        return $this->container['message_offset_timestamp'];
-    }
-
-    /**
-     * Sets message_offset_timestamp
-     *
-     * @param float|null $message_offset_timestamp message_offset_timestamp
-     *
-     * @return self
-     */
-    public function setMessageOffsetTimestamp($message_offset_timestamp)
-    {
-        $this->container['message_offset_timestamp'] = $message_offset_timestamp;
-
-        return $this;
-    }
-
-    /**
      * Gets message_survival_seconds
      *
-     * @return float|null
+     * @return int|null
      */
     public function getMessageSurvivalSeconds()
     {
@@ -1361,7 +1438,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets message_survival_seconds
      *
-     * @param float|null $message_survival_seconds message_survival_seconds
+     * @param int|null $message_survival_seconds message_survival_seconds
      *
      * @return self
      */
@@ -1373,151 +1450,25 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets my_count_preference
+     * Gets metadata
      *
-     * @return string|null
+     * @return object|null
      */
-    public function getMyCountPreference()
+    public function getMetadata()
     {
-        return $this->container['my_count_preference'];
+        return $this->container['metadata'];
     }
 
     /**
-     * Sets my_count_preference
+     * Sets metadata
      *
-     * @param string|null $my_count_preference my_count_preference
+     * @param object|null $metadata metadata
      *
      * @return self
      */
-    public function setMyCountPreference($my_count_preference)
+    public function setMetadata($metadata)
     {
-        $this->container['my_count_preference'] = $my_count_preference;
-
-        return $this;
-    }
-
-    /**
-     * Gets my_last_read
-     *
-     * @return float|null
-     */
-    public function getMyLastRead()
-    {
-        return $this->container['my_last_read'];
-    }
-
-    /**
-     * Sets my_last_read
-     *
-     * @param float|null $my_last_read my_last_read
-     *
-     * @return self
-     */
-    public function setMyLastRead($my_last_read)
-    {
-        $this->container['my_last_read'] = $my_last_read;
-
-        return $this;
-    }
-
-    /**
-     * Gets my_member_state
-     *
-     * @return string|null
-     */
-    public function getMyMemberState()
-    {
-        return $this->container['my_member_state'];
-    }
-
-    /**
-     * Sets my_member_state
-     *
-     * @param string|null $my_member_state my_member_state
-     *
-     * @return self
-     */
-    public function setMyMemberState($my_member_state)
-    {
-        $allowedValues = $this->getMyMemberStateAllowableValues();
-        if (!is_null($my_member_state) && !in_array($my_member_state, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'my_member_state', must be one of '%s'",
-                    $my_member_state,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['my_member_state'] = $my_member_state;
-
-        return $this;
-    }
-
-    /**
-     * Gets my_muted_state
-     *
-     * @return string|null
-     */
-    public function getMyMutedState()
-    {
-        return $this->container['my_muted_state'];
-    }
-
-    /**
-     * Sets my_muted_state
-     *
-     * @param string|null $my_muted_state my_muted_state
-     *
-     * @return self
-     */
-    public function setMyMutedState($my_muted_state)
-    {
-        $allowedValues = $this->getMyMutedStateAllowableValues();
-        if (!is_null($my_muted_state) && !in_array($my_muted_state, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'my_muted_state', must be one of '%s'",
-                    $my_muted_state,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['my_muted_state'] = $my_muted_state;
-
-        return $this;
-    }
-
-    /**
-     * Gets my_push_trigger_option
-     *
-     * @return string|null
-     */
-    public function getMyPushTriggerOption()
-    {
-        return $this->container['my_push_trigger_option'];
-    }
-
-    /**
-     * Sets my_push_trigger_option
-     *
-     * @param string|null $my_push_trigger_option my_push_trigger_option
-     *
-     * @return self
-     */
-    public function setMyPushTriggerOption($my_push_trigger_option)
-    {
-        $allowedValues = $this->getMyPushTriggerOptionAllowableValues();
-        if (!is_null($my_push_trigger_option) && !in_array($my_push_trigger_option, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'my_push_trigger_option', must be one of '%s'",
-                    $my_push_trigger_option,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['my_push_trigger_option'] = $my_push_trigger_option;
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
@@ -1581,25 +1532,49 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets operators
+     * Gets push_trigger_option
      *
-     * @return object[]|null
+     * @return \Sendbird\Model\SendbirdPushTriggerOption|null
      */
-    public function getOperators()
+    public function getPushTriggerOption()
     {
-        return $this->container['operators'];
+        return $this->container['push_trigger_option'];
     }
 
     /**
-     * Sets operators
+     * Sets push_trigger_option
      *
-     * @param object[]|null $operators operators
+     * @param \Sendbird\Model\SendbirdPushTriggerOption|null $push_trigger_option push_trigger_option
      *
      * @return self
      */
-    public function setOperators($operators)
+    public function setPushTriggerOption($push_trigger_option)
     {
-        $this->container['operators'] = $operators;
+        $this->container['push_trigger_option'] = $push_trigger_option;
+
+        return $this;
+    }
+
+    /**
+     * Gets read_receipt
+     *
+     * @return array<string,int>|null
+     */
+    public function getReadReceipt()
+    {
+        return $this->container['read_receipt'];
+    }
+
+    /**
+     * Sets read_receipt
+     *
+     * @param array<string,int>|null $read_receipt read_receipt
+     *
+     * @return self
+     */
+    public function setReadReceipt($read_receipt)
+    {
+        $this->container['read_receipt'] = $read_receipt;
 
         return $this;
     }
@@ -1607,7 +1582,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets sms_fallback
      *
-     * @return \Sendbird\Model\SendBirdGroupChannelSmsFallback|null
+     * @return \Sendbird\Model\SendbirdSmsFallback|null
      */
     public function getSmsFallback()
     {
@@ -1617,7 +1592,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets sms_fallback
      *
-     * @param \Sendbird\Model\SendBirdGroupChannelSmsFallback|null $sms_fallback sms_fallback
+     * @param \Sendbird\Model\SendbirdSmsFallback|null $sms_fallback sms_fallback
      *
      * @return self
      */
@@ -1629,9 +1604,33 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
+     * Gets ts_message_offset
+     *
+     * @return int|null
+     */
+    public function getTsMessageOffset()
+    {
+        return $this->container['ts_message_offset'];
+    }
+
+    /**
+     * Sets ts_message_offset
+     *
+     * @param int|null $ts_message_offset ts_message_offset
+     *
+     * @return self
+     */
+    public function setTsMessageOffset($ts_message_offset)
+    {
+        $this->container['ts_message_offset'] = $ts_message_offset;
+
+        return $this;
+    }
+
+    /**
      * Gets unread_mention_count
      *
-     * @return float|null
+     * @return int|null
      */
     public function getUnreadMentionCount()
     {
@@ -1641,7 +1640,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets unread_mention_count
      *
-     * @param float|null $unread_mention_count unread_mention_count
+     * @param int|null $unread_mention_count unread_mention_count
      *
      * @return self
      */
@@ -1655,7 +1654,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Gets unread_message_count
      *
-     * @return float|null
+     * @return int|null
      */
     public function getUnreadMessageCount()
     {
@@ -1665,7 +1664,7 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets unread_message_count
      *
-     * @param float|null $unread_message_count unread_message_count
+     * @param int|null $unread_message_count unread_message_count
      *
      * @return self
      */
@@ -1677,25 +1676,25 @@ class SendBirdGroupChannel implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets channel
+     * Gets user_last_read
      *
-     * @return \Sendbird\Model\SendBirdGroupChannelChannel|null
+     * @return int|null
      */
-    public function getChannel()
+    public function getUserLastRead()
     {
-        return $this->container['channel'];
+        return $this->container['user_last_read'];
     }
 
     /**
-     * Sets channel
+     * Sets user_last_read
      *
-     * @param \Sendbird\Model\SendBirdGroupChannelChannel|null $channel channel
+     * @param int|null $user_last_read user_last_read
      *
      * @return self
      */
-    public function setChannel($channel)
+    public function setUserLastRead($user_last_read)
     {
-        $this->container['channel'] = $channel;
+        $this->container['user_last_read'] = $user_last_read;
 
         return $this;
     }

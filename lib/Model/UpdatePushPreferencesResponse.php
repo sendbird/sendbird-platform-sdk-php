@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -61,19 +61,19 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPITypes = [
         'block_push_from_bots' => 'bool',
-        'enable_push_for_replies' => 'bool',
-        'push_blocked_bot_ids' => 'string[]',
-        'push_trigger_option' => 'string',
         'do_not_disturb' => 'bool',
-        'start_hour' => 'float',
-        'start_min' => 'float',
-        'end_hour' => 'float',
-        'end_min' => 'float',
+        'enable_push_for_replies' => 'bool',
+        'end_hour' => 'int',
+        'end_min' => 'int',
+        'push_blocked_bot_ids' => 'string[]',
+        'push_sound' => 'string',
+        'push_trigger_option' => '\Sendbird\Model\SendbirdPushTriggerOption',
         'snooze_enabled' => 'bool',
-        'snooze_start_ts' => 'float',
-        'snooze_end_ts' => 'float',
-        'timezone' => 'string',
-        'push_sound' => 'string'
+        'snooze_end_ts' => 'int',
+        'snooze_start_ts' => 'int',
+        'start_hour' => 'int',
+        'start_min' => 'int',
+        'timezone' => 'string'
     ];
 
     /**
@@ -85,19 +85,19 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
       */
     protected static $openAPIFormats = [
         'block_push_from_bots' => null,
-        'enable_push_for_replies' => null,
-        'push_blocked_bot_ids' => null,
-        'push_trigger_option' => null,
         'do_not_disturb' => null,
-        'start_hour' => null,
-        'start_min' => null,
+        'enable_push_for_replies' => null,
         'end_hour' => null,
         'end_min' => null,
+        'push_blocked_bot_ids' => null,
+        'push_sound' => null,
+        'push_trigger_option' => null,
         'snooze_enabled' => null,
-        'snooze_start_ts' => null,
-        'snooze_end_ts' => null,
-        'timezone' => null,
-        'push_sound' => null
+        'snooze_end_ts' => 'int64',
+        'snooze_start_ts' => 'int64',
+        'start_hour' => null,
+        'start_min' => null,
+        'timezone' => null
     ];
 
     /**
@@ -128,19 +128,19 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $attributeMap = [
         'block_push_from_bots' => 'block_push_from_bots',
-        'enable_push_for_replies' => 'enable_push_for_replies',
-        'push_blocked_bot_ids' => 'push_blocked_bot_ids',
-        'push_trigger_option' => 'push_trigger_option',
         'do_not_disturb' => 'do_not_disturb',
-        'start_hour' => 'start_hour',
-        'start_min' => 'start_min',
+        'enable_push_for_replies' => 'enable_push_for_replies',
         'end_hour' => 'end_hour',
         'end_min' => 'end_min',
+        'push_blocked_bot_ids' => 'push_blocked_bot_ids',
+        'push_sound' => 'push_sound',
+        'push_trigger_option' => 'push_trigger_option',
         'snooze_enabled' => 'snooze_enabled',
-        'snooze_start_ts' => 'snooze_start_ts',
         'snooze_end_ts' => 'snooze_end_ts',
-        'timezone' => 'timezone',
-        'push_sound' => 'push_sound'
+        'snooze_start_ts' => 'snooze_start_ts',
+        'start_hour' => 'start_hour',
+        'start_min' => 'start_min',
+        'timezone' => 'timezone'
     ];
 
     /**
@@ -150,19 +150,19 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $setters = [
         'block_push_from_bots' => 'setBlockPushFromBots',
-        'enable_push_for_replies' => 'setEnablePushForReplies',
-        'push_blocked_bot_ids' => 'setPushBlockedBotIds',
-        'push_trigger_option' => 'setPushTriggerOption',
         'do_not_disturb' => 'setDoNotDisturb',
-        'start_hour' => 'setStartHour',
-        'start_min' => 'setStartMin',
+        'enable_push_for_replies' => 'setEnablePushForReplies',
         'end_hour' => 'setEndHour',
         'end_min' => 'setEndMin',
+        'push_blocked_bot_ids' => 'setPushBlockedBotIds',
+        'push_sound' => 'setPushSound',
+        'push_trigger_option' => 'setPushTriggerOption',
         'snooze_enabled' => 'setSnoozeEnabled',
-        'snooze_start_ts' => 'setSnoozeStartTs',
         'snooze_end_ts' => 'setSnoozeEndTs',
-        'timezone' => 'setTimezone',
-        'push_sound' => 'setPushSound'
+        'snooze_start_ts' => 'setSnoozeStartTs',
+        'start_hour' => 'setStartHour',
+        'start_min' => 'setStartMin',
+        'timezone' => 'setTimezone'
     ];
 
     /**
@@ -172,19 +172,19 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
      */
     protected static $getters = [
         'block_push_from_bots' => 'getBlockPushFromBots',
-        'enable_push_for_replies' => 'getEnablePushForReplies',
-        'push_blocked_bot_ids' => 'getPushBlockedBotIds',
-        'push_trigger_option' => 'getPushTriggerOption',
         'do_not_disturb' => 'getDoNotDisturb',
-        'start_hour' => 'getStartHour',
-        'start_min' => 'getStartMin',
+        'enable_push_for_replies' => 'getEnablePushForReplies',
         'end_hour' => 'getEndHour',
         'end_min' => 'getEndMin',
+        'push_blocked_bot_ids' => 'getPushBlockedBotIds',
+        'push_sound' => 'getPushSound',
+        'push_trigger_option' => 'getPushTriggerOption',
         'snooze_enabled' => 'getSnoozeEnabled',
-        'snooze_start_ts' => 'getSnoozeStartTs',
         'snooze_end_ts' => 'getSnoozeEndTs',
-        'timezone' => 'getTimezone',
-        'push_sound' => 'getPushSound'
+        'snooze_start_ts' => 'getSnoozeStartTs',
+        'start_hour' => 'getStartHour',
+        'start_min' => 'getStartMin',
+        'timezone' => 'getTimezone'
     ];
 
     /**
@@ -245,19 +245,19 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
     public function __construct(array $data = null)
     {
         $this->container['block_push_from_bots'] = $data['block_push_from_bots'] ?? null;
-        $this->container['enable_push_for_replies'] = $data['enable_push_for_replies'] ?? null;
-        $this->container['push_blocked_bot_ids'] = $data['push_blocked_bot_ids'] ?? null;
-        $this->container['push_trigger_option'] = $data['push_trigger_option'] ?? null;
         $this->container['do_not_disturb'] = $data['do_not_disturb'] ?? null;
-        $this->container['start_hour'] = $data['start_hour'] ?? null;
-        $this->container['start_min'] = $data['start_min'] ?? null;
+        $this->container['enable_push_for_replies'] = $data['enable_push_for_replies'] ?? null;
         $this->container['end_hour'] = $data['end_hour'] ?? null;
         $this->container['end_min'] = $data['end_min'] ?? null;
-        $this->container['snooze_enabled'] = $data['snooze_enabled'] ?? null;
-        $this->container['snooze_start_ts'] = $data['snooze_start_ts'] ?? null;
-        $this->container['snooze_end_ts'] = $data['snooze_end_ts'] ?? null;
-        $this->container['timezone'] = $data['timezone'] ?? null;
+        $this->container['push_blocked_bot_ids'] = $data['push_blocked_bot_ids'] ?? null;
         $this->container['push_sound'] = $data['push_sound'] ?? null;
+        $this->container['push_trigger_option'] = $data['push_trigger_option'] ?? null;
+        $this->container['snooze_enabled'] = $data['snooze_enabled'] ?? null;
+        $this->container['snooze_end_ts'] = $data['snooze_end_ts'] ?? null;
+        $this->container['snooze_start_ts'] = $data['snooze_start_ts'] ?? null;
+        $this->container['start_hour'] = $data['start_hour'] ?? null;
+        $this->container['start_min'] = $data['start_min'] ?? null;
+        $this->container['timezone'] = $data['timezone'] ?? null;
     }
 
     /**
@@ -309,6 +309,30 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
+     * Gets do_not_disturb
+     *
+     * @return bool|null
+     */
+    public function getDoNotDisturb()
+    {
+        return $this->container['do_not_disturb'];
+    }
+
+    /**
+     * Sets do_not_disturb
+     *
+     * @param bool|null $do_not_disturb do_not_disturb
+     *
+     * @return self
+     */
+    public function setDoNotDisturb($do_not_disturb)
+    {
+        $this->container['do_not_disturb'] = $do_not_disturb;
+
+        return $this;
+    }
+
+    /**
      * Gets enable_push_for_replies
      *
      * @return bool|null
@@ -328,6 +352,54 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
     public function setEnablePushForReplies($enable_push_for_replies)
     {
         $this->container['enable_push_for_replies'] = $enable_push_for_replies;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_hour
+     *
+     * @return int|null
+     */
+    public function getEndHour()
+    {
+        return $this->container['end_hour'];
+    }
+
+    /**
+     * Sets end_hour
+     *
+     * @param int|null $end_hour end_hour
+     *
+     * @return self
+     */
+    public function setEndHour($end_hour)
+    {
+        $this->container['end_hour'] = $end_hour;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_min
+     *
+     * @return int|null
+     */
+    public function getEndMin()
+    {
+        return $this->container['end_min'];
+    }
+
+    /**
+     * Sets end_min
+     *
+     * @param int|null $end_min end_min
+     *
+     * @return self
+     */
+    public function setEndMin($end_min)
+    {
+        $this->container['end_min'] = $end_min;
 
         return $this;
     }
@@ -357,9 +429,33 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Gets push_trigger_option
+     * Gets push_sound
      *
      * @return string|null
+     */
+    public function getPushSound()
+    {
+        return $this->container['push_sound'];
+    }
+
+    /**
+     * Sets push_sound
+     *
+     * @param string|null $push_sound push_sound
+     *
+     * @return self
+     */
+    public function setPushSound($push_sound)
+    {
+        $this->container['push_sound'] = $push_sound;
+
+        return $this;
+    }
+
+    /**
+     * Gets push_trigger_option
+     *
+     * @return \Sendbird\Model\SendbirdPushTriggerOption|null
      */
     public function getPushTriggerOption()
     {
@@ -369,133 +465,13 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets push_trigger_option
      *
-     * @param string|null $push_trigger_option push_trigger_option
+     * @param \Sendbird\Model\SendbirdPushTriggerOption|null $push_trigger_option push_trigger_option
      *
      * @return self
      */
     public function setPushTriggerOption($push_trigger_option)
     {
         $this->container['push_trigger_option'] = $push_trigger_option;
-
-        return $this;
-    }
-
-    /**
-     * Gets do_not_disturb
-     *
-     * @return bool|null
-     */
-    public function getDoNotDisturb()
-    {
-        return $this->container['do_not_disturb'];
-    }
-
-    /**
-     * Sets do_not_disturb
-     *
-     * @param bool|null $do_not_disturb do_not_disturb
-     *
-     * @return self
-     */
-    public function setDoNotDisturb($do_not_disturb)
-    {
-        $this->container['do_not_disturb'] = $do_not_disturb;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_hour
-     *
-     * @return float|null
-     */
-    public function getStartHour()
-    {
-        return $this->container['start_hour'];
-    }
-
-    /**
-     * Sets start_hour
-     *
-     * @param float|null $start_hour start_hour
-     *
-     * @return self
-     */
-    public function setStartHour($start_hour)
-    {
-        $this->container['start_hour'] = $start_hour;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_min
-     *
-     * @return float|null
-     */
-    public function getStartMin()
-    {
-        return $this->container['start_min'];
-    }
-
-    /**
-     * Sets start_min
-     *
-     * @param float|null $start_min start_min
-     *
-     * @return self
-     */
-    public function setStartMin($start_min)
-    {
-        $this->container['start_min'] = $start_min;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_hour
-     *
-     * @return float|null
-     */
-    public function getEndHour()
-    {
-        return $this->container['end_hour'];
-    }
-
-    /**
-     * Sets end_hour
-     *
-     * @param float|null $end_hour end_hour
-     *
-     * @return self
-     */
-    public function setEndHour($end_hour)
-    {
-        $this->container['end_hour'] = $end_hour;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_min
-     *
-     * @return float|null
-     */
-    public function getEndMin()
-    {
-        return $this->container['end_min'];
-    }
-
-    /**
-     * Sets end_min
-     *
-     * @param float|null $end_min end_min
-     *
-     * @return self
-     */
-    public function setEndMin($end_min)
-    {
-        $this->container['end_min'] = $end_min;
 
         return $this;
     }
@@ -525,9 +501,33 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
+     * Gets snooze_end_ts
+     *
+     * @return int|null
+     */
+    public function getSnoozeEndTs()
+    {
+        return $this->container['snooze_end_ts'];
+    }
+
+    /**
+     * Sets snooze_end_ts
+     *
+     * @param int|null $snooze_end_ts snooze_end_ts
+     *
+     * @return self
+     */
+    public function setSnoozeEndTs($snooze_end_ts)
+    {
+        $this->container['snooze_end_ts'] = $snooze_end_ts;
+
+        return $this;
+    }
+
+    /**
      * Gets snooze_start_ts
      *
-     * @return float|null
+     * @return int|null
      */
     public function getSnoozeStartTs()
     {
@@ -537,7 +537,7 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets snooze_start_ts
      *
-     * @param float|null $snooze_start_ts snooze_start_ts
+     * @param int|null $snooze_start_ts snooze_start_ts
      *
      * @return self
      */
@@ -549,25 +549,49 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Gets snooze_end_ts
+     * Gets start_hour
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getSnoozeEndTs()
+    public function getStartHour()
     {
-        return $this->container['snooze_end_ts'];
+        return $this->container['start_hour'];
     }
 
     /**
-     * Sets snooze_end_ts
+     * Sets start_hour
      *
-     * @param float|null $snooze_end_ts snooze_end_ts
+     * @param int|null $start_hour start_hour
      *
      * @return self
      */
-    public function setSnoozeEndTs($snooze_end_ts)
+    public function setStartHour($start_hour)
     {
-        $this->container['snooze_end_ts'] = $snooze_end_ts;
+        $this->container['start_hour'] = $start_hour;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_min
+     *
+     * @return int|null
+     */
+    public function getStartMin()
+    {
+        return $this->container['start_min'];
+    }
+
+    /**
+     * Sets start_min
+     *
+     * @param int|null $start_min start_min
+     *
+     * @return self
+     */
+    public function setStartMin($start_min)
+    {
+        $this->container['start_min'] = $start_min;
 
         return $this;
     }
@@ -592,30 +616,6 @@ class UpdatePushPreferencesResponse implements ModelInterface, ArrayAccess, \Jso
     public function setTimezone($timezone)
     {
         $this->container['timezone'] = $timezone;
-
-        return $this;
-    }
-
-    /**
-     * Gets push_sound
-     *
-     * @return string|null
-     */
-    public function getPushSound()
-    {
-        return $this->container['push_sound'];
-    }
-
-    /**
-     * Sets push_sound
-     *
-     * @param string|null $push_sound push_sound
-     *
-     * @return self
-     */
-    public function setPushSound($push_sound)
-    {
-        $this->container['push_sound'] = $push_sound;
 
         return $this;
     }

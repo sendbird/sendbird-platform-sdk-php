@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdOpenChannelTest
+ * SendbirdOpenChannelTest
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -32,15 +32,15 @@ namespace Sendbird\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SendBirdOpenChannelTest Class Doc Comment
+ * SendbirdOpenChannelTest Class Doc Comment
  *
  * @category    Class
- * @description SendBirdOpenChannel
+ * @description SendbirdOpenChannel
  * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SendBirdOpenChannelTest extends TestCase
+class SendbirdOpenChannelTest extends TestCase
 {
 
     /**
@@ -72,27 +72,9 @@ class SendBirdOpenChannelTest extends TestCase
     }
 
     /**
-     * Test "SendBirdOpenChannel"
+     * Test "SendbirdOpenChannel"
      */
-    public function testSendBirdOpenChannel()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "custom_type"
-     */
-    public function testPropertyCustomType()
+    public function testSendbirdOpenChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -108,15 +90,6 @@ class SendBirdOpenChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "created_at"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "cover_url"
      */
     public function testPropertyCoverUrl()
@@ -126,9 +99,18 @@ class SendBirdOpenChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "creator"
+     * Test attribute "created_at"
      */
-    public function testPropertyCreator()
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "custom_type"
+     */
+    public function testPropertyCustomType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -138,6 +120,15 @@ class SendBirdOpenChannelTest extends TestCase
      * Test attribute "data"
      */
     public function testPropertyData()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "freeze"
+     */
+    public function testPropertyFreeze()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -162,18 +153,18 @@ class SendBirdOpenChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "is_frozen"
+     * Test attribute "max_length_message"
      */
-    public function testPropertyIsFrozen()
+    public function testPropertyMaxLengthMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "max_length_message"
+     * Test attribute "name"
      */
-    public function testPropertyMaxLengthMessage()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -198,9 +189,9 @@ class SendBirdOpenChannelTest extends TestCase
     }
 
     /**
-     * Test attribute "freeze"
+     * Test attribute "metadata"
      */
-    public function testPropertyFreeze()
+    public function testPropertyMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

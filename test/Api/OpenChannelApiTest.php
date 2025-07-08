@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -73,108 +73,96 @@ class OpenChannelApiTest extends TestCase
     }
 
     /**
-     * Test case for ocCancelTheRegistrationOfOperators
+     * Test case for createAnOpenChannel
      *
-     * Cancel the registration of operators.
+     * Create an open channel.
      *
      */
-    public function testOcCancelTheRegistrationOfOperators()
+    public function testCreateAnOpenChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for ocCreateChannel
+     * Test case for deleteAnOpenChannel
      *
-     * Create a channel.
+     * Delete an open channel.
      *
      */
-    public function testOcCreateChannel()
+    public function testDeleteAnOpenChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for ocDeleteChannelByUrl
+     * Test case for getAnOpenChannel
      *
-     * Delete a channel.
+     * Get an open channel.
      *
      */
-    public function testOcDeleteChannelByUrl()
+    public function testGetAnOpenChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for ocListChannels
+     * Test case for listChannelOperators
      *
-     * List channels.
+     * List operators of an open channel.
      *
      */
-    public function testOcListChannels()
+    public function testListChannelOperators()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for ocListOperators
+     * Test case for listOpenChannels
      *
-     * List operators.
+     * List open channels.
      *
      */
-    public function testOcListOperators()
+    public function testListOpenChannels()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for ocListParticipants
+     * Test case for registerOperators
      *
-     * List participants.
+     * Register operators to an open channel.
      *
      */
-    public function testOcListParticipants()
+    public function testRegisterOperators()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for ocRegisterOperators
+     * Test case for unregisterOperators
      *
-     * Register operators.
+     * Unregister operators from an open channel.
      *
      */
-    public function testOcRegisterOperators()
+    public function testUnregisterOperators()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for ocUpdateChannelByUrl
+     * Test case for updateAnOpenChannel
      *
-     * Update a channel.
-     *
-     */
-    public function testOcUpdateChannelByUrl()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocViewChannelByUrl
-     *
-     * View a channel.
+     * Update an open channel.
      *
      */
-    public function testOcViewChannelByUrl()
+    public function testUpdateAnOpenChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

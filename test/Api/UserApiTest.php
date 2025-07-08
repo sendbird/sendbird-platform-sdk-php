@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -73,36 +73,36 @@ class UserApiTest extends TestCase
     }
 
     /**
-     * Test case for addRegistrationOrDeviceToken
+     * Test case for addARegistrationOrDeviceToken
      *
      * Add a registration or device token.
      *
      */
-    public function testAddRegistrationOrDeviceToken()
+    public function testAddARegistrationOrDeviceToken()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for choosePushNotificationContentTemplate
+     * Test case for chooseAPushNotificationContentTemplate
      *
      * Choose a push notification content template.
      *
      */
-    public function testChoosePushNotificationContentTemplate()
+    public function testChooseAPushNotificationContentTemplate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for createUser
+     * Test case for createAUser
      *
      * Create a user.
      *
      */
-    public function testCreateUser()
+    public function testCreateAUser()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -121,12 +121,24 @@ class UserApiTest extends TestCase
     }
 
     /**
-     * Test case for deleteUserById
+     * Test case for deleteAUser
      *
      * Delete a user.
      *
      */
-    public function testDeleteUserById()
+    public function testDeleteAUser()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getChannelInvitationPreference
+     *
+     * Get channel invitation preference.
+     *
+     */
+    public function testGetChannelInvitationPreference()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -193,48 +205,36 @@ class UserApiTest extends TestCase
     }
 
     /**
-     * Test case for registerAsOperatorToChannelsWithCustomChannelTypes
-     *
-     * Register as an operator to channels with custom channel types.
-     *
-     */
-    public function testRegisterAsOperatorToChannelsWithCustomChannelTypes()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for removeRegistrationOrDeviceToken
-     *
-     * Remove a registration or device token - When unregistering all device tokens.
-     *
-     */
-    public function testRemoveRegistrationOrDeviceToken()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for removeRegistrationOrDeviceTokenByToken
+     * Test case for removeARegistrationOrDeviceToken
      *
      * Remove a registration or device token - When unregistering a specific token.
      *
      */
-    public function testRemoveRegistrationOrDeviceTokenByToken()
+    public function testRemoveARegistrationOrDeviceToken()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for removeRegistrationOrDeviceTokenFromOwnerByToken
+     * Test case for removeARegistrationOrDeviceTokenFromAnOwner
      *
      * Remove a registration or device token from an owner.
      *
      */
-    public function testRemoveRegistrationOrDeviceTokenFromOwnerByToken()
+    public function testRemoveARegistrationOrDeviceTokenFromAnOwner()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for removeAllRegistrationOrDeviceToken
+     *
+     * Remove a registration or device token - When unregistering all device tokens.
+     *
+     */
+    public function testRemoveAllRegistrationOrDeviceToken()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -253,6 +253,18 @@ class UserApiTest extends TestCase
     }
 
     /**
+     * Test case for updateAUser
+     *
+     * Update a user.
+     *
+     */
+    public function testUpdateAUser()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for updateChannelInvitationPreference
      *
      * Update channel invitation preference.
@@ -265,12 +277,12 @@ class UserApiTest extends TestCase
     }
 
     /**
-     * Test case for updateCountPreferenceOfChannelByUrl
+     * Test case for updateCountPreferenceOfAChannel
      *
      * Update count preference of a channel.
      *
      */
-    public function testUpdateCountPreferenceOfChannelByUrl()
+    public function testUpdateCountPreferenceOfAChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -289,60 +301,36 @@ class UserApiTest extends TestCase
     }
 
     /**
-     * Test case for updatePushPreferencesForChannelByUrl
+     * Test case for updatePushPreferencesForAChannel
      *
      * Update push preferences for a channel.
      *
      */
-    public function testUpdatePushPreferencesForChannelByUrl()
+    public function testUpdatePushPreferencesForAChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for updateUserById
+     * Test case for viewAUser
      *
-     * Update a user.
+     * View a user.
      *
      */
-    public function testUpdateUserById()
+    public function testViewAUser()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for viewChannelInvitationPreference
-     *
-     * View channel invitation preference.
-     *
-     */
-    public function testViewChannelInvitationPreference()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewCountPreferenceOfChannelByUrl
+     * Test case for viewCountPreferenceOfAChannel
      *
      * View count preference of a channel.
      *
      */
-    public function testViewCountPreferenceOfChannelByUrl()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewNumberOfChannelsByJoinStatus
-     *
-     * View number of channels by join status.
-     *
-     */
-    public function testViewNumberOfChannelsByJoinStatus()
+    public function testViewCountPreferenceOfAChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -355,18 +343,6 @@ class UserApiTest extends TestCase
      *
      */
     public function testViewNumberOfChannelsWithUnreadMessages()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewNumberOfUnreadItems
-     *
-     * View number of unread items.
-     *
-     */
-    public function testViewNumberOfUnreadItems()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -397,36 +373,24 @@ class UserApiTest extends TestCase
     }
 
     /**
-     * Test case for viewPushPreferencesForChannelByUrl
+     * Test case for viewPushPreferencesForAChannel
      *
      * View push preferences for a channel.
      *
      */
-    public function testViewPushPreferencesForChannelByUrl()
+    public function testViewPushPreferencesForAChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for viewUserById
-     *
-     * View a user.
-     *
-     */
-    public function testViewUserById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewWhoOwnsRegistrationOrDeviceTokenByToken
+     * Test case for viewWhoOwnsARegistrationOrDeviceToken
      *
      * View who owns a registration or device token.
      *
      */
-    public function testViewWhoOwnsRegistrationOrDeviceTokenByToken()
+    public function testViewWhoOwnsARegistrationOrDeviceToken()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdMember
+ * SendbirdMember
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * SendBirdMember Class Doc Comment
+ * SendbirdMember Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendbirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SendBird.Member';
+    protected static $openAPIModelName = 'Sendbird.Member';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,23 +60,25 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'connection_status' => 'string',
-        'friend_discovery_key' => 'string',
+        'delivered_ts' => 'int',
+        'do_not_disturb' => 'bool',
+        'friend_discovery_key' => 'string[]',
         'friend_name' => 'string',
         'is_active' => 'bool',
+        'is_blocked_by_me' => 'bool',
+        'is_blocking_me' => 'bool',
         'is_muted' => 'bool',
-        'last_seen_at' => 'int',
-        'nickname' => 'string',
-        'plain_profile_url' => 'string',
-        'preferred_languages' => 'string[]',
-        'profile_url' => 'string',
-        'require_auth' => 'bool',
-        'require_auth_for_profile_image' => 'bool',
-        'metadata' => 'object',
         'is_online' => 'bool',
-        'muted_end_at' => 'float',
+        'last_seen_at' => 'int',
+        'metadata' => 'object',
         'muted_description' => 'string',
-        'restriction_info' => '\Sendbird\Model\SendBirdRestrictionInfo',
+        'muted_end_at' => 'int',
+        'nickname' => 'string',
+        'push_enabled' => 'bool',
+        'push_trigger_option' => '\Sendbird\Model\SendbirdPushTriggerOption',
+        'profile_url' => 'string',
+        'require_auth_for_profile_image' => 'bool',
+        'read_ts' => 'int',
         'role' => 'string',
         'state' => 'string',
         'user_id' => 'string'
@@ -90,23 +92,25 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'connection_status' => null,
+        'delivered_ts' => 'int64',
+        'do_not_disturb' => null,
         'friend_discovery_key' => null,
         'friend_name' => null,
         'is_active' => null,
+        'is_blocked_by_me' => null,
+        'is_blocking_me' => null,
         'is_muted' => null,
-        'last_seen_at' => null,
-        'nickname' => null,
-        'plain_profile_url' => null,
-        'preferred_languages' => null,
-        'profile_url' => null,
-        'require_auth' => null,
-        'require_auth_for_profile_image' => null,
-        'metadata' => null,
         'is_online' => null,
-        'muted_end_at' => null,
+        'last_seen_at' => 'int64',
+        'metadata' => null,
         'muted_description' => null,
-        'restriction_info' => null,
+        'muted_end_at' => 'int64',
+        'nickname' => null,
+        'push_enabled' => null,
+        'push_trigger_option' => null,
+        'profile_url' => null,
+        'require_auth_for_profile_image' => null,
+        'read_ts' => 'int64',
         'role' => null,
         'state' => null,
         'user_id' => null
@@ -139,23 +143,25 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'connection_status' => 'connection_status',
+        'delivered_ts' => 'delivered_ts',
+        'do_not_disturb' => 'do_not_disturb',
         'friend_discovery_key' => 'friend_discovery_key',
         'friend_name' => 'friend_name',
         'is_active' => 'is_active',
+        'is_blocked_by_me' => 'is_blocked_by_me',
+        'is_blocking_me' => 'is_blocking_me',
         'is_muted' => 'is_muted',
-        'last_seen_at' => 'last_seen_at',
-        'nickname' => 'nickname',
-        'plain_profile_url' => 'plain_profile_url',
-        'preferred_languages' => 'preferred_languages',
-        'profile_url' => 'profile_url',
-        'require_auth' => 'require_auth',
-        'require_auth_for_profile_image' => 'require_auth_for_profile_image',
-        'metadata' => 'metadata',
         'is_online' => 'is_online',
-        'muted_end_at' => 'muted_end_at',
+        'last_seen_at' => 'last_seen_at',
+        'metadata' => 'metadata',
         'muted_description' => 'muted_description',
-        'restriction_info' => 'restriction_info',
+        'muted_end_at' => 'muted_end_at',
+        'nickname' => 'nickname',
+        'push_enabled' => 'push_enabled',
+        'push_trigger_option' => 'push_trigger_option',
+        'profile_url' => 'profile_url',
+        'require_auth_for_profile_image' => 'require_auth_for_profile_image',
+        'read_ts' => 'read_ts',
         'role' => 'role',
         'state' => 'state',
         'user_id' => 'user_id'
@@ -167,23 +173,25 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'connection_status' => 'setConnectionStatus',
+        'delivered_ts' => 'setDeliveredTs',
+        'do_not_disturb' => 'setDoNotDisturb',
         'friend_discovery_key' => 'setFriendDiscoveryKey',
         'friend_name' => 'setFriendName',
         'is_active' => 'setIsActive',
+        'is_blocked_by_me' => 'setIsBlockedByMe',
+        'is_blocking_me' => 'setIsBlockingMe',
         'is_muted' => 'setIsMuted',
-        'last_seen_at' => 'setLastSeenAt',
-        'nickname' => 'setNickname',
-        'plain_profile_url' => 'setPlainProfileUrl',
-        'preferred_languages' => 'setPreferredLanguages',
-        'profile_url' => 'setProfileUrl',
-        'require_auth' => 'setRequireAuth',
-        'require_auth_for_profile_image' => 'setRequireAuthForProfileImage',
-        'metadata' => 'setMetadata',
         'is_online' => 'setIsOnline',
-        'muted_end_at' => 'setMutedEndAt',
+        'last_seen_at' => 'setLastSeenAt',
+        'metadata' => 'setMetadata',
         'muted_description' => 'setMutedDescription',
-        'restriction_info' => 'setRestrictionInfo',
+        'muted_end_at' => 'setMutedEndAt',
+        'nickname' => 'setNickname',
+        'push_enabled' => 'setPushEnabled',
+        'push_trigger_option' => 'setPushTriggerOption',
+        'profile_url' => 'setProfileUrl',
+        'require_auth_for_profile_image' => 'setRequireAuthForProfileImage',
+        'read_ts' => 'setReadTs',
         'role' => 'setRole',
         'state' => 'setState',
         'user_id' => 'setUserId'
@@ -195,23 +203,25 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'connection_status' => 'getConnectionStatus',
+        'delivered_ts' => 'getDeliveredTs',
+        'do_not_disturb' => 'getDoNotDisturb',
         'friend_discovery_key' => 'getFriendDiscoveryKey',
         'friend_name' => 'getFriendName',
         'is_active' => 'getIsActive',
+        'is_blocked_by_me' => 'getIsBlockedByMe',
+        'is_blocking_me' => 'getIsBlockingMe',
         'is_muted' => 'getIsMuted',
-        'last_seen_at' => 'getLastSeenAt',
-        'nickname' => 'getNickname',
-        'plain_profile_url' => 'getPlainProfileUrl',
-        'preferred_languages' => 'getPreferredLanguages',
-        'profile_url' => 'getProfileUrl',
-        'require_auth' => 'getRequireAuth',
-        'require_auth_for_profile_image' => 'getRequireAuthForProfileImage',
-        'metadata' => 'getMetadata',
         'is_online' => 'getIsOnline',
-        'muted_end_at' => 'getMutedEndAt',
+        'last_seen_at' => 'getLastSeenAt',
+        'metadata' => 'getMetadata',
         'muted_description' => 'getMutedDescription',
-        'restriction_info' => 'getRestrictionInfo',
+        'muted_end_at' => 'getMutedEndAt',
+        'nickname' => 'getNickname',
+        'push_enabled' => 'getPushEnabled',
+        'push_trigger_option' => 'getPushTriggerOption',
+        'profile_url' => 'getProfileUrl',
+        'require_auth_for_profile_image' => 'getRequireAuthForProfileImage',
+        'read_ts' => 'getReadTs',
         'role' => 'getRole',
         'state' => 'getState',
         'user_id' => 'getUserId'
@@ -308,23 +318,25 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['connection_status'] = $data['connection_status'] ?? null;
+        $this->container['delivered_ts'] = $data['delivered_ts'] ?? null;
+        $this->container['do_not_disturb'] = $data['do_not_disturb'] ?? null;
         $this->container['friend_discovery_key'] = $data['friend_discovery_key'] ?? null;
         $this->container['friend_name'] = $data['friend_name'] ?? null;
         $this->container['is_active'] = $data['is_active'] ?? null;
+        $this->container['is_blocked_by_me'] = $data['is_blocked_by_me'] ?? null;
+        $this->container['is_blocking_me'] = $data['is_blocking_me'] ?? null;
         $this->container['is_muted'] = $data['is_muted'] ?? null;
-        $this->container['last_seen_at'] = $data['last_seen_at'] ?? null;
-        $this->container['nickname'] = $data['nickname'] ?? null;
-        $this->container['plain_profile_url'] = $data['plain_profile_url'] ?? null;
-        $this->container['preferred_languages'] = $data['preferred_languages'] ?? null;
-        $this->container['profile_url'] = $data['profile_url'] ?? null;
-        $this->container['require_auth'] = $data['require_auth'] ?? null;
-        $this->container['require_auth_for_profile_image'] = $data['require_auth_for_profile_image'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
         $this->container['is_online'] = $data['is_online'] ?? null;
-        $this->container['muted_end_at'] = $data['muted_end_at'] ?? null;
+        $this->container['last_seen_at'] = $data['last_seen_at'] ?? null;
+        $this->container['metadata'] = $data['metadata'] ?? null;
         $this->container['muted_description'] = $data['muted_description'] ?? null;
-        $this->container['restriction_info'] = $data['restriction_info'] ?? null;
+        $this->container['muted_end_at'] = $data['muted_end_at'] ?? null;
+        $this->container['nickname'] = $data['nickname'] ?? null;
+        $this->container['push_enabled'] = $data['push_enabled'] ?? null;
+        $this->container['push_trigger_option'] = $data['push_trigger_option'] ?? null;
+        $this->container['profile_url'] = $data['profile_url'] ?? null;
+        $this->container['require_auth_for_profile_image'] = $data['require_auth_for_profile_image'] ?? null;
+        $this->container['read_ts'] = $data['read_ts'] ?? null;
         $this->container['role'] = $data['role'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
@@ -357,6 +369,9 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
 
+        if ($this->container['user_id'] === null) {
+            $invalidProperties[] = "'user_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -373,25 +388,49 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets connection_status
+     * Gets delivered_ts
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getConnectionStatus()
+    public function getDeliveredTs()
     {
-        return $this->container['connection_status'];
+        return $this->container['delivered_ts'];
     }
 
     /**
-     * Sets connection_status
+     * Sets delivered_ts
      *
-     * @param string|null $connection_status connection_status
+     * @param int|null $delivered_ts delivered_ts
      *
      * @return self
      */
-    public function setConnectionStatus($connection_status)
+    public function setDeliveredTs($delivered_ts)
     {
-        $this->container['connection_status'] = $connection_status;
+        $this->container['delivered_ts'] = $delivered_ts;
+
+        return $this;
+    }
+
+    /**
+     * Gets do_not_disturb
+     *
+     * @return bool|null
+     */
+    public function getDoNotDisturb()
+    {
+        return $this->container['do_not_disturb'];
+    }
+
+    /**
+     * Sets do_not_disturb
+     *
+     * @param bool|null $do_not_disturb do_not_disturb
+     *
+     * @return self
+     */
+    public function setDoNotDisturb($do_not_disturb)
+    {
+        $this->container['do_not_disturb'] = $do_not_disturb;
 
         return $this;
     }
@@ -399,7 +438,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets friend_discovery_key
      *
-     * @return string|null
+     * @return string[]|null
      */
     public function getFriendDiscoveryKey()
     {
@@ -409,7 +448,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets friend_discovery_key
      *
-     * @param string|null $friend_discovery_key friend_discovery_key
+     * @param string[]|null $friend_discovery_key friend_discovery_key
      *
      * @return self
      */
@@ -469,6 +508,54 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets is_blocked_by_me
+     *
+     * @return bool|null
+     */
+    public function getIsBlockedByMe()
+    {
+        return $this->container['is_blocked_by_me'];
+    }
+
+    /**
+     * Sets is_blocked_by_me
+     *
+     * @param bool|null $is_blocked_by_me is_blocked_by_me
+     *
+     * @return self
+     */
+    public function setIsBlockedByMe($is_blocked_by_me)
+    {
+        $this->container['is_blocked_by_me'] = $is_blocked_by_me;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_blocking_me
+     *
+     * @return bool|null
+     */
+    public function getIsBlockingMe()
+    {
+        return $this->container['is_blocking_me'];
+    }
+
+    /**
+     * Sets is_blocking_me
+     *
+     * @param bool|null $is_blocking_me is_blocking_me
+     *
+     * @return self
+     */
+    public function setIsBlockingMe($is_blocking_me)
+    {
+        $this->container['is_blocking_me'] = $is_blocking_me;
+
+        return $this;
+    }
+
+    /**
      * Gets is_muted
      *
      * @return bool|null
@@ -488,198 +575,6 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsMuted($is_muted)
     {
         $this->container['is_muted'] = $is_muted;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_seen_at
-     *
-     * @return int|null
-     */
-    public function getLastSeenAt()
-    {
-        return $this->container['last_seen_at'];
-    }
-
-    /**
-     * Sets last_seen_at
-     *
-     * @param int|null $last_seen_at last_seen_at
-     *
-     * @return self
-     */
-    public function setLastSeenAt($last_seen_at)
-    {
-        $this->container['last_seen_at'] = $last_seen_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets nickname
-     *
-     * @return string|null
-     */
-    public function getNickname()
-    {
-        return $this->container['nickname'];
-    }
-
-    /**
-     * Sets nickname
-     *
-     * @param string|null $nickname nickname
-     *
-     * @return self
-     */
-    public function setNickname($nickname)
-    {
-        $this->container['nickname'] = $nickname;
-
-        return $this;
-    }
-
-    /**
-     * Gets plain_profile_url
-     *
-     * @return string|null
-     */
-    public function getPlainProfileUrl()
-    {
-        return $this->container['plain_profile_url'];
-    }
-
-    /**
-     * Sets plain_profile_url
-     *
-     * @param string|null $plain_profile_url plain_profile_url
-     *
-     * @return self
-     */
-    public function setPlainProfileUrl($plain_profile_url)
-    {
-        $this->container['plain_profile_url'] = $plain_profile_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets preferred_languages
-     *
-     * @return string[]|null
-     */
-    public function getPreferredLanguages()
-    {
-        return $this->container['preferred_languages'];
-    }
-
-    /**
-     * Sets preferred_languages
-     *
-     * @param string[]|null $preferred_languages preferred_languages
-     *
-     * @return self
-     */
-    public function setPreferredLanguages($preferred_languages)
-    {
-        $this->container['preferred_languages'] = $preferred_languages;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile_url
-     *
-     * @return string|null
-     */
-    public function getProfileUrl()
-    {
-        return $this->container['profile_url'];
-    }
-
-    /**
-     * Sets profile_url
-     *
-     * @param string|null $profile_url profile_url
-     *
-     * @return self
-     */
-    public function setProfileUrl($profile_url)
-    {
-        $this->container['profile_url'] = $profile_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets require_auth
-     *
-     * @return bool|null
-     */
-    public function getRequireAuth()
-    {
-        return $this->container['require_auth'];
-    }
-
-    /**
-     * Sets require_auth
-     *
-     * @param bool|null $require_auth require_auth
-     *
-     * @return self
-     */
-    public function setRequireAuth($require_auth)
-    {
-        $this->container['require_auth'] = $require_auth;
-
-        return $this;
-    }
-
-    /**
-     * Gets require_auth_for_profile_image
-     *
-     * @return bool|null
-     */
-    public function getRequireAuthForProfileImage()
-    {
-        return $this->container['require_auth_for_profile_image'];
-    }
-
-    /**
-     * Sets require_auth_for_profile_image
-     *
-     * @param bool|null $require_auth_for_profile_image require_auth_for_profile_image
-     *
-     * @return self
-     */
-    public function setRequireAuthForProfileImage($require_auth_for_profile_image)
-    {
-        $this->container['require_auth_for_profile_image'] = $require_auth_for_profile_image;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return object|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param object|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
 
         return $this;
     }
@@ -709,25 +604,49 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets muted_end_at
+     * Gets last_seen_at
      *
-     * @return float|null
+     * @return int|null
      */
-    public function getMutedEndAt()
+    public function getLastSeenAt()
     {
-        return $this->container['muted_end_at'];
+        return $this->container['last_seen_at'];
     }
 
     /**
-     * Sets muted_end_at
+     * Sets last_seen_at
      *
-     * @param float|null $muted_end_at muted_end_at
+     * @param int|null $last_seen_at last_seen_at
      *
      * @return self
      */
-    public function setMutedEndAt($muted_end_at)
+    public function setLastSeenAt($last_seen_at)
     {
-        $this->container['muted_end_at'] = $muted_end_at;
+        $this->container['last_seen_at'] = $last_seen_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets metadata
+     *
+     * @return object|null
+     */
+    public function getMetadata()
+    {
+        return $this->container['metadata'];
+    }
+
+    /**
+     * Sets metadata
+     *
+     * @param object|null $metadata metadata
+     *
+     * @return self
+     */
+    public function setMetadata($metadata)
+    {
+        $this->container['metadata'] = $metadata;
 
         return $this;
     }
@@ -757,25 +676,169 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets restriction_info
+     * Gets muted_end_at
      *
-     * @return \Sendbird\Model\SendBirdRestrictionInfo|null
+     * @return int|null
      */
-    public function getRestrictionInfo()
+    public function getMutedEndAt()
     {
-        return $this->container['restriction_info'];
+        return $this->container['muted_end_at'];
     }
 
     /**
-     * Sets restriction_info
+     * Sets muted_end_at
      *
-     * @param \Sendbird\Model\SendBirdRestrictionInfo|null $restriction_info restriction_info
+     * @param int|null $muted_end_at muted_end_at
      *
      * @return self
      */
-    public function setRestrictionInfo($restriction_info)
+    public function setMutedEndAt($muted_end_at)
     {
-        $this->container['restriction_info'] = $restriction_info;
+        $this->container['muted_end_at'] = $muted_end_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets nickname
+     *
+     * @return string|null
+     */
+    public function getNickname()
+    {
+        return $this->container['nickname'];
+    }
+
+    /**
+     * Sets nickname
+     *
+     * @param string|null $nickname nickname
+     *
+     * @return self
+     */
+    public function setNickname($nickname)
+    {
+        $this->container['nickname'] = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Gets push_enabled
+     *
+     * @return bool|null
+     */
+    public function getPushEnabled()
+    {
+        return $this->container['push_enabled'];
+    }
+
+    /**
+     * Sets push_enabled
+     *
+     * @param bool|null $push_enabled push_enabled
+     *
+     * @return self
+     */
+    public function setPushEnabled($push_enabled)
+    {
+        $this->container['push_enabled'] = $push_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets push_trigger_option
+     *
+     * @return \Sendbird\Model\SendbirdPushTriggerOption|null
+     */
+    public function getPushTriggerOption()
+    {
+        return $this->container['push_trigger_option'];
+    }
+
+    /**
+     * Sets push_trigger_option
+     *
+     * @param \Sendbird\Model\SendbirdPushTriggerOption|null $push_trigger_option push_trigger_option
+     *
+     * @return self
+     */
+    public function setPushTriggerOption($push_trigger_option)
+    {
+        $this->container['push_trigger_option'] = $push_trigger_option;
+
+        return $this;
+    }
+
+    /**
+     * Gets profile_url
+     *
+     * @return string|null
+     */
+    public function getProfileUrl()
+    {
+        return $this->container['profile_url'];
+    }
+
+    /**
+     * Sets profile_url
+     *
+     * @param string|null $profile_url profile_url
+     *
+     * @return self
+     */
+    public function setProfileUrl($profile_url)
+    {
+        $this->container['profile_url'] = $profile_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets require_auth_for_profile_image
+     *
+     * @return bool|null
+     */
+    public function getRequireAuthForProfileImage()
+    {
+        return $this->container['require_auth_for_profile_image'];
+    }
+
+    /**
+     * Sets require_auth_for_profile_image
+     *
+     * @param bool|null $require_auth_for_profile_image require_auth_for_profile_image
+     *
+     * @return self
+     */
+    public function setRequireAuthForProfileImage($require_auth_for_profile_image)
+    {
+        $this->container['require_auth_for_profile_image'] = $require_auth_for_profile_image;
+
+        return $this;
+    }
+
+    /**
+     * Gets read_ts
+     *
+     * @return int|null
+     */
+    public function getReadTs()
+    {
+        return $this->container['read_ts'];
+    }
+
+    /**
+     * Sets read_ts
+     *
+     * @param int|null $read_ts read_ts
+     *
+     * @return self
+     */
+    public function setReadTs($read_ts)
+    {
+        $this->container['read_ts'] = $read_ts;
 
         return $this;
     }
@@ -851,7 +914,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets user_id
      *
-     * @return string|null
+     * @return string
      */
     public function getUserId()
     {
@@ -861,7 +924,7 @@ class SendBirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets user_id
      *
-     * @param string|null $user_id user_id
+     * @param string $user_id user_id
      *
      * @return self
      */

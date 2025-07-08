@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -60,7 +60,7 @@ class ListBlockedUsersResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'users' => '\Sendbird\Model\SendBirdUser[]',
+        'users' => '\Sendbird\Model\SendbirdUser[]',
         'next' => 'string'
     ];
 
@@ -215,7 +215,7 @@ class ListBlockedUsersResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets users
      *
-     * @return \Sendbird\Model\SendBirdUser[]|null
+     * @return \Sendbird\Model\SendbirdUser[]|null
      */
     public function getUsers()
     {
@@ -225,7 +225,7 @@ class ListBlockedUsersResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets users
      *
-     * @param \Sendbird\Model\SendBirdUser[]|null $users users
+     * @param \Sendbird\Model\SendbirdUser[]|null $users users
      *
      * @return self
      */

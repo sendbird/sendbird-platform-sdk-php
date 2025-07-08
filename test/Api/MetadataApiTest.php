@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -73,252 +73,48 @@ class MetadataApiTest extends TestCase
     }
 
     /**
-     * Test case for createChannelMetacounter
-     *
-     * Create a channel metacounter.
-     *
-     */
-    public function testCreateChannelMetacounter()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for createChannelMetadata
+     * Test case for createAChannelMetadata
      *
      * Create a channel metadata.
      *
      */
-    public function testCreateChannelMetadata()
+    public function testCreateAChannelMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for createUserMetadata
-     *
-     * Create a user metadata.
-     *
-     */
-    public function testCreateUserMetadata()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteChannelMetacounter
-     *
-     * Delete a channel metacounter - When deleting all items of a channel metacounter.
-     *
-     */
-    public function testDeleteChannelMetacounter()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteChannelMetacounterByKey
-     *
-     * Delete a channel metacounter - When deleting a specific item of a channel metacounter by its key.
-     *
-     */
-    public function testDeleteChannelMetacounterByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteChannelMetadata
+     * Test case for deleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadata
      *
      * Delete a channel metadata - When deleting all items of a channel metadata.
      *
      */
-    public function testDeleteChannelMetadata()
+    public function testDeleteAChannelMetadataWhenDeletingAllItemsOfAChannelMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for deleteChannelMetadataByKey
-     *
-     * Delete a channel metadata - When deleting a specific item of a channel metadata by its key.
-     *
-     */
-    public function testDeleteChannelMetadataByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteUserMetadata
-     *
-     * Delete a user metadata - When deleting all items of a user metadata.
-     *
-     */
-    public function testDeleteUserMetadata()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteUserMetadataByKey
-     *
-     * Delete a user metadata - When deleting a specific item of a user metadata by its key.
-     *
-     */
-    public function testDeleteUserMetadataByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateChannelMetacounter
-     *
-     * Update a channel metacounter - When updating existing items of a channel metacounter by their keys or adding new items to the metacounter.
-     *
-     */
-    public function testUpdateChannelMetacounter()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateChannelMetacounterByKey
-     *
-     * Update a channel metacounter - When updating a specific item of a channel metacounter by its key.
-     *
-     */
-    public function testUpdateChannelMetacounterByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateChannelMetadata
+     * Test case for updateAChannelMetadata
      *
      * Update a channel metadata - When updating existing items of a channel metadata by their keys or adding new items to the metadata.
      *
      */
-    public function testUpdateChannelMetadata()
+    public function testUpdateAChannelMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for updateChannelMetadataByKey
-     *
-     * Update a channel metadata - When updating a specific item of a channel metadata by its key.
-     *
-     */
-    public function testUpdateChannelMetadataByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateUserMetadata
-     *
-     * Update a user metadata - When updating existing items of a user metadata by their keys or adding new items to the metadata.
-     *
-     */
-    public function testUpdateUserMetadata()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateUserMetadataByKey
-     *
-     * Update a user metadata - When updating a specific item of a user metadata by its key.
-     *
-     */
-    public function testUpdateUserMetadataByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewChannelMetacounter
-     *
-     * View a channel metacounter - When retrieving all items of a channel metacounter.
-     *
-     */
-    public function testViewChannelMetacounter()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewChannelMetacounterByKey
-     *
-     * View a channel metacounter - When retrieving a specific item of a channel metacounter by its key.
-     *
-     */
-    public function testViewChannelMetacounterByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewChannelMetadata
+     * Test case for viewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadata
      *
      * View a channel metadata - When retrieving all items of a channel metadata.
      *
      */
-    public function testViewChannelMetadata()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewChannelMetadataByKey
-     *
-     * View a channel metadata - When retrieving a specific item of a channel metadata by its key.
-     *
-     */
-    public function testViewChannelMetadataByKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewUserMetadata
-     *
-     * View a user metadata - When retrieving all items of a user metadata.
-     *
-     */
-    public function testViewUserMetadata()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewUserMetadataByKey
-     *
-     * View a user metadata - When retrieving a specific item of a user metadata by its key.
-     *
-     */
-    public function testViewUserMetadataByKey()
+    public function testViewAChannelMetadataWhenRetrievingAllItemsOfAChannelMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

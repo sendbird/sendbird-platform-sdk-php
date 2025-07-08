@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -81,6 +81,15 @@ class ListBotsResponseBotsInnerTest extends TestCase
     }
 
     /**
+     * Test attribute "ai"
+     */
+    public function testPropertyAi()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "bot"
      */
     public function testPropertyBot()
@@ -99,9 +108,45 @@ class ListBotsResponseBotsInnerTest extends TestCase
     }
 
     /**
+     * Test attribute "bot_style"
+     */
+    public function testPropertyBotStyle()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "channel_invitation_preference"
+     */
+    public function testPropertyChannelInvitationPreference()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "enable_mark_as_read"
      */
     public function testPropertyEnableMarkAsRead()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "first_messages"
+     */
+    public function testPropertyFirstMessages()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -117,18 +162,18 @@ class ListBotsResponseBotsInnerTest extends TestCase
     }
 
     /**
-     * Test attribute "show_member"
+     * Test attribute "safeguard"
      */
-    public function testPropertyShowMember()
+    public function testPropertySafeguard()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "channel_invitation_preference"
+     * Test attribute "show_member"
      */
-    public function testPropertyChannelInvitationPreference()
+    public function testPropertyShowMember()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

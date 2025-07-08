@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdMessageResponseTest
+ * SendbirdMessageResponseTest
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -32,15 +32,15 @@ namespace Sendbird\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SendBirdMessageResponseTest Class Doc Comment
+ * SendbirdMessageResponseTest Class Doc Comment
  *
  * @category    Class
- * @description SendBirdMessageResponse
+ * @description SendbirdMessageResponse
  * @package     Sendbird
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SendBirdMessageResponseTest extends TestCase
+class SendbirdMessageResponseTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class SendBirdMessageResponseTest extends TestCase
     }
 
     /**
-     * Test "SendBirdMessageResponse"
+     * Test "SendbirdMessageResponse"
      */
-    public function testSendBirdMessageResponse()
+    public function testSendbirdMessageResponse()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -144,6 +144,15 @@ class SendBirdMessageResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "reactions"
+     */
+    public function testPropertyReactions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "is_removed"
      */
     public function testPropertyIsRemoved()
@@ -165,6 +174,15 @@ class SendBirdMessageResponseTest extends TestCase
      * Test attribute "file"
      */
     public function testPropertyFile()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "files"
+     */
+    public function testPropertyFiles()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -270,15 +288,6 @@ class SendBirdMessageResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "size"
-     */
-    public function testPropertySize()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "sorted_metaarray"
      */
     public function testPropertySortedMetaarray()
@@ -318,6 +327,24 @@ class SendBirdMessageResponseTest extends TestCase
      * Test attribute "is_reply_to_channel"
      */
     public function testPropertyIsReplyToChannel()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "message_events"
+     */
+    public function testPropertyMessageEvents()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "extended_message_payload"
+     */
+    public function testPropertyExtendedMessagePayload()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

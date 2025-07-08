@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -73,96 +73,12 @@ class AnnouncementApiTest extends TestCase
     }
 
     /**
-     * Test case for getDetailedOpenRateOfAnnouncementGroup
-     *
-     * Get detailed open rate of an announcement group.
-     *
-     */
-    public function testGetDetailedOpenRateOfAnnouncementGroup()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getStatistics
-     *
-     * Get statistics - weekly.
-     *
-     */
-    public function testGetStatistics()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getStatisticsDaily
-     *
-     * Get statistics - daily.
-     *
-     */
-    public function testGetStatisticsDaily()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getStatisticsMonthly
-     *
-     * Get statistics - monthly.
-     *
-     */
-    public function testGetStatisticsMonthly()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for listAnnouncementGroups
-     *
-     * List announcement groups.
-     *
-     */
-    public function testListAnnouncementGroups()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for scheduleAnnouncement
+     * Test case for scheduleAnAnnouncement
      *
      * Schedule an announcement.
      *
      */
-    public function testScheduleAnnouncement()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateAnnouncementById
-     *
-     * Update an announcement.
-     *
-     */
-    public function testUpdateAnnouncementById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewAnnouncementById
-     *
-     * View an announcement.
-     *
-     */
-    public function testViewAnnouncementById()
+    public function testScheduleAnAnnouncement()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

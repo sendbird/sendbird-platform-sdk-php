@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -163,6 +163,25 @@ class UpdateCountPreferenceOfChannelByUrlResponse implements ModelInterface, Arr
         return self::$openAPIModelName;
     }
 
+    public const COUNT_PREFERENCE_FALSE = 'false';
+    public const COUNT_PREFERENCE_ALL = 'all';
+    public const COUNT_PREFERENCE_UNREAD_MESSAGE_COUNT_ONLY = 'unread_message_count_only';
+    public const COUNT_PREFERENCE_UNREAD_MENTIONED_COUNT_ONLY = 'unread_mentioned_count_only';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCountPreferenceAllowableValues()
+    {
+        return [
+            self::COUNT_PREFERENCE_FALSE,
+            self::COUNT_PREFERENCE_ALL,
+            self::COUNT_PREFERENCE_UNREAD_MESSAGE_COUNT_ONLY,
+            self::COUNT_PREFERENCE_UNREAD_MENTIONED_COUNT_ONLY,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -190,6 +209,15 @@ class UpdateCountPreferenceOfChannelByUrlResponse implements ModelInterface, Arr
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getCountPreferenceAllowableValues();
+        if (!is_null($this->container['count_preference']) && !in_array($this->container['count_preference'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'count_preference', must be one of '%s'",
+                $this->container['count_preference'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -225,6 +253,16 @@ class UpdateCountPreferenceOfChannelByUrlResponse implements ModelInterface, Arr
      */
     public function setCountPreference($count_preference)
     {
+        $allowedValues = $this->getCountPreferenceAllowableValues();
+        if (!is_null($count_preference) && !in_array($count_preference, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'count_preference', must be one of '%s'",
+                    $count_preference,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['count_preference'] = $count_preference;
 
         return $this;

@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -60,12 +60,17 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bot' => '\Sendbird\Model\CreateBotResponseBot',
+        'ai' => '\Sendbird\Model\ListBotsResponseBotsInnerAi',
+        'bot' => '\Sendbird\Model\ListBotsResponseBotsInnerBot',
         'bot_callback_url' => 'string',
+        'bot_style' => '\Sendbird\Model\ListBotsResponseBotsInnerBotStyle',
+        'channel_invitation_preference' => 'int',
+        'created_at' => 'int',
         'enable_mark_as_read' => 'bool',
+        'first_messages' => '\Sendbird\Model\ListBotsResponseBotsInnerFirstMessagesInner[]',
         'is_privacy_mode' => 'bool',
-        'show_member' => 'bool',
-        'channel_invitation_preference' => 'float'
+        'safeguard' => '\Sendbird\Model\ListBotsResponseBotsInnerSafeguard',
+        'show_member' => 'bool'
     ];
 
     /**
@@ -76,12 +81,17 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'ai' => null,
         'bot' => null,
         'bot_callback_url' => null,
+        'bot_style' => null,
+        'channel_invitation_preference' => null,
+        'created_at' => 'int64',
         'enable_mark_as_read' => null,
+        'first_messages' => null,
         'is_privacy_mode' => null,
-        'show_member' => null,
-        'channel_invitation_preference' => null
+        'safeguard' => null,
+        'show_member' => null
     ];
 
     /**
@@ -111,12 +121,17 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
+        'ai' => 'ai',
         'bot' => 'bot',
         'bot_callback_url' => 'bot_callback_url',
+        'bot_style' => 'bot_style',
+        'channel_invitation_preference' => 'channel_invitation_preference',
+        'created_at' => 'created_at',
         'enable_mark_as_read' => 'enable_mark_as_read',
+        'first_messages' => 'first_messages',
         'is_privacy_mode' => 'is_privacy_mode',
-        'show_member' => 'show_member',
-        'channel_invitation_preference' => 'channel_invitation_preference'
+        'safeguard' => 'safeguard',
+        'show_member' => 'show_member'
     ];
 
     /**
@@ -125,12 +140,17 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
+        'ai' => 'setAi',
         'bot' => 'setBot',
         'bot_callback_url' => 'setBotCallbackUrl',
+        'bot_style' => 'setBotStyle',
+        'channel_invitation_preference' => 'setChannelInvitationPreference',
+        'created_at' => 'setCreatedAt',
         'enable_mark_as_read' => 'setEnableMarkAsRead',
+        'first_messages' => 'setFirstMessages',
         'is_privacy_mode' => 'setIsPrivacyMode',
-        'show_member' => 'setShowMember',
-        'channel_invitation_preference' => 'setChannelInvitationPreference'
+        'safeguard' => 'setSafeguard',
+        'show_member' => 'setShowMember'
     ];
 
     /**
@@ -139,12 +159,17 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
+        'ai' => 'getAi',
         'bot' => 'getBot',
         'bot_callback_url' => 'getBotCallbackUrl',
+        'bot_style' => 'getBotStyle',
+        'channel_invitation_preference' => 'getChannelInvitationPreference',
+        'created_at' => 'getCreatedAt',
         'enable_mark_as_read' => 'getEnableMarkAsRead',
+        'first_messages' => 'getFirstMessages',
         'is_privacy_mode' => 'getIsPrivacyMode',
-        'show_member' => 'getShowMember',
-        'channel_invitation_preference' => 'getChannelInvitationPreference'
+        'safeguard' => 'getSafeguard',
+        'show_member' => 'getShowMember'
     ];
 
     /**
@@ -204,12 +229,17 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
+        $this->container['ai'] = $data['ai'] ?? null;
         $this->container['bot'] = $data['bot'] ?? null;
         $this->container['bot_callback_url'] = $data['bot_callback_url'] ?? null;
-        $this->container['enable_mark_as_read'] = $data['enable_mark_as_read'] ?? null;
-        $this->container['is_privacy_mode'] = $data['is_privacy_mode'] ?? null;
-        $this->container['show_member'] = $data['show_member'] ?? null;
+        $this->container['bot_style'] = $data['bot_style'] ?? null;
         $this->container['channel_invitation_preference'] = $data['channel_invitation_preference'] ?? null;
+        $this->container['created_at'] = $data['created_at'] ?? null;
+        $this->container['enable_mark_as_read'] = $data['enable_mark_as_read'] ?? null;
+        $this->container['first_messages'] = $data['first_messages'] ?? null;
+        $this->container['is_privacy_mode'] = $data['is_privacy_mode'] ?? null;
+        $this->container['safeguard'] = $data['safeguard'] ?? null;
+        $this->container['show_member'] = $data['show_member'] ?? null;
     }
 
     /**
@@ -237,9 +267,33 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
+     * Gets ai
+     *
+     * @return \Sendbird\Model\ListBotsResponseBotsInnerAi|null
+     */
+    public function getAi()
+    {
+        return $this->container['ai'];
+    }
+
+    /**
+     * Sets ai
+     *
+     * @param \Sendbird\Model\ListBotsResponseBotsInnerAi|null $ai ai
+     *
+     * @return self
+     */
+    public function setAi($ai)
+    {
+        $this->container['ai'] = $ai;
+
+        return $this;
+    }
+
+    /**
      * Gets bot
      *
-     * @return \Sendbird\Model\CreateBotResponseBot|null
+     * @return \Sendbird\Model\ListBotsResponseBotsInnerBot|null
      */
     public function getBot()
     {
@@ -249,7 +303,7 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets bot
      *
-     * @param \Sendbird\Model\CreateBotResponseBot|null $bot bot
+     * @param \Sendbird\Model\ListBotsResponseBotsInnerBot|null $bot bot
      *
      * @return self
      */
@@ -285,6 +339,78 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
+     * Gets bot_style
+     *
+     * @return \Sendbird\Model\ListBotsResponseBotsInnerBotStyle|null
+     */
+    public function getBotStyle()
+    {
+        return $this->container['bot_style'];
+    }
+
+    /**
+     * Sets bot_style
+     *
+     * @param \Sendbird\Model\ListBotsResponseBotsInnerBotStyle|null $bot_style bot_style
+     *
+     * @return self
+     */
+    public function setBotStyle($bot_style)
+    {
+        $this->container['bot_style'] = $bot_style;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_invitation_preference
+     *
+     * @return int|null
+     */
+    public function getChannelInvitationPreference()
+    {
+        return $this->container['channel_invitation_preference'];
+    }
+
+    /**
+     * Sets channel_invitation_preference
+     *
+     * @param int|null $channel_invitation_preference channel_invitation_preference
+     *
+     * @return self
+     */
+    public function setChannelInvitationPreference($channel_invitation_preference)
+    {
+        $this->container['channel_invitation_preference'] = $channel_invitation_preference;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return int|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param int|null $created_at created_at
+     *
+     * @return self
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
      * Gets enable_mark_as_read
      *
      * @return bool|null
@@ -304,6 +430,30 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
     public function setEnableMarkAsRead($enable_mark_as_read)
     {
         $this->container['enable_mark_as_read'] = $enable_mark_as_read;
+
+        return $this;
+    }
+
+    /**
+     * Gets first_messages
+     *
+     * @return \Sendbird\Model\ListBotsResponseBotsInnerFirstMessagesInner[]|null
+     */
+    public function getFirstMessages()
+    {
+        return $this->container['first_messages'];
+    }
+
+    /**
+     * Sets first_messages
+     *
+     * @param \Sendbird\Model\ListBotsResponseBotsInnerFirstMessagesInner[]|null $first_messages first_messages
+     *
+     * @return self
+     */
+    public function setFirstMessages($first_messages)
+    {
+        $this->container['first_messages'] = $first_messages;
 
         return $this;
     }
@@ -333,6 +483,30 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
+     * Gets safeguard
+     *
+     * @return \Sendbird\Model\ListBotsResponseBotsInnerSafeguard|null
+     */
+    public function getSafeguard()
+    {
+        return $this->container['safeguard'];
+    }
+
+    /**
+     * Sets safeguard
+     *
+     * @param \Sendbird\Model\ListBotsResponseBotsInnerSafeguard|null $safeguard safeguard
+     *
+     * @return self
+     */
+    public function setSafeguard($safeguard)
+    {
+        $this->container['safeguard'] = $safeguard;
+
+        return $this;
+    }
+
+    /**
      * Gets show_member
      *
      * @return bool|null
@@ -352,30 +526,6 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
     public function setShowMember($show_member)
     {
         $this->container['show_member'] = $show_member;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel_invitation_preference
-     *
-     * @return float|null
-     */
-    public function getChannelInvitationPreference()
-    {
-        return $this->container['channel_invitation_preference'];
-    }
-
-    /**
-     * Sets channel_invitation_preference
-     *
-     * @param float|null $channel_invitation_preference channel_invitation_preference
-     *
-     * @return self
-     */
-    public function setChannelInvitationPreference($channel_invitation_preference)
-    {
-        $this->container['channel_invitation_preference'] = $channel_invitation_preference;
 
         return $this;
     }

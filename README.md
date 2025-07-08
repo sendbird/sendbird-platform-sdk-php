@@ -3,6 +3,8 @@
 # [Sendbird PHP Platform SDK](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)
 
 [![link to docs](https://img.shields.io/badge/SDK-docs-green)](/docs)
+[![packagist](https://img.shields.io/packagist/v/sendbird/sendbird-platform-sdk-php.svg)](https://packagist.org/packages/sendbird/sendbird-platform-sdk-php)
+
 This is a SDK written for PHP  that makes talking to the [Sendbird Platform API](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api) easier.
 With this library you can extend your Sendbird integration to include advanced features like message-, and channel automation, user management, create user authentication tokens, and create bots.
 
@@ -31,10 +33,6 @@ try {
 }
 
 ```
-
-# ⚠️ Warnings
-
-This package is not currently published. Please see  the Local development section for installation instructions.
 
 # ⚒️ Prerequisite
 
@@ -65,6 +63,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 
 Then run `composer install`
 
+Or install via:
+```bash
+composer require sendbird/sendbird-platform-sdk-php
+```
+
 ### Manual Installation
 
 1. Clone this repository, run `composer install` in the `sendbird-platform-sdk` directory
@@ -80,10 +83,8 @@ require_once('/path/to/sendbird-platform-sdk/vendor/autoload.php');
 |       | Documentation |
 | ----------- | ----------- |
 | Announcement   | [docs/Api/AnnouncementApi.md](docs/Api/AnnouncementApi.md)|
-| Application | [docs/Api/ApplicationApi.md](docs/Api/ApplicationApi.md)  |
 | Bot | [docs/Api/BotApi.md](docs/Api/BotApi.md)  |
 | GroupChannel | [docs/Api/GroupChannelApi.md](docs/Api/GroupChannelApi.md)  |
 | OpenChannel | [docs/Api/OpenChannelApi.md ](docs/Api/OpenChannelApi.md)  |
 | Message | [docs/Api/MessageApi.md](docs/Api/MessageApi.md)  |
 | User | [docs/Api/UserApi.md](docs/Api/UserApi.md)  |
-| Webhooks | [docs/Api/WebhooksApi.md](docs/Api/WebhooksApi.md)  |

@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdUserTest
+ * SendbirdUserTest
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -32,7 +32,7 @@ namespace Sendbird\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SendBirdUserTest Class Doc Comment
+ * SendbirdUserTest Class Doc Comment
  *
  * @category    Class
  * @description User
@@ -40,7 +40,7 @@ use PHPUnit\Framework\TestCase;
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SendBirdUserTest extends TestCase
+class SendbirdUserTest extends TestCase
 {
 
     /**
@@ -72,36 +72,9 @@ class SendBirdUserTest extends TestCase
     }
 
     /**
-     * Test "SendBirdUser"
+     * Test "SendbirdUser"
      */
-    public function testSendBirdUser()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "require_auth_for_profile_image"
-     */
-    public function testPropertyRequireAuthForProfileImage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "is_online"
-     */
-    public function testPropertyIsOnline()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "user_id"
-     */
-    public function testPropertyUserId()
+    public function testSendbirdUser()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -111,6 +84,24 @@ class SendBirdUserTest extends TestCase
      * Test attribute "access_token"
      */
     public function testPropertyAccessToken()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "discovery_keys"
+     */
+    public function testPropertyDiscoveryKeys()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -135,6 +126,33 @@ class SendBirdUserTest extends TestCase
     }
 
     /**
+     * Test attribute "is_hide_me_from_friends"
+     */
+    public function testPropertyIsHideMeFromFriends()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_online"
+     */
+    public function testPropertyIsOnline()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_shadow_blocked"
+     */
+    public function testPropertyIsShadowBlocked()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "last_seen_at"
      */
     public function testPropertyLastSeenAt()
@@ -144,27 +162,27 @@ class SendBirdUserTest extends TestCase
     }
 
     /**
+     * Test attribute "locale"
+     */
+    public function testPropertyLocale()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "metadata"
+     */
+    public function testPropertyMetadata()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "nickname"
      */
     public function testPropertyNickname()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "discovery_keys"
-     */
-    public function testPropertyDiscoveryKeys()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "session_tokens"
-     */
-    public function testPropertySessionTokens()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -189,9 +207,45 @@ class SendBirdUserTest extends TestCase
     }
 
     /**
-     * Test attribute "created_at"
+     * Test attribute "require_auth_for_profile_image"
      */
-    public function testPropertyCreatedAt()
+    public function testPropertyRequireAuthForProfileImage()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "user_id"
+     */
+    public function testPropertyUserId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "state"
+     */
+    public function testPropertyState()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "unread_channel_count"
+     */
+    public function testPropertyUnreadChannelCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "unread_message_count"
+     */
+    public function testPropertyUnreadMessageCount()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -207,42 +261,6 @@ class SendBirdUserTest extends TestCase
     }
 
     /**
-     * Test attribute "local"
-     */
-    public function testPropertyLocal()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "locale"
-     */
-    public function testPropertyLocale()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "is_hide_me_from_friends"
-     */
-    public function testPropertyIsHideMeFromFriends()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "is_shadow_blocked"
-     */
-    public function testPropertyIsShadowBlocked()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "is_created"
      */
     public function testPropertyIsCreated()
@@ -252,36 +270,9 @@ class SendBirdUserTest extends TestCase
     }
 
     /**
-     * Test attribute "metadata"
+     * Test attribute "session_tokens"
      */
-    public function testPropertyMetadata()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "description"
-     */
-    public function testPropertyDescription()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "end_at"
-     */
-    public function testPropertyEndAt()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "start_at"
-     */
-    public function testPropertyStartAt()
+    public function testPropertySessionTokens()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -117,42 +117,42 @@ class BotApi
     }
 
     /**
-     * Operation createBot
+     * Operation createABot
      *
      * Create a bot
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  \Sendbird\Model\CreateBotData $create_bot_data create_bot_data (optional)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\CreateABotRequest $create_a_bot_request create_a_bot_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\CreateBotResponse
+     * @return \Sendbird\Model\CreateABotResponse
      */
-    public function createBot($associative_array)
+    public function createABot($associative_array)
     {
-        list($response) = $this->createBotWithHttpInfo($associative_array);
+        list($response) = $this->createABotWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation createBotWithHttpInfo
+     * Operation createABotWithHttpInfo
      *
      * Create a bot
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateABotRequest $create_a_bot_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\CreateBotResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\CreateABotResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBotWithHttpInfo($associative_array)
+    public function createABotWithHttpInfo($associative_array)
     {
-        $request = $this->createBotRequest($associative_array);
+        $request = $this->createABotRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -191,23 +191,23 @@ class BotApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\CreateBotResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\CreateABotResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\CreateBotResponse' !== 'string') {
+                        if ('\Sendbird\Model\CreateABotResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateBotResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\CreateABotResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\CreateBotResponse';
+            $returnType = '\Sendbird\Model\CreateABotResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -228,7 +228,7 @@ class BotApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\CreateBotResponse',
+                        '\Sendbird\Model\CreateABotResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -239,21 +239,21 @@ class BotApi
     }
 
     /**
-     * Operation createBotAsync
+     * Operation createABotAsync
      *
      * Create a bot
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateABotRequest $create_a_bot_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBotAsync($associative_array)
+    public function createABotAsync($associative_array)
     {
-        return $this->createBotAsyncWithHttpInfo($associative_array)
+        return $this->createABotAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -262,22 +262,22 @@ class BotApi
     }
 
     /**
-     * Operation createBotAsyncWithHttpInfo
+     * Operation createABotAsyncWithHttpInfo
      *
      * Create a bot
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateABotRequest $create_a_bot_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBotAsyncWithHttpInfo($associative_array)
+    public function createABotAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\CreateBotResponse';
-        $request = $this->createBotRequest($associative_array);
+        $returnType = '\Sendbird\Model\CreateABotResponse';
+        $request = $this->createABotRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -316,28 +316,22 @@ class BotApi
     }
 
     /**
-     * Create request for operation 'createBot'
+     * Create request for operation 'createABot'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  \Sendbird\Model\CreateBotData $create_bot_data (optional)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\CreateABotRequest $create_a_bot_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createBotRequest($associative_array)
+    public function createABotRequest($associative_array)
     {
         // unbox the parameters from the associative array
         $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $create_bot_data = array_key_exists('create_bot_data', $associative_array) ? $associative_array['create_bot_data'] : null;
+        $create_a_bot_request = array_key_exists('create_a_bot_request', $associative_array) ? $associative_array['create_a_bot_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling createBot'
-            );
-        }
 
         $resourcePath = '/v3/bots';
         $formParams = [];
@@ -349,7 +343,7 @@ class BotApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
 
@@ -366,11 +360,11 @@ class BotApi
         }
 
         // for model (json/xml)
-        if (isset($create_bot_data)) {
+        if (isset($create_a_bot_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_bot_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_a_bot_request));
             } else {
-                $httpBody = $create_bot_data;
+                $httpBody = $create_a_bot_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -418,328 +412,19 @@ class BotApi
     }
 
     /**
-     * Operation deleteBotById
-     *
-     * Delete a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $bot_userid bot_userid (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return object
-     */
-    public function deleteBotById($associative_array)
-    {
-        list($response) = $this->deleteBotByIdWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation deleteBotByIdWithHttpInfo
-     *
-     * Delete a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteBotByIdWithHttpInfo($associative_array)
-    {
-        $request = $this->deleteBotByIdRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('object' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'object', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'object';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteBotByIdAsync
-     *
-     * Delete a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteBotByIdAsync($associative_array)
-    {
-        return $this->deleteBotByIdAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteBotByIdAsyncWithHttpInfo
-     *
-     * Delete a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteBotByIdAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = 'object';
-        $request = $this->deleteBotByIdRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteBotById'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function deleteBotByIdRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling deleteBotById'
-            );
-        }
-        // verify the required parameter 'bot_userid' is set
-        if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $bot_userid when calling deleteBotById'
-            );
-        }
-
-        $resourcePath = '/v3/bots/{bot_userid}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($bot_userid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'bot_userid' . '}',
-                ObjectSerializer::toPathValue($bot_userid),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation joinChannels
      *
      * Join channels
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $bot_userid bot_userid (required)
-     * @param  \Sendbird\Model\JoinChannelsData $join_channels_data join_channels_data (optional)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\JoinChannelsRequest $join_channels_request join_channels_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\JoinChannelsResponse
+     * @return \Sendbird\Model\SendbirdGroupChannelDetail
      */
     public function joinChannels($associative_array)
     {
@@ -754,13 +439,13 @@ class BotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\JoinChannelsRequest $join_channels_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\JoinChannelsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendbirdGroupChannelDetail, HTTP status code, HTTP response headers (array of strings)
      */
     public function joinChannelsWithHttpInfo($associative_array)
     {
@@ -803,23 +488,23 @@ class BotApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\JoinChannelsResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendbirdGroupChannelDetail' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\JoinChannelsResponse' !== 'string') {
+                        if ('\Sendbird\Model\SendbirdGroupChannelDetail' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\JoinChannelsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdGroupChannelDetail', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\JoinChannelsResponse';
+            $returnType = '\Sendbird\Model\SendbirdGroupChannelDetail';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -840,7 +525,7 @@ class BotApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\JoinChannelsResponse',
+                        '\Sendbird\Model\SendbirdGroupChannelDetail',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -857,9 +542,9 @@ class BotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\JoinChannelsRequest $join_channels_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -881,16 +566,16 @@ class BotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\JoinChannelsRequest $join_channels_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function joinChannelsAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\JoinChannelsResponse';
+        $returnType = '\Sendbird\Model\SendbirdGroupChannelDetail';
         $request = $this->joinChannelsRequest($associative_array);
 
         return $this->client
@@ -934,9 +619,9 @@ class BotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\JoinChannelsData $join_channels_data (optional)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\JoinChannelsRequest $join_channels_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -944,16 +629,10 @@ class BotApi
     public function joinChannelsRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
-        $join_channels_data = array_key_exists('join_channels_data', $associative_array) ? $associative_array['join_channels_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $join_channels_request = array_key_exists('join_channels_request', $associative_array) ? $associative_array['join_channels_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling joinChannels'
-            );
-        }
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(
@@ -971,7 +650,7 @@ class BotApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -996,11 +675,11 @@ class BotApi
         }
 
         // for model (json/xml)
-        if (isset($join_channels_data)) {
+        if (isset($join_channels_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($join_channels_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($join_channels_request));
             } else {
-                $httpBody = $join_channels_data;
+                $httpBody = $join_channels_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1048,314 +727,44 @@ class BotApi
     }
 
     /**
-     * Operation leaveChannels
+     * Operation leaveAGroupChannel
      *
-     * Leave channels - When leaving all channels
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $bot_userid bot_userid (required)
-     * @param  string $channel_url channel_url (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function leaveChannels($associative_array)
-    {
-        $this->leaveChannelsWithHttpInfo($associative_array);
-    }
-
-    /**
-     * Operation leaveChannelsWithHttpInfo
-     *
-     * Leave channels - When leaving all channels
+     * Leave channels - When leaving a specific channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  string $channel_url (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function leaveChannelsWithHttpInfo($associative_array)
-    {
-        $request = $this->leaveChannelsRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation leaveChannelsAsync
-     *
-     * Leave channels - When leaving all channels
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  string $channel_url (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function leaveChannelsAsync($associative_array)
-    {
-        return $this->leaveChannelsAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation leaveChannelsAsyncWithHttpInfo
-     *
-     * Leave channels - When leaving all channels
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  string $channel_url (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function leaveChannelsAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '';
-        $request = $this->leaveChannelsRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'leaveChannels'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  string $channel_url (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function leaveChannelsRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
-        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling leaveChannels'
-            );
-        }
-        // verify the required parameter 'bot_userid' is set
-        if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $bot_userid when calling leaveChannels'
-            );
-        }
-
-        $resourcePath = '/v3/bots/{bot_userid}/channels';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $channel_url,
-            'channel_url', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($bot_userid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'bot_userid' . '}',
-                ObjectSerializer::toPathValue($bot_userid),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation leaveChannelsByUrl
-     *
-     * Leave channels - When leaving a channel by its channel URL
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $bot_userid bot_userid (required)
      * @param  string $channel_url channel_url (required)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function leaveChannelsByUrl($associative_array)
+    public function leaveAGroupChannel($associative_array)
     {
-        list($response) = $this->leaveChannelsByUrlWithHttpInfo($associative_array);
+        list($response) = $this->leaveAGroupChannelWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation leaveChannelsByUrlWithHttpInfo
+     * Operation leaveAGroupChannelWithHttpInfo
      *
-     * Leave channels - When leaving a channel by its channel URL
+     * Leave channels - When leaving a specific channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaveChannelsByUrlWithHttpInfo($associative_array)
+    public function leaveAGroupChannelWithHttpInfo($associative_array)
     {
-        $request = $this->leaveChannelsByUrlRequest($associative_array);
+        $request = $this->leaveAGroupChannelRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1442,22 +851,22 @@ class BotApi
     }
 
     /**
-     * Operation leaveChannelsByUrlAsync
+     * Operation leaveAGroupChannelAsync
      *
-     * Leave channels - When leaving a channel by its channel URL
+     * Leave channels - When leaving a specific channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveChannelsByUrlAsync($associative_array)
+    public function leaveAGroupChannelAsync($associative_array)
     {
-        return $this->leaveChannelsByUrlAsyncWithHttpInfo($associative_array)
+        return $this->leaveAGroupChannelAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1466,23 +875,23 @@ class BotApi
     }
 
     /**
-     * Operation leaveChannelsByUrlAsyncWithHttpInfo
+     * Operation leaveAGroupChannelAsyncWithHttpInfo
      *
-     * Leave channels - When leaving a channel by its channel URL
+     * Leave channels - When leaving a specific channel
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaveChannelsByUrlAsyncWithHttpInfo($associative_array)
+    public function leaveAGroupChannelAsyncWithHttpInfo($associative_array)
     {
         $returnType = 'object';
-        $request = $this->leaveChannelsByUrlRequest($associative_array);
+        $request = $this->leaveAGroupChannelRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1521,40 +930,34 @@ class BotApi
     }
 
     /**
-     * Create request for operation 'leaveChannelsByUrl'
+     * Create request for operation 'leaveAGroupChannel'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
      * @param  string $channel_url (required)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaveChannelsByUrlRequest($associative_array)
+    public function leaveAGroupChannelRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
         $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling leaveChannelsByUrl'
+                'Missing the required parameter $channel_url when calling leaveAGroupChannel'
             );
         }
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $bot_userid when calling leaveChannelsByUrl'
-            );
-        }
-        // verify the required parameter 'channel_url' is set
-        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $channel_url when calling leaveChannelsByUrl'
+                'Missing the required parameter $bot_userid when calling leaveAGroupChannel'
             );
         }
 
@@ -1568,9 +971,17 @@ class BotApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
+        // path params
+        if ($channel_url !== null) {
+            $resourcePath = str_replace(
+                '{' . 'channel_url' . '}',
+                ObjectSerializer::toPathValue($channel_url),
+                $resourcePath
+            );
+        }
         // path params
         if ($bot_userid !== null) {
             $resourcePath = str_replace(
@@ -1579,11 +990,306 @@ class BotApi
                 $resourcePath
             );
         }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation leaveGroupChannels
+     *
+     * Leave channels - When leaving all channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function leaveGroupChannels($associative_array)
+    {
+        list($response) = $this->leaveGroupChannelsWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation leaveGroupChannelsWithHttpInfo
+     *
+     * Leave channels - When leaving all channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function leaveGroupChannelsWithHttpInfo($associative_array)
+    {
+        $request = $this->leaveGroupChannelsRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation leaveGroupChannelsAsync
+     *
+     * Leave channels - When leaving all channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function leaveGroupChannelsAsync($associative_array)
+    {
+        return $this->leaveGroupChannelsAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation leaveGroupChannelsAsyncWithHttpInfo
+     *
+     * Leave channels - When leaving all channels
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function leaveGroupChannelsAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = 'object';
+        $request = $this->leaveGroupChannelsRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'leaveGroupChannels'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function leaveGroupChannelsRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
+        // verify the required parameter 'bot_userid' is set
+        if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $bot_userid when calling leaveGroupChannels'
+            );
+        }
+
+        $resourcePath = '/v3/bots/{bot_userid}/channels';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
         // path params
-        if ($channel_url !== null) {
+        if ($bot_userid !== null) {
             $resourcePath = str_replace(
-                '{' . 'channel_url' . '}',
-                ObjectSerializer::toPathValue($channel_url),
+                '{' . 'bot_userid' . '}',
+                ObjectSerializer::toPathValue($bot_userid),
                 $resourcePath
             );
         }
@@ -1653,9 +1359,9 @@ class BotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
      * @param  string $token token (optional)
      * @param  int $limit limit (optional)
+     * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1674,9 +1380,9 @@ class BotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1777,9 +1483,9 @@ class BotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1801,9 +1507,9 @@ class BotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1854,9 +1560,9 @@ class BotApi
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
      * @param  string $token (optional)
      * @param  int $limit (optional)
+     * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1864,16 +1570,10 @@ class BotApi
     public function listBotsRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $token = array_key_exists('token', $associative_array) ? $associative_array['token'] : null;
         $limit = array_key_exists('limit', $associative_array) ? $associative_array['limit'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling listBots'
-            );
-        }
 
         $resourcePath = '/v3/bots';
         $formParams = [];
@@ -1903,7 +1603,7 @@ class BotApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
 
@@ -1966,44 +1666,44 @@ class BotApi
     }
 
     /**
-     * Operation sendBotsMessage
+     * Operation sendABotMessage
      *
      * Send a bot&#39;s message
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token api_token (required)
-     * @param  string $bot_userid bot_userid (required)
-     * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data send_bot_s_message_data (optional)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\SendABotMessageRequest $send_a_bot_message_request send_a_bot_message_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendBirdMessageResponse
+     * @return \Sendbird\Model\SendbirdMessageResponse
      */
-    public function sendBotsMessage($associative_array)
+    public function sendABotMessage($associative_array)
     {
-        list($response) = $this->sendBotsMessageWithHttpInfo($associative_array);
+        list($response) = $this->sendABotMessageWithHttpInfo($associative_array);
         return $response;
     }
 
     /**
-     * Operation sendBotsMessageWithHttpInfo
+     * Operation sendABotMessageWithHttpInfo
      *
      * Send a bot&#39;s message
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\SendABotMessageRequest $send_a_bot_message_request (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendBirdMessageResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendbirdMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendBotsMessageWithHttpInfo($associative_array)
+    public function sendABotMessageWithHttpInfo($associative_array)
     {
-        $request = $this->sendBotsMessageRequest($associative_array);
+        $request = $this->sendABotMessageRequest($associative_array);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2042,23 +1742,23 @@ class BotApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendBirdMessageResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendbirdMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendBirdMessageResponse' !== 'string') {
+                        if ('\Sendbird\Model\SendbirdMessageResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendBirdMessageResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendBirdMessageResponse';
+            $returnType = '\Sendbird\Model\SendbirdMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2079,7 +1779,7 @@ class BotApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendBirdMessageResponse',
+                        '\Sendbird\Model\SendbirdMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2090,22 +1790,22 @@ class BotApi
     }
 
     /**
-     * Operation sendBotsMessageAsync
+     * Operation sendABotMessageAsync
      *
      * Send a bot&#39;s message
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\SendABotMessageRequest $send_a_bot_message_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendBotsMessageAsync($associative_array)
+    public function sendABotMessageAsync($associative_array)
     {
-        return $this->sendBotsMessageAsyncWithHttpInfo($associative_array)
+        return $this->sendABotMessageAsyncWithHttpInfo($associative_array)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2114,23 +1814,23 @@ class BotApi
     }
 
     /**
-     * Operation sendBotsMessageAsyncWithHttpInfo
+     * Operation sendABotMessageAsyncWithHttpInfo
      *
      * Send a bot&#39;s message
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\SendABotMessageRequest $send_a_bot_message_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendBotsMessageAsyncWithHttpInfo($associative_array)
+    public function sendABotMessageAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendBirdMessageResponse';
-        $request = $this->sendBotsMessageRequest($associative_array);
+        $returnType = '\Sendbird\Model\SendbirdMessageResponse';
+        $request = $this->sendABotMessageRequest($associative_array);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2169,34 +1869,28 @@ class BotApi
     }
 
     /**
-     * Create request for operation 'sendBotsMessage'
+     * Create request for operation 'sendABotMessage'
      *
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\SendBotSMessageData $send_bot_s_message_data (optional)
+     * @param  string $bot_userid (Required) (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\SendABotMessageRequest $send_a_bot_message_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendBotsMessageRequest($associative_array)
+    public function sendABotMessageRequest($associative_array)
     {
         // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
         $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
-        $send_bot_s_message_data = array_key_exists('send_bot_s_message_data', $associative_array) ? $associative_array['send_bot_s_message_data'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $send_a_bot_message_request = array_key_exists('send_a_bot_message_request', $associative_array) ? $associative_array['send_a_bot_message_request'] : null;
 
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling sendBotsMessage'
-            );
-        }
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $bot_userid when calling sendBotsMessage'
+                'Missing the required parameter $bot_userid when calling sendABotMessage'
             );
         }
 
@@ -2210,7 +1904,7 @@ class BotApi
 
         // header params
         if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+            $headerParams['api-token'] = ObjectSerializer::toHeaderValue($api_token);
         }
 
         // path params
@@ -2235,11 +1929,11 @@ class BotApi
         }
 
         // for model (json/xml)
-        if (isset($send_bot_s_message_data)) {
+        if (isset($send_a_bot_message_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($send_bot_s_message_data));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($send_a_bot_message_request));
             } else {
-                $httpBody = $send_bot_s_message_data;
+                $httpBody = $send_a_bot_message_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2280,636 +1974,6 @@ class BotApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation updateBotById
-     *
-     * Update a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $bot_userid bot_userid (required)
-     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data update_bot_by_id_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\UpdateBotByIdResponse
-     */
-    public function updateBotById($associative_array)
-    {
-        list($response) = $this->updateBotByIdWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation updateBotByIdWithHttpInfo
-     *
-     * Update a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\UpdateBotByIdResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function updateBotByIdWithHttpInfo($associative_array)
-    {
-        $request = $this->updateBotByIdRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\UpdateBotByIdResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\UpdateBotByIdResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UpdateBotByIdResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\UpdateBotByIdResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\UpdateBotByIdResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation updateBotByIdAsync
-     *
-     * Update a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateBotByIdAsync($associative_array)
-    {
-        return $this->updateBotByIdAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation updateBotByIdAsyncWithHttpInfo
-     *
-     * Update a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function updateBotByIdAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\UpdateBotByIdResponse';
-        $request = $this->updateBotByIdRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'updateBotById'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function updateBotByIdRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
-        $update_bot_by_id_data = array_key_exists('update_bot_by_id_data', $associative_array) ? $associative_array['update_bot_by_id_data'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling updateBotById'
-            );
-        }
-        // verify the required parameter 'bot_userid' is set
-        if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $bot_userid when calling updateBotById'
-            );
-        }
-
-        $resourcePath = '/v3/bots/{bot_userid}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($bot_userid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'bot_userid' . '}',
-                ObjectSerializer::toPathValue($bot_userid),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($update_bot_by_id_data)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_bot_by_id_data));
-            } else {
-                $httpBody = $update_bot_by_id_data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation viewBotById
-     *
-     * View a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token api_token (required)
-     * @param  string $bot_userid bot_userid (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\ViewBotByIdResponse
-     */
-    public function viewBotById($associative_array)
-    {
-        list($response) = $this->viewBotByIdWithHttpInfo($associative_array);
-        return $response;
-    }
-
-    /**
-     * Operation viewBotByIdWithHttpInfo
-     *
-     * View a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     *
-     * @throws \Sendbird\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\ViewBotByIdResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function viewBotByIdWithHttpInfo($associative_array)
-    {
-        $request = $this->viewBotByIdRequest($associative_array);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\Sendbird\Model\ViewBotByIdResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\ViewBotByIdResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewBotByIdResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Sendbird\Model\ViewBotByIdResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Sendbird\Model\ViewBotByIdResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation viewBotByIdAsync
-     *
-     * View a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewBotByIdAsync($associative_array)
-    {
-        return $this->viewBotByIdAsyncWithHttpInfo($associative_array)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation viewBotByIdAsyncWithHttpInfo
-     *
-     * View a bot
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function viewBotByIdAsyncWithHttpInfo($associative_array)
-    {
-        $returnType = '\Sendbird\Model\ViewBotByIdResponse';
-        $request = $this->viewBotByIdRequest($associative_array);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'viewBotById'
-     *
-     * Note: the input parameter is an associative array with the keys listed as the parameter name below
-     *
-     * @param  string $api_token (required)
-     * @param  string $bot_userid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function viewBotByIdRequest($associative_array)
-    {
-        // unbox the parameters from the associative array
-        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
-
-        // verify the required parameter 'api_token' is set
-        if ($api_token === null || (is_array($api_token) && count($api_token) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $api_token when calling viewBotById'
-            );
-        }
-        // verify the required parameter 'bot_userid' is set
-        if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $bot_userid when calling viewBotById'
-            );
-        }
-
-        $resourcePath = '/v3/bots/{bot_userid}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($api_token !== null) {
-            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
-        }
-
-        // path params
-        if ($bot_userid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'bot_userid' . '}',
-                ObjectSerializer::toPathValue($bot_userid),
-                $resourcePath
-            );
-        }
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

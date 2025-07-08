@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -60,9 +60,9 @@ class ListMyGroupChannelsResponse implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'channels' => '\Sendbird\Model\SendBirdGroupChannel[]',
+        'channels' => '\Sendbird\Model\SendbirdGroupChannel[]',
         'next' => 'string',
-        'ts' => 'float'
+        'ts' => 'int'
     ];
 
     /**
@@ -75,7 +75,7 @@ class ListMyGroupChannelsResponse implements ModelInterface, ArrayAccess, \JsonS
     protected static $openAPIFormats = [
         'channels' => null,
         'next' => null,
-        'ts' => null
+        'ts' => 'int64'
     ];
 
     /**
@@ -221,7 +221,7 @@ class ListMyGroupChannelsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets channels
      *
-     * @return \Sendbird\Model\SendBirdGroupChannel[]|null
+     * @return \Sendbird\Model\SendbirdGroupChannel[]|null
      */
     public function getChannels()
     {
@@ -231,7 +231,7 @@ class ListMyGroupChannelsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets channels
      *
-     * @param \Sendbird\Model\SendBirdGroupChannel[]|null $channels channels
+     * @param \Sendbird\Model\SendbirdGroupChannel[]|null $channels channels
      *
      * @return self
      */
@@ -269,7 +269,7 @@ class ListMyGroupChannelsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets ts
      *
-     * @return float|null
+     * @return int|null
      */
     public function getTs()
     {
@@ -279,7 +279,7 @@ class ListMyGroupChannelsResponse implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets ts
      *
-     * @param float|null $ts ts
+     * @param int|null $ts ts
      *
      * @return self
      */

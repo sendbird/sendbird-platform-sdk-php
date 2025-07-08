@@ -1,6 +1,6 @@
 <?php
 /**
- * SendBirdMessageResponse
+ * SendbirdMessageResponse
  *
  * PHP version 7.4
  *
@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * SendBirdMessageResponse Class Doc Comment
+ * SendbirdMessageResponse Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendbirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SendBird.MessageResponse';
+    protected static $openAPIModelName = 'Sendbird.MessageResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,32 +61,35 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
       */
     protected static $openAPITypes = [
         'require_auth' => 'bool',
-        'message_survival_seconds' => 'float',
+        'message_survival_seconds' => 'int',
         'custom_type' => 'string',
-        'mentioned_users' => '\Sendbird\Model\SendBirdMessageResponseMentionedUsersInner[]',
+        'mentioned_users' => '\Sendbird\Model\SendbirdBasicUserInfo[]',
         'translations' => 'object',
-        'updated_at' => 'float',
+        'updated_at' => 'int',
         'is_op_msg' => 'bool',
+        'reactions' => '\Sendbird\Model\SendbirdReaction[]',
         'is_removed' => 'bool',
-        'user' => '\Sendbird\Model\SendBirdMessageResponseUser',
+        'user' => '\Sendbird\Model\SendbirdBasicUserInfo',
         'file' => 'object',
+        'files' => '\Sendbird\Model\SendbirdFile[]',
         'message' => 'string',
         'data' => 'string',
-        'message_retention_hour' => 'float',
+        'message_retention_hour' => 'int',
         'silent' => 'bool',
         'type' => 'string',
-        'created_at' => 'float',
+        'created_at' => 'int',
         'channel_type' => 'string',
         'req_id' => 'string',
         'mention_type' => 'string',
         'channel_url' => 'string',
-        'message_id' => 'float',
-        'size' => 'float',
-        'sorted_metaarray' => 'object[]',
+        'message_id' => 'int',
+        'sorted_metaarray' => '\Sendbird\Model\SendbirdSortedMetaarrayInner[]',
         'thread_info' => 'object',
-        'parent_message_id' => 'float',
-        'parent_message_info' => 'object',
-        'is_reply_to_channel' => 'bool'
+        'parent_message_id' => 'int',
+        'parent_message_info' => '\Sendbird\Model\SendbirdParentMessageInfo',
+        'is_reply_to_channel' => 'bool',
+        'message_events' => '\Sendbird\Model\SendbirdMessageResponseMessageEvents',
+        'extended_message_payload' => '\Sendbird\Model\SendbirdExtendedMessagePayload'
     ];
 
     /**
@@ -102,28 +105,31 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'custom_type' => null,
         'mentioned_users' => null,
         'translations' => null,
-        'updated_at' => null,
+        'updated_at' => 'int64',
         'is_op_msg' => null,
+        'reactions' => null,
         'is_removed' => null,
         'user' => null,
         'file' => null,
+        'files' => null,
         'message' => null,
         'data' => null,
         'message_retention_hour' => null,
         'silent' => null,
         'type' => null,
-        'created_at' => null,
+        'created_at' => 'int64',
         'channel_type' => null,
         'req_id' => null,
         'mention_type' => null,
         'channel_url' => null,
         'message_id' => null,
-        'size' => null,
         'sorted_metaarray' => null,
         'thread_info' => null,
         'parent_message_id' => null,
         'parent_message_info' => null,
-        'is_reply_to_channel' => null
+        'is_reply_to_channel' => null,
+        'message_events' => null,
+        'extended_message_payload' => null
     ];
 
     /**
@@ -160,9 +166,11 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'translations' => 'translations',
         'updated_at' => 'updated_at',
         'is_op_msg' => 'is_op_msg',
+        'reactions' => 'reactions',
         'is_removed' => 'is_removed',
         'user' => 'user',
         'file' => 'file',
+        'files' => 'files',
         'message' => 'message',
         'data' => 'data',
         'message_retention_hour' => 'message_retention_hour',
@@ -174,12 +182,13 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'mention_type' => 'mention_type',
         'channel_url' => 'channel_url',
         'message_id' => 'message_id',
-        'size' => 'size',
         'sorted_metaarray' => 'sorted_metaarray',
         'thread_info' => 'thread_info',
         'parent_message_id' => 'parent_message_id',
         'parent_message_info' => 'parent_message_info',
-        'is_reply_to_channel' => 'is_reply_to_channel'
+        'is_reply_to_channel' => 'is_reply_to_channel',
+        'message_events' => 'message_events',
+        'extended_message_payload' => 'extended_message_payload'
     ];
 
     /**
@@ -195,9 +204,11 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'translations' => 'setTranslations',
         'updated_at' => 'setUpdatedAt',
         'is_op_msg' => 'setIsOpMsg',
+        'reactions' => 'setReactions',
         'is_removed' => 'setIsRemoved',
         'user' => 'setUser',
         'file' => 'setFile',
+        'files' => 'setFiles',
         'message' => 'setMessage',
         'data' => 'setData',
         'message_retention_hour' => 'setMessageRetentionHour',
@@ -209,12 +220,13 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'mention_type' => 'setMentionType',
         'channel_url' => 'setChannelUrl',
         'message_id' => 'setMessageId',
-        'size' => 'setSize',
         'sorted_metaarray' => 'setSortedMetaarray',
         'thread_info' => 'setThreadInfo',
         'parent_message_id' => 'setParentMessageId',
         'parent_message_info' => 'setParentMessageInfo',
-        'is_reply_to_channel' => 'setIsReplyToChannel'
+        'is_reply_to_channel' => 'setIsReplyToChannel',
+        'message_events' => 'setMessageEvents',
+        'extended_message_payload' => 'setExtendedMessagePayload'
     ];
 
     /**
@@ -230,9 +242,11 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'translations' => 'getTranslations',
         'updated_at' => 'getUpdatedAt',
         'is_op_msg' => 'getIsOpMsg',
+        'reactions' => 'getReactions',
         'is_removed' => 'getIsRemoved',
         'user' => 'getUser',
         'file' => 'getFile',
+        'files' => 'getFiles',
         'message' => 'getMessage',
         'data' => 'getData',
         'message_retention_hour' => 'getMessageRetentionHour',
@@ -244,12 +258,13 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'mention_type' => 'getMentionType',
         'channel_url' => 'getChannelUrl',
         'message_id' => 'getMessageId',
-        'size' => 'getSize',
         'sorted_metaarray' => 'getSortedMetaarray',
         'thread_info' => 'getThreadInfo',
         'parent_message_id' => 'getParentMessageId',
         'parent_message_info' => 'getParentMessageInfo',
-        'is_reply_to_channel' => 'getIsReplyToChannel'
+        'is_reply_to_channel' => 'getIsReplyToChannel',
+        'message_events' => 'getMessageEvents',
+        'extended_message_payload' => 'getExtendedMessagePayload'
     ];
 
     /**
@@ -316,9 +331,11 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['translations'] = $data['translations'] ?? null;
         $this->container['updated_at'] = $data['updated_at'] ?? null;
         $this->container['is_op_msg'] = $data['is_op_msg'] ?? null;
+        $this->container['reactions'] = $data['reactions'] ?? null;
         $this->container['is_removed'] = $data['is_removed'] ?? null;
         $this->container['user'] = $data['user'] ?? null;
         $this->container['file'] = $data['file'] ?? null;
+        $this->container['files'] = $data['files'] ?? null;
         $this->container['message'] = $data['message'] ?? null;
         $this->container['data'] = $data['data'] ?? null;
         $this->container['message_retention_hour'] = $data['message_retention_hour'] ?? null;
@@ -330,12 +347,13 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['mention_type'] = $data['mention_type'] ?? null;
         $this->container['channel_url'] = $data['channel_url'] ?? null;
         $this->container['message_id'] = $data['message_id'] ?? null;
-        $this->container['size'] = $data['size'] ?? null;
         $this->container['sorted_metaarray'] = $data['sorted_metaarray'] ?? null;
         $this->container['thread_info'] = $data['thread_info'] ?? null;
         $this->container['parent_message_id'] = $data['parent_message_id'] ?? null;
         $this->container['parent_message_info'] = $data['parent_message_info'] ?? null;
         $this->container['is_reply_to_channel'] = $data['is_reply_to_channel'] ?? null;
+        $this->container['message_events'] = $data['message_events'] ?? null;
+        $this->container['extended_message_payload'] = $data['extended_message_payload'] ?? null;
     }
 
     /**
@@ -389,7 +407,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets message_survival_seconds
      *
-     * @return float|null
+     * @return int|null
      */
     public function getMessageSurvivalSeconds()
     {
@@ -399,7 +417,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets message_survival_seconds
      *
-     * @param float|null $message_survival_seconds message_survival_seconds
+     * @param int|null $message_survival_seconds message_survival_seconds
      *
      * @return self
      */
@@ -437,7 +455,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets mentioned_users
      *
-     * @return \Sendbird\Model\SendBirdMessageResponseMentionedUsersInner[]|null
+     * @return \Sendbird\Model\SendbirdBasicUserInfo[]|null
      */
     public function getMentionedUsers()
     {
@@ -447,7 +465,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets mentioned_users
      *
-     * @param \Sendbird\Model\SendBirdMessageResponseMentionedUsersInner[]|null $mentioned_users mentioned_users
+     * @param \Sendbird\Model\SendbirdBasicUserInfo[]|null $mentioned_users mentioned_users
      *
      * @return self
      */
@@ -485,7 +503,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets updated_at
      *
-     * @return float|null
+     * @return int|null
      */
     public function getUpdatedAt()
     {
@@ -495,7 +513,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets updated_at
      *
-     * @param float|null $updated_at updated_at
+     * @param int|null $updated_at updated_at
      *
      * @return self
      */
@@ -531,6 +549,30 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
+     * Gets reactions
+     *
+     * @return \Sendbird\Model\SendbirdReaction[]|null
+     */
+    public function getReactions()
+    {
+        return $this->container['reactions'];
+    }
+
+    /**
+     * Sets reactions
+     *
+     * @param \Sendbird\Model\SendbirdReaction[]|null $reactions reactions
+     *
+     * @return self
+     */
+    public function setReactions($reactions)
+    {
+        $this->container['reactions'] = $reactions;
+
+        return $this;
+    }
+
+    /**
      * Gets is_removed
      *
      * @return bool|null
@@ -557,7 +599,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets user
      *
-     * @return \Sendbird\Model\SendBirdMessageResponseUser|null
+     * @return \Sendbird\Model\SendbirdBasicUserInfo|null
      */
     public function getUser()
     {
@@ -567,7 +609,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets user
      *
-     * @param \Sendbird\Model\SendBirdMessageResponseUser|null $user user
+     * @param \Sendbird\Model\SendbirdBasicUserInfo|null $user user
      *
      * @return self
      */
@@ -598,6 +640,30 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public function setFile($file)
     {
         $this->container['file'] = $file;
+
+        return $this;
+    }
+
+    /**
+     * Gets files
+     *
+     * @return \Sendbird\Model\SendbirdFile[]|null
+     */
+    public function getFiles()
+    {
+        return $this->container['files'];
+    }
+
+    /**
+     * Sets files
+     *
+     * @param \Sendbird\Model\SendbirdFile[]|null $files files
+     *
+     * @return self
+     */
+    public function setFiles($files)
+    {
+        $this->container['files'] = $files;
 
         return $this;
     }
@@ -653,7 +719,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets message_retention_hour
      *
-     * @return float|null
+     * @return int|null
      */
     public function getMessageRetentionHour()
     {
@@ -663,7 +729,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets message_retention_hour
      *
-     * @param float|null $message_retention_hour message_retention_hour
+     * @param int|null $message_retention_hour message_retention_hour
      *
      * @return self
      */
@@ -725,7 +791,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets created_at
      *
-     * @return float|null
+     * @return int|null
      */
     public function getCreatedAt()
     {
@@ -735,7 +801,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets created_at
      *
-     * @param float|null $created_at created_at
+     * @param int|null $created_at created_at
      *
      * @return self
      */
@@ -845,7 +911,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets message_id
      *
-     * @return float|null
+     * @return int|null
      */
     public function getMessageId()
     {
@@ -855,7 +921,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets message_id
      *
-     * @param float|null $message_id message_id
+     * @param int|null $message_id message_id
      *
      * @return self
      */
@@ -867,33 +933,9 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets size
-     *
-     * @return float|null
-     */
-    public function getSize()
-    {
-        return $this->container['size'];
-    }
-
-    /**
-     * Sets size
-     *
-     * @param float|null $size size
-     *
-     * @return self
-     */
-    public function setSize($size)
-    {
-        $this->container['size'] = $size;
-
-        return $this;
-    }
-
-    /**
      * Gets sorted_metaarray
      *
-     * @return object[]|null
+     * @return \Sendbird\Model\SendbirdSortedMetaarrayInner[]|null
      */
     public function getSortedMetaarray()
     {
@@ -903,7 +945,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets sorted_metaarray
      *
-     * @param object[]|null $sorted_metaarray sorted_metaarray
+     * @param \Sendbird\Model\SendbirdSortedMetaarrayInner[]|null $sorted_metaarray sorted_metaarray
      *
      * @return self
      */
@@ -941,7 +983,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets parent_message_id
      *
-     * @return float|null
+     * @return int|null
      */
     public function getParentMessageId()
     {
@@ -951,7 +993,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets parent_message_id
      *
-     * @param float|null $parent_message_id parent_message_id
+     * @param int|null $parent_message_id parent_message_id
      *
      * @return self
      */
@@ -965,7 +1007,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets parent_message_info
      *
-     * @return object|null
+     * @return \Sendbird\Model\SendbirdParentMessageInfo|null
      */
     public function getParentMessageInfo()
     {
@@ -975,7 +1017,7 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets parent_message_info
      *
-     * @param object|null $parent_message_info parent_message_info
+     * @param \Sendbird\Model\SendbirdParentMessageInfo|null $parent_message_info parent_message_info
      *
      * @return self
      */
@@ -1006,6 +1048,54 @@ class SendBirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
     public function setIsReplyToChannel($is_reply_to_channel)
     {
         $this->container['is_reply_to_channel'] = $is_reply_to_channel;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_events
+     *
+     * @return \Sendbird\Model\SendbirdMessageResponseMessageEvents|null
+     */
+    public function getMessageEvents()
+    {
+        return $this->container['message_events'];
+    }
+
+    /**
+     * Sets message_events
+     *
+     * @param \Sendbird\Model\SendbirdMessageResponseMessageEvents|null $message_events message_events
+     *
+     * @return self
+     */
+    public function setMessageEvents($message_events)
+    {
+        $this->container['message_events'] = $message_events;
+
+        return $this;
+    }
+
+    /**
+     * Gets extended_message_payload
+     *
+     * @return \Sendbird\Model\SendbirdExtendedMessagePayload|null
+     */
+    public function getExtendedMessagePayload()
+    {
+        return $this->container['extended_message_payload'];
+    }
+
+    /**
+     * Sets extended_message_payload
+     *
+     * @param \Sendbird\Model\SendbirdExtendedMessagePayload|null $extended_message_payload extended_message_payload
+     *
+     * @return self
+     */
+    public function setExtendedMessagePayload($extended_message_payload)
+    {
+        $this->container['extended_message_payload'] = $extended_message_payload;
 
         return $this;
     }

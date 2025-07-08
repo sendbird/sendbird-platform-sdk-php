@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -73,156 +73,36 @@ class ModerationApiTest extends TestCase
     }
 
     /**
-     * Test case for banFromChannelsWithCustomChannelTypes
-     *
-     * Ban from channels with custom channel types.
-     *
-     */
-    public function testBanFromChannelsWithCustomChannelTypes()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for blockUser
+     * Test case for blockAUser
      *
      * Block a user.
      *
      */
-    public function testBlockUser()
+    public function testBlockAUser()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcBanUser
+     * Test case for freezeAGroupChannel
      *
-     * Ban a user.
+     * Freeze a group channel.
      *
      */
-    public function testGcBanUser()
+    public function testFreezeAGroupChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for gcFreezeChannel
+     * Test case for freezeAnOpenChannel
      *
-     * Freeze a channel.
-     *
-     */
-    public function testGcFreezeChannel()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for gcListBannedUsers
-     *
-     * List banned users.
+     * Freeze an open channel.
      *
      */
-    public function testGcListBannedUsers()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for gcListMutedUsers
-     *
-     * List muted users.
-     *
-     */
-    public function testGcListMutedUsers()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for gcMuteUser
-     *
-     * Mute a user.
-     *
-     */
-    public function testGcMuteUser()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for gcUnbanUserById
-     *
-     * Unban a user.
-     *
-     */
-    public function testGcUnbanUserById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for gcUnmuteUserById
-     *
-     * Unmute a user.
-     *
-     */
-    public function testGcUnmuteUserById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for gcUpdateBanById
-     *
-     * Update a ban.
-     *
-     */
-    public function testGcUpdateBanById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for gcViewBanById
-     *
-     * View a ban.
-     *
-     */
-    public function testGcViewBanById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for gcViewMuteById
-     *
-     * View a mute.
-     *
-     */
-    public function testGcViewMuteById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for listBannedChannels
-     *
-     * List banned channels.
-     *
-     */
-    public function testListBannedChannels()
+    public function testFreezeAnOpenChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -241,156 +121,12 @@ class ModerationApiTest extends TestCase
     }
 
     /**
-     * Test case for listMutedChannels
-     *
-     * List muted channels.
-     *
-     */
-    public function testListMutedChannels()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for muteInChannelsWithCustomChannelTypes
-     *
-     * Mute in channels with custom channel types.
-     *
-     */
-    public function testMuteInChannelsWithCustomChannelTypes()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocBanUser
-     *
-     * Ban a user.
-     *
-     */
-    public function testOcBanUser()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocFreezeChannel
-     *
-     * Freeze a channel.
-     *
-     */
-    public function testOcFreezeChannel()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocListBannedUsers
-     *
-     * List banned users.
-     *
-     */
-    public function testOcListBannedUsers()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocListMutedUsers
-     *
-     * List muted users.
-     *
-     */
-    public function testOcListMutedUsers()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocMuteUser
-     *
-     * Mute a user.
-     *
-     */
-    public function testOcMuteUser()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocUnbanUserById
-     *
-     * Unban a user.
-     *
-     */
-    public function testOcUnbanUserById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocUnmuteUserById
-     *
-     * Unmute a user.
-     *
-     */
-    public function testOcUnmuteUserById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocUpdateBanById
-     *
-     * Update a ban.
-     *
-     */
-    public function testOcUpdateBanById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocViewBanById
-     *
-     * View a ban.
-     *
-     */
-    public function testOcViewBanById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for ocViewMuteById
-     *
-     * View a mute.
-     *
-     */
-    public function testOcViewMuteById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for unblockUserById
+     * Test case for unblockAUser
      *
      * Unblock a user.
      *
      */
-    public function testUnblockUserById()
+    public function testUnblockAUser()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

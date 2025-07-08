@@ -12,7 +12,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -73,24 +73,12 @@ class BotApiTest extends TestCase
     }
 
     /**
-     * Test case for createBot
+     * Test case for createABot
      *
      * Create a bot.
      *
      */
-    public function testCreateBot()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteBotById
-     *
-     * Delete a bot.
-     *
-     */
-    public function testDeleteBotById()
+    public function testCreateABot()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -109,24 +97,24 @@ class BotApiTest extends TestCase
     }
 
     /**
-     * Test case for leaveChannels
+     * Test case for leaveAGroupChannel
      *
-     * Leave channels - When leaving all channels.
+     * Leave channels - When leaving a specific channel.
      *
      */
-    public function testLeaveChannels()
+    public function testLeaveAGroupChannel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for leaveChannelsByUrl
+     * Test case for leaveGroupChannels
      *
-     * Leave channels - When leaving a channel by its channel URL.
+     * Leave channels - When leaving all channels.
      *
      */
-    public function testLeaveChannelsByUrl()
+    public function testLeaveGroupChannels()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -145,36 +133,12 @@ class BotApiTest extends TestCase
     }
 
     /**
-     * Test case for sendBotsMessage
+     * Test case for sendABotMessage
      *
      * Send a bot's message.
      *
      */
-    public function testSendBotsMessage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for updateBotById
-     *
-     * Update a bot.
-     *
-     */
-    public function testUpdateBotById()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for viewBotById
-     *
-     * View a bot.
-     *
-     */
-    public function testViewBotById()
+    public function testSendABotMessage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

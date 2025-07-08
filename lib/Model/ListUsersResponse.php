@@ -13,7 +13,7 @@
 /**
  * Sendbird Platform SDK
  *
- * Sendbird Platform API SDK  https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api
+ * Sendbird Platform API SDK  [https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api](https://sendbird.com/docs/chat/v3/platform-api/getting-started/prepare-to-use-api)  Contact Support:   Name: Sendbird   Email: [support@sendbird.com](https://mailto:support@sendbird.com)
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@sendbird.com
@@ -60,8 +60,8 @@ class ListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'users' => '\Sendbird\Model\SendBirdUser[]',
-        'next' => 'string'
+        'next' => 'string',
+        'users' => '\Sendbird\Model\SendbirdUser[]'
     ];
 
     /**
@@ -72,8 +72,8 @@ class ListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'users' => null,
-        'next' => null
+        'next' => null,
+        'users' => null
     ];
 
     /**
@@ -103,8 +103,8 @@ class ListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'users' => 'users',
-        'next' => 'next'
+        'next' => 'next',
+        'users' => 'users'
     ];
 
     /**
@@ -113,8 +113,8 @@ class ListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'users' => 'setUsers',
-        'next' => 'setNext'
+        'next' => 'setNext',
+        'users' => 'setUsers'
     ];
 
     /**
@@ -123,8 +123,8 @@ class ListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'users' => 'getUsers',
-        'next' => 'getNext'
+        'next' => 'getNext',
+        'users' => 'getUsers'
     ];
 
     /**
@@ -184,8 +184,8 @@ class ListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['users'] = $data['users'] ?? null;
         $this->container['next'] = $data['next'] ?? null;
+        $this->container['users'] = $data['users'] ?? null;
     }
 
     /**
@@ -213,30 +213,6 @@ class ListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets users
-     *
-     * @return \Sendbird\Model\SendBirdUser[]|null
-     */
-    public function getUsers()
-    {
-        return $this->container['users'];
-    }
-
-    /**
-     * Sets users
-     *
-     * @param \Sendbird\Model\SendBirdUser[]|null $users users
-     *
-     * @return self
-     */
-    public function setUsers($users)
-    {
-        $this->container['users'] = $users;
-
-        return $this;
-    }
-
-    /**
      * Gets next
      *
      * @return string|null
@@ -256,6 +232,30 @@ class ListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setNext($next)
     {
         $this->container['next'] = $next;
+
+        return $this;
+    }
+
+    /**
+     * Gets users
+     *
+     * @return \Sendbird\Model\SendbirdUser[]|null
+     */
+    public function getUsers()
+    {
+        return $this->container['users'];
+    }
+
+    /**
+     * Sets users
+     *
+     * @param \Sendbird\Model\SendbirdUser[]|null $users users
+     *
+     * @return self
+     */
+    public function setUsers($users)
+    {
+        $this->container['users'] = $users;
 
         return $this;
     }

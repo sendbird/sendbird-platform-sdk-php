@@ -4,26 +4,23 @@ All URIs are relative to https://api-APP_ID.sendbird.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createBot()**](BotApi.md#createBot) | **POST** /v3/bots | Create a bot
-[**deleteBotById()**](BotApi.md#deleteBotById) | **DELETE** /v3/bots/{bot_userid} | Delete a bot
+[**createABot()**](BotApi.md#createABot) | **POST** /v3/bots | Create a bot
 [**joinChannels()**](BotApi.md#joinChannels) | **POST** /v3/bots/{bot_userid}/channels | Join channels
-[**leaveChannels()**](BotApi.md#leaveChannels) | **DELETE** /v3/bots/{bot_userid}/channels | Leave channels - When leaving all channels
-[**leaveChannelsByUrl()**](BotApi.md#leaveChannelsByUrl) | **DELETE** /v3/bots/{bot_userid}/channels/{channel_url} | Leave channels - When leaving a channel by its channel URL
+[**leaveAGroupChannel()**](BotApi.md#leaveAGroupChannel) | **DELETE** /v3/bots/{bot_userid}/channels/{channel_url} | Leave channels - When leaving a specific channel
+[**leaveGroupChannels()**](BotApi.md#leaveGroupChannels) | **DELETE** /v3/bots/{bot_userid}/channels | Leave channels - When leaving all channels
 [**listBots()**](BotApi.md#listBots) | **GET** /v3/bots | List bots
-[**sendBotsMessage()**](BotApi.md#sendBotsMessage) | **POST** /v3/bots/{bot_userid}/send | Send a bot&#39;s message
-[**updateBotById()**](BotApi.md#updateBotById) | **PUT** /v3/bots/{bot_userid} | Update a bot
-[**viewBotById()**](BotApi.md#viewBotById) | **GET** /v3/bots/{bot_userid} | View a bot
+[**sendABotMessage()**](BotApi.md#sendABotMessage) | **POST** /v3/bots/{bot_userid}/send | Send a bot&#39;s message
 
 
-## `createBot()`
+## `createABot()`
 
 ```php
-createBot($api_token, $create_bot_data): \Sendbird\Model\CreateBotResponse
+createABot($api_token, $create_a_bot_request): \Sendbird\Model\CreateABotResponse
 ```
 
 Create a bot
 
-## Create a bot  Creates a new bot within the application. Creating a bot is similar to creating a normal user, except that a callback URL is specified in order for the bot to receive events.  > __Note__: The bot must [join](#2-join-channels) a group channel first to interact with users. In group channels, you can invite a bot through the [invite as members](https://sendbird.com/docs/chat/v3/platform-api/guides/group-channel#2-invite-as-members) action instead.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-create-a-bot
+## Create a bot  Creates a new bot within an application. Creating a bot is similar to creating a normal user, except a callback URL should be specified for a bot to receive events.  > **Note**: The bot must first [join a group channel](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/join-channels) to interact with users. In group channels, you can also invite a bot through the [invite as members](https://sendbird.com/docs/chat/platform-api/v3/channel/inviting-a-user/invite-as-members-channel) action.      [https://sendbird.com/docs/chat/platform-api/v3/bot/creating-a-bot/create-a-bot#1-create-a-bot](https://sendbird.com/docs/chat/platform-api/v3/bot/creating-a-bot/create-a-bot#1-create-a-bot)
 
 ### Example
 
@@ -39,13 +36,13 @@ $apiInstance = new Sendbird\Api\BotApi(
     new GuzzleHttp\Client()
 );
 $associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['create_bot_data'] = new \Sendbird\Model\CreateBotData(); // \Sendbird\Model\CreateBotData
+$associate_array['create_a_bot_request'] = new \Sendbird\Model\CreateABotRequest(); // \Sendbird\Model\CreateABotRequest
 
 try {
-    $result = $apiInstance->createBot($associate_array);
+    $result = $apiInstance->createABot($associate_array);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BotApi->createBot: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BotApi->createABot: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -55,12 +52,12 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **create_bot_data** | [**\Sendbird\Model\CreateBotData**](../Model/CreateBotData.md)|  | [optional]
+ **api_token** | **string**|  | [optional]
+ **create_a_bot_request** | [**\Sendbird\Model\CreateABotRequest**](../Model/CreateABotRequest.md)|  | [optional]
 
 ### Return type
 
-[**\Sendbird\Model\CreateBotResponse**](../Model/CreateBotResponse.md)
+[**\Sendbird\Model\CreateABotResponse**](../Model/CreateABotResponse.md)
 
 ### Authorization
 
@@ -75,15 +72,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `deleteBotById()`
+## `joinChannels()`
 
 ```php
-deleteBotById($api_token, $bot_userid): object
+joinChannels($bot_userid, $api_token, $join_channels_request): \Sendbird\Model\SendbirdGroupChannelDetail
 ```
 
-Delete a bot
+Join channels
 
-## Delete a bot  Deletes a bot from an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-delete-a-bot ----------------------------
+## Join channels  Makes a bot join one or more group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/join-channels#1-join-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/join-channels#1-join-channels)
 
 ### Example
 
@@ -98,14 +95,15 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$associate_array['bot_userid'] = 'bot_userid_example'; // string | (Required)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['bot_userid'] = 'bot_userid_example'; // string
+$associate_array['join_channels_request'] = new \Sendbird\Model\JoinChannelsRequest(); // \Sendbird\Model\JoinChannelsRequest
 
 try {
-    $result = $apiInstance->deleteBotById($associate_array);
+    $result = $apiInstance->joinChannels($associate_array);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BotApi->deleteBotById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BotApi->joinChannels: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -115,8 +113,71 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **bot_userid** | **string**|  |
+ **bot_userid** | **string**| (Required) |
+ **api_token** | **string**|  | [optional]
+ **join_channels_request** | [**\Sendbird\Model\JoinChannelsRequest**](../Model/JoinChannelsRequest.md)|  | [optional]
+
+### Return type
+
+[**\Sendbird\Model\SendbirdGroupChannelDetail**](../Model/SendbirdGroupChannelDetail.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `leaveAGroupChannel()`
+
+```php
+leaveAGroupChannel($channel_url, $bot_userid, $api_token): object
+```
+
+Leave channels - When leaving a specific channel
+
+## Leave channels  Makes a bot leave a specific channel  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new Sendbird\Api\BotApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$associate_array['channel_url'] = 'channel_url_example'; // string
+$associate_array['bot_userid'] = 'bot_userid_example'; // string | (Required)
+$associate_array['api_token'] = {{API_TOKEN}}; // string
+
+try {
+    $result = $apiInstance->leaveAGroupChannel($associate_array);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BotApi->leaveAGroupChannel: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Note: the input parameter is an associative array with the keys listed as the parameter name below.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_url** | **string**|  |
+ **bot_userid** | **string**| (Required) |
+ **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -135,77 +196,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `joinChannels()`
+## `leaveGroupChannels()`
 
 ```php
-joinChannels($api_token, $bot_userid, $join_channels_data): \Sendbird\Model\JoinChannelsResponse
-```
-
-Join channels
-
-## Join channels  Makes a bot join one or more channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-join-channels ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\BotApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['bot_userid'] = 'bot_userid_example'; // string
-$associate_array['join_channels_data'] = new \Sendbird\Model\JoinChannelsData(); // \Sendbird\Model\JoinChannelsData
-
-try {
-    $result = $apiInstance->joinChannels($associate_array);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling BotApi->joinChannels: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Note: the input parameter is an associative array with the keys listed as the parameter name below.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **bot_userid** | **string**|  |
- **join_channels_data** | [**\Sendbird\Model\JoinChannelsData**](../Model/JoinChannelsData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\JoinChannelsResponse**](../Model/JoinChannelsResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `leaveChannels()`
-
-```php
-leaveChannels($api_token, $bot_userid, $channel_url)
+leaveGroupChannels($bot_userid, $api_token): object
 ```
 
 Leave channels - When leaving all channels
 
-## Leave channels  Makes a bot leave one or more group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-leave-channels ----------------------------
+## Leave channels  Makes a bot leave all group channels.  [https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels](https://sendbird.com/docs/chat/platform-api/v3/bot/managing-a-bot/leave-channels#1-leave-channels)
 
 ### Example
 
@@ -220,76 +219,14 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$associate_array['bot_userid'] = 'bot_userid_example'; // string | (Required)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['bot_userid'] = 'bot_userid_example'; // string
-$associate_array['channel_url'] = 'channel_url_example'; // string
 
 try {
-    $apiInstance->leaveChannels($associate_array);
-} catch (Exception $e) {
-    echo 'Exception when calling BotApi->leaveChannels: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Note: the input parameter is an associative array with the keys listed as the parameter name below.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **bot_userid** | **string**|  |
- **channel_url** | **string**|  | [optional]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `leaveChannelsByUrl()`
-
-```php
-leaveChannelsByUrl($api_token, $bot_userid, $channel_url): object
-```
-
-Leave channels - When leaving a channel by its channel URL
-
-## Leave channels  Makes a bot leave one or more group channels.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-leave-channels ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\BotApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['bot_userid'] = 'bot_userid_example'; // string
-$associate_array['channel_url'] = 'channel_url_example'; // string
-
-try {
-    $result = $apiInstance->leaveChannelsByUrl($associate_array);
+    $result = $apiInstance->leaveGroupChannels($associate_array);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BotApi->leaveChannelsByUrl: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BotApi->leaveGroupChannels: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -299,9 +236,8 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **bot_userid** | **string**|  |
- **channel_url** | **string**|  |
+ **bot_userid** | **string**| (Required) |
+ **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -323,12 +259,12 @@ No authorization required
 ## `listBots()`
 
 ```php
-listBots($api_token, $token, $limit): \Sendbird\Model\ListBotsResponse
+listBots($token, $limit, $api_token): \Sendbird\Model\ListBotsResponse
 ```
 
 List bots
 
-## List bots  Retrieves a list of all bots within an application.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-list-bots ----------------------------
+## List bots  Retrieves a list of all bots within an application.  https://sendbird.com/docs/chat/platform-api/v3/bot/listing-bots/list-bots#1-list-bots
 
 ### Example
 
@@ -343,9 +279,9 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$associate_array['api_token'] = {{API_TOKEN}}; // string
 $associate_array['token'] = 'token_example'; // string
 $associate_array['limit'] = 56; // int
+$associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
     $result = $apiInstance->listBots($associate_array);
@@ -361,9 +297,9 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
  **token** | **string**|  | [optional]
  **limit** | **int**|  | [optional]
+ **api_token** | **string**|  | [optional]
 
 ### Return type
 
@@ -382,15 +318,15 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `sendBotsMessage()`
+## `sendABotMessage()`
 
 ```php
-sendBotsMessage($api_token, $bot_userid, $send_bot_s_message_data): \Sendbird\Model\SendBirdMessageResponse
+sendABotMessage($bot_userid, $api_token, $send_a_bot_message_request): \Sendbird\Model\SendbirdMessageResponse
 ```
 
 Send a bot's message
 
-## Send a bot's message  Sends a bot's message to a channel.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-send-a-bot-s-message ----------------------------   `bot_userid`      Type: string      Description: Specifies the ID of the bot to send a message.
+## Send a bot message  Sends a bot message to a group channel.  [https://sendbird.com/docs/chat/platform-api/v3/bot/sending-a-bot-message/send-a-bot-message#1-send-a-bot-message](https://sendbird.com/docs/chat/platform-api/v3/bot/sending-a-bot-message/send-a-bot-message#1-send-a-bot-message)  `bot_userid`   Type: string   Description: Specifies the ID of the bot to send a message.
 
 ### Example
 
@@ -405,15 +341,15 @@ $apiInstance = new Sendbird\Api\BotApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$associate_array['bot_userid'] = 'bot_userid_example'; // string | (Required)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['bot_userid'] = 'bot_userid_example'; // string
-$associate_array['send_bot_s_message_data'] = new \Sendbird\Model\SendBotSMessageData(); // \Sendbird\Model\SendBotSMessageData
+$associate_array['send_a_bot_message_request'] = new \Sendbird\Model\SendABotMessageRequest(); // \Sendbird\Model\SendABotMessageRequest
 
 try {
-    $result = $apiInstance->sendBotsMessage($associate_array);
+    $result = $apiInstance->sendABotMessage($associate_array);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BotApi->sendBotsMessage: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BotApi->sendABotMessage: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -423,13 +359,13 @@ Note: the input parameter is an associative array with the keys listed as the pa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **bot_userid** | **string**|  |
- **send_bot_s_message_data** | [**\Sendbird\Model\SendBotSMessageData**](../Model/SendBotSMessageData.md)|  | [optional]
+ **bot_userid** | **string**| (Required) |
+ **api_token** | **string**|  | [optional]
+ **send_a_bot_message_request** | [**\Sendbird\Model\SendABotMessageRequest**](../Model/SendABotMessageRequest.md)|  | [optional]
 
 ### Return type
 
-[**\Sendbird\Model\SendBirdMessageResponse**](../Model/SendBirdMessageResponse.md)
+[**\Sendbird\Model\SendbirdMessageResponse**](../Model/SendbirdMessageResponse.md)
 
 ### Authorization
 
@@ -438,128 +374,6 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `updateBotById()`
-
-```php
-updateBotById($api_token, $bot_userid, $update_bot_by_id_data): \Sendbird\Model\UpdateBotByIdResponse
-```
-
-Update a bot
-
-## Update a bot  Updates information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-update-a-bot ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\BotApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['bot_userid'] = 'bot_userid_example'; // string
-$associate_array['update_bot_by_id_data'] = new \Sendbird\Model\UpdateBotByIdData(); // \Sendbird\Model\UpdateBotByIdData
-
-try {
-    $result = $apiInstance->updateBotById($associate_array);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling BotApi->updateBotById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Note: the input parameter is an associative array with the keys listed as the parameter name below.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **bot_userid** | **string**|  |
- **update_bot_by_id_data** | [**\Sendbird\Model\UpdateBotByIdData**](../Model/UpdateBotByIdData.md)|  | [optional]
-
-### Return type
-
-[**\Sendbird\Model\UpdateBotByIdResponse**](../Model/UpdateBotByIdResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `viewBotById()`
-
-```php
-viewBotById($api_token, $bot_userid): \Sendbird\Model\ViewBotByIdResponse
-```
-
-View a bot
-
-## View a bot  Retrieves information on a bot.  https://sendbird.com/docs/chat/v3/platform-api/guides/bot-interface#2-view-a-bot ----------------------------
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-
-$apiInstance = new Sendbird\Api\BotApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$associate_array['api_token'] = {{API_TOKEN}}; // string
-$associate_array['bot_userid'] = 'bot_userid_example'; // string
-
-try {
-    $result = $apiInstance->viewBotById($associate_array);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling BotApi->viewBotById: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Note: the input parameter is an associative array with the keys listed as the parameter name below.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **api_token** | **string**|  |
- **bot_userid** | **string**|  |
-
-### Return type
-
-[**\Sendbird\Model\ViewBotByIdResponse**](../Model/ViewBotByIdResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
