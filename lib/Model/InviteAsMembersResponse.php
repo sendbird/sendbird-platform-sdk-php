@@ -89,7 +89,7 @@ class InviteAsMembersResponse implements ModelInterface, ArrayAccess, \JsonSeria
         'is_super' => 'bool',
         'joined_member_count' => 'int',
         'joined_ts' => 'int',
-        'last_message' => '\Sendbird\Model\SendbirdMessageResponse',
+        'last_message' => '\Sendbird\Model\SendbirdGroupChannelLastMessage',
         'max_length_message' => 'int',
         'member_count' => 'int',
         'member_state' => 'string',
@@ -1304,7 +1304,7 @@ class InviteAsMembersResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets last_message
      *
-     * @return \Sendbird\Model\SendbirdMessageResponse|null
+     * @return \Sendbird\Model\SendbirdGroupChannelLastMessage|null
      */
     public function getLastMessage()
     {
@@ -1314,7 +1314,7 @@ class InviteAsMembersResponse implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets last_message
      *
-     * @param \Sendbird\Model\SendbirdMessageResponse|null $last_message last_message
+     * @param \Sendbird\Model\SendbirdGroupChannelLastMessage|null $last_message last_message
      *
      * @return self
      */

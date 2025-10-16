@@ -90,7 +90,7 @@ class GetAGroupChannelResponse implements ModelInterface, ArrayAccess, \JsonSeri
         'is_super' => 'bool',
         'joined_member_count' => 'int',
         'joined_ts' => 'int',
-        'last_message' => '\Sendbird\Model\SendbirdMessageResponse',
+        'last_message' => '\Sendbird\Model\SendbirdGroupChannelLastMessage',
         'max_length_message' => 'int',
         'member_count' => 'int',
         'member_state' => 'string',
@@ -1328,7 +1328,7 @@ class GetAGroupChannelResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets last_message
      *
-     * @return \Sendbird\Model\SendbirdMessageResponse|null
+     * @return \Sendbird\Model\SendbirdGroupChannelLastMessage|null
      */
     public function getLastMessage()
     {
@@ -1338,7 +1338,7 @@ class GetAGroupChannelResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets last_message
      *
-     * @param \Sendbird\Model\SendbirdMessageResponse|null $last_message last_message
+     * @param \Sendbird\Model\SendbirdGroupChannelLastMessage|null $last_message last_message
      *
      * @return self
      */

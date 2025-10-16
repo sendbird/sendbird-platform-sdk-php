@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **role** | **string** |  | [optional]
 **nickname** | **string** |  | [optional]
 **user_id** | **string** |  |
-**profile_url** | **string** |  | [optional]
+**profile_url** | **string** |  | [optional] [default to '']
 **metadata** | **object** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -334,7 +334,7 @@ class SendbirdMember implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['nickname'] = $data['nickname'] ?? null;
         $this->container['push_enabled'] = $data['push_enabled'] ?? null;
         $this->container['push_trigger_option'] = $data['push_trigger_option'] ?? null;
-        $this->container['profile_url'] = $data['profile_url'] ?? null;
+        $this->container['profile_url'] = $data['profile_url'] ?? '';
         $this->container['require_auth_for_profile_image'] = $data['require_auth_for_profile_image'] ?? null;
         $this->container['read_ts'] = $data['read_ts'] ?? null;
         $this->container['role'] = $data['role'] ?? null;

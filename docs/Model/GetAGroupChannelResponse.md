@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **is_super** | **bool** |  | [optional]
 **joined_member_count** | **int** |  | [optional]
 **joined_ts** | **int** |  | [optional]
-**last_message** | [**\Sendbird\Model\SendbirdMessageResponse**](SendbirdMessageResponse.md) |  | [optional]
+**last_message** | [**\Sendbird\Model\SendbirdGroupChannelLastMessage**](SendbirdGroupChannelLastMessage.md) |  | [optional]
 **max_length_message** | **int** |  | [optional]
 **member_count** | **int** |  | [optional]
 **member_state** | **string** |  | [optional]

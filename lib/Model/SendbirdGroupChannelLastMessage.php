@@ -1,6 +1,6 @@
 <?php
 /**
- * SendbirdMessageResponse
+ * SendbirdGroupChannelLastMessage
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * SendbirdMessageResponse Class Doc Comment
+ * SendbirdGroupChannelLastMessage Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class SendbirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendbirdGroupChannelLastMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class SendbirdMessageResponse implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Sendbird.MessageResponse';
+    protected static $openAPIModelName = 'Sendbird_GroupChannel_last_message';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

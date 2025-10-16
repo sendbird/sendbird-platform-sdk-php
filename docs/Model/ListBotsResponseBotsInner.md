@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ai** | [**\Sendbird\Model\ListBotsResponseBotsInnerAi**](ListBotsResponseBotsInnerAi.md) |  | [optional]
 **bot** | [**\Sendbird\Model\ListBotsResponseBotsInnerBot**](ListBotsResponseBotsInnerBot.md) |  | [optional]
 **bot_callback_url** | **string** |  | [optional]
 **bot_style** | [**\Sendbird\Model\ListBotsResponseBotsInnerBotStyle**](ListBotsResponseBotsInnerBotStyle.md) |  | [optional]

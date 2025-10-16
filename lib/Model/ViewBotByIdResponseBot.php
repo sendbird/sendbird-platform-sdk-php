@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateAUserRequest
+ * ViewBotByIdResponseBot
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * CreateAUserRequest Class Doc Comment
+ * ViewBotByIdResponseBot Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ViewBotByIdResponseBot implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'createAUser_request';
+    protected static $openAPIModelName = 'viewBotByIdResponse_bot';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,13 +60,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'discovery_keys' => 'string[]',
-        'issue_access_token' => 'bool',
-        'metadata' => 'object',
-        'nickname' => 'string',
-        'profile_file' => '\SplFileObject',
-        'profile_url' => 'string',
-        'user_id' => 'string'
+        'bot_token' => 'string',
+        'bot_profile_url' => 'string',
+        'bot_userid' => 'string',
+        'bot_nickname' => 'string',
+        'bot_type' => 'string',
+        'bot_metadata' => 'object'
     ];
 
     /**
@@ -77,13 +76,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'discovery_keys' => null,
-        'issue_access_token' => null,
-        'metadata' => null,
-        'nickname' => null,
-        'profile_file' => 'binary',
-        'profile_url' => null,
-        'user_id' => null
+        'bot_token' => null,
+        'bot_profile_url' => null,
+        'bot_userid' => null,
+        'bot_nickname' => null,
+        'bot_type' => null,
+        'bot_metadata' => null
     ];
 
     /**
@@ -113,13 +111,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'discovery_keys' => 'discovery_keys',
-        'issue_access_token' => 'issue_access_token',
-        'metadata' => 'metadata',
-        'nickname' => 'nickname',
-        'profile_file' => 'profile_file',
-        'profile_url' => 'profile_url',
-        'user_id' => 'user_id'
+        'bot_token' => 'bot_token',
+        'bot_profile_url' => 'bot_profile_url',
+        'bot_userid' => 'bot_userid',
+        'bot_nickname' => 'bot_nickname',
+        'bot_type' => 'bot_type',
+        'bot_metadata' => 'bot_metadata'
     ];
 
     /**
@@ -128,13 +125,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'discovery_keys' => 'setDiscoveryKeys',
-        'issue_access_token' => 'setIssueAccessToken',
-        'metadata' => 'setMetadata',
-        'nickname' => 'setNickname',
-        'profile_file' => 'setProfileFile',
-        'profile_url' => 'setProfileUrl',
-        'user_id' => 'setUserId'
+        'bot_token' => 'setBotToken',
+        'bot_profile_url' => 'setBotProfileUrl',
+        'bot_userid' => 'setBotUserid',
+        'bot_nickname' => 'setBotNickname',
+        'bot_type' => 'setBotType',
+        'bot_metadata' => 'setBotMetadata'
     ];
 
     /**
@@ -143,13 +139,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'discovery_keys' => 'getDiscoveryKeys',
-        'issue_access_token' => 'getIssueAccessToken',
-        'metadata' => 'getMetadata',
-        'nickname' => 'getNickname',
-        'profile_file' => 'getProfileFile',
-        'profile_url' => 'getProfileUrl',
-        'user_id' => 'getUserId'
+        'bot_token' => 'getBotToken',
+        'bot_profile_url' => 'getBotProfileUrl',
+        'bot_userid' => 'getBotUserid',
+        'bot_nickname' => 'getBotNickname',
+        'bot_type' => 'getBotType',
+        'bot_metadata' => 'getBotMetadata'
     ];
 
     /**
@@ -209,13 +204,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['discovery_keys'] = $data['discovery_keys'] ?? null;
-        $this->container['issue_access_token'] = $data['issue_access_token'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['nickname'] = $data['nickname'] ?? null;
-        $this->container['profile_file'] = $data['profile_file'] ?? null;
-        $this->container['profile_url'] = $data['profile_url'] ?? '';
-        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['bot_token'] = $data['bot_token'] ?? null;
+        $this->container['bot_profile_url'] = $data['bot_profile_url'] ?? null;
+        $this->container['bot_userid'] = $data['bot_userid'] ?? null;
+        $this->container['bot_nickname'] = $data['bot_nickname'] ?? null;
+        $this->container['bot_type'] = $data['bot_type'] ?? null;
+        $this->container['bot_metadata'] = $data['bot_metadata'] ?? null;
     }
 
     /**
@@ -227,15 +221,6 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['nickname'] === null) {
-            $invalidProperties[] = "'nickname' can't be null";
-        }
-        if ($this->container['profile_url'] === null) {
-            $invalidProperties[] = "'profile_url' can't be null";
-        }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -252,169 +237,145 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets discovery_keys
+     * Gets bot_token
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getDiscoveryKeys()
+    public function getBotToken()
     {
-        return $this->container['discovery_keys'];
+        return $this->container['bot_token'];
     }
 
     /**
-     * Sets discovery_keys
+     * Sets bot_token
      *
-     * @param string[]|null $discovery_keys discovery_keys
+     * @param string|null $bot_token bot_token
      *
      * @return self
      */
-    public function setDiscoveryKeys($discovery_keys)
+    public function setBotToken($bot_token)
     {
-        $this->container['discovery_keys'] = $discovery_keys;
+        $this->container['bot_token'] = $bot_token;
 
         return $this;
     }
 
     /**
-     * Gets issue_access_token
+     * Gets bot_profile_url
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getIssueAccessToken()
+    public function getBotProfileUrl()
     {
-        return $this->container['issue_access_token'];
+        return $this->container['bot_profile_url'];
     }
 
     /**
-     * Sets issue_access_token
+     * Sets bot_profile_url
      *
-     * @param bool|null $issue_access_token issue_access_token
+     * @param string|null $bot_profile_url bot_profile_url
      *
      * @return self
      */
-    public function setIssueAccessToken($issue_access_token)
+    public function setBotProfileUrl($bot_profile_url)
     {
-        $this->container['issue_access_token'] = $issue_access_token;
+        $this->container['bot_profile_url'] = $bot_profile_url;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets bot_userid
+     *
+     * @return string|null
+     */
+    public function getBotUserid()
+    {
+        return $this->container['bot_userid'];
+    }
+
+    /**
+     * Sets bot_userid
+     *
+     * @param string|null $bot_userid bot_userid
+     *
+     * @return self
+     */
+    public function setBotUserid($bot_userid)
+    {
+        $this->container['bot_userid'] = $bot_userid;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_nickname
+     *
+     * @return string|null
+     */
+    public function getBotNickname()
+    {
+        return $this->container['bot_nickname'];
+    }
+
+    /**
+     * Sets bot_nickname
+     *
+     * @param string|null $bot_nickname bot_nickname
+     *
+     * @return self
+     */
+    public function setBotNickname($bot_nickname)
+    {
+        $this->container['bot_nickname'] = $bot_nickname;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_type
+     *
+     * @return string|null
+     */
+    public function getBotType()
+    {
+        return $this->container['bot_type'];
+    }
+
+    /**
+     * Sets bot_type
+     *
+     * @param string|null $bot_type bot_type
+     *
+     * @return self
+     */
+    public function setBotType($bot_type)
+    {
+        $this->container['bot_type'] = $bot_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_metadata
      *
      * @return object|null
      */
-    public function getMetadata()
+    public function getBotMetadata()
     {
-        return $this->container['metadata'];
+        return $this->container['bot_metadata'];
     }
 
     /**
-     * Sets metadata
+     * Sets bot_metadata
      *
-     * @param object|null $metadata metadata
+     * @param object|null $bot_metadata bot_metadata
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setBotMetadata($bot_metadata)
     {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets nickname
-     *
-     * @return string
-     */
-    public function getNickname()
-    {
-        return $this->container['nickname'];
-    }
-
-    /**
-     * Sets nickname
-     *
-     * @param string $nickname nickname
-     *
-     * @return self
-     */
-    public function setNickname($nickname)
-    {
-        $this->container['nickname'] = $nickname;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile_file
-     *
-     * @return \SplFileObject|null
-     */
-    public function getProfileFile()
-    {
-        return $this->container['profile_file'];
-    }
-
-    /**
-     * Sets profile_file
-     *
-     * @param \SplFileObject|null $profile_file Specifies the file of the user's profile image. An acceptable image is limited to a JPG, JPEG, or PNG file of up to 5 MB. When passing a file, you should send a multipart request. If the profile_file property is specified, the profile_url property is not required.
-     *
-     * @return self
-     */
-    public function setProfileFile($profile_file)
-    {
-        $this->container['profile_file'] = $profile_file;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile_url
-     *
-     * @return string
-     */
-    public function getProfileUrl()
-    {
-        return $this->container['profile_url'];
-    }
-
-    /**
-     * Sets profile_url
-     *
-     * @param string $profile_url profile_url
-     *
-     * @return self
-     */
-    public function setProfileUrl($profile_url)
-    {
-        $this->container['profile_url'] = $profile_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string $user_id user_id
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
+        $this->container['bot_metadata'] = $bot_metadata;
 
         return $this;
     }

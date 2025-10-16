@@ -60,6 +60,17 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
+        'message_type' => 'string',
+        'user_id' => 'string',
+        'message' => 'string',
+        'push_message_template' => '\Sendbird\Model\SendAMessageRequestPushMessageTemplate',
+        'poll_id' => 'int',
+        'files' => '\Sendbird\Model\SendbirdFile',
+        'require_auth' => 'bool',
+        'thumbnail1' => 'string',
+        'thumbnail2' => 'string',
+        'thumbnail3' => 'string',
+        'thumbnails' => 'string[]',
         'apns_bundle_id' => 'string',
         'apple_critical_alert_options' => 'object',
         'created_at' => 'int',
@@ -71,20 +82,10 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'mark_as_read' => 'bool',
         'mention_type' => 'string',
         'mentioned_user_ids' => 'string[]',
-        'message' => 'string',
-        'message_type' => 'string',
-        'poll_id' => 'int',
-        'push_message_template' => '\Sendbird\Model\SendTextMessageRequestBodyPushMessageTemplate',
         'send_push' => 'bool',
         'sorted_metaarray' => '\Sendbird\Model\SendbirdSortedMetaarrayInner[]',
         'sound' => 'string',
-        'volume' => 'float',
-        'files' => '\Sendbird\Model\SendbirdFile',
-        'require_auth' => 'bool',
-        'thumbnail1' => 'string',
-        'thumbnail2' => 'string',
-        'thumbnail3' => 'string',
-        'thumbnails' => 'string[]'
+        'volume' => 'float'
     ];
 
     /**
@@ -95,6 +96,17 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'message_type' => null,
+        'user_id' => null,
+        'message' => null,
+        'push_message_template' => null,
+        'poll_id' => null,
+        'files' => null,
+        'require_auth' => null,
+        'thumbnail1' => null,
+        'thumbnail2' => null,
+        'thumbnail3' => null,
+        'thumbnails' => null,
         'apns_bundle_id' => null,
         'apple_critical_alert_options' => null,
         'created_at' => 'int64',
@@ -106,20 +118,10 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'mark_as_read' => null,
         'mention_type' => null,
         'mentioned_user_ids' => null,
-        'message' => null,
-        'message_type' => null,
-        'poll_id' => null,
-        'push_message_template' => null,
         'send_push' => null,
         'sorted_metaarray' => null,
         'sound' => null,
-        'volume' => null,
-        'files' => null,
-        'require_auth' => null,
-        'thumbnail1' => null,
-        'thumbnail2' => null,
-        'thumbnail3' => null,
-        'thumbnails' => null
+        'volume' => null
     ];
 
     /**
@@ -149,6 +151,17 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
+        'message_type' => 'message_type',
+        'user_id' => 'user_id',
+        'message' => 'message',
+        'push_message_template' => 'push_message_template',
+        'poll_id' => 'poll_id',
+        'files' => 'files',
+        'require_auth' => 'require_auth',
+        'thumbnail1' => 'thumbnail1',
+        'thumbnail2' => 'thumbnail2',
+        'thumbnail3' => 'thumbnail3',
+        'thumbnails' => 'thumbnails',
         'apns_bundle_id' => 'apns_bundle_id',
         'apple_critical_alert_options' => 'apple_critical_alert_options',
         'created_at' => 'created_at',
@@ -160,20 +173,10 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'mark_as_read' => 'mark_as_read',
         'mention_type' => 'mention_type',
         'mentioned_user_ids' => 'mentioned_user_ids',
-        'message' => 'message',
-        'message_type' => 'message_type',
-        'poll_id' => 'poll_id',
-        'push_message_template' => 'push_message_template',
         'send_push' => 'send_push',
         'sorted_metaarray' => 'sorted_metaarray',
         'sound' => 'sound',
-        'volume' => 'volume',
-        'files' => 'files',
-        'require_auth' => 'require_auth',
-        'thumbnail1' => 'thumbnail1',
-        'thumbnail2' => 'thumbnail2',
-        'thumbnail3' => 'thumbnail3',
-        'thumbnails' => 'thumbnails'
+        'volume' => 'volume'
     ];
 
     /**
@@ -182,6 +185,17 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
+        'message_type' => 'setMessageType',
+        'user_id' => 'setUserId',
+        'message' => 'setMessage',
+        'push_message_template' => 'setPushMessageTemplate',
+        'poll_id' => 'setPollId',
+        'files' => 'setFiles',
+        'require_auth' => 'setRequireAuth',
+        'thumbnail1' => 'setThumbnail1',
+        'thumbnail2' => 'setThumbnail2',
+        'thumbnail3' => 'setThumbnail3',
+        'thumbnails' => 'setThumbnails',
         'apns_bundle_id' => 'setApnsBundleId',
         'apple_critical_alert_options' => 'setAppleCriticalAlertOptions',
         'created_at' => 'setCreatedAt',
@@ -193,20 +207,10 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'mark_as_read' => 'setMarkAsRead',
         'mention_type' => 'setMentionType',
         'mentioned_user_ids' => 'setMentionedUserIds',
-        'message' => 'setMessage',
-        'message_type' => 'setMessageType',
-        'poll_id' => 'setPollId',
-        'push_message_template' => 'setPushMessageTemplate',
         'send_push' => 'setSendPush',
         'sorted_metaarray' => 'setSortedMetaarray',
         'sound' => 'setSound',
-        'volume' => 'setVolume',
-        'files' => 'setFiles',
-        'require_auth' => 'setRequireAuth',
-        'thumbnail1' => 'setThumbnail1',
-        'thumbnail2' => 'setThumbnail2',
-        'thumbnail3' => 'setThumbnail3',
-        'thumbnails' => 'setThumbnails'
+        'volume' => 'setVolume'
     ];
 
     /**
@@ -215,6 +219,17 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
+        'message_type' => 'getMessageType',
+        'user_id' => 'getUserId',
+        'message' => 'getMessage',
+        'push_message_template' => 'getPushMessageTemplate',
+        'poll_id' => 'getPollId',
+        'files' => 'getFiles',
+        'require_auth' => 'getRequireAuth',
+        'thumbnail1' => 'getThumbnail1',
+        'thumbnail2' => 'getThumbnail2',
+        'thumbnail3' => 'getThumbnail3',
+        'thumbnails' => 'getThumbnails',
         'apns_bundle_id' => 'getApnsBundleId',
         'apple_critical_alert_options' => 'getAppleCriticalAlertOptions',
         'created_at' => 'getCreatedAt',
@@ -226,20 +241,10 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         'mark_as_read' => 'getMarkAsRead',
         'mention_type' => 'getMentionType',
         'mentioned_user_ids' => 'getMentionedUserIds',
-        'message' => 'getMessage',
-        'message_type' => 'getMessageType',
-        'poll_id' => 'getPollId',
-        'push_message_template' => 'getPushMessageTemplate',
         'send_push' => 'getSendPush',
         'sorted_metaarray' => 'getSortedMetaarray',
         'sound' => 'getSound',
-        'volume' => 'getVolume',
-        'files' => 'getFiles',
-        'require_auth' => 'getRequireAuth',
-        'thumbnail1' => 'getThumbnail1',
-        'thumbnail2' => 'getThumbnail2',
-        'thumbnail3' => 'getThumbnail3',
-        'thumbnails' => 'getThumbnails'
+        'volume' => 'getVolume'
     ];
 
     /**
@@ -283,9 +288,25 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return self::$openAPIModelName;
     }
 
+    public const MESSAGE_TYPE_MESG = 'MESG';
+    public const MESSAGE_TYPE_ADMM = 'ADMM';
+    public const MESSAGE_TYPE_FILE = 'FILE';
     public const MENTION_TYPE_USERS = 'users';
     public const MENTION_TYPE_CHANNEL = 'channel';
-    public const MESSAGE_TYPE_ADMM = 'ADMM';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMessageTypeAllowableValues()
+    {
+        return [
+            self::MESSAGE_TYPE_MESG,
+            self::MESSAGE_TYPE_ADMM,
+            self::MESSAGE_TYPE_FILE,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -297,18 +318,6 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return [
             self::MENTION_TYPE_USERS,
             self::MENTION_TYPE_CHANNEL,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getMessageTypeAllowableValues()
-    {
-        return [
-            self::MESSAGE_TYPE_ADMM,
         ];
     }
 
@@ -327,6 +336,17 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
+        $this->container['message_type'] = $data['message_type'] ?? null;
+        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['message'] = $data['message'] ?? null;
+        $this->container['push_message_template'] = $data['push_message_template'] ?? null;
+        $this->container['poll_id'] = $data['poll_id'] ?? null;
+        $this->container['files'] = $data['files'] ?? null;
+        $this->container['require_auth'] = $data['require_auth'] ?? null;
+        $this->container['thumbnail1'] = $data['thumbnail1'] ?? null;
+        $this->container['thumbnail2'] = $data['thumbnail2'] ?? null;
+        $this->container['thumbnail3'] = $data['thumbnail3'] ?? null;
+        $this->container['thumbnails'] = $data['thumbnails'] ?? null;
         $this->container['apns_bundle_id'] = $data['apns_bundle_id'] ?? null;
         $this->container['apple_critical_alert_options'] = $data['apple_critical_alert_options'] ?? null;
         $this->container['created_at'] = $data['created_at'] ?? null;
@@ -338,20 +358,10 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['mark_as_read'] = $data['mark_as_read'] ?? null;
         $this->container['mention_type'] = $data['mention_type'] ?? null;
         $this->container['mentioned_user_ids'] = $data['mentioned_user_ids'] ?? null;
-        $this->container['message'] = $data['message'] ?? null;
-        $this->container['message_type'] = $data['message_type'] ?? null;
-        $this->container['poll_id'] = $data['poll_id'] ?? null;
-        $this->container['push_message_template'] = $data['push_message_template'] ?? null;
         $this->container['send_push'] = $data['send_push'] ?? null;
         $this->container['sorted_metaarray'] = $data['sorted_metaarray'] ?? null;
         $this->container['sound'] = $data['sound'] ?? null;
         $this->container['volume'] = $data['volume'] ?? null;
-        $this->container['files'] = $data['files'] ?? null;
-        $this->container['require_auth'] = $data['require_auth'] ?? null;
-        $this->container['thumbnail1'] = $data['thumbnail1'] ?? null;
-        $this->container['thumbnail2'] = $data['thumbnail2'] ?? null;
-        $this->container['thumbnail3'] = $data['thumbnail3'] ?? null;
-        $this->container['thumbnails'] = $data['thumbnails'] ?? null;
     }
 
     /**
@@ -363,18 +373,6 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getMentionTypeAllowableValues();
-        if (!is_null($this->container['mention_type']) && !in_array($this->container['mention_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'mention_type', must be one of '%s'",
-                $this->container['mention_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
-        }
         if ($this->container['message_type'] === null) {
             $invalidProperties[] = "'message_type' can't be null";
         }
@@ -387,9 +385,18 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             );
         }
 
-        if ($this->container['files'] === null) {
-            $invalidProperties[] = "'files' can't be null";
+        if ($this->container['user_id'] === null) {
+            $invalidProperties[] = "'user_id' can't be null";
         }
+        $allowedValues = $this->getMentionTypeAllowableValues();
+        if (!is_null($this->container['mention_type']) && !in_array($this->container['mention_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'mention_type', must be one of '%s'",
+                $this->container['mention_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -404,6 +411,280 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets message_type
+     *
+     * @return string
+     */
+    public function getMessageType()
+    {
+        return $this->container['message_type'];
+    }
+
+    /**
+     * Sets message_type
+     *
+     * @param string $message_type message_type
+     *
+     * @return self
+     */
+    public function setMessageType($message_type)
+    {
+        $allowedValues = $this->getMessageTypeAllowableValues();
+        if (!in_array($message_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'message_type', must be one of '%s'",
+                    $message_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['message_type'] = $message_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
+     *
+     * @return string
+     */
+    public function getUserId()
+    {
+        return $this->container['user_id'];
+    }
+
+    /**
+     * Sets user_id
+     *
+     * @param string $user_id user_id
+     *
+     * @return self
+     */
+    public function setUserId($user_id)
+    {
+        $this->container['user_id'] = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string|null
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string|null $message Specifies the content of the message. * This property is required when message_type is MESG or ADMM.
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets push_message_template
+     *
+     * @return \Sendbird\Model\SendAMessageRequestPushMessageTemplate|null
+     */
+    public function getPushMessageTemplate()
+    {
+        return $this->container['push_message_template'];
+    }
+
+    /**
+     * Sets push_message_template
+     *
+     * @param \Sendbird\Model\SendAMessageRequestPushMessageTemplate|null $push_message_template push_message_template
+     *
+     * @return self
+     */
+    public function setPushMessageTemplate($push_message_template)
+    {
+        $this->container['push_message_template'] = $push_message_template;
+
+        return $this;
+    }
+
+    /**
+     * Gets poll_id
+     *
+     * @return int|null
+     */
+    public function getPollId()
+    {
+        return $this->container['poll_id'];
+    }
+
+    /**
+     * Sets poll_id
+     *
+     * @param int|null $poll_id Specifies the ID of the poll to be associated with the message. * This property is only available for group channels and message_type is MESG.
+     *
+     * @return self
+     */
+    public function setPollId($poll_id)
+    {
+        $this->container['poll_id'] = $poll_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets files
+     *
+     * @return \Sendbird\Model\SendbirdFile|null
+     */
+    public function getFiles()
+    {
+        return $this->container['files'];
+    }
+
+    /**
+     * Sets files
+     *
+     * @param \Sendbird\Model\SendbirdFile|null $files files
+     *
+     * @return self
+     */
+    public function setFiles($files)
+    {
+        $this->container['files'] = $files;
+
+        return $this;
+    }
+
+    /**
+     * Gets require_auth
+     *
+     * @return bool|null
+     */
+    public function getRequireAuth()
+    {
+        return $this->container['require_auth'];
+    }
+
+    /**
+     * Sets require_auth
+     *
+     * @param bool|null $require_auth Determines whether to require an authentication key to verify if the file is being properly accessed. Only the user who uploaded the file or users who are in the channel where the file was uploaded should have access. The authentication key managed internally by the Sendbird system is generated every time a user logs in to the Sendbird server and is valid for three days starting from the last login. If set to false, Sendbird tries to access a file without any key. To access encrypted files, such as the files in the Sendbird server which are by default encrypted, the property must be set to true. (Default: false) The require_auth parameter only works if the file or URL is managed by Sendbird, which means that when you upload files using multipart format or provide URLs that point to the files hosted on the Sendbird server. However, if the file is hosted on a server or service that is not managed by Sendbird, access control and authentication for the file should be handled by the respective server or service hosting the file.
+     *
+     * @return self
+     */
+    public function setRequireAuth($require_auth)
+    {
+        $this->container['require_auth'] = $require_auth;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnail1
+     *
+     * @return string|null
+     */
+    public function getThumbnail1()
+    {
+        return $this->container['thumbnail1'];
+    }
+
+    /**
+     * Sets thumbnail1
+     *
+     * @param string|null $thumbnail1 Specifies the URL of the thumbnail of the file. * This property is available when message_type is FILE.
+     *
+     * @return self
+     */
+    public function setThumbnail1($thumbnail1)
+    {
+        $this->container['thumbnail1'] = $thumbnail1;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnail2
+     *
+     * @return string|null
+     */
+    public function getThumbnail2()
+    {
+        return $this->container['thumbnail2'];
+    }
+
+    /**
+     * Sets thumbnail2
+     *
+     * @param string|null $thumbnail2 Specifies the URL of the thumbnail of the file. * This property is available when message_type is FILE.
+     *
+     * @return self
+     */
+    public function setThumbnail2($thumbnail2)
+    {
+        $this->container['thumbnail2'] = $thumbnail2;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnail3
+     *
+     * @return string|null
+     */
+    public function getThumbnail3()
+    {
+        return $this->container['thumbnail3'];
+    }
+
+    /**
+     * Sets thumbnail3
+     *
+     * @param string|null $thumbnail3 Specifies the URL of the thumbnail of the file. * This property is available when message_type is FILE.
+     *
+     * @return self
+     */
+    public function setThumbnail3($thumbnail3)
+    {
+        $this->container['thumbnail3'] = $thumbnail3;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbnails
+     *
+     * @return string[]|null
+     */
+    public function getThumbnails()
+    {
+        return $this->container['thumbnails'];
+    }
+
+    /**
+     * Sets thumbnails
+     *
+     * @param string[]|null $thumbnails Specifies the URL of the thumbnail of the file. * This property is available when message_type is FILE.
+     *
+     * @return self
+     */
+    public function setThumbnails($thumbnails)
+    {
+        $this->container['thumbnails'] = $thumbnails;
+
+        return $this;
+    }
 
     /**
      * Gets apns_bundle_id
@@ -680,112 +961,6 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets message
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param string $message message
-     *
-     * @return self
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets message_type
-     *
-     * @return string
-     */
-    public function getMessageType()
-    {
-        return $this->container['message_type'];
-    }
-
-    /**
-     * Sets message_type
-     *
-     * @param string $message_type Specifies the type of the message. The value of ADMM represents an admin message.
-     *
-     * @return self
-     */
-    public function setMessageType($message_type)
-    {
-        $allowedValues = $this->getMessageTypeAllowableValues();
-        if (!in_array($message_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'message_type', must be one of '%s'",
-                    $message_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['message_type'] = $message_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets poll_id
-     *
-     * @return int|null
-     */
-    public function getPollId()
-    {
-        return $this->container['poll_id'];
-    }
-
-    /**
-     * Sets poll_id
-     *
-     * @param int|null $poll_id poll_id
-     *
-     * @return self
-     */
-    public function setPollId($poll_id)
-    {
-        $this->container['poll_id'] = $poll_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets push_message_template
-     *
-     * @return \Sendbird\Model\SendTextMessageRequestBodyPushMessageTemplate|null
-     */
-    public function getPushMessageTemplate()
-    {
-        return $this->container['push_message_template'];
-    }
-
-    /**
-     * Sets push_message_template
-     *
-     * @param \Sendbird\Model\SendTextMessageRequestBodyPushMessageTemplate|null $push_message_template push_message_template
-     *
-     * @return self
-     */
-    public function setPushMessageTemplate($push_message_template)
-    {
-        $this->container['push_message_template'] = $push_message_template;
-
-        return $this;
-    }
-
-    /**
      * Gets send_push
      *
      * @return bool|null
@@ -877,150 +1052,6 @@ class SendAMessageRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setVolume($volume)
     {
         $this->container['volume'] = $volume;
-
-        return $this;
-    }
-
-    /**
-     * Gets files
-     *
-     * @return \Sendbird\Model\SendbirdFile
-     */
-    public function getFiles()
-    {
-        return $this->container['files'];
-    }
-
-    /**
-     * Sets files
-     *
-     * @param \Sendbird\Model\SendbirdFile $files files
-     *
-     * @return self
-     */
-    public function setFiles($files)
-    {
-        $this->container['files'] = $files;
-
-        return $this;
-    }
-
-    /**
-     * Gets require_auth
-     *
-     * @return bool|null
-     */
-    public function getRequireAuth()
-    {
-        return $this->container['require_auth'];
-    }
-
-    /**
-     * Sets require_auth
-     *
-     * @param bool|null $require_auth Determines whether to require an authentication key to verify if the file is being properly accessed. Only the user who uploaded the file or users who are in the channel where the file was uploaded should have access. The authentication key managed internally by the Sendbird system is generated every time a user logs in to the Sendbird server and is valid for three days starting from the last login. If set to false, Sendbird tries to access a file without any key. To access encrypted files, such as the files in the Sendbird server which are by default encrypted, the property must be set to true. (Default: false) The require_auth parameter only works if the file or URL is managed by Sendbird, which means that when you upload files using multipart format or provide URLs that point to the files hosted on the Sendbird server. However, if the file is hosted on a server or service that is not managed by Sendbird, access control and authentication for the file should be handled by the respective server or service hosting the file.
-     *
-     * @return self
-     */
-    public function setRequireAuth($require_auth)
-    {
-        $this->container['require_auth'] = $require_auth;
-
-        return $this;
-    }
-
-    /**
-     * Gets thumbnail1
-     *
-     * @return string|null
-     */
-    public function getThumbnail1()
-    {
-        return $this->container['thumbnail1'];
-    }
-
-    /**
-     * Sets thumbnail1
-     *
-     * @param string|null $thumbnail1 thumbnail1
-     *
-     * @return self
-     */
-    public function setThumbnail1($thumbnail1)
-    {
-        $this->container['thumbnail1'] = $thumbnail1;
-
-        return $this;
-    }
-
-    /**
-     * Gets thumbnail2
-     *
-     * @return string|null
-     */
-    public function getThumbnail2()
-    {
-        return $this->container['thumbnail2'];
-    }
-
-    /**
-     * Sets thumbnail2
-     *
-     * @param string|null $thumbnail2 thumbnail2
-     *
-     * @return self
-     */
-    public function setThumbnail2($thumbnail2)
-    {
-        $this->container['thumbnail2'] = $thumbnail2;
-
-        return $this;
-    }
-
-    /**
-     * Gets thumbnail3
-     *
-     * @return string|null
-     */
-    public function getThumbnail3()
-    {
-        return $this->container['thumbnail3'];
-    }
-
-    /**
-     * Sets thumbnail3
-     *
-     * @param string|null $thumbnail3 thumbnail3
-     *
-     * @return self
-     */
-    public function setThumbnail3($thumbnail3)
-    {
-        $this->container['thumbnail3'] = $thumbnail3;
-
-        return $this;
-    }
-
-    /**
-     * Gets thumbnails
-     *
-     * @return string[]|null
-     */
-    public function getThumbnails()
-    {
-        return $this->container['thumbnails'];
-    }
-
-    /**
-     * Sets thumbnails
-     *
-     * @param string[]|null $thumbnails thumbnails
-     *
-     * @return self
-     */
-    public function setThumbnails($thumbnails)
-    {
-        $this->container['thumbnails'] = $thumbnails;
 
         return $this;
     }

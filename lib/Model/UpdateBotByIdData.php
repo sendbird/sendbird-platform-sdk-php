@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateABotResponse
+ * UpdateBotByIdData
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * CreateABotResponse Class Doc Comment
+ * UpdateBotByIdData Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class UpdateBotByIdData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'createABotResponse';
+    protected static $openAPIModelName = 'updateBotByIdData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,14 +60,14 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bot' => '\Sendbird\Model\CreateABotResponseBot',
+        'bot_userid' => 'string',
+        'bot_nickname' => 'string',
+        'bot_profile_url' => 'string',
         'bot_callback_url' => 'string',
-        'bot_style' => '\Sendbird\Model\ListBotsResponseBotsInnerBotStyle',
-        'channel_invitation_preference' => 'int',
-        'created_at' => 'int',
-        'enable_mark_as_read' => 'bool',
         'is_privacy_mode' => 'bool',
-        'show_member' => 'bool'
+        'enable_mark_as_read' => 'bool',
+        'show_member' => 'bool',
+        'channel_invitation_preference' => 'int'
     ];
 
     /**
@@ -78,14 +78,14 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'bot' => null,
+        'bot_userid' => null,
+        'bot_nickname' => null,
+        'bot_profile_url' => null,
         'bot_callback_url' => null,
-        'bot_style' => null,
-        'channel_invitation_preference' => null,
-        'created_at' => 'int64',
-        'enable_mark_as_read' => null,
         'is_privacy_mode' => null,
-        'show_member' => null
+        'enable_mark_as_read' => null,
+        'show_member' => null,
+        'channel_invitation_preference' => null
     ];
 
     /**
@@ -115,14 +115,14 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'bot' => 'bot',
+        'bot_userid' => 'bot_userid',
+        'bot_nickname' => 'bot_nickname',
+        'bot_profile_url' => 'bot_profile_url',
         'bot_callback_url' => 'bot_callback_url',
-        'bot_style' => 'bot_style',
-        'channel_invitation_preference' => 'channel_invitation_preference',
-        'created_at' => 'created_at',
-        'enable_mark_as_read' => 'enable_mark_as_read',
         'is_privacy_mode' => 'is_privacy_mode',
-        'show_member' => 'show_member'
+        'enable_mark_as_read' => 'enable_mark_as_read',
+        'show_member' => 'show_member',
+        'channel_invitation_preference' => 'channel_invitation_preference'
     ];
 
     /**
@@ -131,14 +131,14 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'bot' => 'setBot',
+        'bot_userid' => 'setBotUserid',
+        'bot_nickname' => 'setBotNickname',
+        'bot_profile_url' => 'setBotProfileUrl',
         'bot_callback_url' => 'setBotCallbackUrl',
-        'bot_style' => 'setBotStyle',
-        'channel_invitation_preference' => 'setChannelInvitationPreference',
-        'created_at' => 'setCreatedAt',
-        'enable_mark_as_read' => 'setEnableMarkAsRead',
         'is_privacy_mode' => 'setIsPrivacyMode',
-        'show_member' => 'setShowMember'
+        'enable_mark_as_read' => 'setEnableMarkAsRead',
+        'show_member' => 'setShowMember',
+        'channel_invitation_preference' => 'setChannelInvitationPreference'
     ];
 
     /**
@@ -147,14 +147,14 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'bot' => 'getBot',
+        'bot_userid' => 'getBotUserid',
+        'bot_nickname' => 'getBotNickname',
+        'bot_profile_url' => 'getBotProfileUrl',
         'bot_callback_url' => 'getBotCallbackUrl',
-        'bot_style' => 'getBotStyle',
-        'channel_invitation_preference' => 'getChannelInvitationPreference',
-        'created_at' => 'getCreatedAt',
-        'enable_mark_as_read' => 'getEnableMarkAsRead',
         'is_privacy_mode' => 'getIsPrivacyMode',
-        'show_member' => 'getShowMember'
+        'enable_mark_as_read' => 'getEnableMarkAsRead',
+        'show_member' => 'getShowMember',
+        'channel_invitation_preference' => 'getChannelInvitationPreference'
     ];
 
     /**
@@ -214,14 +214,14 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['bot'] = $data['bot'] ?? null;
+        $this->container['bot_userid'] = $data['bot_userid'] ?? null;
+        $this->container['bot_nickname'] = $data['bot_nickname'] ?? null;
+        $this->container['bot_profile_url'] = $data['bot_profile_url'] ?? null;
         $this->container['bot_callback_url'] = $data['bot_callback_url'] ?? null;
-        $this->container['bot_style'] = $data['bot_style'] ?? null;
-        $this->container['channel_invitation_preference'] = $data['channel_invitation_preference'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
-        $this->container['enable_mark_as_read'] = $data['enable_mark_as_read'] ?? null;
         $this->container['is_privacy_mode'] = $data['is_privacy_mode'] ?? null;
+        $this->container['enable_mark_as_read'] = $data['enable_mark_as_read'] ?? null;
         $this->container['show_member'] = $data['show_member'] ?? null;
+        $this->container['channel_invitation_preference'] = $data['channel_invitation_preference'] ?? null;
     }
 
     /**
@@ -233,8 +233,29 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['bot'] === null) {
-            $invalidProperties[] = "'bot' can't be null";
+        if ($this->container['bot_userid'] === null) {
+            $invalidProperties[] = "'bot_userid' can't be null";
+        }
+        if ($this->container['bot_nickname'] === null) {
+            $invalidProperties[] = "'bot_nickname' can't be null";
+        }
+        if ($this->container['bot_profile_url'] === null) {
+            $invalidProperties[] = "'bot_profile_url' can't be null";
+        }
+        if ($this->container['bot_callback_url'] === null) {
+            $invalidProperties[] = "'bot_callback_url' can't be null";
+        }
+        if ($this->container['is_privacy_mode'] === null) {
+            $invalidProperties[] = "'is_privacy_mode' can't be null";
+        }
+        if ($this->container['enable_mark_as_read'] === null) {
+            $invalidProperties[] = "'enable_mark_as_read' can't be null";
+        }
+        if ($this->container['show_member'] === null) {
+            $invalidProperties[] = "'show_member' can't be null";
+        }
+        if ($this->container['channel_invitation_preference'] === null) {
+            $invalidProperties[] = "'channel_invitation_preference' can't be null";
         }
         return $invalidProperties;
     }
@@ -252,25 +273,73 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets bot
+     * Gets bot_userid
      *
-     * @return \Sendbird\Model\CreateABotResponseBot
+     * @return string
      */
-    public function getBot()
+    public function getBotUserid()
     {
-        return $this->container['bot'];
+        return $this->container['bot_userid'];
     }
 
     /**
-     * Sets bot
+     * Sets bot_userid
      *
-     * @param \Sendbird\Model\CreateABotResponseBot $bot bot
+     * @param string $bot_userid Specifies the ID of the bot to update.
      *
      * @return self
      */
-    public function setBot($bot)
+    public function setBotUserid($bot_userid)
     {
-        $this->container['bot'] = $bot;
+        $this->container['bot_userid'] = $bot_userid;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_nickname
+     *
+     * @return string
+     */
+    public function getBotNickname()
+    {
+        return $this->container['bot_nickname'];
+    }
+
+    /**
+     * Sets bot_nickname
+     *
+     * @param string $bot_nickname Specifies the bot's nickname. The length is limited to 80 characters.
+     *
+     * @return self
+     */
+    public function setBotNickname($bot_nickname)
+    {
+        $this->container['bot_nickname'] = $bot_nickname;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_profile_url
+     *
+     * @return string
+     */
+    public function getBotProfileUrl()
+    {
+        return $this->container['bot_profile_url'];
+    }
+
+    /**
+     * Sets bot_profile_url
+     *
+     * @param string $bot_profile_url Specifies the URL of the bot's profile image. The size is limited to 2,048 characters.
+     *
+     * @return self
+     */
+    public function setBotProfileUrl($bot_profile_url)
+    {
+        $this->container['bot_profile_url'] = $bot_profile_url;
 
         return $this;
     }
@@ -278,7 +347,7 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets bot_callback_url
      *
-     * @return string|null
+     * @return string
      */
     public function getBotCallbackUrl()
     {
@@ -288,7 +357,7 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets bot_callback_url
      *
-     * @param string|null $bot_callback_url bot_callback_url
+     * @param string $bot_callback_url Specifies the server URL where bot is located to receive all events, requests, and data forwarded from an application. For security reasons, it is highly recommended that you use an SSL server. The length is limited to 1,024 characters.
      *
      * @return self
      */
@@ -300,105 +369,9 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets bot_style
-     *
-     * @return \Sendbird\Model\ListBotsResponseBotsInnerBotStyle|null
-     */
-    public function getBotStyle()
-    {
-        return $this->container['bot_style'];
-    }
-
-    /**
-     * Sets bot_style
-     *
-     * @param \Sendbird\Model\ListBotsResponseBotsInnerBotStyle|null $bot_style bot_style
-     *
-     * @return self
-     */
-    public function setBotStyle($bot_style)
-    {
-        $this->container['bot_style'] = $bot_style;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel_invitation_preference
-     *
-     * @return int|null
-     */
-    public function getChannelInvitationPreference()
-    {
-        return $this->container['channel_invitation_preference'];
-    }
-
-    /**
-     * Sets channel_invitation_preference
-     *
-     * @param int|null $channel_invitation_preference channel_invitation_preference
-     *
-     * @return self
-     */
-    public function setChannelInvitationPreference($channel_invitation_preference)
-    {
-        $this->container['channel_invitation_preference'] = $channel_invitation_preference;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return int|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param int|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets enable_mark_as_read
-     *
-     * @return bool|null
-     */
-    public function getEnableMarkAsRead()
-    {
-        return $this->container['enable_mark_as_read'];
-    }
-
-    /**
-     * Sets enable_mark_as_read
-     *
-     * @param bool|null $enable_mark_as_read enable_mark_as_read
-     *
-     * @return self
-     */
-    public function setEnableMarkAsRead($enable_mark_as_read)
-    {
-        $this->container['enable_mark_as_read'] = $enable_mark_as_read;
-
-        return $this;
-    }
-
-    /**
      * Gets is_privacy_mode
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsPrivacyMode()
     {
@@ -408,7 +381,7 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets is_privacy_mode
      *
-     * @param bool|null $is_privacy_mode is_privacy_mode
+     * @param bool $is_privacy_mode In the channels of where the bot is a member, determines whether to only forward the messages with the specific conditions to the bot or forword all messages to the bot, for privacy concerns. If set to true, only messages that start with a '/' or mention the bot_userid are forwarded to the bot. If set to false, all messages are forwarded.
      *
      * @return self
      */
@@ -420,9 +393,33 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets enable_mark_as_read
+     *
+     * @return bool
+     */
+    public function getEnableMarkAsRead()
+    {
+        return $this->container['enable_mark_as_read'];
+    }
+
+    /**
+     * Sets enable_mark_as_read
+     *
+     * @param bool $enable_mark_as_read Determines whether to mark the bot's message as read upon sending it. (Default: true)
+     *
+     * @return self
+     */
+    public function setEnableMarkAsRead($enable_mark_as_read)
+    {
+        $this->container['enable_mark_as_read'] = $enable_mark_as_read;
+
+        return $this;
+    }
+
+    /**
      * Gets show_member
      *
-     * @return bool|null
+     * @return bool
      */
     public function getShowMember()
     {
@@ -432,13 +429,37 @@ class CreateABotResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets show_member
      *
-     * @param bool|null $show_member show_member
+     * @param bool $show_member Determines whether to include information about the members of each channel in a callback response. (Default: false)
      *
      * @return self
      */
     public function setShowMember($show_member)
     {
         $this->container['show_member'] = $show_member;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel_invitation_preference
+     *
+     * @return int
+     */
+    public function getChannelInvitationPreference()
+    {
+        return $this->container['channel_invitation_preference'];
+    }
+
+    /**
+     * Sets channel_invitation_preference
+     *
+     * @param int $channel_invitation_preference Determines whether the bot automatically joins the channel when invited or joins the channel after manually accepting an invitation using the API. If set to 0, it automatically joins the channel. If set to 1, the latter takes place. (Default: 0)
+     *
+     * @return self
+     */
+    public function setChannelInvitationPreference($channel_invitation_preference)
+    {
+        $this->container['channel_invitation_preference'] = $channel_invitation_preference;
 
         return $this;
     }

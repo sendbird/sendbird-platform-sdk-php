@@ -237,7 +237,7 @@ class SendbirdBasicUserInfo implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->container['role'] = $data['role'] ?? null;
         $this->container['nickname'] = $data['nickname'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
-        $this->container['profile_url'] = $data['profile_url'] ?? null;
+        $this->container['profile_url'] = $data['profile_url'] ?? '';
         $this->container['metadata'] = $data['metadata'] ?? null;
     }
 
