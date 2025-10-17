@@ -42,7 +42,7 @@ $apiInstance = new Sendbird\Api\MessageApi(
 );
 $associate_array['channel_type'] = 'channel_type_example'; // string | (Required)
 $associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
-$associate_array['message_id'] = 'message_id_example'; // string | (Required)
+$associate_array['message_id'] = 56; // int | (Required)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
 $associate_array['add_extra_data_to_a_message_request'] = new \Sendbird\Model\AddExtraDataToAMessageRequest(); // \Sendbird\Model\AddExtraDataToAMessageRequest
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_type** | **string**| (Required) |
  **channel_url** | **string**| (Required) |
- **message_id** | **string**| (Required) |
+ **message_id** | **int**| (Required) |
  **api_token** | **string**|  | [optional]
  **add_extra_data_to_a_message_request** | [**\Sendbird\Model\AddExtraDataToAMessageRequest**](../Model/AddExtraDataToAMessageRequest.md)|  | [optional]
 
@@ -108,7 +108,7 @@ $apiInstance = new Sendbird\Api\MessageApi(
 );
 $associate_array['channel_type'] = 'channel_type_example'; // string | (Required)
 $associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
-$associate_array['message_id'] = 'message_id_example'; // string | (Required)
+$associate_array['message_id'] = 56; // int | (Required)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
 
 try {
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_type** | **string**| (Required) |
  **channel_url** | **string**| (Required) |
- **message_id** | **string**| (Required) |
+ **message_id** | **int**| (Required) |
  **api_token** | **string**|  | [optional]
 
 ### Return type
@@ -172,7 +172,7 @@ $apiInstance = new Sendbird\Api\MessageApi(
 );
 $associate_array['channel_type'] = 'channel_type_example'; // string | (Required)
 $associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
-$associate_array['message_id'] = 'message_id_example'; // string | (Required)
+$associate_array['message_id'] = 56; // int | (Required)
 $associate_array['include_reactions'] = True; // bool
 $associate_array['include_thread_info'] = True; // bool
 $associate_array['include_parent_message_info'] = True; // bool
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_type** | **string**| (Required) |
  **channel_url** | **string**| (Required) |
- **message_id** | **string**| (Required) |
+ **message_id** | **int**| (Required) |
  **include_reactions** | **bool**|  | [optional]
  **include_thread_info** | **bool**|  | [optional]
  **include_parent_message_info** | **bool**|  | [optional]
@@ -534,7 +534,7 @@ $apiInstance = new Sendbird\Api\MessageApi(
 );
 $associate_array['channel_type'] = 'channel_type_example'; // string | (Required)
 $associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
-$associate_array['message_id'] = 'message_id_example'; // string | (Required)
+$associate_array['message_id'] = 56; // int | (Required)
 $associate_array['keys'] = 'keys_example'; // string
 $associate_array['api_token'] = {{API_TOKEN}}; // string
 
@@ -554,7 +554,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_type** | **string**| (Required) |
  **channel_url** | **string**| (Required) |
- **message_id** | **string**| (Required) |
+ **message_id** | **int**| (Required) |
  **keys** | **string**|  | [optional]
  **api_token** | **string**|  | [optional]
 
@@ -664,7 +664,7 @@ $apiInstance = new Sendbird\Api\MessageApi(
 );
 $associate_array['channel_type'] = 'channel_type_example'; // string | (Required)
 $associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
-$associate_array['message_id'] = 'message_id_example'; // string | (Required)
+$associate_array['message_id'] = 56; // int | (Required)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
 $associate_array['update_a_message_request'] = new \Sendbird\Model\UpdateAMessageRequest(); // \Sendbird\Model\UpdateAMessageRequest
 
@@ -684,7 +684,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_type** | **string**| (Required) |
  **channel_url** | **string**| (Required) |
- **message_id** | **string**| (Required) |
+ **message_id** | **int**| (Required) |
  **api_token** | **string**|  | [optional]
  **update_a_message_request** | [**\Sendbird\Model\UpdateAMessageRequest**](../Model/UpdateAMessageRequest.md)|  | [optional]
 
@@ -730,7 +730,7 @@ $apiInstance = new Sendbird\Api\MessageApi(
 );
 $associate_array['channel_type'] = 'channel_type_example'; // string | (Required)
 $associate_array['channel_url'] = 'channel_url_example'; // string | (Required)
-$associate_array['message_id'] = 'message_id_example'; // string | (Required)
+$associate_array['message_id'] = 56; // int | (Required)
 $associate_array['api_token'] = {{API_TOKEN}}; // string
 $associate_array['update_extra_data_in_a_message_request'] = new \Sendbird\Model\UpdateExtraDataInAMessageRequest(); // \Sendbird\Model\UpdateExtraDataInAMessageRequest
 
@@ -750,7 +750,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **channel_type** | **string**| (Required) |
  **channel_url** | **string**| (Required) |
- **message_id** | **string**| (Required) |
+ **message_id** | **int**| (Required) |
  **api_token** | **string**|  | [optional]
  **update_extra_data_in_a_message_request** | [**\Sendbird\Model\UpdateExtraDataInAMessageRequest**](../Model/UpdateExtraDataInAMessageRequest.md)|  | [optional]
 

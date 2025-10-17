@@ -81,8 +81,7 @@ class SendbirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
         'unread_channel_count' => 'int',
         'unread_message_count' => 'int',
         'phone_number' => 'string',
-        'is_created' => 'bool',
-        'session_tokens' => 'string[]'
+        'is_created' => 'bool'
     ];
 
     /**
@@ -113,8 +112,7 @@ class SendbirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
         'unread_channel_count' => null,
         'unread_message_count' => null,
         'phone_number' => null,
-        'is_created' => null,
-        'session_tokens' => null
+        'is_created' => null
     ];
 
     /**
@@ -164,8 +162,7 @@ class SendbirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
         'unread_channel_count' => 'unread_channel_count',
         'unread_message_count' => 'unread_message_count',
         'phone_number' => 'phone_number',
-        'is_created' => 'is_created',
-        'session_tokens' => 'session_tokens'
+        'is_created' => 'is_created'
     ];
 
     /**
@@ -194,8 +191,7 @@ class SendbirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
         'unread_channel_count' => 'setUnreadChannelCount',
         'unread_message_count' => 'setUnreadMessageCount',
         'phone_number' => 'setPhoneNumber',
-        'is_created' => 'setIsCreated',
-        'session_tokens' => 'setSessionTokens'
+        'is_created' => 'setIsCreated'
     ];
 
     /**
@@ -224,8 +220,7 @@ class SendbirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
         'unread_channel_count' => 'getUnreadChannelCount',
         'unread_message_count' => 'getUnreadMessageCount',
         'phone_number' => 'getPhoneNumber',
-        'is_created' => 'getIsCreated',
-        'session_tokens' => 'getSessionTokens'
+        'is_created' => 'getIsCreated'
     ];
 
     /**
@@ -315,7 +310,7 @@ class SendbirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['metadata'] = $data['metadata'] ?? null;
         $this->container['nickname'] = $data['nickname'] ?? null;
         $this->container['preferred_languages'] = $data['preferred_languages'] ?? null;
-        $this->container['profile_url'] = $data['profile_url'] ?? null;
+        $this->container['profile_url'] = $data['profile_url'] ?? '';
         $this->container['require_auth_for_profile_image'] = $data['require_auth_for_profile_image'] ?? null;
         $this->container['user_id'] = $data['user_id'] ?? null;
         $this->container['state'] = $data['state'] ?? null;
@@ -323,7 +318,6 @@ class SendbirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['unread_message_count'] = $data['unread_message_count'] ?? null;
         $this->container['phone_number'] = $data['phone_number'] ?? null;
         $this->container['is_created'] = $data['is_created'] ?? null;
-        $this->container['session_tokens'] = $data['session_tokens'] ?? null;
     }
 
     /**
@@ -872,30 +866,6 @@ class SendbirdUser implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setIsCreated($is_created)
     {
         $this->container['is_created'] = $is_created;
-
-        return $this;
-    }
-
-    /**
-     * Gets session_tokens
-     *
-     * @return string[]|null
-     */
-    public function getSessionTokens()
-    {
-        return $this->container['session_tokens'];
-    }
-
-    /**
-     * Sets session_tokens
-     *
-     * @param string[]|null $session_tokens session_tokens
-     *
-     * @return self
-     */
-    public function setSessionTokens($session_tokens)
-    {
-        $this->container['session_tokens'] = $session_tokens;
 
         return $this;
     }

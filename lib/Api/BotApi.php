@@ -412,6 +412,309 @@ class BotApi
     }
 
     /**
+     * Operation deleteBotById
+     *
+     * Delete a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid bot_userid (required)
+     * @param  string $api_token api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function deleteBotById($associative_array)
+    {
+        list($response) = $this->deleteBotByIdWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation deleteBotByIdWithHttpInfo
+     *
+     * Delete a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteBotByIdWithHttpInfo($associative_array)
+    {
+        $request = $this->deleteBotByIdRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('object' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('object' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteBotByIdAsync
+     *
+     * Delete a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteBotByIdAsync($associative_array)
+    {
+        return $this->deleteBotByIdAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteBotByIdAsyncWithHttpInfo
+     *
+     * Delete a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteBotByIdAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = 'object';
+        $request = $this->deleteBotByIdRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteBotById'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function deleteBotByIdRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
+        // verify the required parameter 'bot_userid' is set
+        if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $bot_userid when calling deleteBotById'
+            );
+        }
+
+        $resourcePath = '/v3/bots/{bot_userid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($bot_userid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'bot_userid' . '}',
+                ObjectSerializer::toPathValue($bot_userid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation joinChannels
      *
      * Join channels
@@ -1673,12 +1976,32 @@ class BotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $bot_userid (Required) (required)
+     * @param  string $message_type Specifies the type of message to send. MESG for text message, FILE for file message. (required)
+     * @param  string $channel_url Specifies the URL of the channel to send the message to. (required)
      * @param  string $api_token api_token (optional)
-     * @param  \Sendbird\Model\SendABotMessageRequest $send_a_bot_message_request send_a_bot_message_request (optional)
+     * @param  string $message Specifies the content of the message. * This property is required when message_type is MESG. (optional)
+     * @param  string[] $mentioned * This property is available when message_type is MESG. (optional)
+     * @param  \Sendbird\Model\SendbirdExtendedMessagePayload $extended_message_payload extended_message_payload (optional)
+     * @param  \SplFileObject $file When sending a single file with a message, specifies the data of the file to upload to the Sendbird server in raw binary format. When sending a request containing a file, change the value of the content-type header to multipart/form-data;boundary&#x3D;{your_unique_boundary_string} in the request. * This property is required when message_type is FILE. * This doesn&#39;t allow a converted base64-encoded string from a file as its value. (optional)
+     * @param  bool $require_auth Determines whether to require an authentication key to verify if the file is being properly accessed. Only the user who uploaded the file or users who are in the channel where the file was uploaded should have access. The authentication key managed internally by the Sendbird system is generated every time a user logs in to the Sendbird server and is valid for three days starting from the last login. If set to false, Sendbird tries to access a file without any key. To access encrypted files, such as the files in the Sendbird server which are by default encrypted, the property must be set to true. (Default: false) The require_auth parameter only works if the file or URL is managed by Sendbird, which means that when you upload files using multipart format or provide URLs that point to the files hosted on the Sendbird server. However, if the file is hosted on a server or service that is not managed by Sendbird, access control and authentication for the file should be handled by the respective server or service hosting the file. * This property is available when message_type is FILE. (optional)
+     * @param  string $mention_type * This property is available when message_type is FILE. (optional)
+     * @param  string[] $mentioned_user_ids * This property is available when message_type is FILE. (optional)
+     * @param  bool $is_silent * This property is available when message_type is FILE. (optional)
+     * @param  \Sendbird\Model\SendbirdSortedMetaarrayInner[] $sorted_metaarray sorted_metaarray (optional)
+     * @param  string $apns_bundle_id * This property is available when message_type is FILE. (optional)
+     * @param  object $apple_critical_alert_options * This property is available when message_type is FILE. (optional)
+     * @param  string $sound * This property is available when message_type is FILE. (optional)
+     * @param  float $volume * This property is available when message_type is FILE. (optional)
+     * @param  int $created_at created_at (optional)
+     * @param  string $custom_type custom_type (optional)
+     * @param  string $data data (optional)
+     * @param  string $dedup_id dedup_id (optional)
+     * @param  bool $mark_as_read mark_as_read (optional)
+     * @param  bool $send_push send_push (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Sendbird\Model\SendbirdMessageResponse
+     * @return \Sendbird\Model\SendABotMessageResponse
      */
     public function sendABotMessage($associative_array)
     {
@@ -1694,12 +2017,32 @@ class BotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $bot_userid (Required) (required)
+     * @param  string $message_type Specifies the type of message to send. MESG for text message, FILE for file message. (required)
+     * @param  string $channel_url Specifies the URL of the channel to send the message to. (required)
      * @param  string $api_token (optional)
-     * @param  \Sendbird\Model\SendABotMessageRequest $send_a_bot_message_request (optional)
+     * @param  string $message Specifies the content of the message. * This property is required when message_type is MESG. (optional)
+     * @param  string[] $mentioned * This property is available when message_type is MESG. (optional)
+     * @param  \Sendbird\Model\SendbirdExtendedMessagePayload $extended_message_payload (optional)
+     * @param  \SplFileObject $file When sending a single file with a message, specifies the data of the file to upload to the Sendbird server in raw binary format. When sending a request containing a file, change the value of the content-type header to multipart/form-data;boundary&#x3D;{your_unique_boundary_string} in the request. * This property is required when message_type is FILE. * This doesn&#39;t allow a converted base64-encoded string from a file as its value. (optional)
+     * @param  bool $require_auth Determines whether to require an authentication key to verify if the file is being properly accessed. Only the user who uploaded the file or users who are in the channel where the file was uploaded should have access. The authentication key managed internally by the Sendbird system is generated every time a user logs in to the Sendbird server and is valid for three days starting from the last login. If set to false, Sendbird tries to access a file without any key. To access encrypted files, such as the files in the Sendbird server which are by default encrypted, the property must be set to true. (Default: false) The require_auth parameter only works if the file or URL is managed by Sendbird, which means that when you upload files using multipart format or provide URLs that point to the files hosted on the Sendbird server. However, if the file is hosted on a server or service that is not managed by Sendbird, access control and authentication for the file should be handled by the respective server or service hosting the file. * This property is available when message_type is FILE. (optional)
+     * @param  string $mention_type * This property is available when message_type is FILE. (optional)
+     * @param  string[] $mentioned_user_ids * This property is available when message_type is FILE. (optional)
+     * @param  bool $is_silent * This property is available when message_type is FILE. (optional)
+     * @param  \Sendbird\Model\SendbirdSortedMetaarrayInner[] $sorted_metaarray (optional)
+     * @param  string $apns_bundle_id * This property is available when message_type is FILE. (optional)
+     * @param  object $apple_critical_alert_options * This property is available when message_type is FILE. (optional)
+     * @param  string $sound * This property is available when message_type is FILE. (optional)
+     * @param  float $volume * This property is available when message_type is FILE. (optional)
+     * @param  int $created_at (optional)
+     * @param  string $custom_type (optional)
+     * @param  string $data (optional)
+     * @param  string $dedup_id (optional)
+     * @param  bool $mark_as_read (optional)
+     * @param  bool $send_push (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Sendbird\Model\SendbirdMessageResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Sendbird\Model\SendABotMessageResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendABotMessageWithHttpInfo($associative_array)
     {
@@ -1742,23 +2085,23 @@ class BotApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Sendbird\Model\SendbirdMessageResponse' === '\SplFileObject') {
+                    if ('\Sendbird\Model\SendABotMessageResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Sendbird\Model\SendbirdMessageResponse' !== 'string') {
+                        if ('\Sendbird\Model\SendABotMessageResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendbirdMessageResponse', []),
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\SendABotMessageResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Sendbird\Model\SendbirdMessageResponse';
+            $returnType = '\Sendbird\Model\SendABotMessageResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1779,7 +2122,7 @@ class BotApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Sendbird\Model\SendbirdMessageResponse',
+                        '\Sendbird\Model\SendABotMessageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1797,8 +2140,28 @@ class BotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $bot_userid (Required) (required)
+     * @param  string $message_type Specifies the type of message to send. MESG for text message, FILE for file message. (required)
+     * @param  string $channel_url Specifies the URL of the channel to send the message to. (required)
      * @param  string $api_token (optional)
-     * @param  \Sendbird\Model\SendABotMessageRequest $send_a_bot_message_request (optional)
+     * @param  string $message Specifies the content of the message. * This property is required when message_type is MESG. (optional)
+     * @param  string[] $mentioned * This property is available when message_type is MESG. (optional)
+     * @param  \Sendbird\Model\SendbirdExtendedMessagePayload $extended_message_payload (optional)
+     * @param  \SplFileObject $file When sending a single file with a message, specifies the data of the file to upload to the Sendbird server in raw binary format. When sending a request containing a file, change the value of the content-type header to multipart/form-data;boundary&#x3D;{your_unique_boundary_string} in the request. * This property is required when message_type is FILE. * This doesn&#39;t allow a converted base64-encoded string from a file as its value. (optional)
+     * @param  bool $require_auth Determines whether to require an authentication key to verify if the file is being properly accessed. Only the user who uploaded the file or users who are in the channel where the file was uploaded should have access. The authentication key managed internally by the Sendbird system is generated every time a user logs in to the Sendbird server and is valid for three days starting from the last login. If set to false, Sendbird tries to access a file without any key. To access encrypted files, such as the files in the Sendbird server which are by default encrypted, the property must be set to true. (Default: false) The require_auth parameter only works if the file or URL is managed by Sendbird, which means that when you upload files using multipart format or provide URLs that point to the files hosted on the Sendbird server. However, if the file is hosted on a server or service that is not managed by Sendbird, access control and authentication for the file should be handled by the respective server or service hosting the file. * This property is available when message_type is FILE. (optional)
+     * @param  string $mention_type * This property is available when message_type is FILE. (optional)
+     * @param  string[] $mentioned_user_ids * This property is available when message_type is FILE. (optional)
+     * @param  bool $is_silent * This property is available when message_type is FILE. (optional)
+     * @param  \Sendbird\Model\SendbirdSortedMetaarrayInner[] $sorted_metaarray (optional)
+     * @param  string $apns_bundle_id * This property is available when message_type is FILE. (optional)
+     * @param  object $apple_critical_alert_options * This property is available when message_type is FILE. (optional)
+     * @param  string $sound * This property is available when message_type is FILE. (optional)
+     * @param  float $volume * This property is available when message_type is FILE. (optional)
+     * @param  int $created_at (optional)
+     * @param  string $custom_type (optional)
+     * @param  string $data (optional)
+     * @param  string $dedup_id (optional)
+     * @param  bool $mark_as_read (optional)
+     * @param  bool $send_push (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1821,15 +2184,35 @@ class BotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $bot_userid (Required) (required)
+     * @param  string $message_type Specifies the type of message to send. MESG for text message, FILE for file message. (required)
+     * @param  string $channel_url Specifies the URL of the channel to send the message to. (required)
      * @param  string $api_token (optional)
-     * @param  \Sendbird\Model\SendABotMessageRequest $send_a_bot_message_request (optional)
+     * @param  string $message Specifies the content of the message. * This property is required when message_type is MESG. (optional)
+     * @param  string[] $mentioned * This property is available when message_type is MESG. (optional)
+     * @param  \Sendbird\Model\SendbirdExtendedMessagePayload $extended_message_payload (optional)
+     * @param  \SplFileObject $file When sending a single file with a message, specifies the data of the file to upload to the Sendbird server in raw binary format. When sending a request containing a file, change the value of the content-type header to multipart/form-data;boundary&#x3D;{your_unique_boundary_string} in the request. * This property is required when message_type is FILE. * This doesn&#39;t allow a converted base64-encoded string from a file as its value. (optional)
+     * @param  bool $require_auth Determines whether to require an authentication key to verify if the file is being properly accessed. Only the user who uploaded the file or users who are in the channel where the file was uploaded should have access. The authentication key managed internally by the Sendbird system is generated every time a user logs in to the Sendbird server and is valid for three days starting from the last login. If set to false, Sendbird tries to access a file without any key. To access encrypted files, such as the files in the Sendbird server which are by default encrypted, the property must be set to true. (Default: false) The require_auth parameter only works if the file or URL is managed by Sendbird, which means that when you upload files using multipart format or provide URLs that point to the files hosted on the Sendbird server. However, if the file is hosted on a server or service that is not managed by Sendbird, access control and authentication for the file should be handled by the respective server or service hosting the file. * This property is available when message_type is FILE. (optional)
+     * @param  string $mention_type * This property is available when message_type is FILE. (optional)
+     * @param  string[] $mentioned_user_ids * This property is available when message_type is FILE. (optional)
+     * @param  bool $is_silent * This property is available when message_type is FILE. (optional)
+     * @param  \Sendbird\Model\SendbirdSortedMetaarrayInner[] $sorted_metaarray (optional)
+     * @param  string $apns_bundle_id * This property is available when message_type is FILE. (optional)
+     * @param  object $apple_critical_alert_options * This property is available when message_type is FILE. (optional)
+     * @param  string $sound * This property is available when message_type is FILE. (optional)
+     * @param  float $volume * This property is available when message_type is FILE. (optional)
+     * @param  int $created_at (optional)
+     * @param  string $custom_type (optional)
+     * @param  string $data (optional)
+     * @param  string $dedup_id (optional)
+     * @param  bool $mark_as_read (optional)
+     * @param  bool $send_push (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function sendABotMessageAsyncWithHttpInfo($associative_array)
     {
-        $returnType = '\Sendbird\Model\SendbirdMessageResponse';
+        $returnType = '\Sendbird\Model\SendABotMessageResponse';
         $request = $this->sendABotMessageRequest($associative_array);
 
         return $this->client
@@ -1874,8 +2257,28 @@ class BotApi
      * Note: the input parameter is an associative array with the keys listed as the parameter name below
      *
      * @param  string $bot_userid (Required) (required)
+     * @param  string $message_type Specifies the type of message to send. MESG for text message, FILE for file message. (required)
+     * @param  string $channel_url Specifies the URL of the channel to send the message to. (required)
      * @param  string $api_token (optional)
-     * @param  \Sendbird\Model\SendABotMessageRequest $send_a_bot_message_request (optional)
+     * @param  string $message Specifies the content of the message. * This property is required when message_type is MESG. (optional)
+     * @param  string[] $mentioned * This property is available when message_type is MESG. (optional)
+     * @param  \Sendbird\Model\SendbirdExtendedMessagePayload $extended_message_payload (optional)
+     * @param  \SplFileObject $file When sending a single file with a message, specifies the data of the file to upload to the Sendbird server in raw binary format. When sending a request containing a file, change the value of the content-type header to multipart/form-data;boundary&#x3D;{your_unique_boundary_string} in the request. * This property is required when message_type is FILE. * This doesn&#39;t allow a converted base64-encoded string from a file as its value. (optional)
+     * @param  bool $require_auth Determines whether to require an authentication key to verify if the file is being properly accessed. Only the user who uploaded the file or users who are in the channel where the file was uploaded should have access. The authentication key managed internally by the Sendbird system is generated every time a user logs in to the Sendbird server and is valid for three days starting from the last login. If set to false, Sendbird tries to access a file without any key. To access encrypted files, such as the files in the Sendbird server which are by default encrypted, the property must be set to true. (Default: false) The require_auth parameter only works if the file or URL is managed by Sendbird, which means that when you upload files using multipart format or provide URLs that point to the files hosted on the Sendbird server. However, if the file is hosted on a server or service that is not managed by Sendbird, access control and authentication for the file should be handled by the respective server or service hosting the file. * This property is available when message_type is FILE. (optional)
+     * @param  string $mention_type * This property is available when message_type is FILE. (optional)
+     * @param  string[] $mentioned_user_ids * This property is available when message_type is FILE. (optional)
+     * @param  bool $is_silent * This property is available when message_type is FILE. (optional)
+     * @param  \Sendbird\Model\SendbirdSortedMetaarrayInner[] $sorted_metaarray (optional)
+     * @param  string $apns_bundle_id * This property is available when message_type is FILE. (optional)
+     * @param  object $apple_critical_alert_options * This property is available when message_type is FILE. (optional)
+     * @param  string $sound * This property is available when message_type is FILE. (optional)
+     * @param  float $volume * This property is available when message_type is FILE. (optional)
+     * @param  int $created_at (optional)
+     * @param  string $custom_type (optional)
+     * @param  string $data (optional)
+     * @param  string $dedup_id (optional)
+     * @param  bool $mark_as_read (optional)
+     * @param  bool $send_push (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1884,13 +2287,45 @@ class BotApi
     {
         // unbox the parameters from the associative array
         $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $message_type = array_key_exists('message_type', $associative_array) ? $associative_array['message_type'] : null;
+        $channel_url = array_key_exists('channel_url', $associative_array) ? $associative_array['channel_url'] : null;
         $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
-        $send_a_bot_message_request = array_key_exists('send_a_bot_message_request', $associative_array) ? $associative_array['send_a_bot_message_request'] : null;
+        $message = array_key_exists('message', $associative_array) ? $associative_array['message'] : null;
+        $mentioned = array_key_exists('mentioned', $associative_array) ? $associative_array['mentioned'] : null;
+        $extended_message_payload = array_key_exists('extended_message_payload', $associative_array) ? $associative_array['extended_message_payload'] : null;
+        $file = array_key_exists('file', $associative_array) ? $associative_array['file'] : null;
+        $require_auth = array_key_exists('require_auth', $associative_array) ? $associative_array['require_auth'] : null;
+        $mention_type = array_key_exists('mention_type', $associative_array) ? $associative_array['mention_type'] : null;
+        $mentioned_user_ids = array_key_exists('mentioned_user_ids', $associative_array) ? $associative_array['mentioned_user_ids'] : null;
+        $is_silent = array_key_exists('is_silent', $associative_array) ? $associative_array['is_silent'] : null;
+        $sorted_metaarray = array_key_exists('sorted_metaarray', $associative_array) ? $associative_array['sorted_metaarray'] : null;
+        $apns_bundle_id = array_key_exists('apns_bundle_id', $associative_array) ? $associative_array['apns_bundle_id'] : null;
+        $apple_critical_alert_options = array_key_exists('apple_critical_alert_options', $associative_array) ? $associative_array['apple_critical_alert_options'] : null;
+        $sound = array_key_exists('sound', $associative_array) ? $associative_array['sound'] : null;
+        $volume = array_key_exists('volume', $associative_array) ? $associative_array['volume'] : null;
+        $created_at = array_key_exists('created_at', $associative_array) ? $associative_array['created_at'] : null;
+        $custom_type = array_key_exists('custom_type', $associative_array) ? $associative_array['custom_type'] : null;
+        $data = array_key_exists('data', $associative_array) ? $associative_array['data'] : null;
+        $dedup_id = array_key_exists('dedup_id', $associative_array) ? $associative_array['dedup_id'] : null;
+        $mark_as_read = array_key_exists('mark_as_read', $associative_array) ? $associative_array['mark_as_read'] : null;
+        $send_push = array_key_exists('send_push', $associative_array) ? $associative_array['send_push'] : null;
 
         // verify the required parameter 'bot_userid' is set
         if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $bot_userid when calling sendABotMessage'
+            );
+        }
+        // verify the required parameter 'message_type' is set
+        if ($message_type === null || (is_array($message_type) && count($message_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $message_type when calling sendABotMessage'
+            );
+        }
+        // verify the required parameter 'channel_url' is set
+        if ($channel_url === null || (is_array($channel_url) && count($channel_url) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $channel_url when calling sendABotMessage'
             );
         }
 
@@ -1916,6 +2351,407 @@ class BotApi
             );
         }
 
+        // form params
+        if ($message_type !== null) {
+            $formParams['message_type'] = ObjectSerializer::toFormValue($message_type);
+        }
+        // form params
+        if ($channel_url !== null) {
+            $formParams['channel_url'] = ObjectSerializer::toFormValue($channel_url);
+        }
+        // form params
+        if ($message !== null) {
+            $formParams['message'] = ObjectSerializer::toFormValue($message);
+        }
+        // form params
+        if ($mentioned !== null) {
+            $formParams['mentioned'] = ObjectSerializer::toFormValue($mentioned);
+        }
+        // form params
+        if ($extended_message_payload !== null) {
+            $formParams['extended_message_payload'] = ObjectSerializer::toFormValue($extended_message_payload);
+        }
+        // form params
+        if ($file !== null) {
+            $multipart = true;
+            $formParams['file'] = [];
+            $paramFiles = is_array($file) ? $file : [$file];
+            foreach ($paramFiles as $paramFile) {
+                $formParams['file'][] = \GuzzleHttp\Psr7\Utils::tryFopen(
+                    ObjectSerializer::toFormValue($paramFile),
+                    'rb'
+                );
+            }
+        }
+        // form params
+        if ($require_auth !== null) {
+            $formParams['require_auth'] = ObjectSerializer::toFormValue($require_auth);
+        }
+        // form params
+        if ($mention_type !== null) {
+            $formParams['mention_type'] = ObjectSerializer::toFormValue($mention_type);
+        }
+        // form params
+        if ($mentioned_user_ids !== null) {
+            $formParams['mentioned_user_ids'] = ObjectSerializer::toFormValue($mentioned_user_ids);
+        }
+        // form params
+        if ($is_silent !== null) {
+            $formParams['is_silent'] = ObjectSerializer::toFormValue($is_silent);
+        }
+        // form params
+        if ($sorted_metaarray !== null) {
+            $formParams['sorted_metaarray'] = ObjectSerializer::toFormValue($sorted_metaarray);
+        }
+        // form params
+        if ($apns_bundle_id !== null) {
+            $formParams['apns_bundle_id'] = ObjectSerializer::toFormValue($apns_bundle_id);
+        }
+        // form params
+        if ($apple_critical_alert_options !== null) {
+            $formParams['apple_critical_alert_options'] = ObjectSerializer::toFormValue($apple_critical_alert_options);
+        }
+        // form params
+        if ($sound !== null) {
+            $formParams['sound'] = ObjectSerializer::toFormValue($sound);
+        }
+        // form params
+        if ($volume !== null) {
+            $formParams['volume'] = ObjectSerializer::toFormValue($volume);
+        }
+        // form params
+        if ($created_at !== null) {
+            $formParams['created_at'] = ObjectSerializer::toFormValue($created_at);
+        }
+        // form params
+        if ($custom_type !== null) {
+            $formParams['custom_type'] = ObjectSerializer::toFormValue($custom_type);
+        }
+        // form params
+        if ($data !== null) {
+            $formParams['data'] = ObjectSerializer::toFormValue($data);
+        }
+        // form params
+        if ($dedup_id !== null) {
+            $formParams['dedup_id'] = ObjectSerializer::toFormValue($dedup_id);
+        }
+        // form params
+        if ($mark_as_read !== null) {
+            $formParams['mark_as_read'] = ObjectSerializer::toFormValue($mark_as_read);
+        }
+        // form params
+        if ($send_push !== null) {
+            $formParams['send_push'] = ObjectSerializer::toFormValue($send_push);
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateBotById
+     *
+     * Update a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid bot_userid (required)
+     * @param  string $api_token api_token (optional)
+     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data update_bot_by_id_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\UpdateBotByIdResponse
+     */
+    public function updateBotById($associative_array)
+    {
+        list($response) = $this->updateBotByIdWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation updateBotByIdWithHttpInfo
+     *
+     * Update a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\UpdateBotByIdResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateBotByIdWithHttpInfo($associative_array)
+    {
+        $request = $this->updateBotByIdRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\UpdateBotByIdResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\UpdateBotByIdResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\UpdateBotByIdResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\UpdateBotByIdResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\UpdateBotByIdResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateBotByIdAsync
+     *
+     * Update a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateBotByIdAsync($associative_array)
+    {
+        return $this->updateBotByIdAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateBotByIdAsyncWithHttpInfo
+     *
+     * Update a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateBotByIdAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\UpdateBotByIdResponse';
+        $request = $this->updateBotByIdRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateBotById'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     * @param  \Sendbird\Model\UpdateBotByIdData $update_bot_by_id_data (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateBotByIdRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+        $update_bot_by_id_data = array_key_exists('update_bot_by_id_data', $associative_array) ? $associative_array['update_bot_by_id_data'] : null;
+
+        // verify the required parameter 'bot_userid' is set
+        if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $bot_userid when calling updateBotById'
+            );
+        }
+
+        $resourcePath = '/v3/bots/{bot_userid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($bot_userid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'bot_userid' . '}',
+                ObjectSerializer::toPathValue($bot_userid),
+                $resourcePath
+            );
+        }
+
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1929,11 +2765,11 @@ class BotApi
         }
 
         // for model (json/xml)
-        if (isset($send_a_bot_message_request)) {
+        if (isset($update_bot_by_id_data)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($send_a_bot_message_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_bot_by_id_data));
             } else {
-                $httpBody = $send_a_bot_message_request;
+                $httpBody = $update_bot_by_id_data;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1973,7 +2809,310 @@ class BotApi
 
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'POST',
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation viewBotById
+     *
+     * View a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid bot_userid (required)
+     * @param  string $api_token api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Sendbird\Model\ViewBotByIdResponse
+     */
+    public function viewBotById($associative_array)
+    {
+        list($response) = $this->viewBotByIdWithHttpInfo($associative_array);
+        return $response;
+    }
+
+    /**
+     * Operation viewBotByIdWithHttpInfo
+     *
+     * View a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \Sendbird\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Sendbird\Model\ViewBotByIdResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function viewBotByIdWithHttpInfo($associative_array)
+    {
+        $request = $this->viewBotByIdRequest($associative_array);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Sendbird\Model\ViewBotByIdResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Sendbird\Model\ViewBotByIdResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Sendbird\Model\ViewBotByIdResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Sendbird\Model\ViewBotByIdResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Sendbird\Model\ViewBotByIdResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation viewBotByIdAsync
+     *
+     * View a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function viewBotByIdAsync($associative_array)
+    {
+        return $this->viewBotByIdAsyncWithHttpInfo($associative_array)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation viewBotByIdAsyncWithHttpInfo
+     *
+     * View a bot
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function viewBotByIdAsyncWithHttpInfo($associative_array)
+    {
+        $returnType = '\Sendbird\Model\ViewBotByIdResponse';
+        $request = $this->viewBotByIdRequest($associative_array);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'viewBotById'
+     *
+     * Note: the input parameter is an associative array with the keys listed as the parameter name below
+     *
+     * @param  string $bot_userid (required)
+     * @param  string $api_token (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function viewBotByIdRequest($associative_array)
+    {
+        // unbox the parameters from the associative array
+        $bot_userid = array_key_exists('bot_userid', $associative_array) ? $associative_array['bot_userid'] : null;
+        $api_token = array_key_exists('api_token', $associative_array) ? $associative_array['api_token'] : null;
+
+        // verify the required parameter 'bot_userid' is set
+        if ($bot_userid === null || (is_array($bot_userid) && count($bot_userid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $bot_userid when calling viewBotById'
+            );
+        }
+
+        $resourcePath = '/v3/bots/{bot_userid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($api_token !== null) {
+            $headerParams['Api-Token'] = ObjectSerializer::toHeaderValue($api_token);
+        }
+
+        // path params
+        if ($bot_userid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'bot_userid' . '}',
+                ObjectSerializer::toPathValue($bot_userid),
+                $resourcePath
+            );
+        }
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

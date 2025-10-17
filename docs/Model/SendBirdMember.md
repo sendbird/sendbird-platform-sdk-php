@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **nickname** | **string** |  | [optional]
 **push_enabled** | **bool** |  | [optional]
 **push_trigger_option** | [**\Sendbird\Model\SendbirdPushTriggerOption**](SendbirdPushTriggerOption.md) |  | [optional]
-**profile_url** | **string** |  | [optional]
+**profile_url** | **string** |  | [optional] [default to '']
 **require_auth_for_profile_image** | **bool** |  | [optional]
 **read_ts** | **int** |  | [optional]
 **role** | **string** |  | [optional]

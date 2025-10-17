@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateAUserRequest
+ * UpdateBotByIdResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * CreateAUserRequest Class Doc Comment
+ * UpdateBotByIdResponse Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class UpdateBotByIdResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'createAUser_request';
+    protected static $openAPIModelName = 'updateBotByIdResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,13 +60,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'discovery_keys' => 'string[]',
-        'issue_access_token' => 'bool',
-        'metadata' => 'object',
-        'nickname' => 'string',
-        'profile_file' => '\SplFileObject',
-        'profile_url' => 'string',
-        'user_id' => 'string'
+        'bot' => '\Sendbird\Model\ViewBotByIdResponseBot',
+        'bot_callback_url' => 'string',
+        'enable_mark_as_read' => 'bool',
+        'is_privacy_mode' => 'bool',
+        'show_member' => 'bool',
+        'channel_invitation_preference' => 'int'
     ];
 
     /**
@@ -77,13 +76,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'discovery_keys' => null,
-        'issue_access_token' => null,
-        'metadata' => null,
-        'nickname' => null,
-        'profile_file' => 'binary',
-        'profile_url' => null,
-        'user_id' => null
+        'bot' => null,
+        'bot_callback_url' => null,
+        'enable_mark_as_read' => null,
+        'is_privacy_mode' => null,
+        'show_member' => null,
+        'channel_invitation_preference' => null
     ];
 
     /**
@@ -113,13 +111,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'discovery_keys' => 'discovery_keys',
-        'issue_access_token' => 'issue_access_token',
-        'metadata' => 'metadata',
-        'nickname' => 'nickname',
-        'profile_file' => 'profile_file',
-        'profile_url' => 'profile_url',
-        'user_id' => 'user_id'
+        'bot' => 'bot',
+        'bot_callback_url' => 'bot_callback_url',
+        'enable_mark_as_read' => 'enable_mark_as_read',
+        'is_privacy_mode' => 'is_privacy_mode',
+        'show_member' => 'show_member',
+        'channel_invitation_preference' => 'channel_invitation_preference'
     ];
 
     /**
@@ -128,13 +125,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'discovery_keys' => 'setDiscoveryKeys',
-        'issue_access_token' => 'setIssueAccessToken',
-        'metadata' => 'setMetadata',
-        'nickname' => 'setNickname',
-        'profile_file' => 'setProfileFile',
-        'profile_url' => 'setProfileUrl',
-        'user_id' => 'setUserId'
+        'bot' => 'setBot',
+        'bot_callback_url' => 'setBotCallbackUrl',
+        'enable_mark_as_read' => 'setEnableMarkAsRead',
+        'is_privacy_mode' => 'setIsPrivacyMode',
+        'show_member' => 'setShowMember',
+        'channel_invitation_preference' => 'setChannelInvitationPreference'
     ];
 
     /**
@@ -143,13 +139,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'discovery_keys' => 'getDiscoveryKeys',
-        'issue_access_token' => 'getIssueAccessToken',
-        'metadata' => 'getMetadata',
-        'nickname' => 'getNickname',
-        'profile_file' => 'getProfileFile',
-        'profile_url' => 'getProfileUrl',
-        'user_id' => 'getUserId'
+        'bot' => 'getBot',
+        'bot_callback_url' => 'getBotCallbackUrl',
+        'enable_mark_as_read' => 'getEnableMarkAsRead',
+        'is_privacy_mode' => 'getIsPrivacyMode',
+        'show_member' => 'getShowMember',
+        'channel_invitation_preference' => 'getChannelInvitationPreference'
     ];
 
     /**
@@ -209,13 +204,12 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['discovery_keys'] = $data['discovery_keys'] ?? null;
-        $this->container['issue_access_token'] = $data['issue_access_token'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['nickname'] = $data['nickname'] ?? null;
-        $this->container['profile_file'] = $data['profile_file'] ?? null;
-        $this->container['profile_url'] = $data['profile_url'] ?? '';
-        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['bot'] = $data['bot'] ?? null;
+        $this->container['bot_callback_url'] = $data['bot_callback_url'] ?? null;
+        $this->container['enable_mark_as_read'] = $data['enable_mark_as_read'] ?? null;
+        $this->container['is_privacy_mode'] = $data['is_privacy_mode'] ?? null;
+        $this->container['show_member'] = $data['show_member'] ?? null;
+        $this->container['channel_invitation_preference'] = $data['channel_invitation_preference'] ?? null;
     }
 
     /**
@@ -227,15 +221,6 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['nickname'] === null) {
-            $invalidProperties[] = "'nickname' can't be null";
-        }
-        if ($this->container['profile_url'] === null) {
-            $invalidProperties[] = "'profile_url' can't be null";
-        }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -252,169 +237,145 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets discovery_keys
+     * Gets bot
      *
-     * @return string[]|null
+     * @return \Sendbird\Model\ViewBotByIdResponseBot|null
      */
-    public function getDiscoveryKeys()
+    public function getBot()
     {
-        return $this->container['discovery_keys'];
+        return $this->container['bot'];
     }
 
     /**
-     * Sets discovery_keys
+     * Sets bot
      *
-     * @param string[]|null $discovery_keys discovery_keys
+     * @param \Sendbird\Model\ViewBotByIdResponseBot|null $bot bot
      *
      * @return self
      */
-    public function setDiscoveryKeys($discovery_keys)
+    public function setBot($bot)
     {
-        $this->container['discovery_keys'] = $discovery_keys;
+        $this->container['bot'] = $bot;
 
         return $this;
     }
 
     /**
-     * Gets issue_access_token
+     * Gets bot_callback_url
+     *
+     * @return string|null
+     */
+    public function getBotCallbackUrl()
+    {
+        return $this->container['bot_callback_url'];
+    }
+
+    /**
+     * Sets bot_callback_url
+     *
+     * @param string|null $bot_callback_url bot_callback_url
+     *
+     * @return self
+     */
+    public function setBotCallbackUrl($bot_callback_url)
+    {
+        $this->container['bot_callback_url'] = $bot_callback_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_mark_as_read
      *
      * @return bool|null
      */
-    public function getIssueAccessToken()
+    public function getEnableMarkAsRead()
     {
-        return $this->container['issue_access_token'];
+        return $this->container['enable_mark_as_read'];
     }
 
     /**
-     * Sets issue_access_token
+     * Sets enable_mark_as_read
      *
-     * @param bool|null $issue_access_token issue_access_token
+     * @param bool|null $enable_mark_as_read enable_mark_as_read
      *
      * @return self
      */
-    public function setIssueAccessToken($issue_access_token)
+    public function setEnableMarkAsRead($enable_mark_as_read)
     {
-        $this->container['issue_access_token'] = $issue_access_token;
+        $this->container['enable_mark_as_read'] = $enable_mark_as_read;
 
         return $this;
     }
 
     /**
-     * Gets metadata
+     * Gets is_privacy_mode
      *
-     * @return object|null
+     * @return bool|null
      */
-    public function getMetadata()
+    public function getIsPrivacyMode()
     {
-        return $this->container['metadata'];
+        return $this->container['is_privacy_mode'];
     }
 
     /**
-     * Sets metadata
+     * Sets is_privacy_mode
      *
-     * @param object|null $metadata metadata
+     * @param bool|null $is_privacy_mode is_privacy_mode
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setIsPrivacyMode($is_privacy_mode)
     {
-        $this->container['metadata'] = $metadata;
+        $this->container['is_privacy_mode'] = $is_privacy_mode;
 
         return $this;
     }
 
     /**
-     * Gets nickname
+     * Gets show_member
      *
-     * @return string
+     * @return bool|null
      */
-    public function getNickname()
+    public function getShowMember()
     {
-        return $this->container['nickname'];
+        return $this->container['show_member'];
     }
 
     /**
-     * Sets nickname
+     * Sets show_member
      *
-     * @param string $nickname nickname
+     * @param bool|null $show_member show_member
      *
      * @return self
      */
-    public function setNickname($nickname)
+    public function setShowMember($show_member)
     {
-        $this->container['nickname'] = $nickname;
+        $this->container['show_member'] = $show_member;
 
         return $this;
     }
 
     /**
-     * Gets profile_file
+     * Gets channel_invitation_preference
      *
-     * @return \SplFileObject|null
+     * @return int|null
      */
-    public function getProfileFile()
+    public function getChannelInvitationPreference()
     {
-        return $this->container['profile_file'];
+        return $this->container['channel_invitation_preference'];
     }
 
     /**
-     * Sets profile_file
+     * Sets channel_invitation_preference
      *
-     * @param \SplFileObject|null $profile_file Specifies the file of the user's profile image. An acceptable image is limited to a JPG, JPEG, or PNG file of up to 5 MB. When passing a file, you should send a multipart request. If the profile_file property is specified, the profile_url property is not required.
+     * @param int|null $channel_invitation_preference channel_invitation_preference
      *
      * @return self
      */
-    public function setProfileFile($profile_file)
+    public function setChannelInvitationPreference($channel_invitation_preference)
     {
-        $this->container['profile_file'] = $profile_file;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile_url
-     *
-     * @return string
-     */
-    public function getProfileUrl()
-    {
-        return $this->container['profile_url'];
-    }
-
-    /**
-     * Sets profile_url
-     *
-     * @param string $profile_url profile_url
-     *
-     * @return self
-     */
-    public function setProfileUrl($profile_url)
-    {
-        $this->container['profile_url'] = $profile_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string $user_id user_id
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
+        $this->container['channel_invitation_preference'] = $channel_invitation_preference;
 
         return $this;
     }

@@ -125,7 +125,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\AddExtraDataToAMessageRequest $add_extra_data_to_a_message_request add_extra_data_to_a_message_request (optional)
      *
@@ -148,7 +148,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddExtraDataToAMessageRequest $add_extra_data_to_a_message_request (optional)
      *
@@ -253,7 +253,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddExtraDataToAMessageRequest $add_extra_data_to_a_message_request (optional)
      *
@@ -279,7 +279,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddExtraDataToAMessageRequest $add_extra_data_to_a_message_request (optional)
      *
@@ -334,7 +334,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\AddExtraDataToAMessageRequest $add_extra_data_to_a_message_request (optional)
      *
@@ -480,7 +480,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
@@ -502,7 +502,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      *
      * @throws \Sendbird\ApiException on non-2xx response
@@ -606,7 +606,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
@@ -631,7 +631,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
@@ -685,7 +685,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      *
      * @throws \InvalidArgumentException
@@ -823,7 +823,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  bool $include_reactions include_reactions (optional)
      * @param  bool $include_thread_info include_thread_info (optional)
      * @param  bool $include_parent_message_info include_parent_message_info (optional)
@@ -850,7 +850,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  bool $include_reactions (optional)
      * @param  bool $include_thread_info (optional)
      * @param  bool $include_parent_message_info (optional)
@@ -959,7 +959,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  bool $include_reactions (optional)
      * @param  bool $include_thread_info (optional)
      * @param  bool $include_parent_message_info (optional)
@@ -989,7 +989,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  bool $include_reactions (optional)
      * @param  bool $include_thread_info (optional)
      * @param  bool $include_parent_message_info (optional)
@@ -1048,7 +1048,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  bool $include_reactions (optional)
      * @param  bool $include_thread_info (optional)
      * @param  bool $include_parent_message_info (optional)
@@ -2829,7 +2829,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $keys keys (optional)
      * @param  string $api_token api_token (optional)
      *
@@ -2852,7 +2852,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $keys (optional)
      * @param  string $api_token (optional)
      *
@@ -2957,7 +2957,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $keys (optional)
      * @param  string $api_token (optional)
      *
@@ -2983,7 +2983,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $keys (optional)
      * @param  string $api_token (optional)
      *
@@ -3038,7 +3038,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $keys (optional)
      * @param  string $api_token (optional)
      *
@@ -3522,7 +3522,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateAMessageRequest $update_a_message_request update_a_message_request (optional)
      *
@@ -3545,7 +3545,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateAMessageRequest $update_a_message_request (optional)
      *
@@ -3650,7 +3650,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateAMessageRequest $update_a_message_request (optional)
      *
@@ -3676,7 +3676,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateAMessageRequest $update_a_message_request (optional)
      *
@@ -3731,7 +3731,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateAMessageRequest $update_a_message_request (optional)
      *
@@ -3877,7 +3877,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token api_token (optional)
      * @param  \Sendbird\Model\UpdateExtraDataInAMessageRequest $update_extra_data_in_a_message_request update_extra_data_in_a_message_request (optional)
      *
@@ -3900,7 +3900,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateExtraDataInAMessageRequest $update_extra_data_in_a_message_request (optional)
      *
@@ -4005,7 +4005,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateExtraDataInAMessageRequest $update_extra_data_in_a_message_request (optional)
      *
@@ -4031,7 +4031,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateExtraDataInAMessageRequest $update_extra_data_in_a_message_request (optional)
      *
@@ -4086,7 +4086,7 @@ class MessageApi
      *
      * @param  string $channel_type (Required) (required)
      * @param  string $channel_url (Required) (required)
-     * @param  string $message_id (Required) (required)
+     * @param  int $message_id (Required) (required)
      * @param  string $api_token (optional)
      * @param  \Sendbird\Model\UpdateExtraDataInAMessageRequest $update_extra_data_in_a_message_request (optional)
      *

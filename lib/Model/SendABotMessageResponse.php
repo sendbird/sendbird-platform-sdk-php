@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateAUserRequest
+ * SendABotMessageResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * CreateAUserRequest Class Doc Comment
+ * SendABotMessageResponse Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendABotMessageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'createAUser_request';
+    protected static $openAPIModelName = 'sendABotMessageResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,13 +60,7 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'discovery_keys' => 'string[]',
-        'issue_access_token' => 'bool',
-        'metadata' => 'object',
-        'nickname' => 'string',
-        'profile_file' => '\SplFileObject',
-        'profile_url' => 'string',
-        'user_id' => 'string'
+        'message' => '\Sendbird\Model\SendbirdMessageResponse'
     ];
 
     /**
@@ -77,13 +71,7 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'discovery_keys' => null,
-        'issue_access_token' => null,
-        'metadata' => null,
-        'nickname' => null,
-        'profile_file' => 'binary',
-        'profile_url' => null,
-        'user_id' => null
+        'message' => null
     ];
 
     /**
@@ -113,13 +101,7 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'discovery_keys' => 'discovery_keys',
-        'issue_access_token' => 'issue_access_token',
-        'metadata' => 'metadata',
-        'nickname' => 'nickname',
-        'profile_file' => 'profile_file',
-        'profile_url' => 'profile_url',
-        'user_id' => 'user_id'
+        'message' => 'message'
     ];
 
     /**
@@ -128,13 +110,7 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'discovery_keys' => 'setDiscoveryKeys',
-        'issue_access_token' => 'setIssueAccessToken',
-        'metadata' => 'setMetadata',
-        'nickname' => 'setNickname',
-        'profile_file' => 'setProfileFile',
-        'profile_url' => 'setProfileUrl',
-        'user_id' => 'setUserId'
+        'message' => 'setMessage'
     ];
 
     /**
@@ -143,13 +119,7 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'discovery_keys' => 'getDiscoveryKeys',
-        'issue_access_token' => 'getIssueAccessToken',
-        'metadata' => 'getMetadata',
-        'nickname' => 'getNickname',
-        'profile_file' => 'getProfileFile',
-        'profile_url' => 'getProfileUrl',
-        'user_id' => 'getUserId'
+        'message' => 'getMessage'
     ];
 
     /**
@@ -209,13 +179,7 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['discovery_keys'] = $data['discovery_keys'] ?? null;
-        $this->container['issue_access_token'] = $data['issue_access_token'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['nickname'] = $data['nickname'] ?? null;
-        $this->container['profile_file'] = $data['profile_file'] ?? null;
-        $this->container['profile_url'] = $data['profile_url'] ?? '';
-        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['message'] = $data['message'] ?? null;
     }
 
     /**
@@ -227,15 +191,6 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['nickname'] === null) {
-            $invalidProperties[] = "'nickname' can't be null";
-        }
-        if ($this->container['profile_url'] === null) {
-            $invalidProperties[] = "'profile_url' can't be null";
-        }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -252,169 +207,25 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets discovery_keys
+     * Gets message
      *
-     * @return string[]|null
+     * @return \Sendbird\Model\SendbirdMessageResponse|null
      */
-    public function getDiscoveryKeys()
+    public function getMessage()
     {
-        return $this->container['discovery_keys'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets discovery_keys
+     * Sets message
      *
-     * @param string[]|null $discovery_keys discovery_keys
+     * @param \Sendbird\Model\SendbirdMessageResponse|null $message message
      *
      * @return self
      */
-    public function setDiscoveryKeys($discovery_keys)
+    public function setMessage($message)
     {
-        $this->container['discovery_keys'] = $discovery_keys;
-
-        return $this;
-    }
-
-    /**
-     * Gets issue_access_token
-     *
-     * @return bool|null
-     */
-    public function getIssueAccessToken()
-    {
-        return $this->container['issue_access_token'];
-    }
-
-    /**
-     * Sets issue_access_token
-     *
-     * @param bool|null $issue_access_token issue_access_token
-     *
-     * @return self
-     */
-    public function setIssueAccessToken($issue_access_token)
-    {
-        $this->container['issue_access_token'] = $issue_access_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
-     *
-     * @return object|null
-     */
-    public function getMetadata()
-    {
-        return $this->container['metadata'];
-    }
-
-    /**
-     * Sets metadata
-     *
-     * @param object|null $metadata metadata
-     *
-     * @return self
-     */
-    public function setMetadata($metadata)
-    {
-        $this->container['metadata'] = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Gets nickname
-     *
-     * @return string
-     */
-    public function getNickname()
-    {
-        return $this->container['nickname'];
-    }
-
-    /**
-     * Sets nickname
-     *
-     * @param string $nickname nickname
-     *
-     * @return self
-     */
-    public function setNickname($nickname)
-    {
-        $this->container['nickname'] = $nickname;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile_file
-     *
-     * @return \SplFileObject|null
-     */
-    public function getProfileFile()
-    {
-        return $this->container['profile_file'];
-    }
-
-    /**
-     * Sets profile_file
-     *
-     * @param \SplFileObject|null $profile_file Specifies the file of the user's profile image. An acceptable image is limited to a JPG, JPEG, or PNG file of up to 5 MB. When passing a file, you should send a multipart request. If the profile_file property is specified, the profile_url property is not required.
-     *
-     * @return self
-     */
-    public function setProfileFile($profile_file)
-    {
-        $this->container['profile_file'] = $profile_file;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile_url
-     *
-     * @return string
-     */
-    public function getProfileUrl()
-    {
-        return $this->container['profile_url'];
-    }
-
-    /**
-     * Sets profile_url
-     *
-     * @param string $profile_url profile_url
-     *
-     * @return self
-     */
-    public function setProfileUrl($profile_url)
-    {
-        $this->container['profile_url'] = $profile_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string $user_id user_id
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
+        $this->container['message'] = $message;
 
         return $this;
     }

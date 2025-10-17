@@ -1,4 +1,4 @@
-# # SendbirdMessageResponse
+# # SendbirdGroupChannelLastMessage
 
 ## Properties
 

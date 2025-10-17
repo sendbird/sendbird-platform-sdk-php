@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateAUserRequest
+ * SendbirdMessageResponseExtendedMessagePayload
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Sendbird\ObjectSerializer;
 
 /**
- * CreateAUserRequest Class Doc Comment
+ * SendbirdMessageResponseExtendedMessagePayload Class Doc Comment
  *
  * @category Class
  * @package  Sendbird
@@ -43,7 +43,7 @@ use \Sendbird\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class SendbirdMessageResponseExtendedMessagePayload implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       *
       * @var string
       */
-    protected static $openAPIModelName = 'createAUser_request';
+    protected static $openAPIModelName = 'Sendbird_MessageResponse_extended_message_payload';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,13 +60,8 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'discovery_keys' => 'string[]',
-        'issue_access_token' => 'bool',
-        'metadata' => 'object',
-        'nickname' => 'string',
-        'profile_file' => '\SplFileObject',
-        'profile_url' => 'string',
-        'user_id' => 'string'
+        'custom_view' => 'object',
+        'suggested_replies' => 'string[]'
     ];
 
     /**
@@ -77,13 +72,8 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'discovery_keys' => null,
-        'issue_access_token' => null,
-        'metadata' => null,
-        'nickname' => null,
-        'profile_file' => 'binary',
-        'profile_url' => null,
-        'user_id' => null
+        'custom_view' => null,
+        'suggested_replies' => null
     ];
 
     /**
@@ -113,13 +103,8 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'discovery_keys' => 'discovery_keys',
-        'issue_access_token' => 'issue_access_token',
-        'metadata' => 'metadata',
-        'nickname' => 'nickname',
-        'profile_file' => 'profile_file',
-        'profile_url' => 'profile_url',
-        'user_id' => 'user_id'
+        'custom_view' => 'custom_view',
+        'suggested_replies' => 'suggested_replies'
     ];
 
     /**
@@ -128,13 +113,8 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'discovery_keys' => 'setDiscoveryKeys',
-        'issue_access_token' => 'setIssueAccessToken',
-        'metadata' => 'setMetadata',
-        'nickname' => 'setNickname',
-        'profile_file' => 'setProfileFile',
-        'profile_url' => 'setProfileUrl',
-        'user_id' => 'setUserId'
+        'custom_view' => 'setCustomView',
+        'suggested_replies' => 'setSuggestedReplies'
     ];
 
     /**
@@ -143,13 +123,8 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'discovery_keys' => 'getDiscoveryKeys',
-        'issue_access_token' => 'getIssueAccessToken',
-        'metadata' => 'getMetadata',
-        'nickname' => 'getNickname',
-        'profile_file' => 'getProfileFile',
-        'profile_url' => 'getProfileUrl',
-        'user_id' => 'getUserId'
+        'custom_view' => 'getCustomView',
+        'suggested_replies' => 'getSuggestedReplies'
     ];
 
     /**
@@ -209,13 +184,8 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['discovery_keys'] = $data['discovery_keys'] ?? null;
-        $this->container['issue_access_token'] = $data['issue_access_token'] ?? null;
-        $this->container['metadata'] = $data['metadata'] ?? null;
-        $this->container['nickname'] = $data['nickname'] ?? null;
-        $this->container['profile_file'] = $data['profile_file'] ?? null;
-        $this->container['profile_url'] = $data['profile_url'] ?? '';
-        $this->container['user_id'] = $data['user_id'] ?? null;
+        $this->container['custom_view'] = $data['custom_view'] ?? null;
+        $this->container['suggested_replies'] = $data['suggested_replies'] ?? null;
     }
 
     /**
@@ -227,15 +197,6 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['nickname'] === null) {
-            $invalidProperties[] = "'nickname' can't be null";
-        }
-        if ($this->container['profile_url'] === null) {
-            $invalidProperties[] = "'profile_url' can't be null";
-        }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -252,169 +213,49 @@ class CreateAUserRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets discovery_keys
-     *
-     * @return string[]|null
-     */
-    public function getDiscoveryKeys()
-    {
-        return $this->container['discovery_keys'];
-    }
-
-    /**
-     * Sets discovery_keys
-     *
-     * @param string[]|null $discovery_keys discovery_keys
-     *
-     * @return self
-     */
-    public function setDiscoveryKeys($discovery_keys)
-    {
-        $this->container['discovery_keys'] = $discovery_keys;
-
-        return $this;
-    }
-
-    /**
-     * Gets issue_access_token
-     *
-     * @return bool|null
-     */
-    public function getIssueAccessToken()
-    {
-        return $this->container['issue_access_token'];
-    }
-
-    /**
-     * Sets issue_access_token
-     *
-     * @param bool|null $issue_access_token issue_access_token
-     *
-     * @return self
-     */
-    public function setIssueAccessToken($issue_access_token)
-    {
-        $this->container['issue_access_token'] = $issue_access_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets metadata
+     * Gets custom_view
      *
      * @return object|null
      */
-    public function getMetadata()
+    public function getCustomView()
     {
-        return $this->container['metadata'];
+        return $this->container['custom_view'];
     }
 
     /**
-     * Sets metadata
+     * Sets custom_view
      *
-     * @param object|null $metadata metadata
+     * @param object|null $custom_view JSON format you want to embed in message, eq : {\"title\": \"title\", \"image\": \"https://link.to/image.jpg\"}
      *
      * @return self
      */
-    public function setMetadata($metadata)
+    public function setCustomView($custom_view)
     {
-        $this->container['metadata'] = $metadata;
+        $this->container['custom_view'] = $custom_view;
 
         return $this;
     }
 
     /**
-     * Gets nickname
+     * Gets suggested_replies
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getNickname()
+    public function getSuggestedReplies()
     {
-        return $this->container['nickname'];
+        return $this->container['suggested_replies'];
     }
 
     /**
-     * Sets nickname
+     * Sets suggested_replies
      *
-     * @param string $nickname nickname
+     * @param string[]|null $suggested_replies Specifies an array of suggested replies to be sent with the message.
      *
      * @return self
      */
-    public function setNickname($nickname)
+    public function setSuggestedReplies($suggested_replies)
     {
-        $this->container['nickname'] = $nickname;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile_file
-     *
-     * @return \SplFileObject|null
-     */
-    public function getProfileFile()
-    {
-        return $this->container['profile_file'];
-    }
-
-    /**
-     * Sets profile_file
-     *
-     * @param \SplFileObject|null $profile_file Specifies the file of the user's profile image. An acceptable image is limited to a JPG, JPEG, or PNG file of up to 5 MB. When passing a file, you should send a multipart request. If the profile_file property is specified, the profile_url property is not required.
-     *
-     * @return self
-     */
-    public function setProfileFile($profile_file)
-    {
-        $this->container['profile_file'] = $profile_file;
-
-        return $this;
-    }
-
-    /**
-     * Gets profile_url
-     *
-     * @return string
-     */
-    public function getProfileUrl()
-    {
-        return $this->container['profile_url'];
-    }
-
-    /**
-     * Sets profile_url
-     *
-     * @param string $profile_url profile_url
-     *
-     * @return self
-     */
-    public function setProfileUrl($profile_url)
-    {
-        $this->container['profile_url'] = $profile_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_id
-     *
-     * @return string
-     */
-    public function getUserId()
-    {
-        return $this->container['user_id'];
-    }
-
-    /**
-     * Sets user_id
-     *
-     * @param string $user_id user_id
-     *
-     * @return self
-     */
-    public function setUserId($user_id)
-    {
-        $this->container['user_id'] = $user_id;
+        $this->container['suggested_replies'] = $suggested_replies;
 
         return $this;
     }

@@ -60,7 +60,6 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'ai' => '\Sendbird\Model\ListBotsResponseBotsInnerAi',
         'bot' => '\Sendbird\Model\ListBotsResponseBotsInnerBot',
         'bot_callback_url' => 'string',
         'bot_style' => '\Sendbird\Model\ListBotsResponseBotsInnerBotStyle',
@@ -81,7 +80,6 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'ai' => null,
         'bot' => null,
         'bot_callback_url' => null,
         'bot_style' => null,
@@ -121,7 +119,6 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'ai' => 'ai',
         'bot' => 'bot',
         'bot_callback_url' => 'bot_callback_url',
         'bot_style' => 'bot_style',
@@ -140,7 +137,6 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'ai' => 'setAi',
         'bot' => 'setBot',
         'bot_callback_url' => 'setBotCallbackUrl',
         'bot_style' => 'setBotStyle',
@@ -159,7 +155,6 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'ai' => 'getAi',
         'bot' => 'getBot',
         'bot_callback_url' => 'getBotCallbackUrl',
         'bot_style' => 'getBotStyle',
@@ -229,7 +224,6 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(array $data = null)
     {
-        $this->container['ai'] = $data['ai'] ?? null;
         $this->container['bot'] = $data['bot'] ?? null;
         $this->container['bot_callback_url'] = $data['bot_callback_url'] ?? null;
         $this->container['bot_style'] = $data['bot_style'] ?? null;
@@ -265,30 +259,6 @@ class ListBotsResponseBotsInner implements ModelInterface, ArrayAccess, \JsonSer
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets ai
-     *
-     * @return \Sendbird\Model\ListBotsResponseBotsInnerAi|null
-     */
-    public function getAi()
-    {
-        return $this->container['ai'];
-    }
-
-    /**
-     * Sets ai
-     *
-     * @param \Sendbird\Model\ListBotsResponseBotsInnerAi|null $ai ai
-     *
-     * @return self
-     */
-    public function setAi($ai)
-    {
-        $this->container['ai'] = $ai;
-
-        return $this;
-    }
 
     /**
      * Gets bot

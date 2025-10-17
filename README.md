@@ -85,6 +85,7 @@ require_once('/path/to/sendbird-platform-sdk/vendor/autoload.php');
 | Announcement   | [docs/Api/AnnouncementApi.md](docs/Api/AnnouncementApi.md)|
 | Bot | [docs/Api/BotApi.md](docs/Api/BotApi.md)  |
 | GroupChannel | [docs/Api/GroupChannelApi.md](docs/Api/GroupChannelApi.md)  |
-| OpenChannel | [docs/Api/OpenChannelApi.md ](docs/Api/OpenChannelApi.md)  |
 | Message | [docs/Api/MessageApi.md](docs/Api/MessageApi.md)  |
+| OpenChannel | [docs/Api/OpenChannelApi.md ](docs/Api/OpenChannelApi.md)  |
 | User | [docs/Api/UserApi.md](docs/Api/UserApi.md)  |
+| Moderation | [docs/Api/ModerationApi.md](docs/Api/ModerationApi.md)  |
