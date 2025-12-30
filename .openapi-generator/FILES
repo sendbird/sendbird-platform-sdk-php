@@ -28,6 +28,7 @@ docs/Model/CreateAChannelMetadataResponse.md
 docs/Model/CreateAGroupChannelRequest.md
 docs/Model/CreateAUserRequest.md
 docs/Model/CreateAnOpenChannelRequest.md
+docs/Model/CreateUserMetadataRequest.md
 docs/Model/CreateUserTokenRequest.md
 docs/Model/CreateUserTokenResponse.md
 docs/Model/FreezeAGroupChannelRequest.md
@@ -125,6 +126,8 @@ docs/Model/UpdatePushPreferencesForAChannelRequest.md
 docs/Model/UpdatePushPreferencesForAChannelResponse.md
 docs/Model/UpdatePushPreferencesRequest.md
 docs/Model/UpdatePushPreferencesResponse.md
+docs/Model/UpdateSpecificUserMetadataRequest.md
+docs/Model/UpdateUserMetadataRequest.md
 docs/Model/ViewBotByIdResponse.md
 docs/Model/ViewBotByIdResponseBot.md
 docs/Model/ViewCountPreferenceOfAChannelResponse.md
@@ -165,6 +168,7 @@ lib/Model/CreateAChannelMetadataResponse.php
 lib/Model/CreateAGroupChannelRequest.php
 lib/Model/CreateAUserRequest.php
 lib/Model/CreateAnOpenChannelRequest.php
+lib/Model/CreateUserMetadataRequest.php
 lib/Model/CreateUserTokenRequest.php
 lib/Model/CreateUserTokenResponse.php
 lib/Model/FreezeAGroupChannelRequest.php
@@ -263,6 +267,8 @@ lib/Model/UpdatePushPreferencesForAChannelRequest.php
 lib/Model/UpdatePushPreferencesForAChannelResponse.php
 lib/Model/UpdatePushPreferencesRequest.php
 lib/Model/UpdatePushPreferencesResponse.php
+lib/Model/UpdateSpecificUserMetadataRequest.php
+lib/Model/UpdateUserMetadataRequest.php
 lib/Model/ViewBotByIdResponse.php
 lib/Model/ViewBotByIdResponseBot.php
 lib/Model/ViewCountPreferenceOfAChannelResponse.php
@@ -274,3 +280,6 @@ lib/Model/ViewPushPreferencesForAChannelResponse.php
 lib/Model/ViewPushPreferencesResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/CreateUserMetadataRequestTest.php
+test/Model/UpdateSpecificUserMetadataRequestTest.php
+test/Model/UpdateUserMetadataRequestTest.php
