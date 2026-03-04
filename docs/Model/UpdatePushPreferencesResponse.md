@@ -18,5 +18,6 @@ Name | Type | Description | Notes
 **start_hour** | **int** |  | [optional]
 **start_min** | **int** |  | [optional]
 **timezone** | **string** |  | [optional]
+**dnd_schedules** | [**\Sendbird\Model\UpdatePushPreferencesRequestDndSchedulesInner[]**](UpdatePushPreferencesRequestDndSchedulesInner.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
