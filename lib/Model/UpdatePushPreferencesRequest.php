@@ -73,7 +73,8 @@ class UpdatePushPreferencesRequest implements ModelInterface, ArrayAccess, \Json
         'snooze_start_ts' => 'int',
         'start_hour' => 'int',
         'start_min' => 'int',
-        'timezone' => 'string'
+        'timezone' => 'string',
+        'dnd_schedules' => '\Sendbird\Model\UpdatePushPreferencesRequestDndSchedulesInner[]'
     ];
 
     /**
@@ -97,7 +98,8 @@ class UpdatePushPreferencesRequest implements ModelInterface, ArrayAccess, \Json
         'snooze_start_ts' => 'int64',
         'start_hour' => null,
         'start_min' => null,
-        'timezone' => null
+        'timezone' => null,
+        'dnd_schedules' => null
     ];
 
     /**
@@ -140,7 +142,8 @@ class UpdatePushPreferencesRequest implements ModelInterface, ArrayAccess, \Json
         'snooze_start_ts' => 'snooze_start_ts',
         'start_hour' => 'start_hour',
         'start_min' => 'start_min',
-        'timezone' => 'timezone'
+        'timezone' => 'timezone',
+        'dnd_schedules' => 'dnd_schedules'
     ];
 
     /**
@@ -162,7 +165,8 @@ class UpdatePushPreferencesRequest implements ModelInterface, ArrayAccess, \Json
         'snooze_start_ts' => 'setSnoozeStartTs',
         'start_hour' => 'setStartHour',
         'start_min' => 'setStartMin',
-        'timezone' => 'setTimezone'
+        'timezone' => 'setTimezone',
+        'dnd_schedules' => 'setDndSchedules'
     ];
 
     /**
@@ -184,7 +188,8 @@ class UpdatePushPreferencesRequest implements ModelInterface, ArrayAccess, \Json
         'snooze_start_ts' => 'getSnoozeStartTs',
         'start_hour' => 'getStartHour',
         'start_min' => 'getStartMin',
-        'timezone' => 'getTimezone'
+        'timezone' => 'getTimezone',
+        'dnd_schedules' => 'getDndSchedules'
     ];
 
     /**
@@ -258,6 +263,7 @@ class UpdatePushPreferencesRequest implements ModelInterface, ArrayAccess, \Json
         $this->container['start_hour'] = $data['start_hour'] ?? null;
         $this->container['start_min'] = $data['start_min'] ?? null;
         $this->container['timezone'] = $data['timezone'] ?? null;
+        $this->container['dnd_schedules'] = $data['dnd_schedules'] ?? null;
     }
 
     /**
@@ -616,6 +622,30 @@ class UpdatePushPreferencesRequest implements ModelInterface, ArrayAccess, \Json
     public function setTimezone($timezone)
     {
         $this->container['timezone'] = $timezone;
+
+        return $this;
+    }
+
+    /**
+     * Gets dnd_schedules
+     *
+     * @return \Sendbird\Model\UpdatePushPreferencesRequestDndSchedulesInner[]|null
+     */
+    public function getDndSchedules()
+    {
+        return $this->container['dnd_schedules'];
+    }
+
+    /**
+     * Sets dnd_schedules
+     *
+     * @param \Sendbird\Model\UpdatePushPreferencesRequestDndSchedulesInner[]|null $dnd_schedules dnd_schedules
+     *
+     * @return self
+     */
+    public function setDndSchedules($dnd_schedules)
+    {
+        $this->container['dnd_schedules'] = $dnd_schedules;
 
         return $this;
     }

@@ -125,6 +125,8 @@ docs/Model/UpdateExtraDataInAMessageResponse.md
 docs/Model/UpdatePushPreferencesForAChannelRequest.md
 docs/Model/UpdatePushPreferencesForAChannelResponse.md
 docs/Model/UpdatePushPreferencesRequest.md
+docs/Model/UpdatePushPreferencesRequestDndSchedulesInner.md
+docs/Model/UpdatePushPreferencesRequestDndSchedulesInnerTimeWindowsInner.md
 docs/Model/UpdatePushPreferencesResponse.md
 docs/Model/UpdateSpecificUserMetadataRequest.md
 docs/Model/UpdateUserMetadataRequest.md
@@ -266,6 +268,8 @@ lib/Model/UpdateExtraDataInAMessageResponse.php
 lib/Model/UpdatePushPreferencesForAChannelRequest.php
 lib/Model/UpdatePushPreferencesForAChannelResponse.php
 lib/Model/UpdatePushPreferencesRequest.php
+lib/Model/UpdatePushPreferencesRequestDndSchedulesInner.php
+lib/Model/UpdatePushPreferencesRequestDndSchedulesInnerTimeWindowsInner.php
 lib/Model/UpdatePushPreferencesResponse.php
 lib/Model/UpdateSpecificUserMetadataRequest.php
 lib/Model/UpdateUserMetadataRequest.php
@@ -280,6 +284,3 @@ lib/Model/ViewPushPreferencesForAChannelResponse.php
 lib/Model/ViewPushPreferencesResponse.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/CreateUserMetadataRequestTest.php
-test/Model/UpdateSpecificUserMetadataRequestTest.php
-test/Model/UpdateUserMetadataRequestTest.php
